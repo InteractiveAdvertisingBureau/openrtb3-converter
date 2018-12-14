@@ -19,6 +19,6 @@ public class Item {
   private Deal[] deal;
   @JsonProperty("private")
   private Integer priv;
-  private Ad spec;
+  private Spec spec;
   private Ext ext;
 }

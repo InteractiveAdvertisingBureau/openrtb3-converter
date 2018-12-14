@@ -13,7 +13,7 @@ public class Placement {
   private Integer secure;
   private Integer admx;
   private Integer curlx;
-  private Display display;
+  private DisplayPlacement display;
   private VideoPlacement video;
   private AudioPlacement audio;
   private Object ext;
