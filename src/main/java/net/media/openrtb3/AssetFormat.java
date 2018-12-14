@@ -7,7 +7,7 @@ public class AssetFormat {
   private Integer id;
   private Integer req;
   private TitleAssetFormat title;
-  private ImageAsset img;
+  private ImageAssetFormat img;
   private VideoPlacement video;
   private DataAssetFormat data;
   private Object ext;

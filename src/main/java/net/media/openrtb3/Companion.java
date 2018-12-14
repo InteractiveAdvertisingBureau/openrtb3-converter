@@ -6,6 +6,6 @@ package net.media.openrtb3;
 public class Companion {
   private String id;
   private Integer vcm;
-  private Display display;
+  private DisplayPlacement display;
   private Object ext;
 }
