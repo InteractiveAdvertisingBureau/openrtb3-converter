@@ -2,8 +2,6 @@ package net.media.openrtb24.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import net.media.rtb.mowgli.annotations.NativeRequestSchemaInfo;
-
 import lombok.Data;
 
 @Data

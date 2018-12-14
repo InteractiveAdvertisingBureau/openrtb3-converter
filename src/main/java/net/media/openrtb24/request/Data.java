@@ -7,7 +7,7 @@ import java.util.List;
  */
 
 @lombok.Data
-public class Data extends AbstractExtensible<Data.DataReqExt> {
+public class Data {
   private String id;
 
   private String name;
@@ -15,16 +15,4 @@ public class Data extends AbstractExtensible<Data.DataReqExt> {
   private List<Segment> segment;
 
   private Ext ext;
-
-  public Data() {
-    setReqExt(new DataReqExt());
-  }
-
-
-  public class Ext {
-
-  }
-
-  public static class DataReqExt extends ReqExt {
-  }
 }

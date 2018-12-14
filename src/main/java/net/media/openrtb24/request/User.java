@@ -8,7 +8,7 @@ import lombok.Data;
 import static java.util.Objects.nonNull;
 
 @Data
-public class User extends AbstractExtensible<User.UserReqExt> {
+public class User {
 
   public String id;
 
@@ -30,17 +30,4 @@ public class User extends AbstractExtensible<User.UserReqExt> {
 
   private Integer age;
 
-
-  public User() {
-    setReqExt(new UserReqExt());
-  }
-
-  public void setYob(Integer yob) {
-    this.yob = yob;
-
-    this.age = nonNull(yob)?Calendar.getInstance().get(Calendar.YEAR) - yob:null;
-  }
-
-  public static class UserReqExt extends ReqExt {
-  }
 }
