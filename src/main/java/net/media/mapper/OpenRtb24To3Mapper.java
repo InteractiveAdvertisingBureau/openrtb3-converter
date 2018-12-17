@@ -168,11 +168,15 @@ public interface OpenRtb24To3Mapper {
 
   @Mappings({
     @Mapping(target = "type", source = "ext.eventType"),
+    @Mapping(target = "ext.eventType", ignore= true),
     @Mapping(target = "method", source = "ext.trackMethod"),
+    @Mapping(target = "ext.trackMethod", ignore= true),
     @Mapping(target = "api", source = "ext.eventApi"),
+    @Mapping(target = "ext.eventApi", ignore= true),
     @Mapping(target = "url", source = "ext.evenUrl"),
-    @Mapping(target = "cdata", source = "ext.eventCdata")
-
+    @Mapping(target = "ext.evenUrl", ignore= true),
+    @Mapping(target = "cdata", source = "ext.eventCdata"),
+    @Mapping(target = "ext.eventCdata", ignore= true)
   })
   Event eventMapper(net.media.openrtb24.response.Bid bid);
 
