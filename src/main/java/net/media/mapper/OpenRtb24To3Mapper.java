@@ -4,13 +4,7 @@ import net.media.openrtb24.request.BidRequest;
 import net.media.openrtb24.request.Imp;
 import net.media.openrtb24.response.BidResponse;
 import net.media.openrtb24.response.SeatBid;
-import net.media.openrtb3.Ad;
-import net.media.openrtb3.Bid;
-import net.media.openrtb3.Item;
-import net.media.openrtb3.Request;
-import net.media.openrtb3.Response;
-import net.media.openrtb3.Seatbid;
-import net.media.openrtb3.Source;
+import net.media.openrtb3.*;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
@@ -48,5 +42,12 @@ public interface OpenRtb24To3Mapper {
   })
   Ad adMapper(net.media.openrtb24.response.Bid bid);
 
-
+  @Mappings({
+    @Mapping(source = "ext.status", target = "status"),
+    @Mapping(source = "ext.feedback", target = "feedback"),
+    @Mapping(source = "ext.init", target = "init"),
+    @Mapping(source = "ext.lastmod", target = "lastmod"),
+    @Mapping(source = "ext.corr", target = "corr"),
+  })
+  Audit auditMapper(net.media.openrtb24.response.Bid bid);
 }
