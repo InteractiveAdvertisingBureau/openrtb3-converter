@@ -44,6 +44,8 @@ public class BidRequest extends AbstractExtensible<BidRequest.BidReqExt> {
 
   public List<String> cur;
 
+  public List<String> wlang;
+
   public List<String> bapp;
 
   public Regs regs;

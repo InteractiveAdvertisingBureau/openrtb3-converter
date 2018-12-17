@@ -1,6 +1,10 @@
 package net.media.openrtb3;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+import java.util.Set;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,13 +17,13 @@ public class Request {
   private Integer tmax;
   private Integer at;
   private String[] cur;
-  private String[] seat;
+  private Set<String> seat;
   private Integer wseat;
   private String cdata;
   private Source source;
-  private Item[] item;
+  private List<Item> item;
   @JsonProperty("package")
   private Integer pack;
   private Context context;
-  private Ext ext;
+  private Object ext;
 }
