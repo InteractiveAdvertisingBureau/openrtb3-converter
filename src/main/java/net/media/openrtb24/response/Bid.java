@@ -18,26 +18,27 @@ import static java.util.Objects.nonNull;
 @NoArgsConstructor
 public class Bid {
 
-  private String id;
-  private String impid;
-  private double price;
+  private String id;//
+  private String impid;//
+  private double price;//
   private String adid;
-  private String nurl;
-  private Object adm;
-  private List<String> adomain;
-  private String bundle;
-  private String iurl;
-  private String cid;
-  private String crid;
-  private Set<String> cat;
-  private List<Integer> attr;
+  private String nurl;//bid.purl
+  private Object adm;//media.ad.(display.adm/audio.adm/video.adm)
+  private List<String> adomain;//media.ad
+  private String bundle;//media.ad
+  private String iurl;//media.ad
+  private String cid;//
+  private String crid;//media.ad.id
+  private Set<String> cat;//media.ad
+  private List<Integer> attr;//media.ad
   private Integer api;
   private Integer protocol;
   private Integer qagmediarating;
-  private String dealid;
-  private Integer h;
-  private Integer w;
-  private Integer exp;
-  private Map ext;
+  private String dealid;//
+  private Integer h;//media.ad.display.h
+  private String language;//media.ad.lang
+  private Integer w;//media.ad.display.w
+  private Integer exp;//
+  private Map<String,Object> ext;
 
 }

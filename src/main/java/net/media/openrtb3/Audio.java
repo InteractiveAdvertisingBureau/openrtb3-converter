@@ -1,7 +1,10 @@
 package net.media.openrtb3;
 
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class Audio {
 
   private List<String> mime = null;

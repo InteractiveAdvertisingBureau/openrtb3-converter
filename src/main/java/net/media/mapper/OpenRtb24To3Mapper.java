@@ -204,17 +204,14 @@ public interface OpenRtb24To3Mapper {
 
   @Mappings({
     @Mapping(source = "ext.status", target = "status"),
-    @Mapping(target = "ext.status",  ignore=true),
     @Mapping(source = "ext.feedback", target = "feedback"),
-    @Mapping(target = "ext.feedback",  ignore=true),
     @Mapping(source = "ext.init", target = "init"),
-    @Mapping(target = "ext.init",  ignore=true),
     @Mapping(source = "ext.lastmod", target = "lastmod"),
-    @Mapping(target = "ext.lastmod",  ignore=true),
-    @Mapping(source = "ext.corr", target = "corr"),
-    @Mapping(target = "ext.corr",  ignore=true),
+    @Mapping(source = "ext.corr", target = "corr")
   })
   Audit auditMapper(net.media.openrtb24.response.Bid bid);
+
+
 
   @Mappings({
     @Mapping(source = "ext.mime", target = "mime"),

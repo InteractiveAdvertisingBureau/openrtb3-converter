@@ -7,8 +7,8 @@ public class Display {
   private String mime;
   private List<Integer> api = null;
   private Integer ctype;
-  private Integer w;
-  private Integer h;
+  private Integer w;//bid.w
+  private Integer h;//bid.h
   private Integer wratio;
   private Integer hratio;
   private String priv;
