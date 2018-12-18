@@ -1,3 +1,12 @@
+*.class
 target
+.settings
+.classpath
+.project
 .idea*
 *.iml
+.DS_STORE
+/.gitignore
+### Java template
+*.class
+*.pyc
