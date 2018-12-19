@@ -38,7 +38,11 @@ public class Bid {
   private Integer h;//media.ad.display.h
   private String language;//media.ad.lang
   private Integer w;//media.ad.display.w
+
   private Integer exp;//
+  private String burl;//
+  private String lurl;//
+  private String tactic;//
   private Map<String,Object> ext;
 
 }

@@ -70,6 +70,7 @@
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/EventSpec.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/response/nativeresponse/NativeResponse.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/request/Segment.java
+/Users/samya.p/openrtb-converter/src/main/java/net/media/mapper/MediaMapper.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Media.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/request/AbstractExtensible.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Site.java
@@ -96,6 +97,7 @@
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Corr.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Context.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Audio.java
+/Users/samya.p/openrtb-converter/src/main/java/net/media/mapper/ResponseMapper.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/OpenRTB.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/User.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Banner.java

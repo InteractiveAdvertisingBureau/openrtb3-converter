@@ -76,11 +76,7 @@ public interface OpenRtb24To3Mapper {
   })
   Response map(BidResponse bidResponse);
 
-  @Mappings({
-    @Mapping(source = "seat", target = "bidResponse.seat"),
-    @Mapping(source = "package", target = "bidResponse.group"),
-  })
-  Seatbid seatMapper(BidResponse bidResponse);
+
 
   @Mappings({
     @Mapping(target = "purl", source = "nurl"),

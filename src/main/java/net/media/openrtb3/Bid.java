@@ -11,8 +11,8 @@ public class Bid {
   private String cid;//
   private String tactic;//bid.ext.tactic
   private String purl;//bid.nurl
-  private String burl;//bid.ext.burl
-  private String lurl;//bid.ext.lurl
+  private String burl;//
+  private String lurl;//
   private Integer exp;//
   private String mid;//bid.ext.mid
   private List<Macro> macro = null;

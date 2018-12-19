@@ -8,7 +8,7 @@ public class Video {
   private List<Integer> api = null;
   private Integer ctype;
   private Integer dur;
-  private String adm;
+  private String adm;//bid.adm
   private String curl;
   private String ext;
 }
