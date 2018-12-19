@@ -2,6 +2,9 @@ package net.media.openrtb3;
 
 import java.util.List;
 
+import lombok.*;
+
+@lombok.Data
 public class Display {
 
   private String mime;

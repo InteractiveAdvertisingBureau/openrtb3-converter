@@ -85,8 +85,8 @@ public interface OpenRtb24To3Mapper {
   @Mappings({
     @Mapping(target = "purl", source = "nurl"),
     @Mapping(target = "deal", source = "dealid"),
-    @Mapping(target = "tactic", source = "ext.tactic"),
-    @Mapping(target = "burl", source = "ext.burl"),
+    @Mapping(target = "tactic", source = "tactic"),
+    @Mapping(target = "burl", source = "burl"),
     @Mapping(target = "lurl", source = "lurl"),
     @Mapping(target = "mid", source = "ext.mid"),
     @Mapping(target = "media", source = "ext.media")

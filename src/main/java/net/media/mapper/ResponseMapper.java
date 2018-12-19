@@ -6,6 +6,7 @@ import net.media.openrtb24.response.SeatBid;
 import net.media.openrtb3.Audio;
 import net.media.openrtb3.Media;
 import org.mapstruct.AfterMapping;
+import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.Mappings;
@@ -14,6 +15,7 @@ import java.util.Map;
 
 import static java.util.Objects.nonNull;
 
+@Mapper(uses = {MediaMapper.class})
 public abstract class ResponseMapper implements OpenRtb24To3Mapper{
   @Mappings({
     @Mapping(source = "impid",target = "item"),
