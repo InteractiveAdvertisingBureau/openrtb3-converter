@@ -7,6 +7,7 @@ import net.media.openrtb3.Audio;
 import net.media.openrtb3.Media;
 import net.media.openrtb3.Seatbid;
 import org.mapstruct.AfterMapping;
+import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.Mappings;
@@ -15,20 +16,22 @@ import java.util.Map;
 
 import static java.util.Objects.nonNull;
 
-public abstract class ResponseMapper implements OpenRtb24To3Mapper{
-  @Mappings({
-    @Mapping(source = "impid",target = "item"),
-    @Mapping(target = "purl", source = "nurl"),
-    @Mapping(target = "deal", source = "dealid"),
-    @Mapping(target = "bid.media", source="bid")
-  })
-  abstract net.media.openrtb3.Bid  bidMapper(Bid bid, SeatBid  seatBid, BidResponse bidResponse);
-
-  @Mappings({
-    @Mapping(source = "seat", target = "bidResponse.seat"),
-    @Mapping(source = "package", target = "bidResponse.group"),
-  })
-  abstract Seatbid seatMapper(BidResponse bidResponse);
+@Mapper(uses = {MediaMapper.class})
+public interface ResponseMapper{
+//  @Mappings({
+//    @Mapping(source = "bid.impid",target = "item"),
+//    @Mapping(target = "purl", source = "bid.nurl"),
+//    @Mapping(target = "deal", source = "bid.dealid"),
+//    @Mapping(target = "media", source="bid"),
+//    @Mapping(target = "id", source = "bid.id")
+//  })
+//  net.media.openrtb3.Bid  bidMapper(Bid bid, SeatBid  seatBid, BidResponse bidResponse);
+//
+//  @Mappings({
+//    @Mapping(target = "seat", source = "seatBid.seat"),
+//    @Mapping(target = "_package", source = "seatBid.group"),
+//  })
+//   Seatbid seatMapper(Bid bid,SeatBid  seatBid,BidResponse bidResponse);
 
 
 //  @AfterMapping
@@ -38,10 +41,10 @@ public abstract class ResponseMapper implements OpenRtb24To3Mapper{
 //      }
 //  }
 
-  @Mappings({
-
-  })
-  abstract Media  mediaMapper(Bid bid);
+//  @Mappings({
+//
+//  })
+//  abstract Media  mediaMapper(Bid bid);
 
 
 

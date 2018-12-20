@@ -1,10 +1,14 @@
 package net.media.openrtb3;
 
 import java.util.List;
+import java.util.Map;
+
+import lombok.*;
 
 /**
  * Created by shiva.b on 17/12/18.
  */
+@lombok.Data
 public class Ad {
 
   private String id;//bid.crid
@@ -23,5 +27,5 @@ public class Ad {
   private Video video;
   private Audio audio;
   private Audit audit;
-  private Object ext;
+  private Map<String, Object> ext;
 }

@@ -12,18 +12,11 @@ import lombok.Data;
 @Data
 public class SeatBid {
 
-  private List<Bid> bid = new ArrayList<>();
+  private List<Bid> bid = new ArrayList<>();//
 
-  private String seat;
+  private String seat;//
 
   private Integer group;
 
-  private Map<String, Object> ext;
-
-  public Bid getWinnerBid() {
-    if (bid == null || bid.isEmpty()) {
-      return null;
-    }
-    return bid.get(0);
-  }
+  private Map<String, Object> ext;//
 }

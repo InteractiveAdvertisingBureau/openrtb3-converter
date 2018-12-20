@@ -1,12 +1,16 @@
 package net.media.openrtb3;
 
-import java.util.List;
+import lombok.Data;
 
+import java.util.List;
+import java.util.Map;
+
+@Data
 public class Bid {
 
   private String id;//
-  private String item;//
-  private String deal;//
+  private String item;//bid.impid
+  private String deal;//bid.dealid
   private Double price; //
   private String cid;//
   private String tactic;//bid.ext.tactic
@@ -17,5 +21,6 @@ public class Bid {
   private String mid;//bid.ext.mid
   private List<Macro> macro = null;
   private Media media;//ext+Bid
+  private Map<String,Object> ext;
 
 }
