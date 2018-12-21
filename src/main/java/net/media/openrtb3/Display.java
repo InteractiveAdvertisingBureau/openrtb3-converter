@@ -1,6 +1,7 @@
 package net.media.openrtb3;
 
 import java.util.List;
+import java.util.Map;
 
 import lombok.*;
 
@@ -20,4 +21,5 @@ public class Display {
   private Banner banner;//
   private Native _native;
   private List<Event> event = null;
+  private Map<String,Object> ext;
 }

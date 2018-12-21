@@ -1,7 +1,11 @@
 package net.media.openrtb3;
 
-import java.util.List;
+import lombok.Data;
 
+import java.util.List;
+import java.util.Map;
+
+@Data
 public class Audit {
 
   private Integer status;
@@ -9,6 +13,6 @@ public class Audit {
   private Integer init;
   private Integer lastmod;
   private Corr corr;
-  private String ext;
+  private Map<String,Object> ext;
 
 }

@@ -19,6 +19,7 @@ public class Bid {
   private String lurl;//
   private Integer exp;//
   private String mid;//bid.ext.mid
+  //Todo code change  for  this  field
   private List<Macro> macro = null;
   private Media media;//ext+Bid
   private Map<String,Object> ext;

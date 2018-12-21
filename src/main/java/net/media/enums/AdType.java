@@ -6,7 +6,9 @@ package net.media.enums;
 public enum AdType {
   BANNER(1),
   VIDEO(2),
-  NATIVE(3);
+  NATIVE(3),
+  AUDIO(4),
+  AUDIT(5);
 
   int value;
 

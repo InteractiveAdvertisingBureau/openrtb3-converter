@@ -1,5 +1,7 @@
 package net.media.mapper;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import net.media.enums.AdType;
 import net.media.openrtb24.request.Banner;
 import net.media.openrtb24.request.BidRequest;
@@ -35,16 +37,20 @@ import org.mapstruct.*;
 import org.mapstruct.Context;
 import org.mapstruct.factory.Mappers;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.Arrays;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-@Mapper(imports = Collections.class)
-public interface OpenRtb24To3Mapper {
+//@Mapper(imports = Collections.class)
 
-  OpenRtb24To3Mapper MAPPER = Mappers.getMapper(OpenRtb24To3Mapper.class);
+public class OpenRtb24To3Mapper {
+
+//  OpenRtb24To3Mapper MAPPER = Mappers.getMapper(OpenRtb24To3Mapper.class);
 
 //  @BeforeMapping
 //  default void beforeMapping(BidRequest bidRequest, @MappingTarget Request request) {
@@ -239,167 +245,91 @@ public interface OpenRtb24To3Mapper {
 //  Video videoMapper(net.media.openrtb24.response.Bid bid);
 
 
-  Response map(BidResponse bidResponse);
-  @InheritInverseConfiguration
-  BidResponse map(Response response);
+//  Response map(BidResponse bidResponse);
+//  @InheritInverseConfiguration
+//  BidResponse map(Response response);
+//
+//  @AfterMapping
+//  default
+//
+//  @AfterMapping
+//  default
 
-  @AfterMapping
-  default public void mapResponse(BidResponse bidResponse, @org.mapstruct.Context AdType adType,
-                            @MappingTarget Response response){
-    if (nonNull(bidResponse) && nonNull(response)) {
-      if(nonNull(response.getExt()) && nonNull(bidResponse.getExt())){
-        response.getExt().put("customerData",bidResponse.getCustomdata());
-        response.setCdata((String)bidResponse.getExt().get("cdata"));
-        response.getExt().remove("cdata");
-      }else if(nonNull(bidResponse.getCustomdata())){
-        Map<String,Object>  ext = new HashMap<>();
-        ext.put("customData",bidResponse.getCustomdata());
-        response.setExt(ext);
-      }
-    }
-  }
-
-  @AfterMapping
-  default public void mapResponse(Response response, @org.mapstruct.Context AdType adType,
-                                  @MappingTarget BidResponse bidResponse){
-    if (nonNull(bidResponse) && nonNull(response)) {
-      if(nonNull(response.getExt())  && nonNull(bidResponse.getExt())){
-        bidResponse.setCustomdata((String) response.getExt().get("customdata"));
-        bidResponse.getExt().remove("customdata");
-        bidResponse.getExt().put("cdata",response.getCdata());
-      }else if(nonNull(bidResponse.getCustomdata())){
-        Map<String,Object>  ext = new HashMap<>();
-        ext.put("cdata",response.getCdata());
-        bidResponse.setExt(ext);
-      }
-    }
-  }
-
-  @Mappings({
-    @Mapping(target = "_package", source = "seatBid.group"),
-    @Mapping(target = "ext",source = "seatBid.ext"),
-  })
-  Seatbid seatMapper(SeatBid  seatBid,@org.mapstruct.Context AdType adType);
-  @InheritInverseConfiguration
-  @Mappings({
-    @Mapping(target = "ext",source = "seatBid.ext")
-  })
-  SeatBid seatMapper(Seatbid seatBid,@org.mapstruct.Context AdType adType);
-
-  @Mappings({
-    @Mapping(source = "bid.impid",target = "item"),
-    @Mapping(target = "purl", source = "bid.nurl"),
-    @Mapping(target = "deal", source = "bid.dealid"),
-    @Mapping(target = "media", source="bid"),
-    @Mapping(target = "id", source = "bid.id"),
-    @Mapping(target = "ext", source = "bid.ext")
-  })
-  net.media.openrtb3.Bid  bidMapper(Bid bid, SeatBid  seatBid, BidResponse bidResponse,@org.mapstruct.Context AdType adType);
-  @InheritInverseConfiguration
-  @Mappings({
-    @Mapping(target = "id", source = "bid.id"),
-    @Mapping(target = "ext", source = "bid.ext")
-  })
-  Bid bidMapper(net.media.openrtb3.Bid bid,Seatbid seatbid ,Response response, @org.mapstruct.Context AdType adType);
-
-  @Mappings({
-    @Mapping(target = "ad", source = "bid")
-  })
-  Media map(Bid bid, SeatBid seatBid, BidResponse bidResponse, @org.mapstruct.Context AdType adType);
-
-  @Mappings({
-    @Mapping(source = "bid.crid", target = "id"),
-//    @Mapping(target = "bundle",  expression = "java(bid.getBundle() == null ? null : Collections.singleton(bid.getBundle()))"),
-    @Mapping(source = "bid.language", target = "lang"),
-    @Mapping(source = "bid.ext",target = "ext")
-  })
-  Ad mapAd(Bid bid, SeatBid seatBid, BidResponse bidResponse, @org.mapstruct.Context AdType adType);
-
-  @AfterMapping
-  default public void mapAd(Bid bid, SeatBid seatBid, BidResponse bidResponse, @org.mapstruct.Context AdType adType,
-                            @MappingTarget Ad ad){
-    if (nonNull(bid) && nonNull(bid.getExt()) && nonNull(ad)) {
-
-      Map<String,Object> ext = ad.getExt();
-      ad.setSecure((Integer) ext.get("secure"));
-      ad.setInit((Integer) ext.get("init"));
-      ad.setLastmod((Integer) ext.get("lastMod"));
-      ad.setMrating((Integer) ext.get("mrating"));
-      ad.setCattax((Integer) ext.get("cattax"));
-
-    }
-  }
-
-  @Mappings({
-    @Mapping(source = "bid.adm", target = "adm"),
-    @Mapping(source = "bid.h", target = "h"),
-    @Mapping(source = "bid.w", target = "w"),
-    @Mapping(source = "bid.wratio", target = "wratio"),
-    @Mapping(source = "bid.hratio", target = "hratio"),
-//    @Mapping(target = "api",  expression = "java(bid.getApi() == null ? null : Collections.singleton(bid.getApi()))")
-  })
-  abstract Display mapDisplay(Bid bid, SeatBid seatBid, BidResponse bidResponse, @org.mapstruct.Context AdType
-    adType);
-
-  default public void mapDisplay(Bid bid, SeatBid seatBid, BidResponse bidResponse, @MappingTarget
-    Display display, @org.mapstruct.Context AdType adType) {
-    if (isNull(bid) || isNull(display) || isNull(bid.getExt())) {
-      return;
-    }
-    Map<String, Object> ext = bid.getExt();
-    display.setCtype((Integer) ext.get("ctype"));
-    display.setPriv((String) ext.get("priv"));
-    display.setCurl((String) ext.get("curl"));
-    if (adType == AdType.BANNER) {
-      display.setBanner((net.media.openrtb3.Banner) ext.get("banner"));
-    }
-    else if (adType == AdType.NATIVE) {
-      display.set_native((net.media.openrtb3.Native) ext.get("native"));
-    }
-    display.setEvent((List<Event>) ext.get(ext.get("event")));
-  }
-
-  @Mappings({
-    @Mapping(source = "bid.adm", target = "adm"),
-    @Mapping(source = "bid.ext",target = "ext"),
-//    @Mapping(target = "api",  expression = "java(bid.getApi() == null ? null : Collections.singleton(bid.getApi()))")
-  })
-  abstract Video mapVideo(Bid bid, SeatBid seatBid, BidResponse bidResponse, @org.mapstruct.Context AdType
-    adType);
-
-  default public void mapVideo(Bid bid, SeatBid seatBid, BidResponse bidResponse, @MappingTarget
-    Video video, @org.mapstruct.Context AdType adType) {
-    if (isNull(bid) || isNull(video) || isNull(bid.getExt())) {
-      return;
-    }
-    Map<String, Object> ext = bid.getExt();
-    video.setCtype((Integer) ext.get("ctype"));
-    video.setCurl((String) ext.get("curl"));
-    video.setDur((Integer) ext.get("dur"));
-
-  }
-
-  @Mappings({
-    @Mapping(source = "bid.adm", target = "adm"),
-    @Mapping(source = "bid.ext",target = "ext"),
-//    @Mapping(target = "api",  expression = "java(bid.getApi() == null ? null : Collections.singleton(bid.getApi()))")
-  })
-  abstract Video mapAudio(Bid bid, SeatBid seatBid, BidResponse bidResponse, @org.mapstruct.Context AdType
-    adType);
-
-  default  public void mapAudio(Bid bid, SeatBid seatBid, BidResponse bidResponse, @MappingTarget
-    Audio audio, @Context AdType adType) {
-    ;
-    if (isNull(bid) || isNull(audio) || isNull(bid.getExt())) {
-      return;
-    }
-    Map<String, Object> ext = bid.getExt();
-    audio.setCtype((Integer) ext.get("ctype"));
-    audio.setCurl((String) ext.get("curl"));
-    audio.setDur((Integer) ext.get("dur"));
-
-
-  }
+//  @Mappings({
+//    @Mapping(target = "_package", source = "seatBid.group"),
+//    @Mapping(target = "ext",source = "seatBid.ext"),
+//  })
+//  Seatbid seatMapper(SeatBid  seatBid,@org.mapstruct.Context AdType adType);
+//  @InheritInverseConfiguration
+//  @Mappings({
+//    @Mapping(target = "ext",source = "seatBid.ext")
+//  })
+//  SeatBid seatMapper(Seatbid seatBid,@org.mapstruct.Context AdType adType);
+//
+//  @Mappings({
+//    @Mapping(source = "bid.impid",target = "item"),
+//    @Mapping(target = "purl", source = "bid.nurl"),
+//    @Mapping(target = "deal", source = "bid.dealid"),
+//    @Mapping(target = "media", source="bid"),
+//    @Mapping(target = "id", source = "bid.id"),
+//    @Mapping(target = "ext", source = "bid.ext")
+//  })
+//  net.media.openrtb3.Bid  bidMapper(Bid bid, SeatBid  seatBid, BidResponse bidResponse,@org.mapstruct.Context AdType adType);
+//  @InheritInverseConfiguration
+//  @Mappings({
+//    @Mapping(target = "id", source = "bid.id"),
+//    @Mapping(target = "ext", source = "bid.ext")
+//  })
+//  Bid bidMapper(net.media.openrtb3.Bid bid,Seatbid seatbid ,Response response, @org.mapstruct.Context AdType adType);
+//
+//  @Mappings({
+//    @Mapping(target = "ad", source = "bid")
+//  })
+//  Media map(Bid bid, SeatBid seatBid, BidResponse bidResponse, @org.mapstruct.Context AdType adType);
+//
+//  @Mappings({
+//    @Mapping(source = "bid.crid", target = "id"),
+////    @Mapping(target = "bundle",  expression = "java(bid.getBundle() == null ? null : Collections.singleton(bid.getBundle()))"),
+//    @Mapping(source = "bid.language", target = "lang"),
+//    @Mapping(source = "bid.ext",target = "ext")
+//  })
+//  Ad mapAd(Bid bid, SeatBid seatBid, BidResponse bidResponse, @org.mapstruct.Context AdType adType);
+//
+//  @AfterMapping
+//  default
+//
+//  @Mappings({
+//    @Mapping(source = "bid.adm", target = "adm"),
+//    @Mapping(source = "bid.h", target = "h"),
+//    @Mapping(source = "bid.w", target = "w"),
+//    @Mapping(source = "bid.wratio", target = "wratio"),
+//    @Mapping(source = "bid.hratio", target = "hratio"),
+////    @Mapping(target = "api",  expression = "java(bid.getApi() == null ? null : Collections.singleton(bid.getApi()))")
+//  })
+//  abstract Display mapDisplay(Bid bid, SeatBid seatBid, BidResponse bidResponse, @org.mapstruct.Context AdType
+//    adType);
+//
+//  default
+//
+////  @Mappings({
+////    @Mapping(source = "bid.adm", target = "adm"),
+////    @Mapping(source = "bid.ext",target = "ext"),
+//////    @Mapping(target = "api",  expression = "java(bid.getApi() == null ? null : Collections.singleton(bid.getApi()))")
+////  })
+////  abstract Video mapVideo(Bid bid, SeatBid seatBid, BidResponse bidResponse, @org.mapstruct.Context AdType
+////    adType);
+//
+//  default
+//
+//  @Mappings({
+//    @Mapping(source = "bid.adm", target = "adm"),
+//    @Mapping(source = "bid.ext",target = "ext"),
+////    @Mapping(target = "api",  expression = "java(bid.getApi() == null ? null : Collections.singleton(bid.getApi()))")
+//  })
+//  abstract Video mapAudio(Bid bid, SeatBid seatBid, BidResponse bidResponse, @org.mapstruct.Context AdType
+//    adType);
+//
+//  default
 
   public static void main(String[] args) {
 //    BidRequest bidRequest = new BidRequest();
@@ -411,20 +341,33 @@ public interface OpenRtb24To3Mapper {
 //    imp.setId("2");
 //    MAPPER.updateRequestFromBidRequest(bidRequest, request);
 //    System.out.println("a");
+    try {
+      byte[] jsonData = Files.readAllBytes(Paths.get("/Users/samya.p/openrtb-converter/src/main/java/net/media/mapper/Response3.0.json"));
 
-    BidResponse bidResponse = new BidResponse();
-    SeatBid seatBid = new SeatBid();
-    Bid bid =  new Bid();
-    bid.setImpid("1");
-    bid.setBurl("dsddsdddddd");
-    List<Bid> bids = new ArrayList<>();
-    bids.add(bid);
-    seatBid.setBid(bids);
-    List<SeatBid> seatBids = new ArrayList<>();
-    seatBids.add(seatBid);
-    bidResponse.setSeatbid(seatBids);
-    Response response  = MAPPER.map(bidResponse);
-    System.out.println(response.toString());
+      //create ObjectMapper instance
+      ObjectMapper objectMapper = new ObjectMapper();
+
+      //convert json string to object
+      Response response = objectMapper.readValue(jsonData, Response.class);
+      OpenRtb24To3MapperImpl impl = new OpenRtb24To3MapperImpl();
+      BidResponse bidResponse = impl.map(response,AdType.BANNER);
+      System.out.println(bidResponse.toString());
+    }catch (IOException e){
+      System.out.println("Phatna  hihe");
+    }
+
+//    BidResponse bidResponse = new BidResponse();
+//    SeatBid seatBid = new SeatBid();
+//    Bid bid =  new Bid();
+//    bid.setImpid("1");
+//    bid.setBurl("dsddsdddddd");
+//    List<Bid> bids = new ArrayList<>();
+//    bids.add(bid);
+//    seatBid.setBid(bids);
+//    List<SeatBid> seatBids = new ArrayList<>();
+//    seatBids.add(seatBid);
+//    bidResponse.setSeatbid(seatBids);
+
   }
 
 }
