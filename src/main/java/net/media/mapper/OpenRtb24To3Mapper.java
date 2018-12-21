@@ -216,6 +216,7 @@ public interface OpenRtb24To3Mapper {
   }
 
   //todo check how to map ext of restrictions as ext is present in request also
+  //todo check for dooh
   @Mappings({
     @Mapping(source = "bidRequest.badv", target = "badv"),
     @Mapping(source = "bidRequest.bapp", target = "bapp"),
