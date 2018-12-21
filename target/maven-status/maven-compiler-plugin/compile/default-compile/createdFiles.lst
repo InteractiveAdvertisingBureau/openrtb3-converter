@@ -129,6 +129,7 @@ net/media/openrtb3/Native.class
 net/media/openrtb3/LinkAsset.class
 net/media/openrtb24/request/Native$NativeReqExt.class
 net/media/openrtb3/Source.class
+net/media/mapper/OpenRtb24To3MapperImpl$1.class
 net/media/openrtb24/request/NativeRequest.class
 net/media/openrtb24/request/NativeData$NativeDataReqExt.class
 net/media/mapper/OpenRtb24To3Mapper.class

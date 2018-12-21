@@ -1,6 +1,9 @@
 package net.media.openrtb3;
 
 
+import lombok.Data;
+
+@Data
 public class Banner {
 
   private String img;

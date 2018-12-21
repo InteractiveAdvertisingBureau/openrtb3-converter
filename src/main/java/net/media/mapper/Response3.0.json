@@ -1,5 +1,4 @@
 {
-  "response": {
     "id": "0123456789ABCDEF",
     "bidid": "0011223344AABBCC",
     "seatbid": [{
@@ -14,6 +13,7 @@
         "burl": "...",
         "lurl": "...",
         "mid": "...",
+        "cid": "campaign-xyz.123",
         "macro": [{
           "key": "TIMESTAMP",
           "value": "1127987134"
@@ -27,11 +27,10 @@
           "ad": {
             "id": "d0bcb39723af87c2bb00942afee5710e",
             "adomain": ["ford.com"],
-            "cid": "campaign-xyz.123",
             "secure": 1,
             "display": {
               "mime": "image/jpeg",
-              "type": 3,
+              "ctype": 3,
               "w": 320,
               "h": 50,
               "banner": {
@@ -51,5 +50,4 @@
         }
       }]
     }]
-  }
 }

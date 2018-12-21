@@ -35,6 +35,7 @@
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Display.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/request/Content.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/response/nativeresponse/NativeVideo.java
+/Users/samya.p/openrtb-converter/src/main/java/net/media/mapper/OpenRtb24To3MapperImpl.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Content.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/request/VideoAPIs.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/DistributionChannel.java

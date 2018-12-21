@@ -1,9 +1,12 @@
 package net.media.openrtb3;
 
 
+import lombok.Data;
+
 import java.util.List;
 import java.util.Map;
 
+@Data
 public class Event {
 
   private Integer type;

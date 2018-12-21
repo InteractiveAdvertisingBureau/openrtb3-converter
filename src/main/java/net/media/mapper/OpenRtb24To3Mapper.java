@@ -342,18 +342,22 @@ public class OpenRtb24To3Mapper {
 //    MAPPER.updateRequestFromBidRequest(bidRequest, request);
 //    System.out.println("a");
     try {
-      byte[] jsonData = Files.readAllBytes(Paths.get("/Users/samya.p/openrtb-converter/src/main/java/net/media/mapper/Response3.0.json"));
-
-      //create ObjectMapper instance
-      ObjectMapper objectMapper = new ObjectMapper();
-
-      //convert json string to object
-      Response response = objectMapper.readValue(jsonData, Response.class);
       OpenRtb24To3MapperImpl impl = new OpenRtb24To3MapperImpl();
+
+      byte[] jsonData = Files.readAllBytes(Paths.get("/Users/samya.p/openrtb-converter/src/main/java/net/media/mapper/Response3.0.json"));
+      ObjectMapper objectMapper = new ObjectMapper();
+      Response response = objectMapper.readValue(jsonData, Response.class);
       BidResponse bidResponse = impl.map(response,AdType.BANNER);
+
+      byte[] jsonData1 = Files.readAllBytes(Paths.get("/Users/samya.p/openrtb-converter/src/main/java/net/media/mapper/Response2.5.json"));
+      ObjectMapper  objectMapper1 = new ObjectMapper();
+      BidResponse bidResponse1 = objectMapper1.readValue(jsonData1,BidResponse.class);
+      Response response1 = impl.map(bidResponse1,AdType.BANNER);
+
+      System.out.println(response1.toString());
       System.out.println(bidResponse.toString());
     }catch (IOException e){
-      System.out.println("Phatna  hihe");
+      System.out.println("Phatna  hihe"+e.getMessage());
     }
 
 //    BidResponse bidResponse = new BidResponse();
