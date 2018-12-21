@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Map;
+
 @Getter
 @Setter
 public class Item {
@@ -20,5 +22,5 @@ public class Item {
   @JsonProperty("private")
   private Integer priv;
   private Spec spec;
-  private Ext ext;
+  private Map<String, Object> ext;
 }

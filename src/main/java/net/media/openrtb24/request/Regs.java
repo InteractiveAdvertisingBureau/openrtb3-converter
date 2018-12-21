@@ -1,5 +1,7 @@
 package net.media.openrtb24.request;
 
+import java.util.Map;
+
 /**
  * Created by rajat.go on 14/10/16.
  */
@@ -9,7 +11,7 @@ public class Regs extends AbstractExtensible<Regs.RegsReqExt> {
 
   private Integer coppa;
 
-  private Ext ext;
+  private Map<String, Object> ext;
 
   public Regs()  {
     setReqExt(new RegsReqExt());

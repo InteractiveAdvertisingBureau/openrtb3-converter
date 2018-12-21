@@ -4,6 +4,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import lombok.Data;
 
+import java.util.Map;
+
 import static java.util.Objects.isNull;
 
 
@@ -22,7 +24,7 @@ public class Geo extends AbstractExtensible<Geo.GeoReqExt> {
   private Integer accuracy;
   private Integer lastfix;
   private Integer ipservice;
-  private Ext ext;
+  private Map<String, Object> ext;
 
   public boolean isEmpty() {
     return (isNull(this.type) && isNull(this.lat) && isNull(this.lon) &&

@@ -3,6 +3,8 @@ package net.media.openrtb3;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Map;
+
 @Getter
 @Setter
 public class Source {
@@ -13,5 +15,5 @@ public class Source {
   private String cert;
   private String digest;
   private String pchain;
-  private Ext ext;
+  private Map<String, Object> ext;
 }

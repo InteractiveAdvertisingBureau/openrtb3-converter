@@ -3,6 +3,9 @@ package net.media.openrtb3;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+import java.util.Map;
+
 @Getter
 @Setter
 public class Content {
@@ -31,7 +34,7 @@ public class Content {
   private String lang;
   private Integer embed;
   private Producer producer;
-  private Data[] data;
-  private Ext ext;
+  private List<Data> data;
+  private Map<String, Object> ext;
 
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.util.List;
+import java.util.Map;
 
 import lombok.Data;
 
@@ -48,7 +49,7 @@ public class Imp extends AbstractExtensible<Imp.ImpReqExt> {
 
   private Integer exp;
 
-  private Object ext;
+  private Map<String, Object> ext;
 
   private transient String originalTagId;
 

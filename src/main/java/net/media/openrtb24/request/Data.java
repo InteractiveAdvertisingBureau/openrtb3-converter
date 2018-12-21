@@ -1,6 +1,7 @@
 package net.media.openrtb24.request;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by vishnu on 6/5/16.
@@ -14,5 +15,5 @@ public class Data {
 
   private List<Segment> segment;
 
-  private Ext ext;
+  private Map<String, Object> ext;
 }

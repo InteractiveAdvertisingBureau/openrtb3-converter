@@ -1,6 +1,7 @@
 package net.media.openrtb24.request;
 
 import java.util.List;
+import java.util.Set;
 
 import lombok.Data;
 
@@ -19,7 +20,7 @@ public class Native extends AbstractExtensible<Native.NativeReqExt> {
 
   private List<Integer> api;
 
-  private List<Integer> battr;
+  private Set<Integer> battr;
 
   private Ext ext;
 

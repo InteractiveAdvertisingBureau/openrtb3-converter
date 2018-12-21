@@ -1,6 +1,7 @@
 package net.media.openrtb24.request;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by vishnu on 6/5/16.
@@ -57,7 +58,7 @@ public class Content extends AbstractExtensible<Content.ContentReqExt> {
 
   private List<Data> data;
 
-  private Ext ext;
+  private Map<String, Object> ext;
 
   @lombok.Data
   public static class Ext {

@@ -3,6 +3,9 @@ package net.media.openrtb3;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Map;
+import java.util.Set;
+
 @Getter
 @Setter
 public class Restrictions {
@@ -11,7 +14,7 @@ public class Restrictions {
   private Integer cattax;
   private String[] badv;
   private String[] bapp;
-  private Integer[] battr;
-  private Ext ext;
+  private Set<Integer> battr;
+  private Map<String, Object> ext;
 
 }

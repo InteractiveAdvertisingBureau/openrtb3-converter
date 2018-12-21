@@ -1,5 +1,7 @@
 package net.media.openrtb24.request;
 
+import java.util.Map;
+
 /**
  * Created by vishnu on 6/5/16.
  */
@@ -13,7 +15,7 @@ public class Segment extends AbstractExtensible<Segment.SegReqExt> {
 
   private String value;
 
-  private Ext ext;
+  private Map<String, Object> ext;
 
   public Segment() {
     setReqExt(new SegReqExt());

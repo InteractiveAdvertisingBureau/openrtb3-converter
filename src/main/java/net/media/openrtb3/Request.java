@@ -4,6 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 @Getter
 @Setter
 public class Request {
@@ -12,8 +16,8 @@ public class Request {
   private Integer test;
   private Integer tmax;
   private Integer at;
-  private String[] cur;
-  private String[] seat;
+  private List<String> cur;
+  private Set<String> seat;
   private Integer wseat;
   private String cdata;
   private Source source;
@@ -21,5 +25,5 @@ public class Request {
   @JsonProperty("package")
   private Integer pack;
   private Context context;
-  private Ext ext;
+  private Map<String, Object> ext;
 }
