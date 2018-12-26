@@ -94,7 +94,7 @@ public class OpenRtb24To3MapperImpl {
         else {
             bidResponse.setExt( null );
         }
-
+        mapResponse(response,adType,bidResponse);
         return bidResponse;
     }
 
@@ -324,11 +324,16 @@ public class OpenRtb24To3MapperImpl {
             if ( bid.getPrice() != null ) {
                 bid1.setPrice( bid.getPrice() );
             }
+            bid1.setImpid(bid.getItem());
+            bid1.setDealid(bid.getDeal());
+            bid1.setNurl(bid.getPurl());
             bid1.setCid( bid.getCid() );
             bid1.setExp( bid.getExp() );
             bid1.setBurl( bid.getBurl() );
             bid1.setLurl( bid.getLurl() );
             bid1.setTactic( bid.getTactic() );
+
+            mediaToBid(bid1,bid.getMedia(),adType);
         }
 
         return bid1;
@@ -722,6 +727,7 @@ public class OpenRtb24To3MapperImpl {
         else {
             bid.setCat( null );
         }
+        bid.setLanguage(ad.getLang());
         List<Integer> list2 = ad.getAttr();
         if ( list2 != null ) {
             bid.setAttr( new ArrayList<Integer>( list2 ) );
