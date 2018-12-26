@@ -4,6 +4,7 @@ net/media/openrtb24/request/Publisher.class
 net/media/openrtb24/request/App$AppReqExt.class
 net/media/openrtb3/Item.class
 net/media/mapper/OpenRtb24To3Mapper$2.class
+net/media/openrtb3/ImageAsset.class
 net/media/openrtb3/AudioPlacement.class
 net/media/openrtb3/User.class
 net/media/openrtb24/request/NativeRequest$NativeRequestReqExt.class
@@ -92,6 +93,7 @@ net/media/openrtb24/response/nativeresponse/NativeTitle.class
 net/media/mapper/OpenRtb24To3Mapper$3.class
 net/media/openrtb24/request/Source.class
 net/media/openrtb24/request/Banner.class
+net/media/openrtb3/Ad.class
 net/media/mapper/OpenRtb24To3MapperImpl.class
 net/media/openrtb24/request/Producer.class
 net/media/openrtb3/Companion.class

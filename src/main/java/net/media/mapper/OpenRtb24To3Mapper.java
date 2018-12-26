@@ -6,12 +6,10 @@ import net.media.openrtb24.request.Imp;
 import net.media.openrtb3.*;
 import net.media.openrtb24.request.Native;
 import net.media.openrtb24.response.BidResponse;
-import net.media.openrtb24.response.SeatBid;
 
 
-import org.apache.commons.collections.CollectionUtils;
+import net.media.openrtb3.Context;
 import org.mapstruct.AfterMapping;
-import org.mapstruct.BeforeMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
@@ -19,15 +17,11 @@ import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
 import org.mapstruct.*;
-import org.mapstruct.factory.Mappers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-
-import java.util.Arrays;
-
-import static java.util.Objects.nonNull;
+import java.util.Map;
 
 @Mapper
 public interface OpenRtb24To3Mapper {
@@ -35,7 +29,7 @@ public interface OpenRtb24To3Mapper {
   OpenRtb24To3Mapper MAPPER = Mappers.getMapper(OpenRtb24To3Mapper.class);
 
   @AfterMapping
-  default void updateWseat(@MappingTarget Request target, BidRequest source) {
+  default void mapWseatAndExt(@MappingTarget Request target, BidRequest source) {
     if(source == null)
       return;
     if (source.getWseat()!=null && source.getWseat().size()>0){
@@ -44,6 +38,17 @@ public interface OpenRtb24To3Mapper {
     } else {
       target.setWseat(0);
       target.setSeat(source.getBseat());
+    }
+    if(target.getExt() == null)
+      return;
+    target.getExt().remove("cattax");
+    if(source.getExt() == null)
+      return;
+    if(source.getExt().containsKey("dooh")) {
+      if(target.getContext() == null)
+        target.setContext(new Context());
+      Dooh dooh = (Dooh)source.getExt().get("dooh");
+      target.getContext().setDooh(dooh);
     }
   }
 
@@ -80,12 +85,6 @@ public interface OpenRtb24To3Mapper {
   }
 
   @Mappings({
-    @Mapping(source = "imp.bidfloor", target = "flr"),
-    @Mapping(source = "imp.bidfloorcur", target = "flrcur"),
-    @Mapping(source = "imp.pmp.private_auction", target = "priv"),
-    @Mapping(source = "imp.pmp.deals", target = "deal"),
-    @Mapping(source = "imp.tagId", target = "spec.placement.tagid"),
-    @Mapping(source = "imp.banner", target = "spec.placement.display")
   })
   Source mapRtb24SourcetoRtb3Source(net.media.openrtb24.request.Source source);
 
@@ -209,6 +208,8 @@ public interface OpenRtb24To3Mapper {
     target.getExt().remove("xff");
     target.setIptr((Integer) source.getExt().get("iptr"));
     target.getExt().remove("iptr");
+    target.setIptr((Integer) source.getExt().get("mccmncsim"));
+    target.getExt().remove("mccmncsim");
   }
 
   @Mappings({
@@ -236,7 +237,8 @@ public interface OpenRtb24To3Mapper {
     if(bidRequest.getExt() == null)
       return;
     restrictions.setCattax((Integer) bidRequest.getExt().get("cattax"));
-    restrictions.getExt().remove("cattax");
+    if(bidRequest.getExt().containsKey("restrictionsExt"))
+      restrictions.setExt((Map<String, Object>) bidRequest.getExt().get("restrictionsExt"));
   }
 
   //todo check how to map ext of restrictions as ext is present in request also
@@ -279,7 +281,7 @@ public interface OpenRtb24To3Mapper {
     if(source.getContext().getRestrictions().getExt() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
-      target.getExt().putAll(source.getContext().getRestrictions().getExt());
+      target.getExt().put("restrictionsExt", source.getContext().getRestrictions().getExt());
     }
 
     if(target.getImp() == null)
@@ -292,6 +294,13 @@ public interface OpenRtb24To3Mapper {
       if(imp.getNat() != null)
         imp.getNat().setBattr(source.getContext().getRestrictions().getBattr());
     }
+
+    if(source.getContext().getDooh() == null)
+      return;
+
+    if(target.getExt() == null)
+      target.setExt(new HashMap<>());
+    target.getExt().put("dooh", source.getContext().getDooh());
   }
 
   @Mappings({
@@ -328,6 +337,12 @@ public interface OpenRtb24To3Mapper {
       target.getExt().put("iptr", source.getXff());
     }
 
+    if(source.getIptr() != null) {
+      if(target.getExt() == null)
+        target.setExt(new HashMap<>());
+      target.getExt().put("mccmncsim", source.getMccmncsim());
+    }
+
     if(source.getExt() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
@@ -336,7 +351,7 @@ public interface OpenRtb24To3Mapper {
   }
 
   @InheritInverseConfiguration
-  net.media.openrtb24.request.Device mapRtb24DevicetoRtb3Device(Device device);
+  net.media.openrtb24.request.Device mapRtb3DevicetoRtb24Device(Device device);
 
   @AfterMapping
   default void mapRegsTo24(@MappingTarget net.media.openrtb24.request.Regs target, Regs source) {
@@ -350,10 +365,10 @@ public interface OpenRtb24To3Mapper {
   }
 
   @InheritInverseConfiguration
-  net.media.openrtb24.request.Regs mapRtb24RegstoRtb3Regs(Regs regs);
+  net.media.openrtb24.request.Regs mapRtb3RegstoRtb24Regs(Regs regs);
 
   @InheritInverseConfiguration
-  net.media.openrtb24.request.Geo mapRtb24GeotoRtb3Geo(Geo geo);
+  net.media.openrtb24.request.Geo mapRtb3GeotoRtb24Geo(Geo geo);
 
   @AfterMapping
   default void mapSourceTo24(@MappingTarget net.media.openrtb24.request.Source target, Source source) {
@@ -483,7 +498,7 @@ public interface OpenRtb24To3Mapper {
   })
   Item map(Imp imp);
 
-  @Mappings({
+  /*@Mappings({
     @Mapping(source="cdata", target = "ext.cdata"),
   })
   Response map(BidResponse bidResponse);
@@ -608,7 +623,7 @@ public interface OpenRtb24To3Mapper {
     @Mapping(target = "seat", ignore = true),
     @Mapping(source = "bidRequest.imp", target = "item")
   })
-  void updateRequestFromBidRequest(BidRequest bidRequest, @MappingTarget Request request);
+  void updateRequestFromBidRequest(BidRequest bidRequest, @MappingTarget Request request);*/
 
   void updateItemFromImp(Imp imp, @MappingTarget Item item);
 

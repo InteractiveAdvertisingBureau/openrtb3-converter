@@ -30,6 +30,7 @@
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb24/request/NativeRequestBody.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb24/request/Asset.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb24/request/NativeImage.java
+/Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb3/ImageAsset.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb24/request/Device.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb24/request/Geo.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb24/request/Native.java
@@ -89,6 +90,7 @@
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb3/NativeFormat.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb3/Bid.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb3/Item.java
+/Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb3/Ad.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb3/DataAsset.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb3/Native.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb3/App.java
