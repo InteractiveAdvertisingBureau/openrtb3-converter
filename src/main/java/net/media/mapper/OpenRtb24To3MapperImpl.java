@@ -443,7 +443,7 @@ public class OpenRtb24To3MapperImpl {
         if ( bid != null ) {
             Map<String, Object> map = bid.getExt();
             if ( map != null ) {
-                audio.setExt( new HashMap<String, Object>( map ) );
+                audio.setExt(new HashMap<>(map) );
             }
             else {
                 audio.setExt( null );
@@ -451,7 +451,7 @@ public class OpenRtb24To3MapperImpl {
             audio.setAdm( bid.getAdm() );
             List<Integer> list = bid.getApi();
             if ( list != null ) {
-                audio.setApi( new ArrayList<Integer>( list ) );
+                audio.setApi(new ArrayList<>(list) );
             }
             else {
                 audio.setApi( null );
@@ -479,7 +479,7 @@ public class OpenRtb24To3MapperImpl {
         audio.setCtype((Integer) ext.get("ctype"));
         audio.setCurl((String) ext.get("curl"));
         audio.setDur((Integer) ext.get("dur"));
-
+        audio.setMime((List<String>) ext.get("mime"));
 
     }
 
@@ -502,7 +502,7 @@ public class OpenRtb24To3MapperImpl {
         if ( bid != null ) {
             Map<String, Object> map = bid.getExt();
             if ( map != null ) {
-                audit.setExt( new HashMap<String, Object>( map ) );
+                audit.setExt(new HashMap<>(map) );
                 if (map.containsKey("corr")) {
                     audit.setCorr((Corr) map.get("corr"));
                 }
@@ -628,7 +628,7 @@ public class OpenRtb24To3MapperImpl {
         if ( bid != null ) {
             Map<String, Object> map = bid.getExt();
             if ( map != null ) {
-                video.setExt( new HashMap<String, Object>( map ) );
+                video.setExt(new HashMap<>(map) );
             }
             else {
                 video.setExt( null );
@@ -636,7 +636,7 @@ public class OpenRtb24To3MapperImpl {
             video.setAdm( bid.getAdm() );
             List<Integer> list = bid.getApi();
             if ( list != null ) {
-                video.setApi( new ArrayList<Integer>( list ) );
+                video.setApi(new ArrayList<>(list) );
             }
             else {
                 video.setApi( null );
@@ -663,7 +663,7 @@ public class OpenRtb24To3MapperImpl {
         video.setCtype((Integer) ext.get("ctype"));
         video.setCurl((String) ext.get("curl"));
         video.setDur((Integer) ext.get("dur"));
-
+        video.setMime((List<String>) ext.get("mime"));
     }
 
     /**
