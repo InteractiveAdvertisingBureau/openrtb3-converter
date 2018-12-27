@@ -18,10 +18,7 @@ import org.mapstruct.factory.Mappers;
 
 import org.mapstruct.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 @Mapper
 public interface OpenRtb24To3Mapper {
@@ -227,12 +224,18 @@ public interface OpenRtb24To3Mapper {
       return;
     if(bidRequest.getImp().size() == 0)
       return;
-    if(bidRequest.getImp().get(0).getBanner() != null && bidRequest.getImp().get(0).getBanner().getBattr() != null) {
-      restrictions.setBattr(bidRequest.getImp().get(0).getBanner().getBattr());
-    } else if(bidRequest.getImp().get(0).getVideo() != null && bidRequest.getImp().get(0).getVideo().getBattr() != null) {
-      restrictions.setBattr(bidRequest.getImp().get(0).getVideo().getBattr());
-    } else if(bidRequest.getImp().get(0).getNat() != null && bidRequest.getImp().get(0).getNat().getBattr() != null) {
-      restrictions.setBattr(bidRequest.getImp().get(0).getNat().getBattr());
+    Set<Integer> battr = new HashSet<>();
+    for(Imp imp : bidRequest.getImp()) {
+      if(imp.getBanner() != null && imp.getBanner().getBattr() != null) {
+        battr.addAll(imp.getBanner().getBattr());
+      } else if(imp.getVideo() != null && imp.getVideo().getBattr() != null) {
+        battr.addAll(imp.getVideo().getBattr());
+      } else if(imp.getNat() != null && imp.getNat().getBattr() != null) {
+        battr.addAll(imp.getNat().getBattr());
+      }
+    }
+    if(battr.size()>0) {
+      restrictions.setBattr(battr);
     }
     if(bidRequest.getExt() == null)
       return;
@@ -343,10 +346,37 @@ public interface OpenRtb24To3Mapper {
       target.getExt().put("mccmncsim", source.getMccmncsim());
     }
 
-    if(source.getExt() != null) {
-      if(target.getExt() == null)
-        target.setExt(new HashMap<>());
-      target.getExt().putAll(source.getExt());
+    if(source.getExt() == null)
+      return;
+
+    if(source.getExt().containsKey("didsha1")) {
+      target.setDidsha1((String) source.getExt().get("didsha1"));
+      source.getExt().remove("didsha1");
+    }
+
+    if(source.getExt().containsKey("didmd5")) {
+      target.setDidmd5((String) source.getExt().get("didmd5"));
+      source.getExt().remove("didmd5");
+    }
+
+    if(source.getExt().containsKey("dpidsha1")) {
+      target.setDpidsha1((String) source.getExt().get("dpidsha1"));
+      source.getExt().remove("dpidsha1");
+    }
+
+    if(source.getExt().containsKey("dpidmd5")) {
+      target.setDpidmd5((String) source.getExt().get("dpidmd5"));
+      source.getExt().remove("dpidmd5");
+    }
+
+    if(source.getExt().containsKey("macsha1")) {
+      target.setMacsha1((String) source.getExt().get("macsha1"));
+      source.getExt().remove("macsha1");
+    }
+
+    if(source.getExt().containsKey("macmd5")) {
+      target.setMacmd5((String) source.getExt().get("macmd5"));
+      source.getExt().remove("macmd5");
     }
   }
 
@@ -366,6 +396,18 @@ public interface OpenRtb24To3Mapper {
 
   @InheritInverseConfiguration
   net.media.openrtb24.request.Regs mapRtb3RegstoRtb24Regs(Regs regs);
+
+  @AfterMapping
+  default void mapGeoTo24(@MappingTarget net.media.openrtb24.request.Geo target, Geo source) {
+    if(source == null)
+      return;
+    if(source.getExt() == null)
+      return;
+    if(source.getExt().containsKey("regionfips104")) {
+      target.setRegionfips104((String) source.getExt().get("regionfips104"));
+      source.getExt().remove("regionfips104");
+    }
+  }
 
   @InheritInverseConfiguration
   net.media.openrtb24.request.Geo mapRtb3GeotoRtb24Geo(Geo geo);
@@ -398,6 +440,13 @@ public interface OpenRtb24To3Mapper {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
       target.getExt().put("digest", source.getDigest());
+    }
+
+    if(source.getExt() == null)
+      return;
+    if(source.getExt().containsKey("fd")) {
+      target.setFd((Integer) source.getExt().get("fd"));
+      target.getExt().remove("fd");
     }
   }
 
