@@ -11,6 +11,7 @@
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb24/request/Site.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb3/Publisher.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb3/TitleAssetFormat.java
+/Users/ankit.cho/openrtb-converter/src/main/java/net/media/mapper/BidRequestMapper.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb24/request/NativeData.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb24/request/Ext.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb3/Audio.java

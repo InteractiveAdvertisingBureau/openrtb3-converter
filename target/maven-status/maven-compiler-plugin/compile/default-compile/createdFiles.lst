@@ -1,4 +1,5 @@
 net/media/openrtb24/request/Imp$ImpReqExt.class
+net/media/mapper/BidRequestMapperImpl.class
 net/media/openrtb24/response/nativeresponse/NativeData.class
 net/media/openrtb24/request/Publisher.class
 net/media/openrtb24/request/App$AppReqExt.class
@@ -35,6 +36,7 @@ net/media/openrtb24/request/NativeBody.class
 net/media/openrtb3/Site.class
 net/media/openrtb3/Dooh.class
 net/media/openrtb24/request/Deal$Ext.class
+net/media/mapper/BidRequestMapper.class
 net/media/openrtb24/request/Geo$GeoReqExt.class
 net/media/openrtb3/Context.class
 net/media/openrtb24/request/Ext$ExtReqExt.class
@@ -83,7 +85,6 @@ net/media/openrtb24/request/Content.class
 net/media/openrtb24/response/nativeresponse/NativeResponseBody.class
 net/media/openrtb24/response/BidResponse.class
 net/media/openrtb3/Data.class
-net/media/mapper/OpenRtbMapperTest$1.class
 net/media/openrtb3/Deal.class
 net/media/openrtb24/response/nativeresponse/NativeImage.class
 net/media/openrtb24/request/BidderCookie.class
