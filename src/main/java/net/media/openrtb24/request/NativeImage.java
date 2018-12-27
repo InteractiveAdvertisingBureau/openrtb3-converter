@@ -1,6 +1,7 @@
 package net.media.openrtb24.request;
 
 import java.util.List;
+import java.util.Map;
 
 import lombok.Data;
 
@@ -19,7 +20,7 @@ public class NativeImage extends AbstractExtensible<NativeImage.NativeImageReqEx
 
   private List<String> mimes;
 
-  private Ext ext;
+  private Map<String, Object> ext;
 
   public NativeImage() {
     setReqExt(new NativeImageReqExt());

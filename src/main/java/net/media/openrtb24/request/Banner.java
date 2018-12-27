@@ -2,6 +2,7 @@ package net.media.openrtb24.request;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import lombok.Data;
@@ -38,7 +39,9 @@ public class Banner extends AbstractExtensible<Banner.BannerReqExt> {
 
   private List<Integer> api;
 
-  private Object ext;
+  private Integer vcm;
+
+  private Map<String, Object> ext;
 
   public Banner() {
     setReqExt(new BannerReqExt());

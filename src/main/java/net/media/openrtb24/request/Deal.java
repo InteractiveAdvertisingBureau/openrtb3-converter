@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
+import java.util.Map;
 
 
 import lombok.Data;
@@ -27,7 +28,7 @@ public class Deal extends AbstractExtensible<Deal.DealReqExt> {
   private Integer at;
   private List<String> wseat;
   private List<String> wadomain;
-  private Ext ext;
+  private Map<String, Object> ext;
 
   public Deal() {
     setReqExt(new DealReqExt());

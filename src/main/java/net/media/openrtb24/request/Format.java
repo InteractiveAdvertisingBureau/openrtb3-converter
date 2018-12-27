@@ -1,5 +1,7 @@
 package net.media.openrtb24.request;
 
+import java.util.Map;
+
 import lombok.Data;
 
 /**
@@ -13,7 +15,11 @@ public class Format extends AbstractExtensible<Format.FormatReqExt> {
 
   private Integer h;
 
-  private Ext ext;
+  private Integer wratio;
+
+  private Integer hratio;
+
+  private Map<String, Object> ext;
 
   public Format() {
     setReqExt(new FormatReqExt());

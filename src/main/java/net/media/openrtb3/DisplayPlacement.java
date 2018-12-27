@@ -1,6 +1,7 @@
 package net.media.openrtb3;
 
 import java.util.List;
+import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,15 +16,16 @@ public class DisplayPlacement {
   private Integer clktype;
   private Integer ampren;
   private Integer ptype;
-  private String mime;
-  private Integer[] api;
-  private Integer[] ctype;
+  private Integer context;
+  private List<String> mime;
+  private List<Integer> api;
+  private List<Integer> ctype;
   private Integer w;
   private Integer h;
-  private Integer unit;
-  private Integer priv;
-  private DisplayFormat displayfmt;
+  private Integer unit = 1;
+  private Integer priv = 0;
+  private List<DisplayFormat> displayfmt;
   private NativeFormat nativefmt;
   private EventSpec event;
-  private Object ext;
+  private Map<String, Object> ext;
 }

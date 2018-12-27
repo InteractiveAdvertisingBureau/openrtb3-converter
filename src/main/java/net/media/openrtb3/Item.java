@@ -3,6 +3,7 @@ package net.media.openrtb3;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
+import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,5 +24,5 @@ public class Item {
   @JsonProperty("private")
   private Integer priv;
   private Spec spec;
-  private Object ext;
+  private Map<String, Object> ext;
 }

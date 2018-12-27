@@ -1,5 +1,7 @@
 package net.media.openrtb24.request;
 
+import java.util.Map;
+
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
@@ -12,7 +14,7 @@ public class NativeData extends AbstractExtensible<NativeData.NativeDataReqExt> 
 
   private Integer len;
 
-  private Ext ext;
+  private Map<String, Object> ext;
 
   public NativeData() {
     setReqExt(new NativeDataReqExt());

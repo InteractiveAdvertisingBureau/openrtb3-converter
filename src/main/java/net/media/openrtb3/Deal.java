@@ -1,6 +1,7 @@
 package net.media.openrtb3;
 
 import java.util.List;
+import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,6 +18,6 @@ public class Deal {
   private String flrcur;
   private Integer at;
   private List<String> wseat;
-  private String[] wadomain;
-  private Object ext;
+  private List<String> wadomain;
+  private Map<String, Object> ext;
 }

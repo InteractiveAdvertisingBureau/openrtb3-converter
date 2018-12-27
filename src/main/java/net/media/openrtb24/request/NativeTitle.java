@@ -1,5 +1,7 @@
 package net.media.openrtb24.request;
 
+import java.util.Map;
+
 import lombok.Data;
 
 @Data
@@ -7,7 +9,7 @@ public class NativeTitle extends AbstractExtensible<NativeTitle.NativeTitleReqEx
 
   private Integer len;
 
-  private Ext ext;
+  private Map<String, Object> ext;
 
   public NativeTitle() {
     setReqExt(new NativeTitleReqExt());

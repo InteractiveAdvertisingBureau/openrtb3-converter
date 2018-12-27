@@ -1,5 +1,7 @@
 package net.media.openrtb24.request;
 
+import java.util.Map;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -24,7 +26,7 @@ public class Asset extends AbstractExtensible<Asset.AssetReqExt> {
   @Valid
   private NativeData data;
 
-  private Ext ext;
+  private Map<String, Object> ext;
 
   public Asset() {
     setReqExt(new AssetReqExt());

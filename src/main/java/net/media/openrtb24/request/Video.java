@@ -2,9 +2,14 @@ package net.media.openrtb24.request;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
-@lombok.Data
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Video extends ReqExt {
 
   public static final Integer DEFAULT_MINDURATION = null;
@@ -75,7 +80,7 @@ public class Video extends ReqExt {
 
   private Set<Integer> battr;
 
-  private Integer maxExtended;
+  private Integer maxextended = 0;
 
   private Integer minbitrate;
 
@@ -84,6 +89,8 @@ public class Video extends ReqExt {
   private Integer boxingallowed = DEFAULT_BOXING_ALLOWED;
 
   private Set<Integer> playbackmethod;
+
+  private Integer playbackend;
 
   private List<Integer> delivery;
 
@@ -95,37 +102,7 @@ public class Video extends ReqExt {
 
   private List<Integer> companiontype;
 
-  private VideoExt ext;
-
-  public Video() {
-  }
-
-  public Video(Video video) {
-    this.mimes = video.mimes;
-    this.minduration = video.minduration;
-    this.maxduration = video.maxduration;
-    this.protocols = video.protocols;
-    this.w = video.w;
-    this.h = video.h;
-    this.startdelay = video.startdelay;
-    this.linearity = video.linearity;
-    this.skip = video.skip;
-    this.placement = video.placement;
-    this.skipmin = video.skipmin;
-    this.skipafter = video.skipafter;
-    this.sequence = video.sequence;
-    this.battr = video.battr;
-    this.maxExtended = video.maxExtended;
-    this.minbitrate = video.minbitrate;
-    this.maxbitrate = video.maxbitrate;
-    this.boxingallowed = video.boxingallowed;
-    this.playbackmethod = video.playbackmethod;
-    this.delivery = video.delivery;
-    this.pos = video.pos;
-    this.companionad = video.companionad;
-    this.api = video.api;
-    this.ext = video.ext;
-  }
+  private Map<String, Object> ext;
 
   @lombok.Data
   public static class VideoExt extends ReqExt {

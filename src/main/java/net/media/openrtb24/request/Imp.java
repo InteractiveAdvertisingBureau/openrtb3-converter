@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.util.List;
+import java.util.Map;
 
 import lombok.Data;
 
@@ -21,6 +22,8 @@ public class Imp extends AbstractExtensible<Imp.ImpReqExt> {
   private Video video;
 
   private Banner banner;
+
+  private Audio audio;
 
   @JsonProperty("native")
   private Native nat;
@@ -48,33 +51,9 @@ public class Imp extends AbstractExtensible<Imp.ImpReqExt> {
 
   private Integer exp;
 
-  private Object ext;
+  private Map<String, Object> ext;
 
   private transient String originalTagId;
-
-  public Imp() {
-    setReqExt(new ImpReqExt());
-  }
-
-  public Imp(Imp imp) {
-    this.id = imp.id;
-    this.video = nonNull(imp.video) ? new Video(imp.video) : null;
-    this.banner = nonNull(imp.banner) ? new Banner(imp.banner) : null;
-    this.nat = imp.nat;
-    this.tagId = imp.tagId;
-    this.displaymanager = imp.displaymanager;
-    this.displaymanagerver = imp.displaymanagerver;
-    this.instl = imp.instl;
-    this.bidfloor = imp.bidfloor;
-    this.bidfloorcur = imp.bidfloorcur;
-    this.secure = imp.secure;
-    this.iframebuster = imp.iframebuster;
-    this.pmp = imp.pmp;
-    this.clickbrowser = imp.clickbrowser;
-    this.exp = imp.exp;
-    this.ext = imp.ext;
-    setReqExt(imp.getReqExt());
-  }
 
   @Data
   public static class ImpReqExt extends ReqExt {
