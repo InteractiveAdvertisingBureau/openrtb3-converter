@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Map;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -66,7 +68,7 @@ public class Device extends AbstractExtensible<Device.DeviceReqExt> {
 
   private String macmd5;
 
-  private Ext ext;
+  private Map<String, Object> ext;
 
   public Device() {
     setReqExt(new DeviceReqExt());

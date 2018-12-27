@@ -3,6 +3,8 @@ package net.media.openrtb3;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Map;
+
 @Getter
 @Setter
 public class User {
@@ -14,5 +16,5 @@ public class User {
   private String consent;
   private Geo geo;
   private Data[] data;
-  private Ext ext;
+  private Map<String, Object> ext;
 }

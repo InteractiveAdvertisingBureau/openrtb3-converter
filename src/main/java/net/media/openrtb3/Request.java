@@ -8,6 +8,10 @@ import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 @Getter
 @Setter
 public class Request {
@@ -16,7 +20,7 @@ public class Request {
   private Integer test;
   private Integer tmax;
   private Integer at;
-  private String[] cur;
+  private List<String> cur;
   private Set<String> seat;
   private Integer wseat;
   private String cdata;
@@ -25,5 +29,5 @@ public class Request {
   @JsonProperty("package")
   private Integer pack;
   private Context context;
-  private Object ext;
+  private Map<String, Object> ext;
 }

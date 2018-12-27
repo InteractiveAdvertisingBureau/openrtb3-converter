@@ -2,6 +2,7 @@ package net.media.openrtb24.request;
 
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import lombok.Data;
@@ -36,7 +37,11 @@ public class BidRequest extends AbstractExtensible<BidRequest.BidReqExt> {
 
   public Set<String> wseat;
 
+  public Set<String> bseat;
+
   public Integer tmax;
+
+  public Source source;
 
   public Set<String> bcat;
 
@@ -50,7 +55,7 @@ public class BidRequest extends AbstractExtensible<BidRequest.BidReqExt> {
 
   public Regs regs;
 
-  private Ext ext;
+  private Map<String, Object> ext;
 
   private transient Integer gdpr;
 

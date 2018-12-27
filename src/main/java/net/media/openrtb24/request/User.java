@@ -2,10 +2,10 @@ package net.media.openrtb24.request;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 import lombok.Data;
 
-import static java.util.Objects.nonNull;
 
 @Data
 public class User {
@@ -24,9 +24,9 @@ public class User {
 
   private String customdata;
 
-  private List<Data> data;
+  private List<net.media.openrtb24.request.Data> data;
 
-  private Ext ext;
+  private Map<String, Object> ext;
 
   private Integer age;
 

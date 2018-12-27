@@ -9,6 +9,7 @@ public class Context {
   private Site site;
   private App app;
   private User user;
+  private Dooh dooh;
   private Device device;
   private Regs regs;
   private Restrictions restrictions;

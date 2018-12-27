@@ -3,6 +3,7 @@ package net.media.openrtb24.request;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import lombok.Data;
@@ -41,5 +42,5 @@ public class Site {
 
   private String keywords;
 
-  private Object ext;
+  private Map<String, Object> ext;
 }
