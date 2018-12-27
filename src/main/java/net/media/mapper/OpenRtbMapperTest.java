@@ -27,7 +27,7 @@ public class OpenRtbMapperTest {
 
   private void test() throws IOException {
     ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource("25To30RequestTest.json").getFile());
+    File file = new File(classLoader.getResource("25To30RequestTest.json").getPath());
     OpenRtb24To3MapperImpl impl = new OpenRtb24To3MapperImpl();
 
     byte[] jsonData = Files.readAllBytes(file.toPath());

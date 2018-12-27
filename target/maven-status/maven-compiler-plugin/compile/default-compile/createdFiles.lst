@@ -83,10 +83,12 @@ net/media/openrtb24/request/Content.class
 net/media/openrtb24/response/nativeresponse/NativeResponseBody.class
 net/media/openrtb24/response/BidResponse.class
 net/media/openrtb3/Data.class
+net/media/mapper/OpenRtbMapperTest$1.class
 net/media/openrtb3/Deal.class
 net/media/openrtb24/response/nativeresponse/NativeImage.class
 net/media/openrtb24/request/BidderCookie.class
 net/media/openrtb3/Event.class
+net/media/mapper/OpenRtbMapperTest.class
 net/media/openrtb3/TitleAssetFormat.class
 net/media/openrtb3/Audit.class
 net/media/openrtb24/response/nativeresponse/NativeTitle.class

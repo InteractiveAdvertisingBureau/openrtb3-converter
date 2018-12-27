@@ -31,6 +31,7 @@
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb24/request/Asset.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb24/request/NativeImage.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb3/ImageAsset.java
+/Users/ankit.cho/openrtb-converter/src/main/java/net/media/mapper/OpenRtbMapperTest.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb24/request/Device.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb24/request/Geo.java
 /Users/ankit.cho/openrtb-converter/src/main/java/net/media/openrtb24/request/Native.java
