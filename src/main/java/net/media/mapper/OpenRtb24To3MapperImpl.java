@@ -1,12 +1,16 @@
 package net.media.mapper;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import net.media.enums.AdType;
 import net.media.openrtb24.response.*;
+import net.media.openrtb24.response.nativeresponse.NativeResponse;
 import net.media.openrtb3.*;
 import net.media.openrtb3.Bid;
 
 import org.mapstruct.MappingTarget;
 
+import java.io.IOException;
 import java.util.*;
 
 import static java.util.Objects.isNull;
@@ -567,11 +571,12 @@ public class OpenRtb24To3MapperImpl {
         }
 
         Display display = new Display();
+        ObjectMapper mapper = new ObjectMapper();
 
         if ( bid != null ) {
             display.setH( bid.getH() );
             display.setWratio( bid.getWratio() );
-            display.setAdm( bid.getAdm() );
+            //display.setAdm( bid.getAdm() );
             display.setW( bid.getW() );
             display.setHratio( bid.getHratio() );
             List<Integer> list = bid.getApi();
@@ -582,12 +587,38 @@ public class OpenRtb24To3MapperImpl {
                 display.setApi( null );
             }
             display.setCurl(bid.getNurl());
+            if (adType == AdType.NATIVE) {
+              if (bid.getAdm() instanceof String) {
+                try {
+                  NativeResponse nativeResponse = mapper.readValue((String) bid.getAdm(),
+                    NativeResponse.class);
+                  Native _native = native3FromNativeResponse(nativeResponse);
+                  display.setAdm(_native);
+                } catch (IOException e) {
+                  e.printStackTrace();
+                }
+              } else {
+                Native _native = native3FromNativeResponse((NativeResponse) bid.getAdm());
+                display.setAdm(_native);
+              }
+            }
+            else if (adType == AdType.BANNER) {
+              display.setAdm(bid.getAdm());
+            }
         }
         mapDisplay(bid,seatBid,bidResponse,display,adType);
         return display;
     }
 
-    /**
+  private Native native3FromNativeResponse(NativeResponse nativeResponse) {
+    return new Native();
+  }
+
+  private NativeResponse native1FromNative3(Native _native) {
+    return new NativeResponse();
+  }
+
+  /**
      * after mapping of rtb  3.0 display object from rtb 2.4 bid object
      * @param bid
      * @param seatBid
@@ -604,12 +635,6 @@ public class OpenRtb24To3MapperImpl {
         display.setCtype((Integer) ext.get("ctype"));
         display.setPriv((String) ext.get("priv"));
         display.setMime((String) ext.get("mime"));
-        if (adType == AdType.BANNER) {
-            display.setBanner((net.media.openrtb3.Banner) ext.get("banner"));
-        }
-        else if (adType == AdType.NATIVE) {
-            display.set_native((net.media.openrtb3.Native) ext.get("native"));
-        }
         display.setEvent((List<Event>) ext.get(ext.get("event")));
     }
 
@@ -763,7 +788,8 @@ public class OpenRtb24To3MapperImpl {
 
     private void displayToBid(net.media.openrtb24.response.Bid bid, Display display, AdType adType) {
         if(nonNull(bid) && nonNull(display)){
-            bid.setAdm(display.getAdm());
+            //bid.setAdm(display.getAdm());
+            ObjectMapper mapper = new ObjectMapper();
             bid.setH(display.getH());
             bid.setW(display.getW());
             bid.setWratio(display.getWratio());
@@ -783,6 +809,23 @@ public class OpenRtb24To3MapperImpl {
             bid.getExt().put("event",display.getEvent());
             bid.getExt().put("mime",display.getMime());
             bid.getExt().putAll(display.getExt());
+            if (adType == AdType.NATIVE) {
+              if (nonNull(display.get_native())) {
+                NativeResponse _native = native1FromNative3(display.get_native());
+                bid.setAdm(_native);
+              }
+              else if (nonNull(display.getAdm())){
+                try {
+                  Native native3 = mapper.readValue((String) display.getAdm(), Native.class);
+                } catch (IOException e) {
+                  e.printStackTrace();
+                }
+                NativeResponse _native = native1FromNative3(display.get_native());
+              }
+            }
+            else {
+
+            }
         }
 
     }
