@@ -30,6 +30,7 @@ net/media/openrtb24/request/Video$VideoExt.class
 net/media/openrtb24/request/Format$FormatReqExt.class
 net/media/openrtb3/Segment.class
 net/media/openrtb24/request/NativeBody$NativeBodyBuilder.class
+net/media/mapper/ResponseTestPojo.class
 net/media/openrtb24/request/VideoProtocol.class
 net/media/openrtb24/request/Imp.class
 net/media/openrtb24/request/NativeBody.class
@@ -45,6 +46,7 @@ net/media/openrtb24/response/nativeresponse/NativeResponse.class
 net/media/openrtb24/request/Format$Ext.class
 net/media/openrtb24/request/Pmp.class
 net/media/openrtb3/Spec.class
+net/media/mapper/OpenRtb24To3Mapper$1.class
 net/media/openrtb24/request/AbstractExtensible.class
 net/media/openrtb24/request/User.class
 net/media/openrtb24/request/Asset.class

@@ -7,7 +7,7 @@
     "ext" : {
       "customdata": "pyaz",
       "ankit" : {
-        "cho" : "lul"
+        "cho" : "i"
       }
     },
     "seatbid": [{
@@ -81,14 +81,14 @@
               "ext" : {
                 "aloo1" : "pyaz",
                 "ankit1" : {
-                  "cho1" : "lul"
+                  "cho1" : "i"
                 }
               }
             },
             "ext" : {
               "aloo2" : "pyaz",
               "ankit3" : {
-                "cho" : "lul"
+                "cho" : "i"
               }
           }
         }
@@ -97,7 +97,7 @@
       "ext" : {
         "aloo" : "pyaz",
         "sourav" : {
-          "chu" : "luli"
+          "chu" : "ii"
         }
       }
     }]

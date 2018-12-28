@@ -4,7 +4,6 @@ import net.media.enums.AdType;
 import net.media.openrtb24.response.BidResponse;
 import net.media.openrtb24.response.SeatBid;
 import net.media.openrtb3.*;
-import org.mapstruct.Context;
 import org.mapstruct.MappingTarget;
 
 import javax.annotation.Generated;
@@ -13,16 +12,11 @@ import java.util.*;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-@Generated(
-    value = "org.mapstruct.ap.MappingProcessor",
-    date = "2018-12-20T19:11:16+0530",
-    comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_131 (Oracle Corporation)"
-)
 public class OpenRtb24To3MapperImpl {
 
     /**
      *This  function  maps Rtb 2.4 BidResponse to  Rtb 3.0 Response
-     * @param  BidResponse,AdType
+     * @param  adType
      * @return Response(3.0 Response object)
      */
     public Response map(BidResponse bidResponse,AdType adType) {
@@ -39,7 +33,7 @@ public class OpenRtb24To3MapperImpl {
         response.setSeatbid( seatBidListToSeatbidList( bidResponse.getSeatbid(),bidResponse ,adType) );
         Map<String, Object> map = bidResponse.getExt();
         if ( map != null ) {
-            response.setExt( new HashMap<String, Object>( map ) );
+            response.setExt(new HashMap<>(map) );
         }
         else {
             response.setExt( null );
@@ -54,8 +48,7 @@ public class OpenRtb24To3MapperImpl {
      * @param adType
      * @param response
      */
-    public void mapResponse(BidResponse bidResponse, @org.mapstruct.Context AdType adType,
-                            @MappingTarget Response response){
+    public void mapResponse(BidResponse bidResponse, AdType adType, Response response){
         if (nonNull(bidResponse) && nonNull(response)) {
             if(nonNull(response.getExt()) && nonNull(bidResponse.getExt())){
                 response.getExt().put("customerData",bidResponse.getCustomdata());
@@ -89,7 +82,7 @@ public class OpenRtb24To3MapperImpl {
         bidResponse.setNbr( response.getNbr() );
         Map<String, Object> map = response.getExt();
         if ( map != null ) {
-            bidResponse.setExt( new HashMap<String, Object>( map ) );
+            bidResponse.setExt(new HashMap<>(map) );
         }
         else {
             bidResponse.setExt( null );
@@ -104,8 +97,7 @@ public class OpenRtb24To3MapperImpl {
      * @param adType
      * @param bidResponse
      */
-    public void mapResponse(Response response, @org.mapstruct.Context AdType adType,
-                            @MappingTarget BidResponse bidResponse){
+    public void mapResponse(Response response, AdType adType, BidResponse bidResponse){
         if (nonNull(bidResponse) && nonNull(response)) {
             if(nonNull(response.getExt())  && nonNull(bidResponse.getExt())){
                 bidResponse.setCustomdata((String) response.getExt().get("customdata"));
@@ -131,7 +123,7 @@ public class OpenRtb24To3MapperImpl {
             return null;
         }
 
-        List<SeatBid> list1 = new ArrayList<SeatBid>( list.size() );
+        List<SeatBid> list1 = new ArrayList<>(list.size());
         for ( Seatbid seatbid : list ) {
             list1.add( seatMapper( seatbid,response,adType ) );
         }
@@ -151,7 +143,7 @@ public class OpenRtb24To3MapperImpl {
             return null;
         }
 
-        List<Seatbid> list1 = new ArrayList<Seatbid>( list.size() );
+        List<Seatbid> list1 = new ArrayList<>(list.size());
         for ( SeatBid seatBid : list ) {
             list1.add( seatMapper( seatBid,bidResponse,adType ) );
         }
@@ -175,7 +167,7 @@ public class OpenRtb24To3MapperImpl {
 
         Map<String, Object> map = seatBid.getExt();
         if ( map != null ) {
-            seatbid.setExt( new HashMap<String, Object>( map ) );
+            seatbid.setExt(new HashMap<>(map) );
         }
         else {
             seatbid.setExt( null );
@@ -203,7 +195,7 @@ public class OpenRtb24To3MapperImpl {
 
         Map<String, Object> map = seatBid.getExt();
         if ( map != null ) {
-            seatBid1.setExt( new HashMap<String, Object>( map ) );
+            seatBid1.setExt(new HashMap<>(map) );
         }
         else {
             seatBid1.setExt( null );
@@ -249,7 +241,7 @@ public class OpenRtb24To3MapperImpl {
             return null;
         }
 
-        List<Bid> list1 = new ArrayList<Bid>( list.size() );
+        List<Bid> list1 = new ArrayList<>(list.size());
         for ( net.media.openrtb24.response.Bid bid : list ) {
             list1.add( bidMapper( bid,seatbid,bidResponse ,adType ) );
         }
@@ -276,7 +268,7 @@ public class OpenRtb24To3MapperImpl {
         if ( bid != null ) {
             Map<String, Object> map = bid.getExt();
             if ( map != null ) {
-                bid1.setExt( new HashMap<String, Object>( map ) );
+                bid1.setExt(new HashMap<>(map) );
             }
             else {
                 bid1.setExt( null );
@@ -332,11 +324,21 @@ public class OpenRtb24To3MapperImpl {
             bid1.setBurl( bid.getBurl() );
             bid1.setLurl( bid.getLurl() );
             bid1.setTactic( bid.getTactic() );
-
+            mapBid(bid,seatbid,response,adType,bid1);
             mediaToBid(bid1,bid.getMedia(),adType);
         }
 
         return bid1;
+    }
+
+    public void mapBid(Bid bid, Seatbid seatbid, Response response,AdType adType, net.media.openrtb24.response.Bid bid1){
+        if(nonNull(bid) &&  nonNull(bid1)){
+            if(isNull(bid1.getExt())){
+                bid1.setExt(new HashMap<>());
+            }
+            bid1.getExt().put("mid",bid.getMid());
+            bid1.getExt().put("macro",bid.getMacro());
+        }
     }
 
     /**
@@ -379,14 +381,14 @@ public class OpenRtb24To3MapperImpl {
         ad.setId( bid.getCrid() );
         List<String> list = bid.getAdomain();
         if ( list != null ) {
-            ad.setAdomain( new ArrayList<String>( list ) );
+            ad.setAdomain(new ArrayList<>(list) );
         }
         else {
             ad.setAdomain( null );
         }
         List<String> list1 = bid.getBundle();
         if ( list1 != null ) {
-            ad.setBundle( new ArrayList<String>( list1 ) );
+            ad.setBundle(new ArrayList<>(list1) );
         }
         else {
             ad.setBundle( null );
@@ -394,24 +396,22 @@ public class OpenRtb24To3MapperImpl {
         ad.setIurl( bid.getIurl() );
         Set<String> set = bid.getCat();
         if ( set != null ) {
-            ad.setCat( new ArrayList<String>( set ) );
+            ad.setCat(new ArrayList<>(set) );
         }
         else {
             ad.setCat( null );
         }
+        ad.setLang(bid.getLanguage());
         List<Integer> list2 = bid.getAttr();
         if ( list2 != null ) {
-            ad.setAttr( new ArrayList<Integer>( list2 ) );
+            ad.setAttr(new ArrayList<>(list2) );
         }
         else {
             ad.setAttr( null );
         }
         Map<String, Object> map = bid.getExt();
         if ( map != null ) {
-            ad.setExt( new HashMap<String, Object>( map ) );
-        }
-        else {
-            ad.setExt( new HashMap<>());
+          ad.setExt(new HashMap<>(map));
         }
         if (nonNull(bid) && nonNull(bid.getExt())) {
             Map<String,Object> ext = ad.getExt();
@@ -436,7 +436,6 @@ public class OpenRtb24To3MapperImpl {
                 ad.setAudit(mapAudit(bid, seatBid, bidResponse, adType));
                 break;
         }
-        mapAd( bid, seatBid, bidResponse, adType,ad);
         return ad;
     }
 
@@ -485,8 +484,8 @@ public class OpenRtb24To3MapperImpl {
      * @param audio
      * @param adType
      */
-    public void mapAudio(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, @MappingTarget
-      Audio audio, @Context AdType adType) {
+    public void mapAudio(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse
+      bidResponse, Audio audio, AdType adType) {
         ;
         if (isNull(bid) || isNull(audio) || isNull(bid.getExt())) {
             return;
@@ -551,8 +550,8 @@ public class OpenRtb24To3MapperImpl {
      * @param adType
      * @param ad
      */
-    public void mapAd(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, @org.mapstruct.Context AdType adType,
-                      Ad ad){
+    public void mapAd(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse bidResponse,
+                      AdType adType, Ad ad){
         if (nonNull(bid) && nonNull(bid.getExt()) && nonNull(ad)) {
 
             Map<String,Object> ext = ad.getExt();
@@ -589,7 +588,7 @@ public class OpenRtb24To3MapperImpl {
             display.setHratio( bid.getHratio() );
             List<Integer> list = bid.getApi();
             if ( list != null ) {
-                display.setApi( new ArrayList<Integer>( list ) );
+                display.setApi(new ArrayList<>(list) );
             }
             else {
                 display.setApi( null );
@@ -607,8 +606,8 @@ public class OpenRtb24To3MapperImpl {
      * @param display
      * @param adType
      */
-    public void mapDisplay(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, @MappingTarget
-      Display display, @org.mapstruct.Context AdType adType) {
+    public void mapDisplay(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse bidResponse,
+      Display display, AdType adType) {
         if (isNull(bid) || isNull(display) || isNull(bid.getExt())) {
             return;
         }
@@ -616,14 +615,18 @@ public class OpenRtb24To3MapperImpl {
         display.setCtype((Integer) ext.get("ctype"));
         display.setPriv((String) ext.get("priv"));
         display.setCurl((String) ext.get("curl"));
+        display.setMime((String) ext.get("mime"));
+
         if (adType == AdType.BANNER) {
-            display.setBanner((net.media.openrtb3.Banner) ext.get("banner"));
+            display.setBanner(Banner.HashMapToBanner((Map<String, Object>)ext.get("banner")));
         }
         else if (adType == AdType.NATIVE) {
             display.set_native((net.media.openrtb3.Native) ext.get("native"));
         }
         display.setEvent((List<Event>) ext.get(ext.get("event")));
     }
+
+
 
     /**
      * Maps  rtb  2.4  bid  object to rtb 3.0  video object
@@ -730,14 +733,14 @@ public class OpenRtb24To3MapperImpl {
         bid.setLanguage(ad.getLang());
         List<Integer> list2 = ad.getAttr();
         if ( list2 != null ) {
-            bid.setAttr( new ArrayList<Integer>( list2 ) );
+            bid.setAttr(new ArrayList<>(list2) );
         }
         else {
             bid.setAttr( null );
         }
         Map<String, Object> map = ad.getExt();
         if ( map != null ) {
-            bid.setExt( new HashMap<String, Object>( map ) );
+            bid.setExt(new HashMap<>(map) );
         }
         else {
             bid.setExt( new HashMap<>());
@@ -792,7 +795,8 @@ public class OpenRtb24To3MapperImpl {
             bid.getExt().put("curl",display.getCurl());
             bid.getExt().put("event",display.getEvent());
             bid.getExt().put("mime",display.getMime());
-            bid.getExt().putAll(display.getExt());
+            if(nonNull(display.getExt()))
+                bid.getExt().putAll(display.getExt());
         }
 
     }
@@ -809,7 +813,8 @@ public class OpenRtb24To3MapperImpl {
             bid.getExt().put("dur",video.getDur());
             bid.getExt().put("curl",video.getCurl());
             bid.getExt().put("mime",video.getMime());
-            bid.getExt().putAll(video.getExt());
+            if(nonNull(video.getExt()))
+                bid.getExt().putAll(video.getExt());
         }
     }
 
@@ -827,13 +832,6 @@ public class OpenRtb24To3MapperImpl {
             bid.getExt().putAll(audio.getExt());
         }
     }
-
-    private Integer status;
-    private List<String> feedback = null;
-    private Integer init;
-    private Integer lastmod;
-    private Corr corr;
-    private Map<String,Object> ext;
 
     private void auditToBid(net.media.openrtb24.response.Bid bid, Audit audit, AdType adType) {
         if(isNull(bid.getExt())){

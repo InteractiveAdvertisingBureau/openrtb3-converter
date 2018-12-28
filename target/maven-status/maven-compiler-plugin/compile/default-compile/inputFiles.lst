@@ -40,6 +40,7 @@
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/request/VideoAPIs.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/DistributionChannel.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/request/BidderCookie.java
+/Users/samya.p/openrtb-converter/src/main/java/net/media/mapper/ResponseTestPojo.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/request/Format.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/DataAsset.java
 /Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/response/nativeresponse/NativeImage.java
