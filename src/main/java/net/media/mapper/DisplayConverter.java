@@ -1,5 +1,7 @@
 package net.media.mapper;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +18,7 @@ import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.EventSpec;
 import net.media.openrtb3.NativeFormat;
-import net.media.util.JacksonObjectMapper;
+
 
 import org.mapstruct.MappingTarget;
 
@@ -28,6 +30,8 @@ import static java.util.Objects.nonNull;
   comments = "version: 1.3.0.Beta2, compiler: javac, environment: Java 1.8.0_91 (Oracle Corporation)"
 )
 public class DisplayConverter {
+
+  private static final ObjectMapper MAPPER = new ObjectMapper();
 
   private final NativeConverter nativeConverter = new NativeConverter();
 
@@ -90,7 +94,7 @@ public class DisplayConverter {
       }
       displayPlacement.setInstl( imp.getInstl() );
     }
-    displayPlacement.setApi( banner == null ? banner.getApi() : nat.getApi() );
+    displayPlacement.setApi( nonNull(banner) ? banner.getApi() : nat.getApi() );
 
     displayPlacementToImpAfterMapping( banner, nat, imp, bidRequest, displayPlacement );
 
@@ -204,7 +208,7 @@ public class DisplayConverter {
         } else {
           String nativeRequestString = (String) nat.getRequest();
           try {
-            nativeRequest = JacksonObjectMapper.getMapper().readValue(nativeRequestString,
+            nativeRequest = MAPPER.readValue(nativeRequestString,
               NativeRequest.class);
           } catch (IOException e) {
             e.printStackTrace();

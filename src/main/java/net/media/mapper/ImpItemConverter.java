@@ -13,6 +13,7 @@ import net.media.openrtb24.request.Video;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.Item;
 import net.media.openrtb3.Placement;
+import net.media.openrtb3.Request;
 import net.media.openrtb3.Spec;
 
 import org.mapstruct.MappingTarget;
@@ -73,7 +74,7 @@ public class ImpItemConverter {
     return item;
   }
 
-  public Imp itemToImp(Item item) {
+  public Imp itemToImp(Item item, Request request) {
     if ( item == null ) {
       return null;
     }

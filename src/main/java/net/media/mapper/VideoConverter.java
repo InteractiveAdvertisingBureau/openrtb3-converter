@@ -31,7 +31,7 @@ public class VideoConverter {
   private final CompanionConverter companionConverter = new CompanionConverter();
 
   public VideoPlacement videoToVideoPlacement(Video video, Imp imp, BidRequest bidRequest) {
-    if ( video == null && imp == null && bidRequest == null ) {
+    if ( video == null) {
       return null;
     }
 

@@ -1,7 +1,5 @@
 package net.media.mapper;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 
 import net.media.openrtb24.request.Banner;
 import net.media.openrtb24.request.BidRequest;
@@ -14,7 +12,6 @@ import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.EventSpec;
 import net.media.openrtb3.NativeFormat;
-import net.media.util.JacksonObjectMapper;
 
 import org.mapstruct.AfterMapping;
 import org.mapstruct.InheritInverseConfiguration;
@@ -80,12 +77,10 @@ public interface BannerToDisplayPlacementMapper {
           nativeRequest = (NativeRequest) nat.getRequest();
         } else {
           String nativeRequestString = (String) nat.getRequest();
-          try {
-            nativeRequest = JacksonObjectMapper.getMapper().readValue(nativeRequestString,
-              NativeRequest.class);
-          } catch (IOException e) {
-            e.printStackTrace();
-          }
+//          try {
+//          } catch (IOException e) {
+//            e.printStackTrace();
+//          }
         }
         if (nonNull(nativeRequest) && nonNull(nativeRequest.getNativeRequestBody())) {
           displayPlacement.setPtype(nativeRequest.getNativeRequestBody().getPlcmttype());

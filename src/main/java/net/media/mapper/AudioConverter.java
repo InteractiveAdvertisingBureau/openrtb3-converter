@@ -28,7 +28,7 @@ public class AudioConverter {
   private final CompanionConverter companionConverter = new CompanionConverter();
 
   public AudioPlacement map(Audio audio, Imp imp, BidRequest bidRequest) {
-    if ( audio == null && imp == null && bidRequest == null ) {
+    if ( audio == null) {
       return null;
     }
 

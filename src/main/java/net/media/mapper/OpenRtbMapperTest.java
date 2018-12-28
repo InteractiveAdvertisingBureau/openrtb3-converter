@@ -46,7 +46,7 @@ public class OpenRtbMapperTest {
         System.out.println("invalid ad type");
         continue;
       }*/
-      Request request30 = impl.mapRequestToBidRequest(request);
+      Request request30 = new RequestConverter().mapRequestToBidRequest(request);
       System.out.println(request30);
       //System.out.println(response.getResponse30());
       //System.out.println(response30.equals(response.getResponse30()));

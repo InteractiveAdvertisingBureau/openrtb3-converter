@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-@Mapper
+@Mapper(uses = ImpItemConverter.class)
 public interface BidRequestMapper {
 
   BidRequestMapper bidReqMapper = Mappers.getMapper(BidRequestMapper.class);
@@ -52,6 +52,7 @@ public interface BidRequestMapper {
     @Mapping(source = "device", target = "context.device"),
     @Mapping(source = "regs", target = "context.regs"),
     @Mapping(source = "bidRequest", target = "context.restrictions"),
+    @Mapping(source = "bidRequest.imp", target = "item"),
   })
   Request mapRequestToBidRequest(BidRequest bidRequest);
 
@@ -312,6 +313,7 @@ public interface BidRequestMapper {
     @Mapping(source = "context.restrictions.bapp", target = "bapp"),
     @Mapping(source = "context.restrictions.bcat", target = "bcat"),
     @Mapping(source = "request.ext", target = "ext"),
+    @Mapping(source = "request.item", target = "imp"),
   })
   BidRequest mapRtb3RequestToRtb24BidRequest(Request request);
 
