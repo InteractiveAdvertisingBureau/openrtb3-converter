@@ -817,14 +817,20 @@ public class OpenRtb24To3MapperImpl {
               else if (nonNull(display.getAdm())){
                 try {
                   Native native3 = mapper.readValue((String) display.getAdm(), Native.class);
+                  NativeResponse _native = native1FromNative3(native3);
+                  bid.setAdm(_native);
                 } catch (IOException e) {
                   e.printStackTrace();
                 }
-                NativeResponse _native = native1FromNative3(display.get_native());
               }
             }
             else {
-
+              if (nonNull(display.getBanner())) {
+                bid.setAdm(display.getBanner());
+              }
+              else if (nonNull(display.getAdm())){
+                bid.setAdm(display.getAdm());
+              }
             }
         }
 
