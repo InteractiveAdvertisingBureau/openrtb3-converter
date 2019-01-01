@@ -47,7 +47,7 @@ public class OpenRtbMapperTest {
         continue;
       }*/
       Request request30 = new RequestConverter().mapRequestToBidRequest(request);
-      System.out.println(request30);
+      System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(request30));
       //System.out.println(response.getResponse30());
       //System.out.println(response30.equals(response.getResponse30()));
     }

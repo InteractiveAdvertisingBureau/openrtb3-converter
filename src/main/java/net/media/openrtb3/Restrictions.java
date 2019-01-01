@@ -11,7 +11,7 @@ import java.util.Set;
 public class Restrictions {
 
   private String[] bcat;
-  private Integer cattax;
+  private Integer cattax = 2;
   private String[] badv;
   private String[] bapp;
   private Set<Integer> battr;

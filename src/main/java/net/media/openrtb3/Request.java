@@ -2,14 +2,12 @@ package net.media.openrtb3;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 @Getter
@@ -17,12 +15,12 @@ import java.util.Set;
 public class Request {
 
   private String id;
-  private Integer test;
+  private Integer test = 0;
   private Integer tmax;
-  private Integer at;
-  private List<String> cur;
+  private Integer at = 2;
+  private List<String> cur = new ArrayList<String>(){{add("USD");}};
   private Set<String> seat;
-  private Integer wseat;
+  private Integer wseat = 1;
   private String cdata;
   private Source source;
   private List<Item> item;

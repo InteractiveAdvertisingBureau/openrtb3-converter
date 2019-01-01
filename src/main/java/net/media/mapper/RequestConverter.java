@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.Generated;
+
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import net.media.openrtb24.request.BidRequest;
 import net.media.openrtb24.request.Content;
 import net.media.openrtb24.request.Data;
@@ -38,6 +41,40 @@ import org.mapstruct.MappingTarget;
 public class RequestConverter {
 
   private final ImpItemConverter impItemConverter = new ImpItemConverter();
+  private BiMap<String, Integer> osMap;
+
+  RequestConverter() {
+    osMap = HashBiMap.create();
+    osMap.put("other not listed\n", 0);
+    osMap.put("3ds system software", 1);
+    osMap.put("android", 2);
+    osMap.put("apple tv software", 3);
+    osMap.put("asha", 4);
+    osMap.put("bada", 5);
+    osMap.put("blackberry", 6);
+    osMap.put("brew", 7);
+    osMap.put("chromeos", 8);
+    osMap.put("darwin", 9);
+    osMap.put("fireos", 10);
+    osMap.put("firefoxos", 11);
+    osMap.put("helenos", 12);
+    osMap.put("ios", 13);
+    osMap.put("linux", 14);
+    osMap.put("macos", 15);
+    osMap.put("meego", 16);
+    osMap.put("morphos", 17);
+    osMap.put("netbsd", 18);
+    osMap.put("nucleusplus", 19);
+    osMap.put("ps vita system software", 20);
+    osMap.put("ps3 system software", 21);
+    osMap.put("ps4 software", 22);
+    osMap.put("psp system software", 23);
+    osMap.put("symbian", 24);
+    osMap.put("tizen", 25);
+    osMap.put("watchos", 26);
+    osMap.put("webos", 27);
+    osMap.put("windows", 28);
+  }
 
   public Request mapRequestToBidRequest(BidRequest bidRequest) {
     if ( bidRequest == null ) {
@@ -285,10 +322,18 @@ public class RequestConverter {
     geo1.setRegion( geo.getRegion() );
     geo1.setMetro( geo.getMetro() );
     geo1.setCity( geo.getCity() );
+    geo1.setUtcoffset( geo.getUtcoffset() );
     geo1.setZip( geo.getZip() );
     Map<String, Object> map = geo.getExt();
     if ( map != null ) {
       geo1.setExt( new HashMap<String, Object>( map ) );
+    }
+
+    if(geo.getRegionfips104() != null) {
+      if(geo1.getExt() == null) {
+        geo1.setExt(new HashMap<>());
+      }
+      geo1.getExt().put("regionfips104", geo.getRegionfips104());
     }
 
     return geo1;
@@ -314,7 +359,10 @@ public class RequestConverter {
     device1.setMake( device.getMake() );
     device1.setModel( device.getModel() );
     if ( device.getOs() != null ) {
-      device1.setOs( Integer.parseInt( device.getOs() ) );
+      if(osMap.containsKey(device.getOs().trim().toLowerCase()))
+        device1.setOs(osMap.get(device.getOs().trim().toLowerCase()));
+      else
+        device1.setOs(0);
     }
     device1.setOsv( device.getOsv() );
     device1.setHwv( device.getHwv() );
@@ -439,7 +487,8 @@ public class RequestConverter {
     device1.ip( device.getIp() );
     device1.ipv6( device.getIpv6() );
     if ( device.getOs() != null ) {
-      device1.os( String.valueOf( device.getOs() ) );
+      if( osMap.inverse().containsKey( device.getOs() ) )
+        device1.os( osMap.inverse().get( device.getOs() ) );
     }
     device1.make( device.getMake() );
     device1.model( device.getModel() );
@@ -498,6 +547,7 @@ public class RequestConverter {
     geo1.setCountry( geo.getCountry() );
     geo1.setLat( geo.getLat() );
     geo1.setLon( geo.getLon() );
+    geo1.setUtcoffset( geo.getUtcoffset() );
     geo1.setLastfix( geo.getLastfix() );
     Map<String, Object> map = geo.getExt();
     if ( map != null ) {
@@ -1219,6 +1269,12 @@ public class RequestConverter {
     target.getExt().remove("dsMap");
     target.getExt().remove("cert");
     target.getExt().remove("digest");
+
+    if(source.getFd() != null) {
+      if(target.getExt() == null)
+        target.setExt(new HashMap<>());
+      target.getExt().put("fd", source.getFd());
+    }
   }
 
   protected void mapSiteExt(Site target, net.media.openrtb24.request.Site source) {
