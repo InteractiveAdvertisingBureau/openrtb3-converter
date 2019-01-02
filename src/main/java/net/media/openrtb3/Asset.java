@@ -1,14 +1,15 @@
 package net.media.openrtb3;
 
 
-public class Asset {
+@lombok.Data
+public class Asset { //AssetResponse
 
-  private String id;
+  private Integer id;
   private Integer req;
   private TitleAsset titleAsset;
-  private Image image;
+  private ImageAsset image;
   private VideoAsset videoAsset;
-  private Data data;
+  private DataAsset data;
   private LinkAsset link;
 
 }

@@ -6,7 +6,7 @@ import java.util.Map;
 import lombok.Data;
 
 @Data
-public class Link {
+public class Link { //LinkAsset
   private String url;
 
   private List<String> clicktrackers;

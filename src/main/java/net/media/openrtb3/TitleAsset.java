@@ -2,10 +2,15 @@
 package net.media.openrtb3;
 
 
+import lombok.Data;
+
+import java.util.Map;
+
+@Data
 public class TitleAsset {
 
   private String text;
   private Integer len;
-  private String ext;
+  private Map<String,Object> ext;
 
 }

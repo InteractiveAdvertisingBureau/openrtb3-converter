@@ -1,12 +1,18 @@
 package net.media.mapper;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import net.media.enums.AdType;
 import net.media.openrtb24.response.*;
+import net.media.openrtb24.response.*;
+import net.media.openrtb24.response.nativeresponse.*;
 import net.media.openrtb3.*;
 import net.media.openrtb3.Bid;
 
 import org.mapstruct.MappingTarget;
+import sun.jvm.hotspot.utilities.Assert;
 
+import java.io.IOException;
 import java.util.*;
 
 import static java.util.Objects.isNull;
@@ -583,11 +589,12 @@ public class OpenRtb24To3MapperImpl {
         }
 
         Display display = new Display();
+        ObjectMapper mapper = new ObjectMapper();
 
         if ( bid != null ) {
             display.setH( bid.getH() );
             display.setWratio( bid.getWratio() );
-            display.setAdm( bid.getAdm() );
+            //display.setAdm( bid.getAdm() );
             display.setW( bid.getW() );
             display.setHratio( bid.getHratio() );
             List<Integer> list = bid.getApi();
@@ -598,12 +605,245 @@ public class OpenRtb24To3MapperImpl {
                 display.setApi( null );
             }
             display.setCurl(bid.getNurl());
+            if (adType == AdType.NATIVE) {
+              if (bid.getAdm() instanceof String) {
+                try {
+                  NativeResponse nativeResponse = mapper.readValue((String) bid.getAdm(),
+                    NativeResponse.class);
+                  Native _native = native3FromNativeResponse(nativeResponse);
+                  display.setAdm(_native);
+                } catch (IOException e) {
+                  e.printStackTrace();
+                }
+              } else {
+                Native _native = native3FromNativeResponse((NativeResponse) bid.getAdm());
+                display.setAdm(_native);
+              }
+            }
+            else if (adType == AdType.BANNER) {
+              display.setAdm(bid.getAdm());
+            }
+            display.setCurl(bid.getNurl());
         }
         mapDisplay(bid,seatBid,bidResponse,display,adType);
         return display;
     }
 
-    /**
+  private Native native3FromNativeResponse(NativeResponse nativeResponse) {
+      NativeResponseBody nativeResponseBody = nativeResponse.getNativeResponseBody();
+      Native _native  = new Native();
+      _native.setLink(linkToLinkAsset(nativeResponseBody.getLink()));
+      _native.setAsset(listAssetResponseToAsset(nativeResponseBody.getAssets()));
+      _native.setExt(nativeResponseBody.getExt());
+      if(isNull(_native.getExt()))
+          _native.setExt(new HashMap<>());
+      _native.getExt().put("jsTracker",nativeResponseBody.getJstracker());
+      _native.getExt().put("impTrackers",nativeResponseBody.getImptrackers());
+    return _native;
+  }
+
+    private NativeResponse native1FromNative3(Native _native) {
+        if(isNull(_native))
+            return null;
+        NativeResponse nativeResponse = new NativeResponse();
+        NativeResponseBody nativeResponseBody = new NativeResponseBody();
+        nativeResponseBody.setAssets(listAssetToAssetResponses(_native.getAsset()));
+        nativeResponseBody.setLink(linkAssetToLink(_native.getLink()));
+        nativeResponseBody.setExt(_native.getExt());
+        if(nonNull(_native.getExt())){
+            nativeResponseBody.setJstracker((String)_native.getExt().get("_jsTracker"));
+            nativeResponseBody.setImptrackers((List<String>)_native.getExt().get("impTrackers"));
+        }
+        nativeResponse.setNativeResponseBody(nativeResponseBody);
+        return new NativeResponse();
+    }
+
+
+    private List<Asset> listAssetResponseToAsset(List<AssetResponse> assetResponses){
+        if(isNull(assetResponses))
+            return null;
+        List<Asset> assets = new ArrayList<>();
+        assetResponses.forEach((assetResponse -> {
+            assets.add(assetResponseToAsset(assetResponse));
+        }));
+        return assets;
+  }
+
+    private List<AssetResponse> listAssetToAssetResponses(List<Asset> assets){
+        if(isNull(assets))
+            return null;
+        List<AssetResponse> assetResponses = new ArrayList<>();
+        assets.forEach((asset -> {
+            assetResponses.add(assetToAssetResponse(asset));
+        }));
+        return assetResponses;
+    }
+
+  private Asset assetResponseToAsset(AssetResponse  assetResponse){
+        if(isNull(assetResponse))
+            return null;
+        Asset asset = new Asset();
+        asset.setData(nativeDataToData(assetResponse.getData()));
+        asset.setId(assetResponse.getId());
+        asset.setReq(assetResponse.getRequired());
+        asset.setImage(nativeImageToImageAsset(assetResponse.getImg()));
+        asset.setTitleAsset(nativeTittleToTittleAsset(assetResponse.getTitle()));
+        asset.setVideoAsset(nativeVideoToVideoAsset(assetResponse.getVideo()));
+        asset.setLink(linkToLinkAsset(assetResponse.getLink()));
+        return asset;
+  }
+
+  private AssetResponse assetToAssetResponse(Asset asset){
+      if(isNull(asset))
+          return null;
+      AssetResponse assetResponse = new AssetResponse();
+      assetResponse.setData(dataTonativeData(asset.getData()));
+      assetResponse.setId(asset.getId());
+      assetResponse.setRequired(asset.getReq());
+      assetResponse.setImg(imageAssetToNativeImage(asset.getImage()));
+      assetResponse.setVideo(videoAssetToNativeVideo(asset.getVideoAsset()));
+      assetResponse.setTitle(tittleAssetToNativeTittle(asset.getTitleAsset()));
+      assetResponse.setLink(linkAssetToLink(asset.getLink()));
+      return assetResponse;
+  }
+
+  private DataAsset nativeDataToData(NativeData nativeData){
+      if(isNull(nativeData))
+          return null;
+      DataAsset dataAsset = new DataAsset();
+      dataAsset.setExt(nativeData.getExt());
+      List<String> value = new ArrayList<>();
+      value.add(nativeData.getValue());
+      dataAsset.setValue(value);
+      if(nonNull(nativeData.getExt())){
+          dataAsset.setType((Integer) nativeData.getExt().get("type"));
+          dataAsset.setLen((Integer) nativeData.getExt().get("len"));
+      }
+      if(isNull(dataAsset.getExt()))
+          dataAsset.setExt(new HashMap<>());
+      dataAsset.getExt().put("label",nativeData.getLabel());
+      return new DataAsset();
+  }
+
+  private NativeData dataTonativeData(DataAsset data){
+       if( isNull(data))
+          return null;
+       NativeData nativeData = new NativeData();
+       nativeData.setExt(data.getExt());
+       if(nonNull(data.getExt())){
+           nativeData.setLabel((String)data.getExt().get("label"));
+       }
+       if(isNull(nativeData.getExt()))
+           nativeData.setExt(new HashMap<>());
+       nativeData.getExt().put("type",data.getType());
+       nativeData.getExt().put("len",data.getLen());
+       if(nonNull(data.getValue()) && data.getValue().size()>0)
+           nativeData.setValue(data.getValue().get(0));
+      return new NativeData();
+  }
+
+  private TitleAsset nativeTittleToTittleAsset(NativeTitle nativeTitle){
+      if(isNull(nativeTitle))
+          return null;
+      TitleAsset titleAsset = new TitleAsset();
+      titleAsset.setExt(nativeTitle.getExt());
+      titleAsset.setText(nativeTitle.getText());
+      if(nonNull(nativeTitle.getExt()))
+      titleAsset.setLen((Integer)nativeTitle.getExt().get("len"));
+      return new TitleAsset();
+  }
+
+  private NativeTitle tittleAssetToNativeTittle(TitleAsset titleAsset){
+      if(isNull(titleAsset))
+          return null;
+      NativeTitle nativeTitle = new NativeTitle();
+      nativeTitle.setExt(titleAsset.getExt());
+      nativeTitle.setText(titleAsset.getText());
+      if(isNull(nativeTitle.getExt())){
+          nativeTitle.setExt(new HashMap<>());
+      }
+      nativeTitle.getExt().put("len",titleAsset.getLen());
+      return new NativeTitle();
+  }
+
+  private VideoAsset nativeVideoToVideoAsset(NativeVideo nativeVideo){
+      if(isNull(nativeVideo))
+          return null;
+      VideoAsset  videoAsset = new VideoAsset();
+      videoAsset.setAdm(nativeVideo.getVasttag());
+      videoAsset.setExt(nativeVideo.getExt());
+      if(nonNull(nativeVideo.getExt()))
+          videoAsset.setCurl((String) nativeVideo.getExt().get("curl"));
+      return new VideoAsset();
+  }
+
+  private NativeVideo videoAssetToNativeVideo(VideoAsset videoAsset){
+      if(isNull(videoAsset))
+          return null;
+      NativeVideo nativeVideo = new NativeVideo();
+      nativeVideo.setExt(videoAsset.getExt());
+      nativeVideo.setVasttag(videoAsset.getAdm());
+      if(isNull(nativeVideo.getExt())){
+          nativeVideo.setExt(new HashMap<>());
+      }
+      nativeVideo.getExt().put("curl",videoAsset.getCurl());
+      return new NativeVideo();
+  }
+
+  private ImageAsset nativeImageToImageAsset(NativeImage nativeImage){
+      if(isNull(nativeImage)){
+          return null;
+      }
+      ImageAsset imageAsset = new ImageAsset();
+      imageAsset.setH(nativeImage.getH());
+      imageAsset.setW(nativeImage.getW());
+      imageAsset.setUrl(nativeImage.getUrl());
+      imageAsset.setExt(nativeImage.getExt());
+      if(nonNull(nativeImage.getExt()))
+      imageAsset.setType((Integer) nativeImage.getExt().get("type"));
+      return new ImageAsset();
+  }
+
+  private NativeImage imageAssetToNativeImage(ImageAsset imageAsset){
+      if(isNull(imageAsset))
+          return null;
+      NativeImage nativeImage = new NativeImage();
+      nativeImage.setExt(imageAsset.getExt());
+      nativeImage.setH(imageAsset.getH());
+      nativeImage.setW(imageAsset.getW());
+      nativeImage.setUrl(imageAsset.getUrl());
+      if(isNull(nativeImage.getExt()))
+          nativeImage.setExt(new HashMap<>());
+      nativeImage.getExt().put("type",imageAsset.getType());
+      return new NativeImage();
+  }
+
+  private LinkAsset linkToLinkAsset(Link link){
+        if(nonNull(link)) {
+            LinkAsset linkAsset = new LinkAsset();
+            linkAsset.setUrl(link.getUrl());
+            linkAsset.setUrlfb(link.getFallback());
+            linkAsset.setTrkr(link.getClicktrackers());
+            linkAsset.setExt(link.getExt());
+            return linkAsset;
+        }
+        return null;
+  }
+
+  private Link linkAssetToLink(LinkAsset linkAsset){
+        if(nonNull(linkAsset)) {
+            Link link = new Link();
+            link.setUrl(linkAsset.getUrl());
+            link.setFallback(linkAsset.getUrlfb());
+            link.setClicktrackers(linkAsset.getTrkr());
+            link.setExt(linkAsset.getExt());
+            return link;
+        }
+        return null;
+  }
+
+
+  /**
      * after mapping of rtb  3.0 display object from rtb 2.4 bid object
      * @param bid
      * @param seatBid
@@ -783,7 +1023,8 @@ public class OpenRtb24To3MapperImpl {
 
     private void displayToBid(net.media.openrtb24.response.Bid bid, Display display, AdType adType) {
         if(nonNull(bid) && nonNull(display)){
-            bid.setAdm(display.getAdm());
+            //bid.setAdm(display.getAdm());
+            ObjectMapper mapper = new ObjectMapper();
             bid.setH(display.getH());
             bid.setW(display.getW());
             bid.setWratio(display.getWratio());
@@ -802,6 +1043,30 @@ public class OpenRtb24To3MapperImpl {
             }
             bid.getExt().put("event",display.getEvent());
             bid.getExt().put("mime",display.getMime());
+            bid.getExt().putAll(display.getExt());
+            if (adType == AdType.NATIVE) {
+              if (nonNull(display.get_native())) {
+                NativeResponse _native = native1FromNative3(display.get_native());
+                bid.setAdm(_native);
+              }
+              else if (nonNull(display.getAdm())){
+                try {
+                  Native native3 = mapper.readValue((String) display.getAdm(), Native.class);
+                  NativeResponse _native = native1FromNative3(native3);
+                  bid.setAdm(_native);
+                } catch (IOException e) {
+                  e.printStackTrace();
+                }
+              }
+            }
+            else {
+              if (nonNull(display.getBanner())) {
+                bid.setAdm(display.getBanner());
+              }
+              else if (nonNull(display.getAdm())){
+                bid.setAdm(display.getAdm());
+              }
+            }
             if(nonNull(display.getExt()))
                 bid.getExt().putAll(display.getExt());
         }
