@@ -2,6 +2,7 @@ package net.media.mapper;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import net.media.config.Config;
 import net.media.enums.AdType;
 import net.media.openrtb24.response.*;
 import net.media.openrtb24.response.nativeresponse.NativeResponse;
@@ -18,6 +19,12 @@ import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 public class OpenRtb24To3MapperImpl {
+
+    private Config config;
+
+    public OpenRtb24To3MapperImpl(Config config) {
+      this.config = config;
+    }
 
     /**
      *This  function  maps Rtb 2.4 BidResponse to  Rtb 3.0 Response
