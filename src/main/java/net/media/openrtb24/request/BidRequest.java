@@ -8,6 +8,10 @@ import java.util.Set;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @Data
 public class BidRequest extends AbstractExtensible<BidRequest.BidReqExt> {
@@ -17,16 +21,24 @@ public class BidRequest extends AbstractExtensible<BidRequest.BidReqExt> {
   public static final Integer DEFAULT_ALL_IMPS = 0;
   public static final Integer DEFAULT_AT = 2;
 
+  @NotEmpty
   public String id;
 
+  @NotNull
+  @Valid
   public List<Imp> imp;
 
+  @NotNull
+  @Valid
   public Site site;
 
+  @NotNull
+  @Valid
   public App app;
 
   public Device device;
 
+  @Valid
   public User user;
 
   public Set<String> badv;
@@ -41,6 +53,8 @@ public class BidRequest extends AbstractExtensible<BidRequest.BidReqExt> {
 
   public Integer tmax;
 
+  @NotNull
+  @Valid
   public Source source;
 
   public Set<String> bcat;

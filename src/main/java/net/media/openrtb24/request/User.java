@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 import lombok.Data;
+import net.media.utils.validator.CheckAtLeastOneNotNull;
 
 
 @Data
+@CheckAtLeastOneNotNull(fieldNames = {"id", "buyeruid"})
 public class User {
 
   public String id;
