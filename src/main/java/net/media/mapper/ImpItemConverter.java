@@ -5,26 +5,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Generated;
+
+import net.media.openrtb24.request.Audio;
+import net.media.openrtb24.request.Banner;
 import net.media.openrtb24.request.BidRequest;
 import net.media.openrtb24.request.Deal;
 import net.media.openrtb24.request.Imp;
+import net.media.openrtb24.request.Metric;
+import net.media.openrtb24.request.Native;
 import net.media.openrtb24.request.Pmp;
 import net.media.openrtb24.request.Video;
+import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.Item;
 import net.media.openrtb3.Placement;
 import net.media.openrtb3.Request;
 import net.media.openrtb3.Spec;
-
-import org.mapstruct.MappingTarget;
+import net.media.openrtb3.VideoPlacement;
 
 import static java.util.Objects.nonNull;
 
-@Generated(
-  value = "org.mapstruct.ap.MappingProcessor",
-  date = "2018-12-27T10:08:40+0530",
-  comments = "version: 1.3.0.Beta2, compiler: javac, environment: Java 1.8.0_91 (Oracle Corporation)"
-)
 public class ImpItemConverter {
 
   private final DisplayConverter displayConverter = new DisplayConverter();
@@ -56,11 +56,21 @@ public class ImpItemConverter {
       if ( private_auction != null ) {
         item.setPriv( private_auction );
       }
-      Integer sequence = impVideoSequence( imp );
+      Integer sequence = impSequence( imp );
       if ( sequence != null ) {
         item.setSeq( sequence );
+        item.getExt().remove("sequence");
       }
       item.setExp( imp.getExp() );
+      List<Metric> metrics = imp.getMetric();
+      if (metrics != null) {
+        List<net.media.openrtb3.Metric> metrics1 = new ArrayList<>(metrics.size());
+        for (Metric metric : metrics) {
+          metrics1.add(map(metric));
+        }
+        item.setMetric(metrics1);
+      }
+      item.setQty(getPlcmtcntFromNative(imp));
     }
     if ( bidRequest != null ) {
       if ( item.getSpec() == null ) {
@@ -72,6 +82,13 @@ public class ImpItemConverter {
     impToItemAfterMapping( imp, bidRequest, item );
 
     return item;
+  }
+
+  private Integer getPlcmtcntFromNative(Imp imp) {
+    if (nonNull(imp) && nonNull(imp.getNat()) && nonNull(imp.getNat().getNativeRequestBody())) {
+      return imp.getNat().getNativeRequestBody().getPlcmtcnt();
+    }
+    return null;
   }
 
   public Imp itemToImp(Item item, Request request) {
@@ -87,13 +104,21 @@ public class ImpItemConverter {
       imp.setExt( new HashMap<String, Object>( map ) );
     }
     imp.setBidfloor( item.getFlr() );
+    VideoPlacement video = itemSpecPlacementVideo( item );
+    if ( video != null ) {
+      imp.setVideo( videoConverter.videoPlacementToVideo( video, item, request ) );
+    }
     String sdkver = itemSpecPlacementSdkver( item );
     if ( sdkver != null ) {
       imp.setDisplaymanagerver( sdkver );
     }
     DisplayPlacement display = itemSpecPlacementDisplay( item );
     if ( display != null ) {
-      imp.setBanner( displayConverter.bannerToDisplayPlacement( display ) );
+      imp.setBanner( displayConverter.displayPlacementToBanner( display, item, request ) );
+      imp.setNat(displayConverter.displayPlacementToNative(display, item, request));
+      imp.setInstl(display.getInstl());
+      imp.setIframebuster(new ArrayList<>(display.getIfrbust()));
+      imp.setClickbrowser(display.getClktype());
     }
     imp.setBidfloorcur( item.getFlrcur() );
     String tagid = itemSpecPlacementTagid( item );
@@ -104,10 +129,90 @@ public class ImpItemConverter {
     if ( sdk != null ) {
       imp.setDisplaymanager( sdk );
     }
+    AudioPlacement audio = itemSpecPlacementAudio( item );
+    if ( audio != null ) {
+      imp.setAudio( audioConverter.map(audio));
+    }
     imp.setId( item.getId() );
     imp.setExp( item.getExp() );
+    Integer secure = itemSpecPlacementSecure( item );
+    if ( secure != null ) {
+      imp.setSecure( secure );
+    }
+    List<net.media.openrtb3.Metric> metrics = item.getMetric();
+    if (metrics != null) {
+      List<Metric> metrics1 = new ArrayList<>(metrics.size());
+      for (net.media.openrtb3.Metric metric : metrics) {
+        metrics1.add(map(metric));
+      }
+      imp.setMetric(metrics1);
+    }
 
     return imp;
+  }
+
+  private AudioPlacement itemSpecPlacementAudio(Item item) {
+    if ( item == null ) {
+      return null;
+    }
+    Spec spec = item.getSpec();
+    if ( spec == null ) {
+      return null;
+    }
+    Placement placement = spec.getPlacement();
+    if ( placement == null ) {
+      return null;
+    }
+    AudioPlacement audio = placement.getAudio();
+    if ( audio == null ) {
+      return null;
+    }
+    return audio;
+  }
+
+  private VideoPlacement itemSpecPlacementVideo(Item item) {
+    if ( item == null ) {
+      return null;
+    }
+    Spec spec = item.getSpec();
+    if ( spec == null ) {
+      return null;
+    }
+    Placement placement = spec.getPlacement();
+    if ( placement == null ) {
+      return null;
+    }
+    VideoPlacement video = placement.getVideo();
+    if ( video == null ) {
+      return null;
+    }
+    return video;
+  }
+
+  protected Audio audioPlacementToAudio(AudioPlacement audioPlacement) {
+    if ( audioPlacement == null ) {
+      return null;
+    }
+
+    Audio audio = new Audio();
+
+    List<Integer> list = audioPlacement.getDelivery();
+    if ( list != null ) {
+      audio.setDelivery( new ArrayList<Integer>( list ) );
+    }
+    List<Integer> list1 = audioPlacement.getApi();
+    if ( list1 != null ) {
+      audio.setApi( new ArrayList<Integer>( list1 ) );
+    }
+    audio.setMaxseq( audioPlacement.getMaxseq() );
+    audio.setFeed( audioPlacement.getFeed() );
+    audio.setNvol( audioPlacement.getNvol() );
+    Map<String, Object> map = audioPlacement.getExt();
+    if ( map != null ) {
+      audio.setExt( new HashMap<String, Object>( map ) );
+    }
+
+    return audio;
   }
 
   public net.media.openrtb3.Deal map(Deal deal) {
@@ -214,6 +319,7 @@ public class ImpItemConverter {
     mappingTarget.setTagid( imp.getTagId() );
     mappingTarget.setSdk( imp.getDisplaymanager() );
     mappingTarget.setSdkver( imp.getDisplaymanagerver() );
+    mappingTarget.setSecure( imp.getSecure() );
     mappingTarget.setDisplay( displayConverter.impToDisplayPlacementMapping( imp.getBanner(), imp
       .getNat(), imp, bidRequest) );
   }
@@ -263,19 +369,24 @@ public class ImpItemConverter {
     bidRequestToPlacement( bidRequest, mappingTarget.getPlacement() );
   }
 
-  private Integer impVideoSequence(Imp imp) {
+  private Integer impSequence(Imp imp) {
     if ( imp == null ) {
       return null;
     }
     Video video = imp.getVideo();
-    if ( video == null ) {
-      return null;
+    if (nonNull(video) && nonNull(video.getSequence())) {
+      return video.getSequence();
     }
-    Integer sequence = video.getSequence();
-    if ( sequence == null ) {
-      return null;
+    Native nat = imp.getNat();
+    if (nonNull(nat) && nonNull(nat.getNativeRequestBody()) && nonNull(nat.getNativeRequestBody()
+      .getSeq())) {
+      return nat.getNativeRequestBody().getSeq();
     }
-    return sequence;
+    Banner banner = imp.getBanner();
+    if (nonNull(banner) && nonNull(banner.getExt()) && banner.getExt().containsKey("seq")) {
+      return (Integer) banner.getExt().get("seq");
+    }
+    return null;
   }
 
   protected List<Deal> dealListToDealList1(List<net.media.openrtb3.Deal> list) {
@@ -380,26 +491,92 @@ public class ImpItemConverter {
     return sdk;
   }
 
+  private net.media.openrtb3.Metric map(Metric metric) {
+    net.media.openrtb3.Metric metric1 = new net.media.openrtb3.Metric();
+    if (metric != null) {
+      metric1.setType(metric.getType());
+      metric1.setVendor(metric.getVendor());
+      metric1.setValue(metric.getValue());
+      Map<String, Object> extMap = metric.getExt();
+      if (nonNull(extMap)) {
+        metric1.setExt(new HashMap<>(extMap));
+      }
+    }
+    return metric1;
+  }
+
+  private Metric map(net.media.openrtb3.Metric metric) {
+    Metric metric1 = new Metric();
+    if (metric != null) {
+      metric1.setType(metric.getType());
+      metric1.setVendor(metric.getVendor());
+      metric1.setValue(metric.getValue());
+      Map<String, Object> extMap = metric.getExt();
+      if (nonNull(extMap)) {
+        metric1.setExt(new HashMap<>(extMap));
+      }
+    }
+    return metric1;
+  }
+
+  private Integer itemSpecPlacementSecure(Item item) {
+    if ( item == null ) {
+      return null;
+    }
+    Spec spec = item.getSpec();
+    if ( spec == null ) {
+      return null;
+    }
+    Placement placement = spec.getPlacement();
+    if ( placement == null ) {
+      return null;
+    }
+    Integer secure = placement.getSecure();
+    if ( secure == null ) {
+      return null;
+    }
+    return secure;
+  }
+
   protected void impToItemAfterMapping(Imp imp, BidRequest bidRequest, Item item) {
     if (nonNull(imp) && nonNull(imp.getExt()) && !imp.getExt().isEmpty()) {
-      if (nonNull(item)) {
-        item.setQty((Integer) imp.getExt().get("qty"));
-        item.getExt().remove("qty");
-        item.setDt((Integer) imp.getExt().get("dt"));
-        item.getExt().remove("dt");
-        item.setDlvy((Integer) imp.getExt().get("dlvy"));
-        item.getExt().remove("dlvy");
+      if (nonNull(item) && nonNull(imp.getExt())) {
+        if (imp.getExt().containsKey("qty")) {
+          item.setQty((Integer) imp.getExt().get("qty"));
+          item.getExt().remove("qty");
+        }
+        if (imp.getExt().containsKey("dt")) {
+          item.setDt((Integer) imp.getExt().get("dt"));
+          item.getExt().remove("dt");
+        }
+        if (imp.getExt().containsKey("dlvy")) {
+          item.setDlvy((Integer) imp.getExt().get("dlvy"));
+          item.getExt().remove("dlvy");
+        }
       }
-      if (nonNull(item) && nonNull(item.getSpec()) && nonNull(item.getSpec().getPlacement())) {
-        item.getSpec().getPlacement().setSsai((Integer) imp.getExt().get("ssai"));
-        item.getExt().remove("ssai");
-        item.getSpec().getPlacement().setReward((Integer) imp.getExt().get("reward"));
-        item.getExt().remove("reward");
-        item.getSpec().getPlacement().setAdmx((Integer) imp.getExt().get("admx"));
-        item.getExt().remove("admx");
-        item.getSpec().getPlacement().setCurlx((Integer) imp.getExt().get("curlx"));
-        item.getExt().remove("curlx");
+      if (nonNull(item) && nonNull(item.getSpec()) && nonNull(item.getSpec().getPlacement()) &&
+        nonNull(imp.getExt())) {
+        if (imp.getExt().containsKey("ssai")) {
+          item.getSpec().getPlacement().setSsai((Integer) imp.getExt().get("ssai"));
+          item.getExt().remove("ssai");
+        }
+        if (imp.getExt().containsKey("reward")) {
+          item.getSpec().getPlacement().setReward((Integer) imp.getExt().get("reward"));
+          item.getExt().remove("reward");
+        }
+        if (imp.getExt().containsKey("admx")) {
+          item.getSpec().getPlacement().setAdmx((Integer) imp.getExt().get("admx"));
+          item.getExt().remove("admx");
+        }
+        if (imp.getExt().containsKey("curlx")) {
+          item.getSpec().getPlacement().setCurlx((Integer) imp.getExt().get("curlx"));
+          item.getExt().remove("curlx");
+        }
       }
+    }
+    if (nonNull(item.getExt())) {
+      item.getExt().remove("ampren");
+      item.getExt().remove("ctype");
     }
   }
 }

@@ -13,6 +13,8 @@ import net.media.openrtb24.request.BidRequest;
 import net.media.openrtb24.request.Imp;
 import net.media.openrtb24.request.Video;
 import net.media.openrtb3.Companion;
+import net.media.openrtb3.Item;
+import net.media.openrtb3.Request;
 import net.media.openrtb3.VideoPlacement;
 import net.media.util.IterableNonInterableUtil;
 
@@ -83,7 +85,7 @@ public class VideoConverter {
     return videoPlacement;
   }
 
-  public Video videoPlacementToVideo(VideoPlacement videoPlacement) {
+  public Video videoPlacementToVideo(VideoPlacement videoPlacement, Item item, Request request) {
     if ( videoPlacement == null ) {
       return null;
     }
@@ -127,12 +129,24 @@ public class VideoConverter {
     if ( list3 != null ) {
       video.setApi( new HashSet<Integer>( list3 ) );
     }
+    if (nonNull(request)) {
+      if (nonNull(request.getContext())) {
+        if (nonNull(request.getContext().getRestrictions())) {
+          if (nonNull(request.getContext().getRestrictions())) {
+            if (nonNull(request.getContext().getRestrictions().getBattr())) {
+              video.setBattr(new HashSet<>(request.getContext().getRestrictions().getBattr()));
+            }
+          }
+        }
+      }
+    }
+    video.setSequence(item.getSeq());
     Map<String, Object> map = videoPlacement.getExt();
     if ( map != null ) {
       video.setExt( new HashMap<String, Object>( map ) );
     }
 
-    videoPlacementToVideoAfterMapping( videoPlacement, video );
+    videoPlacementToVideoAfterMapping( videoPlacement, item, request, video );
 
     return video;
   }
@@ -166,18 +180,22 @@ public class VideoConverter {
   protected void videoToVideoPlacementAfterMapping(Video video, Imp imp, BidRequest bidRequest,
                                                    VideoPlacement videoPlacement) {
     if (nonNull(video) && nonNull(video.getExt()) && nonNull(videoPlacement)) {
-      videoPlacement.setUnit((Integer) video.getExt().get("unit"));
-      videoPlacement.setMaxseq((Integer) video.getExt().get("maxseq"));
+      if (video.getExt().containsKey("unit")) {
+        videoPlacement.setUnit((Integer) video.getExt().get("unit"));
+        videoPlacement.getExt().remove("unit");
+      }
+      if (video.getExt().containsKey("maxseq")) {
+        videoPlacement.setMaxseq((Integer) video.getExt().get("maxseq"));
+        videoPlacement.getExt().remove("maxseq");
+      }
     }
   }
 
-  protected void videoPlacementToVideoAfterMapping(VideoPlacement videoPlacement, Video video) {
+  protected void videoPlacementToVideoAfterMapping(VideoPlacement videoPlacement, Item item,
+                                                   Request request, Video video) {
     if (nonNull(videoPlacement) && nonNull(video)) {
       if (nonNull(videoPlacement.getPlaymethod())) {
         video.setPlaybackmethod(Collections.singleton(videoPlacement.getPlaymethod()));
-      }
-      if (nonNull(videoPlacement.getExt()) && !videoPlacement.getExt().isEmpty()) {
-        video.setSequence((Integer) videoPlacement.getExt().get("sequence"));
       }
     }
   }

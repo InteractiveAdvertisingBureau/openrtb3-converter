@@ -10,10 +10,10 @@ import lombok.Setter;
 @Setter
 public class DisplayPlacement {
   private Integer pos;
-  private Integer instl;
+  private Integer instl = 0;
   private Integer topframe;
   private List<String> ifrbust;
-  private Integer clktype;
+  private Integer clktype = 1;
   private Integer ampren;
   private Integer ptype;
   private Integer context;

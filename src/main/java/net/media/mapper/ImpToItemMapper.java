@@ -35,6 +35,9 @@ public interface ImpToItemMapper {
     @Mapping(source = "imp.displaymanager", target = "spec.placement.sdk"),
     @Mapping(source = "imp.displaymanagerver", target = "spec.placement.sdkver"),
     @Mapping(source = "imp.banner", target = "spec.placement.display"),
+    @Mapping(source = "imp.video", target = "spec.placement.video"),
+    @Mapping(source = "imp.audio", target = "spec.placement.audio"),
+    @Mapping(source = "imp.secure", target = "spec.placement.secure"),
     @Mapping(source = "imp.ext", target = "ext")
   })
   Item impToItem(Imp imp);
@@ -68,6 +71,7 @@ public interface ImpToItemMapper {
     @Mapping(source = "imp.banner", target = "spec.placement.display"),
     @Mapping(source = "imp.video", target = "spec.placement.video"),
     @Mapping(source = "imp.audio", target = "spec.placement.audio"),
+    @Mapping(source = "imp.secure", target = "spec.placement.secure"),
     @Mapping(source = "imp.ext", target = "ext")
   })
   Item impToItem(Imp imp, BidRequest bidRequest);

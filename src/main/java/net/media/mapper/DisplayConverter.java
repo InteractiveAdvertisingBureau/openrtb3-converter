@@ -1,10 +1,9 @@
 package net.media.mapper;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Generated;
@@ -14,14 +13,16 @@ import net.media.openrtb24.request.Format;
 import net.media.openrtb24.request.Imp;
 import net.media.openrtb24.request.Native;
 import net.media.openrtb24.request.NativeRequest;
+import net.media.openrtb24.request.NativeRequestBody;
 import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.EventSpec;
-import net.media.openrtb3.NativeFormat;
+import net.media.openrtb3.Item;
+import net.media.openrtb3.Request;
+import net.media.util.JacksonObjectMapper;
 
 
-import org.mapstruct.MappingTarget;
-
+import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 @Generated(
@@ -31,11 +32,10 @@ import static java.util.Objects.nonNull;
 )
 public class DisplayConverter {
 
-  private static final ObjectMapper MAPPER = new ObjectMapper();
-
   private final NativeConverter nativeConverter = new NativeConverter();
 
-  public Banner bannerToDisplayPlacement(DisplayPlacement displayPlacement) {
+  public Banner displayPlacementToBanner(DisplayPlacement displayPlacement, Item item, Request
+    request) {
     if ( displayPlacement == null ) {
       return null;
     }
@@ -59,8 +59,65 @@ public class DisplayConverter {
     if ( map != null ) {
       banner.setExt( new HashMap<String, Object>( map ) );
     }
-
+    if (nonNull(item.getSeq())) {
+      banner.getExt().put("seq", item.getSeq());
+    }
+    if (nonNull(request)) {
+      if (nonNull(request.getContext())) {
+        if (nonNull(request.getContext().getRestrictions())) {
+          if (nonNull(request.getContext().getRestrictions())) {
+            if (nonNull(request.getContext().getRestrictions().getBattr())) {
+              banner.setBattr(new HashSet<>(request.getContext().getRestrictions().getBattr()));
+            }
+          }
+        }
+      }
+    }
     return banner;
+  }
+
+  public Native displayPlacementToNative(DisplayPlacement displayPlacement, Item item, Request
+    request) {
+    if (displayPlacement == null) {
+      return null;
+    }
+    NativeRequestBody nativeRequestBody = nativeConverter.map(displayPlacement.getNativefmt());
+    if (isNull(nativeRequestBody)) {
+      return null;
+    }
+    NativeRequest nativeRequest = new NativeRequest();
+    nativeRequest.setNativeRequestBody(nativeConverter.map(displayPlacement.getNativefmt()));
+    if (nonNull(nativeRequest.getNativeRequestBody())) {
+      nativeRequest.getNativeRequestBody().setContext(displayPlacement.getContext());
+      nativeRequest.getNativeRequestBody().setPlcmttype(displayPlacement.getPtype());
+      nativeRequest.getNativeRequestBody().setPlcmtcnt(item.getQty());
+      nativeRequest.getNativeRequestBody().setSeq(item.getSeq());
+    }
+    Native nat = new Native();
+    List<Integer> api = displayPlacement.getApi();
+    if ( api != null ) {
+      nat.setApi( new ArrayList<Integer>( api ) );
+    }
+    if (nonNull(request)) {
+      if (nonNull(request.getContext())) {
+        if (nonNull(request.getContext().getRestrictions())) {
+          if (nonNull(request.getContext().getRestrictions())) {
+            if (nonNull(request.getContext().getRestrictions().getBattr())) {
+              nat.setBattr(new HashSet<>(request.getContext().getRestrictions().getBattr()));
+            }
+          }
+        }
+      }
+    }
+    if (nonNull(displayPlacement.getExt())) {
+      nat.setVer((String) displayPlacement.getExt().get("nativeversion"));
+    }
+    nat.setRequest(nativeRequest);
+    Map<String, Object> map = displayPlacement.getExt();
+    if ( map != null ) {
+      nat.setExt( new HashMap<String, Object>( map ) );
+    }
+    return nat;
   }
 
   public DisplayPlacement impToDisplayPlacementMapping(Banner banner, Native nat, Imp imp, BidRequest bidRequest) {
@@ -83,10 +140,6 @@ public class DisplayConverter {
       displayPlacement.setH( banner.getH() );
     }
     if ( imp != null ) {
-      Map<String, Object> map = imp.getExt();
-      if ( map != null ) {
-        displayPlacement.setExt( new HashMap<String, Object>( map ) );
-      }
       displayPlacement.setClktype( imp.getClickbrowser() );
       List<String> list2 = imp.getIframebuster();
       if ( list2 != null ) {
@@ -193,26 +246,36 @@ public class DisplayConverter {
   protected void displayPlacementToImpAfterMapping(Banner banner, Native nat, Imp imp, BidRequest
     bidRequest, DisplayPlacement displayPlacement) {
     if (nonNull(imp.getExt()) && !imp.getExt().isEmpty() && nonNull(displayPlacement)) {
-      displayPlacement.setAmpren((Integer) imp.getExt().get("ampren"));
-      displayPlacement.setCtype((List<Integer>) imp.getExt().get
-        ("ctype"));
-      displayPlacement.setUnit((Integer) imp.getExt().get("unit"));
-      displayPlacement.setPriv((Integer) imp.getExt().get("priv"));
-      displayPlacement.setEvent((EventSpec) imp.getExt().get("event"));
+      if (imp.getExt().containsKey("ampren")) {
+        displayPlacement.setAmpren((Integer) imp.getExt().get("ampren"));
+      }
+      if (imp.getExt().containsKey("ctype")) {
+        displayPlacement.setCtype((List<Integer>) imp.getExt().get("ctype"));
+      }
+      if (imp.getExt().containsKey("unit")) {
+        displayPlacement.setUnit((Integer) imp.getExt().get("unit"));
+      }
+      if (imp.getExt().containsKey("priv")) {
+        displayPlacement.setPriv((Integer) imp.getExt().get("priv"));
+      }
+      if (imp.getExt().containsKey("event")) {
+        displayPlacement.setEvent((EventSpec) imp.getExt().get("event"));
+      }
     }
     if (nonNull(nat)) {
       if (nonNull(nat.getRequest())) {
         NativeRequest nativeRequest = null;
-        if (nat.getRequest() instanceof NativeRequest) {
-          nativeRequest = (NativeRequest) nat.getRequest();
-        } else {
+        if (nat.getRequest() instanceof String) {
           String nativeRequestString = (String) nat.getRequest();
           try {
-            nativeRequest = MAPPER.readValue(nativeRequestString,
+            nativeRequest = JacksonObjectMapper.getMapper().readValue(nativeRequestString,
               NativeRequest.class);
           } catch (IOException e) {
             e.printStackTrace();
           }
+        } else {
+          nativeRequest = JacksonObjectMapper.getMapper().convertValue(nat.getRequest(),
+            NativeRequest.class);
         }
         if (nonNull(nativeRequest) && nonNull(nativeRequest.getNativeRequestBody())) {
           displayPlacement.setPtype(nativeRequest.getNativeRequestBody().getPlcmttype());

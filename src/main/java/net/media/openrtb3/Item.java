@@ -14,17 +14,17 @@ import java.util.Map;
 @Setter
 public class Item {
   private String id;
-  private Integer qty;
+  private Integer qty = 1;
   private Integer seq;
   private double flr;
-  private String flrcur;
+  private String flrcur = "USD";
   private Integer exp;
   private Integer dt;
-  private Integer dlvy;
-  private Metric[] metric;
+  private Integer dlvy = 0;
+  private List<Metric> metric;
   private List<Deal> deal;
   @JsonProperty("private")
-  private Integer priv;
+  private Integer priv = 0;
   private Spec spec;
   private Map<String, Object> ext;
 }

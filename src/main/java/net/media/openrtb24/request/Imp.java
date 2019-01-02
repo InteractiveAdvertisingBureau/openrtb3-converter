@@ -51,6 +51,8 @@ public class Imp extends AbstractExtensible<Imp.ImpReqExt> {
 
   private Integer exp;
 
+  List<Metric> metric;
+
   private Map<String, Object> ext;
 
   private transient String originalTagId;

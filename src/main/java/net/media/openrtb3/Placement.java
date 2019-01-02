@@ -13,10 +13,10 @@ import lombok.Setter;
 @Setter
 public class Placement {
   private String tagid;
-  private Integer ssai;
+  private Integer ssai = 0;
   private String sdk;
   private String sdkver;
-  private Integer reward;
+  private Integer reward = 0;
   private List<String> wlang;
   private Integer secure;
   private Integer admx;

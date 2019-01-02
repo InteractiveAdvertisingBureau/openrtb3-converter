@@ -41,7 +41,7 @@
     "bidfloor": 0.03,
     "bidfloorcur": "USD",
     "pmp": {
-      "private_auction": 1,
+      "private_auction": 0,
       "deals": [{
         "id": "ww",
         "bidfloor": 0,
@@ -65,34 +65,70 @@
     "instl": 0,
     "tagid": "re",
     "exp": 1,
-    "banner": {
-      "id": "dd",
-      "format": [{
-        "w": 200,
-        "h": 20
-      }, {
-        "w": 33,
-        "h": 11
-      }],
-      "h": 250,
-      "w": 300,
-      "wmax": 22,
-      "hmax": 11,
-      "wmin": 1,
-      "hmin": 9,
-      "btype": [3, 4],
-      "battr": [1, 2],
-      "topframe": 22,
-      "expdir": [3, 9],
-      "api": [3, 2],
-      "vcm": 22,
-      "mimes": ["application/x-shockwave-flash",
-        "image/jpg"
-      ],
-      "pos": 0,
-      "ext": {
-        "dummy": "ffaa",
-        "seq": 1
+    "native": {
+      "request": {
+        "native": {
+          "ver":"1.1",
+          "context":1,
+          "contextsubtype":10,
+          "plcmttype":11,
+          "plcmtcnt":1,
+          "assets":[
+            {
+              "id": 4,
+              "video": {
+                "linearity": 1,
+                "minduration": 15,
+                "maxduration": 30,
+                "protocols": [
+                  2,3
+                ],
+                "mimes": ["video/mp4"]
+              }
+            },
+            {
+              "id":123,
+              "required":1,
+              "title":{
+                "len":140
+              }
+            },
+            {
+              "id":128,
+              "required":0,
+              "img":{
+                "wmin":836,
+                "hmin":627,
+                "type":3
+              }
+            },
+            {
+              "id":124,
+              "required":1,
+              "img":{
+                "wmin":50,
+                "hmin":50,
+                "type":1
+              }
+            },
+            {
+              "id":126,
+              "required":1,
+              "data":{
+                "type":1,
+                "len":25
+              }
+            },
+            {
+              "id":127,
+              "required":1,
+              "data":{
+                "type":2,
+                "len":140
+              }
+            }
+          ]
+        }
       }
     },
     "ext": {
@@ -103,9 +139,7 @@
       "admx": 1,
       "curlx": 0,
       "ampren": 1,
-      "ctype": [1],
-      "ssai": 1,
-      "reward": 1
+      "ctype": [1]
     }
   }],
   "site": {
