@@ -1,14 +1,12 @@
 package net.media.openrtb24.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.util.List;
 import java.util.Map;
 
 import lombok.Data;
 
-import static java.util.Objects.nonNull;
 
 @Data
 public class Imp extends AbstractExtensible<Imp.ImpReqExt> {

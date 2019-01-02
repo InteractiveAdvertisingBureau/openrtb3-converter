@@ -8,7 +8,9 @@
     <artifactId>open-rtb-converter</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <jackson.version>2.9.7</jackson.version>
+        <jackson.version>2.8.0</jackson.version>
+        <dropwizard.version>1.1.0</dropwizard.version>
+        <guice.version>3.0</guice.version>
     </properties>
 
     <build>
@@ -101,7 +103,7 @@
                             </filters>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.medianet.rtb.mowgli.adexchange.Application</mainClass>
+                                    <mainClass>net.media.api.ConverterApplication</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
@@ -140,6 +142,23 @@
     <packaging>jar</packaging>
 
     <dependencies>
+
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-assets</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-core</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>${guice.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -215,6 +234,11 @@
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>1.1.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.collections</groupId>
+            <artifactId>google-collections</artifactId>
+            <version>1.0</version>
         </dependency>
 
 

@@ -97,7 +97,7 @@
               </filters>
               <transformers>
                 <transformer>
-                  <mainClass>com.medianet.rtb.mowgli.adexchange.Application</mainClass>
+                  <mainClass>net.media.api.ConverterApplication</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -122,6 +122,8 @@
     </plugins>
   </build>
   <properties>
+    <guice.version>3.0</guice.version>
+    <dropwizard.version>1.1.0</dropwizard.version>
     <jackson.version>2.9.7</jackson.version>
   </properties>
 </project>

@@ -17,7 +17,7 @@ public class Geo extends AbstractExtensible<Geo.GeoReqExt> {
   private String metro;
   private String city;
   private String zip;
-  private Integer uTCOffset;
+  private Integer utcoffset;
   private String country;
   private Float lat;
   private Float lon;
@@ -30,7 +30,7 @@ public class Geo extends AbstractExtensible<Geo.GeoReqExt> {
     return (isNull(this.type) && isNull(this.lat) && isNull(this.lon) &&
       isNull(this.country) && StringUtils.isBlank(this.region) && StringUtils.isBlank(this.regionfips104) &&
       StringUtils.isBlank(this.metro) && StringUtils.isBlank(this.city) && StringUtils.isBlank(this.zip) &&
-      isNull(this.uTCOffset) && isNull(this.ext));
+      isNull(this.utcoffset) && isNull(this.ext));
   }
 
   public Geo(){
