@@ -1510,27 +1510,27 @@ public class RequestConverter {
     .openrtb3.Source source) {
     if(source == null)
       return;
-    if(source.getTs() == null) {
+    if(source.getTs() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
       target.getExt().put("ts", source.getTs());
     }
-    if(source.getDs() == null) {
+    if(source.getDs() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
       target.getExt().put("ds", source.getDs());
     }
-    if(source.getDsmap() == null) {
+    if(source.getDsmap() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
       target.getExt().put("dsMap", source.getDsmap());
     }
-    if(source.getCert() == null) {
+    if(source.getCert() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
       target.getExt().put("cert", source.getCert());
     }
-    if(source.getDigest() == null) {
+    if(source.getDigest() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
       target.getExt().put("digest", source.getDigest());
@@ -1547,12 +1547,12 @@ public class RequestConverter {
   protected void mapSiteTo24(net.media.openrtb24.request.Site target, Site source) {
     if(source == null)
       return;
-    if(source.getCattax() == null) {
+    if(source.getCattax() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
       target.getExt().put("cattax", source.getCattax());
     }
-    if(source.getAmp() == null) {
+    if(source.getAmp() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
       target.getExt().put("amp", source.getAmp());
@@ -1562,12 +1562,12 @@ public class RequestConverter {
   protected void mapAppTo24(net.media.openrtb24.request.App target, App source) {
     if(source == null)
       return;
-    if(source.getCattax() == null) {
+    if(source.getCattax() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
       target.getExt().put("cattax", source.getCattax());
     }
-    if(source.getStoreid() == null) {
+    if(source.getStoreid() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
       target.getExt().put("amp", source.getStoreid());
@@ -1578,7 +1578,7 @@ public class RequestConverter {
     .openrtb3.Content source) {
     if(source == null)
       return;
-    if(source.getCattax() == null) {
+    if(source.getCattax() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
       target.getExt().put("cattax", source.getCattax());
@@ -1589,7 +1589,7 @@ public class RequestConverter {
     source) {
     if(source == null)
       return;
-    if(source.getCattax() == null) {
+    if(source.getCattax() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
       target.getExt().put("cattax", source.getCattax());
@@ -1600,7 +1600,7 @@ public class RequestConverter {
     .openrtb3.User source) {
     if(source == null)
       return;
-    if(source.getConsent() == null) {
+    if(source.getConsent() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
       target.getExt().put("consent", source.getConsent());

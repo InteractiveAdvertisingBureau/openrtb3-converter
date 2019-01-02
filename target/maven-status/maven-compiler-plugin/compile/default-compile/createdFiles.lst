@@ -10,6 +10,7 @@ net/media/openrtb3/AudioPlacement.class
 net/media/openrtb3/User.class
 net/media/openrtb24/request/NativeRequest$NativeRequestReqExt.class
 net/media/openrtb3/TitleAsset.class
+net/media/api/controllers/ConverterController.class
 net/media/openrtb3/Corr.class
 net/media/openrtb3/Geo.class
 net/media/openrtb24/request/Site.class
@@ -67,6 +68,7 @@ net/media/openrtb24/request/NativeData.class
 net/media/openrtb3/Restrictions.class
 net/media/openrtb24/request/Ext.class
 net/media/openrtb24/request/Content$Ext.class
+net/media/api/ConverterModule.class
 net/media/openrtb3/VideoAsset.class
 net/media/openrtb3/Banner.class
 net/media/openrtb24/request/Regs$RegsReqExt.class
@@ -114,6 +116,7 @@ net/media/openrtb3/Companion.class
 net/media/mapper/CompanionToBannerMapperImpl.class
 net/media/openrtb24/request/Format.class
 net/media/openrtb24/request/Publisher$PubReqExt.class
+net/media/api/ConverterApplication.class
 net/media/openrtb24/request/NativeVideo.class
 net/media/openrtb3/Request.class
 net/media/mapper/BannerToDisplayPlacementMapper.class
