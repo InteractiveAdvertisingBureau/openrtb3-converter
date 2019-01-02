@@ -1,21 +1,27 @@
 package net.media.openrtb3;
 
-import java.util.List;
+import lombok.Data;
 
+import java.util.List;
+import java.util.Map;
+
+@Data
 public class Bid {
 
-  private String id;
-  private String item;
-  private String deal;
-  private Double price;
-  private String cid;
-  private String tactic;
-  private String purl;
-  private String burl;
-  private String lurl;
-  private Integer exp;
-  private String mid;
+  private String id;//
+  private String item;//bid.impid
+  private String deal;//bid.dealid
+  private Double price; //
+  private String cid;//
+  private String tactic;//bid.ext.tactic
+  private String purl;//bid.nurl
+  private String burl;//
+  private String lurl;//
+  private Integer exp;//
+  private String mid;//bid.ext.mid
+  //Todo code change  for  this  field
   private List<Macro> macro = null;
-  private Media media;
+  private Media media;//ext+Bid
+  private Map<String,Object> ext;
 
 }

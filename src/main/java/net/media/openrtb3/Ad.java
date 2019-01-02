@@ -1,25 +1,31 @@
 package net.media.openrtb3;
 
+import java.util.List;
+import java.util.Map;
+
+import lombok.*;
+
 /**
  * Created by shiva.b on 17/12/18.
  */
+@lombok.Data
 public class Ad {
 
-  private String id;
-  private String[] adomain;
-  private String[] bundle;
-  private String iurl;
-  private String[] cat;
-  private Integer cattax;
-  private String lang;
-  private Integer[] attr;
-  private Integer secure;
-  private Integer mrating;
-  private Integer init;
-  private Integer lastmod;
+  private String id;//bid.crid
+  private List<String> adomain = null;//bid
+  private List<String> bundle = null;//bid(String to  List)
+  private String iurl;//bid
+  private List<String> cat = null;//bid
+  private Integer cattax;//bid.ext
+  private String lang;//bid.language
+  private List<Integer> attr = null;//bid
+  private Integer secure;//bid.ext
+  private Integer mrating;//bid.ext
+  private Integer init;//bid.ext
+  private Integer lastmod;//bid.ext
   private Display display;
   private Video video;
   private Audio audio;
-  private Audio audit;
-  private Object ext;
+  private Audit audit;
+  private Map<String, Object> ext;
 }

@@ -6,7 +6,6 @@ target
 .idea*
 *.iml
 .DS_STORE
-/.gitignore
 ### Java template
 *.class
 *.pyc

@@ -1,0 +1,161 @@
+[
+  {
+    "description" : "Example 1 – Ad Served on Win Notice",
+    "type" : "BANNER",
+    "response25" : {
+      "id": "1234567890",
+      "bidid": "abc1123",
+      "cur": "USD",
+      "seatbid": [
+        {
+          "seat": "512",
+          "bid": [
+            {
+              "id": "1",
+              "impid": "102",
+              "price": 9.43,
+              "nurl": "http://adserver.com/winnotice?impid=102",
+              "iurl": "http://adserver.com/pathtosampleimage",
+              "adomain": [ "advertiserdomain.com" ],
+              "cid": "campaign111",
+              "crid": "creative112",
+              "attr": [ 1, 2, 3, 4, 5, 6, 7, 12 ],
+              "adm": "some adm"
+            }
+          ]
+        }
+      ]
+    },
+    "response30" : {
+      "id": "1234567890",
+      "bidid": "abc1123",
+      "cur": "USD",
+      "seatbid": [
+        {
+          "seat": "512",
+          "bid": [
+            {
+              "id": "1",
+              "item": "102",
+              "price": 9.43,
+              "purl": "http://adserver.com/winnotice?impid=102",
+              "cid": "campaign111",
+              "media": {
+                "ad": {
+                  "id": "creative112",
+                  "attr": [ 1, 2, 3, 4, 5, 6, 7, 12 ],
+                  "adomain": [ "advertiserdomain.com" ],
+                  "iurl": "http://adserver.com/pathtosampleimage",
+                  "display" : {
+                    "adm": "some adm"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "description" : "Example 2 – VAST XML Document Returned Inline",
+    "type" : "VIDEO",
+    "response25":{
+      "id": "123",
+      "seatbid": [
+        {
+          "bid": [
+            {
+              "id": "12345",
+              "impid": "2",
+              "price": 3.00,
+              "nurl": "http://example.com/winnoticeurl",
+              "adm": "some random adm"
+            }
+          ]
+        }
+      ]
+    },
+    "response30" : {
+      "id": "123",
+      "seatbid": [
+        {
+          "bid": [
+            {
+              "id": "12345",
+              "item": "2",
+              "price": 3.00,
+              "purl": "http://example.com/winnoticeurl",
+              "media": {
+                "ad": {
+                  "video" : {
+                    "adm": "some random adm"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "description" : "Example 3 – Direct Deal Ad Served on Win Notice",
+    "type": "BANNER",
+    "response25" : {
+      "id": "1234567890",
+      "bidid": "abc1123",
+      "cur": "USD",
+      "seatbid": [
+        {
+          "seat": "512",
+          "bid": [
+            {
+              "id": "1",
+              "impid": "102",
+              "price": 5.00,
+              "dealid": "ABC-1234-6789",
+              "nurl": "http: //adserver.com/winnotice?impid=102",
+              "adomain": [ "advertiserdomain.com" ],
+              "iurl": "http: //adserver.com/pathtosampleimage",
+              "cid": "campaign111",
+              "crid": "creative112",
+              "adid": "314",
+              "attr": [ 1, 2, 3, 4 ]
+            }
+          ]
+        }
+      ]
+    },
+    "response30" : {
+      "id": "1234567890",
+      "bidid": "abc1123",
+      "cur": "USD",
+      "seatbid": [
+        {
+          "seat": "512",
+          "bid": [
+            {
+              "id": "1",
+              "item": "102",
+              "price": 5.00,
+              "deal": "ABC-1234-6789",
+              "purl": "http: //adserver.com/winnotice?impid=102",
+              "cid": "campaign111",
+              "media": {
+                "ad": {
+                  "id" : "creative112",
+                  "attr": [ 1, 2, 3, 4 ],
+                  "adomain": [ "advertiserdomain.com" ],
+                  "iurl": "http: //adserver.com/pathtosampleimage",
+                  "display" : {
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

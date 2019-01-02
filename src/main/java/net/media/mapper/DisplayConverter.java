@@ -1,5 +1,7 @@
 package net.media.mapper;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,6 +9,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Generated;
+
+import net.media.config.Config;
 import net.media.openrtb24.request.Banner;
 import net.media.openrtb24.request.BidRequest;
 import net.media.openrtb24.request.Format;
@@ -86,7 +90,7 @@ public class DisplayConverter {
       return null;
     }
     NativeRequest nativeRequest = new NativeRequest();
-    nativeRequest.setNativeRequestBody(nativeConverter.map(displayPlacement.getNativefmt()));
+    nativeRequest.setNativeRequestBody(nativeRequestBody);
     if (nonNull(nativeRequest.getNativeRequestBody())) {
       nativeRequest.getNativeRequestBody().setContext(displayPlacement.getContext());
       nativeRequest.getNativeRequestBody().setPlcmttype(displayPlacement.getPtype());
@@ -112,7 +116,16 @@ public class DisplayConverter {
     if (nonNull(displayPlacement.getExt())) {
       nat.setVer((String) displayPlacement.getExt().get("nativeversion"));
     }
-    nat.setRequest(nativeRequest);
+    Config config = new Config();
+    if (config.isNativeRequestAsString()) {
+      try {
+        nat.setRequest(JacksonObjectMapper.getMapper().writeValueAsString(nativeRequest));
+      } catch (JsonProcessingException e) {
+
+      }
+    } else {
+      nat.setRequest(nativeRequest);
+    }
     Map<String, Object> map = displayPlacement.getExt();
     if ( map != null ) {
       nat.setExt( new HashMap<String, Object>( map ) );

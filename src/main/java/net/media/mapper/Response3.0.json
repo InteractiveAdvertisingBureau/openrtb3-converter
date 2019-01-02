@@ -1,0 +1,53 @@
+{
+    "id": "0123456789ABCDEF",
+    "bidid": "0011223344AABBCC",
+    "seatbid": [{
+      "seat": "XYZ",
+      "bid": [{
+        "id": "yaddayadda",
+        "item": "1",
+        "deal": "1234",
+        "price": 1.50,
+        "tactic": "...",
+        "purl": "...",
+        "burl": "...",
+        "lurl": "...",
+        "mid": "...",
+        "cid": "campaign-xyz.123",
+        "macro": [{
+          "key": "TIMESTAMP",
+          "value": "1127987134"
+        },
+          {
+            "key": "CLICKTOKEN",
+            "value": "A7D800F2716DB"
+          }
+        ],
+        "media": {
+          "ad": {
+            "id": "d0bcb39723af87c2bb00942afee5710e",
+            "adomain": ["ford.com"],
+            "secure": 1,
+            "display": {
+              "mime": "image/jpeg",
+              "ctype": 3,
+              "w": 320,
+              "h": 50,
+              "banner": {
+                "img": "https://somebuyer.com/creative",
+                "link": {
+                  "url": "https://somebuyer.com/click",
+                  "urlfb": "https://somebuyer.com"
+                }
+              },
+              "event": [{
+                "type": 1,
+                "method": 1,
+                "url": "https://somebuyer.com/pixel"
+              }]
+            }
+          }
+        }
+      }]
+    }]
+}

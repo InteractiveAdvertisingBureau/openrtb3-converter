@@ -2,6 +2,8 @@ package net.media.openrtb3;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +15,7 @@ import java.util.Map;
 @Getter
 @Setter
 public class Item {
+  @NotEmpty
   private String id;
   private Integer qty = 1;
   private Integer seq;

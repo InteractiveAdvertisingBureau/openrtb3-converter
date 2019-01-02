@@ -15,26 +15,14 @@ import lombok.Data;
 @Data
 public class BidResponse {
 
-  private String id;
-
-  @JsonProperty(value = "seatbid")
-  private List<SeatBid> seatBid = new ArrayList<>();
-  @JsonProperty("bidid")
-  private String bidId;
-  private String cur;
-  private String customdata;
-  private Integer nbr;
-  private Map<String, Object> ext;
+  private String id;//
+  private List<SeatBid> seatbid = new ArrayList<>();//
+  private String bidid;//
+  private String cur;//
+  private String customdata;//response.ext
+  private Integer nbr;//
+  private Map<String, Object> ext;//
 
   public static final String ENCRYPT_PRICE_FLAG = "encrypt_price";
 
-  public BidResponse() {
-  }
-
-  public SeatBid getWinnerSeat() {
-    if (seatBid == null || seatBid.isEmpty()) {
-      return null;
-    }
-    return seatBid.get(0);
-  }
 }
