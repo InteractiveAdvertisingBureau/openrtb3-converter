@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ce24c19-3d72-44fb-8e44-f74ecd788224" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/media/mapper/OpenRtb24To3MapperImpl.java" afterPath="$PROJECT_DIR$/src/main/java/net/media/mapper/OpenRtb24To3MapperImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/net/media/config/Config.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/net/media/config/ConfigSupport.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/open-rtb-converter.iml" afterPath="$PROJECT_DIR$/open-rtb-converter.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="open-rtb-converter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,21 +28,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Response.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb3/Response.java">
+      <file leaf-file-name="OpenRtb24To3Mapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/media/mapper/OpenRtb24To3Mapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="525">
+              <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpenRtb24To3MapperImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OpenRtb24To3MapperImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/media/mapper/OpenRtb24To3MapperImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="820" column="38" selection-start-line="820" selection-start-column="38" selection-end-line="820" selection-end-column="38" />
+            <state relative-caret-position="510">
+              <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#19154#19155#0" expanded="true" />
@@ -46,6 +50,48 @@
                 <element signature="e#19246#19247#0" expanded="true" />
                 <element signature="e#19283#19284#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Config.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/media/config/Config.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConfigSupport.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/media/config/ConfigSupport.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="36" column="53" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="151" column="20" selection-start-line="151" selection-start-column="20" selection-end-line="151" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Banner.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb3/Banner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -80,51 +126,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Native.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb3/Native.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LinkAsset.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb3/LinkAsset.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Link.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb24/response/nativeresponse/Link.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AssetResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb24/response/nativeresponse/AssetResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bid.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb24/response/Bid.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+            <state relative-caret-position="180">
+              <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -202,7 +208,6 @@
         <option value="$PROJECT_DIR$/src/main/java/net/media/openrtb3/LinkAsset.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/media/openrtb3/Event.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/media/mapper/Response2.5.json" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/net/media/25To30Test.json" />
         <option value="$PROJECT_DIR$/src/main/java/net/media/mapper/ResponseTestPojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/media/mapper/OpenRtb24To3Mapper.java" />
@@ -210,6 +215,8 @@
         <option value="$PROJECT_DIR$/src/main/resources/25To30Test.json" />
         <option value="$PROJECT_DIR$/src/main/java/net/media/openrtb3/Audit.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/media/mapper/OpenRtb24To3MapperImpl.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/net/media/config/ConfigSupport.java" />
       </list>
     </option>
   </component>
@@ -328,14 +335,6 @@
               <option name="myItemId" value="media" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openrtb24" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="response" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -363,131 +362,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="openrtb24" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="response" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nativeresponse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="open-rtb-converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openrtb-converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="media" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openrtb24" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="open-rtb-converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openrtb-converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="media" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openrtb3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="open-rtb-converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openrtb-converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="media" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="open-rtb-converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openrtb-converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="media" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapper" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -506,7 +381,7 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="NativeRes&#9;PSI&#9;JAVA://net.media.openrtb24.response.nativeresponse.NativeResponse&#10;Bid&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb24/response/Bid.java&#10;Dis&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb3/Display.java&#10;Media&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb3/Media.java&#10;Na&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb24/request/Native.java&#10;Nat&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb3/Native.java&#10;AdTy&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/enums/AdType.java&#10;Ad&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb3/Ad.java&#10;Res&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb3/Response.java&#10;Even&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Event.java&#10;LinkA&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/LinkAsset.java&#10;Ban&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Banner.java&#10;Macro&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Macro.java&#10;macro&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Macro.java&#10;Audi&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Audit.java&#10;DI&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Display.java&#10;video&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Video.java&#10;Displ&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Display.java&#10;Au&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Audit.java&#10;bid&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/response/Bid.java&#10;Sea&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Seatbid.java&#10;SeatBi&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/response/SeatBid.java&#10;BidResponse&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/response/BidResponse.java&#10;Response&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Response.java&#10;Med&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Media.java&#10;Banner&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Banner.java&#10;Audio&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Audio.java&#10;Medi&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Media.java&#10;Native&#9;PSI&#9;JAVA://net.media.openrtb3.Native&#10;nati&#9;PSI&#9;JAVA://net.media.openrtb24.request.Native&#10;response&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Response.java" />
+    <property name="SearchEverywhereHistoryKey" value="Banner&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb3/Banner.java&#10;NativeRes&#9;PSI&#9;JAVA://net.media.openrtb24.response.nativeresponse.NativeResponse&#10;Bid&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb24/response/Bid.java&#10;Dis&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb3/Display.java&#10;Media&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb3/Media.java&#10;Na&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb24/request/Native.java&#10;Nat&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb3/Native.java&#10;AdTy&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/enums/AdType.java&#10;Ad&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb3/Ad.java&#10;Res&#9;FILE&#9;file:///Users/shiva.b/Desktop/openrtb-converter/src/main/java/net/media/openrtb3/Response.java&#10;Even&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Event.java&#10;LinkA&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/LinkAsset.java&#10;Ban&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Banner.java&#10;Macro&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Macro.java&#10;macro&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Macro.java&#10;Audi&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Audit.java&#10;DI&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Display.java&#10;video&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Video.java&#10;Displ&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Display.java&#10;Au&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Audit.java&#10;bid&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/response/Bid.java&#10;Sea&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Seatbid.java&#10;SeatBi&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/response/SeatBid.java&#10;BidResponse&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb24/response/BidResponse.java&#10;Response&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Response.java&#10;Med&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Media.java&#10;Audio&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Audio.java&#10;Medi&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Media.java&#10;Native&#9;PSI&#9;JAVA://net.media.openrtb3.Native&#10;nati&#9;PSI&#9;JAVA://net.media.openrtb24.request.Native&#10;response&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/src/main/java/net/media/openrtb3/Response.java" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="FullScreen" value="true" />
   </component>
@@ -1190,12 +1065,12 @@
       <workItem from="1545032918152" duration="19133000" />
       <workItem from="1545205394139" duration="35205000" />
       <workItem from="1545797027917" duration="7401000" />
-      <workItem from="1545805794465" duration="18520000" />
+      <workItem from="1545805794465" duration="24771000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86922000" />
+    <option name="totallyTimeSpent" value="93173000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1221,7 +1096,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21949404" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1858618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12470215" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1263,22 +1138,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb3/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb3/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb3/DataAsset.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -1363,14 +1222,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2010">
-          <caret line="134" column="26" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/media/mapper/Response2.5.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1396,14 +1247,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb3/Banner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1520,16 +1363,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/media/mapper/OpenRtb24To3Mapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb3/Ad.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1570,14 +1403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb3/LinkAsset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb3/Native.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1610,16 +1435,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb3/Banner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/media/openrtb3/LinkAsset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/media/mapper/OpenRtb24To3Mapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/media/mapper/OpenRtb24To3MapperImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="820" column="38" selection-start-line="820" selection-start-column="38" selection-end-line="820" selection-end-column="38" />
+        <state relative-caret-position="510">
+          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#19154#19155#0" expanded="true" />
             <element signature="e#19183#19184#0" expanded="true" />
             <element signature="e#19246#19247#0" expanded="true" />
             <element signature="e#19283#19284#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/media/config/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="151" column="20" selection-start-line="151" selection-start-column="20" selection-end-line="151" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/media/config/ConfigSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="53" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
