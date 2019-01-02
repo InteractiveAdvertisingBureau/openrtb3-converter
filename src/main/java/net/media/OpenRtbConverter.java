@@ -4,16 +4,11 @@ import net.media.config.Config;
 import net.media.converters.BidRequestToOpenRtbConverter;
 import net.media.converters.BidResponseToOpenRtbConverter;
 import net.media.converters.Converter;
-import net.media.enums.AdType;
-import net.media.enums.OpenRtbType;
 import net.media.mapper.OpenRtb24To3MapperImpl;
 import net.media.openrtb24.request.BidRequest;
 import net.media.openrtb24.response.BidResponse;
 import net.media.openrtb3.OpenRTB;
-import net.media.openrtb3.Response;
 import net.media.utils.Provider;
-
-import java.util.HashMap;
 
 /**
  * @author shiva.b

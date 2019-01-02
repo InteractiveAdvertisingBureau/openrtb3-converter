@@ -8,6 +8,13 @@ import net.media.openrtb24.request.BidRequest;
  * Created by shiva.b on 02/01/19.
  */
 public class BidRequestToOpenRtbConverter implements Converter<BidRequest, OpenRtbConverter> {
+
+  private BidRequestToRequestConverter bidRequestToRequestConverter;
+
+  public BidRequestToOpenRtbConverter() {
+    this.bidRequestToRequestConverter = new BidRequestToRequestConverter();
+  }
+
   @Override
   public OpenRtbConverter map(BidRequest source, Config config) {
     return null;
