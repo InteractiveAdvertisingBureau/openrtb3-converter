@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import lombok.Data;
 
 /**
@@ -12,6 +15,8 @@ import lombok.Data;
 @Data
 public class SeatBid {
 
+  @NotNull
+  @Valid
   private List<Bid> bid = new ArrayList<>();//
 
   private String seat;//

@@ -1,11 +1,16 @@
 package net.media.openrtb3;
 
+import net.media.utils.validator.CheckExactlyOneNotNull;
+
 import java.util.List;
 import java.util.Map;
+
+import javax.validation.Valid;
 
 import lombok.*;
 
 @lombok.Data
+@CheckExactlyOneNotNull(fieldNames = {"adm", "banner", "_native", "curl"})
 public class Display {
 
   private String mime;
@@ -18,8 +23,11 @@ public class Display {
   private String priv;//bid.ext.priv
   private Object adm;//bid.adm
   private String curl;//bid.ext.curl
+  @Valid
   private Banner banner;//
+  @Valid
   private Native _native;
+  @Valid
   private List<Event> event = null;
   private Map<String,Object> ext;
 }
