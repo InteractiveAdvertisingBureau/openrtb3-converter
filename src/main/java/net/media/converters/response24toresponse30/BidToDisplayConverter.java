@@ -5,13 +5,18 @@ import net.media.converters.Converter;
 import net.media.enums.AdType;
 import net.media.openrtb24.response.Bid;
 import net.media.openrtb24.response.nativeresponse.NativeResponse;
+import net.media.openrtb3.Banner;
 import net.media.openrtb3.Display;
+import net.media.openrtb3.Event;
 import net.media.openrtb3.Native;
 import net.media.utils.Utils;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import static java.util.Objects.nonNull;
 
 /**
  * @author shiva.b
@@ -68,6 +73,20 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     }
     else if (config.getAdType() == AdType.BANNER) {
       target.setAdm(source.getAdm());
+    }
+    if (nonNull(source.getExt())) {
+      Map<String, Object> ext = source.getExt();
+      target.setCtype((Integer) ext.get("ctype"));
+      target.setPriv((String) ext.get("priv"));
+      target.setMime((String) ext.get("mime"));
+
+      if (config.getAdType() == AdType.BANNER) {
+        target.setBanner(Banner.HashMapToBanner((Map<String, Object>)ext.get("banner")));
+      }
+      else if (config.getAdType() == AdType.NATIVE) {
+        target.set_native((net.media.openrtb3.Native) ext.get("native"));
+      }
+      target.setEvent((List<Event>) ext.get(ext.get("event")));
     }
   }
 }
