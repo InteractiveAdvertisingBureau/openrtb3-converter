@@ -1,13 +1,16 @@
 package net.media;
 
+import net.media.converters.BidResponseToOpenRtbConverter;
+import net.media.converters.BidResponseToResponseConverter;
 import net.media.converters.Converter;
 import net.media.openrtb24.request.BidRequest;
 import net.media.openrtb24.response.BidResponse;
 import net.media.openrtb3.OpenRTB;
+import net.media.openrtb3.Response;
 import net.media.utils.Provider;
 
 /**
- * Created by shiva.b on 03/01/19.
+ * @author shiva.b
  */
 public class ConverterPlumber {
 
@@ -40,7 +43,17 @@ public class ConverterPlumber {
   }
 
   private Converter<BidResponse, OpenRTB> bidResponseToOpenRtb() {
-    return null;
+    Converter<BidResponse, Response> bidResponseToResponseConverter = bidResponseToResponse();
+    Converter<BidResponse, OpenRTB> bidResponseToOpenRtbConverter = new
+      BidResponseToOpenRtbConverter(bidResponseToResponseConverter);
+
+    return bidResponseToOpenRtbConverter;
+  }
+
+  private Converter<BidResponse,Response> bidResponseToResponse() {
+    Converter<BidResponse, Response> bidResponseToResponseConverter = new
+      BidResponseToResponseConverter();
+    return bidResponseToResponseConverter;
   }
 
   public <U, V> Converter<U, V> getConverter(Class<U> source, Class<V> target) {

@@ -14,7 +14,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
   }
 
   @Override
-  public void inhance(BidRequest source, Request target) {
+  public void inhance(BidRequest source, Request target, Config config) {
 
   }
 }

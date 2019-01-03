@@ -21,7 +21,7 @@ public class BidRequestToOpenRtbConverter implements Converter<BidRequest, OpenR
   }
 
   @Override
-  public void inhance(BidRequest source, OpenRtbConverter target) {
+  public void inhance(BidRequest source, OpenRtbConverter target, Config config) {
 
   }
 }

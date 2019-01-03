@@ -1,14 +1,7 @@
 package net.media;
 
 import net.media.config.Config;
-import net.media.converters.BidRequestToOpenRtbConverter;
-import net.media.converters.BidResponseToOpenRtbConverter;
 import net.media.converters.Converter;
-import net.media.mapper.OpenRtb24To3MapperImpl;
-import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.response.BidResponse;
-import net.media.openrtb3.OpenRTB;
-import net.media.utils.Provider;
 
 import static java.util.Objects.isNull;
 
@@ -26,6 +19,16 @@ public class OpenRtbConverter {
     converterPlumber = new ConverterPlumber();
   }
 
+  /**
+   *
+   * @param overridingConfig
+   * @param source
+   * @param sourceClass
+   * @param targetClass
+   * @param <U>
+   * @param <V>
+   * @return
+   */
   public  <U, V> V convert(Config overridingConfig, U source, Class<U> sourceClass, Class<V>
     targetClass) {
     overridingConfig = inhanceConfig(overridingConfig);
@@ -33,10 +36,24 @@ public class OpenRtbConverter {
     return converter.map(source, overridingConfig);
   }
 
+  /**
+   *
+   * @param source
+   * @param sourceClass
+   * @param targetClass
+   * @param <U>
+   * @param <V>
+   * @return
+   */
   public <U, V> V convert(U source, Class<U> sourceClass, Class<V> targetClass) {
     return convert(null, source, sourceClass, targetClass);
   }
 
+  /**
+   *
+   * @param overridingConfig
+   * @return
+   */
   private Config inhanceConfig(Config overridingConfig) {
     if (isNull(overridingConfig)) {
       overridingConfig = new Config(config);
