@@ -3,18 +3,40 @@ package net.media.converters;
 import net.media.config.Config;
 import net.media.openrtb24.response.BidResponse;
 import net.media.openrtb3.OpenRTB;
+import net.media.openrtb3.Response;
 
 /**
- * Created by shiva.b on 02/01/19.
+ * @author shiva.b
  */
 public class BidResponseToOpenRtbConverter implements Converter<BidResponse, OpenRTB> {
-  @Override
-  public OpenRTB map(BidResponse source, Config config) {
-    return null;
+
+  private Converter<BidResponse, Response> bidResponseResponseConverter;
+
+  public BidResponseToOpenRtbConverter(Converter<BidResponse, Response> bidResponseToResponseConverter) {
+    this.bidResponseResponseConverter = bidResponseToResponseConverter;
   }
 
+  /**
+   *
+   * @param source
+   * @param config
+   * @return
+   */
   @Override
-  public void inhance(BidResponse source, OpenRTB target) {
+  public OpenRTB map(BidResponse source, Config config) {
+    OpenRTB openRTB = new OpenRTB();
+    inhance(source, openRTB, config);
+    return openRTB;
+  }
 
+  /**
+   *
+   * @param source
+   * @param target
+   */
+  @Override
+  public void inhance(BidResponse source, OpenRTB target, Config config) {
+    target.setDomainSpec("3.0");
+    target.setResponse(bidResponseResponseConverter.map(source, config));
   }
 }
