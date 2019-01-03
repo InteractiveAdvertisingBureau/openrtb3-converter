@@ -1,5 +1,7 @@
 package net.media.config;
 
+import net.media.enums.AdType;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,6 +13,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 /**
@@ -27,8 +31,11 @@ public class Config {
 
   private boolean nativeRequestAsString;
 
+  private AdType adType;
+
   public Config(Config oldConfig) {
     this.bannerTemplate = oldConfig.bannerTemplate;
+    this.adType = oldConfig.adType;
   }
 
   /**
@@ -36,6 +43,7 @@ public class Config {
    */
   public void updateEmptyFields(Config config) {
     this.bannerTemplate = isEmpty(this.bannerTemplate) ? config.bannerTemplate : this.bannerTemplate;
+    this.adType = isNull(this.adType) ? config.adType : this.adType;
   }
 
   /**
