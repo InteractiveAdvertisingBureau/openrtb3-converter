@@ -9,6 +9,7 @@ import java.io.Reader;
 import java.net.URL;
 
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
@@ -24,6 +25,7 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
 @Builder
 @Setter
 @NoArgsConstructor
+@Getter
 public class Config {
 
   private String bannerTemplate;
