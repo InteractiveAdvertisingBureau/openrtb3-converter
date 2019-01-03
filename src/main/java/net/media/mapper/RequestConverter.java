@@ -504,6 +504,10 @@ public class RequestConverter {
     device1.ifa( device.getIfa() );
     Map<String, Object> map = device.getExt();
     if ( map != null ) {
+      if(map.containsKey("flashver")) {
+        device1.flashver((String) device.getExt().get("flashver"));
+        map.remove("flashver");
+      }
       device1.ext( new HashMap<String, Object>( map ) );
     }
 
@@ -1349,6 +1353,11 @@ public class RequestConverter {
     target.getExt().remove("iptr");
     target.setIptr((Integer) source.getExt().get("mccmncsim"));
     target.getExt().remove("mccmncsim");
+    if(source.getFlashver() != null) {
+      if(target.getExt() == null)
+        target.setExt(new HashMap<>());
+      target.getExt().put("flashver", source.getFlashver());
+    }
   }
 
   protected void updateBattrRestriction(Restrictions restrictions, BidRequest bidRequest) {
