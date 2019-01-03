@@ -1,10 +1,11 @@
 package net.media.openrtb24.response;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
@@ -15,7 +16,9 @@ import lombok.Data;
 @Data
 public class BidResponse {
 
+  @NotNull
   private String id;//
+  @Valid
   private List<SeatBid> seatbid = new ArrayList<>();//
   private String bidid;//
   private String cur;//

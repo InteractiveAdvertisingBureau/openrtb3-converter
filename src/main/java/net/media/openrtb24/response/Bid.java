@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.validation.constraints.NotNull;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -18,8 +20,11 @@ import static java.util.Objects.nonNull;
 @NoArgsConstructor
 public class Bid {
 
+  @NotNull
   private String id;//
+  @NotNull
   private String impid;//
+  @NotNull
   private double price;//
   private String adid;
   private String nurl;//bid.purl
