@@ -5,19 +5,23 @@ import net.media.utils.validator.CheckExactlyOneNotNull;
 
 import javax.validation.Valid;
 
+import net.media.utils.validator.CheckExactlyOneNotNull;
+
+import javax.validation.Valid;
+@lombok.Data
 @CheckExactlyOneNotNull(fieldNames = {"title", "image", "video", "data", "link"})
 public class Asset {
 
-  private String id;
+  private Integer id;
   private Integer req;
   @Valid
   private TitleAsset title;
   @Valid
-  private Image image;
+  private ImageAsset image;
   @Valid
   private VideoAsset video;
   @Valid
-  private Data data;
+  private DataAsset data;
   @Valid
   private LinkAsset link;
 

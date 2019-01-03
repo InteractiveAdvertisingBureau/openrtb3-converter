@@ -2,13 +2,16 @@
 package net.media.openrtb3;
 
 
-import javax.validation.constraints.NotNull;
+import lombok.Data;
 
+import java.util.Map;
+import javax.validation.constraints.NotNull;
+@Data
 public class TitleAsset {
 
   @NotNull
   private String text;
   private Integer len;
-  private String ext;
+  private Map<String,Object> ext;
 
 }

@@ -1,5 +1,7 @@
 package net.media.openrtb24.response;
 
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +14,6 @@ import lombok.Data;
 /**
  * Created by vishnu on 30/5/16.
  */
-
 @Data
 public class BidResponse {
 
