@@ -18,8 +18,8 @@ public class OpenRtbMapperTest {
 
   public static void main(String[] args) {
     try {
-//      new OpenRtbMapperTest().test();
-      new OpenRtbMapperTest().test1();
+      new OpenRtbMapperTest().test();
+//      new OpenRtbMapperTest().test1();
     }catch (IOException e){
       System.out.println("Phatna  hihe"+e.getMessage());
     }

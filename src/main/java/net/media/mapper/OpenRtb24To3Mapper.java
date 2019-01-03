@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.media.enums.AdType;
+import net.media.openrtb24.response.BidResponse;
 import net.media.openrtb3.Response;
 
 import java.io.File;
@@ -46,10 +47,16 @@ public class OpenRtb24To3Mapper {
         System.out.println("invalid ad type");
         continue;
       }
+
       Response response30 = impl.map(response.getResponse25(), adType);
-      System.out.println(response30);
-      System.out.println(response.getResponse30());
+      System.out.println( objectMapper.writeValueAsString(response30));
+      System.out.println( objectMapper.writeValueAsString(response.getResponse30()));
       System.out.println(response30.equals(response.getResponse30()));
+
+      BidResponse response24 = impl.map(response.getResponse30(), adType);
+      System.out.println(objectMapper.writeValueAsString(response24));
+      System.out.println(objectMapper.writeValueAsString(response.getResponse25()));
+      System.out.println(response24.equals(response.getResponse25()));
     }
   }
 

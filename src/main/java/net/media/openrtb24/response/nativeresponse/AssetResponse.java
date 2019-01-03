@@ -5,7 +5,7 @@ import java.util.Map;
 import lombok.Data;
 
 @Data
-public class AssetResponse {
+public class AssetResponse { //Asset
 
   private static final Integer DEFAULT_REQUIRED = 0;
 

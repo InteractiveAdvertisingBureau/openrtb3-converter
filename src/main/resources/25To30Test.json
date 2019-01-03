@@ -157,5 +157,206 @@
         }
       ]
     }
+  },
+  {
+    "description" : "Example 4 – Complete Rtb response  object",
+    "type": "BANNER",
+    "response25" : {
+      "id": "0123456789ABCDEF",
+      "seatbid": [{
+        "bid": [{
+          "id": "yaddayadda",
+          "impid": "1",
+          "price": 1.5,
+          "adid": null,
+          "nurl": "...",
+          "adm": "asvsdd",
+          "adomain": ["ford.com"],
+          "iurl": "Abcd.com",
+          "cid": "campaign-xyz.123",
+          "crid": "d0bcb39723af87c2bb00942afee5710e",
+          "cat": ["cat", "dog"],
+          "attr": [6, 1],
+          "bundle": ["chocho"],
+          "api": [1, 2],
+          "protocol": null,
+          "qagmediarating": null,
+          "dealid": "1234",
+          "h": 50,
+          "language": null,
+          "w": 320,
+          "wratio": 1,
+          "hratio": 2,
+          "exp": 1,
+          "burl": "...",
+          "lurl": "...",
+          "tactic": "...",
+          "ext": {
+            "init": 1,
+            "curl": "abc",
+            "mime": "image/jpeg",
+            "cattax": 1,
+            "banner": {
+              "img": "https://somebuyer.com/creative",
+              "link": {
+                "url": "https://somebuyer.com/click",
+                "urlfb": "https://somebuyer.com",
+                "trkr": null,
+                "ext": null
+              },
+              "ext": {
+                "xyz": "111"
+              }
+            },
+            "ankit3": {
+              "cho": "lul"
+            },
+            "secure": 1,
+            "aloo2": "pyaz",
+            "ankit1": {
+              "cho1": "lul"
+            },
+            "aloo1": "pyaz",
+            "ctype": 3,
+            "native": null,
+            "mrating": 1,
+            "priv": "232",
+            "event": [{
+              "type": 1,
+              "method": 1,
+              "url": "https://somebuyer.com/pixel",
+              "api": null,
+              "cdata": null,
+              "ext": null
+            }],
+            "lastMod": 1
+          }
+        }],
+        "seat": "XYZ",
+        "group": 2,
+        "ext": {
+          "aloo": "pyaz",
+          "sourav": {
+            "chu": "luli"
+          }
+        }
+      }],
+      "bidid": "0011223344AABBCC",
+      "cur": "USD",
+      "customdata": "pyaz",
+      "nbr": 1,
+      "ext": {
+        "ankit": {
+          "cho": "lul"
+        },
+        "cdata": "cdata"
+      }
+    },
+    "response30" : {
+      "id": "0123456789ABCDEF",
+      "bidid": "0011223344AABBCC",
+      "nbr" : 1,
+      "cur" :  "USD",
+      "cdata" : "cdata",
+      "ext" : {
+        "customdata": "pyaz",
+        "ankit" : {
+          "cho" : "lul"
+        }
+      },
+      "seatbid": [{
+        "seat": "XYZ",
+        "bid": [{
+          "id": "yaddayadda",
+          "item": "1",
+          "deal": "1234",
+          "price": 1.50,
+          "tactic": "...",
+          "purl": "...",
+          "burl": "...",
+          "lurl": "...",
+          "mid": "...",
+          "cid": "campaign-xyz.123",
+          "exp" : 1,
+          "macro": [
+            {
+              "key": "TIMESTAMP",
+              "value": "1127987134"
+            },
+            {
+              "key": "CLICKTOKEN",
+              "value": "A7D800F2716DB"
+            }
+          ],
+          "media": {
+            "ad": {
+              "id": "d0bcb39723af87c2bb00942afee5710e",
+              "adomain": ["ford.com"],
+              "bundle" :["chocho"],
+              "iurl" : "Abcd.com",
+              "cat" : ["cat","dog"],
+              "cattax" :  1,
+              "lang" : "english",
+              "attr" : [6,1],
+              "secure" : 1,
+              "mrating" :1,
+              "init" : 1,
+              "lastmod" :1,
+              "display": {
+                "mime": "image/jpeg",
+                "api":[1,2],
+                "ctype": 3,
+                "w": 320,
+                "h": 50,
+                "wratio" : 1,
+                "hratio" :2,
+                "priv" : "232",
+                "adm" : "asvsdd",
+                "curl": "abc",
+                "banner": {
+                  "img": "https://somebuyer.com/creative",
+                  "link": {
+                    "url": "https://somebuyer.com/click",
+                    "urlfb": "https://somebuyer.com",
+                    "trkr" : ["2113","21312"],
+                    "ext" : {
+                      "link" :"link"
+                    }
+                  },
+                  "ext" : {
+                    "xyz" :"111"
+                  }
+                },
+                "event": [{
+                  "type": 1,
+                  "method": 1,
+                  "url": "https://somebuyer.com/pixel"
+                }],
+                "ext" : {
+                  "aloo1" : "pyaz",
+                  "ankit1" : {
+                    "cho1" : "lul"
+                  }
+                }
+              },
+              "ext" : {
+                "aloo2" : "pyaz",
+                "ankit3" : {
+                  "cho" : "lul"
+                }
+              }
+            }
+          }}],
+        "_package" :  2,
+        "ext" : {
+          "aloo" : "pyaz",
+          "sourav" : {
+            "chu" : "luli"
+          }
+        }
+      }]
+
+    }
   }
+
 ]
