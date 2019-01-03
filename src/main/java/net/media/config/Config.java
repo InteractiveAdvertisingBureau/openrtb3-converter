@@ -17,7 +17,7 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
  *
  * @author shiva.b
  */
-@Builder
+
 @Setter
 @NoArgsConstructor
 public class Config {

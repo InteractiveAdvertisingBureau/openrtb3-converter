@@ -122,6 +122,7 @@
     </plugins>
   </build>
   <properties>
+    <guava.version>23.0</guava.version>
     <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
     <lombok.version>1.16.14</lombok.version>
   </properties>
