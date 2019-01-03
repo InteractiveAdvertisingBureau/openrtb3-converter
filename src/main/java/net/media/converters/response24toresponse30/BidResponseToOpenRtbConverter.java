@@ -1,6 +1,7 @@
-package net.media.converters;
+package net.media.converters.response24toresponse30;
 
 import net.media.config.Config;
+import net.media.converters.Converter;
 import net.media.openrtb24.response.BidResponse;
 import net.media.openrtb3.OpenRTB;
 import net.media.openrtb3.Response;
