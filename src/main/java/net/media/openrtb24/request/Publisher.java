@@ -6,6 +6,8 @@ import java.util.Map;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
+
 
 /**
  * Created by vishnu on 6/5/16.
@@ -15,6 +17,7 @@ public class Publisher extends AbstractExtensible<Publisher.PubReqExt> implement
 
   private static final long serialVersionUID = 1;
 
+  @NotNull
   private String id;
 
   private String name;

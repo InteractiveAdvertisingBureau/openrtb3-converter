@@ -2,11 +2,13 @@ package net.media.openrtb3;
 
 import lombok.Getter;
 import lombok.Setter;
+import net.media.utils.validator.CheckAtLeastOneNotNull;
 
 import java.util.Map;
 
 @Getter
 @Setter
+@CheckAtLeastOneNotNull(fieldNames = {"id", "buyeruid"})
 public class User {
   private String id;
   private String buyeruid;

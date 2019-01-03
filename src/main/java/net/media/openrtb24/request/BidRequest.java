@@ -6,12 +6,14 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @Data
 public class BidRequest extends AbstractExtensible<BidRequest.BidReqExt> {
@@ -21,19 +23,24 @@ public class BidRequest extends AbstractExtensible<BidRequest.BidReqExt> {
   public static final Integer DEFAULT_ALL_IMPS = 0;
   public static final Integer DEFAULT_AT = 2;
 
+  @NotEmpty
   public String id;
 
   @NotEmpty
-  @NotBlank
   @Valid
   public List<Imp> imp;
 
+  @NotNull
+  @Valid
   public Site site;
 
+  @NotNull
+  @Valid
   public App app;
 
   public Device device;
 
+  @Valid
   public User user;
 
   public Set<String> badv;
@@ -48,6 +55,8 @@ public class BidRequest extends AbstractExtensible<BidRequest.BidReqExt> {
 
   public Integer tmax;
 
+  @NotNull
+  @Valid
   public Source source;
 
   public Set<String> bcat;

@@ -3,12 +3,13 @@ package net.media.openrtb3;
 
 import java.util.Map;
 
+import javax.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-import javax.validation.constraints.NotNull;
 
 public class TitleAsset {
 

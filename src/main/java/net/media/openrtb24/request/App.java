@@ -8,9 +8,12 @@ import java.util.Set;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
+
 @Data
 public class App extends AbstractExtensible<App.AppReqExt>{
 
+  @NotNull
   private String id;
 
   private String name;
