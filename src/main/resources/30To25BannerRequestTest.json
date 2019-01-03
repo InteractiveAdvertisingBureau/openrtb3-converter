@@ -11,7 +11,8 @@
     "tid": "dd",
     "pchain": "dd",
     "ext": {
-      "dummy": "ff"
+      "dummy": "ff",
+      "fd": 1
     }
   },
   "item": [{
@@ -47,7 +48,7 @@
         "ssai": 1,
         "sdk": "dd",
         "sdkver": "22",
-        "reward": 0,
+        "reward": 1,
         "wlang": ["en"],
         "secure": 1,
         "admx": 1,
@@ -76,21 +77,14 @@
             "expdir": [3, 9]
           }],
           "ext": {
-            "dummy": "ff",
-            "dt": 1,
-            "sequence": 1,
-            "admx": 1,
-            "dlvy": 1,
-            "curlx": 0,
-            "ssai": 1
+            "dummy": "ffaa",
+            "seq": 1
           }
         }
       }
     },
     "ext": {
-      "dummy": "ff",
-      "ctype": [1],
-      "ampren": 1
+      "dummy": "ff"
     },
     "private": 1
   }],
@@ -176,8 +170,10 @@
         "metro": "ee",
         "city": "eew",
         "zip": "ewe",
+        "utcoffset": 1,
         "ext": {
-          "dummy": "ff"
+          "dummy": "ff",
+          "regionfips104": "eew"
         }
       },
       "data": [{
@@ -203,6 +199,7 @@
       "lmt": 1,
       "make": "weew",
       "model": "edew",
+      "os": 2,
       "osv": "hwv",
       "hwv": "ww",
       "h": 2,
@@ -228,8 +225,10 @@
         "metro": "ee",
         "city": "eew",
         "zip": "ewe",
+        "utcoffset": 1,
         "ext": {
-          "dummy": "ff"
+          "dummy": "ff",
+          "regionfips104": "eew"
         }
       },
       "ext": {

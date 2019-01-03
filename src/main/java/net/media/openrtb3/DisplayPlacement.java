@@ -3,6 +3,8 @@ package net.media.openrtb3;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,7 +27,9 @@ public class DisplayPlacement {
   private Integer unit = 1;
   private Integer priv = 0;
   private List<DisplayFormat> displayfmt;
+  @Valid
   private NativeFormat nativefmt;
+  @Valid
   private EventSpec event;
   private Map<String, Object> ext;
 }

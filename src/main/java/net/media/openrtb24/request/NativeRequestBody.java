@@ -3,6 +3,8 @@ package net.media.openrtb24.request;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.constraints.NotEmpty;
+
 import lombok.Data;
 
 @Data
@@ -26,6 +28,7 @@ public class NativeRequestBody extends AbstractExtensible<NativeRequestBody.Nati
 
   private Integer seq;
 
+  @NotEmpty
   private List<Asset> assets;
 
   private Map<String, Object> ext;

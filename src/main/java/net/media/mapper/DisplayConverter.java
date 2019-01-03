@@ -64,6 +64,9 @@ public class DisplayConverter {
       banner.setExt( new HashMap<String, Object>( map ) );
     }
     if (nonNull(item.getSeq())) {
+      if (isNull(banner.getExt())) {
+        banner.setExt(new HashMap<>());
+      }
       banner.getExt().put("seq", item.getSeq());
     }
     if (nonNull(request)) {
@@ -114,7 +117,12 @@ public class DisplayConverter {
       }
     }
     if (nonNull(displayPlacement.getExt())) {
+      if (isNull(nat.getExt())) {
+        nat.setExt(new HashMap<>());
+      }
+      nat.getExt().putAll(displayPlacement.getExt());
       nat.setVer((String) displayPlacement.getExt().get("nativeversion"));
+      nat.getExt().remove("nativeversion");
     }
     Config config = new Config();
     if (config.isNativeRequestAsString()) {
@@ -151,6 +159,13 @@ public class DisplayConverter {
       displayPlacement.setTopframe( banner.getTopframe() );
       displayPlacement.setW( banner.getW() );
       displayPlacement.setH( banner.getH() );
+      Map<String, Object> bannerExt = banner.getExt();
+      if (nonNull(bannerExt)) {
+        if (isNull(displayPlacement.getExt())) {
+          displayPlacement.setExt(new HashMap<>());
+        }
+        displayPlacement.getExt().putAll(bannerExt);
+      }
     }
     if ( imp != null ) {
       displayPlacement.setClktype( imp.getClickbrowser() );
@@ -181,6 +196,7 @@ public class DisplayConverter {
     Map<String, Object> map = displayFormat.getExt();
     if ( map != null ) {
       format.setExt( new HashMap<String, Object>( map ) );
+      format.setWmin((Integer) map.get("wmin"));
     }
 
     return format;
@@ -202,6 +218,10 @@ public class DisplayConverter {
       displayFormat.setH( format.getH() );
       displayFormat.setWratio( format.getWratio() );
       displayFormat.setHratio( format.getHratio() );
+      if (nonNull(format.getWmin())) {
+        displayFormat.setExt(new HashMap<>());
+        displayFormat.getExt().put("wmin", format.getWmin());
+      }
     }
     if ( imp != null ) {
       List<Integer> expdir = impBannerExpdir( imp );
@@ -294,6 +314,12 @@ public class DisplayConverter {
           displayPlacement.setPtype(nativeRequest.getNativeRequestBody().getPlcmttype());
           displayPlacement.setContext(nativeRequest.getNativeRequestBody().getContext());
           displayPlacement.setNativefmt(nativeConverter.map(nativeRequest.getNativeRequestBody()));
+          if (nonNull(nat.getExt()) && nonNull(displayPlacement.getNativefmt())) {
+            if (isNull(displayPlacement.getNativefmt().getExt())) {
+              displayPlacement.getNativefmt().setExt(new HashMap<>());
+            }
+            displayPlacement.getNativefmt().getExt().putAll(nat.getExt());
+          }
         }
       }
     }

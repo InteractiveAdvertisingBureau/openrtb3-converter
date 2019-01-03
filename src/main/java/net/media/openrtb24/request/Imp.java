@@ -2,13 +2,18 @@ package net.media.openrtb24.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import net.media.utils.validator.CheckAtLeastOneNotNull;
+
 import java.util.List;
 import java.util.Map;
+
+import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
 
 
 @Data
+@CheckAtLeastOneNotNull(fieldNames = {"video, banner, nat, audio"})
 public class Imp extends AbstractExtensible<Imp.ImpReqExt> {
 
   public static final Integer DEFAULT_INTERSTITIAL = null;
@@ -49,6 +54,7 @@ public class Imp extends AbstractExtensible<Imp.ImpReqExt> {
 
   private Integer exp;
 
+  @NotEmpty
   List<Metric> metric;
 
   private Map<String, Object> ext;

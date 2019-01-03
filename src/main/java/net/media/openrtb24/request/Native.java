@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.validation.constraints.NotNull;
+
 import lombok.Data;
 
 import static java.util.Objects.isNull;
@@ -21,6 +23,7 @@ public class Native extends AbstractExtensible<Native.NativeReqExt> {
 
   public static final String DEFAULT_NATIVE_VERSION = "1.1";
 
+  @NotNull
   private Object request;
 
   private String ver = DEFAULT_NATIVE_VERSION;

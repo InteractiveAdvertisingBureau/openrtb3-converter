@@ -1,5 +1,8 @@
 package net.media.openrtb3;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,5 +14,7 @@ import lombok.Setter;
 @Setter
 public class Spec {
 
+  @NotNull
+  @Valid
   private Placement placement;
 }

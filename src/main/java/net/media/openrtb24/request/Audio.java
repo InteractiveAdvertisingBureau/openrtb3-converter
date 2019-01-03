@@ -3,6 +3,8 @@ package net.media.openrtb24.request;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.constraints.NotEmpty;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +16,7 @@ import lombok.Setter;
 @Setter
 public class Audio {
 
+  @NotEmpty
   private List<String> mimes;
 
   private Integer minduration;
