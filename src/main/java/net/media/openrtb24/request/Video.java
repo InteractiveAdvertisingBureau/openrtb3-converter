@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.validation.constraints.NotEmpty;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -52,6 +54,7 @@ public class Video extends ReqExt {
     DEFAULT_APIS.add(VideoAPIs.VPAID_2_0.getApi());
   }
 
+  @NotEmpty
   private Set<String> mimes = DEFAULT_MIME_TYPES;
 
   private Integer minduration = DEFAULT_MINDURATION;

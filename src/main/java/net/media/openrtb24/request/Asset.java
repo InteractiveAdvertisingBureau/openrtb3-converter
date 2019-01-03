@@ -1,5 +1,7 @@
 package net.media.openrtb24.request;
 
+import net.media.utils.validator.CheckAtLeastOneNotNull;
+
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -8,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
+@CheckAtLeastOneNotNull(fieldNames = {"title", "img", "video", "data"})
 public class Asset extends AbstractExtensible<Asset.AssetReqExt> {
 
   @NotNull
@@ -15,6 +18,7 @@ public class Asset extends AbstractExtensible<Asset.AssetReqExt> {
 
   private Integer required;
 
+  @Valid
   private NativeTitle title;
 
   @Valid

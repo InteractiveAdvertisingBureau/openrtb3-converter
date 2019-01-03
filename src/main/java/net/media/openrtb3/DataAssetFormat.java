@@ -2,6 +2,8 @@ package net.media.openrtb3;
 
 import java.util.Map;
 
+import javax.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DataAssetFormat {
+  @NotNull
   private Integer type;
   private Integer len;
   private Map<String, Object> ext;

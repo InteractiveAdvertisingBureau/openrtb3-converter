@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
@@ -11,7 +12,7 @@ import lombok.Data;
 @Data
 public class NativeVideo extends AbstractExtensible<NativeVideo.NativeVideoReqExt> {
 
-  @NotNull
+  @NotEmpty
   private Set<String> mimes;
 
   @NotNull
@@ -20,7 +21,7 @@ public class NativeVideo extends AbstractExtensible<NativeVideo.NativeVideoReqEx
   @NotNull
   private Integer maxduration;
 
-  @NotNull
+  @NotEmpty
   private Set<Integer> protocols;
 
   private Map<String, Object> ext;

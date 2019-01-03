@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.validation.constraints.NotEmpty;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,6 +25,7 @@ public class VideoPlacement {
   private Integer playmethod;
   private Integer playend;
   private Integer clktype;
+  @NotEmpty
   private Set<String> mime;
   private Set<Integer> api;
   private Set<Integer> ctype;

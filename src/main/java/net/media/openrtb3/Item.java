@@ -2,20 +2,20 @@ package net.media.openrtb3;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import java.util.List;
 import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Map;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
 public class Item {
-  @NotEmpty
+  @NotBlank
   private String id;
   private Integer qty = 1;
   private Integer seq;
@@ -28,6 +28,8 @@ public class Item {
   private List<Deal> deal;
   @JsonProperty("private")
   private Integer priv = 0;
+  @NotNull
+  @Valid
   private Spec spec;
   private Map<String, Object> ext;
 }

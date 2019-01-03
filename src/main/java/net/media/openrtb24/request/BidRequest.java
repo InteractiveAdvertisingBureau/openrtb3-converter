@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -19,6 +23,9 @@ public class BidRequest extends AbstractExtensible<BidRequest.BidReqExt> {
 
   public String id;
 
+  @NotEmpty
+  @NotBlank
+  @Valid
   public List<Imp> imp;
 
   public Site site;

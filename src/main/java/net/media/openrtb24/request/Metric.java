@@ -2,6 +2,9 @@ package net.media.openrtb24.request;
 
 import java.util.Map;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,8 +16,10 @@ import lombok.Setter;
 @Setter
 public class Metric {
 
+  @NotBlank
   private String type;
 
+  @NotNull
   private Double value;
 
   private String vendor;

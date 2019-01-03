@@ -19,6 +19,8 @@ public class Format extends AbstractExtensible<Format.FormatReqExt> {
 
   private Integer hratio;
 
+  private Integer wmin;
+
   private Map<String, Object> ext;
 
   public Format() {
