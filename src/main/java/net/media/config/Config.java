@@ -1,5 +1,6 @@
 package net.media.config;
 
+import lombok.Data;
 import net.media.enums.AdType;
 
 import java.io.File;
@@ -22,8 +23,9 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
  * @author shiva.b
  */
 
-@Setter
+
 @NoArgsConstructor
+@Data
 public class Config {
 
   private String bannerTemplate;
