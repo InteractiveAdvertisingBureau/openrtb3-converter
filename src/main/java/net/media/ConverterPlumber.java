@@ -1,10 +1,12 @@
 package net.media;
 
 import net.media.converters.request24toRequest30.AudioToAudioPlacementConverter;
+import net.media.converters.request24toRequest30.BannerToCompanionConverter;
 import net.media.converters.request24toRequest30.BannerToDisplayPlacementConverter;
 import net.media.converters.request24toRequest30.BidRequestToOpenRtbConverter;
 import net.media.converters.request24toRequest30.BidRequestToRequestConverter;
 import net.media.converters.request24toRequest30.ImpToItemConverter;
+import net.media.converters.request24toRequest30.NativeRequestBodyToNativeFormatConverter;
 import net.media.converters.request24toRequest30.NativeToDisplayPlacementConverter;
 import net.media.converters.request24toRequest30.VideoToVideoPlacementConverter;
 import net.media.converters.response24toresponse30.Bid24ToBid30Converter;
@@ -23,6 +25,7 @@ import net.media.openrtb24.response.BidResponse;
 import net.media.openrtb24.response.SeatBid;
 import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.Bid;
+import net.media.openrtb3.Companion;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.Item;
 import net.media.openrtb3.OpenRTB;
@@ -76,17 +79,20 @@ public class ConverterPlumber {
     Converter<Banner, DisplayPlacement> bannerDisplayPlacementConverter = new
       BannerToDisplayPlacementConverter();
     Converter<Native, DisplayPlacement> nativeDisplayPlacementConverter = new
-      NativeToDisplayPlacementConverter();
+      NativeToDisplayPlacementConverter(new NativeRequestBodyToNativeFormatConverter());
+    Converter<Banner, Companion> bannerCompanionConverter = bannerCompanionConverter
+      (bannerDisplayPlacementConverter);
     Converter<Video, VideoPlacement> videoVideoPlacementConverter = new
-      VideoToVideoPlacementConverter();
+      VideoToVideoPlacementConverter(bannerCompanionConverter);
     Converter<Audio, AudioPlacement> audioAudioPlacementConverter = new
-      AudioToAudioPlacementConverter();
+      AudioToAudioPlacementConverter(bannerCompanionConverter);
     return new ImpToItemConverter(bannerDisplayPlacementConverter,
       nativeDisplayPlacementConverter, videoVideoPlacementConverter, audioAudioPlacementConverter);
   }
 
-  private Converter<Banner, Converter> bannerConverterConverter() {
-
+  private Converter<Banner, Companion> bannerCompanionConverter(Converter<Banner,
+    DisplayPlacement> bannerDisplayPlacementConverter) {
+    return new BannerToCompanionConverter(bannerDisplayPlacementConverter);
   }
 
   private Converter<BidResponse, OpenRTB> bidResponseToOpenRtb() {

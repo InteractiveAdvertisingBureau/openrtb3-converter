@@ -8,15 +8,16 @@ import net.media.openrtb3.NativeFormat;
 /**
  * Created by rajat.go on 03/01/19.
  */
-public class NativeFormatToNativeRequestBodyConverter implements Converter<NativeFormat,
-  NativeRequestBody> {
+public class NativeRequestBodyToNativeFormatConverter implements Converter<NativeRequestBody,
+  NativeFormat> {
+
   @Override
-  public NativeRequestBody map(NativeFormat source, Config config) {
+  public NativeFormat map(NativeRequestBody source, Config config) {
     return null;
   }
 
   @Override
-  public void inhance(NativeFormat source, NativeRequestBody target, Config config) {
+  public void inhance(NativeRequestBody source, NativeFormat target, Config config) {
 
   }
 }
