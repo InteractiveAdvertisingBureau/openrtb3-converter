@@ -376,6 +376,7 @@ public class RequestConverter {
     device1.setCarrier( device.getCarrier() );
     device1.setGeofetch( device.getGeofetch() );
     device1.setGeo( mapRtb24GeotoRtb3Geo( device.getGeo() ) );
+    device1.setMccmnc( device.getMccmnc() );
     Map<String, Object> map = device.getExt();
     if ( map != null ) {
       device1.setExt( new HashMap<String, Object>( map ) );
@@ -411,19 +412,21 @@ public class RequestConverter {
 
     BidRequest bidRequest = new BidRequest();
 
-    if ( request.getContext() != null ) {
+    if ( request.getContext() != null && request.getContext().getUser() != null ) {
       if ( bidRequest.getUser() == null ) {
-        bidRequest.setUser( new User() );
+        bidRequest.setUser( mapRtb3UsertoRtb24User(request.getContext().getUser()) );
       }
       contextToUser( request.getContext(), bidRequest.getUser() );
     }
     else {
       bidRequest.setUser( null );
     }
-    if ( bidRequest.getUser() == null ) {
-      bidRequest.setUser( new User() );
+    if( request.getCdata() != null ) {
+      if (bidRequest.getUser() == null) {
+        bidRequest.setUser(new User());
+      }
+      requestToUser(request, bidRequest.getUser());
     }
-    requestToUser( request, bidRequest.getUser() );
     App app = requestContextApp( request );
     if ( app != null ) {
       bidRequest.setApp( mapRtb24ApptoRtb3App( app ) );
@@ -502,6 +505,7 @@ public class RequestConverter {
     device1.geofetch( device.getGeofetch() );
     device1.carrier( device.getCarrier() );
     device1.ifa( device.getIfa() );
+    device1.mccmnc( device.getMccmnc() );
     Map<String, Object> map = device.getExt();
     if ( map != null ) {
       if(map.containsKey("flashver")) {
@@ -554,11 +558,10 @@ public class RequestConverter {
     geo1.setUtcoffset( geo.getUtcoffset() );
     geo1.setLastfix( geo.getLastfix() );
     Map<String, Object> map = geo.getExt();
+    mapGeoTo24( geo1, geo );
     if ( map != null ) {
       geo1.setExt( new HashMap<String, Object>( map ) );
     }
-
-    mapGeoTo24( geo1, geo );
 
     return geo1;
   }
@@ -1311,6 +1314,11 @@ public class RequestConverter {
       return;
     target.setCattax((Integer) source.getExt().get("cattax"));
     target.getExt().remove("cattax");
+    if(source.getVideoquality() != null) {
+      if(target.getExt() == null)
+        target.setExt(new HashMap<>());
+      target.getExt().put("videoquality", source.getVideoquality());
+    }
   }
 
   protected void mapProducerExt(Producer target, net.media.openrtb24.request.Producer
@@ -1391,42 +1399,50 @@ public class RequestConverter {
     if(source == null)
       return;
 
-    if(source.getWseat() == null)
-      return;
+    if(source.getWseat() != null) {
 
-    if (source.getWseat() == 0){
-      target.setBseat(source.getSeat());
-    } else {
-      target.setWseat(source.getSeat());
+      if (source.getWseat() == 0) {
+        target.setBseat(source.getSeat());
+      } else {
+        target.setWseat(source.getSeat());
+      }
     }
 
-    if(source.getContext() == null)
-      return;
+    if(source.getContext() != null) {
+      if (source.getContext().getRestrictions() != null) {
 
-    if(source.getContext().getRestrictions() == null)
-      return;
+        if (source.getContext().getRestrictions().getCattax() != null) {
+          if (target.getExt() == null)
+            target.setExt(new HashMap<>());
+          target.getExt().put("cattax", source.getContext().getRestrictions().getCattax());
+        }
 
-    if(source.getContext().getRestrictions().getCattax() != null) {
-      if(target.getExt() == null)
-        target.setExt(new HashMap<>());
-      target.getExt().put("cattax", source.getContext().getRestrictions().getCattax());
+        if (source.getContext().getRestrictions().getExt() != null) {
+          if (target.getExt() == null)
+            target.setExt(new HashMap<>());
+          target.getExt().put("restrictionsExt", source.getContext().getRestrictions().getExt());
+        }
+      }
     }
 
-    if(source.getContext().getRestrictions().getExt() != null) {
-      if(target.getExt() == null)
-        target.setExt(new HashMap<>());
-      target.getExt().put("restrictionsExt", source.getContext().getRestrictions().getExt());
+    if(source.getItem() != null && source.getItem().size() > 0) {
+      Set<String> wlang = new HashSet<>();
+      for(Item item : source.getItem()) {
+        if(item.getSpec() != null && item.getSpec().getPlacement() != null && item.getSpec().getPlacement().getWlang() != null)
+          wlang.addAll(item.getSpec().getPlacement().getWlang());
+      }
+      target.setWlang(new ArrayList<>( wlang ));
     }
 
-    if(target.getImp() == null)
-      return;
-    for(Imp imp : target.getImp()) {
-      if(imp.getBanner() != null)
-        imp.getBanner().setBattr(source.getContext().getRestrictions().getBattr());
-      if(imp.getVideo() != null)
-        imp.getVideo().setBattr(source.getContext().getRestrictions().getBattr());
-      if(imp.getNat() != null)
-        imp.getNat().setBattr(source.getContext().getRestrictions().getBattr());
+    if(target.getImp() != null) {
+      for (Imp imp : target.getImp()) {
+        if (imp.getBanner() != null)
+          imp.getBanner().setBattr(source.getContext().getRestrictions().getBattr());
+        if (imp.getVideo() != null)
+          imp.getVideo().setBattr(source.getContext().getRestrictions().getBattr());
+        if (imp.getNat() != null)
+          imp.getNat().setBattr(source.getContext().getRestrictions().getBattr());
+      }
     }
 
     if(source.getContext().getDooh() == null)
@@ -1591,6 +1607,12 @@ public class RequestConverter {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
       target.getExt().put("cattax", source.getCattax());
+    }
+    if(source.getExt() != null) {
+      if(source.getExt().containsKey("videoquality")) {
+        target.setVideoquality((Integer) source.getExt().get("videoquality"));
+        target.getExt().remove("videoquality");
+      }
     }
   }
 

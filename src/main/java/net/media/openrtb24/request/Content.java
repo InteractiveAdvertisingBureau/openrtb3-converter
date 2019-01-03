@@ -32,6 +32,8 @@ public class Content extends AbstractExtensible<Content.ContentReqExt> {
 
   private String url;
 
+  private Integer videoquality;
+
   private List<String> cat;
 
   private Integer prodq;
