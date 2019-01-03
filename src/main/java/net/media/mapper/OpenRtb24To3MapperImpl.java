@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import net.media.config.Config;
 import net.media.enums.AdType;
 import net.media.openrtb24.response.*;
-import net.media.openrtb24.response.*;
+
 import net.media.openrtb24.response.nativeresponse.*;
 import net.media.openrtb3.*;
 import net.media.openrtb3.Bid;
