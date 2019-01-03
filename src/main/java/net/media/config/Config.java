@@ -10,6 +10,8 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+
 /**
  * ORTB converter configuration
  *
@@ -21,6 +23,17 @@ import lombok.Setter;
 public class Config {
 
   private String bannerTemplate;
+
+  public Config(Config oldConfig) {
+    this.bannerTemplate = oldConfig.bannerTemplate;
+  }
+
+  /**
+   * @param config
+   */
+  public void updateEmptyFields(Config config) {
+    this.bannerTemplate = isEmpty(this.bannerTemplate) ? config.bannerTemplate : this.bannerTemplate;
+  }
 
   /**
    * Read config object stored in JSON format from <code>String</code>

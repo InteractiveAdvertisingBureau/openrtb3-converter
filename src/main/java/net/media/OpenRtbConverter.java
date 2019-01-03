@@ -10,6 +10,8 @@ import net.media.openrtb24.response.BidResponse;
 import net.media.openrtb3.OpenRTB;
 import net.media.utils.Provider;
 
+import static java.util.Objects.isNull;
+
 /**
  * @author shiva.b
  */
@@ -17,25 +19,32 @@ public class OpenRtbConverter {
 
   private Config config;
 
-  private Provider<Conversion, Converter> converterProvider;
-
-  private OpenRtb24To3MapperImpl openRtb24To3Mapper;
+  private ConverterPlumber converterPlumber;
 
   private OpenRtbConverter(Config config) {
     this.config = config;
-    initConversionProvider();
+    converterPlumber = new ConverterPlumber();
   }
 
-  private <U, V> V convert(Config config, U source, Class<U> sourceClass, Class<V> targetClass) {
-    Converter<U, V> converter = converterProvider.fetch(new Conversion(sourceClass, targetClass));
-    return converter.map(source, config);
+  public  <U, V> V convert(Config overridingConfig, U source, Class<U> sourceClass, Class<V>
+    targetClass) {
+    overridingConfig = inhanceConfig(overridingConfig);
+    Converter<U, V> converter = converterPlumber.getConverter(sourceClass, targetClass);
+    return converter.map(source, overridingConfig);
   }
 
-  private void initConversionProvider() {
-    converterProvider = new Provider<>(null);
-    converterProvider.register(new Conversion(BidRequest.class, OpenRTB.class),
-      new BidRequestToOpenRtbConverter());
-    converterProvider.register(new Conversion(BidResponse.class, OpenRTB.class),
-      new BidResponseToOpenRtbConverter());
+  public <U, V> V convert(U source, Class<U> sourceClass, Class<V> targetClass) {
+    return convert(null, source, sourceClass, targetClass);
   }
+
+  private Config inhanceConfig(Config overridingConfig) {
+    if (isNull(overridingConfig)) {
+      overridingConfig = new Config(config);
+    }
+    else {
+      overridingConfig.updateEmptyFields(this.config);
+    }
+    return overridingConfig;
+  }
+
 }
