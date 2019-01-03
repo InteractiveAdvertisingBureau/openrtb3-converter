@@ -46,6 +46,8 @@ public class Device extends AbstractExtensible<Device.DeviceReqExt> {
 
   private Integer geofetch;
 
+  private String mccmnc;
+
   private String flashver;
 
   private String language;
