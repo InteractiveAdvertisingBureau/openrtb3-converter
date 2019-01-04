@@ -1,6 +1,5 @@
 package net.media.config;
 
-import lombok.Data;
 import net.media.enums.AdType;
 
 import java.io.File;
@@ -9,12 +8,10 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.net.URL;
 
-import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 /**

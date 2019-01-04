@@ -14,7 +14,7 @@ public class OpenRtbConverter {
 
   private ConverterPlumber converterPlumber;
 
-  private OpenRtbConverter(Config config) {
+  public OpenRtbConverter(Config config) {
     this.config = config;
     converterPlumber = new ConverterPlumber();
   }
@@ -29,8 +29,7 @@ public class OpenRtbConverter {
    * @param <V>
    * @return
    */
-  public  <U, V> V convert(Config overridingConfig, U source, Class<U> sourceClass, Class<V>
-    targetClass) {
+  public  <U, V> V convert(Config overridingConfig, U source, Class<U> sourceClass, Class<V> targetClass) {
     overridingConfig = inhanceConfig(overridingConfig);
     Converter<U, V> converter = converterPlumber.getConverter(sourceClass, targetClass);
     return converter.map(source, overridingConfig);
@@ -47,6 +46,19 @@ public class OpenRtbConverter {
    */
   public <U, V> V convert(U source, Class<U> sourceClass, Class<V> targetClass) {
     return convert(null, source, sourceClass, targetClass);
+  }
+
+  public <U, V> void enhance(Config overridingConfig, U source, V target, Class<U> sourceClass,
+                          Class<V> targetClass) {
+    overridingConfig = inhanceConfig(overridingConfig);
+    Converter<U, V> converter = converterPlumber.getConverter(sourceClass, targetClass);
+    converter.inhance(source, target, overridingConfig);
+  }
+
+  public <U, V> void enhance(U source, V target, Class<U> sourceClass,
+                             Class<V> targetClass) {
+    Converter<U, V> converter = converterPlumber.getConverter(sourceClass, targetClass);
+    converter.inhance(source, target, null);
   }
 
   /**

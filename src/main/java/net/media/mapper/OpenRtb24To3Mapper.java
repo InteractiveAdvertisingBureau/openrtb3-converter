@@ -3,8 +3,11 @@ package net.media.mapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import net.media.OpenRtbConverter;
+import net.media.config.Config;
 import net.media.enums.AdType;
 import net.media.openrtb24.response.BidResponse;
+import net.media.openrtb3.OpenRTB;
 import net.media.openrtb3.Response;
 
 import java.io.File;
@@ -30,6 +33,9 @@ public class OpenRtb24To3Mapper {
     ClassLoader classLoader = getClass().getClassLoader();
     File file = new File(classLoader.getResource("25To30Test.json").getFile());
     OpenRtb24To3MapperImpl impl = new OpenRtb24To3MapperImpl(null);
+    Config config = new Config();
+    config.setBannerTemplate("");
+    OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
 
     byte[] jsonData = Files.readAllBytes(file.toPath());
     ObjectMapper objectMapper = new ObjectMapper();
