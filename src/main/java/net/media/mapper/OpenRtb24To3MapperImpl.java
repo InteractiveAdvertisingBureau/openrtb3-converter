@@ -413,7 +413,7 @@ public class OpenRtb24To3MapperImpl {
         ad.setIurl( bid.getIurl() );
         Set<String> set = bid.getCat();
         if ( set != null ) {
-            ad.setCat(new ArrayList<>(set) );
+            ad.setCat(set );
         }
         else {
             ad.setCat( null );
@@ -974,7 +974,7 @@ public class OpenRtb24To3MapperImpl {
             bid.setBundle( null );
         }
         bid.setIurl( ad.getIurl() );
-        List<String> set = ad.getCat();
+        Set<String> set = ad.getCat();
         if ( set != null ) {
             bid.setCat( new HashSet<>( set ) );
         }

@@ -11,6 +11,7 @@ import net.media.openrtb3.Video;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -75,7 +76,7 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
     target.setIurl( source.getIurl() );
     Set<String> set = source.getCat();
     if ( set != null ) {
-      target.setCat(new ArrayList<>(set) );
+      target.setCat(new HashSet<>(set) );
     }
     else {
       target.setCat( null );
