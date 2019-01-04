@@ -4,6 +4,7 @@ import net.media.utils.validator.CheckExactlyOneNotNull;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -22,7 +23,7 @@ public class Ad {
   private List<String> adomain = null;//bid
   private List<String> bundle = null;//bid(String to  List)
   private String iurl;//bid
-  private List<String> cat = null;//bid
+  private Set<String> cat = null;//bid
   private Integer cattax;//bid.ext
   private String lang;//bid.language
   private List<Integer> attr = null;//bid

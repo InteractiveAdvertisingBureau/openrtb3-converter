@@ -8,9 +8,15 @@ import net.media.openrtb24.response.SeatBid;
 import net.media.openrtb3.OpenRTB;
 import net.media.openrtb3.Response;
 import net.media.openrtb3.Seatbid;
+import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 public class OpenRtbResponseToBidResponseConverter implements Converter<OpenRTB,BidResponse> {
 
@@ -21,31 +27,42 @@ public class OpenRtbResponseToBidResponseConverter implements Converter<OpenRTB,
   }
   @Override
   public BidResponse map(OpenRTB source, Config config) {
-    Response response = source.getResponse();
-    if ( response == null ) {
-      return null;
-    }
-
-    BidResponse bidResponse = new BidResponse();
-
-    bidResponse.setId( response.getId() );
-    bidResponse.setSeatbid( seatbidListToSeatBidList( response.getSeatbid() ,response,config) );
-    bidResponse.setBidid( response.getBidid() );
-    bidResponse.setCur( response.getCur() );
-    bidResponse.setNbr( response.getNbr() );
-    Map<String, Object> map = response.getExt();
-    if ( map != null ) {
-      bidResponse.setExt(new HashMap<>(map) );
-    }
-    else {
-      bidResponse.setExt( null );
-    }
-    mapResponse(response,adType,bidResponse);
+    if(isNull(source) || isNull(config))
+      return  null;
+    BidResponse  bidResponse = new BidResponse();
+    inhance(source,bidResponse,config);
     return bidResponse;
   }
 
   @Override
   public void inhance(OpenRTB source,BidResponse target, Config config) {
+    if(isNull(source) || isNull(target) || isNull(config))
+      return ;
+    Response response = source.getResponse();
+    if ( response == null )
+      return;
 
+    target.setId( response.getId() );
+    List<SeatBid> seatBidList = new ArrayList<>();
+    if(nonNull(response.getSeatbid())){
+      response.getSeatbid().forEach(seatbid -> {
+        seatBidList.add(seatBid30ToSeatBid24Converter.map(seatbid,config));
+      });
+    }
+    target.setSeatbid(seatBidList);
+    target.setBidid( response.getBidid() );
+    target.setCur( response.getCur() );
+    target.setNbr( response.getNbr() );
+    target.setExt(Utils.copyMap(response.getExt(),config));
+
+    if(nonNull(response.getExt())  && nonNull(target.getExt())){
+      target.setCustomdata((String) response.getExt().get("customdata"));
+      target.getExt().remove("customdata");
+      target.getExt().put("cdata",response.getCdata());
+    }else if(nonNull(target.getCustomdata())){
+      Map<String,Object>  ext = new HashMap<>();
+      ext.put("cdata",response.getCdata());
+      target.setExt(ext);
+    }
   }
 }

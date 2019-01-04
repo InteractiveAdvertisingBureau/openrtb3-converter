@@ -12,7 +12,7 @@ import static java.util.Objects.isNull;
 public class MediatoBidConverter implements Converter<Media,Bid> {
   Converter<Ad,Bid> adBidConverter;
 
-  MediatoBidConverter(Converter<Ad,Bid> adBidConverter){
+  public MediatoBidConverter(Converter<Ad,Bid> adBidConverter){
     this.adBidConverter  = adBidConverter;
   }
   public Bid map(Media source, Config config){

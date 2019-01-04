@@ -2,6 +2,7 @@ package net.media.converters.response30toresponse24;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.enums.AdType;
 import net.media.openrtb24.response.Bid;
 import net.media.openrtb3.*;
 import net.media.utils.Utils;
@@ -38,44 +39,15 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
       return ;
 
     target.setCrid(source.getId());
-    List<String> adomain = source.getAdomain();
-    if ( adomain != null ) {
-      target.setAdomain(new ArrayList<>(adomain) );
-    }
-    else {
-      target.setAdomain( null );
-    }
-    List<String> list1 = source.getBundle();
-    target.setBundle(Utils.copyList(source.getBundle()));
-    if ( list1 != null ) {
-      target.setBundle(new ArrayList<>(list1) );
-    }
-    else {
-      target.setBundle( null );
-    }
+    target.setAdomain(Utils.copyList(source.getAdomain(),config));
+    target.setBundle(Utils.copyList(source.getBundle(),config));
     target.setIurl( source.getIurl() );
-    List<String> set = source.getCat();
-    if ( set != null ) {
-      target.setCat( new HashSet<>( set ) );
-    }
-    else {
-      target.setCat( null );
-    }
+    target.setCat(Utils.copyList(source.getCat(),config));
+    target.setAttr(Utils.copyList(source.getAttr(),config));
     target.setLanguage(source.getLang());
-    List<Integer> list2 = source.getAttr();
-    if ( list2 != null ) {
-      target.setAttr(new ArrayList<>(list2) );
-    }
-    else {
-      target.setAttr( null );
-    }
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      target.setExt(new HashMap<>(map) );
-    }
-    else {
-      target.setExt( new HashMap<>());
-    }
+    target.setExt(Utils.copyMap(source.getExt(),config));
+    if(isNull(target.getExt()))
+      target.setExt(new HashMap<>());
     if (nonNull(source.getSecure())) {
       target.getExt().put("secure", source.getSecure());
     }
@@ -91,25 +63,22 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
     if (nonNull(source.getCattax())) {
       target.getExt().put("cattax", source.getCattax());
     }
+    AdType adType = config.getAdType();
     switch (adType) {
       case BANNER:
       case NATIVE:
-        displayToBid(target, source.getDisplay(), adType);
+        displayBidConverter.inhance(source.getDisplay(),target,config);
         break;
       case VIDEO:
-        videoToBid(target, source.getVideo(), adType);
+        videoBidConverter.inhance(source.getVideo(),target,config);
         break;
       case AUDIO:
-        audioToBid(target, source.getAudio(), adType);
+        audioBidConverter.inhance(source.getAudio(),target,config);
         break;
       case AUDIT:
-        auditToBid(target, source.getAudit(), adType);
+        auditBidConverter.inhance(source.getAudit(),target,config);
         break;
     }
-    displayBidConverter.inhance(source.getDisplay(),target,config);
-    videoBidConverter.inhance(source.getVideo(),target,config);
-    audioBidConverter.inhance(source.getAudio(),target,config);
-    auditBidConverter.inhance(source.getAudit(),target,config);
 
   }
 }
