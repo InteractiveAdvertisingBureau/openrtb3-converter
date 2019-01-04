@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -14,7 +15,7 @@ public class Publisher {
   private String id;
   private String name;
   private String domain;
-  private String[] cat;
+  private List<String> cat;
   private Integer cattax;
   private Map<String, Object> ext;
 

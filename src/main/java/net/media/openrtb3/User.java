@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import net.media.utils.validator.CheckAtLeastOneNotNull;
 
+import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -17,6 +18,6 @@ public class User {
   private String keywords;
   private String consent;
   private Geo geo;
-  private Data[] data;
+  private List<Data> data;
   private Map<String, Object> ext;
 }

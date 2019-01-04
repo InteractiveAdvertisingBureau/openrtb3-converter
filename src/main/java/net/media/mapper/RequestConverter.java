@@ -138,7 +138,7 @@ public class RequestConverter {
     Site site1 = new Site();
 
     site1.setPrivpolicy( site.getPrivacypolicy() );
-    site1.setSectcat( stringListToStringArray( site.getSectioncat() ) );
+    site1.setSectcat( site.getSectioncat() );
     site1.setPub( publisherToPublisher( site.getPublisher() ) );
     site1.setId( site.getId() );
     site1.setName( site.getName() );
@@ -148,7 +148,7 @@ public class RequestConverter {
     if ( list != null ) {
       site1.setCat( new ArrayList<String>( list ) );
     }
-    site1.setPagecat( stringSetToStringArray( site.getPagecat() ) );
+    site1.setPagecat( ( site.getPagecat() ) );
     site1.setKeywords( site.getKeywords() );
     site1.setPage( site.getPage() );
     site1.setRef( site.getRef() );
@@ -173,14 +173,14 @@ public class RequestConverter {
     App app1 = new App();
 
     app1.setPrivpolicy( app.getPrivacypolicy() );
-    app1.setSectcat( stringListToStringArray( app.getSectioncat() ) );
+    app1.setSectcat( ( app.getSectioncat() ) );
     app1.setPub( publisherToPublisher( app.getPublisher() ) );
     app1.setId( app.getId() );
     app1.setName( app.getName() );
     app1.setContent( mapRtb24ContenttoRtb3Content( app.getContent() ) );
     app1.setDomain( app.getDomain() );
-    app1.setCat( stringListToStringArray1( app.getCat() ) );
-    app1.setPagecat( stringSetToStringArray( app.getPagecat() ) );
+    app1.setCat( ( app.getCat() ) );
+    app1.setPagecat( ( app.getPagecat() ) );
     app1.setKeywords( app.getKeywords() );
     app1.setBundle( app.getBundle() );
     app1.setStoreurl( app.getStoreurl() );
@@ -221,7 +221,7 @@ public class RequestConverter {
     content1.setAlbum( content.getAlbum() );
     content1.setIsrc( content.getIsrc() );
     content1.setUrl( content.getUrl() );
-    content1.setCat( stringListToStringArray1( content.getCat() ) );
+    content1.setCat( ( content.getCat() ) );
     content1.setProdq( content.getProdq() );
     content1.setContext( content.getContext() );
     content1.setKeywords( content.getKeywords() );
@@ -249,7 +249,7 @@ public class RequestConverter {
     producer1.setId( producer.getId() );
     producer1.setName( producer.getName() );
     producer1.setDomain( producer.getDomain() );
-    producer1.setCat( stringListToStringArray1( producer.getCat() ) );
+    producer1.setCat( ( producer.getCat() ) );
     Map<String, Object> map = producer.getExt();
     if ( map != null ) {
       producer1.setExt( new HashMap<String, Object>( map ) );
@@ -274,7 +274,7 @@ public class RequestConverter {
     user1.setGender( user.getGender() );
     user1.setKeywords( user.getKeywords() );
     user1.setGeo( mapRtb24GeotoRtb3Geo( user.getGeo() ) );
-    user1.setData( dataListToDataArray( user.getData() ) );
+    user1.setData( dataListToDataList( user.getData() ) );
     Map<String, Object> map = user.getExt();
     if ( map != null ) {
       user1.setExt( new HashMap<String, Object>( map ) );
@@ -395,9 +395,9 @@ public class RequestConverter {
 
     Restrictions restrictions = new Restrictions();
 
-    restrictions.setBapp( stringListToStringArray( bidRequest.getBapp() ) );
-    restrictions.setBcat( stringSetToStringArray1( bidRequest.getBcat() ) );
-    restrictions.setBadv( stringSetToStringArray1( bidRequest.getBadv() ) );
+    restrictions.setBapp( ( bidRequest.getBapp() ) );
+    restrictions.setBcat( ( bidRequest.getBcat() ) );
+    restrictions.setBadv( ( bidRequest.getBadv() ) );
 
     updateBattrRestriction( restrictions, bidRequest );
 
@@ -441,20 +441,20 @@ public class RequestConverter {
       bidRequest.setRegs( mapRtb3RegstoRtb24Regs( regs ) );
     }
     bidRequest.setImp( itemListToImpList( request.getItem(), request ) );
-    String[] bapp = requestContextRestrictionsBapp( request );
-    bidRequest.setBapp( stringArrayToStringList( bapp ) );
+    List<String> bapp = requestContextRestrictionsBapp( request );
+    bidRequest.setBapp( ( bapp ) );
     Site site = requestContextSite( request );
     if ( site != null ) {
       bidRequest.setSite( mapRtb3SitetoRtb24Site( site ) );
     }
-    String[] bcat = requestContextRestrictionsBcat( request );
-    bidRequest.setBcat( stringArrayToStringSet( bcat ) );
+    Set<String> bcat = requestContextRestrictionsBcat( request );
+    bidRequest.setBcat( ( bcat ) );
     Device device = requestContextDevice( request );
     if ( device != null ) {
       bidRequest.setDevice( mapRtb3DevicetoRtb24Device( device ) );
     }
-    String[] badv = requestContextRestrictionsBadv( request );
-    bidRequest.setBadv( stringArrayToStringSet( badv ) );
+    Set<String> badv = requestContextRestrictionsBadv( request );
+    bidRequest.setBadv( ( badv ) );
     bidRequest.setId( request.getId() );
     bidRequest.setAt( request.getAt() );
     bidRequest.setTest( request.getTest() );
@@ -594,7 +594,7 @@ public class RequestConverter {
 
     net.media.openrtb24.request.Site site1 = new net.media.openrtb24.request.Site();
 
-    site1.setSectioncat( stringArrayToStringList( site.getSectcat() ) );
+    site1.setSectioncat( ( site.getSectcat() ) );
     site1.setPrivacypolicy( site.getPrivpolicy() );
     site1.setPublisher( publisherToPublisher1( site.getPub() ) );
     site1.setId( site.getId() );
@@ -604,7 +604,7 @@ public class RequestConverter {
     if ( list1 != null ) {
       site1.setCat( new ArrayList<String>( list1 ) );
     }
-    site1.setPagecat( stringArrayToStringSet1( site.getPagecat() ) );
+    site1.setPagecat( ( site.getPagecat() ) );
     site1.setPage( site.getPage() );
     site1.setRef( site.getRef() );
     site1.setSearch( site.getSearch() );
@@ -629,7 +629,7 @@ public class RequestConverter {
 
     net.media.openrtb24.request.App app1 = new net.media.openrtb24.request.App();
 
-    app1.setSectioncat( stringArrayToStringList( app.getSectcat() ) );
+    app1.setSectioncat( ( app.getSectcat() ) );
     app1.setPrivacypolicy( app.getPrivpolicy() );
     app1.setPublisher( publisherToPublisher1( app.getPub() ) );
     app1.setId( app.getId() );
@@ -637,8 +637,8 @@ public class RequestConverter {
     app1.setBundle( app.getBundle() );
     app1.setDomain( app.getDomain() );
     app1.setStoreurl( app.getStoreurl() );
-    app1.setCat( stringArrayToStringList1( app.getCat() ) );
-    app1.setPagecat( stringArrayToStringSet1( app.getPagecat() ) );
+    app1.setCat( ( app.getCat() ) );
+    app1.setPagecat( ( app.getPagecat() ) );
     app1.setVer( app.getVer() );
     app1.setPaid( app.getPaid() );
     app1.setContent( mapRtb3ContenttoRtb24Content( app.getContent() ) );
@@ -679,7 +679,7 @@ public class RequestConverter {
     content1.setIsrc( content.getIsrc() );
     content1.setProducer( mapRtb3ProducertoRtb24Producer( content.getProducer() ) );
     content1.setUrl( content.getUrl() );
-    content1.setCat( stringArrayToStringList1( content.getCat() ) );
+    content1.setCat( ( content.getCat() ) );
     content1.setProdq( content.getProdq() );
     content1.setContext( content.getContext() );
     content1.setKeywords( content.getKeywords() );
@@ -705,7 +705,7 @@ public class RequestConverter {
 
     producer1.setId( producer.getId() );
     producer1.setName( producer.getName() );
-    producer1.setCat( stringArrayToStringList1( producer.getCat() ) );
+    producer1.setCat( ( producer.getCat() ) );
     producer1.setDomain( producer.getDomain() );
     Map<String, Object> map = producer.getExt();
     if ( map != null ) {
@@ -844,7 +844,7 @@ public class RequestConverter {
     publisher1.setId( publisher.getId() );
     publisher1.setName( publisher.getName() );
     publisher1.setDomain( publisher.getDomain() );
-    publisher1.setCat( stringListToStringArray1( publisher.getCat() ) );
+    publisher1.setCat( ( publisher.getCat() ) );
     Map<String, Object> map = publisher.getExt();
     if ( map != null ) {
       publisher1.setExt( new HashMap<String, Object>( map ) );
@@ -1004,7 +1004,7 @@ public class RequestConverter {
     return regs;
   }
 
-  private String[] requestContextRestrictionsBapp(Request request) {
+  private List<String> requestContextRestrictionsBapp(Request request) {
     if ( request == null ) {
       return null;
     }
@@ -1016,7 +1016,7 @@ public class RequestConverter {
     if ( restrictions == null ) {
       return null;
     }
-    String[] bapp = restrictions.getBapp();
+    List<String> bapp = restrictions.getBapp();
     if ( bapp == null ) {
       return null;
     }
@@ -1051,7 +1051,7 @@ public class RequestConverter {
     return site;
   }
 
-  private String[] requestContextRestrictionsBcat(Request request) {
+  private Set<String> requestContextRestrictionsBcat(Request request) {
     if ( request == null ) {
       return null;
     }
@@ -1063,7 +1063,7 @@ public class RequestConverter {
     if ( restrictions == null ) {
       return null;
     }
-    String[] bcat = restrictions.getBcat();
+    Set<String> bcat = restrictions.getBcat();
     if ( bcat == null ) {
       return null;
     }
@@ -1098,7 +1098,7 @@ public class RequestConverter {
     return device;
   }
 
-  private String[] requestContextRestrictionsBadv(Request request) {
+  private Set<String> requestContextRestrictionsBadv(Request request) {
     if ( request == null ) {
       return null;
     }
@@ -1110,7 +1110,7 @@ public class RequestConverter {
     if ( restrictions == null ) {
       return null;
     }
-    String[] badv = restrictions.getBadv();
+    Set<String> badv = restrictions.getBadv();
     if ( badv == null ) {
       return null;
     }
@@ -1139,7 +1139,7 @@ public class RequestConverter {
 
     publisher1.setId( publisher.getId() );
     publisher1.setName( publisher.getName() );
-    publisher1.setCat( stringArrayToStringList1( publisher.getCat() ) );
+    publisher1.setCat( ( publisher.getCat() ) );
     publisher1.setDomain( publisher.getDomain() );
     Map<String, Object> map = publisher.getExt();
     if ( map != null ) {
@@ -1224,12 +1224,12 @@ public class RequestConverter {
     return list1;
   }
 
-  protected List<Data> dataArrayToDataList(net.media.openrtb3.Data[] dataArray) {
+  protected List<Data> dataArrayToDataList(List<net.media.openrtb3.Data> dataArray) {
     if ( dataArray == null ) {
       return null;
     }
 
-    List<Data> list = new ArrayList<Data>( dataArray.length );
+    List<Data> list = new ArrayList<Data>( dataArray.size() );
     for ( net.media.openrtb3.Data data : dataArray ) {
       list.add( dataToData1( data ) );
     }

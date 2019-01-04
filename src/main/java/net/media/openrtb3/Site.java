@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -12,8 +13,8 @@ public class Site extends DistributionChannel {
 
   private String domain;
   private List<String> cat;
-  private String[] sectcat;
-  private String[] pagecat;
+  private List<String> sectcat;
+  private Set<String> pagecat;
   private Integer cattax;
   private Integer privpolicy;
   private String keywords;
