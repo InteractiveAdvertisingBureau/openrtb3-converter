@@ -20,7 +20,7 @@ public class Content {
   private String album;
   private String isrc;
   private String url;
-  private String[] cat;
+  private List<String> cat;
   private Integer cattax;
   private Integer prodq;
   private Integer context;

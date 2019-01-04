@@ -1,38 +1,15 @@
 package net.media;
 
-import net.media.converters.request24toRequest30.AudioToAudioPlacementConverter;
-import net.media.converters.request24toRequest30.BannerToCompanionConverter;
-import net.media.converters.request24toRequest30.BannerToDisplayPlacementConverter;
-import net.media.converters.request24toRequest30.BidRequestToOpenRtbConverter;
-import net.media.converters.request24toRequest30.BidRequestToRequestConverter;
-import net.media.converters.request24toRequest30.ImpToItemConverter;
-import net.media.converters.request24toRequest30.NativeRequestBodyToNativeFormatConverter;
-import net.media.converters.request24toRequest30.NativeToDisplayPlacementConverter;
-import net.media.converters.request24toRequest30.VideoToVideoPlacementConverter;
 import net.media.converters.response24toresponse30.Bid24ToBid30Converter;
 import net.media.converters.response24toresponse30.BidResponseToOpenRtbConverter;
 import net.media.converters.response24toresponse30.BidResponseToResponseConverter;
 import net.media.converters.Converter;
 import net.media.converters.response24toresponse30.SeatBid24ToSeatBid30Converter;
 import net.media.converters.response24toresponse30.SeatBidList24ToSeatBidList30Converter;
-import net.media.openrtb24.request.Audio;
-import net.media.openrtb24.request.Banner;
 import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.request.Imp;
-import net.media.openrtb24.request.Native;
-import net.media.openrtb24.request.Video;
 import net.media.openrtb24.response.BidResponse;
 import net.media.openrtb24.response.SeatBid;
-import net.media.openrtb3.AudioPlacement;
-import net.media.openrtb3.Bid;
-import net.media.openrtb3.Companion;
-import net.media.openrtb3.DisplayPlacement;
-import net.media.openrtb3.Item;
-import net.media.openrtb3.OpenRTB;
-import net.media.openrtb3.Request;
-import net.media.openrtb3.Response;
-import net.media.openrtb3.Seatbid;
-import net.media.openrtb3.VideoPlacement;
+import net.media.openrtb3.*;
 import net.media.utils.Provider;
 
 import java.util.List;
@@ -43,56 +20,25 @@ import java.util.List;
 public class ConverterPlumber {
 
   private Provider<Conversion, Converter> converterProvider;
+  private Converter24To30Plumber converter24To30Plumber;
+  private Converter30To24Plumber converter30To24Plumber;
 
   public ConverterPlumber() {
     converterProvider = new Provider<>(null);
+    converter24To30Plumber = new Converter24To30Plumber();
+    converter30To24Plumber = new Converter30To24Plumber();
     converterProvider.register(new Conversion(BidResponse.class, OpenRTB.class),
       bidResponseToOpenRtb());
     converterProvider.register(new Conversion(BidRequest.class, OpenRTB.class),
-      bidRequestToOpenRtb());
+      converter24To30Plumber.bidRequestToOpenRtb());
     converterProvider.register(new Conversion(OpenRTB.class, BidResponse.class),
       openRtbToBidResponseConverter());
     converterProvider.register(new Conversion(OpenRTB.class, BidRequest.class),
-      OpenRtbToBidRequestConverter());
-  }
-
-  private Converter<OpenRTB, BidRequest> OpenRtbToBidRequestConverter() {
-
-    return null;
+      converter30To24Plumber.openRtbToBidRequestConverter());
   }
 
   private Converter<OpenRTB, BidResponse> openRtbToBidResponseConverter() {
     return null;
-  }
-
-  private Converter<BidRequest, OpenRTB> bidRequestToOpenRtb() {
-    Converter<BidRequest, Request> bidRequestToRequestConverter = bidRequestToRequest();
-    return new BidRequestToOpenRtbConverter(bidRequestToRequestConverter);
-  }
-
-  private Converter<BidRequest, Request> bidRequestToRequest() {
-    Converter<Imp, Item> impItemConverter = impToItemConverter();
-    return new BidRequestToRequestConverter(impItemConverter);
-  }
-
-  private Converter<Imp, Item> impToItemConverter() {
-    Converter<Banner, DisplayPlacement> bannerDisplayPlacementConverter = new
-      BannerToDisplayPlacementConverter();
-    Converter<Native, DisplayPlacement> nativeDisplayPlacementConverter = new
-      NativeToDisplayPlacementConverter(new NativeRequestBodyToNativeFormatConverter());
-    Converter<Banner, Companion> bannerCompanionConverter = bannerCompanionConverter
-      (bannerDisplayPlacementConverter);
-    Converter<Video, VideoPlacement> videoVideoPlacementConverter = new
-      VideoToVideoPlacementConverter(bannerCompanionConverter);
-    Converter<Audio, AudioPlacement> audioAudioPlacementConverter = new
-      AudioToAudioPlacementConverter(bannerCompanionConverter);
-    return new ImpToItemConverter(bannerDisplayPlacementConverter,
-      nativeDisplayPlacementConverter, videoVideoPlacementConverter, audioAudioPlacementConverter);
-  }
-
-  private Converter<Banner, Companion> bannerCompanionConverter(Converter<Banner,
-    DisplayPlacement> bannerDisplayPlacementConverter) {
-    return new BannerToCompanionConverter(bannerDisplayPlacementConverter);
   }
 
   private Converter<BidResponse, OpenRTB> bidResponseToOpenRtb() {

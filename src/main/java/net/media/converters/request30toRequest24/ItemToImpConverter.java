@@ -5,14 +5,15 @@ import net.media.converters.Converter;
 import net.media.openrtb24.request.Imp;
 import net.media.openrtb3.Item;
 
-public class ItemToImpConverter implements Converter<Imp, Item> {
+public class ItemToImpConverter implements Converter<Item, Imp> {
+
   @Override
-  public Item map(Imp source, Config config) {
+  public Imp map(Item source, Config config) {
     return null;
   }
 
   @Override
-  public void inhance(Imp source, Item target, Config config) {
+  public void inhance(Item source, Imp target, Config config) {
 
   }
 }
