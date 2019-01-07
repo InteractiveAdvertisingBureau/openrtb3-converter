@@ -1,5 +1,6 @@
 package net.media.converters.response30toresponse24;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.response.Bid;
@@ -22,11 +23,12 @@ public class OpenRtbResponseToBidResponseConverter implements Converter<OpenRTB,
 
   private Converter<Seatbid, SeatBid> seatBid30ToSeatBid24Converter;
 
-  public OpenRtbResponseToBidResponseConverter(Converter<Seatbid,SeatBid> seatBid30ToSeatBid24Converter ){
+  public OpenRtbResponseToBidResponseConverter(Converter<Seatbid,SeatBid>
+                                                 seatBid30ToSeatBid24Converter ) {
     this.seatBid30ToSeatBid24Converter = seatBid30ToSeatBid24Converter;
   }
   @Override
-  public BidResponse map(OpenRTB source, Config config) {
+  public BidResponse map(OpenRTB source, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     BidResponse  bidResponse = new BidResponse();
@@ -35,7 +37,7 @@ public class OpenRtbResponseToBidResponseConverter implements Converter<OpenRTB,
   }
 
   @Override
-  public void inhance(OpenRTB source,BidResponse target, Config config) {
+  public void inhance(OpenRTB source,BidResponse target, Config config) throws OpenRtbConverterException  {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
     Response response = source.getResponse();
@@ -45,9 +47,9 @@ public class OpenRtbResponseToBidResponseConverter implements Converter<OpenRTB,
     target.setId( response.getId() );
     List<SeatBid> seatBidList = new ArrayList<>();
     if(nonNull(response.getSeatbid())){
-      response.getSeatbid().forEach(seatbid -> {
-        seatBidList.add(seatBid30ToSeatBid24Converter.map(seatbid,config));
-      });
+      for (Seatbid seatBid : response.getSeatbid()) {
+        seatBid30ToSeatBid24Converter.map(seatBid,config);
+      }
     }
     target.setSeatbid(seatBidList);
     target.setBidid( response.getBidid() );

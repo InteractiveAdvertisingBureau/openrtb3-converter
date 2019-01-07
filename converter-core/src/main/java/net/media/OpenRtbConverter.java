@@ -32,7 +32,8 @@ public class OpenRtbConverter {
    * @param <V>
    * @return
    */
-  public  <U, V> V convert(Config overridingConfig, U source, Class<U> sourceClass, Class<V> targetClass) throws ConfigurationException {
+  public  <U, V> V convert(Config overridingConfig, U source, Class<U> sourceClass, Class<V>
+    targetClass) throws ConfigurationException, OpenRtbConverterException {
     overridingConfig = inhanceConfig(overridingConfig);
     if (shouldValidate(overridingConfig)) {
       Utils.validate(source);
@@ -50,12 +51,13 @@ public class OpenRtbConverter {
    * @param <V>
    * @return
    */
-  public <U, V> V convert(U source, Class<U> sourceClass, Class<V> targetClass) throws ConfigurationException {
+  public <U, V> V convert(U source, Class<U> sourceClass, Class<V> targetClass) throws
+    ConfigurationException, OpenRtbConverterException {
     return convert(null, source, sourceClass, targetClass);
   }
 
   public <U, V> void enhance(Config overridingConfig, U source, V target, Class<U> sourceClass,
-                          Class<V> targetClass) throws ConfigurationException {
+                          Class<V> targetClass) throws ConfigurationException, OpenRtbConverterException {
     overridingConfig = inhanceConfig(overridingConfig);
     if (shouldValidate(overridingConfig)) {
       Utils.validate(source);
@@ -65,7 +67,7 @@ public class OpenRtbConverter {
   }
 
   public <U, V> void enhance(U source, V target, Class<U> sourceClass,
-                             Class<V> targetClass) {
+                             Class<V> targetClass) throws OpenRtbConverterException {
     Converter<U, V> converter = converterPlumber.getConverter(sourceClass, targetClass);
     converter.inhance(source, target, null);
   }

@@ -1,5 +1,6 @@
 package net.media.converters.response30toresponse24;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.response.Bid;
@@ -27,7 +28,7 @@ public class Native30ToNative10Converter implements Converter<Native,NativeRespo
     this.linkAssetLinkConverter = linkAssetLinkConverter;
   }
 
-  public NativeResponse map(Native source, Config config) {
+  public NativeResponse map(Native source, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     NativeResponse  nativeResponse = new NativeResponse();
@@ -35,7 +36,7 @@ public class Native30ToNative10Converter implements Converter<Native,NativeRespo
     return nativeResponse;
   }
 
-  public void inhance(Native source, NativeResponse target, Config config) {
+  public void inhance(Native source, NativeResponse target, Config config) throws OpenRtbConverterException  {
 
     if(isNull(source) || isNull(target) || isNull(config))
       return;
@@ -43,9 +44,9 @@ public class Native30ToNative10Converter implements Converter<Native,NativeRespo
     NativeResponseBody nativeResponseBody = target.getNativeResponseBody();
     List<AssetResponse> assetResponseList = new ArrayList<>();
     if(nonNull(source.getAsset())){
-      source.getAsset().forEach(asset -> {
+      for (Asset asset : source.getAsset()) {
         assetResponseList.add(assetAssetResponseConverter.map(asset,config));
-      });
+      }
     }
     nativeResponseBody.setAssets(assetResponseList);
     nativeResponseBody.setLink(linkAssetLinkConverter.map(source.getLink(),config));
