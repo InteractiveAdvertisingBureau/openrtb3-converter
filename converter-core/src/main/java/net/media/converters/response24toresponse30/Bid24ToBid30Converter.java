@@ -1,5 +1,6 @@
 package net.media.converters.response24toresponse30;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.response.Bid;
@@ -22,7 +23,7 @@ public class Bid24ToBid30Converter implements Converter<Bid, net.media.openrtb3.
   }
 
   @Override
-  public net.media.openrtb3.Bid map(Bid source, Config config) {
+  public net.media.openrtb3.Bid map(Bid source, Config config)throws OpenRtbConverterException {
     if (isNull(source)) {
       return null;
     }
@@ -32,7 +33,7 @@ public class Bid24ToBid30Converter implements Converter<Bid, net.media.openrtb3.
   }
 
   @Override
-  public void inhance(Bid source, net.media.openrtb3.Bid target, Config config) {
+  public void inhance(Bid source, net.media.openrtb3.Bid target, Config config) throws OpenRtbConverterException{
     if (source == null || target == null) {
       return;
     }

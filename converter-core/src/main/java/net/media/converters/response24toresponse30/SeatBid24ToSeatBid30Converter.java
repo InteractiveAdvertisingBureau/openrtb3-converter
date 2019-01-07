@@ -1,5 +1,6 @@
 package net.media.converters.response24toresponse30;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.response.Bid;
@@ -26,7 +27,7 @@ public class SeatBid24ToSeatBid30Converter implements Converter<SeatBid, Seatbid
   }
 
   @Override
-  public Seatbid map(SeatBid source, Config config) {
+  public Seatbid map(SeatBid source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -36,7 +37,7 @@ public class SeatBid24ToSeatBid30Converter implements Converter<SeatBid, Seatbid
   }
 
   @Override
-  public void inhance(SeatBid source, Seatbid seatbid, Config config) {
+  public void inhance(SeatBid source, Seatbid seatbid, Config config)throws OpenRtbConverterException {
     if (source == null || seatbid == null) {
       return;
     }
