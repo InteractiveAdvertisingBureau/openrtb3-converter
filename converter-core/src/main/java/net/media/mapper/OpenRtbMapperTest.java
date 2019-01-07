@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.media.OpenRtbConverter;
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.openrtb24.request.BidRequest;
 import net.media.openrtb3.OpenRTB;
@@ -11,6 +12,7 @@ import net.media.openrtb3.Request;
 import net.media.openrtb3.Response;
 import net.media.util.JacksonObjectMapper;
 
+import javax.naming.ConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -20,18 +22,22 @@ import java.util.List;
 
 public class OpenRtbMapperTest {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     try {
       new OpenRtbMapperTest().test();
 //      new OpenRtbMapperTest().test1();
     }catch (IOException e){
       System.out.println("Phatna  hihe"+e.getMessage());
+    } catch (ConfigurationException e) {
+      e.printStackTrace();
+    } catch (OpenRtbConverterException e) {
+      e.printStackTrace();
     }
   }
 
-  private void test() throws IOException {
+  private void test() throws IOException, OpenRtbConverterException, ConfigurationException {
     ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource("src/main/resources/25To30RequestTest.json").getPath());
+    File file = new File(classLoader.getResource("25To30RequestTest.json").getPath());
 
     byte[] jsonData = Files.readAllBytes(file.toPath());
     ObjectMapper objectMapper = JacksonObjectMapper.getMapper();
@@ -60,9 +66,9 @@ public class OpenRtbMapperTest {
     }
   }
 
-  private void test1() throws IOException {
+  private void test1() throws IOException, OpenRtbConverterException, ConfigurationException {
     ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource("src/main/resources/30To25BannerRequestTest.json").getPath());
+    File file = new File(classLoader.getResource("30To25BannerRequestTest.json").getPath());
 
     byte[] jsonData = Files.readAllBytes(file.toPath());
     ObjectMapper objectMapper = JacksonObjectMapper.getMapper();
