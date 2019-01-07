@@ -6,11 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="open-rtb-converter" />
+        <module name="converter-api" />
+        <module name="converter-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="open-rtb-converter" target="1.8" />
+      <module name="converter-api" target="1.8" />
+      <module name="converter-core" target="1.8" />
+      <module name="open-rtb-converter" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
