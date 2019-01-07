@@ -61,7 +61,12 @@ public class BidResponseToResponseConverter implements Converter<BidResponse, Re
     }
     if(nonNull(response.getExt()) && nonNull(bidResponse.getExt())){
       response.getExt().put("customerData",bidResponse.getCustomdata());
-      response.setCdata((String)bidResponse.getExt().get("cdata"));
+      try {
+        response.setCdata((String) bidResponse.getExt().get("cdata"));
+      }
+      catch (Exception e) {
+        throw new OpenRtbConverterException("error while casting cdata in bidResponse.ext", e);
+      }
       response.getExt().remove("cdata");
     }
     else if(nonNull(bidResponse.getCustomdata())) {

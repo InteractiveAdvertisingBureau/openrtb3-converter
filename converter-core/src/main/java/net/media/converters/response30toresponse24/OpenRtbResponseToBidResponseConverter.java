@@ -3,7 +3,6 @@ package net.media.converters.response30toresponse24;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.response.Bid;
 import net.media.openrtb24.response.BidResponse;
 import net.media.openrtb24.response.SeatBid;
 import net.media.openrtb3.OpenRTB;
@@ -57,14 +56,19 @@ public class OpenRtbResponseToBidResponseConverter implements Converter<OpenRTB,
     target.setNbr( response.getNbr() );
     target.setExt(Utils.copyMap(response.getExt(),config));
 
-    if(nonNull(response.getExt())  && nonNull(target.getExt())){
-      target.setCustomdata((String) response.getExt().get("customdata"));
-      target.getExt().remove("customdata");
-      target.getExt().put("cdata",response.getCdata());
-    }else if(nonNull(target.getCustomdata())){
-      Map<String,Object>  ext = new HashMap<>();
-      ext.put("cdata",response.getCdata());
-      target.setExt(ext);
+    try {
+      if (nonNull(response.getExt()) && nonNull(target.getExt())) {
+        target.setCustomdata((String) response.getExt().get("customdata"));
+        target.getExt().remove("customdata");
+        target.getExt().put("cdata", response.getCdata());
+      } else if (nonNull(target.getCustomdata())) {
+        Map<String, Object> ext = new HashMap<>();
+        ext.put("cdata", response.getCdata());
+        target.setExt(ext);
+      }
+    }
+    catch (Exception e) {
+      throw new OpenRtbConverterException("Error occured while type casting ext in openRtb", e);
     }
   }
 }

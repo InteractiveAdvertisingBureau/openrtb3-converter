@@ -3,7 +3,6 @@ package net.media.converters.response30toresponse24;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.response.Bid;
 import net.media.openrtb24.response.nativeresponse.*;
 import net.media.openrtb3.*;
 

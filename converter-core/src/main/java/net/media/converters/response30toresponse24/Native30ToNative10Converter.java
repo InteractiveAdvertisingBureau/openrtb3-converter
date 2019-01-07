@@ -51,9 +51,14 @@ public class Native30ToNative10Converter implements Converter<Native,NativeRespo
     nativeResponseBody.setAssets(assetResponseList);
     nativeResponseBody.setLink(linkAssetLinkConverter.map(source.getLink(),config));
     nativeResponseBody.setExt(source.getExt());
-    if(nonNull(source.getExt())){
-      nativeResponseBody.setJstracker((String)source.getExt().get("_jsTracker"));
-      nativeResponseBody.setImptrackers((List<String>)source.getExt().get("impTrackers"));
+    try {
+      if (nonNull(source.getExt())) {
+        nativeResponseBody.setJstracker((String) source.getExt().get("_jsTracker"));
+        nativeResponseBody.setImptrackers((List<String>) source.getExt().get("impTrackers"));
+      }
+    }
+    catch (Exception e) {
+      throw new OpenRtbConverterException("error while type casting ext objects in native", e);
     }
     target.setNativeResponseBody(nativeResponseBody);
   }
