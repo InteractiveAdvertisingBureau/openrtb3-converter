@@ -31,7 +31,7 @@ public class OpenRtb24To3Mapper {
 
   private void test() throws IOException {
     ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource("25To30Test.json").getFile());
+    File file = new File(classLoader.getResource("src/main/resources/25To30Test.json").getFile());
     OpenRtb24To3MapperImpl impl = new OpenRtb24To3MapperImpl(null);
     Config config = new Config();
     config.setBannerTemplate("");

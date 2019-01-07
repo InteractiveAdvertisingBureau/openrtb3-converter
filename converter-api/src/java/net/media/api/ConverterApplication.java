@@ -27,7 +27,7 @@ public class ConverterApplication extends Application<Configuration> {
 
   @Override
   public void run(Configuration configuration, Environment environment) throws Exception {
-    Injector injector = Guice.createInjector(new ConverterModule());
+    Injector injector = Guice.createInjector(new net.media.api.ConverterModule());
     environment.jersey().register(injector.getInstance(ConverterController.class));
     environment.jersey().setUrlPattern("/api/*");
   }
