@@ -1,5 +1,6 @@
 package net.media.converters.response24toresponse30;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 
@@ -36,7 +37,7 @@ public class Native24ToNative30Converter implements Converter<NativeResponse, Na
   }
 
   @Override
-  public Native map(NativeResponse source, Config config) {
+  public Native map(NativeResponse source, Config config) throws OpenRtbConverterException {
     if (source == null) {
       return null;
     }
@@ -46,7 +47,7 @@ public class Native24ToNative30Converter implements Converter<NativeResponse, Na
   }
 
   @Override
-  public void inhance(NativeResponse source, Native target, Config config) {
+  public void inhance(NativeResponse source, Native target, Config config)throws OpenRtbConverterException {
     if (source == null || target == null || source.getNativeResponseBody() == null) {
       return;
     }

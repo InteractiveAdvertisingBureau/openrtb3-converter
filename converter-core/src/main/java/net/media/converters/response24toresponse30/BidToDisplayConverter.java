@@ -1,5 +1,6 @@
 package net.media.converters.response24toresponse30;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.enums.AdType;
@@ -30,7 +31,7 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
   }
 
   @Override
-  public Display map(Bid source, Config config) {
+  public Display map(Bid source, Config config)throws OpenRtbConverterException {
     if (source == null) {
       return null;
     }
@@ -40,7 +41,7 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
   }
 
   @Override
-  public void inhance(Bid source, Display target, Config config) {
+  public void inhance(Bid source, Display target, Config config) throws OpenRtbConverterException{
     if (source == null || target == null) {
       return;
     }

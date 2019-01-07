@@ -1,5 +1,6 @@
 package net.media.converters.response24toresponse30;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.response.nativeresponse.AssetResponse;
@@ -34,7 +35,7 @@ public class Asset24ToAsset30Converter implements Converter<AssetResponse, Asset
   }
 
   @Override
-  public Asset map(AssetResponse source, Config config) {
+  public Asset map(AssetResponse source, Config config)throws OpenRtbConverterException {
     if (isNull(source)) {
       return null;
     }
@@ -44,7 +45,7 @@ public class Asset24ToAsset30Converter implements Converter<AssetResponse, Asset
   }
 
   @Override
-  public void inhance(AssetResponse source, Asset target, Config config) {
+  public void inhance(AssetResponse source, Asset target, Config config) throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }

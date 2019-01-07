@@ -1,5 +1,6 @@
 package net.media.converters.response30toresponse24;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.response.Bid;
@@ -18,7 +19,7 @@ public class AudioToBidConverter implements Converter<Audio,Bid> {
 
   }
 
-  public Bid map(Audio source, Config config){
+  public Bid map(Audio source, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     Bid  bid = new Bid();
@@ -26,7 +27,7 @@ public class AudioToBidConverter implements Converter<Audio,Bid> {
     return bid;
   }
 
-  public  void inhance(Audio source, Bid target, Config config){
+  public  void inhance(Audio source, Bid target, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
 

@@ -1,5 +1,6 @@
 package net.media.converters.response24toresponse30;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.response.nativeresponse.Link;
@@ -11,7 +12,7 @@ import net.media.openrtb3.LinkAsset;
 public class LinkToLinkAssetConverter implements Converter<Link, LinkAsset> {
 
   @Override
-  public LinkAsset map(Link source, Config config) {
+  public LinkAsset map(Link source, Config config) throws OpenRtbConverterException {
     if (source == null) {
       return null;
     }
@@ -21,7 +22,7 @@ public class LinkToLinkAssetConverter implements Converter<Link, LinkAsset> {
   }
 
   @Override
-  public void inhance(Link source, LinkAsset target, Config config) {
+  public void inhance(Link source, LinkAsset target, Config config)throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }

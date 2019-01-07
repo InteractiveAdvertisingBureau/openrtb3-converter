@@ -1,6 +1,8 @@
 package net.media.converters.response30toresponse24;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.enums.AdType;
@@ -25,7 +27,7 @@ public class DisplayToBidConverter implements Converter<Display,Bid> {
     this.nativeBidConverter = nativeBidConverter;
   }
 
-  public Bid map(Display source, Config config){
+  public Bid map(Display source, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     Bid  bid = new Bid();
@@ -33,7 +35,7 @@ public class DisplayToBidConverter implements Converter<Display,Bid> {
     return bid;
   }
 
-  public  void inhance(Display source, Bid target, Config config){
+  public  void inhance(Display source, Bid target, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
 

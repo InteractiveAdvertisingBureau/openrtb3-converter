@@ -1,5 +1,6 @@
 package net.media.converters.response24toresponse30;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.response.Bid;
@@ -17,7 +18,7 @@ import static java.util.Objects.isNull;
  */
 public class BidToAuditConverter implements Converter<Bid, Audit> {
   @Override
-  public Audit map(Bid source, Config config) {
+  public Audit map(Bid source, Config config) throws OpenRtbConverterException {
     if (isNull(source)) {
       return null;
     }
@@ -26,7 +27,7 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
   }
 
   @Override
-  public void inhance(Bid source, Audit target, Config config) {
+  public void inhance(Bid source, Audit target, Config config) throws OpenRtbConverterException{
     if (isNull(source) || isNull(target)) {
       return;
     }
