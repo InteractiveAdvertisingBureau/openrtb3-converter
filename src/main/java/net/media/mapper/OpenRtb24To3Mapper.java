@@ -39,32 +39,38 @@ public class OpenRtb24To3Mapper {
 
     byte[] jsonData = Files.readAllBytes(file.toPath());
     ObjectMapper objectMapper = new ObjectMapper();
-    List<ResponseTestPojo> testList = objectMapper.readValue(jsonData, new
-      TypeReference<ArrayList<ResponseTestPojo>>() {});
-    for (ResponseTestPojo response : testList) {
-      AdType adType = null;
-      for (AdType adType1 : AdType.values()) {
-        if (nonNull(response.getType()) && adType1.name().equals(response.getType())) {
-          adType = adType1;
-          break;
+
+    long start = System.nanoTime();
+    for (int i = 0; i < 1000; i++) {
+      List<ResponseTestPojo> testList = objectMapper.readValue(jsonData, new
+        TypeReference<ArrayList<ResponseTestPojo>>() {});
+      for (ResponseTestPojo response : testList) {
+        AdType adType = null;
+        for (AdType adType1 : AdType.values()) {
+          if (nonNull(response.getType()) && adType1.name().equals(response.getType())) {
+            adType = adType1;
+            break;
+          }
         }
-      }
-      if (isNull(adType)) {
-        System.out.println("invalid ad type");
-        continue;
-      }
-      config.setAdType(adType);
-      OpenRTB response30 = openRtbConverter.convert(config, response.getResponse25(), BidResponse
-        .class, OpenRTB.class);
-      System.out.println( objectMapper.writeValueAsString(response30));
-      System.out.println( objectMapper.writeValueAsString(response.getResponse30()));
-      System.out.println(response30.equals(response.getResponse30()));
+        if (isNull(adType)) {
+          System.out.println("invalid ad type");
+          continue;
+        }
+        config.setAdType(adType);
+        OpenRTB response30 = openRtbConverter.convert(config, response.getResponse25(), BidResponse
+          .class, OpenRTB.class);
+        //System.out.println( objectMapper.writeValueAsString(response30));
+        //System.out.println( objectMapper.writeValueAsString(response.getResponse30()));
+        //System.out.println(response30.equals(response.getResponse30()));
 
       /*BidResponse response24 = impl.map(response.getResponse30(), adType);
       System.out.println(objectMapper.writeValueAsString(response24));
       System.out.println(objectMapper.writeValueAsString(response.getResponse25()));
       System.out.println(response24.equals(response.getResponse25()));*/
+      }
     }
+    long end = System.nanoTime();
+    System.out.println("Total time : " +  (end - start));
   }
 
 }
