@@ -10,5 +10,3 @@ target
 ### Java template
 *.class
 *.pyc
-pom.xml
-dependency-reduced-pom.xml
