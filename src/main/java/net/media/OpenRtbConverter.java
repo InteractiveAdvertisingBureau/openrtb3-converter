@@ -4,6 +4,8 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.utils.Utils;
 
+import javax.naming.ConfigurationException;
+
 import static java.util.Objects.isNull;
 
 /**
@@ -30,8 +32,11 @@ public class OpenRtbConverter {
    * @param <V>
    * @return
    */
-  public  <U, V> V convert(Config overridingConfig, U source, Class<U> sourceClass, Class<V> targetClass) {
+  public  <U, V> V convert(Config overridingConfig, U source, Class<U> sourceClass, Class<V> targetClass) throws ConfigurationException {
     overridingConfig = inhanceConfig(overridingConfig);
+    if (shouldValidate(overridingConfig)) {
+      Utils.validate(source);
+    }
     Converter<U, V> converter = converterPlumber.getConverter(sourceClass, targetClass);
     return converter.map(source, overridingConfig);
   }
@@ -45,13 +50,16 @@ public class OpenRtbConverter {
    * @param <V>
    * @return
    */
-  public <U, V> V convert(U source, Class<U> sourceClass, Class<V> targetClass) {
+  public <U, V> V convert(U source, Class<U> sourceClass, Class<V> targetClass) throws ConfigurationException {
     return convert(null, source, sourceClass, targetClass);
   }
 
   public <U, V> void enhance(Config overridingConfig, U source, V target, Class<U> sourceClass,
-                          Class<V> targetClass) {
+                          Class<V> targetClass) throws ConfigurationException {
     overridingConfig = inhanceConfig(overridingConfig);
+    if (shouldValidate(overridingConfig)) {
+      Utils.validate(source);
+    }
     Converter<U, V> converter = converterPlumber.getConverter(sourceClass, targetClass);
     converter.inhance(source, target, overridingConfig);
   }
@@ -75,6 +83,10 @@ public class OpenRtbConverter {
       overridingConfig.updateEmptyFields(this.config);
     }
     return overridingConfig;
+  }
+
+  private boolean shouldValidate(Config overridingConfig) {
+    return  overridingConfig.isValidate();
   }
 
 }

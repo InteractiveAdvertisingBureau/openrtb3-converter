@@ -29,13 +29,15 @@ public class Config {
 
   private AdType adType;
 
-  private boolean nativeRequestString;
+  private Boolean nativeRequestString;
 
-  private boolean validate;
+  private Boolean validate;
 
   public Config(Config oldConfig) {
     this.bannerTemplate = oldConfig.bannerTemplate;
     this.adType = oldConfig.adType;
+    this.nativeRequestString = oldConfig.nativeRequestString;
+    this.validate = oldConfig.validate;
   }
 
   /**
@@ -44,6 +46,9 @@ public class Config {
   public void updateEmptyFields(Config config) {
     this.bannerTemplate = isEmpty(this.bannerTemplate) ? config.bannerTemplate : this.bannerTemplate;
     this.adType = isNull(this.adType) ? config.adType : this.adType;
+    this.validate = isNull(this.validate) ? config.validate : this.validate;
+    this.nativeRequestString = isNull(this.nativeRequestString) ? config.nativeRequestString :
+      this.nativeRequestString;
   }
 
   /**
