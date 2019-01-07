@@ -55,13 +55,11 @@ import java.util.List;
 public class ConverterPlumber {
 
   private Provider<Conversion, Converter> converterProvider;
-  private Converter24To30RequestPlumber converter24To30RequestPlumber;
-  private Converter30To24RequestPlumber converter30To24RequestPlumber;
 
   public ConverterPlumber() {
     converterProvider = new Provider<>(null);
-    converter24To30RequestPlumber = new Converter24To30RequestPlumber();
-    converter30To24RequestPlumber = new Converter30To24RequestPlumber();
+    Converter24To30RequestPlumber converter24To30RequestPlumber = new Converter24To30RequestPlumber();
+    Converter30To24RequestPlumber converter30To24RequestPlumber = new Converter30To24RequestPlumber();
     converterProvider.register(new Conversion(BidResponse.class, OpenRTB.class),
       bidResponseToOpenRtb());
     converterProvider.register(new Conversion(BidRequest.class, OpenRTB.class),
