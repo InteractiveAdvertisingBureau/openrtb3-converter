@@ -7,16 +7,9 @@ import java.util.Map;
  */
 
 @lombok.Data
-public class Regs extends AbstractExtensible<Regs.RegsReqExt> {
+public class Regs {
 
   private Integer coppa;
 
   private Map<String, Object> ext;
-
-  public Regs()  {
-    setReqExt(new RegsReqExt());
-  }
-
-  public static class RegsReqExt extends ReqExt {
-  }
 }

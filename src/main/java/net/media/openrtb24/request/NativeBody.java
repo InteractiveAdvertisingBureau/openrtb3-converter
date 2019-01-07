@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class NativeBody extends AbstractExtensible<NativeBody.NativeBodyExt> {
+public class NativeBody {
 
   public static final Integer DEFAULT_NATIVE_PLCMTCNT = 1;
 
@@ -42,9 +42,6 @@ public class NativeBody extends AbstractExtensible<NativeBody.NativeBodyExt> {
     this.seq = seq;
     this.assets = assets;
     this.ext = ext;
-    setReqExt(new NativeBodyExt());
   }
 
-  public static class NativeBodyExt extends ReqExt {
-  }
 }

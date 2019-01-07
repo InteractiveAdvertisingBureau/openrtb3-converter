@@ -12,7 +12,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Video extends ReqExt {
+public class Video {
 
   public static final Integer DEFAULT_MINDURATION = null;
 
@@ -107,18 +107,4 @@ public class Video extends ReqExt {
 
   private Map<String, Object> ext;
 
-  @lombok.Data
-  public static class VideoExt extends ReqExt {
-
-    private Boolean incentivized;
-
-    public Boolean isIncentivized() {
-      return incentivized;
-    }
-
-    public void setIncentivized(Boolean incentivized) {
-      this.incentivized = incentivized;
-    }
-
-  }
 }

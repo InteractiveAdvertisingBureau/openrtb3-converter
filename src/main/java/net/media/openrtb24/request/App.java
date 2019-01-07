@@ -11,7 +11,7 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class App extends AbstractExtensible<App.AppReqExt>{
+public class App {
 
   @NotNull
   private String id;
@@ -44,13 +44,6 @@ public class App extends AbstractExtensible<App.AppReqExt>{
 
   private Map<String, Object> ext;
 
-  @JsonIgnore
-  private String SLD;
-
   public App(){
-    setReqExt(new AppReqExt());
-  }
-
-  public static class AppReqExt extends ReqExt{
   }
 }

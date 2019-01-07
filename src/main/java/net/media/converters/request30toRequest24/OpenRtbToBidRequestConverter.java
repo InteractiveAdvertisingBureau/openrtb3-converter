@@ -7,6 +7,9 @@ import net.media.openrtb24.request.BidRequest;
 import net.media.openrtb3.OpenRTB;
 import net.media.openrtb3.Request;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
 @AllArgsConstructor
 public class OpenRtbToBidRequestConverter implements Converter<OpenRTB, BidRequest> {
 
@@ -14,11 +17,16 @@ public class OpenRtbToBidRequestConverter implements Converter<OpenRTB, BidReque
 
   @Override
   public BidRequest map(OpenRTB source, Config config) {
-    return null;
+    if (isNull(source)) {
+      return null;
+    }
+    if (isNull(source.getRequest())) {
+      return null;
+    }
+    return requestBidRequestConverter.map(source.getRequest(), config);
   }
 
   @Override
   public void inhance(OpenRTB source, BidRequest target, Config config) {
-
   }
 }

@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
  * Created by vishnu on 6/5/16.
  */
 @Data
-public class Publisher extends AbstractExtensible<Publisher.PubReqExt> implements Serializable {
+public class Publisher  {
 
   private static final long serialVersionUID = 1;
 
@@ -32,11 +32,7 @@ public class Publisher extends AbstractExtensible<Publisher.PubReqExt> implement
     this.id = id;
   }
 
-  public Publisher()  {
-    setReqExt(new PubReqExt());
+  public Publisher() {
   }
 
-
-  public static class PubReqExt extends ReqExt {
-  }
 }

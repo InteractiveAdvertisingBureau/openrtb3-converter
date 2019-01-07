@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
-public class NativeRequestBody extends AbstractExtensible<NativeRequestBody.NativeBodyExt> {
+public class NativeRequestBody {
 
   public static final Integer DEFAULT_NATIVE_PLCMTCNT = 1;
 
@@ -32,8 +32,5 @@ public class NativeRequestBody extends AbstractExtensible<NativeRequestBody.Nati
   private List<Asset> assets;
 
   private Map<String, Object> ext;
-
-  public static class NativeBodyExt extends ReqExt {
-  }
 
 }

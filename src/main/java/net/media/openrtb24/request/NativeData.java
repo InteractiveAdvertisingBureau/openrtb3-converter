@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class NativeData extends AbstractExtensible<NativeData.NativeDataReqExt> {
+public class NativeData {
 
   @NotNull
   private Integer type;
@@ -15,11 +15,4 @@ public class NativeData extends AbstractExtensible<NativeData.NativeDataReqExt> 
   private Integer len;
 
   private Map<String, Object> ext;
-
-  public NativeData() {
-    setReqExt(new NativeDataReqExt());
-  }
-
-  public static class NativeDataReqExt extends ReqExt {
-  }
 }

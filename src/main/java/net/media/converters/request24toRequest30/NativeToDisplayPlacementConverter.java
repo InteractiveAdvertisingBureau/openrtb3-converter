@@ -10,7 +10,9 @@ import net.media.openrtb3.NativeFormat;
 import net.media.util.JacksonObjectMapper;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -43,6 +45,13 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
     if (isNull(nat) || isNull(displayPlacement)) {
       return;
     }
+    List<Integer> list2 = nat.getApi();
+    if ( list2 != null ) {
+      displayPlacement.setApi( new ArrayList<>( list2 ) );
+    }
+    else {
+      displayPlacement.setApi( null );
+    }
     if (nonNull(nat.getRequest())) {
       NativeRequest nativeRequest = null;
       if (nat.getRequest() instanceof String) {
@@ -67,6 +76,15 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
             displayPlacement.getNativefmt().setExt(new HashMap<>());
           }
           displayPlacement.getNativefmt().getExt().putAll(nat.getExt());
+        }
+        if (nonNull(nat.getExt())) {
+          if (nat.getExt().containsKey("ctype")) {
+            displayPlacement.setCtype(new ArrayList<>((List<Integer>) nat.getExt().get("ctype")));
+            if (nonNull(displayPlacement.getNativefmt()) && nonNull(displayPlacement.getNativefmt()
+              .getExt())) {
+              displayPlacement.getNativefmt().getExt().remove("ctype");
+            }
+          }
         }
       }
     }

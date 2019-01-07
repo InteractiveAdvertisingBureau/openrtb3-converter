@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Data
 @CheckAtLeastOneNotNull(fieldNames = {"title", "img", "video", "data"})
-public class Asset extends AbstractExtensible<Asset.AssetReqExt> {
+public class Asset {
 
   @NotNull
   private Integer id;
@@ -31,11 +31,4 @@ public class Asset extends AbstractExtensible<Asset.AssetReqExt> {
   private NativeData data;
 
   private Map<String, Object> ext;
-
-  public Asset() {
-    setReqExt(new AssetReqExt());
-  }
-
-  public static class AssetReqExt extends ReqExt {
-  }
 }

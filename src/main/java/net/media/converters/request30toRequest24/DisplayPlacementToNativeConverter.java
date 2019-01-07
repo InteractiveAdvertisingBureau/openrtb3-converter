@@ -35,6 +35,9 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     }
     Native nat = new Native();
     inhance(displayPlacement, nat, config);
+    if (isNull(nat.getNativeRequestBody())) {
+      return null;
+    }
     return nat;
   }
 
@@ -46,7 +49,6 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     NativeRequestBody nativeRequestBody = nativeFormatNativeRequestBodyConverter.map
       (displayPlacement.getNativefmt(), config);
     if (isNull(nativeRequestBody)) {
-      nat = null;
       return;
     }
     NativeRequest nativeRequest = new NativeRequest();
@@ -67,7 +69,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       nat.setVer((String) displayPlacement.getExt().get("nativeversion"));
       nat.getExt().remove("nativeversion");
     }
-    if (config.isNativeRequestAsString()) {
+    if (config.getNativeRequestAsString()) {
       try {
         nat.setRequest(JacksonObjectMapper.getMapper().writeValueAsString(nativeRequest));
       } catch (JsonProcessingException e) {

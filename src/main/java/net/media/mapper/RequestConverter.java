@@ -13,7 +13,6 @@ import com.google.common.collect.HashBiMap;
 import net.media.openrtb24.request.BidRequest;
 import net.media.openrtb24.request.Content;
 import net.media.openrtb24.request.Data;
-import net.media.openrtb24.request.Device.DeviceBuilder;
 import net.media.openrtb24.request.Geo;
 import net.media.openrtb24.request.Imp;
 import net.media.openrtb24.request.Publisher;
@@ -475,47 +474,48 @@ public class RequestConverter {
     if ( device == null ) {
       return null;
     }
+//
+//    DeviceBuilder device1 = net.media.openrtb24.request.Device.builder();
+//
+//    device1.language( device.getLang() );
+//    device1.connectiontype( device.getContype() );
+//    device1.devicetype( device.getType() );
+//    device1.ua( device.getUa() );
+//    device1.geo( mapRtb3GeotoRtb24Geo( device.getGeo() ) );
+//    if ( device.getDnt() != null ) {
+//      device1.dnt( Integer.parseInt( device.getDnt() ) );
+//    }
+//    device1.lmt( device.getLmt() );
+//    device1.ip( device.getIp() );
+//    device1.ipv6( device.getIpv6() );
+//    if ( device.getOs() != null ) {
+//      if( osMap.inverse().containsKey( device.getOs() ) )
+//        device1.os( osMap.inverse().get( device.getOs() ) );
+//    }
+//    device1.make( device.getMake() );
+//    device1.model( device.getModel() );
+//    device1.osv( device.getOsv() );
+//    device1.hwv( device.getHwv() );
+//    device1.h( device.getH() );
+//    device1.w( device.getW() );
+//    device1.ppi( device.getPpi() );
+//    device1.pxratio( device.getPxratio() );
+//    device1.js( device.getJs() );
+//    device1.geofetch( device.getGeofetch() );
+//    device1.carrier( device.getCarrier() );
+//    device1.ifa( device.getIfa() );
+//    device1.mccmnc( device.getMccmnc() );
+//    Map<String, Object> map = device.getExt();
+//    if ( map != null ) {
+//      if(map.containsKey("flashver")) {
+//        device1.flashver((String) device.getExt().get("flashver"));
+//        map.remove("flashver");
+//      }
+//      device1.ext( new HashMap<String, Object>( map ) );
+//    }
 
-    DeviceBuilder device1 = net.media.openrtb24.request.Device.builder();
-
-    device1.language( device.getLang() );
-    device1.connectiontype( device.getContype() );
-    device1.devicetype( device.getType() );
-    device1.ua( device.getUa() );
-    device1.geo( mapRtb3GeotoRtb24Geo( device.getGeo() ) );
-    if ( device.getDnt() != null ) {
-      device1.dnt( Integer.parseInt( device.getDnt() ) );
-    }
-    device1.lmt( device.getLmt() );
-    device1.ip( device.getIp() );
-    device1.ipv6( device.getIpv6() );
-    if ( device.getOs() != null ) {
-      if( osMap.inverse().containsKey( device.getOs() ) )
-        device1.os( osMap.inverse().get( device.getOs() ) );
-    }
-    device1.make( device.getMake() );
-    device1.model( device.getModel() );
-    device1.osv( device.getOsv() );
-    device1.hwv( device.getHwv() );
-    device1.h( device.getH() );
-    device1.w( device.getW() );
-    device1.ppi( device.getPpi() );
-    device1.pxratio( device.getPxratio() );
-    device1.js( device.getJs() );
-    device1.geofetch( device.getGeofetch() );
-    device1.carrier( device.getCarrier() );
-    device1.ifa( device.getIfa() );
-    device1.mccmnc( device.getMccmnc() );
-    Map<String, Object> map = device.getExt();
-    if ( map != null ) {
-      if(map.containsKey("flashver")) {
-        device1.flashver((String) device.getExt().get("flashver"));
-        map.remove("flashver");
-      }
-      device1.ext( new HashMap<String, Object>( map ) );
-    }
-
-    return device1.build();
+//    return device1.build();
+    return null;
   }
 
 

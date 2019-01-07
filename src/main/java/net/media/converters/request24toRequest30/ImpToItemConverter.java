@@ -13,6 +13,7 @@ import net.media.openrtb24.request.Pmp;
 import net.media.openrtb24.request.Video;
 import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.openrtb3.EventSpec;
 import net.media.openrtb3.Item;
 import net.media.openrtb3.Placement;
 import net.media.openrtb3.Spec;
@@ -90,7 +91,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       Integer sequence = impSequence( imp );
       if ( sequence != null ) {
         item.setSeq( sequence );
-        item.getExt().remove("sequence");
+        item.getExt().remove("seq");
       }
       item.setExp( imp.getExp() );
       List<Metric> metrics = imp.getMetric();
@@ -102,6 +103,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
         item.setMetric(metrics1);
       }
       item.setQty(getPlcmtcntFromNative(imp));
+      impToItemAfterMapping(imp, item);
     }
   }
 
@@ -123,12 +125,34 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
 
     mappingTarget.setAudio( audioAudioPlacementConverter.map( imp.getAudio(), config) );
     mappingTarget.setVideo( videoVideoPlacementConverter.map( imp.getVideo(), config) );
+    if (nonNull(mappingTarget.getVideo())) {
+      mappingTarget.getVideo().setClktype(imp.getClickbrowser());
+    }
     mappingTarget.setTagid( imp.getTagId() );
     mappingTarget.setSdk( imp.getDisplaymanager() );
     mappingTarget.setSdkver( imp.getDisplaymanagerver() );
     mappingTarget.setSecure( imp.getSecure() );
     DisplayPlacement displayPlacement = bannerDisplayPlacementConverter.map(imp.getBanner(),
       config);
+    if (nonNull(mappingTarget.getDisplay())) {
+      mappingTarget.getDisplay().setClktype(imp.getClickbrowser());
+      List<String> list2 = imp.getIframebuster();
+      if ( list2 != null ) {
+        mappingTarget.getDisplay().setIfrbust( new ArrayList<>( list2 ) );
+      }
+      mappingTarget.getDisplay().setInstl(imp.getInstl());
+    }
+    if (nonNull(imp.getExt()) && !imp.getExt().isEmpty() && nonNull(displayPlacement)) {
+      if (imp.getExt().containsKey("ampren")) {
+        displayPlacement.setAmpren((Integer) imp.getExt().get("ampren"));
+      }
+      if (imp.getExt().containsKey("priv")) {
+        displayPlacement.setPriv((Integer) imp.getExt().get("priv"));
+      }
+      if (imp.getExt().containsKey("event")) {
+        displayPlacement.setEvent((EventSpec) imp.getExt().get("event"));
+      }
+    }
     nativeDisplayPlacementConverter.inhance(imp.getNat(), displayPlacement, config);
     mappingTarget.setDisplay( displayPlacement );
   }
@@ -200,6 +224,48 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     if (nonNull(banner) && nonNull(banner.getExt()) && banner.getExt().containsKey("seq")) {
       return (Integer) banner.getExt().get("seq");
     }
+    Audio audio = imp.getAudio();
+    if (nonNull(audio) && nonNull(audio.getSequence())) {
+      return audio.getSequence();
+    }
     return null;
+  }
+
+  private void impToItemAfterMapping(Imp imp, Item item) {
+    if (nonNull(imp) && nonNull(imp.getExt()) && !imp.getExt().isEmpty()) {
+      if (nonNull(item) && nonNull(imp.getExt())) {
+        if (imp.getExt().containsKey("dt")) {
+          item.setDt((Integer) imp.getExt().get("dt"));
+          item.getExt().remove("dt");
+        }
+        if (imp.getExt().containsKey("dlvy")) {
+          item.setDlvy((Integer) imp.getExt().get("dlvy"));
+          item.getExt().remove("dlvy");
+        }
+      }
+      if (nonNull(item) && nonNull(item.getSpec()) && nonNull(item.getSpec().getPlacement()) &&
+        nonNull(imp.getExt())) {
+        if (imp.getExt().containsKey("ssai")) {
+          item.getSpec().getPlacement().setSsai((Integer) imp.getExt().get("ssai"));
+          item.getExt().remove("ssai");
+        }
+        if (imp.getExt().containsKey("reward")) {
+          item.getSpec().getPlacement().setReward((Integer) imp.getExt().get("reward"));
+          item.getExt().remove("reward");
+        }
+        if (imp.getExt().containsKey("admx")) {
+          item.getSpec().getPlacement().setAdmx((Integer) imp.getExt().get("admx"));
+          item.getExt().remove("admx");
+        }
+        if (imp.getExt().containsKey("curlx")) {
+          item.getSpec().getPlacement().setCurlx((Integer) imp.getExt().get("curlx"));
+          item.getExt().remove("curlx");
+        }
+      }
+    }
+    if (nonNull(item.getExt())) {
+      item.getExt().remove("ampren");
+      item.getExt().remove("ctype");
+    }
   }
 }

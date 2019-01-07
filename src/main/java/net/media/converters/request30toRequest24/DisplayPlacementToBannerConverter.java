@@ -6,6 +6,7 @@ import net.media.openrtb24.request.Banner;
 import net.media.openrtb24.request.Format;
 import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.utils.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +38,19 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       banner.setMimes( new ArrayList<String>( list ) );
     }
     banner.setFormat( displayFormatListToFormatList( displayPlacement.getDisplayfmt() ) );
+    if (nonNull(displayPlacement.getDisplayfmt())) {
+      for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
+        if (!CollectionUtils.isEmpty(displayFormat.getExpdir())) {
+          List<Integer> formatExpdir = new ArrayList<>(displayFormat.getExpdir());
+          if (isNull(banner.getExpdir())) {
+            banner.setExpdir(formatExpdir);
+          } else {
+            banner.setExpdir((List<Integer>) org.apache.commons.collections.CollectionUtils.union
+              (banner.getExpdir(), formatExpdir));
+          }
+        }
+      }
+    }
     banner.setW( displayPlacement.getW() );
     banner.setH( displayPlacement.getH() );
     banner.setPos( displayPlacement.getPos() );
@@ -47,7 +61,16 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     }
     Map<String, Object> map = displayPlacement.getExt();
     if ( map != null ) {
-      banner.setExt( new HashMap<String, Object>( map ) );
+      banner.setExt( new HashMap<>( map ) );
+      if (map.containsKey("btype")) {
+        banner.setBtype(new ArrayList<>((List<Integer>) map.get("btype")));
+      }
+    }
+    if (nonNull(displayPlacement.getUnit())) {
+      if (isNull(banner.getExt())) {
+        banner.setExt(new HashMap<>());
+      }
+      banner.getExt().put("unit", displayPlacement.getUnit());
     }
   }
 

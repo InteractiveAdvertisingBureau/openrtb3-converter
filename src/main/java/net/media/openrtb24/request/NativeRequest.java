@@ -5,15 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class NativeRequest extends AbstractExtensible<NativeRequest.NativeRequestReqExt> {
+public class NativeRequest {
 
   @JsonProperty("native")
   private NativeRequestBody nativeRequestBody;
 
-  public NativeRequest() {
-    setReqExt(new NativeRequestReqExt());
-  }
-
-  public static class NativeRequestReqExt extends ReqExt {
-  }
 }

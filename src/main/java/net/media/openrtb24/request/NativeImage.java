@@ -6,7 +6,7 @@ import java.util.Map;
 import lombok.Data;
 
 @Data
-public class NativeImage extends AbstractExtensible<NativeImage.NativeImageReqExt> {
+public class NativeImage {
 
   private Integer type;
 
@@ -22,10 +22,4 @@ public class NativeImage extends AbstractExtensible<NativeImage.NativeImageReqEx
 
   private Map<String, Object> ext;
 
-  public NativeImage() {
-    setReqExt(new NativeImageReqExt());
-  }
-
-  public static class NativeImageReqExt extends ReqExt {
-  }
 }

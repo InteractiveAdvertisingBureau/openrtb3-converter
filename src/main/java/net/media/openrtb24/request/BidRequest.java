@@ -16,7 +16,8 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class BidRequest extends AbstractExtensible<BidRequest.BidReqExt> {
+@NoArgsConstructor
+public class BidRequest {
 
   //BidRequest parameters
   public static final Integer DEFAULT_TEST_VALUE = 0;
@@ -81,10 +82,6 @@ public class BidRequest extends AbstractExtensible<BidRequest.BidReqExt> {
 
   private transient String googleConsents;
 
-  public BidRequest(){
-    setReqExt(new BidReqExt());
-  }
-
   public BidRequest(BidRequest bidRequest) {
     this.id = bidRequest.id;
     this.imp = null;
@@ -103,26 +100,6 @@ public class BidRequest extends AbstractExtensible<BidRequest.BidReqExt> {
     this.bapp = bidRequest.bapp;
     this.regs = bidRequest.regs;
     this.ext = bidRequest.ext;
-    setReqExt(bidRequest.getReqExt());
   }
 
-  @EqualsAndHashCode(callSuper = true)
-  @Data
-  @NoArgsConstructor
-  public static class BidReqExt extends ReqExt {
-    private String prid;
-    private String vid;
-    private String sid;
-    private int sd;
-    private String version;
-    private String kwrf;
-    private int rt;
-    private int as;
-    private String callback;
-    private String itype;
-    private Integer ptype;
-    private Integer is_ebda;
-    private String ugd;
-    private String taginfo;
-  }
 }

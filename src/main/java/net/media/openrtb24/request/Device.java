@@ -3,13 +3,13 @@ package net.media.openrtb24.request;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Map;
 
 @Data
-@Builder
-@AllArgsConstructor
-public class Device extends AbstractExtensible<Device.DeviceReqExt> {
+@NoArgsConstructor
+public class Device {
   private String ua;
 
   private Geo geo;
@@ -72,12 +72,8 @@ public class Device extends AbstractExtensible<Device.DeviceReqExt> {
 
   private Map<String, Object> ext;
 
-  public Device() {
-    setReqExt(new DeviceReqExt());
-  }
-
   public Device clone() {
-    Device device=new Device();
+    Device device = new Device();
     device.setOs(os);
     device.setUa(ua);
     device.setGeo(geo);
@@ -109,8 +105,5 @@ public class Device extends AbstractExtensible<Device.DeviceReqExt> {
     device.setMacmd5(macmd5);
     device.setExt(ext);
     return  device;
-  }
-
-  public static class DeviceReqExt extends ReqExt {
   }
 }

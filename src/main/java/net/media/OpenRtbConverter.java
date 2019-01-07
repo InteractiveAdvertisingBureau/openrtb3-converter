@@ -14,7 +14,7 @@ public class OpenRtbConverter {
 
   private ConverterPlumber converterPlumber;
 
-  private OpenRtbConverter(Config config) {
+  public OpenRtbConverter(Config config) {
     this.config = config;
     converterPlumber = new ConverterPlumber();
   }
