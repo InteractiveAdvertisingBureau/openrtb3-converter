@@ -2,7 +2,11 @@ package net.media.mapper;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import net.media.OpenRtbConverter;
+import net.media.config.Config;
 import net.media.openrtb24.request.BidRequest;
+import net.media.openrtb3.OpenRTB;
 import net.media.openrtb3.Request;
 import net.media.openrtb3.Response;
 import net.media.util.JacksonObjectMapper;
@@ -28,7 +32,6 @@ public class OpenRtbMapperTest {
   private void test() throws IOException {
     ClassLoader classLoader = getClass().getClassLoader();
     File file = new File(classLoader.getResource("25To30RequestTest.json").getPath());
-    BidRequestMapperImpl impl = new BidRequestMapperImpl();
 
     byte[] jsonData = Files.readAllBytes(file.toPath());
     ObjectMapper objectMapper = JacksonObjectMapper.getMapper();
@@ -46,7 +49,11 @@ public class OpenRtbMapperTest {
         System.out.println("invalid ad type");
         continue;
       }*/
-      Request request30 = new RequestConverter().mapRequestToBidRequest(request);
+
+      Config config = new Config();
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+
+      OpenRTB request30 = openRtbConverter.convert(request, BidRequest.class, OpenRTB.class);
       System.out.println(objectMapper.writeValueAsString(request30));
       //System.out.println(response.getResponse30());
       //System.out.println(response30.equals(response.getResponse30()));
@@ -59,9 +66,9 @@ public class OpenRtbMapperTest {
 
     byte[] jsonData = Files.readAllBytes(file.toPath());
     ObjectMapper objectMapper = JacksonObjectMapper.getMapper();
-    List<Request> testList = objectMapper.readValue(jsonData, new
-      TypeReference<ArrayList<Request>>() {});
-    for (Request request : testList) {
+    List<OpenRTB> testList = objectMapper.readValue(jsonData, new
+      TypeReference<ArrayList<OpenRTB>>() {});
+    for (OpenRTB request : testList) {
       /*AdType adType = null;
       for (AdType adType1 : AdType.values()) {
         if (nonNull(response.getType()) && adType1.name().equals(response.getType())) {
@@ -73,7 +80,10 @@ public class OpenRtbMapperTest {
         System.out.println("invalid ad type");
         continue;
       }*/
-      BidRequest bidRequest = new RequestConverter().mapRtb3RequestToRtb24BidRequest(request);
+      Config config = new Config();
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+
+      BidRequest bidRequest = openRtbConverter.convert(request, OpenRTB.class, BidRequest.class);
       System.out.println(objectMapper.writeValueAsString(bidRequest));
       //System.out.println(response.getResponse30());
       //System.out.println(response30.equals(response.getResponse30()));

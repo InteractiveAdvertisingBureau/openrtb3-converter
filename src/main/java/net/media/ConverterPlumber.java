@@ -34,8 +34,8 @@ public class ConverterPlumber {
       bidResponseToOpenRtb());
     converterProvider.register(new Conversion(BidRequest.class, OpenRTB.class),
       converter24To30RequestPlumber.bidRequestToOpenRtb());
-    converterProvider.register(new Conversion(OpenRTB.class, BidResponse.class),
-      openRtbToBidResponseConverter());
+//    converterProvider.register(new Conversion(OpenRTB.class, BidResponse.class),
+//      openRtbToBidResponseConverter());
     converterProvider.register(new Conversion(OpenRTB.class, BidRequest.class),
       converter30To24RequestPlumber.openRtbToBidRequestConverter());
   }

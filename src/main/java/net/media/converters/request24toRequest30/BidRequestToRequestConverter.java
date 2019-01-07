@@ -10,7 +10,10 @@ import net.media.openrtb24.request.User;
 import net.media.openrtb3.Context;
 import net.media.openrtb3.Dooh;
 import net.media.openrtb3.Item;
+import net.media.openrtb3.Placement;
 import net.media.openrtb3.Request;
+import net.media.openrtb3.Spec;
+import net.media.utils.CollectionUtils;
 import net.media.utils.ListToListConverter;
 
 import java.util.ArrayList;
@@ -53,6 +56,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
 
     request.setContext( bidRequestContextConverter.map( source, config ) );
     request.setItem( ListToListConverter.convert( source.getImp(), impItemConverter, config ) );
+
     request.setPack( source.getAllimps() );
     String customdata = bidRequestUserCustomdata( source );
     if ( customdata != null ) {
@@ -81,6 +85,14 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
   public void inhance(BidRequest source, Request target, Config config) {
     if(source == null)
       return;
+    if (!CollectionUtils.isEmpty(target.getItem())) {
+      for (Item item : target.getItem()) {
+        if ( item.getSpec() == null ) {
+          item.setSpec( new Spec() );
+        }
+        bidRequestToSpec( source, item.getSpec() );
+      }
+    }
     if (source.getWseat()!=null && source.getWseat().size()>0){
       target.setWseat(1);
       target.setSeat(source.getWseat());
@@ -98,6 +110,40 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
         target.setContext(new Context());
       Dooh dooh = (Dooh)source.getExt().get("dooh");
       target.getContext().setDooh(dooh);
+    }
+  }
+
+  private void bidRequestToSpec(BidRequest bidRequest, Spec mappingTarget) {
+    if ( bidRequest == null ) {
+      return;
+    }
+
+    if ( mappingTarget.getPlacement() == null ) {
+      mappingTarget.setPlacement( new Placement() );
+    }
+    bidRequestToPlacement( bidRequest, mappingTarget.getPlacement() );
+  }
+
+  private void bidRequestToPlacement(BidRequest bidRequest, Placement mappingTarget) {
+    if ( bidRequest == null ) {
+      return;
+    }
+
+    if ( mappingTarget.getWlang() != null ) {
+      List<String> list = bidRequest.getWlang();
+      if ( list != null ) {
+        mappingTarget.getWlang().clear();
+        mappingTarget.getWlang().addAll( list );
+      }
+      else {
+        mappingTarget.setWlang( null );
+      }
+    }
+    else {
+      List<String> list = bidRequest.getWlang();
+      if ( list != null ) {
+        mappingTarget.setWlang( new ArrayList<String>( list ) );
+      }
     }
   }
 }

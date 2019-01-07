@@ -10,7 +10,7 @@ import static java.util.Objects.isNull;
 
 
 @Data
-public class Geo extends AbstractExtensible<Geo.GeoReqExt> {
+public class Geo {
   private Integer type;
   private String region;
   private String regionfips104;
@@ -31,12 +31,5 @@ public class Geo extends AbstractExtensible<Geo.GeoReqExt> {
       isNull(this.country) && StringUtils.isBlank(this.region) && StringUtils.isBlank(this.regionfips104) &&
       StringUtils.isBlank(this.metro) && StringUtils.isBlank(this.city) && StringUtils.isBlank(this.zip) &&
       isNull(this.utcoffset) && isNull(this.ext));
-  }
-
-  public Geo(){
-    setReqExt(new GeoReqExt());
-  }
-
-  public static class GeoReqExt extends ReqExt {
   }
 }

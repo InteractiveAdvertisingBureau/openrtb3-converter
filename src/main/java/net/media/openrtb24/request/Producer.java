@@ -8,7 +8,7 @@ import java.util.Map;
  * Created by vishnu on 6/5/16.
  */
 @lombok.Data
-public class Producer extends AbstractExtensible<Producer.ProducerReqExt> {
+public class Producer {
 
   @NotNull
   private String id;
@@ -20,11 +20,4 @@ public class Producer extends AbstractExtensible<Producer.ProducerReqExt> {
   private String domain;
 
   private Map<String, Object> ext;
-
-  public Producer() {
-    setReqExt(new ProducerReqExt());
-  }
-
-  public static class ProducerReqExt extends ReqExt {
-  }
 }

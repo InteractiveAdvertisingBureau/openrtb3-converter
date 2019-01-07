@@ -9,7 +9,7 @@ import lombok.Data;
  */
 
 @Data
-public class Format extends AbstractExtensible<Format.FormatReqExt> {
+public class Format {
 
   private Integer w;
 
@@ -22,15 +22,4 @@ public class Format extends AbstractExtensible<Format.FormatReqExt> {
   private Integer wmin;
 
   private Map<String, Object> ext;
-
-  public Format() {
-    setReqExt(new FormatReqExt());
-  }
-
-  public class Ext {
-
-  }
-
-  public static class FormatReqExt extends ReqExt {
-  }
 }

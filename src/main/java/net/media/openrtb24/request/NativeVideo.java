@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class NativeVideo extends AbstractExtensible<NativeVideo.NativeVideoReqExt> {
+public class NativeVideo {
 
   @NotEmpty
   private Set<String> mimes;
@@ -26,10 +26,4 @@ public class NativeVideo extends AbstractExtensible<NativeVideo.NativeVideoReqEx
 
   private Map<String, Object> ext;
 
-  public NativeVideo() {
-    setReqExt(new NativeVideoReqExt());
-  }
-
-  public static class NativeVideoReqExt extends ReqExt {
-  }
 }

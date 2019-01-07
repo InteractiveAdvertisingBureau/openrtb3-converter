@@ -8,7 +8,7 @@ import java.util.Map;
  */
 
 @lombok.Data
-public class Content extends AbstractExtensible<Content.ContentReqExt> {
+public class Content {
 
   private String id;
 
@@ -62,15 +62,4 @@ public class Content extends AbstractExtensible<Content.ContentReqExt> {
 
   private Map<String, Object> ext;
 
-  @lombok.Data
-  public static class Ext {
-    String url;
-  }
-
-  public Content() {
-    setReqExt(new ContentReqExt());
-  }
-
-  public static class ContentReqExt extends ReqExt {
-  }
 }

@@ -27,14 +27,17 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
 @NoArgsConstructor
 public class Config {
 
+  private static final boolean DEFAULT_NATIVE_REQUEST_AS_STRING = true;
+
   private String bannerTemplate;
 
-  private boolean nativeRequestAsString;
+  private Boolean nativeRequestAsString;
 
   private AdType adType;
 
   public Config(Config oldConfig) {
     this.bannerTemplate = oldConfig.bannerTemplate;
+    this.nativeRequestAsString = oldConfig.nativeRequestAsString;
     this.adType = oldConfig.adType;
   }
 
@@ -42,8 +45,16 @@ public class Config {
    * @param config
    */
   public void updateEmptyFields(Config config) {
-    this.bannerTemplate = isEmpty(this.bannerTemplate) ? config.bannerTemplate : this.bannerTemplate;
+    this.bannerTemplate = isEmpty(this.bannerTemplate) ? config.bannerTemplate : this
+      .bannerTemplate;
+    this.nativeRequestAsString = isNull(this.nativeRequestAsString) ? config
+      .nativeRequestAsString : this.nativeRequestAsString;
     this.adType = isNull(this.adType) ? config.adType : this.adType;
+  }
+
+  public Boolean getNativeRequestAsString() {
+    return nonNull(nativeRequestAsString) ? nativeRequestAsString :
+      DEFAULT_NATIVE_REQUEST_AS_STRING;
   }
 
   /**

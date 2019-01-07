@@ -15,8 +15,7 @@ import lombok.EqualsAndHashCode;
  * Created by vishnu on 6/5/16.
  */
 @Data
-@EqualsAndHashCode(of={"id"}, callSuper=false)
-public class Deal extends AbstractExtensible<Deal.DealReqExt> {
+public class Deal {
   private String id;
 
   @JsonProperty("bidfloor")
@@ -30,10 +29,6 @@ public class Deal extends AbstractExtensible<Deal.DealReqExt> {
   private List<String> wadomain;
   private Map<String, Object> ext;
 
-  public Deal() {
-    setReqExt(new DealReqExt());
-  }
-
 
   public String getBidFloorCur() {
     return bidFloorCur;
@@ -42,12 +37,5 @@ public class Deal extends AbstractExtensible<Deal.DealReqExt> {
   //Couldn't find a reliable default setting annotation
   public void setBidFloorCur(String bidFloorCur) {
     this.bidFloorCur = StringUtils.isBlank(bidFloorCur) ? "USD" : bidFloorCur;
-  }
-
-  public class Ext {
-
-  }
-
-  public static class DealReqExt extends ReqExt {
   }
 }

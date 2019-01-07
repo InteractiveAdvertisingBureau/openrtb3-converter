@@ -17,12 +17,17 @@ import net.media.openrtb3.Placement;
 import net.media.openrtb3.Spec;
 import net.media.openrtb3.VideoPlacement;
 
+import org.mapstruct.MappingTarget;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import lombok.AllArgsConstructor;
+
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 @AllArgsConstructor
 public class ItemToImpConverter implements Converter<Item, Imp> {
@@ -53,15 +58,22 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
 
   @Override
   public void inhance(Item item, Imp imp, Config config) {
+    if (isNull(imp) || isNull(item)) {
+      return;
+    }
     imp.setPmp( itemToPmp( item, config ) );
     Map<String, Object> map = item.getExt();
     if ( map != null ) {
       imp.setExt( new HashMap<String, Object>( map ) );
     }
+    fillExtMap(item, imp);
     imp.setBidfloor( item.getFlr() );
     VideoPlacement video = itemSpecPlacementVideo( item );
     if ( video != null ) {
       imp.setVideo( videoPlacementVideoConverter.map(video, config) );
+    }
+    if (nonNull(imp.getVideo())) {
+      imp.getVideo().setSequence(item.getSeq());
     }
     String sdkver = itemSpecPlacementSdkver( item );
     if ( sdkver != null ) {
@@ -70,9 +82,23 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     DisplayPlacement display = itemSpecPlacementDisplay( item );
     if ( display != null ) {
       imp.setBanner( displayPlacementBannerConverter.map( display, config ) );
+      if (nonNull(imp.getBanner())) {
+        if (nonNull(item.getSeq())) {
+          if (isNull(imp.getBanner().getExt())) {
+            imp.getBanner().setExt(new HashMap<>());
+          }
+          imp.getBanner().getExt().put("seq", item.getSeq());
+        }
+      }
       imp.setNat(displayPlacementNativeConverter.map(display, config));
+      if (nonNull(imp.getNat()) && nonNull(imp.getNat().getNativeRequestBody())) {
+        imp.getNat().getNativeRequestBody().setPlcmtcnt(item.getQty());
+        imp.getNat().getNativeRequestBody().setSeq(item.getSeq());
+      }
       imp.setInstl(display.getInstl());
-      imp.setIframebuster(new ArrayList<>(display.getIfrbust()));
+      if (nonNull(display.getIfrbust())) {
+        imp.setIframebuster(new ArrayList<>(display.getIfrbust()));
+      }
       imp.setClickbrowser(display.getClktype());
     }
     imp.setBidfloorcur( item.getFlrcur() );
@@ -87,6 +113,9 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     AudioPlacement audio = itemSpecPlacementAudio( item );
     if ( audio != null ) {
       imp.setAudio( audioPlacementAudioConverter.map(audio, config));
+    }
+    if (nonNull(imp.getAudio())) {
+      imp.getAudio().setSequence(item.getSeq());
     }
     imp.setId( item.getId() );
     imp.setExp( item.getExp() );
@@ -261,5 +290,38 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
       return null;
     }
     return secure;
+  }
+
+  private void fillExtMap(Item item, Imp imp) {
+    if (nonNull(item)) {
+      if (nonNull(imp)) {
+        if (isNull(imp.getExt())) {
+          imp.setExt(new HashMap<>());
+        }
+        imp.getExt().put("qty", item.getQty());
+        imp.getExt().put("dt", item.getDt());
+        imp.getExt().put("dlvy", item.getDlvy());
+      }
+    }
+    if (nonNull(item) && nonNull(item.getSpec()) && nonNull(item.getSpec().getPlacement())) {
+      if (nonNull(imp)) {
+        if (isNull(imp.getExt())) {
+          imp.setExt(new HashMap<>());
+        }
+        imp.getExt().put("ssai", item.getSpec().getPlacement().getSsai());
+        imp.getExt().put("reward", item.getSpec().getPlacement().getReward());
+        imp.getExt().put("admx", item.getSpec().getPlacement().getAdmx());
+        imp.getExt().put("curlx", item.getSpec().getPlacement().getCurlx());
+      }
+      if (nonNull(item.getSpec().getPlacement().getDisplay())) {
+        imp.getExt().put("ampren", item.getSpec().getPlacement().getDisplay().getAmpren());
+        if (nonNull(item.getSpec().getPlacement().getDisplay().getCtype())) {
+          imp.getExt().put("ctype", new ArrayList<>(item.getSpec().getPlacement().getDisplay()
+            .getCtype()));
+        }
+        imp.getExt().put("priv", item.getSpec().getPlacement().getDisplay().getPriv());
+        imp.getExt().put("event", item.getSpec().getPlacement().getDisplay().getEvent());
+      }
+    }
   }
 }

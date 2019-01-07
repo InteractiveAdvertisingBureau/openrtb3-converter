@@ -19,7 +19,7 @@ import static java.util.Objects.nonNull;
  */
 
 @Data
-public class Native extends AbstractExtensible<Native.NativeReqExt> {
+public class Native {
 
   public static final String DEFAULT_NATIVE_VERSION = "1.1";
 
@@ -37,10 +37,6 @@ public class Native extends AbstractExtensible<Native.NativeReqExt> {
   private transient NativeRequestBody nativeRequestBody;
 
   private transient String requestAsString;
-
-  public Native() {
-    setReqExt(new NativeReqExt());
-  }
 
   public NativeRequestBody getNativeRequestBody() {
     if (nonNull(nativeRequestBody)) {
@@ -73,6 +69,4 @@ public class Native extends AbstractExtensible<Native.NativeReqExt> {
     return requestAsString;
   }
 
-  public static class NativeReqExt extends ReqExt {
-  }
 }

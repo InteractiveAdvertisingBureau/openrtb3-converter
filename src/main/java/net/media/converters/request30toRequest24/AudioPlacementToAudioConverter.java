@@ -53,6 +53,8 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     Map<String, Object> map = audioPlacement.getExt();
     if ( map != null ) {
       audio.setExt( new HashMap<>( map ) );
+      audio.setStitched((Integer) map.get("stitched"));
+      audio.getExt().remove("stitched");
     }
     audio.setCompanionad(companionListToBannerList(audioPlacement.getComp(), config));
     audioPlacementToAudioAfterMapping( audioPlacement, audio );

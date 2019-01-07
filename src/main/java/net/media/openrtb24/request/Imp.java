@@ -14,7 +14,7 @@ import lombok.Data;
 
 @Data
 @CheckAtLeastOneNotNull(fieldNames = {"video, banner, nat, audio"})
-public class Imp extends AbstractExtensible<Imp.ImpReqExt> {
+public class Imp {
 
   public static final Integer DEFAULT_INTERSTITIAL = null;
   public static final int MINIMUM_POS_VALUE = 0;
@@ -59,14 +59,4 @@ public class Imp extends AbstractExtensible<Imp.ImpReqExt> {
 
   private Map<String, Object> ext;
 
-  private transient String originalTagId;
-
-  @Data
-  public static class ImpReqExt extends ReqExt {
-    private String tag_pos;
-    private String seller_tag_id;
-    private Integer visibility;
-    private Double viewability;
-    private Double ctr;
-  }
 }

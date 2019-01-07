@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 /**
@@ -50,6 +51,12 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     Map<String, Object> map = audio.getExt();
     if ( map != null ) {
       audioPlacement.setExt( new HashMap<String, Object>( map ) );
+    }
+    if (nonNull(audio.getStitched())) {
+      if (isNull(audioPlacement.getExt())) {
+        audioPlacement.setExt(new HashMap<>());
+      }
+      audioPlacement.getExt().put("stitched", audio.getStitched());
     }
     audioPlacement.setComp( bannerListToCompanionList( audio.getCompanionad(), config ) );
     audioPlacement.setMaxdur( audio.getMaxduration() );

@@ -6,12 +6,14 @@ import java.util.Map;
 import java.util.Set;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Created by vishnu on 6/5/16.
  */
 @Data
-public class Banner extends AbstractExtensible<Banner.BannerReqExt> {
+@NoArgsConstructor
+public class Banner {
 
   public static final List<Integer> DEFAULT_MIME_TYPES = Arrays.asList(1, 2, 4);
 
@@ -43,10 +45,6 @@ public class Banner extends AbstractExtensible<Banner.BannerReqExt> {
 
   private Map<String, Object> ext;
 
-  public Banner() {
-    setReqExt(new BannerReqExt());
-  }
-
   public Banner(Banner banner) {
     this.id = banner.id;
     this.w = banner.w;
@@ -60,10 +58,5 @@ public class Banner extends AbstractExtensible<Banner.BannerReqExt> {
     this.expdir = banner.expdir;
     this.api = banner.api;
     this.ext = banner.ext;
-    setReqExt(banner.getReqExt());
-  }
-
-
-  public static class BannerReqExt extends ReqExt {
   }
 }

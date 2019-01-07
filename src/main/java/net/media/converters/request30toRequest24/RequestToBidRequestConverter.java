@@ -7,9 +7,12 @@ import net.media.openrtb24.request.BidRequest;
 import net.media.openrtb24.request.Imp;
 import net.media.openrtb24.request.User;
 import net.media.openrtb3.*;
+import net.media.utils.CollectionUtils;
 import net.media.utils.ListToListConverter;
 
 import java.util.*;
+
+import static java.util.Objects.nonNull;
 
 @AllArgsConstructor
 public class RequestToBidRequestConverter implements Converter<Request, BidRequest> {
@@ -78,6 +81,24 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     }
     bidRequest.setAllimps( source.getPack() );
     bidRequest.setImp( ListToListConverter.convert( source.getItem(), itemImpConverter, config ) );
+    if (!CollectionUtils.isEmpty(bidRequest.getImp())) {
+      if (nonNull(source.getContext()) && nonNull(source.getContext().getRestrictions())) {
+        for (Imp imp : bidRequest.getImp()) {
+          if (nonNull(imp.getBanner())) {
+            imp.getBanner().setBattr(new HashSet<>(source.getContext().getRestrictions().getBattr
+              ()));
+          }
+          if (nonNull(imp.getVideo())) {
+            imp.getVideo().setBattr(new HashSet<>(source.getContext().getRestrictions().getBattr
+              ()));
+          }
+          if (nonNull(imp.getNat())) {
+            imp.getNat().setBattr(new HashSet<>(source.getContext().getRestrictions().getBattr
+              ()));
+          }
+        }
+      }
+    }
     bidRequest.setId( source.getId() );
     bidRequest.setAt( source.getAt() );
     bidRequest.setTest( source.getTest() );
