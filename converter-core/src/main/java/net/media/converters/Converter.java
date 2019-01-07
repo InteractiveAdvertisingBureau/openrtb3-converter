@@ -1,5 +1,6 @@
 package net.media.converters;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 
 /**
@@ -11,7 +12,7 @@ import net.media.config.Config;
  */
 public interface Converter<U, V> {
 
-  V map(U source, Config config);
+  V map(U source, Config config) throws OpenRtbConverterException;
 
-  void inhance(U source, V target, Config config);
+  void inhance(U source, V target, Config config) throws OpenRtbConverterException;
 }

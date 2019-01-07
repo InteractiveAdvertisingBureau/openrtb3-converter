@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/converter-api/converter-api.iml" filepath="$PROJECT_DIR$/converter-api/converter-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/converter-core/converter-core.iml" filepath="$PROJECT_DIR$/converter-core/converter-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/open-rtb-converter.iml" filepath="$PROJECT_DIR$/open-rtb-converter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rawconverter.iml" filepath="$PROJECT_DIR$/rawconverter.iml" />
     </modules>
   </component>
 </project>

@@ -1,5 +1,6 @@
 package net.media.converters.response30toresponse24;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.response.Bid;
@@ -22,7 +23,7 @@ public class SeatBid30ToSeatBid24Converter implements Converter<Seatbid,SeatBid>
   }
 
   @Override
-  public SeatBid map(Seatbid source, Config config) {
+  public SeatBid map(Seatbid source, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     SeatBid  seatBid = new SeatBid();
@@ -31,7 +32,7 @@ public class SeatBid30ToSeatBid24Converter implements Converter<Seatbid,SeatBid>
   }
 
   @Override
-  public void inhance(Seatbid source,SeatBid target, Config config) {
+  public void inhance(Seatbid source,SeatBid target, Config config)  throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return;
 
@@ -46,9 +47,9 @@ public class SeatBid30ToSeatBid24Converter implements Converter<Seatbid,SeatBid>
     target.setGroup( source.get_package() );
     List<Bid> bidList = new ArrayList<>();
     if(nonNull(source.getBid())){
-      source.getBid().forEach(bid -> {
-        bidList.add(bidBidConverter.map(bid,config));
-      });
+      for (net.media.openrtb3.Bid bid : source.getBid()) {
+        bidList.add(bidBidConverter.map(bid, config));
+      }
     }
     target.setBid( bidList);
     target.setSeat( source.getSeat() );

@@ -1,5 +1,6 @@
 package net.media.converters.response24toresponse30;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.response.BidResponse;
@@ -30,7 +31,7 @@ public class BidResponseToResponseConverter implements Converter<BidResponse, Re
    * @return
    */
   @Override
-  public Response map(BidResponse bidResponse, Config config) {
+  public Response map(BidResponse bidResponse, Config config)throws OpenRtbConverterException {
     if ( bidResponse == null ) {
       return null;
     }
@@ -45,7 +46,7 @@ public class BidResponseToResponseConverter implements Converter<BidResponse, Re
    * @param response
    */
   @Override
-  public void inhance(BidResponse bidResponse, Response response, Config config) {
+  public void inhance(BidResponse bidResponse, Response response, Config config)throws OpenRtbConverterException {
     response.setId( bidResponse.getId() );
     response.setBidid( bidResponse.getBidid() );
     response.setNbr( bidResponse.getNbr() );

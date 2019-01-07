@@ -1,5 +1,6 @@
 package net.media.converters.response30toresponse24;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.response.Bid;
@@ -16,7 +17,7 @@ public class VideoToBidConverter implements Converter<Video,Bid> {
 
   public VideoToBidConverter(){
   }
-  public Bid map(Video source, Config config){
+  public Bid map(Video source, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     Bid  bid = new Bid();
@@ -24,7 +25,7 @@ public class VideoToBidConverter implements Converter<Video,Bid> {
     return bid;
   }
 
-  public  void inhance(Video source, Bid target, Config config){
+  public  void inhance(Video source, Bid target, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
 

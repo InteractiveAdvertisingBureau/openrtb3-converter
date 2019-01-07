@@ -1,5 +1,6 @@
 package net.media.converters.response30toresponse24;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.enums.AdType;
@@ -26,7 +27,7 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
     this.auditBidConverter = auditBidConverter;
   }
 
-  public Bid map(Ad source, Config config){
+  public Bid map(Ad source, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     Bid  bid = new Bid();
@@ -34,7 +35,7 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
     return bid;
   }
 
-  public void inhance(Ad source, Bid target, Config config){
+  public void inhance(Ad source, Bid target, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
 
