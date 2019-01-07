@@ -29,6 +29,10 @@ public class Config {
 
   private AdType adType;
 
+  private boolean nativeRequestString;
+
+  private boolean validate;
+
   public Config(Config oldConfig) {
     this.bannerTemplate = oldConfig.bannerTemplate;
     this.adType = oldConfig.adType;
