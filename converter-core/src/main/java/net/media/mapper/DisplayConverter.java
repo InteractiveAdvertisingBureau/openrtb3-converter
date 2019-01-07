@@ -125,7 +125,7 @@ public class DisplayConverter {
       nat.getExt().remove("nativeversion");
     }
     Config config = new Config();
-    if (config.isNativeRequestString()) {
+    if (config.getNativeRequestAsString()) {
       try {
         nat.setRequest(JacksonObjectMapper.getMapper().writeValueAsString(nativeRequest));
       } catch (JsonProcessingException e) {

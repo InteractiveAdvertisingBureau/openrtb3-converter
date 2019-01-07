@@ -49,13 +49,16 @@ public class OpenRtbMapperTest {
         System.out.println("invalid ad type");
         continue;
       }*/
+      try {
+        Config config = new Config();
+        OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
 
-      Config config = new Config();
-      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+        OpenRTB request30 = openRtbConverter.convert(request, BidRequest.class, OpenRTB.class);
+        System.out.println(objectMapper.writeValueAsString(request30));
+        //System.out.println(response.getResponse30());
+      }catch (Exception e){
 
-      OpenRTB request30 = openRtbConverter.convert(request, BidRequest.class, OpenRTB.class);
-      System.out.println(objectMapper.writeValueAsString(request30));
-      //System.out.println(response.getResponse30());
+      }
       //System.out.println(response30.equals(response.getResponse30()));
     }
   }
@@ -80,11 +83,15 @@ public class OpenRtbMapperTest {
         System.out.println("invalid ad type");
         continue;
       }*/
-      Config config = new Config();
-      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      try {
+        Config config = new Config();
+        OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
 
-      BidRequest bidRequest = openRtbConverter.convert(request, OpenRTB.class, BidRequest.class);
-      System.out.println(objectMapper.writeValueAsString(bidRequest));
+        BidRequest bidRequest = openRtbConverter.convert(request, OpenRTB.class, BidRequest.class);
+        System.out.println(objectMapper.writeValueAsString(bidRequest));
+      }catch (Exception e){
+
+      }
       //System.out.println(response.getResponse30());
       //System.out.println(response30.equals(response.getResponse30()));
     }

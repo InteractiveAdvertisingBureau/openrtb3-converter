@@ -39,6 +39,7 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
       return ;
 
     target.setCrid(source.getId());
+
     target.setAdomain(Utils.copyList(source.getAdomain(),config));
     target.setBundle(Utils.copyList(source.getBundle(),config));
     target.setIurl( source.getIurl() );

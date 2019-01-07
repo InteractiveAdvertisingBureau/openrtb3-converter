@@ -69,7 +69,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       nat.setVer((String) displayPlacement.getExt().get("nativeversion"));
       nat.getExt().remove("nativeversion");
     }
-    if (config.isNativeRequestString()) {
+    if (config.getNativeRequestAsString()) {
       try {
         nat.setRequest(JacksonObjectMapper.getMapper().writeValueAsString(nativeRequest));
       } catch (JsonProcessingException e) {

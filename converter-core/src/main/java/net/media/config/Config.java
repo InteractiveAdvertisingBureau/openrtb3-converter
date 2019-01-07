@@ -36,7 +36,7 @@ public class Config {
 
   private Boolean nativeRequestString;
 
-  private Boolean validate;
+  private Boolean validate=false;
 
   public Config(Config oldConfig) {
     this.bannerTemplate = oldConfig.bannerTemplate;
