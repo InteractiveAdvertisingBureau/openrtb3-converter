@@ -85,16 +85,22 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       if (nonNull(source.getContext()) && nonNull(source.getContext().getRestrictions())) {
         for (Imp imp : bidRequest.getImp()) {
           if (nonNull(imp.getBanner())) {
-            imp.getBanner().setBattr(new HashSet<>(source.getContext().getRestrictions().getBattr
-              ()));
+            if (nonNull(source.getContext().getRestrictions().getBattr())) {
+              imp.getBanner().setBattr(new HashSet<>(source.getContext().getRestrictions().getBattr
+                ()));
+            }
           }
           if (nonNull(imp.getVideo())) {
-            imp.getVideo().setBattr(new HashSet<>(source.getContext().getRestrictions().getBattr
-              ()));
+            if (nonNull(source.getContext().getRestrictions().getBattr())) {
+              imp.getVideo().setBattr(new HashSet<>(source.getContext().getRestrictions().getBattr
+                ()));
+            }
           }
           if (nonNull(imp.getNat())) {
-            imp.getNat().setBattr(new HashSet<>(source.getContext().getRestrictions().getBattr
-              ()));
+            if (nonNull(source.getContext().getRestrictions().getBattr())) {
+              imp.getNat().setBattr(new HashSet<>(source.getContext().getRestrictions().getBattr
+                ()));
+            }
           }
         }
       }

@@ -56,6 +56,10 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     if (nonNull(nativeRequest.getNativeRequestBody())) {
       nativeRequest.getNativeRequestBody().setContext(displayPlacement.getContext());
       nativeRequest.getNativeRequestBody().setPlcmttype(displayPlacement.getPtype());
+      if (nonNull(displayPlacement.getExt())) {
+        nativeRequest.getNativeRequestBody().setContextsubtype((Integer) displayPlacement.getExt
+          ().get("contextsubtype"));
+      }
     }
     List<Integer> api = displayPlacement.getApi();
     if ( api != null ) {

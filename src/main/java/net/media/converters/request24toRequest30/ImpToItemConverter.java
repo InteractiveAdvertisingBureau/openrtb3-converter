@@ -153,6 +153,9 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
         displayPlacement.setEvent((EventSpec) imp.getExt().get("event"));
       }
     }
+    if (isNull(displayPlacement) && nonNull(imp.getNat())) {
+      displayPlacement = new DisplayPlacement();
+    }
     nativeDisplayPlacementConverter.inhance(imp.getNat(), displayPlacement, config);
     mappingTarget.setDisplay( displayPlacement );
   }

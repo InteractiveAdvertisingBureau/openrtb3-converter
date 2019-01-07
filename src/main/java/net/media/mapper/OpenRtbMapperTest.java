@@ -22,8 +22,8 @@ public class OpenRtbMapperTest {
 
   public static void main(String[] args) {
     try {
-      new OpenRtbMapperTest().test();
-//      new OpenRtbMapperTest().test1();
+//      new OpenRtbMapperTest().test();
+      new OpenRtbMapperTest().test1();
     }catch (IOException e){
       System.out.println("Phatna  hihe"+e.getMessage());
     }
@@ -31,7 +31,7 @@ public class OpenRtbMapperTest {
 
   private void test() throws IOException {
     ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource("25To30RequestTest.json").getPath());
+    File file = new File(classLoader.getResource("25To30NativeRequestTest.json").getPath());
 
     byte[] jsonData = Files.readAllBytes(file.toPath());
     ObjectMapper objectMapper = JacksonObjectMapper.getMapper();
@@ -62,7 +62,7 @@ public class OpenRtbMapperTest {
 
   private void test1() throws IOException {
     ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource("30To25BannerRequestTest.json").getPath());
+    File file = new File(classLoader.getResource("30To25NativeRequestTest.json").getPath());
 
     byte[] jsonData = Files.readAllBytes(file.toPath());
     ObjectMapper objectMapper = JacksonObjectMapper.getMapper();
@@ -81,7 +81,8 @@ public class OpenRtbMapperTest {
         continue;
       }*/
       Config config = new Config();
-      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
 
       BidRequest bidRequest = openRtbConverter.convert(request, OpenRTB.class, BidRequest.class);
       System.out.println(objectMapper.writeValueAsString(bidRequest));

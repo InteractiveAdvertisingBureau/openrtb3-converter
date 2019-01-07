@@ -23,6 +23,9 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     if ( displayPlacement == null ) {
       return null;
     }
+    if (nonNull(displayPlacement.getNativefmt())) {
+      return null;
+    }
     Banner banner = new Banner();
     inhance(displayPlacement, banner, config);
     return banner;
