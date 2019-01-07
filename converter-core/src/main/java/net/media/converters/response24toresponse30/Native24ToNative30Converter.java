@@ -61,7 +61,7 @@ public class Native24ToNative30Converter implements Converter<NativeResponse, Na
       List<Asset> assetList = new ArrayList<>();
       for(AssetResponse assetResponse : source.getNativeResponseBody().getAssets()) {
         Asset asset = assetResponseAssetConverter.map(assetResponse, config);
-        if(isNull(asset)) {
+        if(nonNull(asset)) {
           assetList.add(asset);
         }
       }
