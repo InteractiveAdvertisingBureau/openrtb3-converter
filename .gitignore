@@ -3,12 +3,10 @@ target
 .settings
 .classpath
 .project
-.idea*
 .idea/workspace.xml
+.idea*
 *.iml
 .DS_STORE
 ### Java template
 *.class
 *.pyc
-pom.xml
-dependency-reduced-pom.xml
