@@ -1,5 +1,6 @@
 package net.media.converters.request30toRequest24;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.request.Asset;
@@ -23,7 +24,7 @@ public class NativeFormatToNativeRequestBodyConverter implements Converter<Nativ
   private Converter<AssetFormat, Asset> assetFormatAssetConverter;
 
   @Override
-  public NativeRequestBody map(NativeFormat nativeFormat, Config config) {
+  public NativeRequestBody map(NativeFormat nativeFormat, Config config) throws OpenRtbConverterException {
     if ( nativeFormat == null ) {
       return null;
     }
@@ -33,7 +34,7 @@ public class NativeFormatToNativeRequestBodyConverter implements Converter<Nativ
   }
 
   @Override
-  public void inhance(NativeFormat nativeFormat, NativeRequestBody nativeRequestBody, Config config) {
+  public void inhance(NativeFormat nativeFormat, NativeRequestBody nativeRequestBody, Config config) throws OpenRtbConverterException {
     if (isNull(nativeFormat) || isNull(nativeRequestBody)) {
       return;
     }
@@ -45,7 +46,7 @@ public class NativeFormatToNativeRequestBodyConverter implements Converter<Nativ
 
   }
 
-  private List<Asset> assetFormatListToAssetList(List<AssetFormat> list, Config config) {
+  private List<Asset> assetFormatListToAssetList(List<AssetFormat> list, Config config) throws OpenRtbConverterException {
     if ( list == null ) {
       return null;
     }

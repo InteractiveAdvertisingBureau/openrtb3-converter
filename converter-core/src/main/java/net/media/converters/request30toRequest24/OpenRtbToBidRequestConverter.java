@@ -1,6 +1,7 @@
 package net.media.converters.request30toRequest24;
 
 import lombok.AllArgsConstructor;
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.request.BidRequest;
@@ -16,7 +17,7 @@ public class OpenRtbToBidRequestConverter implements Converter<OpenRTB, BidReque
   private Converter<Request, BidRequest> requestBidRequestConverter;
 
   @Override
-  public BidRequest map(OpenRTB source, Config config) {
+  public BidRequest map(OpenRTB source, Config config) throws OpenRtbConverterException {
     if (isNull(source)) {
       return null;
     }

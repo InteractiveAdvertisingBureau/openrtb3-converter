@@ -1,5 +1,6 @@
 package net.media.converters.request24toRequest30;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.request.Native;
@@ -30,7 +31,7 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
   }
 
   @Override
-  public DisplayPlacement map(Native nat, Config config) {
+  public DisplayPlacement map(Native nat, Config config) throws OpenRtbConverterException {
     if (isNull(nat)) {
       return null;
     }
@@ -41,7 +42,7 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
   }
 
   @Override
-  public void inhance(Native nat, DisplayPlacement displayPlacement, Config config) {
+  public void inhance(Native nat, DisplayPlacement displayPlacement, Config config) throws OpenRtbConverterException {
     if (isNull(nat) || isNull(displayPlacement)) {
       return;
     }

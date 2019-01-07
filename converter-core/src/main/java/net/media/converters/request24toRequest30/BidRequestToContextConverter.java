@@ -1,6 +1,7 @@
 package net.media.converters.request24toRequest30;
 
 import lombok.AllArgsConstructor;
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.request.*;
@@ -18,7 +19,7 @@ public class BidRequestToContextConverter implements Converter<BidRequest, Conte
   private Converter<Device, net.media.openrtb3.Device> deviceDeviceConverter;
 
   @Override
-  public Context map(BidRequest source, Config config) {
+  public Context map(BidRequest source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -31,7 +32,7 @@ public class BidRequestToContextConverter implements Converter<BidRequest, Conte
   }
 
   @Override
-  public void inhance(BidRequest source, Context target, Config config) {
+  public void inhance(BidRequest source, Context target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setRegs( regsRegsConverter.map( source.getRegs(), config ) );

@@ -2,6 +2,7 @@ package net.media.converters.request30toRequest24;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.mapper.DisplayConverter;
@@ -29,7 +30,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
   private Converter<NativeFormat, NativeRequestBody> nativeFormatNativeRequestBodyConverter;
 
   @Override
-  public Native map(DisplayPlacement displayPlacement, Config config) {
+  public Native map(DisplayPlacement displayPlacement, Config config) throws OpenRtbConverterException {
     if (displayPlacement == null) {
       return null;
     }
@@ -42,7 +43,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
   }
 
   @Override
-  public void inhance(DisplayPlacement displayPlacement, Native nat, Config config) {
+  public void inhance(DisplayPlacement displayPlacement, Native nat, Config config) throws OpenRtbConverterException {
     if (isNull(displayPlacement) || isNull(nat)) {
       return;
     }
@@ -69,7 +70,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       nat.setVer((String) displayPlacement.getExt().get("nativeversion"));
       nat.getExt().remove("nativeversion");
     }
-    if (config.isNativeRequestString()) {
+    if (config.getNativeRequestString()) {
       try {
         nat.setRequest(JacksonObjectMapper.getMapper().writeValueAsString(nativeRequest));
       } catch (JsonProcessingException e) {

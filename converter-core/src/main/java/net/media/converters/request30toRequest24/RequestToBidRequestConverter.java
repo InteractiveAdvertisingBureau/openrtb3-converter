@@ -1,6 +1,7 @@
 package net.media.converters.request30toRequest24;
 
 import lombok.AllArgsConstructor;
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.request.BidRequest;
@@ -23,7 +24,7 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
   private Converter<Source, net.media.openrtb24.request.Source> sourceSourceConverter;
   private Converter<Item, net.media.openrtb24.request.Imp> itemImpConverter;
   @Override
-  public BidRequest map(Request source, Config config) {
+  public BidRequest map(Request source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -36,7 +37,7 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
   }
 
   @Override
-  public void inhance(Request source, BidRequest target, Config config) {
+  public void inhance(Request source, BidRequest target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
 
