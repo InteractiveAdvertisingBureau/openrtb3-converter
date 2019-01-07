@@ -58,7 +58,7 @@ public class Asset24ToAsset30Converter implements Converter<AssetResponse, Asset
     target.setLink(linkLinkAssetConverter.map(source.getLink(), config));
   }
 
-  private DataAsset nativeDataToData(NativeData nativeData){
+  private DataAsset nativeDataToData(NativeData nativeData) throws OpenRtbConverterException {
     if(isNull(nativeData))
       return null;
     DataAsset dataAsset = new DataAsset();
@@ -66,9 +66,14 @@ public class Asset24ToAsset30Converter implements Converter<AssetResponse, Asset
     List<String> value = new ArrayList<>();
     value.add(nativeData.getValue());
     dataAsset.setValue(value);
-    if(nonNull(nativeData.getExt())){
-      dataAsset.setType((Integer) nativeData.getExt().get("type"));
-      dataAsset.setLen((Integer) nativeData.getExt().get("len"));
+    try {
+      if (nonNull(nativeData.getExt())) {
+        dataAsset.setType((Integer) nativeData.getExt().get("type"));
+        dataAsset.setLen((Integer) nativeData.getExt().get("len"));
+      }
+    }
+    catch (Exception e) {
+      throw new OpenRtbConverterException("error while typecasting ext for nativeData", e);
     }
     if(isNull(dataAsset.getExt()))
       dataAsset.setExt(new HashMap<>());
@@ -76,7 +81,7 @@ public class Asset24ToAsset30Converter implements Converter<AssetResponse, Asset
     return new DataAsset();
   }
 
-  private ImageAsset nativeImageToImageAsset(NativeImage nativeImage){
+  private ImageAsset nativeImageToImageAsset(NativeImage nativeImage) throws OpenRtbConverterException {
     if(isNull(nativeImage)){
       return null;
     }
@@ -85,30 +90,45 @@ public class Asset24ToAsset30Converter implements Converter<AssetResponse, Asset
     imageAsset.setW(nativeImage.getW());
     imageAsset.setUrl(nativeImage.getUrl());
     imageAsset.setExt(nativeImage.getExt());
-    if(nonNull(nativeImage.getExt()))
-      imageAsset.setType((Integer) nativeImage.getExt().get("type"));
+    try {
+      if (nonNull(nativeImage.getExt()))
+        imageAsset.setType((Integer) nativeImage.getExt().get("type"));
+    }
+    catch (Exception e) {
+      throw new OpenRtbConverterException("error while type casting ext for image asset" ,e);
+    }
     return new ImageAsset();
   }
 
-  private TitleAsset nativeTittleToTittleAsset(NativeTitle nativeTitle){
+  private TitleAsset nativeTittleToTittleAsset(NativeTitle nativeTitle) throws OpenRtbConverterException {
     if(isNull(nativeTitle))
       return null;
     TitleAsset titleAsset = new TitleAsset();
     titleAsset.setExt(nativeTitle.getExt());
     titleAsset.setText(nativeTitle.getText());
-    if(nonNull(nativeTitle.getExt()))
-      titleAsset.setLen((Integer)nativeTitle.getExt().get("len"));
+    try {
+      if (nonNull(nativeTitle.getExt()))
+        titleAsset.setLen((Integer) nativeTitle.getExt().get("len"));
+    }
+    catch (Exception e) {
+      throw new OpenRtbConverterException("error while type casting ext for title asset", e);
+    }
     return new TitleAsset();
   }
 
-  private VideoAsset nativeVideoToVideoAsset(NativeVideo nativeVideo){
+  private VideoAsset nativeVideoToVideoAsset(NativeVideo nativeVideo) throws OpenRtbConverterException {
     if(isNull(nativeVideo))
       return null;
     VideoAsset  videoAsset = new VideoAsset();
     videoAsset.setAdm(nativeVideo.getVasttag());
     videoAsset.setExt(nativeVideo.getExt());
-    if(nonNull(nativeVideo.getExt()))
-      videoAsset.setCurl((String) nativeVideo.getExt().get("curl"));
+    try {
+      if (nonNull(nativeVideo.getExt()))
+        videoAsset.setCurl((String) nativeVideo.getExt().get("curl"));
+    }
+    catch (Exception e) {
+      throw new OpenRtbConverterException("error while casting ext for videoAsset", e);
+    }
     return new VideoAsset();
   }
 }

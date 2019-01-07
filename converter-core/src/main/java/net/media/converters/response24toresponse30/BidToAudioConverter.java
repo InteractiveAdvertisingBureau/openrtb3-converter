@@ -54,10 +54,15 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
     target.setCurl(source.getNurl());
 
     if (nonNull(source.getExt())) {
-      Map<String, Object> ext = source.getExt();
-      target.setCtype((Integer) ext.get("ctype"));
-      target.setDur((Integer) ext.get("dur"));
-      target.setMime((List<String>) ext.get("mime"));
+      try {
+        Map<String, Object> ext = source.getExt();
+        target.setCtype((Integer) ext.get("ctype"));
+        target.setDur((Integer) ext.get("dur"));
+        target.setMime((List<String>) ext.get("mime"));
+      }
+      catch (Exception e) {
+        throw new OpenRtbConverterException("error while type casting in bid.ext", e);
+      }
     }
   }
 }
