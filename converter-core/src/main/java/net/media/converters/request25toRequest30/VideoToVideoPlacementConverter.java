@@ -14,19 +14,19 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import lombok.AllArgsConstructor;
+
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 /**
  * Created by rajat.go on 03/01/19.
  */
+
+@AllArgsConstructor
 public class VideoToVideoPlacementConverter implements Converter<Video, VideoPlacement> {
 
   private Converter<Banner, Companion> bannerCompanionConverter;
-
-  public VideoToVideoPlacementConverter(Converter<Banner, Companion> bannerCompanionConverter) {
-    this.bannerCompanionConverter = bannerCompanionConverter;
-  }
 
   @Override
   public VideoPlacement map(Video video, Config config) throws OpenRtbConverterException {

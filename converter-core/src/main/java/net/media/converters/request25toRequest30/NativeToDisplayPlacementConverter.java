@@ -15,20 +15,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import lombok.AllArgsConstructor;
+
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 /**
  * Created by rajat.go on 03/01/19.
  */
+
+@AllArgsConstructor
 public class NativeToDisplayPlacementConverter implements Converter<Native, DisplayPlacement> {
 
   private Converter<NativeRequestBody, NativeFormat> nativeRequestBodyNativeFormatConverter;
-
-  public NativeToDisplayPlacementConverter(Converter<NativeRequestBody, NativeFormat>
-                                             nativeRequestBodyNativeFormatConverter) {
-    this.nativeRequestBodyNativeFormatConverter = nativeRequestBodyNativeFormatConverter;
-  }
 
   @Override
   public DisplayPlacement map(Native nat, Config config) throws OpenRtbConverterException {
@@ -61,11 +60,15 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
           nativeRequest = JacksonObjectMapper.getMapper().readValue(nativeRequestString,
             NativeRequest.class);
         } catch (IOException e) {
-          e.printStackTrace();
+          throw new OpenRtbConverterException(e);
         }
       } else {
-        nativeRequest = JacksonObjectMapper.getMapper().convertValue(nat.getRequest(),
-          NativeRequest.class);
+        try {
+          nativeRequest = JacksonObjectMapper.getMapper().convertValue(nat.getRequest(),
+            NativeRequest.class);
+        } catch (IllegalArgumentException e) {
+          throw new OpenRtbConverterException(e);
+        }
       }
 
       if (nonNull(nativeRequest) && nonNull(nativeRequest.getNativeRequestBody())) {

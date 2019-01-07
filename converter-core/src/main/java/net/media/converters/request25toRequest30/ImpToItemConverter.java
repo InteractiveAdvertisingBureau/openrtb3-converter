@@ -24,12 +24,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import lombok.AllArgsConstructor;
+
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 /**
  * Created by rajat.go on 03/01/19.
  */
+
+@AllArgsConstructor
 public class ImpToItemConverter implements Converter<Imp, Item> {
 
   private Converter<Banner, DisplayPlacement> bannerDisplayPlacementConverter;
@@ -43,20 +47,6 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
   private Converter<Deal, net.media.openrtb3.Deal> dealDealConverter;
 
   private Converter<Metric, net.media.openrtb3.Metric> metricMetricConverter;
-
-  public ImpToItemConverter(Converter<Banner, DisplayPlacement> bannerDisplayPlacementConverter,
-                            Converter<Native, DisplayPlacement> nativeDisplayPlacementConverter,
-                            Converter<Video, VideoPlacement> videoVideoPlacementConverter,
-                            Converter<Audio, AudioPlacement> audioAudioPlacementConverter,
-                            Converter<Deal, net.media.openrtb3.Deal> dealDealConverter,
-                            Converter<Metric, net.media.openrtb3.Metric> metricMetricConverter) {
-    this.bannerDisplayPlacementConverter = bannerDisplayPlacementConverter;
-    this.nativeDisplayPlacementConverter = nativeDisplayPlacementConverter;
-    this.videoVideoPlacementConverter = videoVideoPlacementConverter;
-    this.audioAudioPlacementConverter = audioAudioPlacementConverter;
-    this.dealDealConverter = dealDealConverter;
-    this.metricMetricConverter = metricMetricConverter;
-  }
 
   @Override
   public Item map(Imp imp, Config config) throws OpenRtbConverterException {
