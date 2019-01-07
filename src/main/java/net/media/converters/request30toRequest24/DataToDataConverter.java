@@ -24,19 +24,19 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb24.
 
     net.media.openrtb24.request.Data data1 = new net.media.openrtb24.request.Data();
 
-    data1.setId( source.getId() );
-    data1.setName( source.getName() );
-    data1.setSegment( ListToListConverter.convert( source.getSegment(), segmentSegmentConverter, config ) );
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      data1.setExt( new HashMap<String, Object>( map ) );
-    }
+    inhance( source, data1, config );
 
     return data1;
   }
 
   @Override
   public void inhance(Data source, net.media.openrtb24.request.Data target, Config config) {
-
+    target.setId( source.getId() );
+    target.setName( source.getName() );
+    target.setSegment( ListToListConverter.convert( source.getSegment(), segmentSegmentConverter, config ) );
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
   }
 }

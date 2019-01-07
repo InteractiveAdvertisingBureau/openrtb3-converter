@@ -16,12 +16,6 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb24.
 
     net.media.openrtb24.request.Regs regs1 = new net.media.openrtb24.request.Regs();
 
-    regs1.setCoppa( source.getCoppa() );
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      regs1.setExt( new HashMap<String, Object>( map ) );
-    }
-
     inhance( source, regs1, config );
 
     return regs1;
@@ -31,6 +25,11 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb24.
   public void inhance(Regs source, net.media.openrtb24.request.Regs target, Config config) {
     if(source == null)
       return;
+    target.setCoppa( source.getCoppa() );
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
     if(source.getGdpr() == null)
       return;
     if(target.getExt() == null)

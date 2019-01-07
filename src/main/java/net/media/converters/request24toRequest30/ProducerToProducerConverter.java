@@ -16,15 +16,6 @@ public class ProducerToProducerConverter implements Converter<Producer, net.medi
 
     net.media.openrtb3.Producer producer1 = new net.media.openrtb3.Producer();
 
-    producer1.setId( source.getId() );
-    producer1.setName( source.getName() );
-    producer1.setDomain( source.getDomain() );
-    producer1.setCat( source.getCat() );
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      producer1.setExt( new HashMap<String, Object>( map ) );
-    }
-
     inhance( source, producer1, config );
 
     return producer1;
@@ -34,6 +25,14 @@ public class ProducerToProducerConverter implements Converter<Producer, net.medi
   public void inhance(Producer source, net.media.openrtb3.Producer target, Config config) {
     if(source == null)
       return;
+    target.setId( source.getId() );
+    target.setName( source.getName() );
+    target.setDomain( source.getDomain() );
+    target.setCat( source.getCat() );
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
     if(source.getExt() == null)
       return;
     target.setCattax((Integer) source.getExt().get("cattax"));

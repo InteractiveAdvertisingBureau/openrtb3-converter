@@ -25,18 +25,20 @@ public class BidRequestToContextConverter implements Converter<BidRequest, Conte
 
     Context context = new Context();
 
-    context.setRegs( regsRegsConverter.map( source.getRegs(), config ) );
-    context.setSite( siteSiteConverter.map( source.getSite(), config ) );
-    context.setUser( userUserConverter.map( source.getUser(), config ) );
-    context.setRestrictions( bidRequestRestrictionsConverter.map( source, config ) );
-    context.setApp( appAppConverter.map( source.getApp(), config ) );
-    context.setDevice( deviceDeviceConverter.map( source.getDevice(), config ) );
+    inhance( source, context, config );
 
     return context;
   }
 
   @Override
   public void inhance(BidRequest source, Context target, Config config) {
-
+    if(source == null)
+      return;
+    target.setRegs( regsRegsConverter.map( source.getRegs(), config ) );
+    target.setSite( siteSiteConverter.map( source.getSite(), config ) );
+    target.setUser( userUserConverter.map( source.getUser(), config ) );
+    target.setRestrictions( bidRequestRestrictionsConverter.map( source, config ) );
+    target.setApp( appAppConverter.map( source.getApp(), config ) );
+    target.setDevice( deviceDeviceConverter.map( source.getDevice(), config ) );
   }
 }

@@ -30,64 +30,6 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
 
     BidRequest bidRequest = new BidRequest();
 
-    if(source.getContext() != null) {
-
-      if (source.getContext().getUser() != null) {
-        if (bidRequest.getUser() == null) {
-          bidRequest.setUser(userUserConverter.map(source.getContext().getUser(), config));
-        }
-      } else {
-        bidRequest.setUser(null);
-      }
-      if (source.getCdata() != null) {
-        if (bidRequest.getUser() == null) {
-          bidRequest.setUser(new User());
-        }
-        requestUserConverter.inhance(source, bidRequest.getUser(), config);
-      }
-
-      App app = source.getContext().getApp();
-      if ( app != null ) {
-        bidRequest.setApp( appAppConverter.map( app, config ) );
-      }
-
-      Regs regs = source.getContext().getRegs();
-      if ( regs != null ) {
-        bidRequest.setRegs( regsRegsConverter.map( regs, config ) );
-      }
-
-      Site site = source.getContext().getSite();
-      if ( site != null ) {
-        bidRequest.setSite( siteSiteConverter.map( site, config ) );
-      }
-
-      if(source.getContext().getRestrictions() != null) {
-        bidRequest.setBapp( source.getContext().getRestrictions().getBapp() );
-        bidRequest.setBcat( source.getContext().getRestrictions().getBcat() );
-        bidRequest.setBadv( source.getContext().getRestrictions().getBadv() );
-      }
-
-      Device device = source.getContext().getDevice();
-      if ( device != null ) {
-        bidRequest.setDevice( deviceDeviceConverter.map( device, config ) );
-      }
-    }
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      bidRequest.setExt( new HashMap<String, Object>( map ) );
-    }
-    bidRequest.setAllimps( source.getPack() );
-    bidRequest.setImp( ListToListConverter.convert( source.getItem(), itemImpConverter, config ) );
-    bidRequest.setId( source.getId() );
-    bidRequest.setAt( source.getAt() );
-    bidRequest.setTest( source.getTest() );
-    bidRequest.setTmax( source.getTmax() );
-    bidRequest.setSource( sourceSourceConverter.map( source.getSource(), config ) );
-    List<String> list1 = source.getCur();
-    if ( list1 != null ) {
-      bidRequest.setCur( new ArrayList<String>( list1 ) );
-    }
-
     inhance( source, bidRequest, config );
 
     return bidRequest;
@@ -98,18 +40,41 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     if(source == null)
       return;
 
-    if(source.getWseat() != null) {
-
-      if (source.getWseat() == 0) {
-        target.setBseat(source.getSeat());
-      } else {
-        target.setWseat(source.getSeat());
-      }
-    }
-
     if(source.getContext() != null) {
-      if (source.getContext().getRestrictions() != null) {
 
+      if (source.getContext().getUser() != null) {
+        if (target.getUser() == null) {
+          target.setUser(userUserConverter.map(source.getContext().getUser(), config));
+        }
+      } else {
+        target.setUser(null);
+      }
+      if (source.getCdata() != null) {
+        if (target.getUser() == null) {
+          target.setUser(new User());
+        }
+        requestUserConverter.inhance(source, target.getUser(), config);
+      }
+
+      App app = source.getContext().getApp();
+      if ( app != null ) {
+        target.setApp( appAppConverter.map( app, config ) );
+      }
+
+      Regs regs = source.getContext().getRegs();
+      if ( regs != null ) {
+        target.setRegs( regsRegsConverter.map( regs, config ) );
+      }
+
+      Site site = source.getContext().getSite();
+      if ( site != null ) {
+        target.setSite( siteSiteConverter.map( site, config ) );
+      }
+
+      if(source.getContext().getRestrictions() != null) {
+        target.setBapp( source.getContext().getRestrictions().getBapp() );
+        target.setBcat( source.getContext().getRestrictions().getBcat() );
+        target.setBadv( source.getContext().getRestrictions().getBadv() );
         if (source.getContext().getRestrictions().getCattax() != null) {
           if (target.getExt() == null)
             target.setExt(new HashMap<>());
@@ -121,6 +86,35 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
             target.setExt(new HashMap<>());
           target.getExt().put("restrictionsExt", source.getContext().getRestrictions().getExt());
         }
+      }
+
+      Device device = source.getContext().getDevice();
+      if ( device != null ) {
+        target.setDevice( deviceDeviceConverter.map( device, config ) );
+      }
+    }
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
+    target.setAllimps( source.getPack() );
+    target.setImp( ListToListConverter.convert( source.getItem(), itemImpConverter, config ) );
+    target.setId( source.getId() );
+    target.setAt( source.getAt() );
+    target.setTest( source.getTest() );
+    target.setTmax( source.getTmax() );
+    target.setSource( sourceSourceConverter.map( source.getSource(), config ) );
+    List<String> list1 = source.getCur();
+    if ( list1 != null ) {
+      target.setCur( new ArrayList<String>( list1 ) );
+    }
+
+    if(source.getWseat() != null) {
+
+      if (source.getWseat() == 0) {
+        target.setBseat(source.getSeat());
+      } else {
+        target.setWseat(source.getSeat());
       }
     }
 

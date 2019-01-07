@@ -16,13 +16,6 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
 
     net.media.openrtb24.request.Source source1 = new net.media.openrtb24.request.Source();
 
-    source1.setTid( source.getTid() );
-    source1.setPchain( source.getPchain() );
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      source1.setExt( new HashMap<String, Object>( map ) );
-    }
-
     inhance( source, source1, config );
 
     return source1;
@@ -32,6 +25,12 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
   public void inhance(Source source, net.media.openrtb24.request.Source target, Config config) {
     if(source == null)
       return;
+    target.setTid( source.getTid() );
+    target.setPchain( source.getPchain() );
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
     if(source.getTs() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());

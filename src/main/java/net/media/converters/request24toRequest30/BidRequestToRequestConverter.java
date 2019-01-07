@@ -51,27 +51,6 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
 
     Request request = new Request();
 
-    request.setContext( bidRequestContextConverter.map( source, config ) );
-    request.setItem( ListToListConverter.convert( source.getImp(), impItemConverter, config ) );
-    request.setPack( source.getAllimps() );
-    String customdata = bidRequestUserCustomdata( source );
-    if ( customdata != null ) {
-      request.setCdata( customdata );
-    }
-    request.setId( source.getId() );
-    request.setTest( source.getTest() );
-    request.setTmax( source.getTmax() );
-    request.setAt( source.getAt() );
-    List<String> list1 = source.getCur();
-    if ( list1 != null ) {
-      request.setCur( new ArrayList<String>( list1 ) );
-    }
-    request.setSource( source24Source3Converter.map(source.source, config ));
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      request.setExt( new HashMap<String, Object>( map ) );
-    }
-
     inhance( source, request, config );
 
     return request;
@@ -81,6 +60,27 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
   public void inhance(BidRequest source, Request target, Config config) {
     if(source == null)
       return;
+    target.setContext( bidRequestContextConverter.map( source, config ) );
+    target.setItem( ListToListConverter.convert( source.getImp(), impItemConverter, config ) );
+    target.setPack( source.getAllimps() );
+    String customdata = bidRequestUserCustomdata( source );
+    if ( customdata != null ) {
+      target.setCdata( customdata );
+    }
+    target.setId( source.getId() );
+    target.setTest( source.getTest() );
+    target.setTmax( source.getTmax() );
+    target.setAt( source.getAt() );
+    List<String> list1 = source.getCur();
+    if ( list1 != null ) {
+      target.setCur( new ArrayList<String>( list1 ) );
+    }
+    target.setSource( source24Source3Converter.map(source.source, config ));
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
+
     if (source.getWseat()!=null && source.getWseat().size()>0){
       target.setWseat(1);
       target.setSeat(source.getWseat());

@@ -16,23 +16,7 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb24.req
 
     net.media.openrtb24.request.Geo geo1 = new net.media.openrtb24.request.Geo();
 
-    geo1.setIpservice( source.getIpserv() );
-    geo1.setAccuracy( source.getAccur() );
-    geo1.setType( source.getType() );
-    geo1.setRegion( source.getRegion() );
-    geo1.setMetro( source.getMetro() );
-    geo1.setCity( source.getCity() );
-    geo1.setZip( source.getZip() );
-    geo1.setCountry( source.getCountry() );
-    geo1.setLat( source.getLat() );
-    geo1.setLon( source.getLon() );
-    geo1.setUtcoffset( source.getUtcoffset() );
-    geo1.setLastfix( source.getLastfix() );
-    Map<String, Object> map = source.getExt();
     inhance(source, geo1, config );
-    if ( map != null ) {
-      geo1.setExt( new HashMap<String, Object>( map ) );
-    }
 
     return geo1;
   }
@@ -41,11 +25,25 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb24.req
   public void inhance(Geo source, net.media.openrtb24.request.Geo target, Config config) {
     if(source == null)
       return;
-    if(source.getExt() == null)
+    target.setIpservice( source.getIpserv() );
+    target.setAccuracy( source.getAccur() );
+    target.setType( source.getType() );
+    target.setRegion( source.getRegion() );
+    target.setMetro( source.getMetro() );
+    target.setCity( source.getCity() );
+    target.setZip( source.getZip() );
+    target.setCountry( source.getCountry() );
+    target.setLat( source.getLat() );
+    target.setLon( source.getLon() );
+    target.setUtcoffset( source.getUtcoffset() );
+    target.setLastfix( source.getLastfix() );
+    Map<String, Object> map = source.getExt();
+    if(map == null)
       return;
     if(source.getExt().containsKey("regionfips104")) {
       target.setRegionfips104((String) source.getExt().get("regionfips104"));
       source.getExt().remove("regionfips104");
     }
+    target.setExt( new HashMap<String, Object>( map ) );
   }
 }

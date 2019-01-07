@@ -26,28 +26,6 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb24.
 
     net.media.openrtb24.request.Site site1 = new net.media.openrtb24.request.Site();
 
-    site1.setSectioncat( source.getSectcat() );
-    site1.setPrivacypolicy( source.getPrivpolicy() );
-    site1.setPublisher( publisherPublisherConverter.map( source.getPub(), config ) );
-    site1.setId( source.getId() );
-    site1.setName( source.getName() );
-    site1.setDomain( source.getDomain() );
-    List<String> list1 = source.getCat();
-    if ( list1 != null ) {
-      site1.setCat( new ArrayList<String>( list1 ) );
-    }
-    site1.setPagecat( source.getPagecat() );
-    site1.setPage( source.getPage() );
-    site1.setRef( source.getRef() );
-    site1.setSearch( source.getSearch() );
-    site1.setMobile( source.getMobile() );
-    site1.setContent( contentContentConverter.map( source.getContent(), config ) );
-    site1.setKeywords( source.getKeywords() );
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      site1.setExt( new HashMap<String, Object>( map ) );
-    }
-
     inhance( source, site1, config );
 
     return site1;
@@ -57,6 +35,27 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb24.
   public void inhance(Site source, net.media.openrtb24.request.Site target, Config config) {
     if(source == null)
       return;
+    target.setSectioncat( source.getSectcat() );
+    target.setPrivacypolicy( source.getPrivpolicy() );
+    target.setPublisher( publisherPublisherConverter.map( source.getPub(), config ) );
+    target.setId( source.getId() );
+    target.setName( source.getName() );
+    target.setDomain( source.getDomain() );
+    List<String> list1 = source.getCat();
+    if ( list1 != null ) {
+      target.setCat( new ArrayList<String>( list1 ) );
+    }
+    target.setPagecat( source.getPagecat() );
+    target.setPage( source.getPage() );
+    target.setRef( source.getRef() );
+    target.setSearch( source.getSearch() );
+    target.setMobile( source.getMobile() );
+    target.setContent( contentContentConverter.map( source.getContent(), config ) );
+    target.setKeywords( source.getKeywords() );
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
     if(source.getCattax() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());

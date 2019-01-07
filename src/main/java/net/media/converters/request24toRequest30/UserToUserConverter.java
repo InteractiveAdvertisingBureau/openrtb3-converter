@@ -25,18 +25,6 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
 
     net.media.openrtb3.User user1 = new net.media.openrtb3.User();
 
-    user1.setId( source.getId() );
-    user1.setBuyeruid( source.getBuyeruid() );
-    user1.setYob( source.getYob() );
-    user1.setGender( source.getGender() );
-    user1.setKeywords( source.getKeywords() );
-    user1.setGeo( geoToGeoConverter.map( source.getGeo(), config ) );
-    user1.setData( ListToListConverter.convert( source.getData(), dataDataConverter, config ) );
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      user1.setExt( new HashMap<String, Object>( map ) );
-    }
-
     inhance( source, user1, config );
 
     return user1;
@@ -46,6 +34,17 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
   public void inhance(User source, net.media.openrtb3.User target, Config config) {
     if(source == null)
       return;
+    target.setId( source.getId() );
+    target.setBuyeruid( source.getBuyeruid() );
+    target.setYob( source.getYob() );
+    target.setGender( source.getGender() );
+    target.setKeywords( source.getKeywords() );
+    target.setGeo( geoToGeoConverter.map( source.getGeo(), config ) );
+    target.setData( ListToListConverter.convert( source.getData(), dataDataConverter, config ) );
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
     if(source.getExt() == null)
       return;
     target.setConsent((String) source.getExt().get("consent"));

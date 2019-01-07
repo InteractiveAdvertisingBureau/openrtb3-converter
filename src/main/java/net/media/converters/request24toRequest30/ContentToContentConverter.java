@@ -27,35 +27,6 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
 
     net.media.openrtb3.Content content1 = new net.media.openrtb3.Content();
 
-    content1.setMrating( source.getQagmediarating() );
-    content1.setSrcrel( source.getSourcerelationship() );
-    content1.setRating( source.getContentrating() );
-    content1.setEmbed( source.getEmbeddable() );
-    content1.setUrating( source.getUserrating() );
-    content1.setLang( source.getLanguage() );
-    content1.setLive( source.getLivestream() );
-    content1.setId( source.getId() );
-    content1.setEpisode( source.getEpisode() );
-    content1.setTitle( source.getTitle() );
-    content1.setSeries( source.getSeries() );
-    content1.setSeason( source.getSeason() );
-    content1.setArtist( source.getArtist() );
-    content1.setGenre( source.getGenre() );
-    content1.setAlbum( source.getAlbum() );
-    content1.setIsrc( source.getIsrc() );
-    content1.setUrl( source.getUrl() );
-    content1.setCat( source.getCat() );
-    content1.setProdq( source.getProdq() );
-    content1.setContext( source.getContext() );
-    content1.setKeywords( source.getKeywords() );
-    content1.setLen( source.getLen() );
-    content1.setProducer( producerProducerConverter.map( source.getProducer(), config ) );
-    content1.setData( ListToListConverter.convert( source.getData(), dataDataConverter, config ) );
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      content1.setExt( new HashMap<String, Object>( map ) );
-    }
-
     inhance( source, content1, config );
 
     return content1;
@@ -65,6 +36,35 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
   public void inhance(Content source, net.media.openrtb3.Content target, Config config) {
     if(source == null)
       return;
+    target.setMrating( source.getQagmediarating() );
+    target.setSrcrel( source.getSourcerelationship() );
+    target.setRating( source.getContentrating() );
+    target.setEmbed( source.getEmbeddable() );
+    target.setUrating( source.getUserrating() );
+    target.setLang( source.getLanguage() );
+    target.setLive( source.getLivestream() );
+    target.setId( source.getId() );
+    target.setEpisode( source.getEpisode() );
+    target.setTitle( source.getTitle() );
+    target.setSeries( source.getSeries() );
+    target.setSeason( source.getSeason() );
+    target.setArtist( source.getArtist() );
+    target.setGenre( source.getGenre() );
+    target.setAlbum( source.getAlbum() );
+    target.setIsrc( source.getIsrc() );
+    target.setUrl( source.getUrl() );
+    target.setCat( source.getCat() );
+    target.setProdq( source.getProdq() );
+    target.setContext( source.getContext() );
+    target.setKeywords( source.getKeywords() );
+    target.setLen( source.getLen() );
+    target.setProducer( producerProducerConverter.map( source.getProducer(), config ) );
+    target.setData( ListToListConverter.convert( source.getData(), dataDataConverter, config ) );
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
+
     if(source.getExt() == null)
       return;
     target.setCattax((Integer) source.getExt().get("cattax"));

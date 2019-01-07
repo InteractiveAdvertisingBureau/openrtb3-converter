@@ -23,38 +23,6 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
 
     net.media.openrtb3.Device device1 = new net.media.openrtb3.Device();
 
-    device1.setContype( source.getConnectiontype() );
-    device1.setType( source.getDevicetype() );
-    device1.setLang( source.getLanguage() );
-    device1.setUa( source.getUa() );
-    device1.setIfa( source.getIfa() );
-    if ( source.getDnt() != null ) {
-      device1.setDnt( String.valueOf( source.getDnt() ) );
-    }
-    device1.setLmt( source.getLmt() );
-    device1.setMake( source.getMake() );
-    device1.setModel( source.getModel() );
-    if ( source.getOs() != null ) {
-      device1.setOs(OsMap.osMap.getOrDefault(source.getOs().trim().toLowerCase(), 0));
-    }
-    device1.setOsv( source.getOsv() );
-    device1.setHwv( source.getHwv() );
-    device1.setH( source.getH() );
-    device1.setW( source.getW() );
-    device1.setPpi( source.getPpi() );
-    device1.setPxratio( source.getPxratio() );
-    device1.setJs( source.getJs() );
-    device1.setIp( source.getIp() );
-    device1.setIpv6( source.getIpv6() );
-    device1.setCarrier( source.getCarrier() );
-    device1.setGeofetch( source.getGeofetch() );
-    device1.setGeo( geoToGeoConverter.map( source.getGeo(), config ) );
-    device1.setMccmnc( source.getMccmnc() );
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      device1.setExt( new HashMap<String, Object>( map ) );
-    }
-
     inhance( source, device1, config );
 
     return device1;
@@ -64,6 +32,42 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
   public void inhance(Device source, net.media.openrtb3.Device target, Config config) {
     if(source == null)
       return;
+    target.setContype( source.getConnectiontype() );
+    target.setType( source.getDevicetype() );
+    target.setLang( source.getLanguage() );
+    target.setUa( source.getUa() );
+    target.setIfa( source.getIfa() );
+    if ( source.getDnt() != null ) {
+      target.setDnt( String.valueOf( source.getDnt() ) );
+    }
+    target.setLmt( source.getLmt() );
+    target.setMake( source.getMake() );
+    target.setModel( source.getModel() );
+    if ( source.getOs() != null ) {
+      target.setOs(OsMap.osMap.getOrDefault(source.getOs().trim().toLowerCase(), 0));
+    }
+    target.setOsv( source.getOsv() );
+    target.setHwv( source.getHwv() );
+    target.setH( source.getH() );
+    target.setW( source.getW() );
+    target.setPpi( source.getPpi() );
+    target.setPxratio( source.getPxratio() );
+    target.setJs( source.getJs() );
+    target.setIp( source.getIp() );
+    target.setIpv6( source.getIpv6() );
+    target.setCarrier( source.getCarrier() );
+    target.setGeofetch( source.getGeofetch() );
+    target.setGeo( geoToGeoConverter.map( source.getGeo(), config ) );
+    target.setMccmnc( source.getMccmnc() );
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
+    if(source.getFlashver() != null) {
+      if(target.getExt() == null)
+        target.setExt(new HashMap<>());
+      target.getExt().put("flashver", source.getFlashver());
+    }
     if(source.getExt() == null)
       return;
     target.setXff((String) source.getExt().get("xff"));
@@ -72,10 +76,5 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     target.getExt().remove("iptr");
     target.setIptr((Integer) source.getExt().get("mccmncsim"));
     target.getExt().remove("mccmncsim");
-    if(source.getFlashver() != null) {
-      if(target.getExt() == null)
-        target.setExt(new HashMap<>());
-      target.getExt().put("flashver", source.getFlashver());
-    }
   }
 }

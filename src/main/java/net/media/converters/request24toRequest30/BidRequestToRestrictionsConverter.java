@@ -19,10 +19,6 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
 
     Restrictions restrictions = new Restrictions();
 
-    restrictions.setBapp( source.getBapp() );
-    restrictions.setBcat( source.getBcat() );
-    restrictions.setBadv( source.getBadv() );
-
     inhance( source, restrictions, config );
 
     return restrictions;
@@ -30,6 +26,11 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
 
   @Override
   public void inhance(BidRequest source, Restrictions target, Config config) {
+    if(source == null)
+      return;
+    target.setBapp( source.getBapp() );
+    target.setBcat( source.getBcat() );
+    target.setBadv( source.getBadv() );
     if(source == null)
       return;
     if(source.getImp() == null)

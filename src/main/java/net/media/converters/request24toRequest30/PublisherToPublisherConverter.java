@@ -16,20 +16,22 @@ public class PublisherToPublisherConverter implements Converter<Publisher, net.m
 
     net.media.openrtb3.Publisher publisher1 = new net.media.openrtb3.Publisher();
 
-    publisher1.setId( source.getId() );
-    publisher1.setName( source.getName() );
-    publisher1.setDomain( source.getDomain() );
-    publisher1.setCat( source.getCat() );
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      publisher1.setExt( new HashMap<String, Object>( map ) );
-    }
+    inhance( source, publisher1, config );
 
     return publisher1;
   }
 
   @Override
   public void inhance(Publisher source, net.media.openrtb3.Publisher target, Config config) {
-
+    if(source == null)
+      return;
+    target.setId( source.getId() );
+    target.setName( source.getName() );
+    target.setDomain( source.getDomain() );
+    target.setCat( source.getCat() );
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
   }
 }

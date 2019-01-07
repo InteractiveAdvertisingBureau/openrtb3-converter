@@ -24,25 +24,6 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
 
     net.media.openrtb3.App app1 = new net.media.openrtb3.App();
 
-    app1.setPrivpolicy( source.getPrivacypolicy() );
-    app1.setSectcat( source.getSectioncat() );
-    app1.setPub( publisherPublisherConverter.map( source.getPublisher(), config ) );
-    app1.setId( source.getId() );
-    app1.setName( source.getName() );
-    app1.setContent( contentContentConverter.map( source.getContent(), config ) );
-    app1.setDomain( source.getDomain() );
-    app1.setCat( source.getCat() );
-    app1.setPagecat( source.getPagecat() );
-    app1.setKeywords( source.getKeywords() );
-    app1.setBundle( source.getBundle() );
-    app1.setStoreurl( source.getStoreurl() );
-    app1.setVer( source.getVer() );
-    app1.setPaid( source.getPaid() );
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      app1.setExt( new HashMap<String, Object>( map ) );
-    }
-
     inhance( source, app1, config );
 
     return app1;
@@ -52,11 +33,31 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
   public void inhance(App source, net.media.openrtb3.App target, Config config) {
     if(source == null)
       return;
+    target.setPrivpolicy( source.getPrivacypolicy() );
+    target.setSectcat( source.getSectioncat() );
+    target.setPub( publisherPublisherConverter.map( source.getPublisher(), config ) );
+    target.setId( source.getId() );
+    target.setName( source.getName() );
+    target.setContent( contentContentConverter.map( source.getContent(), config ) );
+    target.setDomain( source.getDomain() );
+    target.setCat( source.getCat() );
+    target.setPagecat( source.getPagecat() );
+    target.setKeywords( source.getKeywords() );
+    target.setBundle( source.getBundle() );
+    target.setStoreurl( source.getStoreurl() );
+    target.setVer( source.getVer() );
+    target.setPaid( source.getPaid() );
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
+
     if(source.getExt() == null)
       return;
     target.setCattax((Integer) source.getExt().get("cattax"));
     target.setStoreid((String) source.getExt().get("storeid"));
     target.getExt().remove("cattax");
     target.getExt().remove("storeid");
+
   }
 }

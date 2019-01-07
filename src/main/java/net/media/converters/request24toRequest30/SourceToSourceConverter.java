@@ -19,15 +19,7 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
 
     net.media.openrtb3.Source source1 = new net.media.openrtb3.Source();
 
-    source1.setTid( source.getTid() );
-    source1.setPchain( source.getPchain() );
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      source1.setExt( new HashMap<String, Object>( map ) );
-    }
-
-    inhance( source, source1, config
-    );
+    inhance( source, source1, config);
 
     return source1;
   }
@@ -36,6 +28,17 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
   public void inhance(Source source, net.media.openrtb3.Source target, Config config) {
     if(source == null)
       return;
+    target.setTid( source.getTid() );
+    target.setPchain( source.getPchain() );
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
+    if(source.getFd() != null) {
+      if(target.getExt() == null)
+        target.setExt(new HashMap<>());
+      target.getExt().put("fd", source.getFd());
+    }
     if(source.getExt() == null)
       return;
     target.setTs((Integer) source.getExt().get("ts"));
@@ -49,10 +52,5 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
     target.getExt().remove("cert");
     target.getExt().remove("digest");
 
-    if(source.getFd() != null) {
-      if(target.getExt() == null)
-        target.setExt(new HashMap<>());
-      target.getExt().put("fd", source.getFd());
-    }
   }
 }

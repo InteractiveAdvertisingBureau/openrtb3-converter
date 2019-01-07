@@ -16,19 +16,21 @@ public class SegmentToSegmentConverter implements Converter<Segment, net.media.o
 
     net.media.openrtb3.Segment segment1 = new net.media.openrtb3.Segment();
 
-    segment1.setId( source.getId() );
-    segment1.setName( source.getName() );
-    segment1.setValue( source.getValue() );
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      segment1.setExt( new HashMap<String, Object>( map ) );
-    }
+    inhance( source, segment1, config );
 
     return segment1;
   }
 
   @Override
   public void inhance(Segment source, net.media.openrtb3.Segment target, Config config) {
-
+    if(source == null)
+      return;
+    target.setId( source.getId() );
+    target.setName( source.getName() );
+    target.setValue( source.getValue() );
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
   }
 }

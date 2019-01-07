@@ -26,28 +26,6 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
 
     net.media.openrtb3.Site site1 = new net.media.openrtb3.Site();
 
-    site1.setPrivpolicy( source.getPrivacypolicy() );
-    site1.setSectcat( source.getSectioncat() );
-    site1.setPub( publisherPublisherConverter.map( source.getPublisher(), config ) );
-    site1.setId( source.getId() );
-    site1.setName( source.getName() );
-    site1.setContent( contentContentConverter.map( source.getContent(), config ) );
-    site1.setDomain( source.getDomain() );
-    List<String> list = source.getCat();
-    if ( list != null ) {
-      site1.setCat( new ArrayList<String>( list ) );
-    }
-    site1.setPagecat( source.getPagecat() );
-    site1.setKeywords( source.getKeywords() );
-    site1.setPage( source.getPage() );
-    site1.setRef( source.getRef() );
-    site1.setSearch( source.getSearch() );
-    site1.setMobile( source.getMobile() );
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      site1.setExt( new HashMap<String, Object>( map ) );
-    }
-
     inhance( source, site1, config );
 
     return site1;
@@ -57,6 +35,27 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
   public void inhance(Site source, net.media.openrtb3.Site target, Config config) {
     if(source == null)
       return;
+    target.setPrivpolicy( source.getPrivacypolicy() );
+    target.setSectcat( source.getSectioncat() );
+    target.setPub( publisherPublisherConverter.map( source.getPublisher(), config ) );
+    target.setId( source.getId() );
+    target.setName( source.getName() );
+    target.setContent( contentContentConverter.map( source.getContent(), config ) );
+    target.setDomain( source.getDomain() );
+    List<String> list = source.getCat();
+    if ( list != null ) {
+      target.setCat( new ArrayList<String>( list ) );
+    }
+    target.setPagecat( source.getPagecat() );
+    target.setKeywords( source.getKeywords() );
+    target.setPage( source.getPage() );
+    target.setRef( source.getRef() );
+    target.setSearch( source.getSearch() );
+    target.setMobile( source.getMobile() );
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
     if(source.getExt() == null)
       return;
     target.setCattax((Integer) source.getExt().get("cattax"));

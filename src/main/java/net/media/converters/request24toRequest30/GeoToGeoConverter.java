@@ -16,35 +16,37 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo>
 
     net.media.openrtb3.Geo geo1 = new net.media.openrtb3.Geo();
 
-    geo1.setIpserv( source.getIpservice() );
-    geo1.setAccur( source.getAccuracy() );
-    geo1.setType( source.getType() );
-    geo1.setLat( source.getLat() );
-    geo1.setLon( source.getLon() );
-    geo1.setLastfix( source.getLastfix() );
-    geo1.setCountry( source.getCountry() );
-    geo1.setRegion( source.getRegion() );
-    geo1.setMetro( source.getMetro() );
-    geo1.setCity( source.getCity() );
-    geo1.setUtcoffset( source.getUtcoffset() );
-    geo1.setZip( source.getZip() );
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      geo1.setExt( new HashMap<String, Object>( map ) );
-    }
-
-    if(source.getRegionfips104() != null) {
-      if(geo1.getExt() == null) {
-        geo1.setExt(new HashMap<>());
-      }
-      geo1.getExt().put("regionfips104", source.getRegionfips104());
-    }
+    inhance( source, geo1, config );
 
     return geo1;
   }
 
   @Override
   public void inhance(Geo source, net.media.openrtb3.Geo target, Config config) {
+    if(source == null)
+      return;
+    target.setIpserv( source.getIpservice() );
+    target.setAccur( source.getAccuracy() );
+    target.setType( source.getType() );
+    target.setLat( source.getLat() );
+    target.setLon( source.getLon() );
+    target.setLastfix( source.getLastfix() );
+    target.setCountry( source.getCountry() );
+    target.setRegion( source.getRegion() );
+    target.setMetro( source.getMetro() );
+    target.setCity( source.getCity() );
+    target.setUtcoffset( source.getUtcoffset() );
+    target.setZip( source.getZip() );
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt( new HashMap<String, Object>( map ) );
+    }
 
+    if(source.getRegionfips104() != null) {
+      if(target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
+      target.getExt().put("regionfips104", source.getRegionfips104());
+    }
   }
 }
