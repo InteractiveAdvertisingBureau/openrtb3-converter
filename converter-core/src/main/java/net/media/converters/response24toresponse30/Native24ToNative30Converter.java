@@ -64,7 +64,7 @@ public class Native24ToNative30Converter implements Converter<NativeResponse, Na
         if(isNull(asset)) {
           assetList.add(asset);
         }
-      });
+      }
       target.setAsset(assetList);
     }
   }
