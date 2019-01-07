@@ -8,13 +8,10 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.net.URL;
 
-import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 /**
@@ -22,22 +19,18 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
  *
  * @author shiva.b
  */
-@Getter
-@Setter
+
+
 @NoArgsConstructor
+@Data
 public class Config {
 
-  private static final boolean DEFAULT_NATIVE_REQUEST_AS_STRING = true;
-
   private String bannerTemplate;
-
-  private Boolean nativeRequestAsString;
 
   private AdType adType;
 
   public Config(Config oldConfig) {
     this.bannerTemplate = oldConfig.bannerTemplate;
-    this.nativeRequestAsString = oldConfig.nativeRequestAsString;
     this.adType = oldConfig.adType;
   }
 
@@ -45,16 +38,8 @@ public class Config {
    * @param config
    */
   public void updateEmptyFields(Config config) {
-    this.bannerTemplate = isEmpty(this.bannerTemplate) ? config.bannerTemplate : this
-      .bannerTemplate;
-    this.nativeRequestAsString = isNull(this.nativeRequestAsString) ? config
-      .nativeRequestAsString : this.nativeRequestAsString;
+    this.bannerTemplate = isEmpty(this.bannerTemplate) ? config.bannerTemplate : this.bannerTemplate;
     this.adType = isNull(this.adType) ? config.adType : this.adType;
-  }
-
-  public Boolean getNativeRequestAsString() {
-    return nonNull(nativeRequestAsString) ? nativeRequestAsString :
-      DEFAULT_NATIVE_REQUEST_AS_STRING;
   }
 
   /**

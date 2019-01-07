@@ -11,7 +11,7 @@ import net.media.config.Config;
  */
 public interface Converter<U, V> {
 
-  public V map(U source, Config config);
+  V map(U source, Config config);
 
-  public void inhance(U source, V target, Config config);
+  void inhance(U source, V target, Config config);
 }

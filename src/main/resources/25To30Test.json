@@ -1,8 +1,8 @@
 [
   {
-    "description" : "Example 1 – Ad Served on Win Notice",
-    "type" : "BANNER",
-    "response25" : {
+    "description": "Example 1 – Ad Served on Win Notice",
+    "type": "BANNER",
+    "response25": {
       "id": "1234567890",
       "bidid": "abc1123",
       "cur": "USD",
@@ -16,18 +16,31 @@
               "price": 9.43,
               "nurl": "http://adserver.com/winnotice?impid=102",
               "iurl": "http://adserver.com/pathtosampleimage",
-              "adomain": [ "advertiserdomain.com" ],
+              "adomain": [
+                "advertiserdomain.com"
+              ],
               "cid": "campaign111",
               "crid": "creative112",
-              "attr": [ 1, 2, 3, 4, 5, 6, 7, 12 ],
+              "attr": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                12
+              ],
               "adm": "some adm"
             }
           ]
         }
       ]
     },
-    "response30" : {
-      "id": "1234567890",
+    "response30": {
+      "domainSpec": "3.0",
+      "response" : {
+      "id" : "1234567890",
       "bidid": "abc1123",
       "cur": "USD",
       "seatbid": [
@@ -43,10 +56,22 @@
               "media": {
                 "ad": {
                   "id": "creative112",
-                  "attr": [ 1, 2, 3, 4, 5, 6, 7, 12 ],
-                  "adomain": [ "advertiserdomain.com" ],
+                  "attr": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    12
+                  ],
+                  "adomain": [
+                    "advertiserdomain.com"
+                  ],
                   "iurl": "http://adserver.com/pathtosampleimage",
-                  "display" : {
+                  "display": {
+                    "curl" : "http://adserver.com/winnotice?impid=102",
                     "adm": "some adm"
                   }
                 }
@@ -56,11 +81,12 @@
         }
       ]
     }
+  }
   },
   {
-    "description" : "Example 2 – VAST XML Document Returned Inline",
-    "type" : "VIDEO",
-    "response25":{
+    "description": "Example 2 – VAST XML Document Returned Inline",
+    "type": "VIDEO",
+    "response25": {
       "id": "123",
       "seatbid": [
         {
@@ -76,8 +102,10 @@
         }
       ]
     },
-    "response30" : {
-      "id": "123",
+    "response30": {
+      "domainSpec": "3.0",
+      "response": {
+      "id" : "123",
       "seatbid": [
         {
           "bid": [
@@ -88,7 +116,8 @@
               "purl": "http://example.com/winnoticeurl",
               "media": {
                 "ad": {
-                  "video" : {
+                  "video": {
+                    "curl" : "http://example.com/winnoticeurl",
                     "adm": "some random adm"
                   }
                 }
@@ -98,6 +127,7 @@
         }
       ]
     }
+  }
   },
   {
     "description" : "Example 3 – Direct Deal Ad Served on Win Notice",
@@ -128,6 +158,8 @@
       ]
     },
     "response30" : {
+      "domainSpec": "3.0",
+      "response" : {
       "id": "1234567890",
       "bidid": "abc1123",
       "cur": "USD",
@@ -144,11 +176,19 @@
               "cid": "campaign111",
               "media": {
                 "ad": {
-                  "id" : "creative112",
-                  "attr": [ 1, 2, 3, 4 ],
-                  "adomain": [ "advertiserdomain.com" ],
+                  "id": "creative112",
+                  "attr": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "adomain": [
+                    "advertiserdomain.com"
+                  ],
                   "iurl": "http: //adserver.com/pathtosampleimage",
-                  "display" : {
+                  "display": {
+                    "curl" : "http: //adserver.com/winnotice?impid=102"
                   }
                 }
               }
@@ -156,6 +196,7 @@
           ]
         }
       ]
+    }
     }
   },
   {
@@ -201,8 +242,8 @@
               "link": {
                 "url": "https://somebuyer.com/click",
                 "urlfb": "https://somebuyer.com",
-                "trkr": null,
-                "ext": null
+                "trkr": ["2113","21312"],
+                "ext": {"link":"link"}
               },
               "ext": {
                 "xyz": "111"
@@ -253,109 +294,124 @@
       }
     },
     "response30" : {
+      "domainSpec": "3.0",
+      "response" : {
       "id": "0123456789ABCDEF",
       "bidid": "0011223344AABBCC",
-      "nbr" : 1,
-      "cur" :  "USD",
-      "cdata" : "cdata",
-      "ext" : {
+      "nbr": 1,
+      "cur": "USD",
+      "cdata": "cdata",
+      "ext": {
         "customdata": "pyaz",
-        "ankit" : {
-          "cho" : "lul"
+        "ankit": {
+          "cho": "lul"
         }
       },
-      "seatbid": [{
-        "seat": "XYZ",
-        "bid": [{
-          "id": "yaddayadda",
-          "item": "1",
-          "deal": "1234",
-          "price": 1.50,
-          "tactic": "...",
-          "purl": "...",
-          "burl": "...",
-          "lurl": "...",
-          "mid": "...",
-          "cid": "campaign-xyz.123",
-          "exp" : 1,
-          "macro": [
+      "seatbid": [
+        {
+          "seat": "XYZ",
+          "bid": [
             {
-              "key": "TIMESTAMP",
-              "value": "1127987134"
-            },
-            {
-              "key": "CLICKTOKEN",
-              "value": "A7D800F2716DB"
-            }
-          ],
-          "media": {
-            "ad": {
-              "id": "d0bcb39723af87c2bb00942afee5710e",
-              "adomain": ["ford.com"],
-              "bundle" :["chocho"],
-              "iurl" : "Abcd.com",
-              "cat" : ["cat","dog"],
-              "cattax" :  1,
-              "lang" : "english",
-              "attr" : [6,1],
-              "secure" : 1,
-              "mrating" :1,
-              "init" : 1,
-              "lastmod" :1,
-              "display": {
-                "mime": "image/jpeg",
-                "api":[1,2],
-                "ctype": 3,
-                "w": 320,
-                "h": 50,
-                "wratio" : 1,
-                "hratio" :2,
-                "priv" : "232",
-                "adm" : "asvsdd",
-                "curl": "abc",
-                "banner": {
-                  "img": "https://somebuyer.com/creative",
-                  "link": {
-                    "url": "https://somebuyer.com/click",
-                    "urlfb": "https://somebuyer.com",
-                    "trkr" : ["2113","21312"],
-                    "ext" : {
-                      "link" :"link"
+              "id": "yaddayadda",
+              "item": "1",
+              "deal": "1234",
+              "price": 1.50,
+              "tactic": "...",
+              "purl": "...",
+              "burl": "...",
+              "lurl": "...",
+              "mid": "...",
+              "cid": "campaign-xyz.123",
+              "exp": 1,
+              "media": {
+                "ad": {
+                  "id": "d0bcb39723af87c2bb00942afee5710e",
+                  "adomain": [
+                    "ford.com"
+                  ],
+                  "bundle": [
+                    "chocho"
+                  ],
+                  "iurl": "Abcd.com",
+                  "cat": [
+                    "cat",
+                    "dog"
+                  ],
+                  "cattax": 1,
+                  "lang": "english",
+                  "attr": [
+                    6,
+                    1
+                  ],
+                  "secure": 1,
+                  "mrating": 1,
+                  "init": 1,
+                  "lastmod": 1,
+                  "display": {
+                    "mime": "image/jpeg",
+                    "api": [
+                      1,
+                      2
+                    ],
+                    "ctype": 3,
+                    "w": 320,
+                    "h": 50,
+                    "wratio": 1,
+                    "hratio": 2,
+                    "priv": "232",
+                    "adm": "asvsdd",
+                    "curl": "...",
+                    "banner": {
+                      "img": "https://somebuyer.com/creative",
+                      "link": {
+                        "url": "https://somebuyer.com/click",
+                        "urlfb": "https://somebuyer.com",
+                        "trkr": [
+                          "2113",
+                          "21312"
+                        ],
+                        "ext": {
+                          "link": "link"
+                        }
+                      },
+                      "ext": {
+                        "xyz": "111"
+                      }
+                    },
+                    "event": [
+                      {
+                        "type": 1,
+                        "method": 1,
+                        "url": "https://somebuyer.com/pixel"
+                      }
+                    ],
+                    "ext": {
+                      "aloo1": "pyaz",
+                      "ankit1": {
+                        "cho1": "lul"
+                      }
                     }
                   },
-                  "ext" : {
-                    "xyz" :"111"
+                  "ext": {
+                    "aloo2": "pyaz",
+                    "ankit3": {
+                      "cho": "lul"
+                    }
                   }
-                },
-                "event": [{
-                  "type": 1,
-                  "method": 1,
-                  "url": "https://somebuyer.com/pixel"
-                }],
-                "ext" : {
-                  "aloo1" : "pyaz",
-                  "ankit1" : {
-                    "cho1" : "lul"
-                  }
-                }
-              },
-              "ext" : {
-                "aloo2" : "pyaz",
-                "ankit3" : {
-                  "cho" : "lul"
                 }
               }
             }
-          }}],
-        "_package" :  2,
-        "ext" : {
-          "aloo" : "pyaz",
-          "sourav" : {
-            "chu" : "luli"
+          ],
+          "_package": 2,
+          "ext": {
+            "aloo": "pyaz",
+            "sourav": {
+              "chu": "luli"
+            }
           }
         }
-      }]
-
+      ]
+    }
     }
   }
 

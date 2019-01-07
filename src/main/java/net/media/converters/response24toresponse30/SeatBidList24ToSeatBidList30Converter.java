@@ -26,7 +26,7 @@ public class SeatBidList24ToSeatBidList30Converter implements Converter<List<Sea
     }
     List<Seatbid> list1 = new ArrayList<>(list.size());
     inhance(list, list1, config);
-    return null;
+    return list1;
   }
 
   @Override

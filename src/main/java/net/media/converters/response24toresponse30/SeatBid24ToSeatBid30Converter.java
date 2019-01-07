@@ -36,11 +36,10 @@ public class SeatBid24ToSeatBid30Converter implements Converter<SeatBid, Seatbid
   }
 
   @Override
-  public void inhance(SeatBid source, Seatbid target, Config config) {
-    if (source == null || target == null) {
+  public void inhance(SeatBid source, Seatbid seatbid, Config config) {
+    if (source == null || seatbid == null) {
       return;
     }
-    Seatbid seatbid = new Seatbid();
 
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
