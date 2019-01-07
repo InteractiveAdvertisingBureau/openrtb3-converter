@@ -3,13 +3,11 @@ package net.media.converters.response30toresponse24;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.response.nativeresponse.AssetResponse;
 import net.media.openrtb24.response.nativeresponse.Link;
 import net.media.openrtb3.LinkAsset;
 import net.media.utils.Utils;
 
 import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 
 public class LinkAssetToLinkConverter implements Converter<LinkAsset,Link> {
 

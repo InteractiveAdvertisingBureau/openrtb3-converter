@@ -94,13 +94,18 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
     if ( map != null ) {
       target.setExt(new HashMap<>(map));
     }
-    if (nonNull(source) && nonNull(source.getExt())) {
-      Map<String,Object> ext = source.getExt();
-      target.setSecure((Integer) ext.get("secure"));
-      target.setInit((Integer) ext.get("init"));
-      target.setLastmod((Integer) ext.get("lastMod"));
-      target.setMrating((Integer) ext.get("mrating"));
-      target.setCattax((Integer) ext.get("cattax"));
+    try {
+      if (nonNull(source) && nonNull(source.getExt())) {
+        Map<String, Object> ext = source.getExt();
+        target.setSecure((Integer) ext.get("secure"));
+        target.setInit((Integer) ext.get("init"));
+        target.setLastmod((Integer) ext.get("lastMod"));
+        target.setMrating((Integer) ext.get("mrating"));
+        target.setCattax((Integer) ext.get("cattax"));
+      }
+    }
+    catch (Exception e) {
+      throw new OpenRtbConverterException("error while type casting ext in bid", e);
     }
     switch (config.getAdType()) {
       case BANNER:

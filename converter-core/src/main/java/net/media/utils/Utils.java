@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 
 import javax.naming.ConfigurationException;
@@ -32,7 +31,7 @@ public class Utils {
   }
 
   public static <T> List<T> copyList(List<T> input, Config config){
-    return new ArrayList<T>(input);
+    return new ArrayList<>(input);
   }
 
   public static <T> Set<T> copyList(Set<T> input, Config config){
