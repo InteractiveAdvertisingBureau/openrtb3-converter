@@ -86,7 +86,7 @@ public class OpenRtbConverter {
   }
 
   private boolean shouldValidate(Config overridingConfig) {
-    return  overridingConfig.isValidate();
+    return  overridingConfig.getValidate();
   }
 
 }
