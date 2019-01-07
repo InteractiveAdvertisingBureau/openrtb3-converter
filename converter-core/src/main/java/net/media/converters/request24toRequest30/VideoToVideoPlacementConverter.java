@@ -1,5 +1,6 @@
 package net.media.converters.request24toRequest30;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.request.Banner;
@@ -30,7 +31,7 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
   }
 
   @Override
-  public VideoPlacement map(Video video, Config config) {
+  public VideoPlacement map(Video video, Config config) throws OpenRtbConverterException {
     if ( video == null) {
       return null;
     }
@@ -42,7 +43,7 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
   }
 
   @Override
-  public void inhance(Video video, VideoPlacement videoPlacement, Config config) {
+  public void inhance(Video video, VideoPlacement videoPlacement, Config config) throws OpenRtbConverterException {
     if (isNull(video) || isNull(videoPlacement)) {
       return;
     }
@@ -85,7 +86,7 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     videoToVideoPlacementAfterMapping(video, videoPlacement);
   }
 
-  private List<Companion> bannerListToCompanionList(List<Banner> list, Config config) {
+  private List<Companion> bannerListToCompanionList(List<Banner> list, Config config) throws OpenRtbConverterException {
     if ( list == null ) {
       return null;
     }

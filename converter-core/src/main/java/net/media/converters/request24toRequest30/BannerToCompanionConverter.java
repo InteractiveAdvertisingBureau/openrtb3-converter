@@ -1,5 +1,6 @@
 package net.media.converters.request24toRequest30;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.request.Banner;
@@ -24,7 +25,7 @@ public class BannerToCompanionConverter implements Converter<Banner, Companion> 
   }
 
   @Override
-  public Companion map(Banner banner, Config config) {
+  public Companion map(Banner banner, Config config) throws OpenRtbConverterException {
     if ( banner == null ) {
       return null;
     }
@@ -36,7 +37,7 @@ public class BannerToCompanionConverter implements Converter<Banner, Companion> 
   }
 
   @Override
-  public void inhance(Banner banner, Companion companion, Config config) {
+  public void inhance(Banner banner, Companion companion, Config config) throws OpenRtbConverterException {
     if (nonNull(banner.getId())) {
       companion.setId(banner.getId());
     }

@@ -59,10 +59,10 @@ public class Native24ToNative30Converter implements Converter<NativeResponse, Na
     linkLinkAssetConverter.map(source.getNativeResponseBody().getLink(), config);
     if (!isEmpty(source.getNativeResponseBody().getAssets())) {
       List<Asset> assetList = new ArrayList<>();
-      for (AssetResponse asset : source.getNativeResponseBody().getAssets()) {
-        Asset asset1 = assetResponseAssetConverter.map(asset, config);
+      for(AssetResponse assetResponse : source.getNativeResponseBody().getAssets()) {
+        Asset asset = assetResponseAssetConverter.map(assetResponse, config);
         if(isNull(asset)) {
-          assetList.add(asset1);
+          assetList.add(asset);
         }
       }
       target.setAsset(assetList);

@@ -1,5 +1,6 @@
 package net.media.converters.request24toRequest30;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.request.Audio;
@@ -59,7 +60,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
   }
 
   @Override
-  public Item map(Imp imp, Config config) {
+  public Item map(Imp imp, Config config) throws OpenRtbConverterException {
     if (isNull(imp)) {
       return null;
     }
@@ -69,7 +70,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
   }
 
   @Override
-  public void inhance(Imp imp, Item item, Config config) {
+  public void inhance(Imp imp, Item item, Config config) throws OpenRtbConverterException {
     if (nonNull(imp)) {
       if ( item.getSpec() == null ) {
         item.setSpec( new Spec() );
@@ -107,7 +108,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     }
   }
 
-  private void impToSpec1(Imp imp, Spec mappingTarget, Config config) {
+  private void impToSpec1(Imp imp, Spec mappingTarget, Config config) throws OpenRtbConverterException {
     if ( imp == null ) {
       return;
     }
@@ -118,7 +119,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     impToPlacement1( imp, mappingTarget.getPlacement(), config );
   }
 
-  private void impToPlacement1(Imp imp, Placement mappingTarget, Config config) {
+  private void impToPlacement1(Imp imp, Placement mappingTarget, Config config) throws OpenRtbConverterException {
     if ( imp == null ) {
       return;
     }
@@ -175,7 +176,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     return deals;
   }
 
-  private List<net.media.openrtb3.Deal> dealListToDealList(List<Deal> list, Config config) {
+  private List<net.media.openrtb3.Deal> dealListToDealList(List<Deal> list, Config config) throws OpenRtbConverterException {
     if ( list == null ) {
       return null;
     }

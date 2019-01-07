@@ -1,6 +1,7 @@
 package net.media.converters.request24toRequest30;
 
 import lombok.AllArgsConstructor;
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.request.Device;
@@ -16,7 +17,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
   private Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter;
 
   @Override
-  public net.media.openrtb3.Device map(Device source, Config config) {
+  public net.media.openrtb3.Device map(Device source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -29,7 +30,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
   }
 
   @Override
-  public void inhance(Device source, net.media.openrtb3.Device target, Config config) {
+  public void inhance(Device source, net.media.openrtb3.Device target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setContype( source.getConnectiontype() );

@@ -1,5 +1,6 @@
 package net.media.converters.request30toRequest24;
 
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.request.Audio;
@@ -23,7 +24,7 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
   private Converter<Companion, Banner> companionBannerConverter;
 
   @Override
-  public Audio map(AudioPlacement audioPlacement, Config config) {
+  public Audio map(AudioPlacement audioPlacement, Config config) throws OpenRtbConverterException {
     if ( audioPlacement == null ) {
       return null;
     }
@@ -35,7 +36,7 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
   }
 
   @Override
-  public void inhance(AudioPlacement audioPlacement, Audio audio, Config config) {
+  public void inhance(AudioPlacement audioPlacement, Audio audio, Config config) throws OpenRtbConverterException {
     if (isNull(audioPlacement) || isNull(audio)) {
       return;
     }
@@ -74,7 +75,7 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     }
   }
 
-  protected List<Banner> companionListToBannerList(List<Companion> list, Config config) {
+  protected List<Banner> companionListToBannerList(List<Companion> list, Config config) throws OpenRtbConverterException {
     if ( list == null ) {
       return null;
     }

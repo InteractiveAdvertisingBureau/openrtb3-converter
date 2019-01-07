@@ -1,6 +1,7 @@
 package net.media.converters.request30toRequest24;
 
 import lombok.AllArgsConstructor;
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Content;
@@ -18,7 +19,7 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
   private Converter<Data, net.media.openrtb24.request.Data> dataDataConverter;
 
   @Override
-  public net.media.openrtb24.request.Content map(Content source, Config config) {
+  public net.media.openrtb24.request.Content map(Content source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -31,7 +32,7 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
   }
 
   @Override
-  public void inhance(Content source, net.media.openrtb24.request.Content target, Config config) {
+  public void inhance(Content source, net.media.openrtb24.request.Content target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setContentrating( source.getRating() );
