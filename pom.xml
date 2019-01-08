@@ -21,6 +21,7 @@
     <modules>
         <module>converter-api</module>
         <module>converter-core</module>
+        <module>converter-bechmark</module>
     </modules>
 
 </project>
