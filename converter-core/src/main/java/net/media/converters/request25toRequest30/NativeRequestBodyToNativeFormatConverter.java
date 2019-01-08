@@ -13,18 +13,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import lombok.AllArgsConstructor;
+
 /**
  * Created by rajat.go on 03/01/19.
  */
+
+@AllArgsConstructor
 public class NativeRequestBodyToNativeFormatConverter implements Converter<NativeRequestBody,
   NativeFormat> {
 
   private Converter<Asset, AssetFormat> assetAssetFormatConverter;
-
-  public NativeRequestBodyToNativeFormatConverter(Converter<Asset, AssetFormat>
-                                                    assetAssetFormatConverter) {
-    this.assetAssetFormatConverter = assetAssetFormatConverter;
-  }
 
   @Override
   public NativeFormat map(NativeRequestBody nativeRequestBody, Config config) throws OpenRtbConverterException {

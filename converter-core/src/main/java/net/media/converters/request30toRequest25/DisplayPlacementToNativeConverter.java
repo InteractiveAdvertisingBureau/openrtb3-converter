@@ -76,7 +76,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       try {
         nat.setRequest(JacksonObjectMapper.getMapper().writeValueAsString(nativeRequest));
       } catch (JsonProcessingException e) {
-
+        throw new OpenRtbConverterException(e);
       }
     } else {
       nat.setRequest(nativeRequest);
