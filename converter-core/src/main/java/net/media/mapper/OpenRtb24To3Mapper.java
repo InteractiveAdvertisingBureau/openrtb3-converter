@@ -44,7 +44,7 @@ public class OpenRtb24To3Mapper {
     Config config = new Config();
     config.setBannerTemplate("");
     config.setValidate(false);
-    config.setNativeRequestString(true);
+    config.setNativeRequestAsString(true);
     config.setAdType(AdType.BANNER);
     OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
 

@@ -9,6 +9,7 @@ import net.media.enums.AdType;
 import net.media.openrtb24.request.BidRequest;
 import net.media.openrtb24.response.BidResponse;
 import net.media.openrtb3.OpenRTB;
+import net.media.util.JacksonObjectMapper;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
@@ -23,6 +24,7 @@ import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Threads;
 import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
+import org.openjdk.jmh.util.Utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,7 +38,7 @@ import javax.naming.ConfigurationException;
  */
 public class Response24ToResponse30BenchMark {
 
-  private static final ObjectMapper mapper = new ObjectMapper();
+  private static final ObjectMapper mapper = JacksonObjectMapper.getMapper();
 
   @BenchmarkMode(Mode.All)
   @Warmup(time = 2, timeUnit = TimeUnit.SECONDS, iterations = 5)
@@ -58,14 +60,13 @@ public class Response24ToResponse30BenchMark {
 
     @Setup(Level.Trial)
     public void doSetup() throws IOException {
-      File file = new File("/Users/shiva.b/Desktop/openrtb-converter/converter-bechmark/src/main/resources/banner24Response.json");
+      File file = new File("/Users/rajat.go/Documents/workspace/openrtb-converter/converter-bechmark/src/main/resources/banner24Response.json");
       byte[] jsonData = Files.readAllBytes(file.toPath());
       this.bidRequest = mapper.readValue(jsonData, BidRequest.class);
       Config config = new Config();
       config.setBannerTemplate("");
       config.setAdType(AdType.BANNER);
       config.setNativeRequestAsString(Boolean.TRUE);
-      config.setNativeRequestString(Boolean.TRUE);
       config.setValidate(false);
       this.openRtbConverter = new OpenRtbConverter(config);
     }
