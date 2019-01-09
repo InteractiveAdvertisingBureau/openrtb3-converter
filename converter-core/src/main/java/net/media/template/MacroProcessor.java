@@ -1,5 +1,7 @@
 package net.media.template;
 
+import net.media.openrtb24.request.Banner;
+
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Pattern;
@@ -30,6 +32,18 @@ public class MacroProcessor {
     return token -> {
       String macro = token.getGroup("macro");
       return MacroMapper.getThreeXMacro(MacroMapper.macroBuilder(macro));
+    };
+  }
+
+  public static final Template.TokenValue getBannerFields(net.media.openrtb3.Banner banner) {
+    return token -> {
+      String macro = token.getGroup("macro");
+      switch (macro) {
+        case "BANNER_URL":
+          return banner.getImg();
+        default:
+          return "";
+      }
     };
   }
 

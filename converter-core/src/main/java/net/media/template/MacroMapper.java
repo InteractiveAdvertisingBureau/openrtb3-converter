@@ -135,5 +135,9 @@ public class MacroMapper {
     });
   }
 
+  public static String macroReplaceTemplate(String template, Banner banner){
+    return MacroProcessor.getOpenRtbMacroProcessor(template).replace(MacroProcessor.getBannerFields(banner));
+  }
+
 
 }
