@@ -7,6 +7,7 @@ import net.media.openrtb24.request.Format;
 import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CollectionUtils;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,11 +36,8 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     if (isNull(displayPlacement) || isNull(banner)) {
       return;
     }
-    List<String> list = displayPlacement.getMime();
-    if ( list != null ) {
-      banner.setMimes( new ArrayList<String>( list ) );
-    }
-    banner.setFormat( displayFormatListToFormatList( displayPlacement.getDisplayfmt() ) );
+    banner.setMimes(Utils.copyList(displayPlacement.getMime(), config));
+    banner.setFormat( displayFormatListToFormatList( displayPlacement.getDisplayfmt(), config ) );
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
         if (!CollectionUtils.isEmpty(displayFormat.getExpdir())) {
@@ -57,15 +55,13 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     banner.setH( displayPlacement.getH() );
     banner.setPos( displayPlacement.getPos() );
     banner.setTopframe( displayPlacement.getTopframe() );
-    List<Integer> list2 = displayPlacement.getApi();
-    if ( list2 != null ) {
-      banner.setApi( new ArrayList<Integer>( list2 ) );
-    }
+    banner.setApi(Utils.copyList(displayPlacement.getApi(), config));
     Map<String, Object> map = displayPlacement.getExt();
     if ( map != null ) {
-      banner.setExt( new HashMap<>( map ) );
+      banner.setExt(Utils.copyMap(map, config));
       if (map.containsKey("btype")) {
-        banner.setBtype(new ArrayList<>((List<Integer>) map.get("btype")));
+        banner.setBtype(Utils.copyList((List<Integer>) map.get("btype"), config));
+        banner.getExt().remove("btype");
       }
     }
     if (nonNull(displayPlacement.getUnit())) {
@@ -76,20 +72,20 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     }
   }
 
-  private List<Format> displayFormatListToFormatList(List<DisplayFormat> list) {
+  private List<Format> displayFormatListToFormatList(List<DisplayFormat> list, Config config) {
     if ( list == null ) {
       return null;
     }
 
     List<Format> list1 = new ArrayList<Format>( list.size() );
     for ( DisplayFormat displayFormat : list ) {
-      list1.add( displayFormatToFormat( displayFormat ) );
+      list1.add( displayFormatToFormat( displayFormat, config ) );
     }
 
     return list1;
   }
 
-  private Format displayFormatToFormat(DisplayFormat displayFormat) {
+  private Format displayFormatToFormat(DisplayFormat displayFormat, Config config) {
     if ( displayFormat == null ) {
       return null;
     }
@@ -102,7 +98,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     format.setHratio( displayFormat.getHratio() );
     Map<String, Object> map = displayFormat.getExt();
     if ( map != null ) {
-      format.setExt( new HashMap<>( map ) );
+      format.setExt(Utils.copyMap(map, config));
       format.setWmin((Integer) map.get("wmin"));
     }
 

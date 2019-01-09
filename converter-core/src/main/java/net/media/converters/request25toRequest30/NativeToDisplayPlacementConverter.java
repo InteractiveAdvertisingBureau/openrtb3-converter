@@ -9,6 +9,7 @@ import net.media.openrtb24.request.NativeRequestBody;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.NativeFormat;
 import net.media.util.JacksonObjectMapper;
+import net.media.utils.Utils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,13 +46,7 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
     if (isNull(nat) || isNull(displayPlacement)) {
       return;
     }
-    List<Integer> list2 = nat.getApi();
-    if ( list2 != null ) {
-      displayPlacement.setApi( new ArrayList<>( list2 ) );
-    }
-    else {
-      displayPlacement.setApi( null );
-    }
+    displayPlacement.setApi(Utils.copyList(nat.getApi(), config));
     if (nonNull(nat.getRequest())) {
       NativeRequest nativeRequest = null;
       if (nat.getRequest() instanceof String) {

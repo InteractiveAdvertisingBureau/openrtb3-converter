@@ -7,11 +7,11 @@ import net.media.openrtb24.request.Audio;
 import net.media.openrtb24.request.Banner;
 import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.Companion;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import lombok.AllArgsConstructor;
 
@@ -41,14 +41,8 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
 
   @Override
   public void inhance(Audio audio, AudioPlacement audioPlacement, Config config) throws OpenRtbConverterException {
-    List<Integer> list = audio.getCompaniontype();
-    if ( list != null ) {
-      audioPlacement.setComptype( new ArrayList<Integer>( list ) );
-    }
-    Map<String, Object> map = audio.getExt();
-    if ( map != null ) {
-      audioPlacement.setExt( new HashMap<String, Object>( map ) );
-    }
+    audioPlacement.setComptype(Utils.copyList(audio.getCompaniontype(), config));
+    audioPlacement.setExt(Utils.copyMap(audio.getExt(), config));
     if (nonNull(audio.getStitched())) {
       if (isNull(audioPlacement.getExt())) {
         audioPlacement.setExt(new HashMap<>());
@@ -60,26 +54,14 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     audioPlacement.setMaxext( audio.getMaxextended() );
     audioPlacement.setDelay( audio.getStartdelay() );
     audioPlacement.setMindur( audio.getMinduration() );
-    List<Integer> list2 = audio.getProtocols();
-    if ( list2 != null ) {
-      audioPlacement.setCtype( new ArrayList<Integer>( list2 ) );
-    }
-    List<String> list3 = audio.getMimes();
-    if ( list3 != null ) {
-      audioPlacement.setMime( new ArrayList<String>( list3 ) );
-    }
+    audioPlacement.setCtype(Utils.copyList(audio.getProtocols(), config));
+    audioPlacement.setMime(Utils.copyList(audio.getMimes(), config));
     audioPlacement.setMinbitr( audio.getMinduration() );
     audioPlacement.setMaxbitr( audio.getMaxduration() );
     audioPlacement.setFeed( audio.getFeed() );
     audioPlacement.setNvol( audio.getNvol() );
-    List<Integer> list4 = audio.getApi();
-    if ( list4 != null ) {
-      audioPlacement.setApi( new ArrayList<Integer>( list4 ) );
-    }
-    List<Integer> list5 = audio.getDelivery();
-    if ( list5 != null ) {
-      audioPlacement.setDelivery( new ArrayList<Integer>( list5 ) );
-    }
+    audioPlacement.setApi(Utils.copyList(audio.getApi(), config));
+    audioPlacement.setDelivery(Utils.copyList(audio.getDelivery(), config));
     audioPlacement.setMaxseq( audio.getMaxseq() );
     audioToAudioPlacementAfterMapping( audio, audioPlacement );
   }

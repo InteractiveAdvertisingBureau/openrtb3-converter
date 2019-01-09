@@ -8,6 +8,7 @@ import net.media.openrtb24.request.Video;
 import net.media.openrtb3.Companion;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionUtils;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -45,16 +46,10 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     if (isNull(video) || isNull(videoPlacement)) {
       return;
     }
-    List<Integer> list = video.getCompaniontype();
-    if ( list != null ) {
-      videoPlacement.setComptype( new ArrayList<Integer>( list ) );
-    }
+    videoPlacement.setComptype(Utils.copyList(video.getCompaniontype(), config));
     videoPlacement.setComp( bannerListToCompanionList( video.getCompanionad(), config ) );
     videoPlacement.setLinear( video.getLinearity() );
-    Set<String> set = video.getMimes();
-    if ( set != null ) {
-      videoPlacement.setMime( new HashSet<String>( set ) );
-    }
+    videoPlacement.setMime(Utils.copySet(video.getMimes(), config));
     videoPlacement.setMinbitr( video.getMinbitrate() );
     videoPlacement.setPtype( video.getPlacement() );
     videoPlacement.setMaxdur( video.getMaxduration() );

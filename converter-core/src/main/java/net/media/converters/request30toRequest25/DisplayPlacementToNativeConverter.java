@@ -11,6 +11,7 @@ import net.media.openrtb24.request.NativeRequestBody;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.NativeFormat;
 import net.media.util.JacksonObjectMapper;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -60,10 +61,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
           ().get("contextsubtype"));
       }
     }
-    List<Integer> api = displayPlacement.getApi();
-    if ( api != null ) {
-      nat.setApi( new ArrayList<>( api ) );
-    }
+    nat.setApi(Utils.copyList(displayPlacement.getApi(), config));
     if (nonNull(displayPlacement.getExt())) {
       if (isNull(nat.getExt())) {
         nat.setExt(new HashMap<>());
@@ -81,9 +79,6 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     } else {
       nat.setRequest(nativeRequest);
     }
-    Map<String, Object> map = displayPlacement.getExt();
-    if ( map != null ) {
-      nat.setExt( new HashMap<>( map ) );
-    }
+    nat.setExt(Utils.copyMap(displayPlacement.getExt(), config));
   }
 }

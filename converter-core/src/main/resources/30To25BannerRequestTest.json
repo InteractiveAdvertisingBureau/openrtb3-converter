@@ -1,4 +1,7 @@
 [{
+  "ver": "3.0",
+  "domainSpec": "adcom",
+  "domainVer": "1.0",
   "request": {
     "id": "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
     "test": 1,
@@ -61,6 +64,7 @@
             "clktype": 1,
             "ampren": 1,
             "mime": ["application/x-shockwave-flash", "image/jpg"],
+            "api": [3, 2],
             "w": 300,
             "h": 250,
             "unit": 1,
@@ -76,7 +80,7 @@
             }],
             "ext": {
               "dummy": "ffaa",
-              "seq": 1
+              "btype": [3, 4]
             }
           }
         }

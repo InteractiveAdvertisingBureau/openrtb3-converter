@@ -7,6 +7,7 @@ import net.media.openrtb24.request.Banner;
 import net.media.openrtb24.request.Video;
 import net.media.openrtb3.Companion;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -53,10 +54,7 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     video.setPlacement( videoPlacement.getPtype() );
     video.setPlaybackend( videoPlacement.getPlayend() );
     video.setMinduration( videoPlacement.getMindur() );
-    List<Integer> list = videoPlacement.getComptype();
-    if ( list != null ) {
-      video.setCompaniontype( new ArrayList<Integer>( list ) );
-    }
+    video.setCompaniontype(Utils.copyList(videoPlacement.getComptype(), config));
     video.setCompanionad( companionListToBannerList( videoPlacement.getComp(), config ) );
     Set<String> set1 = videoPlacement.getMime();
     if ( set1 != null ) {
@@ -80,10 +78,7 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     if ( list3 != null ) {
       video.setApi( new HashSet<Integer>( list3 ) );
     }
-    Map<String, Object> map = videoPlacement.getExt();
-    if ( map != null ) {
-      video.setExt( new HashMap<String, Object>( map ) );
-    }
+    video.setExt(Utils.copyMap(videoPlacement.getExt(), config));
 
     videoPlacementToVideoAfterMapping( videoPlacement, video );
   }

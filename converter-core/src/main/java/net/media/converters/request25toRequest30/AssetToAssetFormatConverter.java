@@ -12,6 +12,7 @@ import net.media.openrtb3.DataAssetFormat;
 import net.media.openrtb3.ImageAssetFormat;
 import net.media.openrtb3.TitleAssetFormat;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,8 +45,8 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     assetFormat.setReq( asset.getRequired() );
     assetFormat.setId( asset.getId() );
     assetFormat.setTitle( nativeTitleToTitleAssetFormat( asset.getTitle() ) );
-    assetFormat.setImg( nativeImageToNativeImageAssetFormat( asset.getImg() ) );
-    assetFormat.setVideo( nativeVideoToVideoPlacement( asset.getVideo() ) );
+    assetFormat.setImg( nativeImageToNativeImageAssetFormat( asset.getImg(), config ) );
+    assetFormat.setVideo( nativeVideoToVideoPlacement( asset.getVideo(), config ) );
     assetFormat.setData( nativeDataToDataAssetFormat( asset.getData() ) );
     Map<String, Object> map = asset.getExt();
     if ( map != null ) {
@@ -69,17 +70,15 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     return titleAssetFormat;
   }
 
-  private ImageAssetFormat nativeImageToNativeImageAssetFormat(NativeImage nativeImage) {
+  private ImageAssetFormat nativeImageToNativeImageAssetFormat(NativeImage nativeImage, Config
+    config) {
     if ( nativeImage == null ) {
       return null;
     }
 
     ImageAssetFormat imageAssetFormat = new ImageAssetFormat();
 
-    List<String> list = nativeImage.getMimes();
-    if ( list != null ) {
-      imageAssetFormat.setMime( new ArrayList<>( list ) );
-    }
+    imageAssetFormat.setMime(Utils.copyList(nativeImage.getMimes(), config));
     imageAssetFormat.setType( nativeImage.getType() );
     imageAssetFormat.setW( nativeImage.getW() );
     imageAssetFormat.setH( nativeImage.getH() );
@@ -93,7 +92,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     return imageAssetFormat;
   }
 
-  private VideoPlacement nativeVideoToVideoPlacement(NativeVideo nativeVideo) {
+  private VideoPlacement nativeVideoToVideoPlacement(NativeVideo nativeVideo, Config config) {
     if ( nativeVideo == null ) {
       return null;
     }
@@ -102,18 +101,9 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
 
     videoPlacement.setMaxdur( nativeVideo.getMaxduration() );
     videoPlacement.setMindur( nativeVideo.getMinduration() );
-    Set<Integer> set = nativeVideo.getProtocols();
-    if ( set != null ) {
-      videoPlacement.setCtype( new HashSet<>( set ) );
-    }
-    Set<String> set1 = nativeVideo.getMimes();
-    if ( set1 != null ) {
-      videoPlacement.setMime( new HashSet<>( set1 ) );
-    }
-    Map<String, Object> map = nativeVideo.getExt();
-    if ( map != null ) {
-      videoPlacement.setExt( new HashMap<>( map ) );
-    }
+    videoPlacement.setCtype(Utils.copySet(nativeVideo.getProtocols(), config));
+    videoPlacement.setMime(Utils.copySet(nativeVideo.getMimes(), config));
+    videoPlacement.setExt(Utils.copyMap(nativeVideo.getExt(), config));
 
     return videoPlacement;
   }

@@ -18,6 +18,7 @@ import net.media.openrtb3.Item;
 import net.media.openrtb3.Placement;
 import net.media.openrtb3.Spec;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -66,9 +67,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       }
       impToSpec1( imp, item.getSpec(), config );
       Map<String, Object> map = imp.getExt();
-      if ( map != null ) {
-        item.setExt( new HashMap<>( map ) );
-      }
+      item.setExt(Utils.copyMap(map, config));
       item.setFlrcur( imp.getBidfloorcur() );
       List<Deal> deals = impPmpDeals( imp );
       item.setDeal( dealListToDealList( deals, config ) );
@@ -126,10 +125,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       config);
     if (nonNull(mappingTarget.getDisplay())) {
       mappingTarget.getDisplay().setClktype(imp.getClickbrowser());
-      List<String> list2 = imp.getIframebuster();
-      if ( list2 != null ) {
-        mappingTarget.getDisplay().setIfrbust( new ArrayList<>( list2 ) );
-      }
+      mappingTarget.getDisplay().setIfrbust(Utils.copyList(imp.getIframebuster(), config));
       mappingTarget.getDisplay().setInstl(imp.getInstl());
     }
     if (nonNull(imp.getExt()) && !imp.getExt().isEmpty() && nonNull(displayPlacement)) {
