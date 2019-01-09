@@ -43,7 +43,7 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
     target.setContent( contentContentConverter.map( source.getContent(), config ) );
     target.setDomain( source.getDomain() );
     target.setCat( Utils.copyList(source.getCat(), config) );
-    target.setPagecat( Utils.copyList(source.getPagecat(), config) );
+    target.setPagecat( Utils.copySet(source.getPagecat(), config) );
     target.setKeywords( source.getKeywords() );
     target.setBundle( source.getBundle() );
     target.setStoreurl( source.getStoreurl() );

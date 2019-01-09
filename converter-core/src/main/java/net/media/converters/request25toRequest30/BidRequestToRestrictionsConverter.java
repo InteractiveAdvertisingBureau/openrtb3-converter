@@ -30,8 +30,8 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
     if(source == null)
       return;
     target.setBapp( Utils.copyList(source.getBapp(), config) );
-    target.setBcat( Utils.copyList(source.getBcat(), config) );
-    target.setBadv( Utils.copyList(source.getBadv(), config) );
+    target.setBcat( Utils.copySet(source.getBcat(), config) );
+    target.setBadv( Utils.copySet(source.getBadv(), config) );
     if(source == null)
       return;
     if(source.getImp() == null)

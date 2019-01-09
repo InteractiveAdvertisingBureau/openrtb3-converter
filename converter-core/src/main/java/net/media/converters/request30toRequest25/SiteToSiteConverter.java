@@ -46,7 +46,7 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb24.
     if ( source.getCat() != null ) {
       target.setCat( Utils.copyList( source.getCat(), config ) );
     }
-    target.setPagecat( Utils.copyList(source.getPagecat(), config) );
+    target.setPagecat( Utils.copySet(source.getPagecat(), config) );
     target.setPage( source.getPage() );
     target.setRef( source.getRef() );
     target.setSearch( source.getSearch() );

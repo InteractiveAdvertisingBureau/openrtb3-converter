@@ -51,13 +51,11 @@ public class Config {
    */
   private AdType adType;
 
-  private Boolean validate;
-
   private Boolean disableCloning;
   /**
    * This config determines whether the input request or response needs to be validated
    */
-  private Boolean validate = false;
+  private Boolean validate;
 
   public Config(Config oldConfig) {
     this.bannerTemplate = oldConfig.bannerTemplate;

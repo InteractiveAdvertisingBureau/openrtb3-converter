@@ -96,10 +96,10 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     }
     if (source.getWseat()!=null && source.getWseat().size()>0){
       target.setWseat(1);
-      target.setSeat(Utils.copyList(source.getWseat(), config));
+      target.setSeat(Utils.copySet(source.getWseat(), config));
     } else {
       target.setWseat(0);
-      target.setSeat(Utils.copyList(source.getBseat(), config));
+      target.setSeat(Utils.copySet(source.getBseat(), config));
     }
     if(target.getExt() == null)
       return;

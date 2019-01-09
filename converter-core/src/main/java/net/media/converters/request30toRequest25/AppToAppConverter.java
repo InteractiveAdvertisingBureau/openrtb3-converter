@@ -44,7 +44,7 @@ public class AppToAppConverter implements Converter<App,net.media.openrtb24.requ
     target.setDomain( source.getDomain() );
     target.setStoreurl( source.getStoreurl() );
     target.setCat( Utils.copyList(source.getCat(), config) );
-    target.setPagecat( Utils.copyList(source.getPagecat(), config) );
+    target.setPagecat( Utils.copySet(source.getPagecat(), config) );
     target.setVer( source.getVer() );
     target.setPaid( source.getPaid() );
     target.setContent( contentContentConverter.map( source.getContent(), config ) );
