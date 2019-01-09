@@ -5,6 +5,7 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.response.Bid;
 import net.media.openrtb3.Media;
+import net.media.template.MacroMapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -55,5 +56,6 @@ public class Bid24ToBid30Converter implements Converter<Bid, net.media.openrtb3.
     target.setBurl( source.getBurl() );
     target.setLurl( source.getLurl() );
     target.setExp( source.getExp() );
+    MacroMapper.macroReplaceThreeX(target);
   }
 }

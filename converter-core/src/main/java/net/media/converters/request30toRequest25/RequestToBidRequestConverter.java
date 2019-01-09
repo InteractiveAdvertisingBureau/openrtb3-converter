@@ -109,20 +109,20 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
         for (Imp imp : target.getImp()) {
           if (nonNull(imp.getBanner())) {
             if (nonNull(source.getContext().getRestrictions().getBattr())) {
-              imp.getBanner().setBattr(new HashSet<>(source.getContext().getRestrictions().getBattr
-                ()));
+              imp.getBanner().setBattr(Utils.copySet(source.getContext().getRestrictions().getBattr
+                (), config));
             }
           }
           if (nonNull(imp.getVideo())) {
             if (nonNull(source.getContext().getRestrictions().getBattr())) {
-              imp.getVideo().setBattr(new HashSet<>(source.getContext().getRestrictions().getBattr
-                ()));
+              imp.getVideo().setBattr(Utils.copySet(source.getContext().getRestrictions().getBattr
+                (), config));
             }
           }
           if (nonNull(imp.getNat())) {
             if (nonNull(source.getContext().getRestrictions().getBattr())) {
-              imp.getNat().setBattr(new HashSet<>(source.getContext().getRestrictions().getBattr
-                ()));
+              imp.getNat().setBattr(Utils.copySet(source.getContext().getRestrictions().getBattr
+                (), config));
             }
           }
         }

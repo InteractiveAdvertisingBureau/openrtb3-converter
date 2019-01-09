@@ -17,6 +17,7 @@ import net.media.openrtb3.Item;
 import net.media.openrtb3.Placement;
 import net.media.openrtb3.Spec;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -61,11 +62,8 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
       return;
     }
     imp.setPmp( itemToPmp( item, config ) );
-    Map<String, Object> map = item.getExt();
-    if ( map != null ) {
-      imp.setExt( new HashMap<String, Object>( map ) );
-    }
-    fillExtMap(item, imp);
+    imp.setExt(Utils.copyMap(item.getExt(), config));
+    fillExtMap(item, imp, config);
     imp.setBidfloor( item.getFlr() );
     VideoPlacement video = itemSpecPlacementVideo( item );
     if ( video != null ) {
@@ -95,9 +93,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         imp.getNat().getNativeRequestBody().setSeq(item.getSeq());
       }
       imp.setInstl(display.getInstl());
-      if (nonNull(display.getIfrbust())) {
-        imp.setIframebuster(new ArrayList<>(display.getIfrbust()));
-      }
+      imp.setIframebuster(Utils.copyList(display.getIfrbust(), config));
       imp.setClickbrowser(display.getClktype());
     }
     imp.setBidfloorcur( item.getFlrcur() );
@@ -291,7 +287,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     return secure;
   }
 
-  private void fillExtMap(Item item, Imp imp) {
+  private void fillExtMap(Item item, Imp imp, Config config) {
     if (nonNull(item)) {
       if (nonNull(imp)) {
         if (isNull(imp.getExt())) {
@@ -315,8 +311,8 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
       if (nonNull(item.getSpec().getPlacement().getDisplay())) {
         imp.getExt().put("ampren", item.getSpec().getPlacement().getDisplay().getAmpren());
         if (nonNull(item.getSpec().getPlacement().getDisplay().getCtype())) {
-          imp.getExt().put("ctype", new ArrayList<>(item.getSpec().getPlacement().getDisplay()
-            .getCtype()));
+          imp.getExt().put("ctype", Utils.copyList(item.getSpec().getPlacement().getDisplay()
+            .getCtype(), config));
         }
         imp.getExt().put("priv", item.getSpec().getPlacement().getDisplay().getPriv());
         imp.getExt().put("event", item.getSpec().getPlacement().getDisplay().getEvent());

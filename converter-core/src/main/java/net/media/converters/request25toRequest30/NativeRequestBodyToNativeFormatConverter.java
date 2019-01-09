@@ -7,6 +7,7 @@ import net.media.openrtb24.request.Asset;
 import net.media.openrtb24.request.NativeRequestBody;
 import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.NativeFormat;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,10 +43,7 @@ public class NativeRequestBodyToNativeFormatConverter implements Converter<Nativ
       return;
     }
 
-    Map<String, Object> map = nativeRequestBody.getExt();
-    if ( map != null ) {
-      nativeFormat.setExt( new HashMap<>( map ) );
-    }
+    nativeFormat.setExt(Utils.copyMap(nativeRequestBody.getExt(), config));
     nativeFormat.setAsset( assetListToAssetFormatList( nativeRequestBody.getAssets(), config ) );
 
   }

@@ -23,6 +23,7 @@ import static java.util.Objects.isNull;
  * if found in the map else returns the {@link #defaultValue}
  *
  * @author shiva.b
+ * @since 1.0
  */
 public class Provider<K,V> {
 

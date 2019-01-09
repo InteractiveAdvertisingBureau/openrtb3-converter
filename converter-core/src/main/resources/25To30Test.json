@@ -40,48 +40,48 @@
     "response30": {
       "domainSpec": "3.0",
       "response" : {
-      "id" : "1234567890",
-      "bidid": "abc1123",
-      "cur": "USD",
-      "seatbid": [
-        {
-          "seat": "512",
-          "bid": [
-            {
-              "id": "1",
-              "item": "102",
-              "price": 9.43,
-              "purl": "http://adserver.com/winnotice?impid=102",
-              "cid": "campaign111",
-              "media": {
-                "ad": {
-                  "id": "creative112",
-                  "attr": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    12
-                  ],
-                  "adomain": [
-                    "advertiserdomain.com"
-                  ],
-                  "iurl": "http://adserver.com/pathtosampleimage",
-                  "display": {
-                    "curl" : "http://adserver.com/winnotice?impid=102",
-                    "adm": "some adm"
+        "id" : "1234567890",
+        "bidid": "abc1123",
+        "cur": "USD",
+        "seatbid": [
+          {
+            "seat": "512",
+            "bid": [
+              {
+                "id": "1",
+                "item": "102",
+                "price": 9.43,
+                "purl": "http://adserver.com/winnotice?impid=102",
+                "cid": "campaign111",
+                "media": {
+                  "ad": {
+                    "id": "creative112",
+                    "attr": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      12
+                    ],
+                    "adomain": [
+                      "advertiserdomain.com"
+                    ],
+                    "iurl": "http://adserver.com/pathtosampleimage",
+                    "display": {
+                      "curl" : "http://adserver.com/winnotice?impid=102",
+                      "adm": "some adm"
+                    }
                   }
                 }
               }
-            }
-          ]
-        }
-      ]
+            ]
+          }
+        ]
+      }
     }
-  }
   },
   {
     "description": "Example 2 – VAST XML Document Returned Inline",
@@ -105,29 +105,29 @@
     "response30": {
       "domainSpec": "3.0",
       "response": {
-      "id" : "123",
-      "seatbid": [
-        {
-          "bid": [
-            {
-              "id": "12345",
-              "item": "2",
-              "price": 3.00,
-              "purl": "http://example.com/winnoticeurl",
-              "media": {
-                "ad": {
-                  "video": {
-                    "curl" : "http://example.com/winnoticeurl",
-                    "adm": "some random adm"
+        "id" : "123",
+        "seatbid": [
+          {
+            "bid": [
+              {
+                "id": "12345",
+                "item": "2",
+                "price": 3.00,
+                "purl": "http://example.com/winnoticeurl",
+                "media": {
+                  "ad": {
+                    "video": {
+                      "curl" : "http://example.com/winnoticeurl",
+                      "adm": "some random adm"
+                    }
                   }
                 }
               }
-            }
-          ]
-        }
-      ]
+            ]
+          }
+        ]
+      }
     }
-  }
   },
   {
     "description" : "Example 3 – Direct Deal Ad Served on Win Notice",
@@ -160,48 +160,48 @@
     "response30" : {
       "domainSpec": "3.0",
       "response" : {
-      "id": "1234567890",
-      "bidid": "abc1123",
-      "cur": "USD",
-      "seatbid": [
-        {
-          "seat": "512",
-          "bid": [
-            {
-              "id": "1",
-              "item": "102",
-              "price": 5.00,
-              "deal": "ABC-1234-6789",
-              "purl": "http: //adserver.com/winnotice?impid=102",
-              "cid": "campaign111",
-              "media": {
-                "ad": {
-                  "id": "creative112",
-                  "attr": [
-                    1,
-                    2,
-                    3,
-                    4
-                  ],
-                  "adomain": [
-                    "advertiserdomain.com"
-                  ],
-                  "iurl": "http: //adserver.com/pathtosampleimage",
-                  "display": {
-                    "curl" : "http: //adserver.com/winnotice?impid=102"
+        "id": "1234567890",
+        "bidid": "abc1123",
+        "cur": "USD",
+        "seatbid": [
+          {
+            "seat": "512",
+            "bid": [
+              {
+                "id": "1",
+                "item": "102",
+                "price": 5.00,
+                "deal": "ABC-1234-6789",
+                "purl": "http: //adserver.com/winnotice?impid=102",
+                "cid": "campaign111",
+                "media": {
+                  "ad": {
+                    "id": "creative112",
+                    "attr": [
+                      1,
+                      2,
+                      3,
+                      4
+                    ],
+                    "adomain": [
+                      "advertiserdomain.com"
+                    ],
+                    "iurl": "http: //adserver.com/pathtosampleimage",
+                    "display": {
+                      "curl" : "http: //adserver.com/winnotice?impid=102"
+                    }
                   }
                 }
               }
-            }
-          ]
-        }
-      ]
-    }
+            ]
+          }
+        ]
+      }
     }
   },
   {
     "description" : "Example 4 – Complete Rtb response  object",
-    "type": "BANNER",
+    "type": "NATIVE",
     "response25" : {
       "id": "0123456789ABCDEF",
       "seatbid": [{
@@ -361,22 +361,40 @@
                     "priv": "232",
                     "adm": "asvsdd",
                     "curl": "...",
-                    "banner": {
-                      "img": "https://somebuyer.com/creative",
+                    "_native": {
                       "link": {
-                        "url": "https://somebuyer.com/click",
-                        "urlfb": "https://somebuyer.com",
-                        "trkr": [
-                          "2113",
-                          "21312"
-                        ],
-                        "ext": {
-                          "link": "link"
-                        }
+                        "url": "",
+                        "urlfb": "",
+                        "trkr": [""]
                       },
-                      "ext": {
-                        "xyz": "111"
-                      }
+                      "asset": [{
+                        "id": "",
+                        "req": "",
+                        "title": {
+                          "text": "",
+                          "len": ""
+                        },
+                        "image": {
+                          "url": "",
+                          "w": "",
+                          "h": "",
+                          "type": ""
+                        },
+                        "video": {
+                          "adm": "",
+                          "curl": ""
+                        },
+                        "data": {
+                          "value": [""],
+                          "len": "",
+                          "type": ""
+                        },
+                        "link": {
+                          "url": "",
+                          "urlfb": "",
+                          "trkr": [""]
+                        }
+                      }]
                     },
                     "event": [
                       {

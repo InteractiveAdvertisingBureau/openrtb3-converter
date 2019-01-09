@@ -39,19 +39,22 @@ public class OpenRtb24To3Mapper {
 
   private void test() throws IOException, OpenRtbConverterException, ConfigurationException {
     ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource("src/main/resources/25To30Test.json").getFile());
+    File file = new File(classLoader.getResource("30To25ResponseSouravTest.json").getFile());
     OpenRtb24To3MapperImpl impl = new OpenRtb24To3MapperImpl(null);
     Config config = new Config();
     config.setBannerTemplate("");
+    config.setValidate(false);
+    config.setNativeRequestAsString(true);
+    config.setAdType(AdType.BANNER);
     OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
 
     byte[] jsonData = Files.readAllBytes(file.toPath());
     ObjectMapper objectMapper = new ObjectMapper();
 
+    List<ResponseTestPojo> testList = objectMapper.readValue(jsonData, new
+      TypeReference<ArrayList<ResponseTestPojo>>() {});
     long start = System.nanoTime();
-    for (int i = 0; i < 1000; i++) {
-      List<ResponseTestPojo> testList = objectMapper.readValue(jsonData, new
-        TypeReference<ArrayList<ResponseTestPojo>>() {});
+    for (int i = 0; i < 1; i++) {
       for (ResponseTestPojo response : testList) {
         AdType adType = null;
         for (AdType adType1 : AdType.values()) {
@@ -64,9 +67,22 @@ public class OpenRtb24To3Mapper {
           System.out.println("invalid ad type");
           continue;
         }
+
         config.setAdType(adType);
-        OpenRTB response30 = openRtbConverter.convert(config, response.getResponse25(), BidResponse
-          .class, OpenRTB.class);
+        try {
+          OpenRTB response30 = openRtbConverter.convert(config, response.getResponse25(), BidResponse
+            .class, OpenRTB.class);
+          BidResponse  bidResponse = openRtbConverter.convert(config, response.getResponse30(), OpenRTB.class, BidResponse.class);
+          System.out.println(objectMapper.writeValueAsString(response30));
+          System.out.println(objectMapper.writeValueAsString(response.getResponse25()));
+          System.out.println(objectMapper.writeValueAsString(bidResponse));
+          System.out.println(objectMapper.writeValueAsString(response.getResponse30().getResponse()));
+
+        }
+        catch (Exception e){
+          e.printStackTrace();
+        }
+
         //System.out.println( objectMapper.writeValueAsString(response30));
         //System.out.println( objectMapper.writeValueAsString(response.getResponse30()));
         //System.out.println(response30.equals(response.getResponse30()));
@@ -78,7 +94,7 @@ public class OpenRtb24To3Mapper {
       }
     }
     long end = System.nanoTime();
-    System.out.println("Total time : " +  (end - start));
+    System.out.println("Total time : " +  (end - start)/100000);
   }
 
 }

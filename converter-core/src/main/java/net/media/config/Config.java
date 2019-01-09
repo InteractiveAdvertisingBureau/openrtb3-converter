@@ -28,6 +28,10 @@ public class Config {
 
   private static final boolean DEFAULT_NATIVE_REQUEST_AS_STRING = true;
 
+  private static final boolean DEFAULT_DISABLE_CLONING = false;
+
+  private static final boolean DEFAULT_VALIDATE = true;
+
   /**
    * This config is used for response conversion from 3.x to 2.x version.
    * If 3.x response does not have an adm, we need to build the adm for
@@ -47,8 +51,9 @@ public class Config {
    */
   private AdType adType;
 
-  private Boolean nativeRequestString;
+  private Boolean validate;
 
+  private Boolean disableCloning;
   /**
    * This config determines whether the input request or response needs to be validated
    */
@@ -58,8 +63,8 @@ public class Config {
     this.bannerTemplate = oldConfig.bannerTemplate;
     this.nativeRequestAsString = oldConfig.nativeRequestAsString;
     this.adType = oldConfig.adType;
-    this.nativeRequestString = oldConfig.nativeRequestString;
     this.validate = oldConfig.validate;
+    this.disableCloning = oldConfig.disableCloning;
   }
 
   /**
@@ -74,13 +79,21 @@ public class Config {
       .nativeRequestAsString : this.nativeRequestAsString;
     this.adType = isNull(this.adType) ? config.adType : this.adType;
     this.validate = isNull(this.validate) ? config.validate : this.validate;
-    this.nativeRequestString = isNull(this.nativeRequestString) ? config.nativeRequestString :
-      this.nativeRequestString;
+    this.disableCloning = isNull(this.disableCloning) ? config.getDisableCloning() : this
+      .disableCloning;
   }
 
   public Boolean getNativeRequestAsString() {
     return nonNull(nativeRequestAsString) ? nativeRequestAsString :
       DEFAULT_NATIVE_REQUEST_AS_STRING;
+  }
+
+  public Boolean getValidate() {
+    return nonNull(validate) ? validate : DEFAULT_VALIDATE;
+  }
+
+  public Boolean isCloningDisabled() {
+    return nonNull(disableCloning) ? disableCloning : DEFAULT_DISABLE_CLONING;
   }
 
   /**

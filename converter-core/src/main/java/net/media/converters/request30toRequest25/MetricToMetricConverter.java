@@ -3,6 +3,7 @@ package net.media.converters.request30toRequest25;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Metric;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,10 +32,7 @@ public class MetricToMetricConverter implements Converter<Metric, net.media.open
       metric1.setType(metric.getType());
       metric1.setVendor(metric.getVendor());
       metric1.setValue(metric.getValue());
-      Map<String, Object> extMap = metric.getExt();
-      if (nonNull(extMap)) {
-        metric1.setExt(new HashMap<>(extMap));
-      }
+      metric1.setExt(Utils.copyMap(metric.getExt(), config));
     }
   }
 }

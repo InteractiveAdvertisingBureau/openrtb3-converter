@@ -69,6 +69,7 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
         }
       } else {
         try {
+          NativeResponse nativeResponse = Utils.getMapper().convertValue(source.getAdm(),NativeResponse.class);
           Native _native = nativeResponseNativeConverter.map((NativeResponse) source.getAdm(), config);
           target.setAdm(_native);
         }

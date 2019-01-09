@@ -12,6 +12,7 @@ import net.media.openrtb3.DataAssetFormat;
 import net.media.openrtb3.ImageAssetFormat;
 import net.media.openrtb3.TitleAssetFormat;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,17 +44,15 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     }
     asset.setRequired( assetFormat.getReq() );
     asset.setId( assetFormat.getId() );
-    asset.setTitle( titleAssetFormatToNativeTitle( assetFormat.getTitle() ) );
-    asset.setImg( imageAssetFormatToNativeImage( assetFormat.getImg() ) );
-    asset.setVideo( videoAssetFormatToVideoImage( assetFormat.getVideo() ) );
-    asset.setData( dataAssetFormatToNativeData( assetFormat.getData() ) );
-    Map<String, Object> map = assetFormat.getExt();
-    if ( map != null ) {
-      asset.setExt( new HashMap<>( map ) );
-    }
+    asset.setTitle( titleAssetFormatToNativeTitle( assetFormat.getTitle(), config ) );
+    asset.setImg( imageAssetFormatToNativeImage( assetFormat.getImg(), config ) );
+    asset.setVideo( videoAssetFormatToVideoImage( assetFormat.getVideo(), config ) );
+    asset.setData( dataAssetFormatToNativeData( assetFormat.getData(), config ) );
+    asset.setExt(Utils.copyMap(assetFormat.getExt(), config));
   }
 
-  private NativeTitle titleAssetFormatToNativeTitle(TitleAssetFormat titleAssetFormat) {
+  private NativeTitle titleAssetFormatToNativeTitle(TitleAssetFormat titleAssetFormat, Config
+    config) {
     if ( titleAssetFormat == null ) {
       return null;
     }
@@ -61,25 +60,20 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     NativeTitle nativeTitle = new NativeTitle();
 
     nativeTitle.setLen( titleAssetFormat.getLen() );
-    Map<String, Object> map = titleAssetFormat.getExt();
-    if ( map != null ) {
-      nativeTitle.setExt( new HashMap<>( map ) );
-    }
+    nativeTitle.setExt(Utils.copyMap(titleAssetFormat.getExt(), config));
 
     return nativeTitle;
   }
 
-  private NativeImage imageAssetFormatToNativeImage(ImageAssetFormat imageAssetFormat) {
+  private NativeImage imageAssetFormatToNativeImage(ImageAssetFormat imageAssetFormat, Config
+    config) {
     if ( imageAssetFormat == null ) {
       return null;
     }
 
     NativeImage nativeImage = new NativeImage();
 
-    List<String> list = imageAssetFormat.getMime();
-    if ( list != null ) {
-      nativeImage.setMimes( new ArrayList<String>( list ) );
-    }
+    nativeImage.setMimes(Utils.copyList(imageAssetFormat.getMime(), config));
     nativeImage.setType( imageAssetFormat.getType() );
     nativeImage.setW( imageAssetFormat.getW() );
     nativeImage.setWmin( imageAssetFormat.getWmin() );
@@ -93,32 +87,24 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     return nativeImage;
   }
 
-  private NativeVideo videoAssetFormatToVideoImage(VideoPlacement videoPlacement) {
+  private NativeVideo videoAssetFormatToVideoImage(VideoPlacement videoPlacement, Config config) {
     if ( videoPlacement == null ) {
       return null;
     }
 
     NativeVideo nativeVideo = new NativeVideo();
 
-    Set<Integer> set = videoPlacement.getCtype();
-    if ( set != null ) {
-      nativeVideo.setProtocols( new HashSet<Integer>( set ) );
-    }
+    nativeVideo.setProtocols(Utils.copySet(videoPlacement.getCtype(), config));
     nativeVideo.setMinduration( videoPlacement.getMindur() );
     nativeVideo.setMaxduration( videoPlacement.getMaxdur() );
-    Set<String> set1 = videoPlacement.getMime();
-    if ( set1 != null ) {
-      nativeVideo.setMimes( new HashSet<String>( set1 ) );
-    }
-    Map<String, Object> map = videoPlacement.getExt();
-    if ( map != null ) {
-      nativeVideo.setExt( new HashMap<String, Object>( map ) );
-    }
+    nativeVideo.setMimes(Utils.copySet(videoPlacement.getMime(), config));
+    nativeVideo.setMimes(Utils.copySet(videoPlacement.getMime(), config));
+    nativeVideo.setExt(Utils.copyMap(videoPlacement.getExt(), config));
 
     return nativeVideo;
   }
 
-  private NativeData dataAssetFormatToNativeData(DataAssetFormat dataAssetFormat) {
+  private NativeData dataAssetFormatToNativeData(DataAssetFormat dataAssetFormat, Config config) {
     if ( dataAssetFormat == null ) {
       return null;
     }
@@ -127,10 +113,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
 
     nativeData.setType( dataAssetFormat.getType() );
     nativeData.setLen( dataAssetFormat.getLen() );
-    Map<String, Object> map = dataAssetFormat.getExt();
-    if ( map != null ) {
-      nativeData.setExt( new HashMap<>( map ) );
-    }
+    nativeData.setExt(Utils.copyMap(dataAssetFormat.getExt(), config));
 
     return nativeData;
   }

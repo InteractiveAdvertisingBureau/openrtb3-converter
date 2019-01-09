@@ -7,6 +7,7 @@ import net.media.openrtb24.request.Format;
 import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CollectionUtils;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,28 +37,17 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     if (isNull(banner) || isNull(displayPlacement)) {
       return;
     }
-    displayPlacement.setDisplayfmt( formatListToDisplayFormatList( banner.getFormat()) );
+    displayPlacement.setDisplayfmt( formatListToDisplayFormatList( banner.getFormat(), config) );
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
         List<Integer> expdir = impBannerExpdir( banner );
-        if ( expdir != null ) {
-          displayFormat.setExpdir( new ArrayList<>( expdir ) );
-        }
+        displayFormat.setExpdir(Utils.copyList(expdir, config));
       }
     }
-    List<String> list1 = banner.getMimes();
-    if ( list1 != null ) {
-      displayPlacement.setMime( new ArrayList<String>( list1 ) );
-    }
+    displayPlacement.setMime(Utils.copyList(banner.getMimes(), config));
     displayPlacement.setPos( banner.getPos() );
     displayPlacement.setTopframe( banner.getTopframe() );
-    List<Integer> list2 = banner.getApi();
-    if ( list2 != null ) {
-      displayPlacement.setApi( new ArrayList<>( list2 ) );
-    }
-    else {
-      displayPlacement.setApi( null );
-    }
+    displayPlacement.setApi(Utils.copyList(banner.getApi(), config));
     displayPlacement.setW( banner.getW() );
     displayPlacement.setH( banner.getH() );
     Map<String, Object> bannerExt = banner.getExt();
@@ -71,8 +61,8 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
         displayPlacement.getExt().remove("unit");
       }
       if (bannerExt.containsKey("ctype")) {
-        displayPlacement.setCtype((new ArrayList<>((List<Integer>) bannerExt.get
-          ("ctype"))));
+        displayPlacement.setCtype(Utils.copyList((List<Integer>) bannerExt.get
+          ("ctype"), config));
         displayPlacement.getExt().remove("ctype");
       }
       if (bannerExt.containsKey("seq")) {
@@ -95,30 +85,27 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     return expdir;
   }
 
-  private List<DisplayFormat> formatListToDisplayFormatList(List<Format> list) {
+  private List<DisplayFormat> formatListToDisplayFormatList(List<Format> list, Config config) {
     if ( list == null ) {
       return null;
     }
 
     List<DisplayFormat> list1 = new ArrayList<DisplayFormat>( list.size() );
     for ( Format format : list ) {
-      list1.add( map( format) );
+      list1.add( map( format, config ) );
     }
 
     return list1;
   }
 
-  private DisplayFormat map(Format format) {
+  private DisplayFormat map(Format format, Config config) {
     if ( format == null ) {
       return null;
     }
 
     DisplayFormat displayFormat = new DisplayFormat();
 
-    Map<String, Object> map = format.getExt();
-    if ( map != null ) {
-      displayFormat.setExt( new HashMap<String, Object>( map ) );
-    }
+    displayFormat.setExt(Utils.copyMap(format.getExt(), config));
     displayFormat.setW( format.getW() );
     displayFormat.setH( format.getH() );
     displayFormat.setWratio( format.getWratio() );

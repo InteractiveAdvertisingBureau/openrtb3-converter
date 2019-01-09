@@ -47,7 +47,7 @@ public class OpenRtbResponseToBidResponseConverter implements Converter<OpenRTB,
     List<SeatBid> seatBidList = new ArrayList<>();
     if(nonNull(response.getSeatbid())){
       for (Seatbid seatBid : response.getSeatbid()) {
-        seatBid30ToSeatBid24Converter.map(seatBid,config);
+        seatBidList.add(seatBid30ToSeatBid24Converter.map(seatBid,config));
       }
     }
     target.setSeatbid(seatBidList);

@@ -30,6 +30,8 @@ public class Native30ToNative10Converter implements Converter<Native,NativeRespo
     if(isNull(source) || isNull(config))
       return  null;
     NativeResponse  nativeResponse = new NativeResponse();
+    NativeResponseBody nativeResponseBody = new NativeResponseBody();
+    nativeResponse.setNativeResponseBody(nativeResponseBody);
     inhance(source,nativeResponse,config);
     return nativeResponse;
   }
