@@ -25,7 +25,7 @@ public class ConverterTester {
     OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
     ClassLoader classLoader = getClass().getClassLoader();
     ORTBTester ortbTester = new ORTBTester(openRtbConverter);
-    File folder = new File(classLoader.getResource("openrtbtests").getFile());
+    File folder = new File(classLoader.getResource("generated").getFile());
     File[] files = folder.listFiles();
     if (nonNull(files)) {
       for (File file : files) {
