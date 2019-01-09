@@ -43,13 +43,8 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
       target.setExt( null );
     }
     target.setAdm( source.getAdm() );
-    List<Integer> list = source.getApi();
-    if ( list != null ) {
-      target.setApi(new ArrayList<>(list) );
-    }
-    else {
-      target.setApi( null );
-    }
+
+    if(nonNull(source.getApi())) { target.setApi(new ArrayList<>(source.getApi())); }
     target.setCurl(source.getNurl());
 
     if (nonNull(source.getExt())) {

@@ -49,13 +49,8 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     target.setWratio( source.getWratio() );
     target.setW( source.getW() );
     target.setHratio( source.getHratio() );
-    List<Integer> list = source.getApi();
-    if ( list != null ) {
-      target.setApi(new ArrayList<>(list) );
-    }
-    else {
-      target.setApi( null );
-    }
+    if(nonNull(source.getApi()))
+      target.setApi(new ArrayList<>(source.getApi()));
     target.setCurl(source.getNurl());
     if (config.getAdType() == AdType.NATIVE) {
       if (source.getAdm() instanceof String) {

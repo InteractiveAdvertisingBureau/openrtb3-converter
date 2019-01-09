@@ -31,7 +31,8 @@ public class AudioToBidConverter implements Converter<Audio,Bid> {
       return ;
 
     target.setAdm(source.getAdm());
-    target.setApi(source.getApi());
+    if(nonNull(source.getApi()) && source.getApi().size()>0)
+      target.setApi(source.getApi().get(0));
     if(isNull(target.getExt())){
       target.setExt(new HashMap<>());
     }

@@ -44,7 +44,8 @@ public class DisplayToBidConverter implements Converter<Display,Bid> {
     target.setW(source.getW());
     target.setWratio(source.getWratio());
     target.setHratio(source.getHratio());
-    target.setApi(source.getApi());
+    if(nonNull(source.getApi())  && source.getApi().size()>0)
+      target.setApi(source.getApi().get(0));
     if(isNull(target.getExt())){
       target.setExt(new HashMap<>());
     }

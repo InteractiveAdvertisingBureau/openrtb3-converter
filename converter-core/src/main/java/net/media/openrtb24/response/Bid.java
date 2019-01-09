@@ -36,9 +36,9 @@ public class Bid {
   private Set<String> cat;//media.ad
   private List<Integer> attr;//media.ad
   // TODO  revert to String
-  private List<String> bundle;//media.ad
+  private String bundle;//media.ad
   // TODO revert to Integer
-  private List<Integer> api;//media.ad.display
+  private Integer api;//media.ad.display
   private Integer protocol;
   private Integer qagmediarating;
   private String dealid;//
