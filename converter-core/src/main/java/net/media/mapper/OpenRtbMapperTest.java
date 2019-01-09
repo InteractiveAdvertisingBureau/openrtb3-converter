@@ -42,7 +42,7 @@ public class OpenRtbMapperTest {
 
   private void test() throws IOException, OpenRtbConverterException, ConfigurationException {
     ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource("25To30RequestTest.json").getPath());
+    File file = new File(classLoader.getResource("25To30VideoRequestTest.json").getPath());
 
     byte[] jsonData = Files.readAllBytes(file.toPath());
     ObjectMapper objectMapper = JacksonObjectMapper.getMapper();
