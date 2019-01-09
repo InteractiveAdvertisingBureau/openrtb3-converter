@@ -3,6 +3,7 @@ package net.media.converters.request30toRequest25;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Producer;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +28,7 @@ public class ProducerToProducerConverter implements Converter<Producer, net.medi
       return;
     target.setId( source.getId() );
     target.setName( source.getName() );
-    target.setCat( source.getCat() );
+    target.setCat( Utils.copyList(source.getCat(), config) );
     target.setDomain( source.getDomain() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {

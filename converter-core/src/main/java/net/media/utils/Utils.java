@@ -31,15 +31,21 @@ public class Utils {
   }
 
   public static <T> List<T> copyList(List<T> input, Config config){
-    return new ArrayList<>(input);
+    if(input != null)
+      return new ArrayList<>(input);
+    return null;
   }
 
   public static <T> Set<T> copyList(Set<T> input, Config config){
-    return new HashSet<T>(input);
+    if(input != null)
+      return new HashSet<T>(input);
+    return null;
   }
 
   public static <U,V> Map<U,V> copyMap(Map<U,V> input, Config config){
-    return new HashMap<>(input);
+    if(input != null)
+      return new HashMap<>(input);
+    return null;
   }
 
   public static <T> void validate(T t) throws ConfigurationException {

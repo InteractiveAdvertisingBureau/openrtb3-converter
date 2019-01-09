@@ -16,6 +16,7 @@ import net.media.openrtb3.Request;
 import net.media.openrtb3.Spec;
 import net.media.utils.CollectionUtils;
 import net.media.utils.ListToListConverter;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -75,7 +76,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     target.setTest( source.getTest() );
     target.setTmax( source.getTmax() );
     target.setAt( source.getAt() );
-    List<String> list1 = source.getCur();
+    List<String> list1 = Utils.copyList(source.getCur(), config);
     if ( list1 != null ) {
       target.setCur( new ArrayList<String>( list1 ) );
     }
@@ -90,15 +91,15 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
         if ( item.getSpec() == null ) {
           item.setSpec( new Spec() );
         }
-        bidRequestToSpec( source, item.getSpec() );
+        bidRequestToSpec( source, item.getSpec(), config );
       }
     }
     if (source.getWseat()!=null && source.getWseat().size()>0){
       target.setWseat(1);
-      target.setSeat(source.getWseat());
+      target.setSeat(Utils.copyList(source.getWseat(), config));
     } else {
       target.setWseat(0);
-      target.setSeat(source.getBseat());
+      target.setSeat(Utils.copyList(source.getBseat(), config));
     }
     if(target.getExt() == null)
       return;
@@ -113,7 +114,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     }
   }
 
-  private void bidRequestToSpec(BidRequest bidRequest, Spec mappingTarget) {
+  private void bidRequestToSpec(BidRequest bidRequest, Spec mappingTarget, Config config) {
     if ( bidRequest == null ) {
       return;
     }
@@ -121,28 +122,26 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     if ( mappingTarget.getPlacement() == null ) {
       mappingTarget.setPlacement( new Placement() );
     }
-    bidRequestToPlacement( bidRequest, mappingTarget.getPlacement() );
+    bidRequestToPlacement( bidRequest, mappingTarget.getPlacement(), config );
   }
 
-  private void bidRequestToPlacement(BidRequest bidRequest, Placement mappingTarget) {
+  private void bidRequestToPlacement(BidRequest bidRequest, Placement mappingTarget, Config config) {
     if ( bidRequest == null ) {
       return;
     }
 
     if ( mappingTarget.getWlang() != null ) {
-      List<String> list = bidRequest.getWlang();
-      if ( list != null ) {
+      if ( bidRequest.getWlang() != null ) {
         mappingTarget.getWlang().clear();
-        mappingTarget.getWlang().addAll( list );
+        mappingTarget.getWlang().addAll( Utils.copyList(bidRequest.getWlang(), config) );
       }
       else {
         mappingTarget.setWlang( null );
       }
     }
     else {
-      List<String> list = bidRequest.getWlang();
-      if ( list != null ) {
-        mappingTarget.setWlang( new ArrayList<String>( list ) );
+      if ( bidRequest.getWlang() != null ) {
+        mappingTarget.setWlang( Utils.copyList( bidRequest.getWlang(), config ) );
       }
     }
   }

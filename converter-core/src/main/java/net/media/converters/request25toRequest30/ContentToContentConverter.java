@@ -8,6 +8,7 @@ import net.media.openrtb24.request.Content;
 import net.media.openrtb24.request.Producer;
 import net.media.openrtb3.Data;
 import net.media.utils.ListToListConverter;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -52,7 +53,7 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     target.setAlbum( source.getAlbum() );
     target.setIsrc( source.getIsrc() );
     target.setUrl( source.getUrl() );
-    target.setCat( source.getCat() );
+    target.setCat( Utils.copyList(source.getCat(), config) );
     target.setProdq( source.getProdq() );
     target.setContext( source.getContext() );
     target.setKeywords( source.getKeywords() );
