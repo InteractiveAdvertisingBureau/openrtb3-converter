@@ -14,7 +14,7 @@
       "f" : 2
     }
   },
-  "outputFile" : null,
+  "outputFile" : "",
   "outputType" : null,
   "outputEdits" : {
     "c.d.e" : "2",

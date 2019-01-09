@@ -21,7 +21,7 @@ import java.util.stream.IntStream;
 public class TestCaseGenerator {
 
   static final ObjectMapper objectMapper = new ObjectMapper();
-  static final String basePath = "src/test/resources/";
+  static final String basePath = "converter-core/src/test/resources/";
 
   public static void main(String[] args) throws IOException {
     final ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
@@ -46,15 +46,15 @@ public class TestCaseGenerator {
 
   public static Case generateJsons(Case aCase) throws IOException{
 
-    String inputJson = new String(Files.readAllBytes(Paths.get(basePath + "/master/" + aCase.getInputFile())));
+    String inputJson = new String(Files.readAllBytes(Paths.get(basePath + "master/" + aCase.getInputFile())));
     JsonNode inputJsonObject = objectMapper.readValue(inputJson, JsonNode.class);
     for(Map.Entry<String, String> entry: aCase.getInputEdits().entrySet()) {
       modify(inputJsonObject, getNode(entry.getValue()), entry.getKey().split("\\."), 0);
     }
     aCase.setInputJson(inputJsonObject);
 
-    if(aCase.getOutputFile() != null && !aCase.getOutputFile().trim().equals("null")) {
-      String outputJson = new String(Files.readAllBytes(Paths.get(basePath + "/master/" + aCase.getOutputFile())));
+    if(aCase.getOutputFile() != null && !aCase.getOutputFile().trim().equals("null") && !aCase.getOutputFile().trim().equals("")) {
+      String outputJson = new String(Files.readAllBytes(Paths.get(basePath + "master/" + aCase.getOutputFile())));
       JsonNode outputJsonObject = objectMapper.readValue(outputJson, JsonNode.class);
       for(Map.Entry<String, String> entry: aCase.getOutputEdits().entrySet()) {
         modify(outputJsonObject, getNode(entry.getValue()), entry.getKey().split("\\."), 0);
