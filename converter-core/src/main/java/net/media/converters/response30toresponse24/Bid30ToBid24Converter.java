@@ -4,6 +4,7 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.response.Bid;
 import net.media.openrtb3.Media;
+import net.media.template.MacroMapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -58,6 +59,7 @@ public class Bid30ToBid24Converter  implements Converter<net.media.openrtb3.Bid,
       target.getExt().put("qagmediarating", source.getMid());
       target.getExt().put("macro",source.getMacro());
       mediaBidConverter.inhance(source.getMedia(),target,config);
+      MacroMapper.macroReplaceTwoX(target);
     }
   }
 }

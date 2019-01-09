@@ -34,7 +34,7 @@ public class OpenRtb24To3Mapper {
 
   private void test() throws IOException {
     ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource("25To30Test.json").getFile());
+    File file = new File(classLoader.getResource("30To25ResponseSouravTest.json").getFile());
     OpenRtb24To3MapperImpl impl = new OpenRtb24To3MapperImpl(null);
     Config config = new Config();
     config.setBannerTemplate("");
@@ -44,7 +44,7 @@ public class OpenRtb24To3Mapper {
     ObjectMapper objectMapper = new ObjectMapper();
 
     long start = System.nanoTime();
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 1; i++) {
       List<ResponseTestPojo> testList = objectMapper.readValue(jsonData, new
         TypeReference<ArrayList<ResponseTestPojo>>() {});
       for (ResponseTestPojo response : testList) {
@@ -65,6 +65,8 @@ public class OpenRtb24To3Mapper {
           OpenRTB response30 = openRtbConverter.convert(config, response.getResponse25(), BidResponse
             .class, OpenRTB.class);
           BidResponse  bidResponse = openRtbConverter.convert(config, response.getResponse30(), OpenRTB.class, BidResponse.class);
+          System.out.println(objectMapper.writeValueAsString(response30));
+          System.out.println(objectMapper.writeValueAsString(response.getResponse25()));
           System.out.println(objectMapper.writeValueAsString(bidResponse));
           System.out.println(objectMapper.writeValueAsString(response.getResponse30().getResponse()));
 

@@ -19,27 +19,17 @@ public class MacroProcessor {
     return new EncodeTemplate(text, OPEN_RTB_TOKEN_PATTERN, TOKEN_PROVIDER, ENCODER_PROVIDER, token -> token.getTextValue());
   }
 
-  public static final Template.TokenValue getMowgliTokenValue(String string) {
+  public static final Template.TokenValue getTwoXToken() {
     return token -> {
       String macro = token.getGroup("macro");
-      switch (macro) {
-
-        default:
-          return "";
-      }
+      return MacroMapper.getTwoXMacro(MacroMapper.macroBuilder(macro));
     };
   }
 
-  public static final Template.TokenValue getMowgliTokenValue(String str1, String str2) {
-    Template.TokenValue openRTBTokenValue = getMowgliTokenValue("");
-
+  public static final Template.TokenValue getThreeXToken() {
     return token -> {
       String macro = token.getGroup("macro");
-      switch (macro) {
-
-        default:
-          return openRTBTokenValue.get(token);
-      }
+      return MacroMapper.getThreeXMacro(MacroMapper.macroBuilder(macro));
     };
   }
 
