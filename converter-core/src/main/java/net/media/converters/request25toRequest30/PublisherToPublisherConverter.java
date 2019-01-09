@@ -3,6 +3,7 @@ package net.media.converters.request25toRequest30;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb24.request.Publisher;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +29,7 @@ public class PublisherToPublisherConverter implements Converter<Publisher, net.m
     target.setId( source.getId() );
     target.setName( source.getName() );
     target.setDomain( source.getDomain() );
-    target.setCat( source.getCat() );
+    target.setCat( Utils.copyList(source.getCat(), config) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt( new HashMap<String, Object>( map ) );

@@ -7,6 +7,7 @@ import net.media.converters.Converter;
 import net.media.openrtb3.App;
 import net.media.openrtb3.Content;
 import net.media.openrtb3.Publisher;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +35,7 @@ public class AppToAppConverter implements Converter<App,net.media.openrtb24.requ
   public void inhance(App source, net.media.openrtb24.request.App target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
-    target.setSectioncat( source.getSectcat() );
+    target.setSectioncat( Utils.copyList(source.getSectcat(), config) );
     target.setPrivacypolicy( source.getPrivpolicy() );
     target.setPublisher( publisherPublisherConverter.map( source.getPub(), config ) );
     target.setId( source.getId() );
@@ -42,8 +43,8 @@ public class AppToAppConverter implements Converter<App,net.media.openrtb24.requ
     target.setBundle( source.getBundle() );
     target.setDomain( source.getDomain() );
     target.setStoreurl( source.getStoreurl() );
-    target.setCat( source.getCat() );
-    target.setPagecat( source.getPagecat() );
+    target.setCat( Utils.copyList(source.getCat(), config) );
+    target.setPagecat( Utils.copySet(source.getPagecat(), config) );
     target.setVer( source.getVer() );
     target.setPaid( source.getPaid() );
     target.setContent( contentContentConverter.map( source.getContent(), config ) );

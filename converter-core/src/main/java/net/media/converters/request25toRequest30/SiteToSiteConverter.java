@@ -7,6 +7,7 @@ import net.media.converters.Converter;
 import net.media.openrtb24.request.Content;
 import net.media.openrtb24.request.Publisher;
 import net.media.openrtb24.request.Site;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,17 +38,16 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
     if(source == null)
       return;
     target.setPrivpolicy( source.getPrivacypolicy() );
-    target.setSectcat( source.getSectioncat() );
+    target.setSectcat( Utils.copyList(source.getSectioncat(), config) );
     target.setPub( publisherPublisherConverter.map( source.getPublisher(), config ) );
     target.setId( source.getId() );
     target.setName( source.getName() );
     target.setContent( contentContentConverter.map( source.getContent(), config ) );
     target.setDomain( source.getDomain() );
-    List<String> list = source.getCat();
-    if ( list != null ) {
-      target.setCat( new ArrayList<String>( list ) );
+    if ( source.getCat() != null ) {
+      target.setCat( Utils.copyList( source.getCat(), config ) );
     }
-    target.setPagecat( source.getPagecat() );
+    target.setPagecat( Utils.copySet(source.getPagecat(), config) );
     target.setKeywords( source.getKeywords() );
     target.setPage( source.getPage() );
     target.setRef( source.getRef() );
