@@ -39,19 +39,22 @@ public class OpenRtb24To3Mapper {
 
   private void test() throws IOException, OpenRtbConverterException, ConfigurationException {
     ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource("src/main/resources/25To30Test.json").getFile());
+    File file = new File(classLoader.getResource("25To30Test.json").getFile());
     OpenRtb24To3MapperImpl impl = new OpenRtb24To3MapperImpl(null);
     Config config = new Config();
     config.setBannerTemplate("");
+    config.setValidate(false);
+    config.setNativeRequestString(true);
+    config.setAdType(AdType.BANNER);
     OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
 
     byte[] jsonData = Files.readAllBytes(file.toPath());
     ObjectMapper objectMapper = new ObjectMapper();
 
+    List<ResponseTestPojo> testList = objectMapper.readValue(jsonData, new
+      TypeReference<ArrayList<ResponseTestPojo>>() {});
     long start = System.nanoTime();
-    for (int i = 0; i < 1000; i++) {
-      List<ResponseTestPojo> testList = objectMapper.readValue(jsonData, new
-        TypeReference<ArrayList<ResponseTestPojo>>() {});
+    for (int i = 0; i < 100000; i++) {
       for (ResponseTestPojo response : testList) {
         AdType adType = null;
         for (AdType adType1 : AdType.values()) {
@@ -78,7 +81,7 @@ public class OpenRtb24To3Mapper {
       }
     }
     long end = System.nanoTime();
-    System.out.println("Total time : " +  (end - start));
+    System.out.println("Total time : " +  (end - start)/100000);
   }
 
 }
