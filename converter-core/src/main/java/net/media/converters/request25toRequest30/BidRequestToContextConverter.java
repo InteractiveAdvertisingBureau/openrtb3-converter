@@ -26,13 +26,13 @@ public class BidRequestToContextConverter implements Converter<BidRequest, Conte
 
     Context context = new Context();
 
-    inhance( source, context, config );
+    enhance( source, context, config );
 
     return context;
   }
 
   @Override
-  public void inhance(BidRequest source, Context target, Config config) throws OpenRtbConverterException {
+  public void enhance(BidRequest source, Context target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setRegs( regsRegsConverter.map( source.getRegs(), config ) );

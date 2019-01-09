@@ -18,11 +18,11 @@ public class AuditToBidConverter implements Converter<Audit,Bid> {
     if(isNull(source) || isNull(config))
       return  null;
     Bid  bid = new Bid();
-    inhance(source,bid,config);
+    enhance(source,bid,config);
     return bid;
   }
 
-  public  void inhance(Audit source, Bid target, Config config) throws OpenRtbConverterException {
+  public  void enhance(Audit source, Bid target, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
     if(isNull(target.getExt())){

@@ -1,38 +1,36 @@
 package net.media.api;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import io.dropwizard.Application;
-import io.dropwizard.Configuration;
-import io.dropwizard.setup.Bootstrap;
-import io.dropwizard.setup.Environment;
-import net.media.api.controllers.ConverterController;
 
-public class ConverterApplication extends Application<Configuration> {
+import net.media.api.servlets.ConverterServlet;
+import org.apache.catalina.Context;
+import org.apache.catalina.LifecycleException;
+import org.apache.catalina.startup.Tomcat;
 
-  @Override
-  public void initialize(Bootstrap<Configuration> b) {
-    b.getObjectMapper().setVisibility(
-      b.getObjectMapper()
-        .getSerializationConfig()
-        .getDefaultVisibilityChecker()
-        .withFieldVisibility(JsonAutoDetect.Visibility.ANY)
-        .withGetterVisibility(JsonAutoDetect.Visibility.NONE)
-        .withSetterVisibility(JsonAutoDetect.Visibility.NONE)
-        .withCreatorVisibility(JsonAutoDetect.Visibility.NONE)
-        .withIsGetterVisibility(JsonAutoDetect.Visibility.NONE));
+import javax.servlet.ServletException;
+import java.io.File;
+
+public class ConverterApplication {
+
+  private static void registerServletAndMapping(Context ctx) {
+    Tomcat.addServlet(ctx, "converter", new ConverterServlet()).setLoadOnStartup(1);
+    ctx.addServletMapping("/*", "converter");
+
   }
 
+  public static void main(String[] args) throws LifecycleException, ServletException {
+    Tomcat tomcat = new Tomcat();
+    tomcat.setPort(8080);
+    String webappDirLocation = ".";
 
-  @Override
-  public void run(Configuration configuration, Environment environment) throws Exception {
-    Injector injector = Guice.createInjector(new net.media.api.ConverterModule());
-    environment.jersey().register(injector.getInstance(ConverterController.class));
-    environment.jersey().setUrlPattern("/api/*");
-  }
+    Context ctx = tomcat.addContext("/Converter", new File(webappDirLocation).getAbsolutePath());
 
-  public static void main(String[] args) throws Exception {
-    new ConverterApplication().run(args);
+    ctx.setDisplayName("Video Ads");
+    ctx.addParameter("isLog4jAutoInitializationDisabled", "true");
+    ctx.addLifecycleListener(new Tomcat.FixContextListener());
+    ctx.addApplicationListener(ConverterApplication.class.getName());
+    registerServletAndMapping(ctx);
+
+    tomcat.start();
+    tomcat.getServer().await();
   }
 }

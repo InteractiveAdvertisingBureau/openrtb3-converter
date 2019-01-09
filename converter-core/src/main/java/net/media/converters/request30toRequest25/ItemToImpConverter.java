@@ -50,13 +50,13 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     }
 
     Imp imp = new Imp();
-    inhance(item, imp, config);
+    enhance(item, imp, config);
 
     return imp;
   }
 
   @Override
-  public void inhance(Item item, Imp imp, Config config) throws OpenRtbConverterException {
+  public void enhance(Item item, Imp imp, Config config) throws OpenRtbConverterException {
     if (isNull(imp) || isNull(item)) {
       return;
     }

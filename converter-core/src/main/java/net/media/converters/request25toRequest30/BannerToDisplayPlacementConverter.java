@@ -28,12 +28,12 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
       return null;
     }
     DisplayPlacement displayPlacement = new DisplayPlacement();
-    inhance(banner, displayPlacement, config);
+    enhance(banner, displayPlacement, config);
     return displayPlacement;
   }
 
   @Override
-  public void inhance(Banner banner, DisplayPlacement displayPlacement, Config config) {
+  public void enhance(Banner banner, DisplayPlacement displayPlacement, Config config) {
     if (isNull(banner) || isNull(displayPlacement)) {
       return;
     }

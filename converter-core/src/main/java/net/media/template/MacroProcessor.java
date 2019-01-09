@@ -1,5 +1,7 @@
 package net.media.template;
 
+import net.media.openrtb25.request.Banner;
+
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Pattern;
@@ -19,26 +21,28 @@ public class MacroProcessor {
     return new EncodeTemplate(text, OPEN_RTB_TOKEN_PATTERN, TOKEN_PROVIDER, ENCODER_PROVIDER, token -> token.getTextValue());
   }
 
-  public static final Template.TokenValue getMowgliTokenValue(String string) {
+  public static final Template.TokenValue getTwoXToken() {
     return token -> {
       String macro = token.getGroup("macro");
-      switch (macro) {
-
-        default:
-          return "";
-      }
+      return MacroMapper.getTwoXMacro(MacroMapper.macroBuilder(macro));
     };
   }
 
-  public static final Template.TokenValue getMowgliTokenValue(String str1, String str2) {
-    Template.TokenValue openRTBTokenValue = getMowgliTokenValue("");
+  public static final Template.TokenValue getThreeXToken() {
+    return token -> {
+      String macro = token.getGroup("macro");
+      return MacroMapper.getThreeXMacro(MacroMapper.macroBuilder(macro));
+    };
+  }
 
+  public static final Template.TokenValue getBannerFields(net.media.openrtb3.Banner banner) {
     return token -> {
       String macro = token.getGroup("macro");
       switch (macro) {
-
+        case "BANNER_URL":
+          return banner.getImg();
         default:
-          return openRTBTokenValue.get(token);
+          return "";
       }
     };
   }

@@ -33,13 +33,13 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     }
 
     Video video = new Video();
-    inhance(videoPlacement, video, config);
+    enhance(videoPlacement, video, config);
 
     return video;
   }
 
   @Override
-  public void inhance(VideoPlacement videoPlacement, Video video, Config config) throws OpenRtbConverterException {
+  public void enhance(VideoPlacement videoPlacement, Video video, Config config) throws OpenRtbConverterException {
     if (isNull(video) || isNull(videoPlacement)) {
       return;
     }

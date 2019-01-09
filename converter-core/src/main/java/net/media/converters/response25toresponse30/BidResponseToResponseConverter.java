@@ -36,7 +36,7 @@ public class BidResponseToResponseConverter implements Converter<BidResponse, Re
       return null;
     }
     Response response = new Response();
-    inhance(bidResponse, response, config);
+    enhance(bidResponse, response, config);
     return response;
   }
 
@@ -46,7 +46,7 @@ public class BidResponseToResponseConverter implements Converter<BidResponse, Re
    * @param response
    */
   @Override
-  public void inhance(BidResponse bidResponse, Response response, Config config)throws OpenRtbConverterException {
+  public void enhance(BidResponse bidResponse, Response response, Config config)throws OpenRtbConverterException {
     response.setId( bidResponse.getId() );
     response.setBidid( bidResponse.getBidid() );
     response.setNbr( bidResponse.getNbr() );

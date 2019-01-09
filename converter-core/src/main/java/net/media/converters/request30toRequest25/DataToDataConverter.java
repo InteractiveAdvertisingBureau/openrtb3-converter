@@ -25,13 +25,14 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb25.
 
     net.media.openrtb25.request.Data data1 = new net.media.openrtb25.request.Data();
 
-    inhance( source, data1, config );
+    enhance( source, data1, config );
 
     return data1;
   }
 
   @Override
-  public void inhance(Data source, net.media.openrtb25.request.Data target, Config config) throws OpenRtbConverterException {
+  public void enhance(Data source, net.media.openrtb25.request.Data target, Config config) throws
+    OpenRtbConverterException {
     target.setId( source.getId() );
     target.setName( source.getName() );
     target.setSegment( ListToListConverter.convert( source.getSegment(), segmentSegmentConverter, config ) );

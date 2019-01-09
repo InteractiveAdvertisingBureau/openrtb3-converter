@@ -18,12 +18,12 @@ public class MetricToMetricConverter implements Converter<Metric, net.media.open
       return null;
     }
     net.media.openrtb3.Metric metric1 = new net.media.openrtb3.Metric();
-    inhance(metric, metric1, config);
+    enhance(metric, metric1, config);
     return metric1;
   }
 
   @Override
-  public void inhance(Metric metric, net.media.openrtb3.Metric metric1, Config config) {
+  public void enhance(Metric metric, net.media.openrtb3.Metric metric1, Config config) {
     if (metric != null) {
       metric1.setType(metric.getType());
       metric1.setVendor(metric.getVendor());

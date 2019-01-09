@@ -24,12 +24,12 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
       return null;
     }
     Audio audio = new Audio();
-    inhance(source, audio, config);
+    enhance(source, audio, config);
     return null;
   }
 
   @Override
-  public void inhance(Bid source, Audio target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, Audio target, Config config) throws OpenRtbConverterException{
 
     if (isNull(source) || isNull(target)) {
       return;
@@ -43,13 +43,8 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
       target.setExt( null );
     }
     target.setAdm( source.getAdm() );
-    List<Integer> list = source.getApi();
-    if ( list != null ) {
-      target.setApi(new ArrayList<>(list) );
-    }
-    else {
-      target.setApi( null );
-    }
+
+    if(nonNull(source.getApi())) { target.setApi(new ArrayList<>(source.getApi())); }
     target.setCurl(source.getNurl());
 
     if (nonNull(source.getExt())) {

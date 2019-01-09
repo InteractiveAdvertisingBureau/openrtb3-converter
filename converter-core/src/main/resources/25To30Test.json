@@ -201,7 +201,7 @@
   },
   {
     "description" : "Example 4 – Complete Rtb response  object",
-    "type": "BANNER",
+    "type": "NATIVE",
     "response25" : {
       "id": "0123456789ABCDEF",
       "seatbid": [{
@@ -361,22 +361,40 @@
                     "priv": "232",
                     "adm": "asvsdd",
                     "curl": "...",
-                    "banner": {
-                      "img": "https://somebuyer.com/creative",
+                    "_native": {
                       "link": {
-                        "url": "https://somebuyer.com/click",
-                        "urlfb": "https://somebuyer.com",
-                        "trkr": [
-                          "2113",
-                          "21312"
-                        ],
-                        "ext": {
-                          "link": "link"
-                        }
+                        "url": "",
+                        "urlfb": "",
+                        "trkr": [""]
                       },
-                      "ext": {
-                        "xyz": "111"
-                      }
+                      "asset": [{
+                        "id": "",
+                        "req": "",
+                        "title": {
+                          "text": "",
+                          "len": ""
+                        },
+                        "image": {
+                          "url": "",
+                          "w": "",
+                          "h": "",
+                          "type": ""
+                        },
+                        "video": {
+                          "adm": "",
+                          "curl": ""
+                        },
+                        "data": {
+                          "value": [""],
+                          "len": "",
+                          "type": ""
+                        },
+                        "link": {
+                          "url": "",
+                          "urlfb": "",
+                          "trkr": [""]
+                        }
+                      }]
                     },
                     "event": [
                       {

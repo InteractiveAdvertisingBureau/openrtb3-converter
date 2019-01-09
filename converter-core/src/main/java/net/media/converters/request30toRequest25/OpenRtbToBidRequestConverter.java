@@ -27,6 +27,6 @@ public class OpenRtbToBidRequestConverter implements Converter<OpenRTB, BidReque
   }
 
   @Override
-  public void inhance(OpenRTB source, BidRequest target, Config config) {
+  public void enhance(OpenRTB source, BidRequest target, Config config) {
   }
 }

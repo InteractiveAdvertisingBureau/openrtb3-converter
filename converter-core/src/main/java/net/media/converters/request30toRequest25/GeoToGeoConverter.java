@@ -16,13 +16,13 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.req
 
     net.media.openrtb25.request.Geo geo1 = new net.media.openrtb25.request.Geo();
 
-    inhance(source, geo1, config );
+    enhance(source, geo1, config );
 
     return geo1;
   }
 
   @Override
-  public void inhance(Geo source, net.media.openrtb25.request.Geo target, Config config) {
+  public void enhance(Geo source, net.media.openrtb25.request.Geo target, Config config) {
     if(source == null)
       return;
     target.setIpservice( source.getIpserv() );

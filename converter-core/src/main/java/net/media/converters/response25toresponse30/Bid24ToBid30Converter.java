@@ -5,6 +5,7 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Media;
+import net.media.template.MacroMapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,12 +29,12 @@ public class Bid24ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       return null;
     }
     net.media.openrtb3.Bid bid = new net.media.openrtb3.Bid();
-    inhance(source, bid, config);
+    enhance(source, bid, config);
     return bid;
   }
 
   @Override
-  public void inhance(Bid source, net.media.openrtb3.Bid target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, net.media.openrtb3.Bid target, Config config) throws OpenRtbConverterException{
     if (source == null || target == null) {
       return;
     }
@@ -55,5 +56,6 @@ public class Bid24ToBid30Converter implements Converter<Bid, net.media.openrtb3.
     target.setBurl( source.getBurl() );
     target.setLurl( source.getLurl() );
     target.setExp( source.getExp() );
+    MacroMapper.macroReplaceThreeX(target);
   }
 }

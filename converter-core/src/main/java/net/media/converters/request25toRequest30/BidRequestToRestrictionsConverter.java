@@ -5,6 +5,7 @@ import net.media.converters.Converter;
 import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb3.Restrictions;
+import net.media.utils.Utils;
 
 import java.util.HashSet;
 import java.util.Map;
@@ -19,18 +20,18 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
 
     Restrictions restrictions = new Restrictions();
 
-    inhance( source, restrictions, config );
+    enhance( source, restrictions, config );
 
     return restrictions;
   }
 
   @Override
-  public void inhance(BidRequest source, Restrictions target, Config config) {
+  public void enhance(BidRequest source, Restrictions target, Config config) {
     if(source == null)
       return;
-    target.setBapp( source.getBapp() );
-    target.setBcat( source.getBcat() );
-    target.setBadv( source.getBadv() );
+    target.setBapp( Utils.copyList(source.getBapp(), config) );
+    target.setBcat( Utils.copySet(source.getBcat(), config) );
+    target.setBadv( Utils.copySet(source.getBadv(), config) );
     if(source == null)
       return;
     if(source.getImp() == null)

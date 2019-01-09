@@ -8,6 +8,7 @@ import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Producer;
 import net.media.openrtb3.Data;
 import net.media.utils.ListToListConverter;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,13 +27,13 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
 
     net.media.openrtb3.Content content1 = new net.media.openrtb3.Content();
 
-    inhance( source, content1, config );
+    enhance( source, content1, config );
 
     return content1;
   }
 
   @Override
-  public void inhance(Content source, net.media.openrtb3.Content target, Config config) throws OpenRtbConverterException {
+  public void enhance(Content source, net.media.openrtb3.Content target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setMrating( source.getQagmediarating() );
@@ -52,7 +53,7 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     target.setAlbum( source.getAlbum() );
     target.setIsrc( source.getIsrc() );
     target.setUrl( source.getUrl() );
-    target.setCat( source.getCat() );
+    target.setCat( Utils.copyList(source.getCat(), config) );
     target.setProdq( source.getProdq() );
     target.setContext( source.getContext() );
     target.setKeywords( source.getKeywords() );

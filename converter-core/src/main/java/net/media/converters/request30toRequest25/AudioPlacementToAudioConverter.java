@@ -31,13 +31,13 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     }
 
     Audio audio = new Audio();
-    inhance(audioPlacement, audio, config);
+    enhance(audioPlacement, audio, config);
 
     return audio;
   }
 
   @Override
-  public void inhance(AudioPlacement audioPlacement, Audio audio, Config config) throws OpenRtbConverterException {
+  public void enhance(AudioPlacement audioPlacement, Audio audio, Config config) throws OpenRtbConverterException {
     if (isNull(audioPlacement) || isNull(audio)) {
       return;
     }

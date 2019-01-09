@@ -30,11 +30,13 @@ public class Native30ToNative10Converter implements Converter<Native,NativeRespo
     if(isNull(source) || isNull(config))
       return  null;
     NativeResponse  nativeResponse = new NativeResponse();
-    inhance(source,nativeResponse,config);
+    NativeResponseBody nativeResponseBody = new NativeResponseBody();
+    nativeResponse.setNativeResponseBody(nativeResponseBody);
+    enhance(source,nativeResponse,config);
     return nativeResponse;
   }
 
-  public void inhance(Native source, NativeResponse target, Config config) throws OpenRtbConverterException  {
+  public void enhance(Native source, NativeResponse target, Config config) throws OpenRtbConverterException  {
 
     if(isNull(source) || isNull(target) || isNull(config))
       return;

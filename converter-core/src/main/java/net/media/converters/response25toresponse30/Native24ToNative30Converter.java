@@ -40,12 +40,12 @@ public class Native24ToNative30Converter implements Converter<NativeResponse, Na
       return null;
     }
     Native _native = new Native();
-    inhance(source, _native, config);
+    enhance(source, _native, config);
     return _native;
   }
 
   @Override
-  public void inhance(NativeResponse source, Native target, Config config)throws OpenRtbConverterException {
+  public void enhance(NativeResponse source, Native target, Config config)throws OpenRtbConverterException {
     if (source == null || target == null || source.getNativeResponseBody() == null) {
       return;
     }

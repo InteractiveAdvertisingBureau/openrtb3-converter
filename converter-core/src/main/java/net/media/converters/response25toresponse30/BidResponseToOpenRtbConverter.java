@@ -27,7 +27,7 @@ public class BidResponseToOpenRtbConverter implements Converter<BidResponse, Ope
   @Override
   public OpenRTB map(BidResponse source, Config config) throws OpenRtbConverterException {
     OpenRTB openRTB = new OpenRTB();
-    inhance(source, openRTB, config);
+    enhance(source, openRTB, config);
     return openRTB;
   }
 
@@ -37,7 +37,7 @@ public class BidResponseToOpenRtbConverter implements Converter<BidResponse, Ope
    * @param target
    */
   @Override
-  public void inhance(BidResponse source, OpenRTB target, Config config) throws OpenRtbConverterException{
+  public void enhance(BidResponse source, OpenRTB target, Config config) throws OpenRtbConverterException{
     target.setDomainSpec("3.0");
     target.setResponse(bidResponseResponseConverter.map(source, config));
   }

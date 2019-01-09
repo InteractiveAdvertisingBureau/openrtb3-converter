@@ -28,19 +28,38 @@ public class Config {
 
   private static final boolean DEFAULT_NATIVE_REQUEST_AS_STRING = true;
 
+  private static final boolean DEFAULT_NATIVE_RESPONSE_AS_STRING = false;
+
   private static final boolean DEFAULT_DISABLE_CLONING = false;
 
   private static final boolean DEFAULT_VALIDATE = true;
 
+  /**
+   * This config is used for response conversion from 3.x to 2.x version.
+   * If 3.x response does not have an adm, we need to build the adm for
+   * version 2.x from banner object of 3.x response. For this, the user
+   * needs to define a bannerTemplate which helps us to do so
+   */
   private String bannerTemplate;
 
+  /**
+   * This config determines the type of native request from 3.x to 2.x,
+   * as native request can be an object as well as a string in 2.x
+   */
   private Boolean nativeRequestAsString;
 
+  private Boolean nativeResponseAsString;
+
+  /**
+   * {@link AdType} provides the adType for response conversion
+   */
   private AdType adType;
 
-  private Boolean validate;
-
   private Boolean disableCloning;
+  /**
+   * This config determines whether the input request or response needs to be validated
+   */
+  private Boolean validate;
 
   public Config(Config oldConfig) {
     this.bannerTemplate = oldConfig.bannerTemplate;
@@ -51,6 +70,8 @@ public class Config {
   }
 
   /**
+   * fills the fields that are not present in the conversion request
+   *
    * @param config
    */
   public void updateEmptyFields(Config config) {
@@ -67,6 +88,11 @@ public class Config {
   public Boolean getNativeRequestAsString() {
     return nonNull(nativeRequestAsString) ? nativeRequestAsString :
       DEFAULT_NATIVE_REQUEST_AS_STRING;
+  }
+
+  public Boolean getNativeResponseAsString() {
+    return nonNull(nativeResponseAsString) ? nativeResponseAsString :
+      DEFAULT_NATIVE_RESPONSE_AS_STRING;
   }
 
   public Boolean getValidate() {

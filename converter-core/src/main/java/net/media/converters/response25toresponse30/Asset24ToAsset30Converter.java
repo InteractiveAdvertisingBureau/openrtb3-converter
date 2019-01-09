@@ -40,12 +40,12 @@ public class Asset24ToAsset30Converter implements Converter<AssetResponse, Asset
       return null;
     }
     Asset asset = new Asset();
-    inhance(source, asset, config);
+    enhance(source, asset, config);
     return asset;
   }
 
   @Override
-  public void inhance(AssetResponse source, Asset target, Config config) throws OpenRtbConverterException {
+  public void enhance(AssetResponse source, Asset target, Config config) throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }

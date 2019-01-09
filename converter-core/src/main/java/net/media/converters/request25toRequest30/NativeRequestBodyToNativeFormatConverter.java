@@ -30,12 +30,12 @@ public class NativeRequestBodyToNativeFormatConverter implements Converter<Nativ
       return null;
     }
     NativeFormat nativeFormat = new NativeFormat();
-    inhance(nativeRequestBody, nativeFormat, config);
+    enhance(nativeRequestBody, nativeFormat, config);
     return nativeFormat;
   }
 
   @Override
-  public void inhance(NativeRequestBody nativeRequestBody, NativeFormat nativeFormat, Config
+  public void enhance(NativeRequestBody nativeRequestBody, NativeFormat nativeFormat, Config
     config) throws OpenRtbConverterException {
     if ( nativeRequestBody == null ) {
       return;

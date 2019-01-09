@@ -24,13 +24,13 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb3.D
 
     net.media.openrtb3.Data data1 = new net.media.openrtb3.Data();
 
-    inhance( source, data1, config );
+    enhance( source, data1, config );
 
     return data1;
   }
 
   @Override
-  public void inhance(Data source, net.media.openrtb3.Data target, Config config) throws OpenRtbConverterException {
+  public void enhance(Data source, net.media.openrtb3.Data target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setId( source.getId() );

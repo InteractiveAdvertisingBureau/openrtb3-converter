@@ -22,16 +22,17 @@ public class AudioToBidConverter implements Converter<Audio,Bid> {
     if(isNull(source) || isNull(config))
       return  null;
     Bid  bid = new Bid();
-    inhance(source,bid,config);
+    enhance(source,bid,config);
     return bid;
   }
 
-  public  void inhance(Audio source, Bid target, Config config) throws OpenRtbConverterException {
+  public  void enhance(Audio source, Bid target, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
 
     target.setAdm(source.getAdm());
-    target.setApi(source.getApi());
+    if(nonNull(source.getApi()) && source.getApi().size()>0)
+      target.setApi(source.getApi().get(0));
     if(isNull(target.getExt())){
       target.setExt(new HashMap<>());
     }

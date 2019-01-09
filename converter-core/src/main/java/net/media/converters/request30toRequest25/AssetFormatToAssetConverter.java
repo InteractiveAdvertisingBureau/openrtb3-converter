@@ -29,12 +29,12 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
       return null;
     }
     Asset asset = new Asset();
-    inhance(assetFormat, asset, config);
+    enhance(assetFormat, asset, config);
     return asset;
   }
 
   @Override
-  public void inhance(AssetFormat assetFormat, Asset asset, Config config) {
+  public void enhance(AssetFormat assetFormat, Asset asset, Config config) {
     if (isNull(assetFormat) || isNull(asset)) {
       return;
     }

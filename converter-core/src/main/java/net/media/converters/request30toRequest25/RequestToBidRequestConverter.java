@@ -35,13 +35,13 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
 
     BidRequest bidRequest = new BidRequest();
 
-    inhance( source, bidRequest, config );
+    enhance( source, bidRequest, config );
 
     return bidRequest;
   }
 
   @Override
-  public void inhance(Request source, BidRequest target, Config config) throws OpenRtbConverterException {
+  public void enhance(Request source, BidRequest target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
 
@@ -58,7 +58,7 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
         if (target.getUser() == null) {
           target.setUser(new User());
         }
-        requestUserConverter.inhance(source, target.getUser(), config);
+        requestUserConverter.enhance(source, target.getUser(), config);
       }
 
       App app = source.getContext().getApp();
@@ -77,9 +77,9 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       }
 
       if(source.getContext().getRestrictions() != null) {
-        target.setBapp( source.getContext().getRestrictions().getBapp() );
-        target.setBcat( source.getContext().getRestrictions().getBcat() );
-        target.setBadv( source.getContext().getRestrictions().getBadv() );
+        target.setBapp( Utils.copyList(source.getContext().getRestrictions().getBapp(), config) );
+        target.setBcat( Utils.copySet(source.getContext().getRestrictions().getBcat(), config) );
+        target.setBadv( Utils.copySet(source.getContext().getRestrictions().getBadv(), config) );
         if (source.getContext().getRestrictions().getCattax() != null) {
           if (target.getExt() == null)
             target.setExt(new HashMap<>());
@@ -135,15 +135,16 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     target.setSource( sourceSourceConverter.map( source.getSource(), config ) );
     List<String> list1 = source.getCur();
     if ( list1 != null ) {
-      target.setCur( new ArrayList<String>( list1 ) );
+      target.setCur( Utils.copyList( list1, config ) );
     }
 
     if(source.getWseat() != null) {
 
       if (source.getWseat() == 0) {
-        target.setBseat(source.getSeat());
+        target.setBseat(Utils.copySet(source.getSeat(), config));
+        target.setBseat(Utils.copySet(source.getSeat(), config));
       } else {
-        target.setWseat(source.getSeat());
+        target.setWseat(Utils.copySet(source.getSeat(), config));
       }
     }
 

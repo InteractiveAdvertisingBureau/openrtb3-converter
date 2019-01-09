@@ -7,10 +7,9 @@ import net.media.converters.Converter;
 import net.media.openrtb3.Content;
 import net.media.openrtb3.Publisher;
 import net.media.openrtb3.Site;
+import net.media.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @AllArgsConstructor
@@ -27,26 +26,26 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.
 
     net.media.openrtb25.request.Site site1 = new net.media.openrtb25.request.Site();
 
-    inhance( source, site1, config );
+    enhance( source, site1, config );
 
     return site1;
   }
 
   @Override
-  public void inhance(Site source, net.media.openrtb25.request.Site target, Config config) throws OpenRtbConverterException {
+  public void enhance(Site source, net.media.openrtb25.request.Site target, Config config) throws
+    OpenRtbConverterException {
     if(source == null)
       return;
-    target.setSectioncat( source.getSectcat() );
+    target.setSectioncat( Utils.copyList(source.getSectcat(), config) );
     target.setPrivacypolicy( source.getPrivpolicy() );
     target.setPublisher( publisherPublisherConverter.map( source.getPub(), config ) );
     target.setId( source.getId() );
     target.setName( source.getName() );
     target.setDomain( source.getDomain() );
-    List<String> list1 = source.getCat();
-    if ( list1 != null ) {
-      target.setCat( new ArrayList<String>( list1 ) );
+    if ( source.getCat() != null ) {
+      target.setCat( Utils.copyList( source.getCat(), config ) );
     }
-    target.setPagecat( source.getPagecat() );
+    target.setPagecat( Utils.copySet(source.getPagecat(), config) );
     target.setPage( source.getPage() );
     target.setRef( source.getRef() );
     target.setSearch( source.getSearch() );

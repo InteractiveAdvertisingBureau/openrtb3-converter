@@ -24,12 +24,12 @@ public class Bid24ToMediaConverter implements Converter<Bid, Media> {
       return null;
     }
     Media media = new Media();
-    inhance(source, media, config);
+    enhance(source, media, config);
     return media;
   }
 
   @Override
-  public void inhance(Bid source, Media target, Config config)throws OpenRtbConverterException {
+  public void enhance(Bid source, Media target, Config config)throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }
