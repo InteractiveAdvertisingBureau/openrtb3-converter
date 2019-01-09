@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.request.Content;
-import net.media.openrtb24.request.Publisher;
-import net.media.openrtb24.request.Site;
+import net.media.openrtb25.request.Content;
+import net.media.openrtb25.request.Publisher;
+import net.media.openrtb25.request.Site;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -7,14 +7,14 @@ import net.media.openrtb3.Geo;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb24.request.Geo> {
+public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.request.Geo> {
   @Override
-  public net.media.openrtb24.request.Geo map(Geo source, Config config) {
+  public net.media.openrtb25.request.Geo map(Geo source, Config config) {
     if ( source == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.Geo geo1 = new net.media.openrtb24.request.Geo();
+    net.media.openrtb25.request.Geo geo1 = new net.media.openrtb25.request.Geo();
 
     inhance(source, geo1, config );
 
@@ -22,7 +22,7 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb24.req
   }
 
   @Override
-  public void inhance(Geo source, net.media.openrtb24.request.Geo target, Config config) {
+  public void inhance(Geo source, net.media.openrtb25.request.Geo target, Config config) {
     if(source == null)
       return;
     target.setIpservice( source.getIpserv() );

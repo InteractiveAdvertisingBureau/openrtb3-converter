@@ -6,10 +6,9 @@ import net.media.OpenRtbConverter;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.enums.AdType;
-import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.response.BidResponse;
+import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb3.OpenRTB;
-import net.media.util.JacksonObjectMapper;
+import net.media.utils.JacksonObjectMapper;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
@@ -24,7 +23,6 @@ import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Threads;
 import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
-import org.openjdk.jmh.util.Utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,22 +45,28 @@ public class Response24ToResponse30BenchMark {
   @Threads(1)
   @Fork(1)
   @Benchmark
-  public void bannerResponse(Blackhole blackhole, ResponseState state) throws OpenRtbConverterException, ConfigurationException {
-    blackhole.consume(state.openRtbConverter.convert(state.bidRequest, BidRequest.class,
-      OpenRTB.class));
+  public void bannerResponse(Blackhole blackhole, ResponseState state) throws
+    OpenRtbConverterException, ConfigurationException, Exception {
+    BidRequest request = JacksonObjectMapper.getMapper().readValue(state.request, BidRequest.class);
+    OpenRTB request1 = state.openRtbConverter.convert(state.bidRequest, BidRequest.class,
+      OpenRTB.class);
+//    System.out.println(JacksonObjectMapper.getMapper().writeValueAsString(request));
+    blackhole.consume(request1);
   }
 
   @State(Scope.Benchmark)
   public static class ResponseState {
 
     public BidRequest bidRequest;
+    public byte[] request;
     public OpenRtbConverter openRtbConverter;
 
     @Setup(Level.Trial)
     public void doSetup() throws IOException {
       File file = new File("/Users/rajat.go/Documents/workspace/openrtb-converter/converter-bechmark/src/main/resources/banner24Response.json");
       byte[] jsonData = Files.readAllBytes(file.toPath());
-      this.bidRequest = mapper.readValue(jsonData, BidRequest.class);
+//      this.bidRequest = mapper.readValue(jsonData, BidRequest.class);
+      this.request = jsonData;
       Config config = new Config();
       config.setBannerTemplate("");
       config.setAdType(AdType.BANNER);

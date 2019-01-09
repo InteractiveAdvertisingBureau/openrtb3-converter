@@ -1,13 +1,11 @@
 package net.media.mapper;
 
-import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.request.Imp;
-import net.media.openrtb24.request.Video;
-import net.media.openrtb3.Item;
-import net.media.openrtb3.Request;
+import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.Imp;
+import net.media.openrtb25.request.Video;
 import net.media.openrtb3.VideoPlacement;
-import net.media.util.FirstElement;
-import net.media.util.IterableNonInterableUtil;
+import net.media.utils.FirstElement;
+import net.media.utils.IterableNonInterableUtil;
 
 import org.mapstruct.AfterMapping;
 import org.mapstruct.InheritInverseConfiguration;
@@ -17,7 +15,6 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.Mappings;
 
 import java.util.Collections;
-import java.util.HashSet;
 
 import static java.util.Objects.nonNull;
 

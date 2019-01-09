@@ -14,18 +14,18 @@ import java.util.List;
 import java.util.Map;
 
 @AllArgsConstructor
-public class SiteToSiteConverter implements Converter<Site, net.media.openrtb24.request.Site> {
+public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.request.Site> {
 
-  private Converter<Publisher, net.media.openrtb24.request.Publisher> publisherPublisherConverter;
-  private Converter<Content, net.media.openrtb24.request.Content> contentContentConverter;
+  private Converter<Publisher, net.media.openrtb25.request.Publisher> publisherPublisherConverter;
+  private Converter<Content, net.media.openrtb25.request.Content> contentContentConverter;
 
   @Override
-  public net.media.openrtb24.request.Site map(Site source, Config config) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.Site map(Site source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.Site site1 = new net.media.openrtb24.request.Site();
+    net.media.openrtb25.request.Site site1 = new net.media.openrtb25.request.Site();
 
     inhance( source, site1, config );
 
@@ -33,7 +33,7 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb24.
   }
 
   @Override
-  public void inhance(Site source, net.media.openrtb24.request.Site target, Config config) throws OpenRtbConverterException {
+  public void inhance(Site source, net.media.openrtb25.request.Site target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setSectioncat( source.getSectcat() );

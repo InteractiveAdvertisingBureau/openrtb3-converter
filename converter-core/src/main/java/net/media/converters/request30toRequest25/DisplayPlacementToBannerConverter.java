@@ -2,8 +2,8 @@ package net.media.converters.request30toRequest25;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.request.Banner;
-import net.media.openrtb24.request.Format;
+import net.media.openrtb25.request.Banner;
+import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CollectionUtils;

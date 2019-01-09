@@ -2,7 +2,7 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.request.Source;
+import net.media.openrtb25.request.Source;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -7,14 +7,14 @@ import net.media.openrtb3.Publisher;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PublisherToPublisherConverter implements Converter<Publisher, net.media.openrtb24.request.Publisher> {
+public class PublisherToPublisherConverter implements Converter<Publisher, net.media.openrtb25.request.Publisher> {
   @Override
-  public net.media.openrtb24.request.Publisher map(Publisher source, Config config) {
+  public net.media.openrtb25.request.Publisher map(Publisher source, Config config) {
     if ( source == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.Publisher publisher1 = new net.media.openrtb24.request.Publisher();
+    net.media.openrtb25.request.Publisher publisher1 = new net.media.openrtb25.request.Publisher();
 
     inhance( source, publisher1, config );
 
@@ -22,7 +22,7 @@ public class PublisherToPublisherConverter implements Converter<Publisher, net.m
   }
 
   @Override
-  public void inhance(Publisher source, net.media.openrtb24.request.Publisher target, Config config) {
+  public void inhance(Publisher source, net.media.openrtb25.request.Publisher target, Config config) {
     if(source == null)
       return;
     target.setId( source.getId() );

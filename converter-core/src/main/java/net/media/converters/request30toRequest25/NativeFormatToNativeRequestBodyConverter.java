@@ -3,16 +3,14 @@ package net.media.converters.request30toRequest25;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.request.Asset;
-import net.media.openrtb24.request.NativeRequestBody;
+import net.media.openrtb25.request.Asset;
+import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.NativeFormat;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import lombok.AllArgsConstructor;
 

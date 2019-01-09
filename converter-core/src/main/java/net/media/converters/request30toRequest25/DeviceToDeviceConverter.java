@@ -12,17 +12,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 @AllArgsConstructor
-public class DeviceToDeviceConverter implements Converter<Device, net.media.openrtb24.request.Device> {
+public class DeviceToDeviceConverter implements Converter<Device, net.media.openrtb25.request.Device> {
 
-  private Converter<Geo, net.media.openrtb24.request.Geo> geoGeoConverter;
+  private Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter;
 
   @Override
-  public net.media.openrtb24.request.Device map(Device source, Config config) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.Device map(Device source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.Device device1 = new net.media.openrtb24.request.Device();
+    net.media.openrtb25.request.Device device1 = new net.media.openrtb25.request.Device();
 
     inhance( source, device1, config );
 
@@ -30,7 +30,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
   }
 
   @Override
-  public void inhance(Device source, net.media.openrtb24.request.Device target, Config config) throws OpenRtbConverterException {
+  public void inhance(Device source, net.media.openrtb25.request.Device target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setLanguage( source.getLang() );

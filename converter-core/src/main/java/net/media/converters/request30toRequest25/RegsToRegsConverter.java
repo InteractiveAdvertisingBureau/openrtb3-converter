@@ -7,14 +7,14 @@ import net.media.openrtb3.Regs;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb24.request.Regs> {
+public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb25.request.Regs> {
   @Override
-  public net.media.openrtb24.request.Regs map(Regs source, Config config) {
+  public net.media.openrtb25.request.Regs map(Regs source, Config config) {
     if ( source == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.Regs regs1 = new net.media.openrtb24.request.Regs();
+    net.media.openrtb25.request.Regs regs1 = new net.media.openrtb25.request.Regs();
 
     inhance( source, regs1, config );
 
@@ -22,7 +22,7 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb24.
   }
 
   @Override
-  public void inhance(Regs source, net.media.openrtb24.request.Regs target, Config config) {
+  public void inhance(Regs source, net.media.openrtb25.request.Regs target, Config config) {
     if(source == null)
       return;
     target.setCoppa( source.getCoppa() );

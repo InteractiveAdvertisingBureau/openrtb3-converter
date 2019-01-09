@@ -6,25 +6,23 @@ import net.media.openrtb3.Deal;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static java.util.Objects.isNull;
 
-public class DealToDealConverter implements Converter<Deal, net.media.openrtb24.request.Deal> {
+public class DealToDealConverter implements Converter<Deal, net.media.openrtb25.request.Deal> {
   @Override
-  public net.media.openrtb24.request.Deal map(Deal deal, Config config) {
+  public net.media.openrtb25.request.Deal map(Deal deal, Config config) {
     if ( deal == null ) {
       return null;
     }
-    net.media.openrtb24.request.Deal deal1 = new net.media.openrtb24.request.Deal();
+    net.media.openrtb25.request.Deal deal1 = new net.media.openrtb25.request.Deal();
     inhance(deal, deal1, config);
     return deal1;
   }
 
   @Override
-  public void inhance(Deal deal, net.media.openrtb24.request.Deal deal1, Config config) {
+  public void inhance(Deal deal, net.media.openrtb25.request.Deal deal1, Config config) {
     if (isNull(deal) || isNull(deal1)) {
       return;
     }

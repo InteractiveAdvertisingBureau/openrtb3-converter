@@ -4,7 +4,7 @@ import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.enums.AdType;
-import net.media.openrtb24.response.Bid;
+import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.*;
 import net.media.utils.Utils;
 

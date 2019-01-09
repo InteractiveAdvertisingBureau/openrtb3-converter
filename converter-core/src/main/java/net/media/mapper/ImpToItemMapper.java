@@ -1,7 +1,7 @@
 package net.media.mapper;
 
-import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.request.Imp;
+import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.Imp;
 import net.media.openrtb3.Deal;
 import net.media.openrtb3.Item;
 
@@ -132,8 +132,8 @@ public interface ImpToItemMapper {
     @Mapping(source = "deal.bidFloor", target = "flr"),
     @Mapping(source = "deal.bidFloorCur", target = "flrcur")
   })
-  Deal map(net.media.openrtb24.request.Deal deal);
+  Deal map(net.media.openrtb25.request.Deal deal);
 
   @InheritInverseConfiguration
-  net.media.openrtb24.request.Deal map(Deal deal);
+  net.media.openrtb25.request.Deal map(Deal deal);
 }

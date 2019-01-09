@@ -12,18 +12,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 @AllArgsConstructor
-public class DataToDataConverter implements Converter<Data, net.media.openrtb24.request.Data> {
+public class DataToDataConverter implements Converter<Data, net.media.openrtb25.request.Data> {
 
-  private Converter<Segment, net.media.openrtb24.request.Segment> segmentSegmentConverter;
+  private Converter<Segment, net.media.openrtb25.request.Segment> segmentSegmentConverter;
 
   @Override
-  public net.media.openrtb24.request.Data map(Data source, Config config) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.Data map(Data source, Config config) throws OpenRtbConverterException {
 
     if ( source == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.Data data1 = new net.media.openrtb24.request.Data();
+    net.media.openrtb25.request.Data data1 = new net.media.openrtb25.request.Data();
 
     inhance( source, data1, config );
 
@@ -31,7 +31,7 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb24.
   }
 
   @Override
-  public void inhance(Data source, net.media.openrtb24.request.Data target, Config config) throws OpenRtbConverterException {
+  public void inhance(Data source, net.media.openrtb25.request.Data target, Config config) throws OpenRtbConverterException {
     target.setId( source.getId() );
     target.setName( source.getName() );
     target.setSegment( ListToListConverter.convert( source.getSegment(), segmentSegmentConverter, config ) );

@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.request.*;
+import net.media.openrtb25.request.*;
 import net.media.openrtb3.Context;
 import net.media.openrtb3.Restrictions;
 

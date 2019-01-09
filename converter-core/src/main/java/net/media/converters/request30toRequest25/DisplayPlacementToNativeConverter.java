@@ -5,18 +5,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.request.Native;
-import net.media.openrtb24.request.NativeRequest;
-import net.media.openrtb24.request.NativeRequestBody;
+import net.media.openrtb25.request.Native;
+import net.media.openrtb25.request.NativeRequest;
+import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.NativeFormat;
-import net.media.util.JacksonObjectMapper;
+import net.media.utils.JacksonObjectMapper;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import lombok.AllArgsConstructor;
 

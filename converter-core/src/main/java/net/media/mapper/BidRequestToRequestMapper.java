@@ -1,6 +1,6 @@
 package net.media.mapper;
 
-import net.media.openrtb24.request.BidRequest;
+import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb3.Request;
 
 import org.mapstruct.Mapper;

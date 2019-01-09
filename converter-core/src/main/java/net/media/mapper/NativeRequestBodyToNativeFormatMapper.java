@@ -1,11 +1,9 @@
 package net.media.mapper;
 
-import net.media.openrtb24.request.Asset;
-import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.request.Imp;
-import net.media.openrtb24.request.NativeImage;
-import net.media.openrtb24.request.NativeRequestBody;
-import net.media.openrtb24.request.NativeVideo;
+import net.media.openrtb25.request.Asset;
+import net.media.openrtb25.request.NativeImage;
+import net.media.openrtb25.request.NativeRequestBody;
+import net.media.openrtb25.request.NativeVideo;
 import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.ImageAssetFormat;
 import net.media.openrtb3.NativeFormat;

@@ -4,7 +4,7 @@ package net.media.api.controllers;
 import com.google.inject.Inject;
 import net.media.OpenRtbConverter;
 import net.media.mapper.RequestConverter;
-import net.media.openrtb24.request.BidRequest;
+import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb3.Request;
 import net.media.util.JacksonObjectMapper;
 
