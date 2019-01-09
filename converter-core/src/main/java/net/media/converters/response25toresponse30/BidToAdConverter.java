@@ -67,13 +67,13 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
     else {
       target.setAdomain( null );
     }
-    List<String> list1 = source.getBundle();
-    if ( list1 != null ) {
-      target.setBundle(new ArrayList<>(list1) );
+    if(nonNull(source.getBundle())){
+      List<String> bundle = new ArrayList<>();
+      bundle.add(source.getBundle());
+      target.setBundle(bundle);
     }
-    else {
-      target.setBundle( null );
-    }
+
+
     target.setIurl( source.getIurl() );
     Set<String> set = source.getCat();
     if ( set != null ) {
