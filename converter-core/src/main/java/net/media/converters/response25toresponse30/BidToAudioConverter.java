@@ -24,12 +24,12 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
       return null;
     }
     Audio audio = new Audio();
-    inhance(source, audio, config);
+    enhance(source, audio, config);
     return null;
   }
 
   @Override
-  public void inhance(Bid source, Audio target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, Audio target, Config config) throws OpenRtbConverterException{
 
     if (isNull(source) || isNull(target)) {
       return;

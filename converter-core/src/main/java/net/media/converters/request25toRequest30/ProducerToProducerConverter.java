@@ -17,13 +17,13 @@ public class ProducerToProducerConverter implements Converter<Producer, net.medi
 
     net.media.openrtb3.Producer producer1 = new net.media.openrtb3.Producer();
 
-    inhance( source, producer1, config );
+    enhance( source, producer1, config );
 
     return producer1;
   }
 
   @Override
-  public void inhance(Producer source, net.media.openrtb3.Producer target, Config config) {
+  public void enhance(Producer source, net.media.openrtb3.Producer target, Config config) {
     if(source == null)
       return;
     target.setId( source.getId() );

@@ -31,11 +31,11 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
     if(isNull(source) || isNull(config))
       return  null;
     Bid  bid = new Bid();
-    inhance(source,bid,config);
+    enhance(source,bid,config);
     return bid;
   }
 
-  public void inhance(Ad source, Bid target, Config config) throws OpenRtbConverterException {
+  public void enhance(Ad source, Bid target, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
 
@@ -71,16 +71,16 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
     switch (adType) {
       case BANNER:
       case NATIVE:
-        displayBidConverter.inhance(source.getDisplay(),target,config);
+        displayBidConverter.enhance(source.getDisplay(),target,config);
         break;
       case VIDEO:
-        videoBidConverter.inhance(source.getVideo(),target,config);
+        videoBidConverter.enhance(source.getVideo(),target,config);
         break;
       case AUDIO:
-        audioBidConverter.inhance(source.getAudio(),target,config);
+        audioBidConverter.enhance(source.getAudio(),target,config);
         break;
       case AUDIT:
-        auditBidConverter.inhance(source.getAudit(),target,config);
+        auditBidConverter.enhance(source.getAudit(),target,config);
         break;
     }
 

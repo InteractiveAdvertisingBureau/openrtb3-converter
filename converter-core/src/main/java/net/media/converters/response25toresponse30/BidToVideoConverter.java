@@ -25,12 +25,12 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
       return null;
     }
     Video video = new Video();
-    inhance(source, video, config);
+    enhance(source, video, config);
     return video;
   }
 
   @Override
-  public void inhance(Bid source, Video target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, Video target, Config config) throws OpenRtbConverterException{
     if (source == null || target == null) {
       return;
     }

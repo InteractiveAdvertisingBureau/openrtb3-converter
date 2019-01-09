@@ -27,13 +27,13 @@ public class BannerToCompanionConverter implements Converter<Banner, Companion> 
     }
 
     Companion companion = new Companion();
-    inhance(banner, companion, config);
+    enhance(banner, companion, config);
 
     return companion;
   }
 
   @Override
-  public void inhance(Banner banner, Companion companion, Config config) throws OpenRtbConverterException {
+  public void enhance(Banner banner, Companion companion, Config config) throws OpenRtbConverterException {
     if (nonNull(banner.getId())) {
       companion.setId(banner.getId());
     }

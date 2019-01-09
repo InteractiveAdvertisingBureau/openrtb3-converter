@@ -29,12 +29,12 @@ public class Bid24ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       return null;
     }
     net.media.openrtb3.Bid bid = new net.media.openrtb3.Bid();
-    inhance(source, bid, config);
+    enhance(source, bid, config);
     return bid;
   }
 
   @Override
-  public void inhance(Bid source, net.media.openrtb3.Bid target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, net.media.openrtb3.Bid target, Config config) throws OpenRtbConverterException{
     if (source == null || target == null) {
       return;
     }

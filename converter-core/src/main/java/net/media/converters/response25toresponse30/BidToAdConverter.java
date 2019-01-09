@@ -50,12 +50,12 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
       return null;
     }
     Ad ad = new Ad();
-    inhance(source, ad, config);
+    enhance(source, ad, config);
     return ad;
   }
 
   @Override
-  public void inhance(Bid source, Ad target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, Ad target, Config config) throws OpenRtbConverterException{
     if (isNull(source) || isNull(target)) {
       return;
     }

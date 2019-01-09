@@ -19,13 +19,13 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
 
     net.media.openrtb3.Source source1 = new net.media.openrtb3.Source();
 
-    inhance( source, source1, config);
+    enhance( source, source1, config);
 
     return source1;
   }
 
   @Override
-  public void inhance(Source source, net.media.openrtb3.Source target, Config config) {
+  public void enhance(Source source, net.media.openrtb3.Source target, Config config) {
     if(source == null)
       return;
     target.setTid( source.getTid() );

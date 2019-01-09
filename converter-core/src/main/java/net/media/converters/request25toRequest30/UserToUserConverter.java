@@ -26,13 +26,13 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
 
     net.media.openrtb3.User user1 = new net.media.openrtb3.User();
 
-    inhance( source, user1, config );
+    enhance( source, user1, config );
 
     return user1;
   }
 
   @Override
-  public void inhance(User source, net.media.openrtb3.User target, Config config) throws OpenRtbConverterException {
+  public void enhance(User source, net.media.openrtb3.User target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setId( source.getId() );

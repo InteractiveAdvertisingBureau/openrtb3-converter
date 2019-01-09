@@ -27,13 +27,13 @@ public class BidRequestToOpenRtbConverter implements Converter<BidRequest, OpenR
     }
 
     OpenRTB openRTB = new OpenRTB();
-    inhance(source, openRTB, config);
+    enhance(source, openRTB, config);
 
     return openRTB;
   }
 
   @Override
-  public void inhance(BidRequest source, OpenRTB target, Config config) throws OpenRtbConverterException {
+  public void enhance(BidRequest source, OpenRTB target, Config config) throws OpenRtbConverterException {
     if (isNull(source) || isNull(target)) {
       return;
     }

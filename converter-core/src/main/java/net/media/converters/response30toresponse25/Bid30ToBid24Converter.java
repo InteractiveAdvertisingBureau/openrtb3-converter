@@ -23,12 +23,12 @@ public class Bid30ToBid24Converter  implements Converter<net.media.openrtb3.Bid,
   @Override
   public Bid map(net.media.openrtb3.Bid source, Config config) throws OpenRtbConverterException {
     Bid bid = new Bid();
-    inhance(source,bid,config);
+    enhance(source,bid,config);
     return bid;
   }
 
   @Override
-  public void inhance(net.media.openrtb3.Bid source,Bid target, Config config) throws OpenRtbConverterException {
+  public void enhance(net.media.openrtb3.Bid source, Bid target, Config config) throws OpenRtbConverterException {
     if ( source == null && target == null && config == null ) {
       return ;
     }
@@ -58,7 +58,7 @@ public class Bid30ToBid24Converter  implements Converter<net.media.openrtb3.Bid,
 //      target.setQagmediarating(Integer.parseInt(source.getMid()));
       target.getExt().put("qagmediarating", source.getMid());
       target.getExt().put("macro",source.getMacro());
-      mediaBidConverter.inhance(source.getMedia(),target,config);
+      mediaBidConverter.enhance(source.getMedia(),target,config);
       MacroMapper.macroReplaceTwoX(target);
     }
   }

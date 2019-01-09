@@ -37,12 +37,12 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
     }
 
     DisplayPlacement displayPlacement = new DisplayPlacement();
-    inhance(nat, displayPlacement, config);
+    enhance(nat, displayPlacement, config);
     return displayPlacement;
   }
 
   @Override
-  public void inhance(Native nat, DisplayPlacement displayPlacement, Config config) throws OpenRtbConverterException {
+  public void enhance(Native nat, DisplayPlacement displayPlacement, Config config) throws OpenRtbConverterException {
     if (isNull(nat) || isNull(displayPlacement)) {
       return;
     }

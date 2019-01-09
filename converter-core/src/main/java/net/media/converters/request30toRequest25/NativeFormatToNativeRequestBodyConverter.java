@@ -10,9 +10,7 @@ import net.media.openrtb3.NativeFormat;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import lombok.AllArgsConstructor;
 
@@ -30,12 +28,12 @@ public class NativeFormatToNativeRequestBodyConverter implements Converter<Nativ
       return null;
     }
     NativeRequestBody nativeRequestBody = new NativeRequestBody();
-    inhance(nativeFormat, nativeRequestBody, config);
+    enhance(nativeFormat, nativeRequestBody, config);
     return nativeRequestBody;
   }
 
   @Override
-  public void inhance(NativeFormat nativeFormat, NativeRequestBody nativeRequestBody, Config config) throws OpenRtbConverterException {
+  public void enhance(NativeFormat nativeFormat, NativeRequestBody nativeRequestBody, Config config) throws OpenRtbConverterException {
     if (isNull(nativeFormat) || isNull(nativeRequestBody)) {
       return;
     }

@@ -32,12 +32,12 @@ public class SeatBid24ToSeatBid30Converter implements Converter<SeatBid, Seatbid
       return null;
     }
     Seatbid seatbid = new Seatbid();
-    inhance(source, seatbid, config);
+    enhance(source, seatbid, config);
     return seatbid;
   }
 
   @Override
-  public void inhance(SeatBid source, Seatbid seatbid, Config config)throws OpenRtbConverterException {
+  public void enhance(SeatBid source, Seatbid seatbid, Config config)throws OpenRtbConverterException {
     if (source == null || seatbid == null) {
       return;
     }

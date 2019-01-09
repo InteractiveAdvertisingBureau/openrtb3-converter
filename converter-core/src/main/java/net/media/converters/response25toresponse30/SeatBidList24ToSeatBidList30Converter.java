@@ -26,12 +26,12 @@ public class SeatBidList24ToSeatBidList30Converter implements Converter<List<Sea
       return null;
     }
     List<Seatbid> list1 = new ArrayList<>(list.size());
-    inhance(list, list1, config);
+    enhance(list, list1, config);
     return list1;
   }
 
   @Override
-  public void inhance(List<SeatBid> sourceList, List<Seatbid> targetList, Config config)throws OpenRtbConverterException {
+  public void enhance(List<SeatBid> sourceList, List<Seatbid> targetList, Config config)throws OpenRtbConverterException {
     if (sourceList == null || targetList == null) {
       return;
     }
