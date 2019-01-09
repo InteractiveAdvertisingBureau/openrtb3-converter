@@ -21,11 +21,11 @@ public class Asset30ToAsset24Converter  implements Converter<Asset,AssetResponse
     if(isNull(source) || isNull(config))
       return  null;
     AssetResponse assetResponse = new AssetResponse();
-    inhance(source,assetResponse,config);
+    enhance(source,assetResponse,config);
     return assetResponse;
   }
 
-  public void inhance(Asset source, AssetResponse target, Config config) throws
+  public void enhance(Asset source, AssetResponse target, Config config) throws
     OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return;

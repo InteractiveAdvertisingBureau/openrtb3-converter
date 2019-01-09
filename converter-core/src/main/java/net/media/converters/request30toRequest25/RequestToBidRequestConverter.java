@@ -35,13 +35,13 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
 
     BidRequest bidRequest = new BidRequest();
 
-    inhance( source, bidRequest, config );
+    enhance( source, bidRequest, config );
 
     return bidRequest;
   }
 
   @Override
-  public void inhance(Request source, BidRequest target, Config config) throws OpenRtbConverterException {
+  public void enhance(Request source, BidRequest target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
 
@@ -58,7 +58,7 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
         if (target.getUser() == null) {
           target.setUser(new User());
         }
-        requestUserConverter.inhance(source, target.getUser(), config);
+        requestUserConverter.enhance(source, target.getUser(), config);
       }
 
       App app = source.getContext().getApp();

@@ -24,13 +24,13 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
 
     net.media.openrtb24.request.Device device1 = new net.media.openrtb24.request.Device();
 
-    inhance( source, device1, config );
+    enhance( source, device1, config );
 
     return device1;
   }
 
   @Override
-  public void inhance(Device source, net.media.openrtb24.request.Device target, Config config) throws OpenRtbConverterException {
+  public void enhance(Device source, net.media.openrtb24.request.Device target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setLanguage( source.getLang() );

@@ -14,5 +14,5 @@ public interface Converter<U, V> {
 
   V map(U source, Config config) throws OpenRtbConverterException;
 
-  void inhance(U source, V target, Config config) throws OpenRtbConverterException;
+  void enhance(U source, V target, Config config) throws OpenRtbConverterException;
 }

@@ -15,11 +15,11 @@ public class LinkAssetToLinkConverter implements Converter<LinkAsset,Link> {
     if(isNull(source) || isNull(config))
       return  null;
     Link link = new Link();
-    inhance(source,link,config);
+    enhance(source,link,config);
     return link;
   }
 
-  public void inhance(LinkAsset source, Link target, Config config) throws OpenRtbConverterException {
+  public void enhance(LinkAsset source, Link target, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return;
 

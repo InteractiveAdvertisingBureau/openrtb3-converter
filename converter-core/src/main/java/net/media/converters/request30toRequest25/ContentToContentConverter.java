@@ -27,13 +27,13 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
 
     net.media.openrtb24.request.Content content1 = new net.media.openrtb24.request.Content();
 
-    inhance( source, content1, config );
+    enhance( source, content1, config );
 
     return content1;
   }
 
   @Override
-  public void inhance(Content source, net.media.openrtb24.request.Content target, Config config) throws OpenRtbConverterException {
+  public void enhance(Content source, net.media.openrtb24.request.Content target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setContentrating( source.getRating() );

@@ -34,13 +34,13 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     }
 
     AudioPlacement audioPlacement = new AudioPlacement();
-    inhance(audio, audioPlacement, config);
+    enhance(audio, audioPlacement, config);
 
     return audioPlacement;
   }
 
   @Override
-  public void inhance(Audio audio, AudioPlacement audioPlacement, Config config) throws OpenRtbConverterException {
+  public void enhance(Audio audio, AudioPlacement audioPlacement, Config config) throws OpenRtbConverterException {
     audioPlacement.setComptype(Utils.copyList(audio.getCompaniontype(), config));
     audioPlacement.setExt(Utils.copyMap(audio.getExt(), config));
     if (nonNull(audio.getStitched())) {

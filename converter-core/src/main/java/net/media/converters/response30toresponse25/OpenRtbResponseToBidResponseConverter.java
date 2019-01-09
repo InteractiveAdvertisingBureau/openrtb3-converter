@@ -31,12 +31,12 @@ public class OpenRtbResponseToBidResponseConverter implements Converter<OpenRTB,
     if(isNull(source) || isNull(config))
       return  null;
     BidResponse  bidResponse = new BidResponse();
-    inhance(source,bidResponse,config);
+    enhance(source,bidResponse,config);
     return bidResponse;
   }
 
   @Override
-  public void inhance(OpenRTB source,BidResponse target, Config config) throws OpenRtbConverterException  {
+  public void enhance(OpenRTB source, BidResponse target, Config config) throws OpenRtbConverterException  {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
     Response response = source.getResponse();

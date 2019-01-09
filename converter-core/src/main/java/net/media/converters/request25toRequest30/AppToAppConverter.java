@@ -26,13 +26,13 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
 
     net.media.openrtb3.App app1 = new net.media.openrtb3.App();
 
-    inhance( source, app1, config );
+    enhance( source, app1, config );
 
     return app1;
   }
 
   @Override
-  public void inhance(App source, net.media.openrtb3.App target, Config config) throws OpenRtbConverterException {
+  public void enhance(App source, net.media.openrtb3.App target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setPrivpolicy( source.getPrivacypolicy() );

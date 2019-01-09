@@ -17,12 +17,12 @@ public class LinkToLinkAssetConverter implements Converter<Link, LinkAsset> {
       return null;
     }
     LinkAsset linkAsset = new LinkAsset();
-    inhance(source, linkAsset, config);
+    enhance(source, linkAsset, config);
     return linkAsset;
   }
 
   @Override
-  public void inhance(Link source, LinkAsset target, Config config)throws OpenRtbConverterException {
+  public void enhance(Link source, LinkAsset target, Config config)throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }

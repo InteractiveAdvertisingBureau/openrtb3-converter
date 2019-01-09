@@ -17,13 +17,13 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.R
 
     net.media.openrtb3.Regs regs1 = new net.media.openrtb3.Regs();
 
-    inhance( source, regs1, config );
+    enhance( source, regs1, config );
 
     return regs1;
   }
 
   @Override
-  public void inhance(Regs source, net.media.openrtb3.Regs target, Config config) {
+  public void enhance(Regs source, net.media.openrtb3.Regs target, Config config) {
     if(source == null)
       return;
     target.setCoppa( source.getCoppa() );

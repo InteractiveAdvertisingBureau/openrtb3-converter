@@ -17,13 +17,13 @@ public class PublisherToPublisherConverter implements Converter<Publisher, net.m
 
     net.media.openrtb24.request.Publisher publisher1 = new net.media.openrtb24.request.Publisher();
 
-    inhance( source, publisher1, config );
+    enhance( source, publisher1, config );
 
     return publisher1;
   }
 
   @Override
-  public void inhance(Publisher source, net.media.openrtb24.request.Publisher target, Config config) {
+  public void enhance(Publisher source, net.media.openrtb24.request.Publisher target, Config config) {
     if(source == null)
       return;
     target.setId( source.getId() );

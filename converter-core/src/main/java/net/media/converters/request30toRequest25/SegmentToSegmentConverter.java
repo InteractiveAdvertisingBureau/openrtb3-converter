@@ -16,13 +16,13 @@ public class SegmentToSegmentConverter implements Converter<Segment, net.media.o
 
     net.media.openrtb24.request.Segment segment1 = new net.media.openrtb24.request.Segment();
 
-    inhance( source, segment1, config );
+    enhance( source, segment1, config );
 
     return segment1;
   }
 
   @Override
-  public void inhance(Segment source, net.media.openrtb24.request.Segment target, Config config) {
+  public void enhance(Segment source, net.media.openrtb24.request.Segment target, Config config) {
     if(source == null)
       return;
     target.setId( source.getId() );

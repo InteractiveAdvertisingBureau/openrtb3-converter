@@ -101,7 +101,7 @@ public class OpenRtbConverter {
       Utils.validate(source);
     }
     Converter<U, V> converter = converterPlumber.getConverter(sourceClass, targetClass);
-    converter.inhance(source, target, overridingConfig);
+    converter.enhance(source, target, overridingConfig);
   }
 
   /**
@@ -117,7 +117,7 @@ public class OpenRtbConverter {
   public <U, V> void enhance(U source, V target, Class<U> sourceClass,
                              Class<V> targetClass) throws OpenRtbConverterException {
     Converter<U, V> converter = converterPlumber.getConverter(sourceClass, targetClass);
-    converter.inhance(source, target, null);
+    converter.enhance(source, target, null);
   }
 
   /**

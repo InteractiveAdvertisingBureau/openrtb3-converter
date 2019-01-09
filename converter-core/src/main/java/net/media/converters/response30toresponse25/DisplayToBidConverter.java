@@ -30,11 +30,11 @@ public class DisplayToBidConverter implements Converter<Display,Bid> {
     if(isNull(source) || isNull(config))
       return  null;
     Bid  bid = new Bid();
-    inhance(source,bid,config);
+    enhance(source,bid,config);
     return bid;
   }
 
-  public  void inhance(Display source, Bid target, Config config) throws OpenRtbConverterException {
+  public  void enhance(Display source, Bid target, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
 

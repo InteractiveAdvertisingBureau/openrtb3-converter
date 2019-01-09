@@ -5,11 +5,6 @@ import net.media.converters.Converter;
 import net.media.openrtb24.request.Deal;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
  * Created by rajat.go on 03/01/19.
  */
@@ -21,12 +16,12 @@ public class DealToDealConverter implements Converter<Deal, net.media.openrtb3.D
     }
 
     net.media.openrtb3.Deal deal1 = new net.media.openrtb3.Deal();
-    inhance(deal, deal1, config);
+    enhance(deal, deal1, config);
     return deal1;
   }
 
   @Override
-  public void inhance(Deal deal, net.media.openrtb3.Deal deal1, Config config) {
+  public void enhance(Deal deal, net.media.openrtb3.Deal deal1, Config config) {
     if ( deal == null ) {
       return;
     }

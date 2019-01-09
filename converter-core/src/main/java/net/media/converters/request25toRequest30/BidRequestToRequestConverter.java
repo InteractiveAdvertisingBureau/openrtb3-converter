@@ -56,13 +56,13 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
 
     Request request = new Request();
 
-    inhance( source, request, config );
+    enhance( source, request, config );
 
     return request;
   }
 
   @Override
-  public void inhance(BidRequest source, Request target, Config config) throws OpenRtbConverterException {
+  public void enhance(BidRequest source, Request target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setContext( bidRequestContextConverter.map( source, config ) );

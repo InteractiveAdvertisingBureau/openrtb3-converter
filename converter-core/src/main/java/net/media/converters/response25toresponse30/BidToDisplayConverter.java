@@ -36,12 +36,12 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
       return null;
     }
     Display display = new Display();
-    inhance(source, display, config);
+    enhance(source, display, config);
     return display;
   }
 
   @Override
-  public void inhance(Bid source, Display target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, Display target, Config config) throws OpenRtbConverterException{
     if (source == null || target == null) {
       return;
     }
