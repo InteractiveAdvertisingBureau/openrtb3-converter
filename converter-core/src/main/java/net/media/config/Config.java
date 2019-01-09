@@ -28,6 +28,8 @@ public class Config {
 
   private static final boolean DEFAULT_NATIVE_REQUEST_AS_STRING = true;
 
+  private static final boolean DEFAULT_NATIVE_RESPONSE_AS_STRING = false;
+
   private static final boolean DEFAULT_DISABLE_CLONING = false;
 
   private static final boolean DEFAULT_VALIDATE = true;
@@ -45,6 +47,8 @@ public class Config {
    * as native request can be an object as well as a string in 2.x
    */
   private Boolean nativeRequestAsString;
+
+  private Boolean nativeResponseAsString;
 
   /**
    * {@link AdType} provides the adType for response conversion
@@ -84,6 +88,11 @@ public class Config {
   public Boolean getNativeRequestAsString() {
     return nonNull(nativeRequestAsString) ? nativeRequestAsString :
       DEFAULT_NATIVE_REQUEST_AS_STRING;
+  }
+
+  public Boolean getNativeResponseAsString() {
+    return nonNull(nativeResponseAsString) ? nativeResponseAsString :
+      DEFAULT_NATIVE_RESPONSE_AS_STRING;
   }
 
   public Boolean getValidate() {

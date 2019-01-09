@@ -21,7 +21,6 @@ import net.media.openrtb3.VideoPlacement;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -55,12 +54,12 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       return null;
     }
     Item item = new Item();
-    inhance(imp, item, config);
+    enhance(imp, item, config);
     return item;
   }
 
   @Override
-  public void inhance(Imp imp, Item item, Config config) throws OpenRtbConverterException {
+  public void enhance(Imp imp, Item item, Config config) throws OpenRtbConverterException {
     if (nonNull(imp)) {
       if ( item.getSpec() == null ) {
         item.setSpec( new Spec() );
@@ -142,7 +141,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     if (isNull(displayPlacement) && nonNull(imp.getNat())) {
       displayPlacement = new DisplayPlacement();
     }
-    nativeDisplayPlacementConverter.inhance(imp.getNat(), displayPlacement, config);
+    nativeDisplayPlacementConverter.enhance(imp.getNat(), displayPlacement, config);
     mappingTarget.setDisplay( displayPlacement );
   }
 

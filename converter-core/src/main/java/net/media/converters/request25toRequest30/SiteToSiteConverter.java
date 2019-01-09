@@ -9,9 +9,7 @@ import net.media.openrtb24.request.Publisher;
 import net.media.openrtb24.request.Site;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @AllArgsConstructor
@@ -28,13 +26,13 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
 
     net.media.openrtb3.Site site1 = new net.media.openrtb3.Site();
 
-    inhance( source, site1, config );
+    enhance( source, site1, config );
 
     return site1;
   }
 
   @Override
-  public void inhance(Site source, net.media.openrtb3.Site target, Config config) throws OpenRtbConverterException {
+  public void enhance(Site source, net.media.openrtb3.Site target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setPrivpolicy( source.getPrivacypolicy() );

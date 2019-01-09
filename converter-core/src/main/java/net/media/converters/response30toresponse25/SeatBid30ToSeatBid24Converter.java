@@ -27,12 +27,12 @@ public class SeatBid30ToSeatBid24Converter implements Converter<Seatbid,SeatBid>
     if(isNull(source) || isNull(config))
       return  null;
     SeatBid  seatBid = new SeatBid();
-    inhance(source,seatBid,config);
+    enhance(source,seatBid,config);
     return seatBid;
   }
 
   @Override
-  public void inhance(Seatbid source,SeatBid target, Config config)  throws OpenRtbConverterException {
+  public void enhance(Seatbid source, SeatBid target, Config config)  throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return;
 

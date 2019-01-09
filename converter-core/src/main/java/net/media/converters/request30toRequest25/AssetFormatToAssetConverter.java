@@ -14,12 +14,8 @@ import net.media.openrtb3.TitleAssetFormat;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import static java.util.Objects.isNull;
 
@@ -33,12 +29,12 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
       return null;
     }
     Asset asset = new Asset();
-    inhance(assetFormat, asset, config);
+    enhance(assetFormat, asset, config);
     return asset;
   }
 
   @Override
-  public void inhance(AssetFormat assetFormat, Asset asset, Config config) {
+  public void enhance(AssetFormat assetFormat, Asset asset, Config config) {
     if (isNull(assetFormat) || isNull(asset)) {
       return;
     }

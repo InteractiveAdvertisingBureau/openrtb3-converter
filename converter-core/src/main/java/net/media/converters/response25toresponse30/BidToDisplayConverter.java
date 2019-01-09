@@ -36,12 +36,12 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
       return null;
     }
     Display display = new Display();
-    inhance(source, display, config);
+    enhance(source, display, config);
     return display;
   }
 
   @Override
-  public void inhance(Bid source, Display target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, Display target, Config config) throws OpenRtbConverterException{
     if (source == null || target == null) {
       return;
     }
@@ -49,13 +49,8 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     target.setWratio( source.getWratio() );
     target.setW( source.getW() );
     target.setHratio( source.getHratio() );
-    List<Integer> list = source.getApi();
-    if ( list != null ) {
-      target.setApi(new ArrayList<>(list) );
-    }
-    else {
-      target.setApi( null );
-    }
+    if(nonNull(source.getApi()))
+      target.setApi(new ArrayList<>(source.getApi()));
     target.setCurl(source.getNurl());
     if (config.getAdType() == AdType.NATIVE) {
       if (source.getAdm() instanceof String) {

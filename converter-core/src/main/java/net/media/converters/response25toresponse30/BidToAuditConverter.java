@@ -27,7 +27,7 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
   }
 
   @Override
-  public void inhance(Bid source, Audit target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, Audit target, Config config) throws OpenRtbConverterException{
     if (isNull(source) || isNull(target)) {
       return;
     }

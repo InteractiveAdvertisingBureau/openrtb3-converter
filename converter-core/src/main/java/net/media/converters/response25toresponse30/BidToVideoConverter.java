@@ -25,12 +25,12 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
       return null;
     }
     Video video = new Video();
-    inhance(source, video, config);
+    enhance(source, video, config);
     return video;
   }
 
   @Override
-  public void inhance(Bid source, Video target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, Video target, Config config) throws OpenRtbConverterException{
     if (source == null || target == null) {
       return;
     }
@@ -42,12 +42,10 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
       target.setExt( null );
     }
     target.setAdm( source.getAdm() );
-    List<Integer> list = source.getApi();
-    if ( list != null ) {
-      target.setApi(new ArrayList<>(list) );
-    }
-    else {
-      target.setApi( null );
+    if(nonNull(source.getApi())) {
+      List<Integer> api = new ArrayList<>();
+      api.add(source.getApi());
+      target.setApi(api);
     }
     target.setCurl(source.getNurl());
 

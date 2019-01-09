@@ -403,13 +403,13 @@ public class OpenRtb24To3MapperImpl {
         else {
             ad.setAdomain( null );
         }
-        List<String> list1 = bid.getBundle();
-        if ( list1 != null ) {
-            ad.setBundle(new ArrayList<>(list1) );
-        }
-        else {
-            ad.setBundle( null );
-        }
+//        List<String> list1 = bid.getBundle();
+//        if ( list1 != null ) {
+//            ad.setBundle(new ArrayList<>(list1) );
+//        }
+//        else {
+//            ad.setBundle( null );
+//        }
         ad.setIurl( bid.getIurl() );
         Set<String> set = bid.getCat();
         if ( set != null ) {
@@ -481,13 +481,13 @@ public class OpenRtb24To3MapperImpl {
                 audio.setExt( null );
             }
             audio.setAdm( bid.getAdm() );
-            List<Integer> list = bid.getApi();
-            if ( list != null ) {
-                audio.setApi(new ArrayList<>(list) );
-            }
-            else {
-                audio.setApi( null );
-            }
+//            List<Integer> list = bid.getApi();
+//            if ( list != null ) {
+//                audio.setApi(new ArrayList<>(list) );
+//            }
+//            else {
+//                audio.setApi( null );
+//            }
             audio.setCurl(bid.getNurl());
         }
         mapAudio(bid,seatBid,bidResponse,audio,adType);
@@ -604,12 +604,10 @@ public class OpenRtb24To3MapperImpl {
             //display.setAdm( bid.getAdm() );
             display.setW( bid.getW() );
             display.setHratio( bid.getHratio() );
-            List<Integer> list = bid.getApi();
-            if ( list != null ) {
-                display.setApi(new ArrayList<>(list) );
-            }
-            else {
-                display.setApi( null );
+            if(nonNull(bid.getApi())){
+               List<Integer> apis = new ArrayList<>();
+               apis.add(bid.getApi());
+               display.setApi(apis);
             }
             display.setCurl(bid.getNurl());
             if (adType == AdType.NATIVE) {
@@ -894,24 +892,24 @@ public class OpenRtb24To3MapperImpl {
 
         Video video = new Video();
 
-        if ( bid != null ) {
-            Map<String, Object> map = bid.getExt();
-            if ( map != null ) {
-                video.setExt(new HashMap<>(map) );
-            }
-            else {
-                video.setExt( null );
-            }
-            video.setAdm( bid.getAdm() );
-            List<Integer> list = bid.getApi();
-            if ( list != null ) {
-                video.setApi(new ArrayList<>(list) );
-            }
-            else {
-                video.setApi( null );
-            }
-            video.setCurl(bid.getNurl());
-        }
+//        if ( bid != null ) {
+//            Map<String, Object> map = bid.getExt();
+//            if ( map != null ) {
+//                video.setExt(new HashMap<>(map) );
+//            }
+//            else {
+//                video.setExt( null );
+//            }
+//            video.setAdm( bid.getAdm() );
+//            List<Integer> list = bid.getApi();
+//            if ( list != null ) {
+//                video.setApi(new ArrayList<>(list) );
+//            }
+//            else {
+//                video.setApi( null );
+//            }
+//            video.setCurl(bid.getNurl());
+//        }
         mapVideo(bid,seatBid,bidResponse,video,adType);
         return video;
     }
@@ -966,13 +964,13 @@ public class OpenRtb24To3MapperImpl {
         else {
             bid.setAdomain( null );
         }
-        List<String> list1 = ad.getBundle();
-        if ( list1 != null ) {
-            bid.setBundle(new ArrayList<>(list1) );
-        }
-        else {
-            bid.setBundle( null );
-        }
+//        List<String> list1 = ad.getBundle();
+//        if ( list1 != null ) {
+//            bid.setBundle(new ArrayList<>(list1) );
+//        }
+//        else {
+//            bid.setBundle( null );
+//        }
         bid.setIurl( ad.getIurl() );
         Set<String> set = ad.getCat();
         if ( set != null ) {
@@ -1036,7 +1034,7 @@ public class OpenRtb24To3MapperImpl {
             bid.setW(display.getW());
             bid.setWratio(display.getWratio());
             bid.setHratio(display.getHratio());
-            bid.setApi(display.getApi());
+//            bid.setApi(display.getApi());
             if(isNull(bid.getExt())){
                 bid.setExt(new HashMap<>());
             }
@@ -1085,7 +1083,8 @@ public class OpenRtb24To3MapperImpl {
     private void videoToBid(net.media.openrtb24.response.Bid bid, Video video, AdType adType) {
         if(nonNull(bid) && nonNull(video)){
             bid.setAdm(video.getAdm());
-            bid.setApi(video.getApi());
+
+//            bid.setApi(video.getApi());
             if(isNull(bid.getExt())){
                 bid.setExt(new HashMap<>());
             }
@@ -1104,7 +1103,7 @@ public class OpenRtb24To3MapperImpl {
     private void audioToBid(net.media.openrtb24.response.Bid bid, Audio audio, AdType adType) {
         if(nonNull(bid) && nonNull(audio)){
             bid.setAdm(audio.getAdm());
-            bid.setApi(audio.getApi());
+//            bid.setApi(audio.getApi());
             if(isNull(bid.getExt())){
                 bid.setExt(new HashMap<>());
             }

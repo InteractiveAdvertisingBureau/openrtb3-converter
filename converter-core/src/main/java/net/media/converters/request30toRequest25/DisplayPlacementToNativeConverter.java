@@ -13,10 +13,7 @@ import net.media.openrtb3.NativeFormat;
 import net.media.util.JacksonObjectMapper;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import lombok.AllArgsConstructor;
 
@@ -34,7 +31,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       return null;
     }
     Native nat = new Native();
-    inhance(displayPlacement, nat, config);
+    enhance(displayPlacement, nat, config);
     if (isNull(nat.getNativeRequestBody())) {
       return null;
     }
@@ -42,7 +39,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
   }
 
   @Override
-  public void inhance(DisplayPlacement displayPlacement, Native nat, Config config) throws OpenRtbConverterException {
+  public void enhance(DisplayPlacement displayPlacement, Native nat, Config config) throws OpenRtbConverterException {
     if (isNull(displayPlacement) || isNull(nat)) {
       return;
     }

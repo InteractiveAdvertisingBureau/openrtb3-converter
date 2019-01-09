@@ -19,14 +19,14 @@ public class MediatoBidConverter implements Converter<Media,Bid> {
     if(isNull(source))
       return null;
     Bid bid =  new Bid();
-    inhance(source,bid,config);
+    enhance(source,bid,config);
     return bid;
   }
 
-  public  void inhance(Media source, Bid target, Config config) throws OpenRtbConverterException {
+  public  void enhance(Media source, Bid target, Config config) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
-    adBidConverter.inhance(source.getAd(),target,config);
+    adBidConverter.enhance(source.getAd(),target,config);
 
   }
 }

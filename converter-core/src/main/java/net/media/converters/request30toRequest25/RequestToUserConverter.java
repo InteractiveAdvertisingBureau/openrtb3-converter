@@ -12,7 +12,7 @@ public class RequestToUserConverter implements Converter<Request, User> {
   }
 
   @Override
-  public void inhance(Request source, User target, Config config) {
+  public void enhance(Request source, User target, Config config) {
     if ( source == null ) {
       return;
     }

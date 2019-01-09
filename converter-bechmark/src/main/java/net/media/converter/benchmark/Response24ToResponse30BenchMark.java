@@ -47,25 +47,25 @@ public class Response24ToResponse30BenchMark {
   @Threads(1)
   @Fork(1)
   @Benchmark
-  public void bannerResponse(Blackhole blackhole, ResponseState state) throws OpenRtbConverterException, ConfigurationException {
-    blackhole.consume(state.openRtbConverter.convert(state.bidRequest, BidRequest.class,
-      OpenRTB.class));
+  public void bannerResponse(Blackhole blackhole, ResponseState state) throws OpenRtbConverterException, ConfigurationException, IOException {
+    OpenRTB response = mapper.readValue(state.jsonData, OpenRTB.class);
+    blackhole.consume(state.openRtbConverter.convert(response, OpenRTB.class,
+      BidResponse.class));
   }
 
   @State(Scope.Benchmark)
   public static class ResponseState {
 
-    public BidRequest bidRequest;
+    public byte[] jsonData;
     public OpenRtbConverter openRtbConverter;
 
     @Setup(Level.Trial)
     public void doSetup() throws IOException {
-      File file = new File("/Users/rajat.go/Documents/workspace/openrtb-converter/converter-bechmark/src/main/resources/banner24Response.json");
-      byte[] jsonData = Files.readAllBytes(file.toPath());
-      this.bidRequest = mapper.readValue(jsonData, BidRequest.class);
+      File file = new File("/Users/samya.p/openrtb-converter/converter-bechmark/src/main/resources/banner24Response.json");
+      jsonData = Files.readAllBytes(file.toPath());
       Config config = new Config();
       config.setBannerTemplate("");
-      config.setAdType(AdType.BANNER);
+      config.setAdType(AdType.NATIVE);
       config.setNativeRequestAsString(Boolean.TRUE);
       config.setValidate(false);
       this.openRtbConverter = new OpenRtbConverter(config);

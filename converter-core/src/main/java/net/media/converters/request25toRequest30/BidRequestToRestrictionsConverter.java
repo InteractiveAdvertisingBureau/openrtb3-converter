@@ -20,13 +20,13 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
 
     Restrictions restrictions = new Restrictions();
 
-    inhance( source, restrictions, config );
+    enhance( source, restrictions, config );
 
     return restrictions;
   }
 
   @Override
-  public void inhance(BidRequest source, Restrictions target, Config config) {
+  public void enhance(BidRequest source, Restrictions target, Config config) {
     if(source == null)
       return;
     target.setBapp( Utils.copyList(source.getBapp(), config) );

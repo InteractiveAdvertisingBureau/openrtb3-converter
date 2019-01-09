@@ -25,16 +25,16 @@ public class CompanionToBannerConverter implements Converter<Companion, Banner> 
       return null;
     }
     Banner banner = new Banner();
-    inhance(companion, banner, config);
+    enhance(companion, banner, config);
     return banner;
   }
 
   @Override
-  public void inhance(Companion companion, Banner banner, Config config) throws OpenRtbConverterException {
+  public void enhance(Companion companion, Banner banner, Config config) throws OpenRtbConverterException {
     if (isNull(companion) || isNull(banner)) {
       return;
     }
-    displayPlacementBannerConverter.inhance(companion.getDisplay(), banner, config);
+    displayPlacementBannerConverter.enhance(companion.getDisplay(), banner, config);
     banner.setVcm( companion.getVcm() );
     banner.setId( companion.getId() );
     Map<String, Object> map = companion.getExt();

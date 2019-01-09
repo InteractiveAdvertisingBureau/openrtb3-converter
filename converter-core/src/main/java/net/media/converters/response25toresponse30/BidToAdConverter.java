@@ -50,12 +50,12 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
       return null;
     }
     Ad ad = new Ad();
-    inhance(source, ad, config);
+    enhance(source, ad, config);
     return ad;
   }
 
   @Override
-  public void inhance(Bid source, Ad target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, Ad target, Config config) throws OpenRtbConverterException{
     if (isNull(source) || isNull(target)) {
       return;
     }
@@ -67,13 +67,13 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
     else {
       target.setAdomain( null );
     }
-    List<String> list1 = source.getBundle();
-    if ( list1 != null ) {
-      target.setBundle(new ArrayList<>(list1) );
+    if(nonNull(source.getBundle())){
+      List<String> bundle = new ArrayList<>();
+      bundle.add(source.getBundle());
+      target.setBundle(bundle);
     }
-    else {
-      target.setBundle( null );
-    }
+
+
     target.setIurl( source.getIurl() );
     Set<String> set = source.getCat();
     if ( set != null ) {
