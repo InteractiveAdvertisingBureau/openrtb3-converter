@@ -11,12 +11,14 @@ import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.media.utils.validator.CheckAtLeastOneNotNull;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
+@CheckAtLeastOneNotNull(fieldNames = {"site", "app"})
 public class BidRequest {
 
   //BidRequest parameters
@@ -31,11 +33,9 @@ public class BidRequest {
   @Valid
   public List<Imp> imp;
 
-  @NotNull
   @Valid
   public Site site;
 
-  @NotNull
   @Valid
   public App app;
 

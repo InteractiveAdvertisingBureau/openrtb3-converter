@@ -9,7 +9,33 @@ import javax.naming.ConfigurationException;
 import static java.util.Objects.isNull;
 
 /**
+ * Interface for interacting with openRtb Converter.
+ * {@link #config} default converter config {@link Config}
+ * {@link #converterPlumber} contains the pipeline for converter dependencies
+ * {@link ConverterPlumber}  initialised while calling {@link OpenRtbConverter(Config)}
+ *
+ * <ul>
+ *   <li>{@link OpenRtbConverter(Config)} : instantiates OpenRtb converter object single object
+ *   would be enough for the entire object
+ *   </li>
+ *   <li>{@link #convert(Config, Object, Class, Class)} : converts source object from source
+ *   class to target class, fields being passed in {@link Config} overrides the values for
+ *   default {@link #config} for that particular call
+ *   </li>
+ *   <li>{@link #convert(Object, Class, Class)} : uses
+ *    {@link #convert(Config, Object, Class, Class)} without overriding config
+ *   </li>
+ *   <li>{@link #enhance(Config, Object, Object, Class, Class)} : enhances the target object
+ *   using the source object, fields being passed in {@link Config} overrides the values for
+ *   default {@link #config} for that particular call
+ *   </li>
+ *   <li>{@link #enhance(Object, Object, Class, Class)} uses
+ *   {@link #enhance(Config, Object, Object, Class, Class)} without overriding config
+ *   </li>
+ * <ul/>
+ *
  * @author shiva.b
+ * @since 1.0
  */
 public class OpenRtbConverter {
 
@@ -28,11 +54,12 @@ public class OpenRtbConverter {
    * @param source
    * @param sourceClass
    * @param targetClass
-   * @param <U>
-   * @param <V>
-   * @return
+   * @param <U> source class type
+   * @param <V> target class type
+   * @return <class>V</class> target class
    */
-  public  <U, V> V convert(Config overridingConfig, U source, Class<U> sourceClass, Class<V> targetClass) throws ConfigurationException {
+  public  <U, V> V convert(Config overridingConfig, U source, Class<U> sourceClass, Class<V>
+    targetClass) throws ConfigurationException, OpenRtbConverterException {
     overridingConfig = inhanceConfig(overridingConfig);
     if (shouldValidate(overridingConfig)) {
       Utils.validate(source);
@@ -44,18 +71,31 @@ public class OpenRtbConverter {
   /**
    *
    * @param source
-   * @param sourceClass
-   * @param targetClass
-   * @param <U>
-   * @param <V>
-   * @return
+   * @param sourceClass source object
+   * @param targetClass target object
+   * @param <U> source class type
+   * @param <V> target class type
+   * @return <class>V</class> target class
    */
-  public <U, V> V convert(U source, Class<U> sourceClass, Class<V> targetClass) throws ConfigurationException {
+  public <U, V> V convert(U source, Class<U> sourceClass, Class<V> targetClass) throws
+    ConfigurationException, OpenRtbConverterException {
     return convert(null, source, sourceClass, targetClass);
   }
 
+  /**
+   *
+   * @param overridingConfig
+   * @param source
+   * @param target
+   * @param sourceClass
+   * @param targetClass
+   * @param <U> source class type
+   * @param <V> target class type
+   * @throws ConfigurationException
+   * @throws OpenRtbConverterException
+   */
   public <U, V> void enhance(Config overridingConfig, U source, V target, Class<U> sourceClass,
-                          Class<V> targetClass) throws ConfigurationException {
+                          Class<V> targetClass) throws ConfigurationException, OpenRtbConverterException {
     overridingConfig = inhanceConfig(overridingConfig);
     if (shouldValidate(overridingConfig)) {
       Utils.validate(source);
@@ -64,8 +104,18 @@ public class OpenRtbConverter {
     converter.inhance(source, target, overridingConfig);
   }
 
+  /**
+   *
+   * @param source
+   * @param target
+   * @param sourceClass
+   * @param targetClass
+   * @param <U> source class type
+   * @param <V> target class type
+   * @throws OpenRtbConverterException
+   */
   public <U, V> void enhance(U source, V target, Class<U> sourceClass,
-                             Class<V> targetClass) {
+                             Class<V> targetClass) throws OpenRtbConverterException {
     Converter<U, V> converter = converterPlumber.getConverter(sourceClass, targetClass);
     converter.inhance(source, target, null);
   }

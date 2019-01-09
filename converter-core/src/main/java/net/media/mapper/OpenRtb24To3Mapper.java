@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.media.OpenRtbConverter;
+import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.enums.AdType;
 import net.media.openrtb24.response.BidResponse;
@@ -27,26 +28,33 @@ public class OpenRtb24To3Mapper {
   public static void main(String[] args) {
     try {
       new OpenRtb24To3Mapper().test();
-    }catch (IOException e){
+    } catch (IOException e){
       System.out.println("Phatna  hihe"+e.getMessage());
+    } catch (ConfigurationException e) {
+      e.printStackTrace();
+    } catch (OpenRtbConverterException e) {
+      e.printStackTrace();
     }
   }
 
-  private void test() throws IOException {
+  private void test() throws IOException, OpenRtbConverterException, ConfigurationException {
     ClassLoader classLoader = getClass().getClassLoader();
     File file = new File(classLoader.getResource("30To25ResponseSouravTest.json").getFile());
     OpenRtb24To3MapperImpl impl = new OpenRtb24To3MapperImpl(null);
     Config config = new Config();
     config.setBannerTemplate("");
+    config.setValidate(false);
+    config.setNativeRequestAsString(true);
+    config.setAdType(AdType.BANNER);
     OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
 
     byte[] jsonData = Files.readAllBytes(file.toPath());
     ObjectMapper objectMapper = new ObjectMapper();
 
+    List<ResponseTestPojo> testList = objectMapper.readValue(jsonData, new
+      TypeReference<ArrayList<ResponseTestPojo>>() {});
     long start = System.nanoTime();
     for (int i = 0; i < 1; i++) {
-      List<ResponseTestPojo> testList = objectMapper.readValue(jsonData, new
-        TypeReference<ArrayList<ResponseTestPojo>>() {});
       for (ResponseTestPojo response : testList) {
         AdType adType = null;
         for (AdType adType1 : AdType.values()) {
@@ -86,7 +94,7 @@ public class OpenRtb24To3Mapper {
       }
     }
     long end = System.nanoTime();
-    System.out.println("Total time : " +  (end - start));
+    System.out.println("Total time : " +  (end - start)/100000);
   }
 
 }

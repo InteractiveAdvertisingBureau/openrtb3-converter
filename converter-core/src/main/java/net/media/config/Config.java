@@ -28,22 +28,26 @@ public class Config {
 
   private static final boolean DEFAULT_NATIVE_REQUEST_AS_STRING = true;
 
+  private static final boolean DEFAULT_DISABLE_CLONING = false;
+
+  private static final boolean DEFAULT_VALIDATE = true;
+
   private String bannerTemplate;
 
   private Boolean nativeRequestAsString;
 
   private AdType adType;
 
-  private Boolean nativeRequestString;
+  private Boolean validate;
 
-  private Boolean validate=false;
+  private Boolean disableCloning;
 
   public Config(Config oldConfig) {
     this.bannerTemplate = oldConfig.bannerTemplate;
     this.nativeRequestAsString = oldConfig.nativeRequestAsString;
     this.adType = oldConfig.adType;
-    this.nativeRequestString = oldConfig.nativeRequestString;
     this.validate = oldConfig.validate;
+    this.disableCloning = oldConfig.disableCloning;
   }
 
   /**
@@ -56,13 +60,21 @@ public class Config {
       .nativeRequestAsString : this.nativeRequestAsString;
     this.adType = isNull(this.adType) ? config.adType : this.adType;
     this.validate = isNull(this.validate) ? config.validate : this.validate;
-    this.nativeRequestString = isNull(this.nativeRequestString) ? config.nativeRequestString :
-      this.nativeRequestString;
+    this.disableCloning = isNull(this.disableCloning) ? config.getDisableCloning() : this
+      .disableCloning;
   }
 
   public Boolean getNativeRequestAsString() {
     return nonNull(nativeRequestAsString) ? nativeRequestAsString :
       DEFAULT_NATIVE_REQUEST_AS_STRING;
+  }
+
+  public Boolean getValidate() {
+    return nonNull(validate) ? validate : DEFAULT_VALIDATE;
+  }
+
+  public Boolean isCloningDisabled() {
+    return nonNull(disableCloning) ? disableCloning : DEFAULT_DISABLE_CLONING;
   }
 
   /**

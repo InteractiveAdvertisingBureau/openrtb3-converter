@@ -13,7 +13,7 @@ import lombok.Data;
 
 
 @Data
-@CheckAtLeastOneNotNull(fieldNames = {"video, banner, nat, audio"})
+@CheckAtLeastOneNotNull(fieldNames = {"video", "banner", "nat", "audio"})
 public class Imp {
 
   public static final Integer DEFAULT_INTERSTITIAL = null;

@@ -33,16 +33,32 @@ public class Utils {
   }
 
   public static <T> List<T> copyList(List<T> input, Config config){
-    return new ArrayList<T>(input);
+    if (config.isCloningDisabled()) {
+      return input;
+    }
+    if (nonNull(input)) {
+      return new ArrayList<>(input);
+    }
+    return null;
   }
 
-  public static <T> Set<T> copyList(Set<T> input, Config config){
-    return new HashSet<T>(input);
+  public static <T> Set<T> copySet(Set<T> input, Config config){
+    if (config.isCloningDisabled()) {
+      return input;
+    }
+    if (nonNull(input)) {
+      return new HashSet<>(input);
+    }
+    return null;
   }
 
   public static <U,V> Map<U,V> copyMap(Map<U,V> input, Config config){
-    if(nonNull(input))
+    if (config.isCloningDisabled()) {
+      return input;
+    }
+    if (nonNull(input)) {
       return new HashMap<>(input);
+    }
     return null;
   }
 

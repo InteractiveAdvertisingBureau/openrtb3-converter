@@ -13,10 +13,10 @@ import lombok.Setter;
 @CheckExactlyOneNotNull(fieldNames = {"request", "response"})
 public class OpenRTB {
 
-  private String ver;
-  private String domainSpec;
+  private String ver = "3.0";
+  private String domainSpec = "adcom";
   @NotNull
-  private String domainVer;
+  private String domainVer = "1.0";
   @Valid
   private Request request;
   @Valid
