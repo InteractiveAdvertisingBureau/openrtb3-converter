@@ -104,7 +104,7 @@
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <manifestEntries>
-                                        <Main-Class>net.media.ConverterApplication</Main-Class>
+                                        <Main-Class>net.media.api.ConverterApplication</Main-Class>
                                     </manifestEntries>
                                 </transformer>
                             </transformers>

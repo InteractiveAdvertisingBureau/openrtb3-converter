@@ -43,7 +43,7 @@
               <transformers>
                 <transformer>
                   <manifestEntries>
-                    <Main-Class>net.media.ConverterApplication</Main-Class>
+                    <Main-Class>net.media.api.ConverterApplication</Main-Class>
                   </manifestEntries>
                 </transformer>
               </transformers>
