@@ -61,12 +61,11 @@ public class ConverterPlumber {
 
   public ConverterPlumber() {
     openRtbToBidResponseConverter.apply(new Conversion(OpenRTB.class, BidResponse.class));
+    bidResponseToOpenRtbConverter.apply(new Conversion(BidResponse.class, OpenRTB.class));
 
     converterProvider = new Provider<>(null);
     Converter25To30RequestPlumber converter25To30RequestPlumber = new Converter25To30RequestPlumber();
     Converter30To25RequestPlumber converter30To25RequestPlumber = new Converter30To25RequestPlumber();
-    converterProvider.register(new Conversion(BidResponse.class, OpenRTB.class),
-      bidResponseToOpenRtb());
     converterProvider.register(new Conversion(BidRequest.class, OpenRTB.class),
       converter25To30RequestPlumber.bidRequestToOpenRtb());
     converterProvider.register(new Conversion(OpenRTB.class, BidRequest.class),
@@ -142,40 +141,89 @@ public class ConverterPlumber {
     return new OpenRtbResponseToBidResponseConverter(seatbidSeatBidConverter);
   });
 
+  private ConverterProxy linkToLinkAssetConverter = new ConverterProxy(LinkToLinkAssetConverter::new);
 
-  private Converter<BidResponse, OpenRTB> bidResponseToOpenRtb() {
-    Converter<BidResponse, Response> bidResponseToResponseConverter = bidResponseToResponse();
-    Converter<BidResponse, OpenRTB> bidResponseToOpenRtbConverter = new BidResponseToOpenRtbConverter(bidResponseToResponseConverter);
+  private ConverterProxy assetResponseToAssetConverter = new ConverterProxy(() -> {
+    Converter<Link, LinkAsset> linkLinkAssetConverter = linkToLinkAssetConverter.apply(new
+      Conversion(Link.class, LinkAsset.class));
+    return new Asset24ToAsset30Converter(linkLinkAssetConverter);
+  });
 
-    return bidResponseToOpenRtbConverter;
-  }
+  private ConverterProxy nativeResponseToNativeConverter = new ConverterProxy(() -> {
+    Converter<Link, LinkAsset> linkLinkAssetConverter = linkToLinkAssetConverter.apply(
+      new Conversion(Link.class, LinkAsset.class));
+    Converter<AssetResponse, Asset> assetAssetConverter =
+      assetResponseToAssetConverter.apply(
+        new Conversion(net.media.openrtb24.request.Asset.class, Asset.class));
+    return new Native24ToNative30Converter(linkLinkAssetConverter, assetAssetConverter);
+  });
 
-  private Converter<BidResponse,Response> bidResponseToResponse() {
-    Converter<net.media.openrtb24.response.Bid, Bid> bid24ToBid30Converter = bid24ToBid30();
-    Converter<SeatBid, Seatbid> seatBid24ToSeatBid30Converter = new SeatBid24ToSeatBid30Converter(bid24ToBid30Converter);
-    Converter<List<SeatBid>, List<Seatbid>> seatBidListToSeatBidListConverter = new SeatBidList24ToSeatBidList30Converter(seatBid24ToSeatBid30Converter);
-    Converter<BidResponse, Response> bidResponseToResponseConverter = new BidResponseToResponseConverter(seatBidListToSeatBidListConverter);
-    return bidResponseToResponseConverter;
-  }
+  private ConverterProxy bidToDisplayConverter = new ConverterProxy(() -> {
+    Converter<NativeResponse, Native> nativeResponseNativeConverter =
+      nativeResponseToNativeConverter.apply(new Conversion(NativeResponse.class, Native.class));
+    return new BidToDisplayConverter(nativeResponseNativeConverter);
+  });
 
-  private Converter<net.media.openrtb24.response.Bid, Bid> bid24ToBid30() {
-    Converter<net.media.openrtb24.response.Bid, Media> bidMediaConverter = bidToMediaConverter();
-    Converter<net.media.openrtb24.response.Bid, Bid> bid24ToBid30Converter = new Bid24ToBid30Converter(bidMediaConverter);
-    return bid24ToBid30Converter;
-  }
+  private ConverterProxy bidToAuditConverter = new ConverterProxy(BidToAuditConverter::new);
 
-  private Converter<net.media.openrtb24.response.Bid,Media> bidToMediaConverter() {
-    Converter<Link, LinkAsset> linkToLinkAssetConverter = new LinkToLinkAssetConverter();
-    Converter<AssetResponse, net.media.openrtb3.Asset> assetResponseToAssetConverter = new Asset24ToAsset30Converter(linkToLinkAssetConverter);
-    Converter<NativeResponse, Native> nativeResponseNativeConverter = new Native24ToNative30Converter(linkToLinkAssetConverter, assetResponseToAssetConverter);
-    Converter<net.media.openrtb24.response.Bid, Display> bidDisplayConverter = new BidToDisplayConverter(nativeResponseNativeConverter);
-    Converter<net.media.openrtb24.response.Bid, Audio> bidAudioConverter = new BidToAudioConverter();
-    Converter<net.media.openrtb24.response.Bid, Video> bidVideoConverter = new BidToVideoConverter();
-    Converter<net.media.openrtb24.response.Bid, Audit> bidAuditConverter = new BidToAuditConverter();
-    Converter<net.media.openrtb24.response.Bid, Ad> bidAdConverter = new BidToAdConverter(bidDisplayConverter, bidAudioConverter, bidVideoConverter, bidAuditConverter);
-    Converter<net.media.openrtb24.response.Bid, Media> bidMediaConverter = new Bid24ToMediaConverter(bidAdConverter);
-    return bidMediaConverter;
-  }
+  private ConverterProxy bidToAudioConverter = new ConverterProxy(BidToAudioConverter::new);
+
+  private ConverterProxy bidToVideoConverter = new ConverterProxy(BidToVideoConverter::new);
+
+  private ConverterProxy bidToAdConverter = new ConverterProxy(() -> {
+    Converter<net.media.openrtb24.response.Bid, Display> bidDisplayConverter =
+      bidToDisplayConverter.apply(
+        new Conversion(net.media.openrtb24.response.Bid.class, Display.class));
+
+    Converter<net.media.openrtb24.response.Bid, Audit> bidAuditConverter =
+      bidToAuditConverter.apply(
+      new Conversion(net.media.openrtb24.response.Bid.class, Audit.class));
+
+    Converter<net.media.openrtb24.response.Bid, Audio> bidAudioConverter =
+      bidToAudioConverter.apply(
+      new Conversion(net.media.openrtb24.response.Bid.class, Audio.class));
+
+    Converter<net.media.openrtb24.response.Bid, Video> bidVideoConverter =
+      bidToVideoConverter.apply(
+        new Conversion(net.media.openrtb24.response.Bid.class, Video.class));
+
+    return new BidToAdConverter(
+      bidDisplayConverter,
+      bidAudioConverter,
+      bidVideoConverter,
+      bidAuditConverter
+    );
+  });
+
+  private ConverterProxy bidToMediaConverter = new ConverterProxy(() -> {
+    Converter<net.media.openrtb24.response.Bid, Ad> bidAdConverter = bidToAdConverter.apply(new
+      Conversion(net.media.openrtb24.response.Bid.class, Ad.class));
+    return new Bid24ToMediaConverter(bidAdConverter);
+  });
+
+  private ConverterProxy bid24ToBid30Converter = new ConverterProxy(() -> {
+    Converter<net.media.openrtb24.response.Bid, Media> bidMediaConverter = bidToMediaConverter
+      .apply(new Conversion(net.media.openrtb24.response.Bid.class, Media.class));
+    return new Bid24ToBid30Converter(bidMediaConverter);
+  });
+
+  private ConverterProxy seatBid24ToSeatBid30Converter = new ConverterProxy(() -> {
+    Converter<net.media.openrtb24.response.Bid, Bid> bidBidConverter = bid24ToBid30Converter
+      .apply(new Conversion(net.media.openrtb24.response.Bid.class, Bid.class));
+    return new SeatBid24ToSeatBid30Converter(bidBidConverter);
+  });
+
+  private ConverterProxy bidResponseToResponseConverter = new ConverterProxy(() -> {
+    Converter<SeatBid, Seatbid> seatbidSeatBidConverter =
+      seatBid24ToSeatBid30Converter.apply(new Conversion(SeatBid.class, Seatbid.class));
+    return new BidResponseToResponseConverter(seatbidSeatBidConverter);
+  });
+
+  private ConverterProxy bidResponseToOpenRtbConverter = new ConverterProxy(() -> {
+    Converter<BidResponse, Response> bidResponseResponseConverter =
+      bidResponseToResponseConverter.apply(new Conversion(BidResponse.class, Response.class));
+    return new BidResponseToOpenRtbConverter(bidResponseResponseConverter);
+  });
 
   public <U, V> Converter<U, V> getConverter(Class<U> source, Class<V> target) {
     return converterProvider.fetch(new Conversion(source, target));
