@@ -1,7 +1,7 @@
 package net.media.mapper;
 
-import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.request.Imp;
+import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.Imp;
 import net.media.openrtb3.*;
 import net.media.openrtb3.Context;
 import org.mapstruct.*;
@@ -57,7 +57,7 @@ public interface BidRequestMapper {
   Request mapRequestToBidRequest(BidRequest bidRequest);
 
   @AfterMapping
-  default void mapSourceExt(@MappingTarget Source target, net.media.openrtb24.request.Source source) {
+  default void mapSourceExt(@MappingTarget Source target, net.media.openrtb25.request.Source source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -76,10 +76,10 @@ public interface BidRequestMapper {
 
   @Mappings({
   })
-  Source mapRtb24SourcetoRtb3Source(net.media.openrtb24.request.Source source);
+  Source mapRtb24SourcetoRtb3Source(net.media.openrtb25.request.Source source);
 
   @AfterMapping
-  default void mapSiteExt(@MappingTarget Site target, net.media.openrtb24.request.Site source) {
+  default void mapSiteExt(@MappingTarget Site target, net.media.openrtb25.request.Site source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -95,10 +95,10 @@ public interface BidRequestMapper {
     @Mapping(source = "privacypolicy", target = "privpolicy"),
     @Mapping(source = "publisher", target = "pub")
   })
-  Site mapRtb24SitetoRtb3Site(net.media.openrtb24.request.Site site);
+  Site mapRtb24SitetoRtb3Site(net.media.openrtb25.request.Site site);
 
   @AfterMapping
-  default void mapAppExt(@MappingTarget App target, net.media.openrtb24.request.App source) {
+  default void mapAppExt(@MappingTarget App target, net.media.openrtb25.request.App source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -114,10 +114,10 @@ public interface BidRequestMapper {
     @Mapping(source = "privacypolicy", target = "privpolicy"),
     @Mapping(source = "publisher", target = "pub")
   })
-  App mapRtb24ApptoRtb3App(net.media.openrtb24.request.App app);
+  App mapRtb24ApptoRtb3App(net.media.openrtb25.request.App app);
 
   @AfterMapping
-  default void mapContentExt(@MappingTarget Content target, net.media.openrtb24.request.Content source) {
+  default void mapContentExt(@MappingTarget Content target, net.media.openrtb25.request.Content source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -135,10 +135,10 @@ public interface BidRequestMapper {
     @Mapping(source = "livestream", target = "live"),
     @Mapping(source = "sourcerelationship", target = "srcrel"),
   })
-  Content mapRtb24ContenttoRtb3Content(net.media.openrtb24.request.Content content);
+  Content mapRtb24ContenttoRtb3Content(net.media.openrtb25.request.Content content);
 
   @AfterMapping
-  default void mapProducerExt(@MappingTarget Producer target, net.media.openrtb24.request.Producer source) {
+  default void mapProducerExt(@MappingTarget Producer target, net.media.openrtb25.request.Producer source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -150,10 +150,10 @@ public interface BidRequestMapper {
   @Mappings({
 
   })
-  Producer mapRtb24ProducertoRtb3Producer(net.media.openrtb24.request.Producer producer);
+  Producer mapRtb24ProducertoRtb3Producer(net.media.openrtb25.request.Producer producer);
 
   @AfterMapping
-  default void mapUserExt(@MappingTarget User target, net.media.openrtb24.request.User source) {
+  default void mapUserExt(@MappingTarget User target, net.media.openrtb25.request.User source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -165,10 +165,10 @@ public interface BidRequestMapper {
   @Mappings({
 
   })
-  User mapRtb24UsertoRtb3User(net.media.openrtb24.request.User user);
+  User mapRtb24UsertoRtb3User(net.media.openrtb25.request.User user);
 
   @AfterMapping
-  default void mapRegsExt(@MappingTarget Regs target, net.media.openrtb24.request.Regs source) {
+  default void mapRegsExt(@MappingTarget Regs target, net.media.openrtb25.request.Regs source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -180,16 +180,16 @@ public interface BidRequestMapper {
   @Mappings({
 
   })
-  Regs mapRtb24RegstoRtb3Regs(net.media.openrtb24.request.Regs regs);
+  Regs mapRtb24RegstoRtb3Regs(net.media.openrtb25.request.Regs regs);
 
   @Mappings({
     @Mapping(source = "ipservice", target = "ipserv"),
     @Mapping(source = "accuracy", target = "accur")
   })
-  Geo mapRtb24GeotoRtb3Geo(net.media.openrtb24.request.Geo geo);
+  Geo mapRtb24GeotoRtb3Geo(net.media.openrtb25.request.Geo geo);
 
   @AfterMapping
-  default void mapDeviceExt(@MappingTarget Device target, net.media.openrtb24.request.Device source) {
+  default void mapDeviceExt(@MappingTarget Device target, net.media.openrtb25.request.Device source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -207,7 +207,7 @@ public interface BidRequestMapper {
     @Mapping(source = "language", target = "lang"),
     @Mapping(source = "connectiontype", target = "contype")
   })
-  Device mapRtb24DevicetoRtb3Device(net.media.openrtb24.request.Device device);
+  Device mapRtb24DevicetoRtb3Device(net.media.openrtb25.request.Device device);
 
   @AfterMapping
   default void updateBattrRestriction(@MappingTarget Restrictions restrictions, BidRequest bidRequest) {
@@ -318,7 +318,7 @@ public interface BidRequestMapper {
   BidRequest mapRtb3RequestToRtb24BidRequest(Request request);
 
   @AfterMapping
-  default void mapDeviceTo24(@MappingTarget net.media.openrtb24.request.Device target, Device source) {
+  default void mapDeviceTo24(@MappingTarget net.media.openrtb25.request.Device target, Device source) {
     if(source == null)
       return;
 
@@ -375,10 +375,10 @@ public interface BidRequestMapper {
   }
 
   @InheritInverseConfiguration
-  net.media.openrtb24.request.Device mapRtb3DevicetoRtb24Device(Device device);
+  net.media.openrtb25.request.Device mapRtb3DevicetoRtb24Device(Device device);
 
   @AfterMapping
-  default void mapRegsTo24(@MappingTarget net.media.openrtb24.request.Regs target, Regs source) {
+  default void mapRegsTo24(@MappingTarget net.media.openrtb25.request.Regs target, Regs source) {
     if(source == null)
       return;
     if(source.getGdpr() == null)
@@ -389,10 +389,10 @@ public interface BidRequestMapper {
   }
 
   @InheritInverseConfiguration
-  net.media.openrtb24.request.Regs mapRtb3RegstoRtb24Regs(Regs regs);
+  net.media.openrtb25.request.Regs mapRtb3RegstoRtb24Regs(Regs regs);
 
   @AfterMapping
-  default void mapGeoTo24(@MappingTarget net.media.openrtb24.request.Geo target, Geo source) {
+  default void mapGeoTo24(@MappingTarget net.media.openrtb25.request.Geo target, Geo source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -404,10 +404,10 @@ public interface BidRequestMapper {
   }
 
   @InheritInverseConfiguration
-  net.media.openrtb24.request.Geo mapRtb3GeotoRtb24Geo(Geo geo);
+  net.media.openrtb25.request.Geo mapRtb3GeotoRtb24Geo(Geo geo);
 
   @AfterMapping
-  default void mapSourceTo24(@MappingTarget net.media.openrtb24.request.Source target, Source source) {
+  default void mapSourceTo24(@MappingTarget net.media.openrtb25.request.Source target, Source source) {
     if(source == null)
       return;
     if(source.getTs() == null) {
@@ -445,10 +445,10 @@ public interface BidRequestMapper {
   }
 
   @InheritInverseConfiguration
-  net.media.openrtb24.request.Source mapRtb3SourcetoRtb24Source(Source source);
+  net.media.openrtb25.request.Source mapRtb3SourcetoRtb24Source(Source source);
 
   @AfterMapping
-  default void mapSiteTo24(@MappingTarget net.media.openrtb24.request.Site target, Site source) {
+  default void mapSiteTo24(@MappingTarget net.media.openrtb25.request.Site target, Site source) {
     if(source == null)
       return;
     if(source.getCattax() == null) {
@@ -464,10 +464,10 @@ public interface BidRequestMapper {
   }
 
   @InheritInverseConfiguration
-  net.media.openrtb24.request.Site mapRtb3SitetoRtb24Site(Site site);
+  net.media.openrtb25.request.Site mapRtb3SitetoRtb24Site(Site site);
 
   @AfterMapping
-  default void mapAppTo24(@MappingTarget net.media.openrtb24.request.App target, App source) {
+  default void mapAppTo24(@MappingTarget net.media.openrtb25.request.App target, App source) {
     if(source == null)
       return;
     if(source.getCattax() == null) {
@@ -483,10 +483,10 @@ public interface BidRequestMapper {
   }
 
   @InheritInverseConfiguration
-  net.media.openrtb24.request.App mapRtb24ApptoRtb3App(App app);
+  net.media.openrtb25.request.App mapRtb24ApptoRtb3App(App app);
 
   @AfterMapping
-  default void mapContentTo24(@MappingTarget net.media.openrtb24.request.Content target, Content source) {
+  default void mapContentTo24(@MappingTarget net.media.openrtb25.request.Content target, Content source) {
     if(source == null)
       return;
     if(source.getCattax() == null) {
@@ -497,10 +497,10 @@ public interface BidRequestMapper {
   }
 
   @InheritInverseConfiguration
-  net.media.openrtb24.request.Content mapRtb3ContenttoRtb24Content(Content content);
+  net.media.openrtb25.request.Content mapRtb3ContenttoRtb24Content(Content content);
 
   @AfterMapping
-  default void mapProducerTo24(@MappingTarget net.media.openrtb24.request.Producer target, Producer source) {
+  default void mapProducerTo24(@MappingTarget net.media.openrtb25.request.Producer target, Producer source) {
     if(source == null)
       return;
     if(source.getCattax() == null) {
@@ -513,10 +513,10 @@ public interface BidRequestMapper {
   @Mappings({
 
   })
-  net.media.openrtb24.request.Producer mapRtb3ProducertoRtb24Producer(Producer producer);
+  net.media.openrtb25.request.Producer mapRtb3ProducertoRtb24Producer(Producer producer);
 
   @AfterMapping
-  default void mapUser24(@MappingTarget net.media.openrtb24.request.User target, User source) {
+  default void mapUser24(@MappingTarget net.media.openrtb25.request.User target, User source) {
     if(source == null)
       return;
     if(source.getConsent() == null) {
@@ -529,5 +529,5 @@ public interface BidRequestMapper {
   @Mappings({
 
   })
-  net.media.openrtb24.request.User mapRtb3UsertoRtb24User(User user);
+  net.media.openrtb25.request.User mapRtb3UsertoRtb24User(User user);
 }

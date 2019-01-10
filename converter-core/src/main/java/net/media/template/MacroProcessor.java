@@ -1,6 +1,6 @@
 package net.media.template;
 
-import net.media.openrtb24.request.Banner;
+import net.media.openrtb25.request.Banner;
 
 import java.util.Arrays;
 import java.util.Objects;

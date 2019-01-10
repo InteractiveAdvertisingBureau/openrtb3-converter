@@ -1,0 +1,47 @@
+package net.media.openrtb25.request;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import lombok.Data;
+
+import javax.validation.constraints.NotNull;
+
+@Data
+public class App {
+
+  @NotNull
+  private String id;
+
+  private String name;
+
+  private String bundle;
+
+  private String domain;
+
+  private String storeurl;
+
+  private List<String> cat;
+
+  private List<String> sectioncat;
+
+  private Set<String> pagecat;
+
+  private String ver;
+
+  private Integer privacypolicy;
+
+  private Integer paid;
+
+  private Publisher publisher;
+
+  private Content content;
+
+  private String keywords;
+
+  private Map<String, Object> ext;
+
+  public App(){
+  }
+}

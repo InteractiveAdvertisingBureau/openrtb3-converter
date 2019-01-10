@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.request.Content;
-import net.media.openrtb24.request.Producer;
+import net.media.openrtb25.request.Content;
+import net.media.openrtb25.request.Producer;
 import net.media.openrtb3.Data;
 import net.media.utils.ListToListConverter;
 import net.media.utils.Utils;
@@ -17,7 +17,7 @@ import java.util.Map;
 public class ContentToContentConverter implements Converter<Content, net.media.openrtb3.Content> {
 
   private Converter<Producer, net.media.openrtb3.Producer> producerProducerConverter;
-  private Converter<net.media.openrtb24.request.Data, Data> dataDataConverter;
+  private Converter<net.media.openrtb25.request.Data, Data> dataDataConverter;
 
   @Override
   public net.media.openrtb3.Content map(Content source, Config config) throws OpenRtbConverterException {

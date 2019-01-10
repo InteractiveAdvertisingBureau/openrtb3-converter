@@ -1,20 +1,7 @@
 package net.media.mapper;
 
 
-import net.media.enums.AdType;
-import net.media.openrtb24.response.Bid;
-import net.media.openrtb24.response.BidResponse;
-import net.media.openrtb24.response.SeatBid;
-import net.media.openrtb3.*;
-
 import org.mapstruct.*;
-import org.mapstruct.Context;
-
-import java.util.List;
-import java.util.Map;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 
 @Mapper
 public interface MediaMapper {

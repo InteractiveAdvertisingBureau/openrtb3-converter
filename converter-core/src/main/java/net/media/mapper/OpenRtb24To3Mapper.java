@@ -7,10 +7,8 @@ import net.media.OpenRtbConverter;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.enums.AdType;
-import net.media.openrtb24.response.BidResponse;
+import net.media.openrtb25.response.BidResponse;
 import net.media.openrtb3.OpenRTB;
-import net.media.openrtb3.Response;
-import net.media.utils.Utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,7 +37,7 @@ public class OpenRtb24To3Mapper {
 
   private void test() throws IOException, OpenRtbConverterException, ConfigurationException {
     ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource("30To25ResponseSouravTest.json").getFile());
+    File file = new File(classLoader.getResource("30To25ResponseVideo.json").getFile());
     OpenRtb24To3MapperImpl impl = new OpenRtb24To3MapperImpl(null);
     Config config = new Config();
     config.setBannerTemplate("");
@@ -70,11 +68,11 @@ public class OpenRtb24To3Mapper {
 
         config.setAdType(adType);
         try {
-          OpenRTB response30 = openRtbConverter.convert(config, response.getResponse25(), BidResponse
-            .class, OpenRTB.class);
+//          OpenRTB response30 = openRtbConverter.convert(config, response.getResponse25(), BidResponse
+//            .class, OpenRTB.class);
           BidResponse  bidResponse = openRtbConverter.convert(config, response.getResponse30(), OpenRTB.class, BidResponse.class);
-          System.out.println(objectMapper.writeValueAsString(response30));
-          System.out.println(objectMapper.writeValueAsString(response.getResponse25()));
+//          System.out.println(objectMapper.writeValueAsString(response30));
+//          System.out.println(objectMapper.writeValueAsString(response.getResponse25()));
           System.out.println(objectMapper.writeValueAsString(bidResponse));
           System.out.println(objectMapper.writeValueAsString(response.getResponse30().getResponse()));
 

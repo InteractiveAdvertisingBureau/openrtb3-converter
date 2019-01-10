@@ -7,12 +7,10 @@ import net.media.OpenRtbConverter;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.enums.AdType;
-import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.response.BidResponse;
+import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.response.BidResponse;
 import net.media.openrtb3.OpenRTB;
-import net.media.openrtb3.Request;
-import net.media.openrtb3.Response;
-import net.media.util.JacksonObjectMapper;
+import net.media.utils.JacksonObjectMapper;
 
 import javax.naming.ConfigurationException;
 import java.io.File;
@@ -29,8 +27,8 @@ public class OpenRtbMapperTest {
 
   public static void main(String[] args) throws Exception {
     try {
-//      new OpenRtbMapperTest().test();
-      new OpenRtbMapperTest().test1();
+      new OpenRtbMapperTest().test();
+//      new OpenRtbMapperTest().test1();
     }catch (IOException e){
       System.out.println("Phatna  hihe"+e.getMessage());
     } catch (ConfigurationException e) {

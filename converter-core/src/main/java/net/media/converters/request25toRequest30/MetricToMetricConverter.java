@@ -2,7 +2,7 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.request.Metric;
+import net.media.openrtb25.request.Metric;
 import net.media.utils.Utils;
 
 import static java.util.Objects.isNull;

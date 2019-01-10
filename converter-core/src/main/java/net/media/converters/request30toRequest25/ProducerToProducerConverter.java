@@ -8,14 +8,14 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProducerToProducerConverter implements Converter<Producer, net.media.openrtb24.request.Producer> {
+public class ProducerToProducerConverter implements Converter<Producer, net.media.openrtb25.request.Producer> {
   @Override
-  public net.media.openrtb24.request.Producer map(Producer source, Config config) {
+  public net.media.openrtb25.request.Producer map(Producer source, Config config) {
     if ( source == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.Producer producer1 = new net.media.openrtb24.request.Producer();
+    net.media.openrtb25.request.Producer producer1 = new net.media.openrtb25.request.Producer();
 
     enhance( source, producer1, config );
 
@@ -23,7 +23,7 @@ public class ProducerToProducerConverter implements Converter<Producer, net.medi
   }
 
   @Override
-  public void enhance(Producer source, net.media.openrtb24.request.Producer target, Config config) {
+  public void enhance(Producer source, net.media.openrtb25.request.Producer target, Config config) {
     if(source == null)
       return;
     target.setId( source.getId() );
