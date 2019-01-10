@@ -10,10 +10,10 @@ public interface SourceMapper {
   @Mappings({
 
   })
-  Source mapRtb3SourcetoRtb24Source(net.media.openrtb24.request.Source source);
+  Source mapRtb3SourcetoRtb24Source(net.media.openrtb25.request.Source source);
 
   @AfterMapping
-  default void afterMapping(@MappingTarget Source target, net.media.openrtb24.request.Source source) {
+  default void afterMapping(@MappingTarget Source target, net.media.openrtb25.request.Source source) {
 
   }
 }

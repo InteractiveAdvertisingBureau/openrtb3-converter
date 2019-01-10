@@ -13,18 +13,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 @AllArgsConstructor
-public class UserToUserConverter implements Converter<User, net.media.openrtb24.request.User> {
+public class UserToUserConverter implements Converter<User, net.media.openrtb25.request.User> {
 
-  private Converter<Geo, net.media.openrtb24.request.Geo> geoGeoConverter;
-  private Converter<Data, net.media.openrtb24.request.Data> dataDataConverter;
+  private Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter;
+  private Converter<Data, net.media.openrtb25.request.Data> dataDataConverter;
 
   @Override
-  public net.media.openrtb24.request.User map(User source, Config config) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.User map(User source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.User user1 = new net.media.openrtb24.request.User();
+    net.media.openrtb25.request.User user1 = new net.media.openrtb25.request.User();
 
     enhance( source, user1, config );
 
@@ -32,7 +32,8 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb24.
   }
 
   @Override
-  public void enhance(User source, net.media.openrtb24.request.User target, Config config) throws OpenRtbConverterException {
+  public void enhance(User source, net.media.openrtb25.request.User target, Config config) throws
+    OpenRtbConverterException {
     if(source == null)
       return;
     target.setId( source.getId() );

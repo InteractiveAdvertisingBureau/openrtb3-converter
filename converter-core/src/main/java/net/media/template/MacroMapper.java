@@ -2,8 +2,8 @@ package net.media.template;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import net.media.openrtb24.response.nativeresponse.NativeResponse;
-import net.media.openrtb24.response.nativeresponse.NativeResponseBody;
+import net.media.openrtb25.response.nativeresponse.NativeResponse;
+import net.media.openrtb25.response.nativeresponse.NativeResponseBody;
 import net.media.openrtb3.*;
 
 import static java.util.Objects.isNull;
@@ -49,7 +49,7 @@ public class MacroMapper {
     }
   }
 
-  public static void macroReplaceTwoX(net.media.openrtb24.response.Bid bid){
+  public static void macroReplaceTwoX(net.media.openrtb25.response.Bid bid){
     bid.setBurl(MacroMapper.macroReplaceTwoX(bid.getBurl()));
     bid.setLurl(MacroMapper.macroReplaceTwoX(bid.getLurl()));
     bid.setNurl(MacroMapper.macroReplaceTwoX(bid.getNurl()));

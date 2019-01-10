@@ -1,10 +1,9 @@
 package net.media.mapper;
 
-import net.media.openrtb24.request.Audio;
-import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.request.Imp;
+import net.media.openrtb25.request.Audio;
+import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.Imp;
 import net.media.openrtb3.AudioPlacement;
-import net.media.openrtb3.Item;
 
 import org.mapstruct.AfterMapping;
 import org.mapstruct.InheritInverseConfiguration;

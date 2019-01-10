@@ -2,11 +2,11 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.request.Asset;
-import net.media.openrtb24.request.NativeData;
-import net.media.openrtb24.request.NativeImage;
-import net.media.openrtb24.request.NativeTitle;
-import net.media.openrtb24.request.NativeVideo;
+import net.media.openrtb25.request.Asset;
+import net.media.openrtb25.request.NativeData;
+import net.media.openrtb25.request.NativeImage;
+import net.media.openrtb25.request.NativeTitle;
+import net.media.openrtb25.request.NativeVideo;
 import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.DataAssetFormat;
 import net.media.openrtb3.ImageAssetFormat;

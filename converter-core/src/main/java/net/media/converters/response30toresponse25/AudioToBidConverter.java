@@ -3,7 +3,7 @@ package net.media.converters.response30toresponse25;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.response.Bid;
+import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Audio;
 
 import java.util.HashMap;

@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Generated;
-import net.media.openrtb24.request.Audio;
-import net.media.openrtb24.request.Banner;
-import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.request.Imp;
+import net.media.openrtb25.request.Audio;
+import net.media.openrtb25.request.Banner;
+import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.Imp;
 import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.Companion;
 

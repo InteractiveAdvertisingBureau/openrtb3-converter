@@ -10,15 +10,15 @@ import javax.annotation.Generated;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.request.Content;
-import net.media.openrtb24.request.Data;
-import net.media.openrtb24.request.Geo;
-import net.media.openrtb24.request.Imp;
-import net.media.openrtb24.request.Publisher;
-import net.media.openrtb24.request.Segment;
-import net.media.openrtb24.request.Source;
-import net.media.openrtb24.request.User;
+import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.Content;
+import net.media.openrtb25.request.Data;
+import net.media.openrtb25.request.Geo;
+import net.media.openrtb25.request.Imp;
+import net.media.openrtb25.request.Publisher;
+import net.media.openrtb25.request.Segment;
+import net.media.openrtb25.request.Source;
+import net.media.openrtb25.request.User;
 import net.media.openrtb3.App;
 import net.media.openrtb3.Context;
 import net.media.openrtb3.Device;
@@ -129,7 +129,7 @@ public class RequestConverter {
   }
 
 
-  public Site mapRtb24SitetoRtb3Site(net.media.openrtb24.request.Site site) {
+  public Site mapRtb24SitetoRtb3Site(net.media.openrtb25.request.Site site) {
     if ( site == null ) {
       return null;
     }
@@ -164,7 +164,7 @@ public class RequestConverter {
   }
 
 
-  public App mapRtb24ApptoRtb3App(net.media.openrtb24.request.App app) {
+  public App mapRtb24ApptoRtb3App(net.media.openrtb25.request.App app) {
     if ( app == null ) {
       return null;
     }
@@ -238,7 +238,7 @@ public class RequestConverter {
   }
 
 
-  public Producer mapRtb24ProducertoRtb3Producer(net.media.openrtb24.request.Producer producer) {
+  public Producer mapRtb24ProducertoRtb3Producer(net.media.openrtb25.request.Producer producer) {
     if ( producer == null ) {
       return null;
     }
@@ -285,7 +285,7 @@ public class RequestConverter {
   }
 
 
-  public Regs mapRtb24RegstoRtb3Regs(net.media.openrtb24.request.Regs regs) {
+  public Regs mapRtb24RegstoRtb3Regs(net.media.openrtb25.request.Regs regs) {
     if ( regs == null ) {
       return null;
     }
@@ -339,7 +339,7 @@ public class RequestConverter {
   }
 
 
-  public Device mapRtb24DevicetoRtb3Device(net.media.openrtb24.request.Device device) {
+  public Device mapRtb24DevicetoRtb3Device(net.media.openrtb25.request.Device device) {
     if ( device == null ) {
       return null;
     }
@@ -470,12 +470,12 @@ public class RequestConverter {
   }
 
 
-  public net.media.openrtb24.request.Device mapRtb3DevicetoRtb24Device(Device device) {
+  public net.media.openrtb25.request.Device mapRtb3DevicetoRtb24Device(Device device) {
     if ( device == null ) {
       return null;
     }
 //
-//    DeviceBuilder device1 = net.media.openrtb24.request.Device.builder();
+//    DeviceBuilder device1 = net.media.openrtb25.request.Device.builder();
 //
 //    device1.language( device.getLang() );
 //    device1.connectiontype( device.getContype() );
@@ -519,12 +519,12 @@ public class RequestConverter {
   }
 
 
-  public net.media.openrtb24.request.Regs mapRtb3RegstoRtb24Regs(Regs regs) {
+  public net.media.openrtb25.request.Regs mapRtb3RegstoRtb24Regs(Regs regs) {
     if ( regs == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.Regs regs1 = new net.media.openrtb24.request.Regs();
+    net.media.openrtb25.request.Regs regs1 = new net.media.openrtb25.request.Regs();
 
     regs1.setCoppa( regs.getCoppa() );
     Map<String, Object> map = regs.getExt();
@@ -587,12 +587,12 @@ public class RequestConverter {
   }
 
 
-  public net.media.openrtb24.request.Site mapRtb3SitetoRtb24Site(Site site) {
+  public net.media.openrtb25.request.Site mapRtb3SitetoRtb24Site(Site site) {
     if ( site == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.Site site1 = new net.media.openrtb24.request.Site();
+    net.media.openrtb25.request.Site site1 = new net.media.openrtb25.request.Site();
 
     site1.setSectioncat( ( site.getSectcat() ) );
     site1.setPrivacypolicy( site.getPrivpolicy() );
@@ -622,12 +622,12 @@ public class RequestConverter {
   }
 
 
-  public net.media.openrtb24.request.App mapRtb24ApptoRtb3App(App app) {
+  public net.media.openrtb25.request.App mapRtb24ApptoRtb3App(App app) {
     if ( app == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.App app1 = new net.media.openrtb24.request.App();
+    net.media.openrtb25.request.App app1 = new net.media.openrtb25.request.App();
 
     app1.setSectioncat( ( app.getSectcat() ) );
     app1.setPrivacypolicy( app.getPrivpolicy() );
@@ -696,12 +696,12 @@ public class RequestConverter {
   }
 
 
-  public net.media.openrtb24.request.Producer mapRtb3ProducertoRtb24Producer(Producer producer) {
+  public net.media.openrtb25.request.Producer mapRtb3ProducertoRtb24Producer(Producer producer) {
     if ( producer == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.Producer producer1 = new net.media.openrtb24.request.Producer();
+    net.media.openrtb25.request.Producer producer1 = new net.media.openrtb25.request.Producer();
 
     producer1.setId( producer.getId() );
     producer1.setName( producer.getName() );
@@ -1261,7 +1261,7 @@ public class RequestConverter {
   }
 
   protected void mapSourceExt(@MappingTarget net.media.openrtb3.Source target, net.media
-    .openrtb24.request.Source source) {
+    .openrtb25.request.Source source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -1284,7 +1284,7 @@ public class RequestConverter {
     }
   }
 
-  protected void mapSiteExt(Site target, net.media.openrtb24.request.Site source) {
+  protected void mapSiteExt(Site target, net.media.openrtb25.request.Site source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -1295,7 +1295,7 @@ public class RequestConverter {
     target.getExt().remove("amp");
   }
 
-  protected void mapAppExt(App target, net.media.openrtb24.request.App source) {
+  protected void mapAppExt(App target, net.media.openrtb25.request.App source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -1307,7 +1307,7 @@ public class RequestConverter {
   }
 
   protected void mapContentExt(net.media.openrtb3.Content target, net.media
-    .openrtb24.request.Content source) {
+    .openrtb25.request.Content source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -1321,7 +1321,7 @@ public class RequestConverter {
     }
   }
 
-  protected void mapProducerExt(Producer target, net.media.openrtb24.request.Producer
+  protected void mapProducerExt(Producer target, net.media.openrtb25.request.Producer
     source) {
     if(source == null)
       return;
@@ -1331,7 +1331,7 @@ public class RequestConverter {
     target.getExt().remove("cattax");
   }
 
-  protected void mapUserExt(net.media.openrtb3.User target, net.media.openrtb24.request
+  protected void mapUserExt(net.media.openrtb3.User target, net.media.openrtb25.request
     .User source) {
     if(source == null)
       return;
@@ -1341,7 +1341,7 @@ public class RequestConverter {
     target.getExt().remove("consent");
   }
 
-  protected void mapRegsExt(Regs target, net.media.openrtb24.request.Regs source) {
+  protected void mapRegsExt(Regs target, net.media.openrtb25.request.Regs source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -1350,7 +1350,7 @@ public class RequestConverter {
     target.getExt().remove("gdpr");
   }
 
-  protected void mapDeviceExt(Device target, net.media.openrtb24.request.Device source) {
+  protected void mapDeviceExt(Device target, net.media.openrtb25.request.Device source) {
     if(source == null)
       return;
     if(source.getExt() == null)
@@ -1453,7 +1453,7 @@ public class RequestConverter {
     target.getExt().put("dooh", source.getContext().getDooh());
   }
 
-  protected void mapDeviceTo24(net.media.openrtb24.request.Device target, Device source) {
+  protected void mapDeviceTo24(net.media.openrtb25.request.Device target, Device source) {
     if(source == null)
       return;
 
@@ -1509,7 +1509,7 @@ public class RequestConverter {
     }
   }
 
-  protected void mapRegsTo24(net.media.openrtb24.request.Regs target, Regs source) {
+  protected void mapRegsTo24(net.media.openrtb25.request.Regs target, Regs source) {
     if(source == null)
       return;
     if(source.getGdpr() == null)
@@ -1519,7 +1519,7 @@ public class RequestConverter {
     target.getExt().put("gdpr", source.getGdpr());
   }
 
-  protected void mapGeoTo24(net.media.openrtb24.request.Geo target, net.media.openrtb3.Geo
+  protected void mapGeoTo24(net.media.openrtb25.request.Geo target, net.media.openrtb3.Geo
     source) {
     if(source == null)
       return;
@@ -1531,7 +1531,7 @@ public class RequestConverter {
     }
   }
 
-  protected void mapSourceTo24(net.media.openrtb24.request.Source target, net.media
+  protected void mapSourceTo24(net.media.openrtb25.request.Source target, net.media
     .openrtb3.Source source) {
     if(source == null)
       return;
@@ -1569,7 +1569,7 @@ public class RequestConverter {
     }
   }
 
-  protected void mapSiteTo24(net.media.openrtb24.request.Site target, Site source) {
+  protected void mapSiteTo24(net.media.openrtb25.request.Site target, Site source) {
     if(source == null)
       return;
     if(source.getCattax() != null) {
@@ -1584,7 +1584,7 @@ public class RequestConverter {
     }
   }
 
-  protected void mapAppTo24(net.media.openrtb24.request.App target, App source) {
+  protected void mapAppTo24(net.media.openrtb25.request.App target, App source) {
     if(source == null)
       return;
     if(source.getCattax() != null) {
@@ -1599,7 +1599,7 @@ public class RequestConverter {
     }
   }
 
-  protected void mapContentTo24(net.media.openrtb24.request.Content target, net.media
+  protected void mapContentTo24(net.media.openrtb25.request.Content target, net.media
     .openrtb3.Content source) {
     if(source == null)
       return;
@@ -1616,7 +1616,7 @@ public class RequestConverter {
     }
   }
 
-  protected void mapProducerTo24(net.media.openrtb24.request.Producer target, Producer
+  protected void mapProducerTo24(net.media.openrtb25.request.Producer target, Producer
     source) {
     if(source == null)
       return;
@@ -1627,7 +1627,7 @@ public class RequestConverter {
     }
   }
 
-  protected void mapUser24(net.media.openrtb24.request.User target, net.media
+  protected void mapUser24(net.media.openrtb25.request.User target, net.media
     .openrtb3.User source) {
     if(source == null)
       return;

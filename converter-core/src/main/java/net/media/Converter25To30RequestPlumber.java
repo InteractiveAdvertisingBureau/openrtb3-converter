@@ -2,8 +2,8 @@ package net.media;
 
 import net.media.converters.Converter;
 import net.media.converters.request25toRequest30.*;
-import net.media.openrtb24.request.*;
-import net.media.openrtb24.request.Asset;
+import net.media.openrtb25.request.*;
+import net.media.openrtb25.request.Asset;
 import net.media.openrtb3.*;
 import net.media.openrtb3.App;
 import net.media.openrtb3.Content;
@@ -25,69 +25,69 @@ public class Converter25To30RequestPlumber {
   private Converter<BidRequest, Request> bidRequestToRequest() {
     Converter<Imp, Item> impItemConverter = impToItem();
     Converter<BidRequest, Context> bidRequestContextConverter = bidRequestContextConverter();
-    Converter<net.media.openrtb24.request.Source, net.media.openrtb3.Source> source24Source3Converter = new SourceToSourceConverter();
+    Converter<net.media.openrtb25.request.Source, net.media.openrtb3.Source> source24Source3Converter = new SourceToSourceConverter();
     return new BidRequestToRequestConverter(impItemConverter, bidRequestContextConverter, source24Source3Converter);
   }
 
   private Converter<BidRequest, Context> bidRequestContextConverter() {
-    Converter<net.media.openrtb24.request.Regs, Regs> regsRegsConverter = new RegsToRegsConverter();
-    Converter<net.media.openrtb24.request.Site, Site> siteSiteConverter = siteSiteConverter();
-    Converter<net.media.openrtb24.request.User, User> userUserConverter = userUserConverter();
+    Converter<net.media.openrtb25.request.Regs, Regs> regsRegsConverter = new RegsToRegsConverter();
+    Converter<net.media.openrtb25.request.Site, Site> siteSiteConverter = siteSiteConverter();
+    Converter<net.media.openrtb25.request.User, User> userUserConverter = userUserConverter();
     Converter<BidRequest, Restrictions> bidRequestRestrictionsConverter = new BidRequestToRestrictionsConverter();
-    Converter<net.media.openrtb24.request.App, App> appAppConverter = appAppConverter();
-    Converter<net.media.openrtb24.request.Device, Device> deviceDeviceConverter = deviceDeviceConverter();
+    Converter<net.media.openrtb25.request.App, App> appAppConverter = appAppConverter();
+    Converter<net.media.openrtb25.request.Device, Device> deviceDeviceConverter = deviceDeviceConverter();
     return new BidRequestToContextConverter(regsRegsConverter, siteSiteConverter, userUserConverter,
       bidRequestRestrictionsConverter, appAppConverter, deviceDeviceConverter);
   }
 
-  private Converter<net.media.openrtb24.request.Device, Device> deviceDeviceConverter() {
-    Converter<net.media.openrtb24.request.Geo, Geo> geoGeoConverter = new GeoToGeoConverter();
+  private Converter<net.media.openrtb25.request.Device, Device> deviceDeviceConverter() {
+    Converter<net.media.openrtb25.request.Geo, Geo> geoGeoConverter = new GeoToGeoConverter();
     return new DeviceToDeviceConverter(geoGeoConverter);
   }
 
-  private Converter<net.media.openrtb24.request.User, User> userUserConverter() {
-    Converter<net.media.openrtb24.request.Geo, Geo> geoGeoConverter = new GeoToGeoConverter();
-    Converter<net.media.openrtb24.request.Data, Data> dataDataConverter = dataDataConverter();
+  private Converter<net.media.openrtb25.request.User, User> userUserConverter() {
+    Converter<net.media.openrtb25.request.Geo, Geo> geoGeoConverter = new GeoToGeoConverter();
+    Converter<net.media.openrtb25.request.Data, Data> dataDataConverter = dataDataConverter();
     return new UserToUserConverter(geoGeoConverter, dataDataConverter);
   }
 
-  private Converter<net.media.openrtb24.request.App, App> appAppConverter() {
-    Converter<net.media.openrtb24.request.Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter = new PublisherToPublisherConverter();
-    Converter<net.media.openrtb24.request.Content, net.media.openrtb3.Content> contentContentConverter = contentContentConverter();
+  private Converter<net.media.openrtb25.request.App, App> appAppConverter() {
+    Converter<net.media.openrtb25.request.Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter = new PublisherToPublisherConverter();
+    Converter<net.media.openrtb25.request.Content, net.media.openrtb3.Content> contentContentConverter = contentContentConverter();
     return new AppToAppConverter(publisherPublisherConverter, contentContentConverter);
   }
 
-  private Converter<net.media.openrtb24.request.Site, Site> siteSiteConverter() {
-    Converter<net.media.openrtb24.request.Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter = new PublisherToPublisherConverter();
-    Converter<net.media.openrtb24.request.Content, net.media.openrtb3.Content> contentContentConverter = contentContentConverter();
+  private Converter<net.media.openrtb25.request.Site, Site> siteSiteConverter() {
+    Converter<net.media.openrtb25.request.Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter = new PublisherToPublisherConverter();
+    Converter<net.media.openrtb25.request.Content, net.media.openrtb3.Content> contentContentConverter = contentContentConverter();
     return new SiteToSiteConverter(publisherPublisherConverter, contentContentConverter);
   }
 
-  private Converter<net.media.openrtb24.request.Content, Content> contentContentConverter() {
-    Converter<net.media.openrtb24.request.Producer, net.media.openrtb3.Producer> producerProducerConverter = new ProducerToProducerConverter();
-    Converter<net.media.openrtb24.request.Data, Data> dataDataConverter = dataDataConverter();
+  private Converter<net.media.openrtb25.request.Content, Content> contentContentConverter() {
+    Converter<net.media.openrtb25.request.Producer, net.media.openrtb3.Producer> producerProducerConverter = new ProducerToProducerConverter();
+    Converter<net.media.openrtb25.request.Data, Data> dataDataConverter = dataDataConverter();
     return new ContentToContentConverter(producerProducerConverter, dataDataConverter);
   }
 
-  private Converter<net.media.openrtb24.request.Data, Data> dataDataConverter() {
-    Converter<net.media.openrtb24.request.Segment, Segment> segmentSegmentConverter = new SegmentToSegmentConverter();
+  private Converter<net.media.openrtb25.request.Data, Data> dataDataConverter() {
+    Converter<net.media.openrtb25.request.Segment, Segment> segmentSegmentConverter = new SegmentToSegmentConverter();
     return new DataToDataConverter(segmentSegmentConverter);
   }
 
   private Converter<Imp, Item> impToItem() {
-    Converter<net.media.openrtb24.request.Banner, DisplayPlacement> bannerDisplayPlacementConverter = new
+    Converter<net.media.openrtb25.request.Banner, DisplayPlacement> bannerDisplayPlacementConverter = new
       BannerToDisplayPlacementConverter();
-    Converter<net.media.openrtb24.request.Native, DisplayPlacement> nativeDisplayPlacementConverter =
+    Converter<net.media.openrtb25.request.Native, DisplayPlacement> nativeDisplayPlacementConverter =
       nativeToDisplayPlacement();
-    Converter<net.media.openrtb24.request.Banner, Companion> bannerCompanionConverter = bannerToCompanion
+    Converter<net.media.openrtb25.request.Banner, Companion> bannerCompanionConverter = bannerToCompanion
       (bannerDisplayPlacementConverter);
-    Converter<net.media.openrtb24.request.Video, VideoPlacement> videoVideoPlacementConverter = new
+    Converter<net.media.openrtb25.request.Video, VideoPlacement> videoVideoPlacementConverter = new
       VideoToVideoPlacementConverter(bannerCompanionConverter);
-    Converter<net.media.openrtb24.request.Audio, AudioPlacement> audioAudioPlacementConverter = new
+    Converter<net.media.openrtb25.request.Audio, AudioPlacement> audioAudioPlacementConverter = new
       AudioToAudioPlacementConverter(bannerCompanionConverter);
-    Converter<net.media.openrtb24.request.Metric, net.media.openrtb3.Metric> metricMetricConverter = new
+    Converter<net.media.openrtb25.request.Metric, net.media.openrtb3.Metric> metricMetricConverter = new
       MetricToMetricConverter();
-    Converter<net.media.openrtb24.request.Deal, net.media.openrtb3.Deal> dealDealConverter = new DealToDealConverter();
+    Converter<net.media.openrtb25.request.Deal, net.media.openrtb3.Deal> dealDealConverter = new DealToDealConverter();
     return new ImpToItemConverter(bannerDisplayPlacementConverter,
                                   nativeDisplayPlacementConverter,
                                   videoVideoPlacementConverter,
@@ -96,14 +96,14 @@ public class Converter25To30RequestPlumber {
                                   metricMetricConverter);
   }
 
-  private Converter<net.media.openrtb24.request.Native, DisplayPlacement> nativeToDisplayPlacement() {
+  private Converter<net.media.openrtb25.request.Native, DisplayPlacement> nativeToDisplayPlacement() {
     Converter<Asset, AssetFormat> assetAssetFormatConverter = new AssetToAssetFormatConverter();
     Converter<NativeRequestBody, NativeFormat> nativeRequestBodyNativeFormatConverter = new
       NativeRequestBodyToNativeFormatConverter(assetAssetFormatConverter);
     return new NativeToDisplayPlacementConverter(nativeRequestBodyNativeFormatConverter);
   }
 
-  private Converter<net.media.openrtb24.request.Banner, Companion> bannerToCompanion(Converter<net.media.openrtb24.request.Banner,
+  private Converter<net.media.openrtb25.request.Banner, Companion> bannerToCompanion(Converter<net.media.openrtb25.request.Banner,
     DisplayPlacement> bannerDisplayPlacementConverter) {
     return new BannerToCompanionConverter(bannerDisplayPlacementConverter);
   }

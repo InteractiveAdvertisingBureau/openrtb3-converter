@@ -7,10 +7,8 @@ import net.media.OpenRtbConverter;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.enums.AdType;
-import net.media.openrtb24.response.BidResponse;
+import net.media.openrtb25.response.BidResponse;
 import net.media.openrtb3.OpenRTB;
-import net.media.openrtb3.Response;
-import net.media.utils.Utils;
 
 import java.io.File;
 import java.io.IOException;

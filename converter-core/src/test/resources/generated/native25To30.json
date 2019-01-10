@@ -1,0 +1,610 @@
+{
+  "inputFile" : "master.json",
+  "inputType" : "REQUEST25",
+  "inputEdits" : {
+    "c.d" : "\"1\"",
+    "c.f" : "\"2\""
+  },
+  "inputJson" : {
+    "id": "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
+    "at": 1,
+    "test": 1,
+    "tmax": 100,
+    "wseat": ["a"],
+    "bseat": ["b"],
+    "source": {
+      "fd": 1,
+      "tid": "dd",
+      "pchain": "dd",
+      "ext": {
+        "dummy": "ff"
+      }
+    },
+    "regs": {
+      "coppa": 1,
+      "ext": {
+        "dummy": "ff"
+      }
+    },
+    "ext": {
+      "dummy": "ff"
+    },
+    "cur": ["USD"],
+    "allimps": 0,
+    "wlang": ["en"],
+    "bcat": ["bb"],
+    "badv": ["cc"],
+    "bapp": ["nn"],
+    "imp": [{
+      "id": "1",
+      "metric": [{
+        "type": "dd",
+        "value": 1,
+        "vendor": "dssf",
+        "ext": {
+          "dummy": "ff"
+        }
+      }],
+      "bidfloor": 0.03,
+      "bidfloorcur": "USD",
+      "pmp": {
+        "private_auction": 0,
+        "deals": [{
+          "id": "ww",
+          "bidfloor": 0,
+          "bidfloorcur": "USD",
+          "at": 1,
+          "wseat": ["dd", "as"],
+          "wadomain": ["ss.com", "abc.com"],
+          "ext": {
+            "dummy": "ff"
+          }
+        }],
+        "ext": {
+          "dummy": "ff"
+        }
+      },
+      "displaymanager": "dd",
+      "displaymanagerver": "22",
+      "clickbrowser": 1,
+      "secure": 1,
+      "iframebuster": ["ss"],
+      "instl": 0,
+      "tagid": "re",
+      "exp": 1,
+      "native": {
+        "request": {
+          "native": {
+            "ver":"1.1",
+            "context":1,
+            "contextsubtype":10,
+            "plcmttype":11,
+            "plcmtcnt":1,
+            "assets":[
+              {
+                "id": 4,
+                "video": {
+                  "linearity": 1,
+                  "minduration": 15,
+                  "maxduration": 30,
+                  "protocols": [
+                    2,3
+                  ],
+                  "mimes": ["video/mp4"]
+                }
+              },
+              {
+                "id":123,
+                "required":1,
+                "title":{
+                  "len":140
+                }
+              },
+              {
+                "id":128,
+                "required":0,
+                "img":{
+                  "wmin":836,
+                  "hmin":627,
+                  "type":3
+                }
+              },
+              {
+                "id":124,
+                "required":1,
+                "img":{
+                  "wmin":50,
+                  "hmin":50,
+                  "type":1
+                }
+              },
+              {
+                "id":126,
+                "required":1,
+                "data":{
+                  "type":1,
+                  "len":25
+                }
+              },
+              {
+                "id":127,
+                "required":1,
+                "data":{
+                  "type":2,
+                  "len":140
+                }
+              }
+            ]
+          }
+        }
+      },
+      "ext": {
+        "dummy": "ff",
+        "sequence": 1,
+        "dt": 1,
+        "dlvy": 1,
+        "admx": 1,
+        "curlx": 0,
+        "ampren": 1,
+        "ctype": [1]
+      }
+    }],
+    "site": {
+      "id": "102855",
+      "name": "abdk",
+      "sectioncat": ["zz", "dd"],
+      "pagecat": ["as", "ss"],
+      "cat": ["IAB3-1", "IAB3-2"],
+      "ref": "sdfe",
+      "search": "eded",
+      "mobile": 1,
+      "privacypolicy": 1,
+      "keywords": "ewew",
+      "domain": "www.foobar.com",
+      "page": "http://www.foobar.com/1234.html ",
+      "publisher": {
+        "id": "8953",
+        "name": "foobar.com",
+        "cat": ["IAB3-1", "IAB3-2"],
+        "domain": "foobar.com",
+        "ext": {
+          "dummy": "ff"
+        }
+      },
+      "content": {
+        "id": "rfewa",
+        "episode": 1,
+        "title": "sf",
+        "series": "rf",
+        "season": "wed",
+        "genre": "sefw",
+        "album": "edwe",
+        "artist": "we",
+        "isrc": "ewde",
+        "producer": {
+          "id": "eew",
+          "name": "edew",
+          "cat": ["IAB3-1", "IAB3-2"],
+          "domain": "abc.com",
+          "ext": {
+            "dummy": "ff"
+          }
+        },
+        "url": "ewfe.com",
+        "cat": ["IAB3-1", "IAB3-2"],
+        "prodq": 1,
+        "videoquality": 2,
+        "context": 1,
+        "contentrating": "wqewq",
+        "userrating": "ewew",
+        "qagmediarating": 1,
+        "keywords": "efea",
+        "livestream": 1,
+        "sourcerelationship": 1,
+        "len": 2,
+        "language": "en",
+        "embeddable": 1,
+        "data": [{}],
+        "ext": {
+          "dummy": "ff"
+        }
+      },
+      "ext": {
+        "dummy": "ff"
+      }
+    },
+    "device": {
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2",
+      "ip": "123.145.167.10",
+      "geo": {
+        "lat": 22.22,
+        "lon": 22.2,
+        "type": 1,
+        "accuracy": 1,
+        "lastfix": 1,
+        "ipservice": 2,
+        "country": "sd",
+        "region": "eew",
+        "regionfips104": "eew",
+        "metro": "ee",
+        "city": "eew",
+        "zip": "ewe",
+        "utcoffset": 1,
+        "ext": {
+          "dummy": "ff"
+        }
+      },
+      "dnt": 1,
+      "lmt": 1,
+      "ipv6": "123.145.167.1.3.2",
+      "devicetype": 2,
+      "make": "weew",
+      "model": "edew",
+      "osv": "hwv",
+      "hwv": "ww",
+      "h": 2,
+      "w": 2,
+      "ppi": 1,
+      "pxratio": 1.2,
+      "js": 1,
+      "geofetch": 2,
+      "flashver": "ewe",
+      "language": "weew",
+      "carrier": "weew",
+      "mccmnc": "ewew",
+      "connectiontype": 2,
+      "ext": {
+        "dummy": "ff"
+      }
+    },
+    "user": {
+      "id": "55816b39711f9b5acf3b90e313ed29e51665623f",
+      "buyeruid": "eewew",
+      "yob": 2,
+      "gender": "M",
+      "keywords": "ewew",
+      "customdata": "ewew",
+      "geo": {
+        "lat": 22.22,
+        "lon": 22.2,
+        "type": 1,
+        "accuracy": 1,
+        "lastfix": 1,
+        "ipservice": 2,
+        "country": "sd",
+        "region": "eew",
+        "regionfips104": "eew",
+        "metro": "ee",
+        "city": "eew",
+        "zip": "ewe",
+        "utcoffset": 1,
+        "ext": {
+          "dummy": "ff"
+        }
+      },
+      "data": [{
+        "id": "wwe",
+        "name": "ee",
+        "segment": [{
+          "id": "ew",
+          "name": "rewfe",
+          "value": "ew",
+          "ext": {
+            "dummy": "ff"
+          }
+        }],
+        "ext": {
+          "dummy": "ff"
+        }
+      }]
+
+    }
+  },
+  "outputFile" : "master.json",
+  "outputType" : "REQUEST30",
+  "outputEdits" : {
+    "c.d" : "\"3\"",
+    "c.f" : "10"
+  },
+  "outputJson" : {
+    "ver": "3.0",
+    "domainSpec": "adcom",
+    "domainVer": "1.0",
+    "request": {
+      "id": "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
+      "test": 1,
+      "tmax": 100,
+      "at": 1,
+      "cur": ["USD"],
+      "seat": ["a"],
+      "wseat": 1,
+      "cdata": "ewew",
+      "source": {
+        "tid": "dd",
+        "pchain": "dd",
+        "ext": {
+          "dummy": "ff",
+          "fd": 1
+        }
+      },
+      "item": [{
+        "id": "1",
+        "flr": 0.03,
+        "flrcur": "USD",
+        "exp": 1,
+        "dt": 1,
+        "dlvy": 1,
+        "metric": [{
+          "type": "dd",
+          "value": 1.0,
+          "vendor": "dssf",
+          "ext": {
+            "dummy": "ff"
+          }
+        }],
+        "deal": [{
+          "id": "ww",
+          "flr": 0.0,
+          "flrcur": "USD",
+          "at": 1,
+          "wseat": ["dd", "as"],
+          "wadomain": ["ss.com", "abc.com"],
+          "ext": {
+            "dummy": "ff"
+          }
+        }],
+        "spec": {
+          "placement": {
+            "tagid": "re",
+            "ssai": 0,
+            "sdk": "dd",
+            "sdkver": "22",
+            "reward": 0,
+            "wlang": ["en"],
+            "secure": 1,
+            "admx": 1,
+            "curlx": 0,
+            "display": {
+              "instl": 0,
+              "clktype": 1,
+              "ptype": 11,
+              "context": 1,
+              "unit": 1,
+              "priv": 0,
+              "nativefmt": {
+                "asset": [{
+                  "id": 4,
+                  "video": {
+                    "skipmin": 0,
+                    "skipafter": 0,
+                    "mime": ["video/mp4"],
+                    "ctype": [2, 3],
+                    "unit": 1,
+                    "mindur": 15,
+                    "maxdur": 30,
+                    "maxext": 0,
+                    "boxing": 1
+                  }
+                }, {
+                  "id": 123,
+                  "req": 1,
+                  "title": {
+                    "len": 140
+                  }
+                }, {
+                  "id": 128,
+                  "req": 0,
+                  "img": {
+                    "type": 3,
+                    "wmin": 836,
+                    "hmin": 627
+                  }
+                }, {
+                  "id": 124,
+                  "req": 1,
+                  "img": {
+                    "type": 1,
+                    "wmin": 50,
+                    "hmin": 50
+                  }
+                }, {
+                  "id": 126,
+                  "req": 1,
+                  "data": {
+                    "type": 1,
+                    "len": 25
+                  }
+                }, {
+                  "id": 127,
+                  "req": 1,
+                  "data": {
+                    "type": 2,
+                    "len": 140
+                  }
+                }]
+              },
+              "ext": {
+                "contextsubtype": 10
+              }
+            }
+          }
+        },
+        "ext": {
+          "dummy": "ff",
+          "sequence": 1
+        },
+        "private": 0
+      }],
+      "context": {
+        "site": {
+          "id": "102855",
+          "name": "abdk",
+          "pub": {
+            "id": "8953",
+            "name": "foobar.com",
+            "domain": "foobar.com",
+            "cat": ["IAB3-1", "IAB3-2"],
+            "ext": {
+              "dummy": "ff"
+            }
+          },
+          "content": {
+            "id": "rfewa",
+            "episode": 1,
+            "title": "sf",
+            "series": "rf",
+            "season": "wed",
+            "artist": "we",
+            "genre": "sefw",
+            "album": "edwe",
+            "isrc": "ewde",
+            "url": "ewfe.com",
+            "cat": ["IAB3-1", "IAB3-2"],
+            "prodq": 1,
+            "context": 1,
+            "rating": "wqewq",
+            "urating": "ewew",
+            "mrating": 1,
+            "keywords": "efea",
+            "live": 1,
+            "srcrel": 1,
+            "len": 2,
+            "lang": "en",
+            "embed": 1,
+            "producer": {
+              "id": "eew",
+              "name": "edew",
+              "domain": "abc.com",
+              "cat": ["IAB3-1", "IAB3-2"],
+              "ext": {
+                "dummy": "ff"
+              }
+            },
+            "data": [{}],
+            "ext": {
+              "dummy": "ff",
+              "videoquality": 2
+            }
+          },
+          "domain": "www.foobar.com",
+          "cat": ["IAB3-1", "IAB3-2"],
+          "sectcat": ["zz", "dd"],
+          "pagecat": ["ss", "as"],
+          "privpolicy": 1,
+          "keywords": "ewew",
+          "page": "http://www.foobar.com/1234.html ",
+          "ref": "sdfe",
+          "search": "eded",
+          "mobile": 1,
+          "ext": {
+            "dummy": "ff"
+          }
+        },
+        "user": {
+          "id": "55816b39711f9b5acf3b90e313ed29e51665623f",
+          "buyeruid": "eewew",
+          "yob": 2,
+          "gender": "M",
+          "keywords": "ewew",
+          "geo": {
+            "type": 1,
+            "lat": 22.22,
+            "lon": 22.2,
+            "accur": 1,
+            "lastfix": 1,
+            "ipserv": 2,
+            "country": "sd",
+            "region": "eew",
+            "metro": "ee",
+            "city": "eew",
+            "zip": "ewe",
+            "utcoffset": 1,
+            "ext": {
+              "dummy": "ff",
+              "regionfips104": "eew"
+            }
+          },
+          "data": [{
+            "id": "wwe",
+            "name": "ee",
+            "segment": [{
+              "id": "ew",
+              "name": "rewfe",
+              "value": "ew",
+              "ext": {
+                "dummy": "ff"
+              }
+            }],
+            "ext": {
+              "dummy": "ff"
+            }
+          }]
+        },
+        "device": {
+          "type": 2,
+          "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2",
+          "dnt": "1",
+          "lmt": 1,
+          "make": "weew",
+          "model": "edew",
+          "osv": "hwv",
+          "hwv": "ww",
+          "h": 2,
+          "w": 2,
+          "ppi": 1,
+          "pxratio": 1.2,
+          "js": 1,
+          "lang": "weew",
+          "ip": "123.145.167.10",
+          "ipv6": "123.145.167.1.3.2",
+          "carrier": "weew",
+          "mccmnc": "ewew",
+          "contype": 2,
+          "geofetch": 2,
+          "geo": {
+            "type": 1,
+            "lat": 22.22,
+            "lon": 22.2,
+            "accur": 1,
+            "lastfix": 1,
+            "ipserv": 2,
+            "country": "sd",
+            "region": "eew",
+            "metro": "ee",
+            "city": "eew",
+            "zip": "ewe",
+            "utcoffset": 1,
+            "ext": {
+              "dummy": "ff",
+              "regionfips104": "eew"
+            }
+          },
+          "ext": {
+            "dummy": "ff",
+            "flashver": "ewe"
+          }
+        },
+        "regs": {
+          "coppa": 1,
+          "ext": {
+            "dummy": "ff"
+          }
+        },
+        "restrictions": {
+          "bcat": ["bb"],
+          "badv": ["cc"],
+          "bapp": ["nn"]
+        }
+      },
+      "ext": {
+        "dummy": "ff"
+      },
+      "package": 0
+    }
+  },
+  "purpose" : "VALID_BIDDER",
+  "params" : {
+    "adType" : "m",
+    "yaar" : "e"
+  }
+}

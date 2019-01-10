@@ -13,18 +13,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 @AllArgsConstructor
-public class AppToAppConverter implements Converter<App,net.media.openrtb24.request.App> {
+public class AppToAppConverter implements Converter<App,net.media.openrtb25.request.App> {
 
-  Converter<Publisher, net.media.openrtb24.request.Publisher> publisherPublisherConverter;
-  Converter<Content, net.media.openrtb24.request.Content> contentContentConverter;
+  Converter<Publisher, net.media.openrtb25.request.Publisher> publisherPublisherConverter;
+  Converter<Content, net.media.openrtb25.request.Content> contentContentConverter;
 
   @Override
-  public net.media.openrtb24.request.App map(App source, Config config) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.App map(App source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.App app1 = new net.media.openrtb24.request.App();
+    net.media.openrtb25.request.App app1 = new net.media.openrtb25.request.App();
 
     enhance( source, app1, config );
 
@@ -32,7 +32,8 @@ public class AppToAppConverter implements Converter<App,net.media.openrtb24.requ
   }
 
   @Override
-  public void enhance(App source, net.media.openrtb24.request.App target, Config config) throws OpenRtbConverterException {
+  public void enhance(App source, net.media.openrtb25.request.App target, Config config) throws
+    OpenRtbConverterException {
     if(source == null)
       return;
     target.setSectioncat( Utils.copyList(source.getSectcat(), config) );

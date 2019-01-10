@@ -6,12 +6,12 @@ import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.enums.AdType;
-import net.media.openrtb24.response.Bid;
-import net.media.openrtb24.response.nativeresponse.NativeResponse;
+import net.media.openrtb25.response.Bid;
+import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb3.Display;
 import net.media.openrtb3.Native;
 import net.media.template.MacroMapper;
-import net.media.util.JacksonObjectMapper;
+import net.media.utils.JacksonObjectMapper;
 
 import java.io.IOException;
 import java.util.HashMap;

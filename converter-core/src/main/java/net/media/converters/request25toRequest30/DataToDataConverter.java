@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.request.Data;
+import net.media.openrtb25.request.Data;
 import net.media.openrtb3.Segment;
 import net.media.utils.ListToListConverter;
 
@@ -14,7 +14,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class DataToDataConverter implements Converter<Data, net.media.openrtb3.Data> {
 
-  private Converter<net.media.openrtb24.request.Segment, Segment> segmentSegmentConverter;
+  private Converter<net.media.openrtb25.request.Segment, Segment> segmentSegmentConverter;
 
   @Override
   public net.media.openrtb3.Data map(Data source, Config config) throws OpenRtbConverterException {
