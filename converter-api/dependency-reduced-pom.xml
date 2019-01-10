@@ -41,7 +41,11 @@
                 </filter>
               </filters>
               <transformers>
-                <transformer />
+                <transformer>
+                  <manifestEntries>
+                    <Main-Class>net.media.ConverterApplication</Main-Class>
+                  </manifestEntries>
+                </transformer>
               </transformers>
             </configuration>
           </execution>
@@ -60,6 +64,13 @@
             <nonFilteredFileExtension>svg</nonFilteredFileExtension>
             <nonFilteredFileExtension>ico</nonFilteredFileExtension>
           </nonFilteredFileExtensions>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
     </plugins>
