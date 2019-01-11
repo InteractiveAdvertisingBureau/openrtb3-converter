@@ -218,7 +218,7 @@
           "crid": "d0bcb39723af87c2bb00942afee5710e",
           "cat": ["cat", "dog"],
           "attr": [6, 1],
-          "bundle": ["chocho"],
+          "bundle": "chocho",
           "api": [1, 2],
           "protocol": null,
           "qagmediarating": null,
@@ -329,9 +329,7 @@
                   "adomain": [
                     "ford.com"
                   ],
-                  "bundle": [
-                    "chocho"
-                  ],
+                  "bundle": "chocho",
                   "iurl": "Abcd.com",
                   "cat": [
                     "cat",

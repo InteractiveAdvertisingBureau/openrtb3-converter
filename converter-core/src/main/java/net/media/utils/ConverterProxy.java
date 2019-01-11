@@ -28,9 +28,8 @@ public class ConverterProxy implements Function<Conversion,Converter> {
 
   @Override
   public Converter apply(Conversion conversion) {
-    Converter converter = BACKING_MAP.fetch(conversion);
-    if (nonNull(converter)) {
-      return converter;
+    if (BACKING_MAP.contains(conversion)) {
+      return BACKING_MAP.fetch(conversion);
     }
     BACKING_MAP.register(conversion, backingSupplier.get());
     return BACKING_MAP.fetch(conversion);

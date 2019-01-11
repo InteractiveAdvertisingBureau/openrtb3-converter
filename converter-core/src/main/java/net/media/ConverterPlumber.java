@@ -60,9 +60,10 @@ public class ConverterPlumber {
   private Provider<Conversion, Converter> converterProvider;
 
   public ConverterPlumber() {
-    openRtbToBidResponseConverter.apply(new Conversion(OpenRTB.class, BidResponse.class));
-    bidResponseToOpenRtbConverter.apply(new Conversion(BidResponse.class, OpenRTB.class));
-
+    Converter<OpenRTB, BidResponse> openRTBBidResponseConverter = openRtbToBidResponseConverter
+      .apply(new Conversion(OpenRTB.class, BidResponse.class));
+    Converter<BidResponse, OpenRTB> bidResponseOpenRTBConverter = bidResponseToOpenRtbConverter
+      .apply(new Conversion(BidResponse.class, OpenRTB.class));
     converterProvider = new Provider<>(null);
     Converter25To30RequestPlumber converter25To30RequestPlumber = new Converter25To30RequestPlumber();
     Converter30To25RequestPlumber converter30To25RequestPlumber = new Converter30To25RequestPlumber();
@@ -70,6 +71,8 @@ public class ConverterPlumber {
       converter25To30RequestPlumber.bidRequestToOpenRtb());
     converterProvider.register(new Conversion(OpenRTB.class, BidRequest.class),
       converter30To25RequestPlumber.openRtbToBidRequestConverter());
+    converterProvider.register(new Conversion(OpenRTB.class, BidResponse.class), openRTBBidResponseConverter);
+    converterProvider.register(new Conversion(BidResponse.class, OpenRTB.class), bidResponseOpenRTBConverter);
   }
 
   private ConverterProxy linkAssetToLinkConverter = new ConverterProxy(LinkAssetToLinkConverter::new);
