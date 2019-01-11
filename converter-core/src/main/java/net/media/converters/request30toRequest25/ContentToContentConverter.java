@@ -14,18 +14,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 @AllArgsConstructor
-public class ContentToContentConverter implements Converter<Content, net.media.openrtb24.request.Content> {
+public class ContentToContentConverter implements Converter<Content, net.media.openrtb25.request.Content> {
 
-  private Converter<Producer, net.media.openrtb24.request.Producer> producerProducerConverter;
-  private Converter<Data, net.media.openrtb24.request.Data> dataDataConverter;
+  private Converter<Producer, net.media.openrtb25.request.Producer> producerProducerConverter;
+  private Converter<Data, net.media.openrtb25.request.Data> dataDataConverter;
 
   @Override
-  public net.media.openrtb24.request.Content map(Content source, Config config) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.Content map(Content source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.Content content1 = new net.media.openrtb24.request.Content();
+    net.media.openrtb25.request.Content content1 = new net.media.openrtb25.request.Content();
 
     enhance( source, content1, config );
 
@@ -33,7 +33,8 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
   }
 
   @Override
-  public void enhance(Content source, net.media.openrtb24.request.Content target, Config config) throws OpenRtbConverterException {
+  public void enhance(Content source, net.media.openrtb25.request.Content target, Config config)
+    throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setContentrating( source.getRating() );

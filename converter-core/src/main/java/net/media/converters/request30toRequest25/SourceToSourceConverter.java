@@ -7,14 +7,14 @@ import net.media.openrtb3.Source;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SourceToSourceConverter implements Converter<Source, net.media.openrtb24.request.Source> {
+public class SourceToSourceConverter implements Converter<Source, net.media.openrtb25.request.Source> {
   @Override
-  public net.media.openrtb24.request.Source map(Source source, Config config) {
+  public net.media.openrtb25.request.Source map(Source source, Config config) {
     if ( source == null ) {
       return null;
     }
 
-    net.media.openrtb24.request.Source source1 = new net.media.openrtb24.request.Source();
+    net.media.openrtb25.request.Source source1 = new net.media.openrtb25.request.Source();
 
     enhance( source, source1, config );
 
@@ -22,7 +22,7 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
   }
 
   @Override
-  public void enhance(Source source, net.media.openrtb24.request.Source target, Config config) {
+  public void enhance(Source source, net.media.openrtb25.request.Source target, Config config) {
     if(source == null)
       return;
     target.setTid( source.getTid() );

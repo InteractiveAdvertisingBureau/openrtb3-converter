@@ -4,9 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.media.config.Config;
 import net.media.enums.AdType;
-import net.media.openrtb24.response.*;
+import net.media.openrtb25.response.*;
 
-import net.media.openrtb24.response.nativeresponse.*;
+import net.media.openrtb25.response.nativeresponse.*;
 import net.media.openrtb3.*;
 import net.media.openrtb3.Bid;
 
@@ -229,12 +229,12 @@ public class OpenRtb24To3MapperImpl {
      * @param adType
      * @return
      */
-    protected List<net.media.openrtb24.response.Bid> bidListToBidList3(List<Bid> list,Seatbid seatbid ,Response response,AdType adType) {
+    protected List<net.media.openrtb25.response.Bid> bidListToBidList3(List<Bid> list, Seatbid seatbid , Response response, AdType adType) {
         if ( list == null ) {
             return null;
         }
 
-        List<net.media.openrtb24.response.Bid> list1 = new ArrayList<>(list.size());
+        List<net.media.openrtb25.response.Bid> list1 = new ArrayList<>(list.size());
         for ( Bid bid : list ) {
             list1.add( bidMapper( bid, seatbid,response,adType ) );
         }
@@ -250,13 +250,13 @@ public class OpenRtb24To3MapperImpl {
      * @param adType
      * @return
      */
-    protected List<Bid> bidListToBidList2(List<net.media.openrtb24.response.Bid> list, SeatBid seatbid,BidResponse bidResponse,AdType adType) {
+    protected List<Bid> bidListToBidList2(List<net.media.openrtb25.response.Bid> list, SeatBid seatbid, BidResponse bidResponse, AdType adType) {
         if ( list == null ) {
             return null;
         }
 
         List<Bid> list1 = new ArrayList<>(list.size());
-        for ( net.media.openrtb24.response.Bid bid : list ) {
+        for ( net.media.openrtb25.response.Bid bid : list ) {
             list1.add( bidMapper( bid,seatbid,bidResponse ,adType ) );
         }
 
@@ -272,7 +272,7 @@ public class OpenRtb24To3MapperImpl {
      * @param adType
      * @return
      */
-    public Bid bidMapper(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, AdType adType) {
+    public Bid bidMapper(net.media.openrtb25.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, AdType adType) {
         if ( bid == null && seatBid == null && bidResponse == null ) {
             return null;
         }
@@ -311,12 +311,12 @@ public class OpenRtb24To3MapperImpl {
      * @param adType
      * @return
      */
-    public net.media.openrtb24.response.Bid bidMapper(Bid bid, Seatbid seatbid, Response response, AdType adType) {
+    public net.media.openrtb25.response.Bid bidMapper(Bid bid, Seatbid seatbid, Response response, AdType adType) {
         if ( bid == null && seatbid == null && response == null ) {
             return null;
         }
 
-        net.media.openrtb24.response.Bid bid1 = new net.media.openrtb24.response.Bid();
+        net.media.openrtb25.response.Bid bid1 = new net.media.openrtb25.response.Bid();
 
         if ( bid != null ) {
             Map<String, Object> map = bid.getExt();
@@ -346,7 +346,7 @@ public class OpenRtb24To3MapperImpl {
         return bid1;
     }
 
-    public void mapBid(Bid bid, Seatbid seatbid, Response response,AdType adType, net.media.openrtb24.response.Bid bid1){
+    public void mapBid(Bid bid, Seatbid seatbid, Response response,AdType adType, net.media.openrtb25.response.Bid bid1){
         if(nonNull(bid) &&  nonNull(bid1)){
             if(isNull(bid1.getExt())){
                 bid1.setExt(new HashMap<>());
@@ -366,7 +366,7 @@ public class OpenRtb24To3MapperImpl {
      * @param bidResponse
      * @return
      */
-    public Media bidtoMedia(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, AdType adType) {
+    public Media bidtoMedia(net.media.openrtb25.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, AdType adType) {
         if ( bid == null && seatBid == null && bidResponse == null ) {
             return null;
         }
@@ -388,7 +388,7 @@ public class OpenRtb24To3MapperImpl {
      * @param adType
      * @return
      */
-    protected Ad bidToAd(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, AdType adType) {
+    protected Ad bidToAd(net.media.openrtb25.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, AdType adType) {
         if ( bid == null ) {
             return null;
         }
@@ -464,7 +464,7 @@ public class OpenRtb24To3MapperImpl {
      * @param adType
      * @return
      */
-    public Audio mapAudio(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse
+    public Audio mapAudio(net.media.openrtb25.response.Bid bid, SeatBid seatBid, BidResponse
       bidResponse, AdType adType) {
         if ( bid == null && seatBid == null && bidResponse == null ) {
             return null;
@@ -502,7 +502,7 @@ public class OpenRtb24To3MapperImpl {
      * @param audio
      * @param adType
      */
-    public void mapAudio(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse
+    public void mapAudio(net.media.openrtb25.response.Bid bid, SeatBid seatBid, BidResponse
       bidResponse, Audio audio, AdType adType) {
         ;
         if (isNull(bid) || isNull(audio) || isNull(bid.getExt())) {
@@ -523,7 +523,7 @@ public class OpenRtb24To3MapperImpl {
      * @param adType
      * @return
      */
-    public Audit mapAudit(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse
+    public Audit mapAudit(net.media.openrtb25.response.Bid bid, SeatBid seatBid, BidResponse
       bidResponse, AdType adType) {
         if ( bid == null && seatBid == null && bidResponse == null ) {
             return null;
@@ -567,7 +567,7 @@ public class OpenRtb24To3MapperImpl {
      * @param adType
      * @param ad
      */
-    public void mapAd(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse bidResponse,
+    public void mapAd(net.media.openrtb25.response.Bid bid, SeatBid seatBid, BidResponse bidResponse,
                       AdType adType, Ad ad){
         if (nonNull(bid) && nonNull(bid.getExt()) && nonNull(ad)) {
 
@@ -590,7 +590,7 @@ public class OpenRtb24To3MapperImpl {
      * @param adType
      * @return
      */
-    public Display mapDisplay(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, AdType adType) {
+    public Display mapDisplay(net.media.openrtb25.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, AdType adType) {
         if ( bid == null && seatBid == null && bidResponse == null ) {
             return null;
         }
@@ -856,8 +856,8 @@ public class OpenRtb24To3MapperImpl {
      * @param display
      * @param adType
      */
-    public void mapDisplay(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse bidResponse,
-      Display display, AdType adType) {
+    public void mapDisplay(net.media.openrtb25.response.Bid bid, SeatBid seatBid, BidResponse bidResponse,
+                           Display display, AdType adType) {
         if (isNull(bid) || isNull(display) || isNull(bid.getExt())) {
             return;
         }
@@ -885,7 +885,7 @@ public class OpenRtb24To3MapperImpl {
      * @param adType
      * @return
      */
-    public Video mapVideo(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, AdType adType) {
+    public Video mapVideo(net.media.openrtb25.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, AdType adType) {
         if ( bid == null && seatBid == null && bidResponse == null ) {
             return null;
         }
@@ -922,7 +922,7 @@ public class OpenRtb24To3MapperImpl {
      * @param video
      * @param adType
      */
-    public void mapVideo(net.media.openrtb24.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, @MappingTarget
+    public void mapVideo(net.media.openrtb25.response.Bid bid, SeatBid seatBid, BidResponse bidResponse, @MappingTarget
       Video video, @org.mapstruct.Context AdType adType) {
         if (isNull(bid) || isNull(video) || isNull(bid.getExt())) {
             return;
@@ -939,7 +939,7 @@ public class OpenRtb24To3MapperImpl {
      * @param media
      * @param adType
      */
-    protected void mediaToBid(net.media.openrtb24.response.Bid bid, Media media, AdType adType) {
+    protected void mediaToBid(net.media.openrtb25.response.Bid bid, Media media, AdType adType) {
         if (media == null || bid == null) {
             return;
         }
@@ -952,7 +952,7 @@ public class OpenRtb24To3MapperImpl {
      * @param ad
      * @param adType
      */
-    private void adToBid(net.media.openrtb24.response.Bid bid, Ad ad, AdType adType) {
+    private void adToBid(net.media.openrtb25.response.Bid bid, Ad ad, AdType adType) {
         if (bid == null || ad == null) {
             return;
         }
@@ -1026,7 +1026,7 @@ public class OpenRtb24To3MapperImpl {
         }
     }
 
-    private void displayToBid(net.media.openrtb24.response.Bid bid, Display display, AdType adType) {
+    private void displayToBid(net.media.openrtb25.response.Bid bid, Display display, AdType adType) {
         if(nonNull(bid) && nonNull(display)){
             //bid.setAdm(display.getAdm());
             ObjectMapper mapper = new ObjectMapper();
@@ -1080,7 +1080,7 @@ public class OpenRtb24To3MapperImpl {
     }
 
 
-    private void videoToBid(net.media.openrtb24.response.Bid bid, Video video, AdType adType) {
+    private void videoToBid(net.media.openrtb25.response.Bid bid, Video video, AdType adType) {
         if(nonNull(bid) && nonNull(video)){
             bid.setAdm(video.getAdm());
 
@@ -1100,7 +1100,7 @@ public class OpenRtb24To3MapperImpl {
         }
     }
 
-    private void audioToBid(net.media.openrtb24.response.Bid bid, Audio audio, AdType adType) {
+    private void audioToBid(net.media.openrtb25.response.Bid bid, Audio audio, AdType adType) {
         if(nonNull(bid) && nonNull(audio)){
             bid.setAdm(audio.getAdm());
 //            bid.setApi(audio.getApi());
@@ -1118,7 +1118,7 @@ public class OpenRtb24To3MapperImpl {
         }
     }
 
-    private void auditToBid(net.media.openrtb24.response.Bid bid, Audit audit, AdType adType) {
+    private void auditToBid(net.media.openrtb25.response.Bid bid, Audit audit, AdType adType) {
         if(isNull(bid.getExt())){
             bid.setExt(new HashMap<>());
         }

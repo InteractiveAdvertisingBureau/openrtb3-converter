@@ -8,17 +8,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.Generated;
-import net.media.openrtb24.request.Banner;
-import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.request.Imp;
-import net.media.openrtb24.request.Video;
+import net.media.openrtb25.request.Banner;
+import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.Imp;
+import net.media.openrtb25.request.Video;
 import net.media.openrtb3.Companion;
 import net.media.openrtb3.Item;
 import net.media.openrtb3.Request;
 import net.media.openrtb3.VideoPlacement;
-import net.media.util.IterableNonInterableUtil;
-
-import org.mapstruct.MappingTarget;
+import net.media.utils.IterableNonInterableUtil;
 
 import static java.util.Objects.nonNull;
 

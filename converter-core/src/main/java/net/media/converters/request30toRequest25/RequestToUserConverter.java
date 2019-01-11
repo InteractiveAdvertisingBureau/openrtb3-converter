@@ -2,7 +2,7 @@ package net.media.converters.request30toRequest25;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.request.User;
+import net.media.openrtb25.request.User;
 import net.media.openrtb3.Request;
 
 public class RequestToUserConverter implements Converter<Request, User> {

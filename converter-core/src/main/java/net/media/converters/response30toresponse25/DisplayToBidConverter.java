@@ -6,10 +6,12 @@ import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.enums.AdType;
-import net.media.openrtb24.response.Bid;
-import net.media.openrtb24.response.nativeresponse.NativeResponse;
+import net.media.openrtb25.response.Bid;
+import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb3.Display;
 import net.media.openrtb3.Native;
+import net.media.template.MacroMapper;
+import net.media.utils.JacksonObjectMapper;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -50,8 +52,7 @@ public class DisplayToBidConverter implements Converter<Display,Bid> {
       target.setExt(new HashMap<>());
     }
     target.getExt().put("ctype",source.getCtype());
-    target.getExt().put("banner",source.getBanner());
-    target.getExt().put("native",source.get_native());
+
     target.getExt().put("priv",source.getPriv());
     target.getExt().put("curl",source.getCurl());
     if (isEmpty(target.getNurl())) {
@@ -63,9 +64,17 @@ public class DisplayToBidConverter implements Converter<Display,Bid> {
       target.getExt().putAll(source.getExt());
 
     if (config.getAdType() == AdType.NATIVE) {
+      target.getExt().put("native",source.get_native());
       if (nonNull(source.get_native())) {
         NativeResponse _native = nativeBidConverter.map(source.get_native(),config);
-        target.setAdm(_native);
+        if(config.getNativeResponseAsString()){
+          try {
+            target.setAdm(JacksonObjectMapper.getMapper().writeValueAsString(_native));
+          }catch (IOException e){
+            throw new  OpenRtbConverterException("error occured while  serializing native response",e);
+          }
+        }else
+          target.setAdm(_native);
       }
       else if (nonNull(source.getAdm())){
         try {
@@ -78,14 +87,17 @@ public class DisplayToBidConverter implements Converter<Display,Bid> {
       }
     }
     else {
-      if (nonNull(source.getBanner())) {
+      target.getExt().put("banner",source.getBanner());
+      if (nonNull(source.getBanner()) && !isEmpty(config.getBannerTemplate())) {
+        target.setAdm(MacroMapper.macroReplaceTemplate(config.getBannerTemplate(), source.getBanner()));
+      }
+      else if(nonNull(source.getBanner())){
         target.setAdm(source.getBanner());
       }
       else if (nonNull(source.getAdm())){
         target.setAdm(source.getAdm());
       }
     }
-    if(nonNull(source.getExt()))
-      target.getExt().putAll(source.getExt());
+
   }
 }

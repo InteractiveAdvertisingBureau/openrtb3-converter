@@ -14,10 +14,8 @@ import net.media.converters.response25toresponse30.BidToVideoConverter;
 import net.media.converters.response25toresponse30.LinkToLinkAssetConverter;
 import net.media.converters.response25toresponse30.Native24ToNative30Converter;
 import net.media.converters.response25toresponse30.SeatBid24ToSeatBid30Converter;
-import net.media.converters.response25toresponse30.SeatBidList24ToSeatBidList30Converter;
 import net.media.converters.response30toresponse25.AdToBidConverter;
 import net.media.converters.response30toresponse25.Asset30ToAsset24Converter;
-import net.media.converters.response30toresponse25.AudioToBidConverter;
 import net.media.converters.response30toresponse25.AuditToBidConverter;
 import net.media.converters.response30toresponse25.Bid30ToBid24Converter;
 import net.media.converters.response30toresponse25.DisplayToBidConverter;
@@ -27,12 +25,12 @@ import net.media.converters.response30toresponse25.Native30ToNative10Converter;
 import net.media.converters.response30toresponse25.OpenRtbResponseToBidResponseConverter;
 import net.media.converters.response30toresponse25.SeatBid30ToSeatBid24Converter;
 import net.media.converters.response30toresponse25.VideoToBidConverter;
-import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.response.BidResponse;
-import net.media.openrtb24.response.SeatBid;
-import net.media.openrtb24.response.nativeresponse.AssetResponse;
-import net.media.openrtb24.response.nativeresponse.Link;
-import net.media.openrtb24.response.nativeresponse.NativeResponse;
+import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.response.BidResponse;
+import net.media.openrtb25.response.SeatBid;
+import net.media.openrtb25.response.nativeresponse.AssetResponse;
+import net.media.openrtb25.response.nativeresponse.Link;
+import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb3.Ad;
 import net.media.openrtb3.Asset;
 import net.media.openrtb3.Audio;
@@ -48,8 +46,6 @@ import net.media.openrtb3.Seatbid;
 import net.media.openrtb3.Video;
 import net.media.utils.ConverterProxy;
 import net.media.utils.Provider;
-
-import java.util.List;
 
 /**
  * @author shiva.b
@@ -104,14 +100,14 @@ public class ConverterPlumber {
   private ConverterProxy auditToBidConverter = new ConverterProxy(AuditToBidConverter::new);
 
   private ConverterProxy adToBidConverter = new ConverterProxy(() -> {
-    Converter<Display, net.media.openrtb24.response.Bid> displayBidConverter = displayToBidConverter
-      .apply(new Conversion(Display.class, net.media.openrtb24.response.Bid.class));
-    Converter<Video, net.media.openrtb24.response.Bid> videoBidConverter = videoToBidConverter
-      .apply(new Conversion(Video.class, net.media.openrtb24.response.Bid.class));
-    Converter<Audio, net.media.openrtb24.response.Bid> audioBidConverter = audioToBidConverter
-      .apply(new Conversion(Audio.class, net.media.openrtb24.response.Bid.class));
-    Converter<Audit, net.media.openrtb24.response.Bid> auditBidConverter = auditToBidConverter
-      .apply(new Conversion(Audit.class, net.media.openrtb24.response.Bid.class));
+    Converter<Display, net.media.openrtb25.response.Bid> displayBidConverter = displayToBidConverter
+      .apply(new Conversion(Display.class, net.media.openrtb25.response.Bid.class));
+    Converter<Video, net.media.openrtb25.response.Bid> videoBidConverter = videoToBidConverter
+      .apply(new Conversion(Video.class, net.media.openrtb25.response.Bid.class));
+    Converter<Audio, net.media.openrtb25.response.Bid> audioBidConverter = audioToBidConverter
+      .apply(new Conversion(Audio.class, net.media.openrtb25.response.Bid.class));
+    Converter<Audit, net.media.openrtb25.response.Bid> auditBidConverter = auditToBidConverter
+      .apply(new Conversion(Audit.class, net.media.openrtb25.response.Bid.class));
     return new AdToBidConverter(
       displayBidConverter,
       videoBidConverter,
@@ -121,20 +117,20 @@ public class ConverterPlumber {
   });
 
   private ConverterProxy mediaToBidConverter = new ConverterProxy(() -> {
-    Converter<Ad, net.media.openrtb24.response.Bid> adBidConverter = adToBidConverter.apply(new
-      Conversion(Ad.class, net.media.openrtb24.response.Bid.class));
+    Converter<Ad, net.media.openrtb25.response.Bid> adBidConverter = adToBidConverter.apply(new
+      Conversion(Ad.class, net.media.openrtb25.response.Bid.class));
     return new MediatoBidConverter(adBidConverter);
   });
 
   private ConverterProxy bid30Tobid24Converter = new ConverterProxy(() -> {
-    Converter<Media, net.media.openrtb24.response.Bid> mediaBidConverter = mediaToBidConverter
-      .apply(new Conversion(Media.class, net.media.openrtb24.response.Bid.class));
+    Converter<Media, net.media.openrtb25.response.Bid> mediaBidConverter = mediaToBidConverter
+      .apply(new Conversion(Media.class, net.media.openrtb25.response.Bid.class));
     return new Bid30ToBid24Converter(mediaBidConverter);
   });
 
   private ConverterProxy seatBid30ToSeatBid24Converter = new ConverterProxy(() -> {
-    Converter<Bid, net.media.openrtb24.response.Bid> bidBidConverter = bid30Tobid24Converter
-      .apply(new Conversion(Bid.class, net.media.openrtb24.response.Bid.class));
+    Converter<Bid, net.media.openrtb25.response.Bid> bidBidConverter = bid30Tobid24Converter
+      .apply(new Conversion(Bid.class, net.media.openrtb25.response.Bid.class));
     return new SeatBid30ToSeatBid24Converter(bidBidConverter);
   });
 
@@ -157,7 +153,7 @@ public class ConverterPlumber {
       new Conversion(Link.class, LinkAsset.class));
     Converter<AssetResponse, Asset> assetAssetConverter =
       assetResponseToAssetConverter.apply(
-        new Conversion(net.media.openrtb24.request.Asset.class, Asset.class));
+        new Conversion(net.media.openrtb25.request.Asset.class, Asset.class));
     return new Native24ToNative30Converter(linkLinkAssetConverter, assetAssetConverter);
   });
 
@@ -174,21 +170,21 @@ public class ConverterPlumber {
   private ConverterProxy bidToVideoConverter = new ConverterProxy(BidToVideoConverter::new);
 
   private ConverterProxy bidToAdConverter = new ConverterProxy(() -> {
-    Converter<net.media.openrtb24.response.Bid, Display> bidDisplayConverter =
+    Converter<net.media.openrtb25.response.Bid, Display> bidDisplayConverter =
       bidToDisplayConverter.apply(
-        new Conversion(net.media.openrtb24.response.Bid.class, Display.class));
+        new Conversion(net.media.openrtb25.response.Bid.class, Display.class));
 
-    Converter<net.media.openrtb24.response.Bid, Audit> bidAuditConverter =
+    Converter<net.media.openrtb25.response.Bid, Audit> bidAuditConverter =
       bidToAuditConverter.apply(
-      new Conversion(net.media.openrtb24.response.Bid.class, Audit.class));
+      new Conversion(net.media.openrtb25.response.Bid.class, Audit.class));
 
-    Converter<net.media.openrtb24.response.Bid, Audio> bidAudioConverter =
+    Converter<net.media.openrtb25.response.Bid, Audio> bidAudioConverter =
       bidToAudioConverter.apply(
-      new Conversion(net.media.openrtb24.response.Bid.class, Audio.class));
+      new Conversion(net.media.openrtb25.response.Bid.class, Audio.class));
 
-    Converter<net.media.openrtb24.response.Bid, Video> bidVideoConverter =
+    Converter<net.media.openrtb25.response.Bid, Video> bidVideoConverter =
       bidToVideoConverter.apply(
-        new Conversion(net.media.openrtb24.response.Bid.class, Video.class));
+        new Conversion(net.media.openrtb25.response.Bid.class, Video.class));
 
     return new BidToAdConverter(
       bidDisplayConverter,
@@ -199,20 +195,20 @@ public class ConverterPlumber {
   });
 
   private ConverterProxy bidToMediaConverter = new ConverterProxy(() -> {
-    Converter<net.media.openrtb24.response.Bid, Ad> bidAdConverter = bidToAdConverter.apply(new
-      Conversion(net.media.openrtb24.response.Bid.class, Ad.class));
+    Converter<net.media.openrtb25.response.Bid, Ad> bidAdConverter = bidToAdConverter.apply(new
+      Conversion(net.media.openrtb25.response.Bid.class, Ad.class));
     return new Bid24ToMediaConverter(bidAdConverter);
   });
 
   private ConverterProxy bid24ToBid30Converter = new ConverterProxy(() -> {
-    Converter<net.media.openrtb24.response.Bid, Media> bidMediaConverter = bidToMediaConverter
-      .apply(new Conversion(net.media.openrtb24.response.Bid.class, Media.class));
+    Converter<net.media.openrtb25.response.Bid, Media> bidMediaConverter = bidToMediaConverter
+      .apply(new Conversion(net.media.openrtb25.response.Bid.class, Media.class));
     return new Bid24ToBid30Converter(bidMediaConverter);
   });
 
   private ConverterProxy seatBid24ToSeatBid30Converter = new ConverterProxy(() -> {
-    Converter<net.media.openrtb24.response.Bid, Bid> bidBidConverter = bid24ToBid30Converter
-      .apply(new Conversion(net.media.openrtb24.response.Bid.class, Bid.class));
+    Converter<net.media.openrtb25.response.Bid, Bid> bidBidConverter = bid24ToBid30Converter
+      .apply(new Conversion(net.media.openrtb25.response.Bid.class, Bid.class));
     return new SeatBid24ToSeatBid30Converter(bidBidConverter);
   });
 

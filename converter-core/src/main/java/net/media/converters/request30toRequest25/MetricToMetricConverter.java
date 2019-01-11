@@ -10,20 +10,20 @@ import static java.util.Objects.isNull;
 /**
  * Created by rajat.go on 04/01/19.
  */
-public class MetricToMetricConverter implements Converter<Metric, net.media.openrtb24.request
+public class MetricToMetricConverter implements Converter<Metric, net.media.openrtb25.request
   .Metric> {
   @Override
-  public net.media.openrtb24.request.Metric map(Metric metric, Config config) {
+  public net.media.openrtb25.request.Metric map(Metric metric, Config config) {
     if (isNull(metric)) {
       return null;
     }
-    net.media.openrtb24.request.Metric metric1 = new net.media.openrtb24.request.Metric();
+    net.media.openrtb25.request.Metric metric1 = new net.media.openrtb25.request.Metric();
     enhance(metric, metric1, config);
     return metric1;
   }
 
   @Override
-  public void enhance(Metric metric, net.media.openrtb24.request.Metric metric1, Config config) {
+  public void enhance(Metric metric, net.media.openrtb25.request.Metric metric1, Config config) {
     if (metric != null) {
       metric1.setType(metric.getType());
       metric1.setVendor(metric.getVendor());

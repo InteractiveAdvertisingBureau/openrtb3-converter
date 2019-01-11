@@ -4,7 +4,7 @@ import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.enums.AdType;
-import net.media.openrtb24.response.Bid;
+import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.*;
 import net.media.utils.Utils;
 
@@ -48,9 +48,10 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
     target.setCat(Utils.copySet(source.getCat(),config));
     target.setAttr(Utils.copyList(source.getAttr(),config));
     target.setLanguage(source.getLang());
-    target.setExt(Utils.copyMap(source.getExt(),config));
+
     if(isNull(target.getExt()))
       target.setExt(new HashMap<>());
+    target.getExt().putAll(source.getExt());
     if (nonNull(source.getSecure())) {
       target.getExt().put("secure", source.getSecure());
     }

@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import net.media.utils.validator.CheckExactlyOneNotNull;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class Display {
   @Valid
   private Banner banner;//
   @Valid
+  @JsonProperty("native")
   private Native _native;
   @Valid
   private List<Event> event = null;

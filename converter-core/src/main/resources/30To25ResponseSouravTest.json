@@ -82,13 +82,9 @@
                 6,
                 1
               ],
-              "bundle": [
-                "chocho"
-              ],
-              "api": [
-                1,
-                2
-              ],
+              "bundle": "chocho"
+              ,
+              "api": 1,
               "protocol": null,
               "qagmediarating": null,
               "dealid": "1234",

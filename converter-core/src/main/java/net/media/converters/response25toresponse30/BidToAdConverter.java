@@ -3,12 +3,13 @@ package net.media.converters.response25toresponse30;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb24.response.Bid;
+import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Ad;
 import net.media.openrtb3.Audio;
 import net.media.openrtb3.Audit;
 import net.media.openrtb3.Display;
 import net.media.openrtb3.Video;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -60,36 +61,16 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
       return;
     }
     target.setId( source.getCrid() );
-    List<String> list = source.getAdomain();
-    if ( list != null ) {
-      target.setAdomain(new ArrayList<>(list) );
-    }
-    else {
-      target.setAdomain( null );
-    }
+    target.setAdomain(Utils.copyList(source.getAdomain(),config));
     if(nonNull(source.getBundle())){
       List<String> bundle = new ArrayList<>();
       bundle.add(source.getBundle());
       target.setBundle(bundle);
     }
-
-
     target.setIurl( source.getIurl() );
-    Set<String> set = source.getCat();
-    if ( set != null ) {
-      target.setCat(new HashSet<>(set) );
-    }
-    else {
-      target.setCat( null );
-    }
+    target.setCat(Utils.copySet(source.getCat(),config));
     target.setLang(source.getLanguage());
-    List<Integer> list2 = source.getAttr();
-    if ( list2 != null ) {
-      target.setAttr(new ArrayList<>(list2) );
-    }
-    else {
-      target.setAttr( null );
-    }
+    target.setAttr(Utils.copyList(source.getAttr(),config));
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt(new HashMap<>(map));

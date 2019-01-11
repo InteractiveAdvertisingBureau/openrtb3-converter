@@ -1,0 +1,34 @@
+package net.media.openrtb25.request;
+
+import net.media.utils.validator.CheckAtLeastOneNotNull;
+
+import java.util.Map;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+import lombok.Data;
+
+@Data
+@CheckAtLeastOneNotNull(fieldNames = {"title", "img", "video", "data"})
+public class Asset {
+
+  @NotNull
+  private Integer id;
+
+  private Integer required;
+
+  @Valid
+  private NativeTitle title;
+
+  @Valid
+  private NativeImage img;
+
+  @Valid
+  private NativeVideo video;
+
+  @Valid
+  private NativeData data;
+
+  private Map<String, Object> ext;
+}

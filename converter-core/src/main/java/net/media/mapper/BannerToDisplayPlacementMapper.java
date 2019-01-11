@@ -1,13 +1,12 @@
 package net.media.mapper;
 
 
-import net.media.openrtb24.request.Banner;
-import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.request.Format;
-import net.media.openrtb24.request.Imp;
-import net.media.openrtb24.request.Native;
-import net.media.openrtb24.request.NativeRequest;
-import net.media.openrtb24.request.NativeRequestBody;
+import net.media.openrtb25.request.Banner;
+import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.Format;
+import net.media.openrtb25.request.Imp;
+import net.media.openrtb25.request.Native;
+import net.media.openrtb25.request.NativeRequest;
 import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.EventSpec;
@@ -20,7 +19,6 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.Mappings;
 
-import java.io.IOException;
 import java.util.List;
 
 import static java.util.Objects.nonNull;
