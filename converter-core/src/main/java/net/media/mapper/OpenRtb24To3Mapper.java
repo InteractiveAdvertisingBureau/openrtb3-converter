@@ -37,7 +37,7 @@ public class OpenRtb24To3Mapper {
 
   private void test() throws IOException, OpenRtbConverterException, ConfigurationException {
     ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource("30To25ResponseVideo.json").getFile());
+    File file = new File(classLoader.getResource("25To30Test.json").getFile());
     OpenRtb24To3MapperImpl impl = new OpenRtb24To3MapperImpl(null);
     Config config = new Config();
     config.setBannerTemplate("");
@@ -74,7 +74,7 @@ public class OpenRtb24To3Mapper {
 //          System.out.println(objectMapper.writeValueAsString(response30));
 //          System.out.println(objectMapper.writeValueAsString(response.getResponse25()));
           System.out.println(objectMapper.writeValueAsString(bidResponse));
-          System.out.println(objectMapper.writeValueAsString(response.getResponse30().getResponse()));
+          System.out.println(objectMapper.writeValueAsString(response.getResponse25()));
 
         }
         catch (Exception e){
