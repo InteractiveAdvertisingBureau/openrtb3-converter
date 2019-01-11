@@ -31,7 +31,16 @@ public class ConverterProxy implements Function<Conversion,Converter> {
     if (BACKING_MAP.contains(conversion)) {
       return BACKING_MAP.fetch(conversion);
     }
-    BACKING_MAP.register(conversion, backingSupplier.get());
-    return BACKING_MAP.fetch(conversion);
+    else {
+      synchronized (BACKING_MAP) {
+        if (!BACKING_MAP.contains(conversion)) {
+          BACKING_MAP.register(conversion, backingSupplier.get());
+          return BACKING_MAP.fetch(conversion);
+        }
+        else {
+          return BACKING_MAP.fetch(conversion);
+        }
+      }
+    }
   }
 }
