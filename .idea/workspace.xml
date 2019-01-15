@@ -297,11 +297,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BidToAudioConverter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BidToAudioConverter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAudioConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="46" column="85" lean-forward="false" selection-start-line="46" selection-start-column="85" selection-end-line="46" selection-end-column="85" />
+            <state relative-caret-position="58">
+              <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -327,11 +327,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="30To25ResponseVideo.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="30To25ResponseVideo.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/converter-core/src/main/resources/30To25ResponseVideo.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="171" column="17" lean-forward="false" selection-start-line="170" selection-start-column="6" selection-end-line="171" selection-end-column="17" />
+            <state relative-caret-position="171">
+              <caret line="173" column="36" lean-forward="true" selection-start-line="173" selection-start-column="36" selection-end-line="173" selection-end-column="36" />
               <folding>
                 <element signature="e#109#9751#0" expanded="false" />
               </folding>
@@ -879,12 +879,12 @@
       <updated>1547019396051</updated>
       <workItem from="1547019397410" duration="3821000" />
       <workItem from="1547410622308" duration="746000" />
-      <workItem from="1547547173371" duration="125000" />
+      <workItem from="1547547173371" duration="556000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17507000" />
+    <option name="totallyTimeSpent" value="17938000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1079,14 +1079,6 @@
           <folding>
             <marker date="1547123229015" expanded="true" signature="2632:2786" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAudioConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="46" column="85" lean-forward="false" selection-start-line="46" selection-start-column="85" selection-end-line="46" selection-end-column="85" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1367,11 +1359,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/converter-core/src/main/resources/30To25ResponseVideo.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="171" column="17" lean-forward="false" selection-start-line="170" selection-start-column="6" selection-end-line="171" selection-end-column="17" />
+        <state relative-caret-position="171">
+          <caret line="173" column="36" lean-forward="true" selection-start-line="173" selection-start-column="36" selection-end-line="173" selection-end-column="36" />
           <folding>
             <element signature="e#109#9751#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAudioConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
