@@ -3,11 +3,11 @@
   <parent>
     <artifactId>open-rtb-converter</artifactId>
     <groupId>net.media</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>converter-api</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <build>
     <resources>
       <resource>
@@ -43,7 +43,7 @@
               <transformers>
                 <transformer>
                   <manifestEntries>
-                    <Main-Class>net.media.ConverterApplication</Main-Class>
+                    <Main-Class>net.media.api.ConverterApplication</Main-Class>
                   </manifestEntries>
                 </transformer>
               </transformers>
