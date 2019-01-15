@@ -53,8 +53,13 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
     }
     if(source.getExt() == null)
       return;
-    target.setCattax((Integer) source.getExt().get("cattax"));
-    if(source.getExt().containsKey("restrictionsExt"))
+    if(source.getExt().containsKey("cattax")) {
+      target.setCattax((Integer) source.getExt().get("cattax"));
+      source.getExt().remove("cattax");
+    }
+    if (source.getExt().containsKey("restrictionsExt")) {
       target.setExt((Map<String, Object>) source.getExt().get("restrictionsExt"));
+      source.getExt().remove("restrictionsExt");
+    }
   }
 }

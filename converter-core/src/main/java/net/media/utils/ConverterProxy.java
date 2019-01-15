@@ -14,7 +14,7 @@ import static java.util.Objects.nonNull;
  */
 public class ConverterProxy implements Function<Conversion,Converter> {
 
-  private static Provider<Conversion, Converter> BACKING_MAP = new Provider<>(null);
+  private static final Provider<Conversion, Converter> BACKING_MAP = new Provider<>(null);
 
   private Supplier<Converter> backingSupplier;
 

@@ -64,9 +64,9 @@ public class ConverterPlumber {
     Converter25To30RequestPlumber converter25To30RequestPlumber = new Converter25To30RequestPlumber();
     Converter30To25RequestPlumber converter30To25RequestPlumber = new Converter30To25RequestPlumber();
     converterProvider.register(new Conversion(BidRequest.class, OpenRTB.class),
-      converter25To30RequestPlumber.bidRequestToOpenRtb());
+      converter25To30RequestPlumber.getBidRequestToOpenRtbConverter().apply(new Conversion(BidRequest.class, OpenRTB.class)));
     converterProvider.register(new Conversion(OpenRTB.class, BidRequest.class),
-      converter30To25RequestPlumber.openRtbToBidRequestConverter());
+      converter30To25RequestPlumber.getOpenRtbToBidRequestConverterProxy().apply(new Conversion(OpenRTB.class, BidRequest.class)));
     converterProvider.register(new Conversion(OpenRTB.class, BidResponse.class), openRTBBidResponseConverter);
     converterProvider.register(new Conversion(BidResponse.class, OpenRTB.class), bidResponseOpenRTBConverter);
   }
