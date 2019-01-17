@@ -3,23 +3,18 @@ package net.media.api.servlets;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
-import com.google.inject.Guice;
 import com.google.inject.Inject;
-import com.google.inject.Injector;
-import com.sun.org.apache.regexp.internal.RE;
 import lombok.extern.slf4j.Slf4j;
 import net.media.OpenRtbConverter;
 import net.media.OpenRtbConverterException;
-import net.media.api.ConverterModule;
 import net.media.api.models.Request2xPayload;
 import net.media.api.models.RequestResponse3xPayload;
 import net.media.api.models.Response2xPayload;
 import net.media.config.Config;
-import net.media.openrtb24.request.BidRequest;
-import net.media.openrtb24.response.BidResponse;
+import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.response.BidResponse;
 import net.media.openrtb3.OpenRTB;
-import net.media.util.JacksonObjectMapper;
-import net.media.utils.Utils;
+import net.media.utils.JacksonObjectMapper;
 
 import javax.naming.ConfigurationException;
 import javax.servlet.ServletConfig;

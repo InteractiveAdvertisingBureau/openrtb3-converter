@@ -21,65 +21,6 @@
     <finalName>${project.artifactId}##${project.version}</finalName>
     <plugins>
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-          <annotationProcessorPaths>
-            <path>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-              <version>${lombok.version}</version>
-            </path>
-            <path>
-              <groupId>org.mapstruct</groupId>
-              <artifactId>mapstruct-processor</artifactId>
-              <version>${org.mapstruct.version}</version>
-            </path>
-          </annotationProcessorPaths>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.2</version>
-      </plugin>
-      <plugin>
-        <groupId>pl.project13.maven</groupId>
-        <artifactId>git-commit-id-plugin</artifactId>
-        <version>2.1.1</version>
-        <executions>
-          <execution>
-            <id>get-the-git-infos</id>
-            <phase>process-resources</phase>
-            <goals>
-              <goal>revision</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
-          <prefix>git</prefix>
-          <dateFormat>dd.MM.yyyy '@' HH:mm:ss z</dateFormat>
-          <verbose>true</verbose>
-          <generateGitPropertiesFile>true</generateGitPropertiesFile>
-          <generateGitPropertiesFilename>./target/classes/git.properties</generateGitPropertiesFilename>
-          <abbrevLength>10</abbrevLength>
-          <gitDescribe>
-            <skip>false</skip>
-            <always>false</always>
-            <dirty>-dirty</dirty>
-            <tags>true</tags>
-            <forceLongFormat>false</forceLongFormat>
-          </gitDescribe>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.4</version>
-      </plugin>
-      <plugin>
         <artifactId>maven-shade-plugin</artifactId>
         <version>2.1</version>
         <executions>
@@ -101,7 +42,9 @@
               </filters>
               <transformers>
                 <transformer>
-                  <mainClass>net.media.api.ConverterApplication</mainClass>
+                  <manifestEntries>
+                    <Main-Class>net.media.api.ConverterApplication</Main-Class>
+                  </manifestEntries>
                 </transformer>
               </transformers>
             </configuration>
@@ -121,6 +64,13 @@
             <nonFilteredFileExtension>svg</nonFilteredFileExtension>
             <nonFilteredFileExtension>ico</nonFilteredFileExtension>
           </nonFilteredFileExtensions>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
     </plugins>

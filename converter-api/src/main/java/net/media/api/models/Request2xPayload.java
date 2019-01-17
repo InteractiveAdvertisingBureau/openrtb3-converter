@@ -2,10 +2,10 @@ package net.media.api.models;
 
 import lombok.Data;
 import net.media.config.Config;
-import net.media.openrtb24.response.BidResponse;
+import net.media.openrtb25.request.BidRequest;
 
 @Data
-public class Response2xPayload {
-  private BidResponse response;
+public class Request2xPayload {
+  private BidRequest bidRequest;
   private Config config;
 }

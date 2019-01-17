@@ -29,6 +29,7 @@ public class ConverterApplication {
     ctx.addLifecycleListener(new Tomcat.FixContextListener());
     ctx.addApplicationListener(ConverterApplication.class.getName());
     registerServletAndMapping(ctx);
+    tomcat.setPort(9090);
 
     tomcat.start();
     tomcat.getServer().await();
