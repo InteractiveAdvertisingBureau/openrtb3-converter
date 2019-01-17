@@ -218,8 +218,8 @@
           "crid": "d0bcb39723af87c2bb00942afee5710e",
           "cat": ["cat", "dog"],
           "attr": [6, 1],
-          "bundle": ["chocho"],
-          "api": [1, 2],
+          "bundle": "chocho",
+          "api": 1,
           "protocol": null,
           "qagmediarating": null,
           "dealid": "1234",
@@ -329,9 +329,7 @@
                   "adomain": [
                     "ford.com"
                   ],
-                  "bundle": [
-                    "chocho"
-                  ],
+                  "bundle": ["chocho"],
                   "iurl": "Abcd.com",
                   "cat": [
                     "cat",
@@ -349,10 +347,7 @@
                   "lastmod": 1,
                   "display": {
                     "mime": "image/jpeg",
-                    "api": [
-                      1,
-                      2
-                    ],
+                    "api": [1],
                     "ctype": 3,
                     "w": 320,
                     "h": 50,
@@ -361,7 +356,7 @@
                     "priv": "232",
                     "adm": "asvsdd",
                     "curl": "...",
-                    "_native": {
+                    "native": {
                       "link": {
                         "url": "",
                         "urlfb": "",

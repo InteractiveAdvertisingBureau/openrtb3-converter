@@ -7,7 +7,9 @@ import net.media.openrtb25.response.BidResponse;
 import net.media.openrtb25.response.SeatBid;
 import net.media.openrtb3.Response;
 import net.media.openrtb3.Seatbid;
+import net.media.utils.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,10 +21,10 @@ import static java.util.Objects.nonNull;
  */
 public class BidResponseToResponseConverter implements Converter<BidResponse, Response> {
 
-  private Converter<List<SeatBid>, List<Seatbid>> seatBidListToSeatbidList;
+  private Converter<SeatBid, Seatbid> seatBidSeatbidConverter;
 
-  public BidResponseToResponseConverter(Converter<List<SeatBid>, List<Seatbid>> seatBidListToSeatbidList) {
-    this.seatBidListToSeatbidList = seatBidListToSeatbidList;
+  public BidResponseToResponseConverter(Converter<SeatBid, Seatbid> seatBidSeatbidConverter) {
+    this.seatBidSeatbidConverter = seatBidSeatbidConverter;
   }
 
   /**
@@ -51,7 +53,13 @@ public class BidResponseToResponseConverter implements Converter<BidResponse, Re
     response.setBidid( bidResponse.getBidid() );
     response.setNbr( bidResponse.getNbr() );
     response.setCur( bidResponse.getCur() );
-    response.setSeatbid(seatBidListToSeatbidList.map(bidResponse.getSeatbid(), config));
+    if (!CollectionUtils.isEmpty(bidResponse.getSeatbid())) {
+      List<Seatbid> seatbids = new ArrayList<>();
+      for (SeatBid seatBid : bidResponse.getSeatbid()) {
+        seatbids.add(seatBidSeatbidConverter.map(seatBid, config));
+      }
+      response.setSeatbid(seatbids);
+    }
     Map<String, Object> map = bidResponse.getExt();
     if ( map != null ) {
       response.setExt(new HashMap<>(map) );

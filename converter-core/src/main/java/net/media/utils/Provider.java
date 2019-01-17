@@ -76,11 +76,25 @@ public class Provider<K,V> {
     return value;
   }
 
+  public boolean contains(K key) {
+    if (isNull(key) || !providerMap.containsKey(key)) {
+      return false;
+    }
+    return true;
+  }
+
   /**
    *
    * @return default value for the mapping
    */
   public V getDefaultValue() {
     return this.defaultValue;
+  }
+
+  /**
+   * clears the entire map
+   */
+  public void clear() {
+    providerMap.clear();
   }
 }

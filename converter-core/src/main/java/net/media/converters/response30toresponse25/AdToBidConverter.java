@@ -51,7 +51,9 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
 
     if(isNull(target.getExt()))
       target.setExt(new HashMap<>());
-    target.getExt().putAll(source.getExt());
+    if (nonNull(source.getExt())) {
+      target.getExt().putAll(source.getExt());
+    }
     if (nonNull(source.getSecure())) {
       target.getExt().put("secure", source.getSecure());
     }

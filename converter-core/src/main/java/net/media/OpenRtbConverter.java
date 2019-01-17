@@ -2,6 +2,7 @@ package net.media;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.utils.ConverterProxy;
 import net.media.utils.Utils;
 
 import javax.naming.ConfigurationException;
@@ -43,8 +44,11 @@ public class OpenRtbConverter {
 
   private ConverterPlumber converterPlumber;
 
+  private ConverterProxy converterProxy;
+
   public OpenRtbConverter(Config config) {
     this.config = config;
+    this.converterProxy =  new ConverterProxy(()-> null);
     converterPlumber = new ConverterPlumber();
   }
 
