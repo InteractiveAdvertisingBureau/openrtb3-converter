@@ -1,5 +1,6 @@
 package net.media.config;
 
+import com.google.common.base.Strings;
 import net.media.enums.AdType;
 
 import java.io.File;
@@ -10,6 +11,7 @@ import java.net.URL;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.media.utils.PropertiesFileLoader;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -34,6 +36,10 @@ public class Config {
 
   private static final boolean DEFAULT_VALIDATE = true;
 
+  private static final String DEFAULT_BANNER_TEMPLATE;
+  static {
+    DEFAULT_BANNER_TEMPLATE = PropertiesFileLoader.templateProperties.getProperty("template.banner.adm");
+  }
   /**
    * This config is used for response conversion from 3.x to 2.x version.
    * If 3.x response does not have an adm, we need to build the adm for
@@ -83,6 +89,17 @@ public class Config {
     this.validate = isNull(this.validate) ? config.validate : this.validate;
     this.disableCloning = isNull(this.disableCloning) ? config.getDisableCloning() : this
       .disableCloning;
+  }
+
+  public String  getBannerTemplate(){
+    if(Strings.isNullOrEmpty(this.bannerTemplate)){
+      return DEFAULT_BANNER_TEMPLATE;
+    }
+    return this.bannerTemplate;
+  }
+
+  public void setBannerTemplate(String template){
+    this.bannerTemplate = template;
   }
 
   public Boolean getNativeRequestAsString() {

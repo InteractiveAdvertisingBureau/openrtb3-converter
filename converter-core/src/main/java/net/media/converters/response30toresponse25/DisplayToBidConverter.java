@@ -78,7 +78,14 @@ public class DisplayToBidConverter implements Converter<Display,Bid> {
       }
       else if (nonNull(source.getAdm())){
         try {
-          Native native3 = mapper.readValue((String) source.getAdm(), Native.class);
+          Native native3 = null;
+          if(source.getAdm() instanceof String){
+            native3 = mapper.readValue((String) source.getAdm(), Native.class);
+          }
+          else
+          {
+            native3 = mapper.convertValue(source.getAdm(), Native.class);
+          }
           NativeResponse _native = nativeBidConverter.map(native3,config);
           target.setAdm(_native);
         } catch (IOException e) {

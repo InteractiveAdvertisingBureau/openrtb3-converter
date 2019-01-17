@@ -71,6 +71,7 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
     target.setCat(Utils.copySet(source.getCat(),config));
     target.setLang(source.getLanguage());
     target.setAttr(Utils.copyList(source.getAttr(),config));
+    target.setMrating(source.getQagmediarating());
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt(new HashMap<>(map));

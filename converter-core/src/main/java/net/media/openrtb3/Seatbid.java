@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,6 +15,8 @@ import javax.validation.constraints.NotNull;
 public class Seatbid {
 
   private String seat;//
+
+  @JsonProperty("package")
   private Integer _package;//seatbid.group
   @NotNull
   @Valid
