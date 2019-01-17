@@ -51,6 +51,7 @@ public class Bid24ToBid30Converter implements Converter<Bid, net.media.openrtb3.
     target.setBurl( source.getBurl() );
     target.setLurl( source.getLurl() );
     target.setExp( source.getExp() );
+    target.setMid(source.getAdid());
     MacroMapper.macroReplaceThreeX(target);
   }
 }

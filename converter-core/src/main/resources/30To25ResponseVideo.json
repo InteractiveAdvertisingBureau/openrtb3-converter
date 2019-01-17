@@ -1,7 +1,7 @@
 [
   {
     "description": "Example 4 – Complete Rtb response  object",
-    "type": "VIDEO",
+    "type": "BANNER",
     "response25": {
       "id": "0123456789ABCDEF",
       "seatbid": [
@@ -167,97 +167,130 @@
         "cdata": "cdata"
       }
     },
-    "response30": {
-      "domainSpec": "3.0",
-      "response": {
-        "id": "0123456789ABCDEF",
-        "bidid": "0011223344AABBCC",
-        "nbr": 1,
-        "cur": "USD",
-        "cdata": "cdata",
-        "ext": {
-          "customdata": "pyaz",
-          "ankit": {
-            "cho": "lul"
-          }
-        },
-        "seatbid": [
-          {
-            "seat": "XYZ",
-            "bid": [
-              {
-                "id": "yaddayadda",
-                "item": "1",
-                "deal": "1234",
-                "price": 1.50,
-                "tactic": "...",
-                "purl": "http://www.example.com/",
-                "burl": "http://www.example1.com/",
-                "lurl": "http://www.example2.com/",
-                "mid": "123",
-                "cid": "campaign-xyz.123",
-                "exp": 1,
-                "macro": [
-                  {
-                    "key": "macro1",
-                    "value": "duck"
-                  }
-                ],
-                "media": {
-                  "ad": {
-                    "id": "d0bcb39723af87c2bb00942afee5710e",
-                    "adomain": [
-                      "ford.com"
+    "response30":{
+    "domainSpec": "3.0",
+    "response": {
+      "id": "0123456789ABCDEF",
+      "bidid": "0011223344AABBCC",
+      "nbr": 1,
+      "cur": "USD",
+      "cdata": "cdata",
+      "ext": {
+        "customdata": "pyaz",
+        "ankit": {
+          "cho": "lul"
+        }
+      },
+      "seatbid": [
+        {
+          "seat": "XYZ",
+          "bid": [
+            {
+              "id": "yaddayadda",
+              "item": "1",
+              "deal": "1234",
+              "price": 1.5,
+              "tactic": "...",
+              "purl": "...",
+              "burl": "...",
+              "lurl": "...",
+              "mid": "...",
+              "macro": [
+                {
+                  "key": "macro1",
+                  "value": "duck"
+                }
+              ],
+              "cid": "campaign-xyz.123",
+              "exp": 1,
+              "media": {
+                "ad": {
+                  "id": "d0bcb39723af87c2bb00942afee5710e",
+                  "adomain": [
+                    "ford.com"
+                  ],
+                  "bundle": [
+                    "chocho"
+                  ],
+                  "iurl": "Abcd.com",
+                  "cat": [
+                    "cat",
+                    "dog"
+                  ],
+                  "cattax": 1,
+                  "lang": "english",
+                  "attr": [
+                    6,
+                    1
+                  ],
+                  "secure": 1,
+                  "mrating": 1,
+                  "init": 1,
+                  "lastmod": 1,
+                  "display": {
+                    "mime": "image/jpeg",
+                    "api": [
+                      1,
+                      2
                     ],
-                    "bundle": [
-                      "chocho"
-                    ],
-                    "iurl": "Abcd.com",
-                    "cat": [
-                      "cat",
-                      "dog"
-                    ],
-                    "cattax": 1,
-                    "lang": "english",
-                    "attr": [
-                      6,
-                      1
-                    ],
-                    "secure": 1,
-                    "mrating": 1,
-                    "init": 1,
-                    "lastmod": 1,
-                    "video": {
+                    "ctype": 3,
+                    "w": 320,
+                    "h": 50,
+                    "wratio": 1,
+                    "hratio": 2,
+                    "priv": "232",
+                    "curl": "...",
+                    "banner": {
+                      "img": "https://somebuyer.com/creative",
+                      "link": {
+                        "url": "https://somebuyer.com/click",
+                        "urlfb": "https://somebuyer.com",
+                        "trkr": [
+                          "2113",
+                          "21312"
+                        ],
+                        "ext": {
+                          "link": "link"
+                        }
+                      },
                       "ext": {
                         "xyz": "111"
-                      },
-                      "ctype":12,
-                      "dur":12,
-                      "curl":"http://vxfgdgf.com",
-                      "adm" : "aloopyaz.com",
-                      "api" : ["123","123"],
-                      "mime" : ["mein", "video","hun"]
-                    },
-                    "ext": {
-                      "aloo2": "pyaz",
-                      "test2": {
-                        "test3": "test3"
                       }
+                    },
+                    "event": [
+                      {
+                        "type": 1,
+                        "method": 1,
+                        "url": "https://somebuyer.com/pixel"
+                      }
+                    ],
+                    "ext": {
+                      "aloo1": "pyaz",
+                      "ankit1": {
+                        "cho1": "lul"
+                      }
+                    }
+                  },
+                  "ext": {
+                    "aloo2": "pyaz",
+                    "ankit3": {
+                      "cho": "lul"
                     }
                   }
                 }
               }
-            ],
-            "_package": 2,
-            "ext": {
-              "aloo3": "pyaz",
-              "test4": {
-                "test5": "test5"
-              }
+            }
+          ],
+          "package": 2,
+          "ext": {
+            "aloo": "pyaz",
+            "sourav": {
+              "chu": "luli"
             }
           }
-        ]
-      }
+        }
+      ]
     }
+  }
   }
 ]

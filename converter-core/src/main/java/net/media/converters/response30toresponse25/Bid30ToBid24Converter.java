@@ -56,7 +56,8 @@ public class Bid30ToBid24Converter  implements Converter<net.media.openrtb3.Bid,
           target.setExt(new HashMap<>());
       }
 //      target.setQagmediarating(Integer.parseInt(source.getMid()));
-      target.getExt().put("qagmediarating", source.getMid());
+      target.setAdid(source.getMid());
+//      target.getExt().put("qagmediarating", source.getMid());
       target.getExt().put("macro",source.getMacro());
       mediaBidConverter.enhance(source.getMedia(),target,config);
       MacroMapper.macroReplaceTwoX(target);

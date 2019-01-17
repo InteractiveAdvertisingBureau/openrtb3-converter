@@ -55,20 +55,20 @@ public class OpenRtbResponseToBidResponseConverter implements Converter<OpenRTB,
     target.setCur( response.getCur() );
     target.setNbr( response.getNbr() );
     target.setExt(Utils.copyMap(response.getExt(),config));
-
-    try {
-      if (nonNull(response.getExt()) && nonNull(target.getExt())) {
-        target.setCustomdata((String) response.getExt().get("customdata"));
-        target.getExt().remove("customdata");
-        target.getExt().put("cdata", response.getCdata());
-      } else if (nonNull(target.getCustomdata())) {
-        Map<String, Object> ext = new HashMap<>();
-        ext.put("cdata", response.getCdata());
-        target.setExt(ext);
-      }
-    }
-    catch (Exception e) {
-      throw new OpenRtbConverterException("Error occured while type casting ext in openRtb", e);
-    }
+    target.setCustomdata(response.getCdata());
+//    try {
+//      if (nonNull(response.getExt()) && nonNull(target.getExt())) {
+//        target.setCustomdata((String) response.getExt().get("customdata"));
+//        target.getExt().remove("customdata");
+//        target.getExt().put("cdata", response.getCdata());
+//      } else if (nonNull(target.getCustomdata())) {
+//        Map<String, Object> ext = new HashMap<>();
+//        ext.put("cdata", response.getCdata());
+//        target.setExt(ext);
+//      }
+//    }
+//    catch (Exception e) {
+//      throw new OpenRtbConverterException("Error occured while type casting ext in openRtb", e);
+//    }
   }
 }
