@@ -10,7 +10,7 @@ import java.util.Properties;
 public class PropertiesFileLoader {
 
   public static Properties templateProperties = new Properties() {{
-    putAll(loadProperties("admTemplate.properties"));
+    putAll(loadProperties("converter.admTemplate.properties"));
   }};
 
   public static Properties loadProperties(String propertiesFileName) {
