@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>open-rtb-converter</artifactId>
-        <groupId>net.media</groupId>
-        <version>1.1</version>
+        <groupId>net.media.open-rtb-converter</groupId>
+        <version>1.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,9 +15,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>net.media</groupId>
+            <groupId>net.media.open-rtb-converter</groupId>
             <artifactId>converter-core</artifactId>
-            <version>1.1</version>
+            <version>1.2</version>
         </dependency>
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
