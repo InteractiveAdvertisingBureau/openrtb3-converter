@@ -1,0 +1,296 @@
+[
+  {
+    "description": "Example 4 – Complete Rtb response  object",
+    "type": "BANNER",
+    "response25": {
+      "id": "0123456789ABCDEF",
+      "seatbid": [
+        {
+          "bid": [
+            {
+              "id": "yaddayadda",
+              "impid": "1",
+              "price": 1.5,
+              "adid": null,
+              "nurl": "https://api.bttrack.com/win?ts=1546937303944&id=93b55876-71b1-42fd-8546-e9cec92fd05f&cid=63309&crid=671436&pid=1567915613&data=OuJifVtEKZqw3FQ5__rtW7OTLgwj1FiGGOvTa0VHQ2oeZTES-4JqBt5mggOnR0e8Keeyd9oogK-izuHRAKyiAtec9wBe21Z0F2fCw-FmcJx_T0n2dogLwv3ZpQw7MkGfj5wgYxfE3iiHyigch9d2FhkxG8QzYNun_o24PQkJ9Iu33KDimPUCE7WuZz76n6Xgh67B7tXIfzpI9ocLD5Mwm43S9ashLojm5BBoyU-QkGLJLO8-fbQiNJpXHccn4N6mmYE3fyvzVPYknIrvUA239AVIGBcpGRY-f5k06QYM8NUp0&iid=d4b96a9c-d1ee-48ed-9547-47bddfc341f2&price=${AUCTION_PRICE}&reqid=${AUCTION_ID}",
+              "adm": {
+                "native": {
+                  "ver": "1.1",
+                  "assets": [
+                    {
+                      "id": 601,
+                      "title": {
+                        "text": "Levi's� End of Season Sale"
+                      }
+                    },
+                    {
+                      "id": 401,
+                      "img": {
+                        "url": "https://cdn.bttrack.com/licrop/300/160/200798",
+                        "w": 300,
+                        "h": 160
+                      }
+                    },
+                    {
+                      "id": 502,
+                      "data": {
+                        "value": "Not only is there a sale, but the sale is on sale. Shop online at Levi's�"
+                      }
+                    },
+                    {
+                      "id": 512,
+                      "data": {
+                        "value": "CLICK HERE"
+                      }
+                    },
+                    {
+                      "id": 501,
+                      "data": {
+                        "value": "Levi's�"
+                      }
+                    }
+                  ],
+                  "link": {
+                    "url": "https://bttrack.com/Click/Native?data=OuJifVtEKZqw3Hzm6d7tW6_q5tYX8B4nxbI52yTxSh54DSqfii_uHcyG7C8X0SkSWL8Hl1OPcCgoAPAxvLvBioln-P5yPWEW8VKEADHNA5xMzaz9pU13omjCl42YiCLL8wQU_GIfNiKHKtSjoyqoPE6x-quK6A_LsBjZDCklAnAepa8lpxRDTDfElvOoRxczEDEp8BixOa2cULtrrBM8t3PSmr5g43u_pq9O0Q_mpnTeDnB1INPYH7iPStWLmLq_jCe0_SfgBYMgKLEVgzhj62ssm1ArSC8tZuLIsxOFzTZ5JmFE4YThlnfsHMAuQzrmZWH4FIjthtS6ugKOFvAewk0Srntr_Ghqex920R_yh0rxjKkaKAgkXBgXuh0DC5pWp5r1A3NA3DDqtTY3_PerZH1D9xoL1vxtJpF4D6ekq_X1ZO1MC2BOWq973i9r6-CyMk3ah5e0Ot75axcxERxI6fC3aPmriS6wDTza0"
+                  },
+                  "imptrackers": [
+                    "https://bttrack.com/Pixel/Impression/?data=OuJifVtEKZqw3Hzm6f7yW7Pq5tRZH-Ho7nSrW9J7P-8bWZdSS04-npBvgoMMer7l98G9e8z46g8C4NBnXH1zCQ6G9M9QqAJBrOD3IW1ub8Eradv_NVvWRmOHwXnBiTmLBCMqVWTNkzWjbm7b2yxm2mdXt6Sy7Ioor6ZghyNuCQEzwIi5HLa0bUG69-Wb_jmPZzHh8MQCn7UjgwxA1jBG9e0h_L_5xppNOQeL93poXk6v2llovqgO0Onro_argcZ3BXiAwKzSMw_2vMvKALv31CwUmE6zOCWgv2KTw9CGR-Bp-dhjwys54NhcdCdt88Fkq_jyxqo9gwxgIOv53X68e4gmr_HkGpTvx6MFSIZPIZe0uN1ClHaJzprk81l0H5wbWH8SgEBbhSfXRUElEl2GDY5NIzTuyL3Y0Et5k0we54MkFU-QDv_b8gqabJN4H341EKqAClIyG1eQAPxUQx9zNP6mGMvv0imHjQA_DpiHYkZv5UErOq6JgokH-NHBhdMbmeW_BllEKQ2&type=img&price=${AUCTION_PRICE}",
+                    "https://bttrack.com/Pixel/DmpPixel/?data=OuJifVtEKZqw3Hzm6f7yW7Pq5tRZH-Ho7nSrW9J7P-8bWZdSS04-npBvgoMMer7l98G9e8z46g8C4NBnXH1zCQ6G9M9QqAJBrOD3IW1ub8Eradv_NVvWRmOHwXnBiTmLBCMqVWTNkzWjbm7b2yxm2mdXt6Sy7Ioor6ZghyNuCQEzwIi5HLa0bUG69-Wb_jmPZzHh8MQCn7UjgwxA1jBG9e0h_L_5xppNOQeL93poXk6v2llovqgO0Onro_argcZ3BXiAwKzSMw_2vMvKALv31CwUmE6zOCWgv2KTw9CGR-Bp-dhjwys54NhcdCdt88Fkq_jyxqo9gwxgIOv53X68e4gmr_HkGpTvx6MFSIZPIZe0uN1ClHaJzprk81l0H5wbWH8SgEBbhSfXRUElEl2GDY5NIzTuyL3Y0Et5k0we54MkFU-QDv_b8gqabJN4H341EKqAClIyG1eQAPxUQx9zNP6mGMvv0imHjQA_DpiHYkZv5UErOq6JgokH-NHBhdMbmeW_BllEKQ2&id=1&type=img",
+                    "https://bttrack.com/Pixel/DmpPixel/?data=OuJifVtEKZqw3Hzm6f7yW7Pq5tRZH-Ho7nSrW9J7P-8bWZdSS04-npBvgoMMer7l98G9e8z46g8C4NBnXH1zCQ6G9M9QqAJBrOD3IW1ub8Eradv_NVvWRmOHwXnBiTmLBCMqVWTNkzWjbm7b2yxm2mdXt6Sy7Ioor6ZghyNuCQEzwIi5HLa0bUG69-Wb_jmPZzHh8MQCn7UjgwxA1jBG9e0h_L_5xppNOQeL93poXk6v2llovqgO0Onro_argcZ3BXiAwKzSMw_2vMvKALv31CwUmE6zOCWgv2KTw9CGR-Bp-dhjwys54NhcdCdt88Fkq_jyxqo9gwxgIOv53X68e4gmr_HkGpTvx6MFSIZPIZe0uN1ClHaJzprk81l0H5wbWH8SgEBbhSfXRUElEl2GDY5NIzTuyL3Y0Et5k0we54MkFU-QDv_b8gqabJN4H341EKqAClIyG1eQAPxUQx9zNP6mGMvv0imHjQA_DpiHYkZv5UErOq6JgokH-NHBhdMbmeW_BllEKQ2&id=4&type=img",
+                    "https://bttrack.com/Pixel/DmpPixel/?data=OuJifVtEKZqw3Hzm6f7yW7Pq5tRZH-Ho7nSrW9J7P-8bWZdSS04-npBvgoMMer7l98G9e8z46g8C4NBnXH1zCQ6G9M9QqAJBrOD3IW1ub8Eradv_NVvWRmOHwXnBiTmLBCMqVWTNkzWjbm7b2yxm2mdXt6Sy7Ioor6ZghyNuCQEzwIi5HLa0bUG69-Wb_jmPZzHh8MQCn7UjgwxA1jBG9e0h_L_5xppNOQeL93poXk6v2llovqgO0Onro_argcZ3BXiAwKzSMw_2vMvKALv31CwUmE6zOCWgv2KTw9CGR-Bp-dhjwys54NhcdCdt88Fkq_jyxqo9gwxgIOv53X68e4gmr_HkGpTvx6MFSIZPIZe0uN1ClHaJzprk81l0H5wbWH8SgEBbhSfXRUElEl2GDY5NIzTuyL3Y0Et5k0we54MkFU-QDv_b8gqabJN4H341EKqAClIyG1eQAPxUQx9zNP6mGMvv0imHjQA_DpiHYkZv5UErOq6JgokH-NHBhdMbmeW_BllEKQ2&id=2&type=img",
+                    "https://bttrack.com/Pixel/DmpPixel/?data=OuJifVtEKZqw3Hzm6f7yW7Pq5tRZH-Ho7nSrW9J7P-8bWZdSS04-npBvgoMMer7l98G9e8z46g8C4NBnXH1zCQ6G9M9QqAJBrOD3IW1ub8Eradv_NVvWRmOHwXnBiTmLBCMqVWTNkzWjbm7b2yxm2mdXt6Sy7Ioor6ZghyNuCQEzwIi5HLa0bUG69-Wb_jmPZzHh8MQCn7UjgwxA1jBG9e0h_L_5xppNOQeL93poXk6v2llovqgO0Onro_argcZ3BXiAwKzSMw_2vMvKALv31CwUmE6zOCWgv2KTw9CGR-Bp-dhjwys54NhcdCdt88Fkq_jyxqo9gwxgIOv53X68e4gmr_HkGpTvx6MFSIZPIZe0uN1ClHaJzprk81l0H5wbWH8SgEBbhSfXRUElEl2GDY5NIzTuyL3Y0Et5k0we54MkFU-QDv_b8gqabJN4H341EKqAClIyG1eQAPxUQx9zNP6mGMvv0imHjQA_DpiHYkZv5UErOq6JgokH-NHBhdMbmeW_BllEKQ2&id=3&type=img",
+                    "https://bttrack.com/Pixel/DmpPixel/?data=OuJifVtEKZqw3Hzm6f7yW7Pq5tRZH-Ho7nSrW9J7P-8bWZdSS04-npBvgoMMer7l98G9e8z46g8C4NBnXH1zCQ6G9M9QqAJBrOD3IW1ub8Eradv_NVvWRmOHwXnBiTmLBCMqVWTNkzWjbm7b2yxm2mdXt6Sy7Ioor6ZghyNuCQEzwIi5HLa0bUG69-Wb_jmPZzHh8MQCn7UjgwxA1jBG9e0h_L_5xppNOQeL93poXk6v2llovqgO0Onro_argcZ3BXiAwKzSMw_2vMvKALv31CwUmE6zOCWgv2KTw9CGR-Bp-dhjwys54NhcdCdt88Fkq_jyxqo9gwxgIOv53X68e4gmr_HkGpTvx6MFSIZPIZe0uN1ClHaJzprk81l0H5wbWH8SgEBbhSfXRUElEl2GDY5NIzTuyL3Y0Et5k0we54MkFU-QDv_b8gqabJN4H341EKqAClIyG1eQAPxUQx9zNP6mGMvv0imHjQA_DpiHYkZv5UErOq6JgokH-NHBhdMbmeW_BllEKQ2&id=6&type=img"
+                  ],
+                  "ext": {
+                    "viewabilitytrackers": [
+                      "https://bttrack.com/Pixel/Viewed/?data=OuJifVtEKZqw3HzmY94tWrPquodvsIcVXSlpUFGKaJkxmW61DM6eDe6mihfzK5UITbsbkruPceREaNoChGvf1JGUBNCENEppE10LSJmkRR8X4IpZV6BAilNAPiF7sMOCnHV5u1VWgsUUztNHa1tpTqTrIKQvNwslVTqWxI1xHZprFU6iIptn_ItJ2sBinhPqd5Mw_ZZs0_uxiEPYMfCqy2lrend9lA7DnqTgRgSBF6s6kCiMSi20jlyZ5ge8tZ3rf0iCO1krJrvXpBX34h4cnZ_ZVEvED4YX37Bwltaie1ehY0bGb4hKBEs6aWY-S1FQSe6ic18-pJEKVcC2GTSHdv3oBPxIy6mxJfQ_8iuWGee4-YyD7SUSngY2Ry9tWJlxSN0Vd-jv6awEHMFQKXTmK0yeOIO81gbGMECaVr0EoprgytOAtSt5m6Pvtv909kNCE22VFvMoS0A3y0LDEI4ki-81wlo5Ij0zcmuf-EQc0&method=3&percentage=1"
+                    ]
+                  }
+                }
+              },
+              "adomain": [
+                "ford.com"
+              ],
+              "iurl": "https://cdn.bttrack.com/licrop/300/160/200798",
+              "cid": "campaign-xyz.123",
+              "crid": "d0bcb39723af87c2bb00942afee5710e",
+              "cat": [
+                "cat",
+                "dog"
+              ],
+              "attr": [
+                6,
+                1
+              ],
+              "bundle": "chocho"
+            ,
+              "api": 1,
+              "protocol": null,
+              "qagmediarating": null,
+              "dealid": "1234",
+              "h": 50,
+              "language": null,
+              "w": 320,
+              "wratio": 1,
+              "hratio": 2,
+              "exp": 1,
+              "burl": "...",
+              "lurl": "...",
+              "tactic": "...",
+              "ext": {
+                "init": 1,
+                "curl": "abc",
+                "mime": "image/jpeg",
+                "cattax": 1,
+                "banner": {
+                  "img": "https://somebuyer.com/creative",
+                  "link": {
+                    "url": "https://somebuyer.com/click",
+                    "urlfb": "https://somebuyer.com",
+                    "trkr": [
+                      "2113",
+                      "21312"
+                    ],
+                    "ext": {
+                      "link": "link"
+                    }
+                  },
+                  "ext": {
+                    "xyz": "111"
+                  }
+                },
+                "ankit3": {
+                  "cho": "lul"
+                },
+                "secure": 1,
+                "aloo2": "pyaz",
+                "ankit1": {
+                  "cho1": "lul"
+                },
+                "aloo1": "pyaz",
+                "ctype": 3,
+                "native": null,
+                "mrating": 1,
+                "priv": "232",
+                "event": [
+                  {
+                    "type": 1,
+                    "method": 1,
+                    "url": "https://somebuyer.com/pixel",
+                    "api": null,
+                    "cdata": null,
+                    "ext": null
+                  }
+                ],
+                "lastMod": 1
+              }
+            }
+          ],
+          "seat": "XYZ",
+          "group": 2,
+          "ext": {
+            "aloo": "pyaz",
+            "sourav": {
+              "chu": "luli"
+            }
+          }
+        }
+      ],
+      "bidid": "0011223344AABBCC",
+      "cur": "USD",
+      "customdata": "pyaz",
+      "nbr": 1,
+      "ext": {
+        "ankit": {
+          "cho": "lul"
+        },
+        "cdata": "cdata"
+      }
+    },
+    "response30":{
+    "domainSpec": "3.0",
+    "response": {
+      "id": "0123456789ABCDEF",
+      "bidid": "0011223344AABBCC",
+      "nbr": 1,
+      "cur": "USD",
+      "cdata": "cdata",
+      "ext": {
+        "customdata": "pyaz",
+        "ankit": {
+          "cho": "lul"
+        }
+      },
+      "seatbid": [
+        {
+          "seat": "XYZ",
+          "bid": [
+            {
+              "id": "yaddayadda",
+              "item": "1",
+              "deal": "1234",
+              "price": 1.5,
+              "tactic": "...",
+              "purl": "...",
+              "burl": "...",
+              "lurl": "...",
+              "mid": "...",
+              "macro": [
+                {
+                  "key": "macro1",
+                  "value": "duck"
+                }
+              ],
+              "cid": "campaign-xyz.123",
+              "exp": 1,
+              "media": {
+                "ad": {
+                  "id": "d0bcb39723af87c2bb00942afee5710e",
+                  "adomain": [
+                    "ford.com"
+                  ],
+                  "bundle": [
+                    "chocho"
+                  ],
+                  "iurl": "Abcd.com",
+                  "cat": [
+                    "cat",
+                    "dog"
+                  ],
+                  "cattax": 1,
+                  "lang": "english",
+                  "attr": [
+                    6,
+                    1
+                  ],
+                  "secure": 1,
+                  "mrating": 1,
+                  "init": 1,
+                  "lastmod": 1,
+                  "display": {
+                    "mime": "image/jpeg",
+                    "api": [
+                      1,
+                      2
+                    ],
+                    "ctype": 3,
+                    "w": 320,
+                    "h": 50,
+                    "wratio": 1,
+                    "hratio": 2,
+                    "priv": "232",
+                    "curl": "...",
+                    "banner": {
+                      "img": "https://somebuyer.com/creative",
+                      "link": {
+                        "url": "https://somebuyer.com/click",
+                        "urlfb": "https://somebuyer.com",
+                        "trkr": [
+                          "2113",
+                          "21312"
+                        ],
+                        "ext": {
+                          "link": "link"
+                        }
+                      },
+                      "ext": {
+                        "xyz": "111"
+                      }
+                    },
+                    "event": [
+                      {
+                        "type": 1,
+                        "method": 1,
+                        "url": "https://somebuyer.com/pixel"
+                      }
+                    ],
+                    "ext": {
+                      "aloo1": "pyaz",
+                      "ankit1": {
+                        "cho1": "lul"
+                      }
+                    }
+                  },
+                  "ext": {
+                    "aloo2": "pyaz",
+                    "ankit3": {
+                      "cho": "lul"
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "package": 2,
+          "ext": {
+            "aloo": "pyaz",
+            "sourav": {
+              "chu": "luli"
+            }
+          }
+        }
+      ]
+    }
+  }
+  }
+]
