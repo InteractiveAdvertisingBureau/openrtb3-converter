@@ -15,10 +15,10 @@ import java.util.Map;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-public class SeatBid30ToSeatBid24Converter implements Converter<Seatbid,SeatBid>{
+public class SeatBid30ToSeatBid25Converter implements Converter<Seatbid,SeatBid>{
 
   Converter<net.media.openrtb3.Bid,Bid> bidBidConverter;
-  public SeatBid30ToSeatBid24Converter(Converter<net.media.openrtb3.Bid,Bid> bidBidConverter){
+  public SeatBid30ToSeatBid25Converter(Converter<net.media.openrtb3.Bid,Bid> bidBidConverter){
     this.bidBidConverter = bidBidConverter;
   }
 

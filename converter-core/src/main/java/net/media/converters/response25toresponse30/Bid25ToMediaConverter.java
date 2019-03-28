@@ -10,11 +10,11 @@ import net.media.openrtb3.Media;
 /**
  * @author shiva.b
  */
-public class Bid24ToMediaConverter implements Converter<Bid, Media> {
+public class Bid25ToMediaConverter implements Converter<Bid, Media> {
 
   private Converter<Bid, Ad> bidAdConverter;
 
-  public Bid24ToMediaConverter(Converter<Bid, Ad> bidAdConverter) {
+  public Bid25ToMediaConverter(Converter<Bid, Ad> bidAdConverter) {
     this.bidAdConverter = bidAdConverter;
   }
 

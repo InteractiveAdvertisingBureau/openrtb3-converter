@@ -12,11 +12,11 @@ import java.util.Map;
 
 import static java.util.Objects.isNull;
 
-public class Bid30ToBid24Converter  implements Converter<net.media.openrtb3.Bid, Bid> {
+public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, Bid> {
 
   Converter<Media,Bid> mediaBidConverter;
 
-  public Bid30ToBid24Converter(Converter<Media,Bid> mediaBidConverter){
+  public Bid30ToBid25Converter(Converter<Media,Bid> mediaBidConverter){
     this.mediaBidConverter = mediaBidConverter;
   }
 

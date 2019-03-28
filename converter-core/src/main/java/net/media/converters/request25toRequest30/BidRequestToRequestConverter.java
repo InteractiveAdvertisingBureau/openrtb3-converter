@@ -29,13 +29,13 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
 
   Converter<Imp, Item> impItemConverter;
   Converter<BidRequest, Context> bidRequestContextConverter;
-  Converter<Source, net.media.openrtb3.Source> source24Source3Converter;
+  Converter<Source, net.media.openrtb3.Source> source25Source3Converter;
 
-  @java.beans.ConstructorProperties({"impItemConverter", "bidRequestContextConverter", "source24Source3Converter"})
-  public BidRequestToRequestConverter(Converter<Imp, Item> impItemConverter, Converter<BidRequest, Context> bidRequestContextConverter, Converter<Source, net.media.openrtb3.Source> source24Source3Converter) {
+  @java.beans.ConstructorProperties({"impItemConverter", "bidRequestContextConverter", "source25Source3Converter"})
+  public BidRequestToRequestConverter(Converter<Imp, Item> impItemConverter, Converter<BidRequest, Context> bidRequestContextConverter, Converter<Source, net.media.openrtb3.Source> source25Source3Converter) {
     this.impItemConverter = impItemConverter;
     this.bidRequestContextConverter = bidRequestContextConverter;
-    this.source24Source3Converter = source24Source3Converter;
+    this.source25Source3Converter = source25Source3Converter;
   }
 
   private String bidRequestUserCustomdata(BidRequest bidRequest) {
@@ -85,7 +85,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     if ( list1 != null ) {
       target.setCur( new ArrayList<String>( list1 ) );
     }
-    target.setSource( source24Source3Converter.map(source.source, config ));
+    target.setSource( source25Source3Converter.map(source.source, config ));
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt( new HashMap<String, Object>( map ) );

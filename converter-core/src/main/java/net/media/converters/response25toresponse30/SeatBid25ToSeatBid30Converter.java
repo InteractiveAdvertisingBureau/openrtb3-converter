@@ -18,12 +18,12 @@ import static org.apache.commons.collections.CollectionUtils.isEmpty;
 /**
  * @author shiva.b
  */
-public class SeatBid24ToSeatBid30Converter implements Converter<SeatBid, Seatbid> {
+public class SeatBid25ToSeatBid30Converter implements Converter<SeatBid, Seatbid> {
 
-  private Converter<Bid, net.media.openrtb3.Bid> bid24ToBid30Converter;
+  private Converter<Bid, net.media.openrtb3.Bid> bid25ToBid30Converter;
 
-  public SeatBid24ToSeatBid30Converter(Converter<Bid, net.media.openrtb3.Bid> bid24ToBid30Converter) {
-    this.bid24ToBid30Converter = bid24ToBid30Converter;
+  public SeatBid25ToSeatBid30Converter(Converter<Bid, net.media.openrtb3.Bid> bid25ToBid30Converter) {
+    this.bid25ToBid30Converter = bid25ToBid30Converter;
   }
 
   @Override
@@ -54,7 +54,7 @@ public class SeatBid24ToSeatBid30Converter implements Converter<SeatBid, Seatbid
     if (!isEmpty(source.getBid())) {
       List<net.media.openrtb3.Bid> bidList = new ArrayList<>();
       for (Bid bid : source.getBid()) {
-        net.media.openrtb3.Bid bid30 = bid24ToBid30Converter.map(bid, config);
+        net.media.openrtb3.Bid bid30 = bid25ToBid30Converter.map(bid, config);
         if (nonNull(bid)) {
           bidList.add(bid30);
         }

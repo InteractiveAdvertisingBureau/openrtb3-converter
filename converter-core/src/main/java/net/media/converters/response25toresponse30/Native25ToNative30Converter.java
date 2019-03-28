@@ -21,13 +21,13 @@ import static org.apache.commons.collections.CollectionUtils.isEmpty;
 /**
  * @author shiva.b
  */
-public class Native24ToNative30Converter implements Converter<NativeResponse, Native> {
+public class Native25ToNative30Converter implements Converter<NativeResponse, Native> {
 
   private Converter<Link, LinkAsset> linkLinkAssetConverter;
 
   private Converter<AssetResponse, Asset> assetResponseAssetConverter;
 
-  public Native24ToNative30Converter(Converter<Link, LinkAsset> linkLinkAssetConverter,
+  public Native25ToNative30Converter(Converter<Link, LinkAsset> linkLinkAssetConverter,
                                      Converter<AssetResponse, Asset> assetResponseAssetConverter) {
     this.linkLinkAssetConverter = linkLinkAssetConverter;
     this.assetResponseAssetConverter = assetResponseAssetConverter;
