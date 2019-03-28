@@ -2,7 +2,7 @@ package net.media.converters.request30toRequest25;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.Native;

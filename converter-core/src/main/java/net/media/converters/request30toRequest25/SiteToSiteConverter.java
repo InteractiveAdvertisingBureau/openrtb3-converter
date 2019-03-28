@@ -1,6 +1,6 @@
 package net.media.converters.request30toRequest25;
 
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Content;
@@ -58,7 +58,7 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.
     target.setKeywords( source.getKeywords() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt(new HashMap<>(map) );
     }
     if(source.getCattax() != null) {
       if(target.getExt() == null)

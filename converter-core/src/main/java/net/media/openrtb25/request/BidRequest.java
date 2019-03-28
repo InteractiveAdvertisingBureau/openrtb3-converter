@@ -17,7 +17,6 @@ public class BidRequest {
   //BidRequest parameters
   public static final Integer DEFAULT_TEST_VALUE = 0;
   public static final Integer DEFAULT_ALL_IMPS = 0;
-  public static final Integer DEFAULT_AT = 2;
 
   @NotEmpty
   public String id;

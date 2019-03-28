@@ -1,4 +1,4 @@
-package net.media;
+package net.media.driver;
 
 import net.media.converters.Converter;
 import net.media.converters.response25toresponse30.Asset24ToAsset30Converter;

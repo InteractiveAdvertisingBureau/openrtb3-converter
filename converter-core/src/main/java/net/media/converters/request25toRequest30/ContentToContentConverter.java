@@ -1,6 +1,6 @@
 package net.media.converters.request25toRequest30;
 
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.Content;
@@ -66,7 +66,7 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     target.setData( ListToListConverter.convert( source.getData(), dataDataConverter, config ) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt(new HashMap<>(map) );
     }
 
     if(source.getExt() == null)

@@ -28,7 +28,7 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb25.
     target.setCoppa( source.getCoppa() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt(new HashMap<>(map) );
     }
     if(source.getGdpr() == null)
       return;

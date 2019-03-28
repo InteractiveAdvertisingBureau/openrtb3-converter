@@ -39,7 +39,7 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo>
     target.setZip( source.getZip() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt(new HashMap<>(map) );
     }
 
     if(source.getRegionfips104() != null) {

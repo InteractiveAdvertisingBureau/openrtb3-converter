@@ -1,4 +1,4 @@
-package net.media;
+package net.media.exceptions;
 
 /**
  * Exception Wrapper for OpenRtb converter.

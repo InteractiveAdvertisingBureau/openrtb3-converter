@@ -13,11 +13,11 @@ public class Seatbid {
   private String seat;//
 
   @JsonProperty("package")
-  private Integer _package;//seatbid.group
+  private Integer _package;
   @NotNull
   @Valid
-  private List<Bid> bid = null;//
-  private Map<String,Object> ext;//
+  private List<Bid> bid = null;
+  private Map<String,Object> ext;
 
   public Seatbid() {
   }

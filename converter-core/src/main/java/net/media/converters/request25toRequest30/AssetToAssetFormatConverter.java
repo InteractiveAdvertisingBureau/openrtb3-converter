@@ -115,7 +115,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     dataAssetFormat.setLen( nativeData.getLen() );
     Map<String, Object> map = nativeData.getExt();
     if ( map != null ) {
-      dataAssetFormat.setExt( new HashMap<String, Object>( map ) );
+      dataAssetFormat.setExt(new HashMap<>(map) );
     }
 
     return dataAssetFormat;

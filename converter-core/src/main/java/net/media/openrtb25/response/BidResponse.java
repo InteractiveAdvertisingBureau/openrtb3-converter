@@ -13,14 +13,14 @@ import javax.validation.constraints.NotNull;
 public class BidResponse {
 
   @NotNull
-  private String id;//
+  private String id;
   @Valid
-  private List<SeatBid> seatbid = new ArrayList<>();//
-  private String bidid;//
-  private String cur;//
-  private String customdata;//response.ext
-  private Integer nbr;//
-  private Map<String, Object> ext;//
+  private List<SeatBid> seatbid = new ArrayList<>();
+  private String bidid;
+  private String cur;
+  private String customdata;
+  private Integer nbr;
+  private Map<String, Object> ext;
 
   public static final String ENCRYPT_PRICE_FLAG = "encrypt_price";
 

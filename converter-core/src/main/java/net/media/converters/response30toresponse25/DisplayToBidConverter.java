@@ -2,7 +2,7 @@ package net.media.converters.response30toresponse25;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.enums.AdType;

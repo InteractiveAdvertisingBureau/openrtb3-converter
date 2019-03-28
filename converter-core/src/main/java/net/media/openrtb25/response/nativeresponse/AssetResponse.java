@@ -2,7 +2,7 @@ package net.media.openrtb25.response.nativeresponse;
 
 import java.util.Map;
 
-public class AssetResponse { //Asset
+public class AssetResponse {
 
   private static final Integer DEFAULT_REQUIRED = 0;
 

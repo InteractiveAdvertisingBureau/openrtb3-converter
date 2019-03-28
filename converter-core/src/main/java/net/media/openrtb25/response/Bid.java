@@ -12,36 +12,34 @@ import javax.validation.constraints.NotNull;
 public class Bid {
 
   @NotNull
-  private String id;//
+  private String id;
   @NotNull
-  private String impid;//
+  private String impid;
   @NotNull
-  private double price;//
+  private double price;
   private String adid;
-  private String nurl;//bid.purl
-  private Object adm;//media.ad.(display.adm/audio.adm/video.adm)
-  private List<String> adomain;//media.ad
-  private String iurl;//media.ad
-  private String cid;//
-  private String crid;//media.ad.id
-  private Set<String> cat;//media.ad
-  private List<Integer> attr;//media.ad
-  // TODO  revert to String
-  private String bundle;//media.ad
-  // TODO revert to Integer
-  private Integer api;//media.ad.display
+  private String nurl;
+  private Object adm;
+  private List<String> adomain;
+  private String iurl;
+  private String cid;
+  private String crid;
+  private Set<String> cat;
+  private List<Integer> attr;
+  private String bundle;
+  private Integer api;
   private Integer protocol;
   private Integer qagmediarating;
-  private String dealid;//
-  private Integer h;//media.ad.display.h
-  private String language;//media.ad.lang
-  private Integer w;//media.ad.display.w
-  private Integer  wratio;//media.ad.display.wratio
-  private Integer hratio;//media.ad.display.hratio
-  private Integer exp;//
-  private String burl;//
-  private String lurl;//
-  private String tactic;//
+  private String dealid;
+  private Integer h;
+  private String language;
+  private Integer w;
+  private Integer  wratio;
+  private Integer hratio;
+  private Integer exp;
+  private String burl;
+  private String lurl;
+  private String tactic;
   private Map<String,Object> ext;
 
   public Bid() {

@@ -13,17 +13,17 @@ import javax.validation.Valid;
 public class Display {
 
   private String mime;
-  private List<Integer> api = null;//bid.api
-  private Integer ctype;//bid.ext.ctype
-  private Integer w;//bid.w
-  private Integer h;//bid.h
-  private Integer wratio;//bid.wratio
-  private Integer hratio;//bid.hratio
-  private String priv;//bid.ext.priv
-  private Object adm;//bid.adm
-  private String curl;//bid.ext.curl
+  private List<Integer> api = null;
+  private Integer ctype;
+  private Integer w;
+  private Integer h;
+  private Integer wratio;
+  private Integer hratio;
+  private String priv;
+  private Object adm;
+  private String curl;
   @Valid
-  private Banner banner;//
+  private Banner banner;
   @Valid
   @JsonProperty("native")
   private Native _native;

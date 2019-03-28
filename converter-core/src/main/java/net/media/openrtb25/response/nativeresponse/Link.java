@@ -3,7 +3,7 @@ package net.media.openrtb25.response.nativeresponse;
 import java.util.List;
 import java.util.Map;
 
-public class Link { //LinkAsset
+public class Link {
   private String url;
 
   private List<String> clicktrackers;

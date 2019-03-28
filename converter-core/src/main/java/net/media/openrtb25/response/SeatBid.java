@@ -14,13 +14,13 @@ public class SeatBid {
 
   @NotNull
   @Valid
-  private List<Bid> bid = new ArrayList<>();//
+  private List<Bid> bid = new ArrayList<>();
 
-  private String seat;//
+  private String seat;
 
   private Integer group;
 
-  private Map<String, Object> ext;//
+  private Map<String, Object> ext;
 
   public SeatBid() {
   }

@@ -16,18 +16,18 @@ import javax.validation.constraints.NotNull;
 public class Ad {
 
   @NotNull
-  private String id;//bid.crid
-  private List<String> adomain = null;//bid
-  private List<String> bundle = null;//bid(String to  List)
-  private String iurl;//bid
-  private Set<String> cat = null;//bid
-  private Integer cattax;//bid.ext
-  private String lang;//bid.language
-  private List<Integer> attr = null;//bid
-  private Integer secure;//bid.ext
-  private Integer mrating;//bid.ext
-  private Integer init;//bid.ext
-  private Integer lastmod;//bid.ext
+  private String id;
+  private List<String> adomain = null;
+  private List<String> bundle = null;
+  private String iurl;
+  private Set<String> cat = null;
+  private Integer cattax;
+  private String lang;
+  private List<Integer> attr = null;
+  private Integer secure;
+  private Integer mrating;
+  private Integer init;
+  private Integer lastmod;
   @Valid
   private Display display;
   @Valid

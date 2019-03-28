@@ -1,5 +1,6 @@
-package net.media;
+package net.media.driver;
 
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.utils.ConverterProxy;

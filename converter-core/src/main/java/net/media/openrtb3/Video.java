@@ -6,11 +6,11 @@ import java.util.Map;
 public class Video {
 
   private List<String> mime = null;
-  private List<Integer> api = null;//bid.api
-  private Integer ctype;//bid.ext.ctype
-  private Integer dur;//bid.ext.dur
-  private Object adm;//bid.adm
-  private String curl;//bid.ext.curl
+  private List<Integer> api = null;
+  private Integer ctype;
+  private Integer dur;
+  private Object adm;
+  private String curl;
   private Map<String,Object> ext;
 
   public Video() {

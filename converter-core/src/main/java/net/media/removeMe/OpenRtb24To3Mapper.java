@@ -1,10 +1,10 @@
-package net.media.mapper;
+package net.media.removeMe;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import net.media.OpenRtbConverter;
-import net.media.OpenRtbConverterException;
+import net.media.driver.OpenRtbConverter;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.enums.AdType;
 import net.media.openrtb25.response.BidResponse;
@@ -38,7 +38,6 @@ public class OpenRtb24To3Mapper {
   private void test() throws IOException, OpenRtbConverterException, ConfigurationException {
     ClassLoader classLoader = getClass().getClassLoader();
     File file = new File(classLoader.getResource("25To30Test.json").getFile());
-    OpenRtb24To3MapperImpl impl = new OpenRtb24To3MapperImpl(null);
     Config config = new Config();
     config.setBannerTemplate("");
     config.setValidate(false);

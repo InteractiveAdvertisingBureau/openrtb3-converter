@@ -1,4 +1,4 @@
-package net.media.mapper;
+package net.media.removeMe;
 
 import net.media.openrtb25.response.BidResponse;
 import net.media.openrtb3.OpenRTB;
@@ -90,6 +90,6 @@ public class ResponseTestPojo {
   }
 
   public String toString() {
-    return "net.media.mapper.ResponseTestPojo(description=" + this.getDescription() + ", response25=" + this.getResponse25() + ", response30=" + this.getResponse30() + ", type=" + this.getType() + ")";
+    return "net.media.removeMe.ResponseTestPojo(description=" + this.getDescription() + ", response25=" + this.getResponse25() + ", response30=" + this.getResponse30() + ", type=" + this.getType() + ")";
   }
 }

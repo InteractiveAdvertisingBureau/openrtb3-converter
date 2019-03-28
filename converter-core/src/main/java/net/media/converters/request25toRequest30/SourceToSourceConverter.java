@@ -32,7 +32,7 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
     target.setPchain( source.getPchain() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt(new HashMap<>(map) );
     }
     if(source.getFd() != null) {
       if(target.getExt() == null)

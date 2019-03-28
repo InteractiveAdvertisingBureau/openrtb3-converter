@@ -1,6 +1,6 @@
 package net.media.converters.request25toRequest30;
 
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.Banner;

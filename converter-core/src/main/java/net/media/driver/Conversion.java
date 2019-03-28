@@ -1,4 +1,4 @@
-package net.media;
+package net.media.driver;
 
 /**
  * @author shiva.b
@@ -62,6 +62,6 @@ public class Conversion {
   }
 
   public String toString() {
-    return "net.media.Conversion(source=" + this.getSource() + ", target=" + this.getTarget() + ")";
+    return "net.media.driver.Conversion(source=" + this.getSource() + ", target=" + this.getTarget() + ")";
   }
 }

@@ -9,14 +9,14 @@ import javax.validation.constraints.NotNull;
 public class Response {
 
   @NotNull
-  private String id;//
-  private String bidid;//
-  private Integer nbr;//
-  private String cur;//
+  private String id;
+  private String bidid;
+  private Integer nbr;
+  private String cur;
   private String cdata;
   @Valid
-  private List<Seatbid> seatbid = null;//
-  private Map<String,Object> ext;//
+  private List<Seatbid> seatbid = null;
+  private Map<String,Object> ext;
 
   public Response() {
   }
