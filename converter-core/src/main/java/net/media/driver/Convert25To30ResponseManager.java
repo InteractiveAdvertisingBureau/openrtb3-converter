@@ -37,7 +37,7 @@ import net.media.utils.ConverterProxy;
  * Created by shiva.b on 28/03/19.
  */
 @SuppressWarnings("unchecked")
-public class Converter25To30ResponsePlumber {
+public class Convert25To30ResponseManager {
 
   public ConverterProxy getBidResponseToOpenRtbConverterProxy() {
     return bidResponseToOpenRtbConverter;

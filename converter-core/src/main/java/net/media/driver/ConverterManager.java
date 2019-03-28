@@ -13,28 +13,28 @@ import java.util.Map;
  * @author shiva.b
  */
 @SuppressWarnings("unchecked")
-public class ConverterPlumber {
+public class ConverterManager {
 
   private Provider<Conversion, Converter> converterProvider;
 
-  public ConverterPlumber(Map<Conversion, Converter> overrideMap) {
+  public ConverterManager(Map<Conversion, Converter> overrideMap) {
     overrideMap.forEach((key, value) -> new ConverterProxy(() -> value).apply(key));
     converterProvider = new Provider<>(null);
 
-    Converter25To30RequestPlumber converter25To30RequestPlumber = new Converter25To30RequestPlumber();
-    Converter30To25RequestPlumber converter30To25RequestPlumber = new Converter30To25RequestPlumber();
-    Converter25To30ResponsePlumber converter25To30ResponsePlumber = new Converter25To30ResponsePlumber();
-    Converter30To25ResponsePlumber converter30To25ResponsePlumber = new Converter30To25ResponsePlumber();
+    Convert25To30RequestManager converter25To30RequestPlumber = new Convert25To30RequestManager();
+    Convert30To25RequestManager convert30To25RequestManager = new Convert30To25RequestManager();
+    Convert25To30ResponseManager convert25To30ResponseManager = new Convert25To30ResponseManager();
+    Convert30To25ResponseManager convert30To25ResponseManager = new Convert30To25ResponseManager();
 
     converterProvider.register(new Conversion(BidRequest.class, OpenRTB.class),
       converter25To30RequestPlumber.getBidRequestToOpenRtbConverter().apply(new Conversion(BidRequest.class, OpenRTB.class)));
     converterProvider.register(new Conversion(OpenRTB.class, BidRequest.class),
-      converter30To25RequestPlumber.getOpenRtbToBidRequestConverterProxy().apply(new Conversion(OpenRTB.class, BidRequest.class)));
+      convert30To25RequestManager.getOpenRtbToBidRequestConverterProxy().apply(new Conversion(OpenRTB.class, BidRequest.class)));
     converterProvider.register(new Conversion(OpenRTB.class, BidResponse.class),
-      converter30To25ResponsePlumber.getOpenRtbToBidResponseConverter().apply(new Conversion
+      convert30To25ResponseManager.getOpenRtbToBidResponseConverter().apply(new Conversion
         (OpenRTB.class, BidResponse.class)));
     converterProvider.register(new Conversion(BidResponse.class, OpenRTB.class),
-      converter25To30ResponsePlumber.getBidResponseToOpenRtbConverterProxy().apply(new Conversion(BidResponse.class, OpenRTB.class)));
+      convert25To30ResponseManager.getBidResponseToOpenRtbConverterProxy().apply(new Conversion(BidResponse.class, OpenRTB.class)));
   }
 
   public <U, V> Converter<U, V> getConverter(Class<U> source, Class<V> target) {

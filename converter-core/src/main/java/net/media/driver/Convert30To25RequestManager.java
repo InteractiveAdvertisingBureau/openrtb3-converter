@@ -57,7 +57,7 @@ import net.media.openrtb3.VideoPlacement;
 import net.media.utils.ConverterProxy;
 
 @SuppressWarnings("unchecked")
-public class Converter30To25RequestPlumber {
+public class Convert30To25RequestManager {
 
   private ConverterProxy assetFormatToAssetConverter = new ConverterProxy(AssetFormatToAssetConverter::new);
 

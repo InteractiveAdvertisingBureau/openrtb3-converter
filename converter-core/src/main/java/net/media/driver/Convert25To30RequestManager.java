@@ -27,7 +27,6 @@ import net.media.converters.request25toRequest30.SiteToSiteConverter;
 import net.media.converters.request25toRequest30.SourceToSourceConverter;
 import net.media.converters.request25toRequest30.UserToUserConverter;
 import net.media.converters.request25toRequest30.VideoToVideoPlacementConverter;
-import net.media.driver.Conversion;
 import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.Audio;
 import net.media.openrtb25.request.Banner;
@@ -60,7 +59,7 @@ import net.media.openrtb3.User;
 import net.media.utils.ConverterProxy;
 
 @SuppressWarnings("unchecked")
-public class Converter25To30RequestPlumber {
+public class Convert25To30RequestManager {
 
   private ConverterProxy bannerToDisplayPlacementConverter = new ConverterProxy(BannerToDisplayPlacementConverter::new);
 
