@@ -1,7 +1,7 @@
 package net.media.mapper;
 
 
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
 
 @Mapper
 public interface MediaMapper {

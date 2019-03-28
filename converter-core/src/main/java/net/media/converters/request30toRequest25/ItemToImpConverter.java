@@ -23,12 +23,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import lombok.AllArgsConstructor;
-
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-@AllArgsConstructor
 public class ItemToImpConverter implements Converter<Item, Imp> {
 
   private Converter<DisplayPlacement, Banner> displayPlacementBannerConverter;
@@ -42,6 +39,16 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
   private Converter<net.media.openrtb3.Metric, Metric> metricMetricConverter;
 
   private Converter<net.media.openrtb3.Deal, Deal> dealDealConverter;
+
+  @java.beans.ConstructorProperties({"displayPlacementBannerConverter", "displayPlacementNativeConverter", "videoPlacementVideoConverter", "audioPlacementAudioConverter", "metricMetricConverter", "dealDealConverter"})
+  public ItemToImpConverter(Converter<DisplayPlacement, Banner> displayPlacementBannerConverter, Converter<DisplayPlacement, Native> displayPlacementNativeConverter, Converter<VideoPlacement, Video> videoPlacementVideoConverter, Converter<AudioPlacement, Audio> audioPlacementAudioConverter, Converter<net.media.openrtb3.Metric, Metric> metricMetricConverter, Converter<net.media.openrtb3.Deal, Deal> dealDealConverter) {
+    this.displayPlacementBannerConverter = displayPlacementBannerConverter;
+    this.displayPlacementNativeConverter = displayPlacementNativeConverter;
+    this.videoPlacementVideoConverter = videoPlacementVideoConverter;
+    this.audioPlacementAudioConverter = audioPlacementAudioConverter;
+    this.metricMetricConverter = metricMetricConverter;
+    this.dealDealConverter = dealDealConverter;
+  }
 
   @Override
   public Imp map(Item item, Config config) throws OpenRtbConverterException {

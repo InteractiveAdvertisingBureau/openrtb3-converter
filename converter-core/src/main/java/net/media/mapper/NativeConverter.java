@@ -1,12 +1,5 @@
 package net.media.mapper;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import javax.annotation.Generated;
 import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.NativeData;
 import net.media.openrtb25.request.NativeImage;
@@ -19,6 +12,15 @@ import net.media.openrtb3.ImageAssetFormat;
 import net.media.openrtb3.NativeFormat;
 import net.media.openrtb3.TitleAssetFormat;
 import net.media.openrtb3.VideoPlacement;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.annotation.Generated;
 
 @Generated(
   value = "org.mapstruct.ap.MappingProcessor",

@@ -2,9 +2,26 @@ package net.media.mapper;
 
 import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb25.request.Imp;
-import net.media.openrtb3.*;
+import net.media.openrtb3.App;
+import net.media.openrtb3.Content;
 import net.media.openrtb3.Context;
-import org.mapstruct.*;
+import net.media.openrtb3.Device;
+import net.media.openrtb3.Dooh;
+import net.media.openrtb3.Geo;
+import net.media.openrtb3.Producer;
+import net.media.openrtb3.Regs;
+import net.media.openrtb3.Request;
+import net.media.openrtb3.Restrictions;
+import net.media.openrtb3.Site;
+import net.media.openrtb3.Source;
+import net.media.openrtb3.User;
+
+import org.mapstruct.AfterMapping;
+import org.mapstruct.InheritInverseConfiguration;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
 import java.util.HashMap;

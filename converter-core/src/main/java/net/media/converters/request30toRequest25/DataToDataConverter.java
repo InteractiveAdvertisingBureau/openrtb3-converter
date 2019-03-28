@@ -1,6 +1,5 @@
 package net.media.converters.request30toRequest25;
 
-import lombok.AllArgsConstructor;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -11,10 +10,14 @@ import net.media.utils.ListToListConverter;
 import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
 public class DataToDataConverter implements Converter<Data, net.media.openrtb25.request.Data> {
 
   private Converter<Segment, net.media.openrtb25.request.Segment> segmentSegmentConverter;
+
+  @java.beans.ConstructorProperties({"segmentSegmentConverter"})
+  public DataToDataConverter(Converter<Segment, net.media.openrtb25.request.Segment> segmentSegmentConverter) {
+    this.segmentSegmentConverter = segmentSegmentConverter;
+  }
 
   @Override
   public net.media.openrtb25.request.Data map(Data source, Config config) throws OpenRtbConverterException {

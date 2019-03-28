@@ -5,10 +5,14 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.enums.AdType;
 import net.media.openrtb25.response.Bid;
-import net.media.openrtb3.*;
+import net.media.openrtb3.Ad;
+import net.media.openrtb3.Audio;
+import net.media.openrtb3.Audit;
+import net.media.openrtb3.Display;
+import net.media.openrtb3.Video;
 import net.media.utils.Utils;
 
-import java.util.*;
+import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;

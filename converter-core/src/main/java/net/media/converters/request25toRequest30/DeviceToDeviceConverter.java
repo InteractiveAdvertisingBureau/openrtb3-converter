@@ -1,6 +1,5 @@
 package net.media.converters.request25toRequest30;
 
-import lombok.AllArgsConstructor;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -11,10 +10,14 @@ import net.media.utils.OsMap;
 import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
 public class DeviceToDeviceConverter implements Converter<Device, net.media.openrtb3.Device> {
 
   private Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter;
+
+  @java.beans.ConstructorProperties({"geoToGeoConverter"})
+  public DeviceToDeviceConverter(Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter) {
+    this.geoToGeoConverter = geoToGeoConverter;
+  }
 
   @Override
   public net.media.openrtb3.Device map(Device source, Config config) throws OpenRtbConverterException {

@@ -6,8 +6,6 @@ import net.media.converters.Converter;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static java.util.Objects.nonNull;
-
 /**
  * @author shiva.b
  * @since 1.0

@@ -1,13 +1,5 @@
 package net.media.mapper;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import javax.annotation.Generated;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb25.request.Imp;
@@ -17,6 +9,16 @@ import net.media.openrtb3.Item;
 import net.media.openrtb3.Request;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.IterableNonInterableUtil;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.annotation.Generated;
 
 import static java.util.Objects.nonNull;
 
@@ -193,7 +195,7 @@ public class VideoConverter {
                                                    Request request, Video video) {
     if (nonNull(videoPlacement) && nonNull(video)) {
       if (nonNull(videoPlacement.getPlaymethod())) {
-        video.setPlaybackmethod(Collections.singleton(videoPlacement.getPlaymethod()));
+        video.setPlaybackmethod(Collections.singletonList(videoPlacement.getPlaymethod()));
       }
     }
   }

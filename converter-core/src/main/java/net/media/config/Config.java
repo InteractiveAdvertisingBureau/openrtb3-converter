@@ -1,17 +1,15 @@
 package net.media.config;
 
 import com.google.common.base.Strings;
+
 import net.media.enums.AdType;
+import net.media.utils.PropertiesFileLoader;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 import java.net.URL;
-
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import net.media.utils.PropertiesFileLoader;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -24,8 +22,6 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
  */
 
 
-@NoArgsConstructor
-@Data
 public class Config {
 
   private static final boolean DEFAULT_NATIVE_REQUEST_AS_STRING = true;
@@ -73,6 +69,9 @@ public class Config {
     this.adType = oldConfig.adType;
     this.validate = oldConfig.validate;
     this.disableCloning = oldConfig.disableCloning;
+  }
+
+  public Config() {
   }
 
   /**
@@ -278,4 +277,89 @@ public class Config {
     return support.toYAML(this);
   }
 
+  public AdType getAdType() {
+    return this.adType;
+  }
+
+  public Boolean getDisableCloning() {
+    return this.disableCloning;
+  }
+
+  public void setNativeRequestAsString(Boolean nativeRequestAsString) {
+    this.nativeRequestAsString = nativeRequestAsString;
+  }
+
+  public void setNativeResponseAsString(Boolean nativeResponseAsString) {
+    this.nativeResponseAsString = nativeResponseAsString;
+  }
+
+  public void setAdType(AdType adType) {
+    this.adType = adType;
+  }
+
+  public void setDisableCloning(Boolean disableCloning) {
+    this.disableCloning = disableCloning;
+  }
+
+  public void setValidate(Boolean validate) {
+    this.validate = validate;
+  }
+
+  public boolean equals(Object o) {
+    if (o == this) return true;
+    if (!(o instanceof Config)) return false;
+    final Config other = (Config) o;
+    if (!other.canEqual((Object) this)) return false;
+    final Object this$bannerTemplate = this.getBannerTemplate();
+    final Object other$bannerTemplate = other.getBannerTemplate();
+    if (this$bannerTemplate == null ? other$bannerTemplate != null : !this$bannerTemplate.equals(other$bannerTemplate))
+      return false;
+    final Object this$nativeRequestAsString = this.getNativeRequestAsString();
+    final Object other$nativeRequestAsString = other.getNativeRequestAsString();
+    if (this$nativeRequestAsString == null ? other$nativeRequestAsString != null : !this$nativeRequestAsString.equals(other$nativeRequestAsString))
+      return false;
+    final Object this$nativeResponseAsString = this.getNativeResponseAsString();
+    final Object other$nativeResponseAsString = other.getNativeResponseAsString();
+    if (this$nativeResponseAsString == null ? other$nativeResponseAsString != null : !this$nativeResponseAsString.equals(other$nativeResponseAsString))
+      return false;
+    final Object this$adType = this.getAdType();
+    final Object other$adType = other.getAdType();
+    if (this$adType == null ? other$adType != null : !this$adType.equals(other$adType))
+      return false;
+    final Object this$disableCloning = this.getDisableCloning();
+    final Object other$disableCloning = other.getDisableCloning();
+    if (this$disableCloning == null ? other$disableCloning != null : !this$disableCloning.equals(other$disableCloning))
+      return false;
+    final Object this$validate = this.getValidate();
+    final Object other$validate = other.getValidate();
+    if (this$validate == null ? other$validate != null : !this$validate.equals(other$validate))
+      return false;
+    return true;
+  }
+
+  public int hashCode() {
+    final int PRIME = 59;
+    int result = 1;
+    final Object $bannerTemplate = this.getBannerTemplate();
+    result = result * PRIME + ($bannerTemplate == null ? 43 : $bannerTemplate.hashCode());
+    final Object $nativeRequestAsString = this.getNativeRequestAsString();
+    result = result * PRIME + ($nativeRequestAsString == null ? 43 : $nativeRequestAsString.hashCode());
+    final Object $nativeResponseAsString = this.getNativeResponseAsString();
+    result = result * PRIME + ($nativeResponseAsString == null ? 43 : $nativeResponseAsString.hashCode());
+    final Object $adType = this.getAdType();
+    result = result * PRIME + ($adType == null ? 43 : $adType.hashCode());
+    final Object $disableCloning = this.getDisableCloning();
+    result = result * PRIME + ($disableCloning == null ? 43 : $disableCloning.hashCode());
+    final Object $validate = this.getValidate();
+    result = result * PRIME + ($validate == null ? 43 : $validate.hashCode());
+    return result;
+  }
+
+  protected boolean canEqual(Object other) {
+    return other instanceof Config;
+  }
+
+  public String toString() {
+    return "net.media.config.Config(bannerTemplate=" + this.getBannerTemplate() + ", nativeRequestAsString=" + this.getNativeRequestAsString() + ", nativeResponseAsString=" + this.getNativeResponseAsString() + ", adType=" + this.getAdType() + ", disableCloning=" + this.getDisableCloning() + ", validate=" + this.getValidate() + ")";
+  }
 }

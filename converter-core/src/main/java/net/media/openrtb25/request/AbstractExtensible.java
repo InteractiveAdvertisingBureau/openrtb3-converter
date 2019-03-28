@@ -8,7 +8,6 @@ import java.util.HashMap;
 /**
  * Created by shashankt on 17/5/17.
  */
-@lombok.Data
 public abstract class AbstractExtensible<E extends ReqExt> {
 
   transient private E reqExt;

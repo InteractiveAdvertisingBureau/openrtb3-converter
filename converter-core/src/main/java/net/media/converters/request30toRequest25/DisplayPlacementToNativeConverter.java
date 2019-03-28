@@ -15,15 +15,17 @@ import net.media.utils.Utils;
 
 import java.util.HashMap;
 
-import lombok.AllArgsConstructor;
-
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-@AllArgsConstructor
 public class DisplayPlacementToNativeConverter implements Converter<DisplayPlacement, Native> {
 
   private Converter<NativeFormat, NativeRequestBody> nativeFormatNativeRequestBodyConverter;
+
+  @java.beans.ConstructorProperties({"nativeFormatNativeRequestBodyConverter"})
+  public DisplayPlacementToNativeConverter(Converter<NativeFormat, NativeRequestBody> nativeFormatNativeRequestBodyConverter) {
+    this.nativeFormatNativeRequestBodyConverter = nativeFormatNativeRequestBodyConverter;
+  }
 
   @Override
   public Native map(DisplayPlacement displayPlacement, Config config) throws OpenRtbConverterException {
