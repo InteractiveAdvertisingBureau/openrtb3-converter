@@ -47,6 +47,8 @@ import net.media.openrtb3.Video;
 import net.media.utils.ConverterProxy;
 import net.media.utils.Provider;
 
+import java.util.Map;
+
 /**
  * @author shiva.b
  */
@@ -55,7 +57,8 @@ public class ConverterPlumber {
 
   private Provider<Conversion, Converter> converterProvider;
 
-  public ConverterPlumber() {
+  public ConverterPlumber(Map<Conversion, Converter> overrideMap) {
+    overrideMap.forEach((key, value) -> new ConverterProxy(() -> value).apply(key));
     Converter<OpenRTB, BidResponse> openRTBBidResponseConverter = openRtbToBidResponseConverter
       .apply(new Conversion(OpenRTB.class, BidResponse.class));
     Converter<BidResponse, OpenRTB> bidResponseOpenRTBConverter = bidResponseToOpenRtbConverter

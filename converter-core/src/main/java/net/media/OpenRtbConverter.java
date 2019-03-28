@@ -5,6 +5,9 @@ import net.media.converters.Converter;
 import net.media.utils.ConverterProxy;
 import net.media.utils.Utils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.naming.ConfigurationException;
 
 import static java.util.Objects.isNull;
@@ -47,9 +50,13 @@ public class OpenRtbConverter {
   private ConverterProxy converterProxy;
 
   public OpenRtbConverter(Config config) {
+    this(config, new HashMap<>());
+  }
+
+  public OpenRtbConverter(Config config, Map<Conversion, Converter> overridenMap) {
     this.config = config;
     this.converterProxy =  new ConverterProxy(()-> null);
-    converterPlumber = new ConverterPlumber();
+    converterPlumber = new ConverterPlumber(overridenMap);
   }
 
   /**
