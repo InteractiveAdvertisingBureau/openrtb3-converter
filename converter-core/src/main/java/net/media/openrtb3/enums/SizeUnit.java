@@ -1,7 +1,5 @@
 package net.media.openrtb3.enums;
 
-import lombok.Getter;
-
 /**
  * Created by rajat.go on 18/12/18.
  */

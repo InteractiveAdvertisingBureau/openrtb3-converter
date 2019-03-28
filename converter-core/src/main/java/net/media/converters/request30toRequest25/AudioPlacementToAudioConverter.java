@@ -14,15 +14,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import lombok.AllArgsConstructor;
-
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-@AllArgsConstructor
 public class AudioPlacementToAudioConverter implements Converter<AudioPlacement, Audio> {
 
   private Converter<Companion, Banner> companionBannerConverter;
+
+  @java.beans.ConstructorProperties({"companionBannerConverter"})
+  public AudioPlacementToAudioConverter(Converter<Companion, Banner> companionBannerConverter) {
+    this.companionBannerConverter = companionBannerConverter;
+  }
 
   @Override
   public Audio map(AudioPlacement audioPlacement, Config config) throws OpenRtbConverterException {

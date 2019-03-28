@@ -16,15 +16,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import lombok.AllArgsConstructor;
-
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-@AllArgsConstructor
 public class VideoPlacementToVideoConverter implements Converter<VideoPlacement, Video> {
 
   private Converter<Companion, Banner> companionBannerConverter;
+
+  @java.beans.ConstructorProperties({"companionBannerConverter"})
+  public VideoPlacementToVideoConverter(Converter<Companion, Banner> companionBannerConverter) {
+    this.companionBannerConverter = companionBannerConverter;
+  }
 
   @Override
   public Video map(VideoPlacement videoPlacement, Config config) throws OpenRtbConverterException {
@@ -98,7 +100,7 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
   private void videoPlacementToVideoAfterMapping(VideoPlacement videoPlacement, Video video) {
     if (nonNull(videoPlacement) && nonNull(video)) {
       if (nonNull(videoPlacement.getPlaymethod())) {
-        video.setPlaybackmethod(Collections.singleton(videoPlacement.getPlaymethod()));
+        video.setPlaybackmethod(Collections.singletonList(videoPlacement.getPlaymethod()));
       }
     }
     if (nonNull(videoPlacement.getUnit())) {

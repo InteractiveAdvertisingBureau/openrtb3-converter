@@ -96,7 +96,7 @@ public interface VideoToVideoPlacementMapper {
     Video video) {
     if (nonNull(videoPlacement) && nonNull(video)) {
       if (nonNull(videoPlacement.getPlaymethod())) {
-        video.setPlaybackmethod(Collections.singleton(videoPlacement.getPlaymethod()));
+        video.setPlaybackmethod(Collections.singletonList(videoPlacement.getPlaymethod()));
       }
       if (nonNull(videoPlacement.getExt()) && !videoPlacement.getExt().isEmpty()) {
         video.setSequence((Integer) videoPlacement.getExt().get("sequence"));

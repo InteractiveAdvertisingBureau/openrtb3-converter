@@ -3,7 +3,6 @@ package net.media.converters.response25toresponse30;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-
 import net.media.openrtb25.response.nativeresponse.AssetResponse;
 import net.media.openrtb25.response.nativeresponse.Link;
 import net.media.openrtb25.response.nativeresponse.NativeResponse;

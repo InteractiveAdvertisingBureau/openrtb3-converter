@@ -11,9 +11,7 @@ import net.media.openrtb3.Seatbid;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;

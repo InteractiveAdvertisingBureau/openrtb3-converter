@@ -2,14 +2,6 @@ package net.media.mapper;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import javax.annotation.Generated;
-
 import net.media.config.Config;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.BidRequest;
@@ -25,6 +17,14 @@ import net.media.openrtb3.Item;
 import net.media.openrtb3.Request;
 import net.media.utils.JacksonObjectMapper;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Generated;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;

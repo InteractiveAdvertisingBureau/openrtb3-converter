@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import lombok.AllArgsConstructor;
-
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
@@ -22,10 +20,14 @@ import static java.util.Objects.nonNull;
  * Created by rajat.go on 03/01/19.
  */
 
-@AllArgsConstructor
 public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPlacement> {
 
   private Converter<Banner, Companion> bannerCompanionConverter;
+
+  @java.beans.ConstructorProperties({"bannerCompanionConverter"})
+  public AudioToAudioPlacementConverter(Converter<Banner, Companion> bannerCompanionConverter) {
+    this.bannerCompanionConverter = bannerCompanionConverter;
+  }
 
   @Override
   public AudioPlacement map(Audio audio, Config config) throws OpenRtbConverterException {

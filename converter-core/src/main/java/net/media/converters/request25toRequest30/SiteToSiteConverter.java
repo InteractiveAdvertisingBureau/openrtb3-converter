@@ -1,6 +1,5 @@
 package net.media.converters.request25toRequest30;
 
-import lombok.AllArgsConstructor;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -12,11 +11,16 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
 public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.Site> {
 
   private Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter;
   private Converter<Content, net.media.openrtb3.Content> contentContentConverter;
+
+  @java.beans.ConstructorProperties({"publisherPublisherConverter", "contentContentConverter"})
+  public SiteToSiteConverter(Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter, Converter<Content, net.media.openrtb3.Content> contentContentConverter) {
+    this.publisherPublisherConverter = publisherPublisherConverter;
+    this.contentContentConverter = contentContentConverter;
+  }
 
   @Override
   public net.media.openrtb3.Site map(Site source, Config config) throws OpenRtbConverterException {

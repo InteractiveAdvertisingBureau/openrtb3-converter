@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import lombok.AllArgsConstructor;
-
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
@@ -25,10 +23,14 @@ import static java.util.Objects.nonNull;
  * Created by rajat.go on 03/01/19.
  */
 
-@AllArgsConstructor
 public class NativeToDisplayPlacementConverter implements Converter<Native, DisplayPlacement> {
 
   private Converter<NativeRequestBody, NativeFormat> nativeRequestBodyNativeFormatConverter;
+
+  @java.beans.ConstructorProperties({"nativeRequestBodyNativeFormatConverter"})
+  public NativeToDisplayPlacementConverter(Converter<NativeRequestBody, NativeFormat> nativeRequestBodyNativeFormatConverter) {
+    this.nativeRequestBodyNativeFormatConverter = nativeRequestBodyNativeFormatConverter;
+  }
 
   @Override
   public DisplayPlacement map(Native nat, Config config) throws OpenRtbConverterException {

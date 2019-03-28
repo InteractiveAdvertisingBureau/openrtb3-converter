@@ -1,15 +1,8 @@
 package net.media.mapper;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import javax.annotation.Generated;
-
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+
 import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Data;
@@ -31,6 +24,15 @@ import net.media.openrtb3.Restrictions;
 import net.media.openrtb3.Site;
 
 import org.mapstruct.MappingTarget;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.annotation.Generated;
 
 @Generated(
   value = "org.mapstruct.ap.MappingProcessor",

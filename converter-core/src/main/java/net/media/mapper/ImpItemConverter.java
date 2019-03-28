@@ -1,10 +1,5 @@
 package net.media.mapper;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import net.media.openrtb25.request.Audio;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.BidRequest;
@@ -21,6 +16,11 @@ import net.media.openrtb3.Placement;
 import net.media.openrtb3.Request;
 import net.media.openrtb3.Spec;
 import net.media.openrtb3.VideoPlacement;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static java.util.Objects.nonNull;
 

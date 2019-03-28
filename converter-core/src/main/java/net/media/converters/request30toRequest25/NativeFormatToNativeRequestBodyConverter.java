@@ -12,15 +12,17 @@ import net.media.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.AllArgsConstructor;
-
 import static java.util.Objects.isNull;
 
-@AllArgsConstructor
 public class NativeFormatToNativeRequestBodyConverter implements Converter<NativeFormat,
   NativeRequestBody> {
 
   private Converter<AssetFormat, Asset> assetFormatAssetConverter;
+
+  @java.beans.ConstructorProperties({"assetFormatAssetConverter"})
+  public NativeFormatToNativeRequestBodyConverter(Converter<AssetFormat, Asset> assetFormatAssetConverter) {
+    this.assetFormatAssetConverter = assetFormatAssetConverter;
+  }
 
   @Override
   public NativeRequestBody map(NativeFormat nativeFormat, Config config) throws OpenRtbConverterException {

@@ -3,7 +3,6 @@ package net.media.utils;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb3.Data;
 
 import java.util.ArrayList;
 import java.util.List;

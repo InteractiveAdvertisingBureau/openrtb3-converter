@@ -1,14 +1,11 @@
 package net.media.openrtb3;
 
-import lombok.Data;
-
 import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-@Data
 public class Response {
 
   @NotNull
@@ -21,4 +18,120 @@ public class Response {
   private List<Seatbid> seatbid = null;//
   private Map<String,Object> ext;//
 
+  public Response() {
+  }
+
+  public @NotNull String getId() {
+    return this.id;
+  }
+
+  public String getBidid() {
+    return this.bidid;
+  }
+
+  public Integer getNbr() {
+    return this.nbr;
+  }
+
+  public String getCur() {
+    return this.cur;
+  }
+
+  public String getCdata() {
+    return this.cdata;
+  }
+
+  public @Valid List<Seatbid> getSeatbid() {
+    return this.seatbid;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
+  }
+
+  public void setId(@NotNull String id) {
+    this.id = id;
+  }
+
+  public void setBidid(String bidid) {
+    this.bidid = bidid;
+  }
+
+  public void setNbr(Integer nbr) {
+    this.nbr = nbr;
+  }
+
+  public void setCur(String cur) {
+    this.cur = cur;
+  }
+
+  public void setCdata(String cdata) {
+    this.cdata = cdata;
+  }
+
+  public void setSeatbid(@Valid List<Seatbid> seatbid) {
+    this.seatbid = seatbid;
+  }
+
+  public void setExt(Map<String, Object> ext) {
+    this.ext = ext;
+  }
+
+  public boolean equals(Object o) {
+    if (o == this) return true;
+    if (!(o instanceof Response)) return false;
+    final Response other = (Response) o;
+    if (!other.canEqual((Object) this)) return false;
+    final Object this$id = this.getId();
+    final Object other$id = other.getId();
+    if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;
+    final Object this$bidid = this.getBidid();
+    final Object other$bidid = other.getBidid();
+    if (this$bidid == null ? other$bidid != null : !this$bidid.equals(other$bidid)) return false;
+    final Object this$nbr = this.getNbr();
+    final Object other$nbr = other.getNbr();
+    if (this$nbr == null ? other$nbr != null : !this$nbr.equals(other$nbr)) return false;
+    final Object this$cur = this.getCur();
+    final Object other$cur = other.getCur();
+    if (this$cur == null ? other$cur != null : !this$cur.equals(other$cur)) return false;
+    final Object this$cdata = this.getCdata();
+    final Object other$cdata = other.getCdata();
+    if (this$cdata == null ? other$cdata != null : !this$cdata.equals(other$cdata)) return false;
+    final Object this$seatbid = this.getSeatbid();
+    final Object other$seatbid = other.getSeatbid();
+    if (this$seatbid == null ? other$seatbid != null : !this$seatbid.equals(other$seatbid))
+      return false;
+    final Object this$ext = this.getExt();
+    final Object other$ext = other.getExt();
+    if (this$ext == null ? other$ext != null : !this$ext.equals(other$ext)) return false;
+    return true;
+  }
+
+  public int hashCode() {
+    final int PRIME = 59;
+    int result = 1;
+    final Object $id = this.getId();
+    result = result * PRIME + ($id == null ? 43 : $id.hashCode());
+    final Object $bidid = this.getBidid();
+    result = result * PRIME + ($bidid == null ? 43 : $bidid.hashCode());
+    final Object $nbr = this.getNbr();
+    result = result * PRIME + ($nbr == null ? 43 : $nbr.hashCode());
+    final Object $cur = this.getCur();
+    result = result * PRIME + ($cur == null ? 43 : $cur.hashCode());
+    final Object $cdata = this.getCdata();
+    result = result * PRIME + ($cdata == null ? 43 : $cdata.hashCode());
+    final Object $seatbid = this.getSeatbid();
+    result = result * PRIME + ($seatbid == null ? 43 : $seatbid.hashCode());
+    final Object $ext = this.getExt();
+    result = result * PRIME + ($ext == null ? 43 : $ext.hashCode());
+    return result;
+  }
+
+  protected boolean canEqual(Object other) {
+    return other instanceof Response;
+  }
+
+  public String toString() {
+    return "net.media.openrtb3.Response(id=" + this.getId() + ", bidid=" + this.getBidid() + ", nbr=" + this.getNbr() + ", cur=" + this.getCur() + ", cdata=" + this.getCdata() + ", seatbid=" + this.getSeatbid() + ", ext=" + this.getExt() + ")";
+  }
 }

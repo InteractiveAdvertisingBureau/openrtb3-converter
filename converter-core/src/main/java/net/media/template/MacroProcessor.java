@@ -1,7 +1,5 @@
 package net.media.template;
 
-import net.media.openrtb25.request.Banner;
-
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Pattern;

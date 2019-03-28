@@ -8,9 +8,6 @@ import net.media.openrtb3.Media;
 import net.media.template.MacroMapper;
 import net.media.utils.Utils;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static java.util.Objects.isNull;
 
 /**

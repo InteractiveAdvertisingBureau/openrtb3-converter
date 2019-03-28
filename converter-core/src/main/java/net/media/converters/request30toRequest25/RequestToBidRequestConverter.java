@@ -1,22 +1,31 @@
 package net.media.converters.request30toRequest25;
 
-import lombok.AllArgsConstructor;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.User;
-import net.media.openrtb3.*;
+import net.media.openrtb3.App;
+import net.media.openrtb3.Device;
+import net.media.openrtb3.Item;
+import net.media.openrtb3.Regs;
+import net.media.openrtb3.Request;
+import net.media.openrtb3.Site;
+import net.media.openrtb3.Source;
 import net.media.utils.CollectionUtils;
 import net.media.utils.ListToListConverter;
 import net.media.utils.Utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import static java.util.Objects.nonNull;
 
-@AllArgsConstructor
 public class RequestToBidRequestConverter implements Converter<Request, BidRequest> {
 
   private Converter<net.media.openrtb3.User, User> userUserConverter;
@@ -27,6 +36,19 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
   private Converter<Device, net.media.openrtb25.request.Device> deviceDeviceConverter;
   private Converter<Source, net.media.openrtb25.request.Source> sourceSourceConverter;
   private Converter<Item, net.media.openrtb25.request.Imp> itemImpConverter;
+
+  @java.beans.ConstructorProperties({"userUserConverter", "requestUserConverter", "appAppConverter", "regsRegsConverter", "siteSiteConverter", "deviceDeviceConverter", "sourceSourceConverter", "itemImpConverter"})
+  public RequestToBidRequestConverter(Converter<net.media.openrtb3.User, User> userUserConverter, Converter<Request, User> requestUserConverter, Converter<App, net.media.openrtb25.request.App> appAppConverter, Converter<Regs, net.media.openrtb25.request.Regs> regsRegsConverter, Converter<Site, net.media.openrtb25.request.Site> siteSiteConverter, Converter<Device, net.media.openrtb25.request.Device> deviceDeviceConverter, Converter<Source, net.media.openrtb25.request.Source> sourceSourceConverter, Converter<Item, Imp> itemImpConverter) {
+    this.userUserConverter = userUserConverter;
+    this.requestUserConverter = requestUserConverter;
+    this.appAppConverter = appAppConverter;
+    this.regsRegsConverter = regsRegsConverter;
+    this.siteSiteConverter = siteSiteConverter;
+    this.deviceDeviceConverter = deviceDeviceConverter;
+    this.sourceSourceConverter = sourceSourceConverter;
+    this.itemImpConverter = itemImpConverter;
+  }
+
   @Override
   public BidRequest map(Request source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {

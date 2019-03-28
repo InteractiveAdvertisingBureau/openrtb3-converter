@@ -1,6 +1,5 @@
 package net.media.converters.request25toRequest30;
 
-import lombok.AllArgsConstructor;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -13,11 +12,16 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
 public class ContentToContentConverter implements Converter<Content, net.media.openrtb3.Content> {
 
   private Converter<Producer, net.media.openrtb3.Producer> producerProducerConverter;
   private Converter<net.media.openrtb25.request.Data, Data> dataDataConverter;
+
+  @java.beans.ConstructorProperties({"producerProducerConverter", "dataDataConverter"})
+  public ContentToContentConverter(Converter<Producer, net.media.openrtb3.Producer> producerProducerConverter, Converter<net.media.openrtb25.request.Data, Data> dataDataConverter) {
+    this.producerProducerConverter = producerProducerConverter;
+    this.dataDataConverter = dataDataConverter;
+  }
 
   @Override
   public net.media.openrtb3.Content map(Content source, Config config) throws OpenRtbConverterException {

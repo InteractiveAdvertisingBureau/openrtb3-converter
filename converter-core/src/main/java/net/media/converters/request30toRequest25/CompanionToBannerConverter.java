@@ -10,14 +10,16 @@ import net.media.openrtb3.DisplayPlacement;
 import java.util.HashMap;
 import java.util.Map;
 
-import lombok.AllArgsConstructor;
-
 import static java.util.Objects.isNull;
 
-@AllArgsConstructor
 public class CompanionToBannerConverter implements Converter<Companion, Banner> {
 
   private Converter<DisplayPlacement, Banner> displayPlacementBannerConverter;
+
+  @java.beans.ConstructorProperties({"displayPlacementBannerConverter"})
+  public CompanionToBannerConverter(Converter<DisplayPlacement, Banner> displayPlacementBannerConverter) {
+    this.displayPlacementBannerConverter = displayPlacementBannerConverter;
+  }
 
   @Override
   public Banner map(Companion companion, Config config) throws OpenRtbConverterException {

@@ -6,7 +6,6 @@ import java.util.Map;
  * Created by vishnu on 6/5/16.
  */
 
-@lombok.Data
 public class Segment {
 
   private String id;
@@ -16,4 +15,81 @@ public class Segment {
   private String value;
 
   private Map<String, Object> ext;
+
+  public Segment() {
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public void setExt(Map<String, Object> ext) {
+    this.ext = ext;
+  }
+
+  public boolean equals(Object o) {
+    if (o == this) return true;
+    if (!(o instanceof Segment)) return false;
+    final Segment other = (Segment) o;
+    if (!other.canEqual((Object) this)) return false;
+    final Object this$id = this.getId();
+    final Object other$id = other.getId();
+    if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;
+    final Object this$name = this.getName();
+    final Object other$name = other.getName();
+    if (this$name == null ? other$name != null : !this$name.equals(other$name)) return false;
+    final Object this$value = this.getValue();
+    final Object other$value = other.getValue();
+    if (this$value == null ? other$value != null : !this$value.equals(other$value)) return false;
+    final Object this$ext = this.getExt();
+    final Object other$ext = other.getExt();
+    if (this$ext == null ? other$ext != null : !this$ext.equals(other$ext)) return false;
+    return true;
+  }
+
+  public int hashCode() {
+    final int PRIME = 59;
+    int result = 1;
+    final Object $id = this.getId();
+    result = result * PRIME + ($id == null ? 43 : $id.hashCode());
+    final Object $name = this.getName();
+    result = result * PRIME + ($name == null ? 43 : $name.hashCode());
+    final Object $value = this.getValue();
+    result = result * PRIME + ($value == null ? 43 : $value.hashCode());
+    final Object $ext = this.getExt();
+    result = result * PRIME + ($ext == null ? 43 : $ext.hashCode());
+    return result;
+  }
+
+  protected boolean canEqual(Object other) {
+    return other instanceof Segment;
+  }
+
+  public String toString() {
+    return "net.media.openrtb25.request.Segment(id=" + this.getId() + ", name=" + this.getName() + ", value=" + this.getValue() + ", ext=" + this.getExt() + ")";
+  }
 }

@@ -10,8 +10,6 @@ import javax.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 public class Video {
 
   public static final Integer DEFAULT_MINDURATION = null;
@@ -91,7 +89,7 @@ public class Video {
 
   private Integer boxingallowed = DEFAULT_BOXING_ALLOWED;
 
-  private Set<Integer> playbackmethod;
+  private List<Integer> playbackmethod;
 
   private Integer playbackend;
 
@@ -107,4 +105,211 @@ public class Video {
 
   private Map<String, Object> ext;
 
+  public @NotEmpty Set<String> getMimes() {
+    return this.mimes;
+  }
+
+  public Integer getMinduration() {
+    return this.minduration;
+  }
+
+  public Integer getMaxduration() {
+    return this.maxduration;
+  }
+
+  public Set<Integer> getProtocols() {
+    return this.protocols;
+  }
+
+  public Integer getW() {
+    return this.w;
+  }
+
+  public Integer getH() {
+    return this.h;
+  }
+
+  public Integer getStartdelay() {
+    return this.startdelay;
+  }
+
+  public Integer getLinearity() {
+    return this.linearity;
+  }
+
+  public Integer getSkip() {
+    return this.skip;
+  }
+
+  public Integer getPlacement() {
+    return this.placement;
+  }
+
+  public Integer getSkipmin() {
+    return this.skipmin;
+  }
+
+  public Integer getSkipafter() {
+    return this.skipafter;
+  }
+
+  public Integer getSequence() {
+    return this.sequence;
+  }
+
+  public Set<Integer> getBattr() {
+    return this.battr;
+  }
+
+  public Integer getMaxextended() {
+    return this.maxextended;
+  }
+
+  public Integer getMinbitrate() {
+    return this.minbitrate;
+  }
+
+  public Integer getMaxbitrate() {
+    return this.maxbitrate;
+  }
+
+  public Integer getBoxingallowed() {
+    return this.boxingallowed;
+  }
+
+  public List<Integer> getPlaybackmethod() {
+    return this.playbackmethod;
+  }
+
+  public Integer getPlaybackend() {
+    return this.playbackend;
+  }
+
+  public List<Integer> getDelivery() {
+    return this.delivery;
+  }
+
+  public Integer getPos() {
+    return this.pos;
+  }
+
+  public List<Banner> getCompanionad() {
+    return this.companionad;
+  }
+
+  public Set<Integer> getApi() {
+    return this.api;
+  }
+
+  public List<Integer> getCompaniontype() {
+    return this.companiontype;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
+  }
+
+  public void setMimes(@NotEmpty Set<String> mimes) {
+    this.mimes = mimes;
+  }
+
+  public void setMinduration(Integer minduration) {
+    this.minduration = minduration;
+  }
+
+  public void setMaxduration(Integer maxduration) {
+    this.maxduration = maxduration;
+  }
+
+  public void setProtocols(Set<Integer> protocols) {
+    this.protocols = protocols;
+  }
+
+  public void setW(Integer w) {
+    this.w = w;
+  }
+
+  public void setH(Integer h) {
+    this.h = h;
+  }
+
+  public void setStartdelay(Integer startdelay) {
+    this.startdelay = startdelay;
+  }
+
+  public void setLinearity(Integer linearity) {
+    this.linearity = linearity;
+  }
+
+  public void setSkip(Integer skip) {
+    this.skip = skip;
+  }
+
+  public void setPlacement(Integer placement) {
+    this.placement = placement;
+  }
+
+  public void setSkipmin(Integer skipmin) {
+    this.skipmin = skipmin;
+  }
+
+  public void setSkipafter(Integer skipafter) {
+    this.skipafter = skipafter;
+  }
+
+  public void setSequence(Integer sequence) {
+    this.sequence = sequence;
+  }
+
+  public void setBattr(Set<Integer> battr) {
+    this.battr = battr;
+  }
+
+  public void setMaxextended(Integer maxextended) {
+    this.maxextended = maxextended;
+  }
+
+  public void setMinbitrate(Integer minbitrate) {
+    this.minbitrate = minbitrate;
+  }
+
+  public void setMaxbitrate(Integer maxbitrate) {
+    this.maxbitrate = maxbitrate;
+  }
+
+  public void setBoxingallowed(Integer boxingallowed) {
+    this.boxingallowed = boxingallowed;
+  }
+
+  public void setPlaybackmethod(List<Integer> playbackmethod) {
+    this.playbackmethod = playbackmethod;
+  }
+
+  public void setPlaybackend(Integer playbackend) {
+    this.playbackend = playbackend;
+  }
+
+  public void setDelivery(List<Integer> delivery) {
+    this.delivery = delivery;
+  }
+
+  public void setPos(Integer pos) {
+    this.pos = pos;
+  }
+
+  public void setCompanionad(List<Banner> companionad) {
+    this.companionad = companionad;
+  }
+
+  public void setApi(Set<Integer> api) {
+    this.api = api;
+  }
+
+  public void setCompaniontype(List<Integer> companiontype) {
+    this.companiontype = companiontype;
+  }
+
+  public void setExt(Map<String, Object> ext) {
+    this.ext = ext;
+  }
 }

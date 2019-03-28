@@ -1,6 +1,5 @@
 package net.media.converters.request25toRequest30;
 
-import lombok.AllArgsConstructor;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -26,12 +25,18 @@ import java.util.Map;
 /**
  * Created by rajat.go on 03/01/19.
  */
-@AllArgsConstructor
 public class BidRequestToRequestConverter implements Converter<BidRequest, Request> {
 
   Converter<Imp, Item> impItemConverter;
   Converter<BidRequest, Context> bidRequestContextConverter;
   Converter<Source, net.media.openrtb3.Source> source24Source3Converter;
+
+  @java.beans.ConstructorProperties({"impItemConverter", "bidRequestContextConverter", "source24Source3Converter"})
+  public BidRequestToRequestConverter(Converter<Imp, Item> impItemConverter, Converter<BidRequest, Context> bidRequestContextConverter, Converter<Source, net.media.openrtb3.Source> source24Source3Converter) {
+    this.impItemConverter = impItemConverter;
+    this.bidRequestContextConverter = bidRequestContextConverter;
+    this.source24Source3Converter = source24Source3Converter;
+  }
 
   private String bidRequestUserCustomdata(BidRequest bidRequest) {
     if ( bidRequest == null ) {

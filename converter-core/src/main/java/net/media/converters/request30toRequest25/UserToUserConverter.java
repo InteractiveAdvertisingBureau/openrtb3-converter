@@ -1,6 +1,5 @@
 package net.media.converters.request30toRequest25;
 
-import lombok.AllArgsConstructor;
 import net.media.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -12,11 +11,16 @@ import net.media.utils.ListToListConverter;
 import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
 public class UserToUserConverter implements Converter<User, net.media.openrtb25.request.User> {
 
   private Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter;
   private Converter<Data, net.media.openrtb25.request.Data> dataDataConverter;
+
+  @java.beans.ConstructorProperties({"geoGeoConverter", "dataDataConverter"})
+  public UserToUserConverter(Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter, Converter<Data, net.media.openrtb25.request.Data> dataDataConverter) {
+    this.geoGeoConverter = geoGeoConverter;
+    this.dataDataConverter = dataDataConverter;
+  }
 
   @Override
   public net.media.openrtb25.request.User map(User source, Config config) throws OpenRtbConverterException {

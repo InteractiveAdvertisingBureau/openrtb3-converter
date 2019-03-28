@@ -1,6 +1,7 @@
 package net.media.mapper;
 
 import net.media.openrtb3.Source;
+
 import org.mapstruct.AfterMapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.Mappings;
