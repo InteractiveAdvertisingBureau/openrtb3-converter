@@ -16,8 +16,8 @@ import static java.util.Objects.isNull;
 /**
  * Interface for interacting with openRtb Converter.
  * {@link #config} default converter config {@link Config}
- * {@link #converterPlumber} contains the pipeline for converter dependencies
- * {@link ConverterPlumber}  initialised while calling {@link OpenRtbConverter(Config)}
+ * {@link #converterManager} contains the pipeline for converter dependencies
+ * {@link ConverterManager}  initialised while calling {@link OpenRtbConverter(Config)}
  *
  * <ul>
  *   <li>{@link OpenRtbConverter(Config)} : instantiates OpenRtb converter object single object
@@ -46,7 +46,7 @@ public class OpenRtbConverter {
 
   private Config config;
 
-  private ConverterPlumber converterPlumber;
+  private ConverterManager converterManager;
 
   private ConverterProxy converterProxy;
 
@@ -57,7 +57,7 @@ public class OpenRtbConverter {
   public OpenRtbConverter(Config config, Map<Conversion, Converter> overridenMap) {
     this.config = config;
     this.converterProxy =  new ConverterProxy(()-> null);
-    converterPlumber = new ConverterPlumber(overridenMap);
+    converterManager = new ConverterManager(overridenMap);
   }
 
   /**
@@ -76,7 +76,7 @@ public class OpenRtbConverter {
     if (shouldValidate(overridingConfig)) {
       Utils.validate(source);
     }
-    Converter<U, V> converter = converterPlumber.getConverter(sourceClass, targetClass);
+    Converter<U, V> converter = converterManager.getConverter(sourceClass, targetClass);
     return converter.map(source, overridingConfig);
   }
 
@@ -112,7 +112,7 @@ public class OpenRtbConverter {
     if (shouldValidate(overridingConfig)) {
       Utils.validate(source);
     }
-    Converter<U, V> converter = converterPlumber.getConverter(sourceClass, targetClass);
+    Converter<U, V> converter = converterManager.getConverter(sourceClass, targetClass);
     converter.enhance(source, target, overridingConfig);
   }
 
@@ -128,7 +128,7 @@ public class OpenRtbConverter {
    */
   public <U, V> void enhance(U source, V target, Class<U> sourceClass,
                              Class<V> targetClass) throws OpenRtbConverterException {
-    Converter<U, V> converter = converterPlumber.getConverter(sourceClass, targetClass);
+    Converter<U, V> converter = converterManager.getConverter(sourceClass, targetClass);
     converter.enhance(source, target, null);
   }
 

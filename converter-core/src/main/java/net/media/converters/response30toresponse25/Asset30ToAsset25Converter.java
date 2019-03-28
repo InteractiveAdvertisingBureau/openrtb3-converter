@@ -22,9 +22,9 @@ import java.util.HashMap;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-public class Asset30ToAsset24Converter  implements Converter<Asset,AssetResponse> {
+public class Asset30ToAsset25Converter implements Converter<Asset,AssetResponse> {
   Converter<LinkAsset,Link> linkAssetLinkConverter;
-  public Asset30ToAsset24Converter(Converter<LinkAsset,Link> linkAssetLinkConverter){
+  public Asset30ToAsset25Converter(Converter<LinkAsset,Link> linkAssetLinkConverter){
     this.linkAssetLinkConverter = linkAssetLinkConverter;
   }
 

@@ -2,122 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ce24c19-3d72-44fb-8e44-f74ecd788224" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/MetricToMetricConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/SeatBidList24ToSeatBidList30Converter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/enums/OpenRtbType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/AudioConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/AudioToAudioPlacementMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/BannerToDisplayPlacementMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/BidRequestMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/BidRequestToRequestMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/CompanionConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/CompanionToBannerMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/DisplayConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/ImpItemConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/ImpToItemMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/MediaMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/NativeConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/NativeRequestBodyToNativeFormatMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/OpenRtb24To3MapperImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/RequestConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/ResponseMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/SourceMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/VideoConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/VideoToVideoPlacementMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/AbstractExtensible.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/ReqExt.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Ext.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/Conversion.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Conversion.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/Converter25To30RequestPlumber.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Converter25To30RequestPlumber.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/Converter30To25RequestPlumber.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Converter30To25RequestPlumber.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/ConverterPlumber.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/ConverterPlumber.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/OpenRtbConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/OpenRtbConverter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/OpenRtbConverterException.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/exceptions/OpenRtbConverterException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/OpenRtb24To3Mapper.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/OpenRtb24To3Mapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/OpenRtbMapperTest.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/OpenRtbMapperTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/Response2.5.json" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/Response2.5.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/Response3.0.json" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/Response3.0.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/ResponseTestPojo.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/ResponseTestPojo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Asset24ToAsset30Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Asset25ToAsset30Converter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid24ToBid30Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid25ToBid30Converter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid24ToMediaConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid25ToMediaConverter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Native24ToNative30Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Native25ToNative30Converter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/SeatBid24ToSeatBid30Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/SeatBid25ToSeatBid30Converter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Asset30ToAsset24Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Asset30ToAsset25Converter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid24Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid25Converter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/SeatBid30ToSeatBid24Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/SeatBid30ToSeatBid25Converter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/Converter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/AppToAppConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/AppToAppConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/AssetToAssetFormatConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/AssetToAssetFormatConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/AudioToAudioPlacementConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/AudioToAudioPlacementConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToCompanionConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToCompanionConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToContextConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToContextConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToOpenRtbConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToOpenRtbConverter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRequestConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRequestConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ContentToContentConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ContentToContentConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/DataToDataConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/DataToDataConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/DeviceToDeviceConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/DeviceToDeviceConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/GeoToGeoConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/GeoToGeoConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ImpToItemConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ImpToItemConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/NativeRequestBodyToNativeFormatConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/NativeRequestBodyToNativeFormatConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/NativeToDisplayPlacementConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/NativeToDisplayPlacementConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/SiteToSiteConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/SiteToSiteConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/SourceToSourceConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/SourceToSourceConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/UserToUserConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/UserToUserConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/VideoToVideoPlacementConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/VideoToVideoPlacementConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/AppToAppConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/AppToAppConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/AudioPlacementToAudioConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/AudioPlacementToAudioConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/CompanionToBannerConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/CompanionToBannerConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ContentToContentConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ContentToContentConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DataToDataConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DataToDataConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DeviceToDeviceConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DeviceToDeviceConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToNativeConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToNativeConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ItemToImpConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ItemToImpConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/NativeFormatToNativeRequestBodyConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/NativeFormatToNativeRequestBodyConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/OpenRtbToBidRequestConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/OpenRtbToBidRequestConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ProducerToProducerConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ProducerToProducerConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/PublisherToPublisherConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/PublisherToPublisherConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/RegsToRegsConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/RegsToRegsConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/RequestToBidRequestConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/RequestToBidRequestConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/SegmentToSegmentConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/SegmentToSegmentConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/SiteToSiteConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/SiteToSiteConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/UserToUserConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/UserToUserConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/VideoPlacementToVideoConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/VideoPlacementToVideoConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Asset24ToAsset30Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Asset24ToAsset30Converter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid24ToBid30Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid24ToBid30Converter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid24ToMediaConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid24ToMediaConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidResponseToOpenRtbConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidResponseToOpenRtbConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidResponseToResponseConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidResponseToResponseConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAdConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAdConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAudioConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAudioConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAuditConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAuditConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToDisplayConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToDisplayConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToVideoConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToVideoConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/LinkToLinkAssetConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/LinkToLinkAssetConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Native24ToNative30Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Native24ToNative30Converter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/SeatBid24ToSeatBid30Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/SeatBid24ToSeatBid30Converter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/AdToBidConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/AdToBidConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Asset30ToAsset24Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Asset30ToAsset24Converter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/AudioToBidConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/AudioToBidConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/AuditToBidConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/AuditToBidConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid24Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid24Converter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/DisplayToBidConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/DisplayToBidConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/LinkAssetToLinkConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/LinkAssetToLinkConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/MediatoBidConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/MediatoBidConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Native30ToNative10Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Native30ToNative10Converter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/OpenRtbResponseToBidResponseConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/OpenRtbResponseToBidResponseConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/SeatBid30ToSeatBid24Converter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/SeatBid30ToSeatBid24Converter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/VideoToBidConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/VideoToBidConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/BidRequest.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/BidRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/Bid.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/Bid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/BidResponse.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/BidResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/SeatBid.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/SeatBid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/nativeresponse/AssetResponse.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/nativeresponse/AssetResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/nativeresponse/Link.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/nativeresponse/Link.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Ad.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Ad.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Audio.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Audio.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Bid.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Bid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Display.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Display.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Response.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Response.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Seatbid.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Seatbid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Video.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Video.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/ConverterProxy.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/ConverterProxy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/ListToListConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/ListToListConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/test/java/net.media/ConverterTester.java" afterPath="$PROJECT_DIR$/converter-core/src/test/java/net.media/ConverterTester.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/test/java/net.media/ORTBTester.java" afterPath="$PROJECT_DIR$/converter-core/src/test/java/net.media/ORTBTester.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert25To30ResponseManager.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert25To30ResponseManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert30To25ResponseManager.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert30To25ResponseManager.java" />
     </list>
     <ignored path="open-rtb-converter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -142,81 +39,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NativeResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/nativeresponse/NativeResponse.java">
+      <file leaf-file-name="Convert25To30ResponseManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert25To30ResponseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="193">
+              <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1825#1855#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Convert30To25RequestManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert30To25RequestManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="226" column="41" selection-start-line="226" selection-start-column="40" selection-end-line="226" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NativeImage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/nativeresponse/NativeImage.java">
+      <file leaf-file-name="Convert30To25ResponseManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert30To25ResponseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="430">
+              <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1591#1621#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NativeResponseBody.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/nativeresponse/NativeResponseBody.java">
+      <file leaf-file-name="OpenRtbMapperTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/OpenRtbMapperTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NativeTitle.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/nativeresponse/NativeTitle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NativeVideo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/nativeresponse/NativeVideo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bid.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/Bid.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3732">
-              <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BidResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/BidResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-972">
-              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SeatBid.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/SeatBid.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+            <state relative-caret-position="1740">
+              <caret line="137" column="9" selection-start-line="137" selection-start-column="9" selection-end-line="137" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -225,18 +88,60 @@
       <file leaf-file-name="OpenRtb24To3Mapper.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/OpenRtb24To3Mapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+            <state relative-caret-position="300">
+              <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpenRtbMapperTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/OpenRtbMapperTest.java">
+      <file leaf-file-name="BidRequestToRequestConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRequestConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SeatBid25ToSeatBid30Converter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/SeatBid25ToSeatBid30Converter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Convert25To30RequestManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert25To30RequestManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="136" column="32" selection-start-line="136" selection-start-column="31" selection-end-line="136" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SeatBid30ToSeatBid25Converter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/SeatBid30ToSeatBid25Converter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OpenRtbResponseToBidResponseConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/OpenRtbResponseToBidResponseConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="55" column="46" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -268,25 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAdConverter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/PropertiesFileLoader.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/OpenRtbResponseToBidResponseConverter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/resources/30To25ResponseVideo.json" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/resources/admTemplate.properties" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/ConverterPlumber.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/OpenRtbConverter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/resources/25To30Test.json" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/VideoPlacementToVideoConverter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/VideoConverter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/VideoToVideoPlacementMapper.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Video.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/Converter30To25RequestPlumber.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/mapper/OpenRtb24To3Mapper.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/OpenRtb24To3Mapper.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/ResponseTestPojo.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Conversion.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/OpenRtbConverter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/exceptions/OpenRtbConverterException.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/AppToAppConverter.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/AssetToAssetFormatConverter.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ContentToContentConverter.java" />
@@ -318,7 +204,26 @@
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/Bid.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/BidResponse.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/SeatBid.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/ConverterPlumber.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Converter30To25ResponsePlumber.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Converter25To30ResponsePlumber.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Converter25To30RequestPlumber.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/ConverterManager.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert25To30RequestManager.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert30To25RequestManager.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Asset25ToAsset30Converter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid25ToBid30Converter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid25ToMediaConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Native25ToNative30Converter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Asset30ToAsset25Converter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid25Converter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/SeatBid30ToSeatBid25Converter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/OpenRtbResponseToBidResponseConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert25To30ResponseManager.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert30To25ResponseManager.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/OpenRtbMapperTest.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRequestConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/SeatBid25ToSeatBid30Converter.java" />
       </list>
     </option>
   </component>
@@ -1254,7 +1159,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40012000" />
+    <option name="totallyTimeSpent" value="42771000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1325,24 +1230,24 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/SeatBid30ToSeatBid24Converter.java</url>
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/SeatBid30ToSeatBid25Converter.java</url>
           <line>35</line>
           <properties />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid24Converter.java</url>
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid25Converter.java</url>
           <line>59</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid24Converter.java</url>
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid25Converter.java</url>
           <line>60</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid24Converter.java</url>
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid25Converter.java</url>
           <line>62</line>
           <properties />
           <option name="timeStamp" value="3" />
@@ -1366,7 +1271,7 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1375,134 +1280,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/TitleAsset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/TitleAssetFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Video.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/VideoAsset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/VideoPlacement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/AbstractExtensible.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Asset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Audio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Banner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/BidRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Content.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Device.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Ext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Geo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1660,14 +1437,14 @@
         <state relative-caret-position="60">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding>
-            <element signature="e#3050#3051#0" expanded="true" />
-            <element signature="e#3077#3078#0" expanded="true" />
-            <element signature="e#4144#4145#0" expanded="true" />
-            <element signature="e#4179#4180#0" expanded="true" />
-            <element signature="e#4225#4226#0" expanded="true" />
-            <element signature="e#4261#4262#0" expanded="true" />
-            <element signature="e#5733#5734#0" expanded="true" />
-            <element signature="e#5767#5768#0" expanded="true" />
+            <element signature="e#3050#3051#0" expanded="false" />
+            <element signature="e#3077#3078#0" expanded="false" />
+            <element signature="e#4144#4145#0" expanded="false" />
+            <element signature="e#4179#4180#0" expanded="false" />
+            <element signature="e#4225#4226#0" expanded="false" />
+            <element signature="e#4261#4262#0" expanded="false" />
+            <element signature="e#5733#5734#0" expanded="false" />
+            <element signature="e#5767#5768#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1760,14 +1537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/BidResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-972">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/SeatBid.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1776,18 +1545,165 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/OpenRtbMapperTest.java">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/BidResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/OpenRtbConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/ConverterManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-126">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#320#350#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Asset25ToAsset30Converter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid25ToBid30Converter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid25ToMediaConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/Native25ToNative30Converter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Asset30ToAsset25Converter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid25Converter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/SeatBid30ToSeatBid25Converter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/OpenRtbResponseToBidResponseConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="55" column="46" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert25To30RequestManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="136" column="32" selection-start-line="136" selection-start-column="31" selection-end-line="136" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert25To30ResponseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1825#1855#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert30To25RequestManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="226" column="41" selection-start-line="226" selection-start-column="40" selection-end-line="226" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert30To25ResponseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1591#1621#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRequestConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/SeatBid25ToSeatBid30Converter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/OpenRtbMapperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1740">
+          <caret line="137" column="9" selection-start-line="137" selection-start-column="9" selection-end-line="137" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/OpenRtb24To3Mapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        <state relative-caret-position="300">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
           <folding />
         </state>
       </provider>

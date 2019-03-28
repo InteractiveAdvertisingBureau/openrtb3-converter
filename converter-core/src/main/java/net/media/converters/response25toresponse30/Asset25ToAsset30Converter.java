@@ -28,11 +28,11 @@ import static java.util.Objects.nonNull;
 /**
  * @author shiva.b
  */
-public class Asset24ToAsset30Converter implements Converter<AssetResponse, Asset> {
+public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset> {
 
   private Converter<Link, LinkAsset> linkLinkAssetConverter;
 
-  public Asset24ToAsset30Converter(Converter<Link, LinkAsset> linkLinkAssetConverter) {
+  public Asset25ToAsset30Converter(Converter<Link, LinkAsset> linkLinkAssetConverter) {
     this.linkLinkAssetConverter = linkLinkAssetConverter;
   }
 

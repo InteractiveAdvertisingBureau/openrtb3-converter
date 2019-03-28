@@ -13,11 +13,11 @@ import static java.util.Objects.isNull;
 /**
  * @author shiva.b
  */
-public class Bid24ToBid30Converter implements Converter<Bid, net.media.openrtb3.Bid> {
+public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.Bid> {
 
   private Converter<Bid, Media> bidMediaConverter;
 
-  public Bid24ToBid30Converter(Converter<Bid, Media> bidMediaConverter) {
+  public Bid25ToBid30Converter(Converter<Bid, Media> bidMediaConverter) {
     this.bidMediaConverter = bidMediaConverter;
   }
 
