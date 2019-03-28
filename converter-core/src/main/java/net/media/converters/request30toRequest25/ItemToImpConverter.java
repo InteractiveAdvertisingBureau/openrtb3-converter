@@ -17,6 +17,7 @@ import net.media.openrtb3.Item;
 import net.media.openrtb3.Placement;
 import net.media.openrtb3.Spec;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.ListToListConverter;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
@@ -126,11 +127,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     }
     List<net.media.openrtb3.Metric> metrics = item.getMetric();
     if (metrics != null) {
-      List<Metric> metrics1 = new ArrayList<>(metrics.size());
-      for (net.media.openrtb3.Metric metric : metrics) {
-        metrics1.add(metricMetricConverter.map(metric, config));
-      }
-      imp.setMetric(metrics1);
+      imp.setMetric(ListToListConverter.convert(metrics, metricMetricConverter, config));
     }
   }
 
@@ -141,23 +138,10 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
 
     Pmp pmp = new Pmp();
 
-    pmp.setDeals( dealListToDealList1( item.getDeal(), config ) );
+    pmp.setDeals( ListToListConverter.convert( item.getDeal(), dealDealConverter, config ) );
     pmp.setPrivate_auction( item.getPriv() );
 
     return pmp;
-  }
-
-  private List<Deal> dealListToDealList1(List<net.media.openrtb3.Deal> list, Config config) throws OpenRtbConverterException {
-    if ( list == null ) {
-      return null;
-    }
-
-    List<Deal> list1 = new ArrayList<Deal>( list.size() );
-    for ( net.media.openrtb3.Deal deal : list ) {
-      list1.add( dealDealConverter.map( deal, config ) );
-    }
-
-    return list1;
   }
 
   private VideoPlacement itemSpecPlacementVideo(Item item) {

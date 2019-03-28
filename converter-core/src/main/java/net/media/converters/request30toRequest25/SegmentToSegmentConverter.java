@@ -3,6 +3,7 @@ package net.media.converters.request30toRequest25;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Segment;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +31,7 @@ public class SegmentToSegmentConverter implements Converter<Segment, net.media.o
     target.setValue( source.getValue() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt(new HashMap<>(map) );
+      target.setExt(Utils.copyMap(map, config));
     }
   }
 }

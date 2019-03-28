@@ -6,6 +6,7 @@ import net.media.converters.Converter;
 import net.media.openrtb25.request.Device;
 import net.media.openrtb25.request.Geo;
 import net.media.utils.OsMap;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -65,7 +66,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     target.setMccmnc( source.getMccmnc() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt( Utils.copyMap(map, config) );
     }
     if(source.getFlashver() != null) {
       if(target.getExt() == null)
