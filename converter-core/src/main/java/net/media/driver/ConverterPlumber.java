@@ -1,36 +1,9 @@
 package net.media.driver;
 
 import net.media.converters.Converter;
-import net.media.converters.response30toresponse25.AdToBidConverter;
-import net.media.converters.response30toresponse25.Asset30ToAsset24Converter;
-import net.media.converters.response30toresponse25.AuditToBidConverter;
-import net.media.converters.response30toresponse25.Bid30ToBid24Converter;
-import net.media.converters.response30toresponse25.DisplayToBidConverter;
-import net.media.converters.response30toresponse25.LinkAssetToLinkConverter;
-import net.media.converters.response30toresponse25.MediatoBidConverter;
-import net.media.converters.response30toresponse25.Native30ToNative10Converter;
-import net.media.converters.response30toresponse25.OpenRtbResponseToBidResponseConverter;
-import net.media.converters.response30toresponse25.SeatBid30ToSeatBid24Converter;
-import net.media.converters.response30toresponse25.VideoToBidConverter;
 import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb25.response.BidResponse;
-import net.media.openrtb25.response.SeatBid;
-import net.media.openrtb25.response.nativeresponse.AssetResponse;
-import net.media.openrtb25.response.nativeresponse.Link;
-import net.media.openrtb25.response.nativeresponse.NativeResponse;
-import net.media.openrtb3.Ad;
-import net.media.openrtb3.Asset;
-import net.media.openrtb3.Audio;
-import net.media.openrtb3.Audit;
-import net.media.openrtb3.Bid;
-import net.media.openrtb3.Display;
-import net.media.openrtb3.LinkAsset;
-import net.media.openrtb3.Media;
-import net.media.openrtb3.Native;
 import net.media.openrtb3.OpenRTB;
-import net.media.openrtb3.Response;
-import net.media.openrtb3.Seatbid;
-import net.media.openrtb3.Video;
 import net.media.utils.ConverterProxy;
 import net.media.utils.Provider;
 
