@@ -3,6 +3,7 @@ package net.media.converters.request30toRequest25;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Source;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +30,7 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
     target.setPchain( source.getPchain() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt(Utils.copyMap(map, config));
     }
     if(source.getTs() != null) {
       if(target.getExt() == null)

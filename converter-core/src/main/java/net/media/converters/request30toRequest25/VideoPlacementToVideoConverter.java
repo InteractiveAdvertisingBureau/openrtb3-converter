@@ -7,6 +7,7 @@ import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.Companion;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.ListToListConverter;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
@@ -47,17 +48,17 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     video.setMaxbitrate( videoPlacement.getMaxbitr() );
     Set<Integer> set = videoPlacement.getCtype();
     if ( set != null ) {
-      video.setProtocols( new HashSet<Integer>( set ) );
+      video.setProtocols( Utils.copySet( set, config) );
     }
     video.setBoxingallowed( videoPlacement.getBoxing() );
     video.setPlacement( videoPlacement.getPtype() );
     video.setPlaybackend( videoPlacement.getPlayend() );
     video.setMinduration( videoPlacement.getMindur() );
     video.setCompaniontype(Utils.copyList(videoPlacement.getComptype(), config));
-    video.setCompanionad( companionListToBannerList( videoPlacement.getComp(), config ) );
+    video.setCompanionad( ListToListConverter.convert( videoPlacement.getComp(), companionBannerConverter, config ) );
     Set<String> set1 = videoPlacement.getMime();
     if ( set1 != null ) {
-      video.setMimes( new HashSet<String>( set1 ) );
+      video.setMimes( Utils.copySet( set1, config ) );
     }
     video.setMaxduration( videoPlacement.getMaxdur() );
     video.setMaxextended( videoPlacement.getMaxext() );
@@ -70,29 +71,16 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     video.setSkipafter( videoPlacement.getSkipafter() );
     List<Integer> list2 = videoPlacement.getDelivery();
     if ( list2 != null ) {
-      video.setDelivery( new ArrayList<Integer>( list2 ) );
+      video.setDelivery( Utils.copyList( list2, config ) );
     }
     video.setPos( videoPlacement.getPos() );
     Set<Integer> list3 = videoPlacement.getApi();
     if ( list3 != null ) {
-      video.setApi( new HashSet<Integer>( list3 ) );
+      video.setApi( Utils.copySet( list3, config ) );
     }
     video.setExt(Utils.copyMap(videoPlacement.getExt(), config));
 
     videoPlacementToVideoAfterMapping( videoPlacement, video );
-  }
-
-  private List<Banner> companionListToBannerList(List<Companion> list, Config config) throws OpenRtbConverterException {
-    if ( list == null ) {
-      return null;
-    }
-
-    List<Banner> list1 = new ArrayList<Banner>( list.size() );
-    for ( Companion companion : list ) {
-      list1.add( companionBannerConverter.map( companion, config ) );
-    }
-
-    return list1;
   }
 
   private void videoPlacementToVideoAfterMapping(VideoPlacement videoPlacement, Video video) {

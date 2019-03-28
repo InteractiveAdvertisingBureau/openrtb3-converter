@@ -59,6 +59,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       }
     }
     nat.setApi(Utils.copyList(displayPlacement.getApi(), config));
+    nat.setExt(Utils.copyMap(displayPlacement.getExt(), config));
     if (nonNull(displayPlacement.getExt())) {
       if (isNull(nat.getExt())) {
         nat.setExt(new HashMap<>());
@@ -76,6 +77,5 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     } else {
       nat.setRequest(nativeRequest);
     }
-    nat.setExt(Utils.copyMap(displayPlacement.getExt(), config));
   }
 }

@@ -3,12 +3,12 @@
   <parent>
     <artifactId>open-rtb-converter</artifactId>
     <groupId>net.media.open-rtb-converter</groupId>
-    <version>1.2</version>
+    <version>1.2.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.media.open-rtb-converter</groupId>
   <artifactId>converter-core</artifactId>
-  <version>1.2</version>
+  <version>1.2.1</version>
   <build>
     <resources>
       <resource>

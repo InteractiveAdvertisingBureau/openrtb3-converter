@@ -53,7 +53,7 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
     target.setMobile( source.getMobile() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt( Utils.copyMap( map, config ) );
     }
     if(source.getExt() == null)
       return;

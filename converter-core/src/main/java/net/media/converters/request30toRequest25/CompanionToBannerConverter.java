@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import lombok.AllArgsConstructor;
+import net.media.utils.Utils;
 
 import static java.util.Objects.isNull;
 
@@ -39,7 +40,7 @@ public class CompanionToBannerConverter implements Converter<Companion, Banner> 
     banner.setId( companion.getId() );
     Map<String, Object> map = companion.getExt();
     if ( map != null ) {
-      banner.setExt( new HashMap<>( map ) );
+      banner.setExt(Utils.copyMap(map, config));
     }
   }
 }

@@ -33,7 +33,7 @@ public class PublisherToPublisherConverter implements Converter<Publisher, net.m
     target.setDomain( source.getDomain() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt( Utils.copyMap( map, config ) );
     }
   }
 }

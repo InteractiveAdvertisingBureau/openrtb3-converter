@@ -1,6 +1,7 @@
 package net.media.openrtb25.request;
 
 import java.util.List;
+import java.util.Map;
 
 import lombok.Data;
 
@@ -15,6 +16,6 @@ public class Pmp {
 
   private List<Deal> deals;
 
-  private Ext ext;
+  private Map<String, Object> ext;
 
 }

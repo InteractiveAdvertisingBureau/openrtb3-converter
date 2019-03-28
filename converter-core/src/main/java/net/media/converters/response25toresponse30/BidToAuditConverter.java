@@ -6,6 +6,7 @@ import net.media.converters.Converter;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Audit;
 import net.media.openrtb3.Corr;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -34,7 +35,7 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       try {
-        target.setExt(new HashMap<>(map));
+        target.setExt(Utils.copyMap(map, config));
         if (map.containsKey("corr")) {
           target.setCorr((Corr) map.get("corr"));
         }

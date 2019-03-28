@@ -15,11 +15,13 @@ import net.media.openrtb3.ImageAsset;
 import net.media.openrtb3.LinkAsset;
 import net.media.openrtb3.TitleAsset;
 import net.media.openrtb3.VideoAsset;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static java.util.Objects.compare;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
@@ -49,20 +51,20 @@ public class Asset24ToAsset30Converter implements Converter<AssetResponse, Asset
     if (source == null || target == null) {
       return;
     }
-    target.setData(nativeDataToData(source.getData()));
+    target.setData(nativeDataToData(source.getData(), config));
     target.setId(source.getId());
     target.setReq(source.getRequired());
-    target.setImage(nativeImageToImageAsset(source.getImg()));
-    target.setTitle(nativeTittleToTittleAsset(source.getTitle()));
-    target.setVideo(nativeVideoToVideoAsset(source.getVideo()));
+    target.setImage(nativeImageToImageAsset(source.getImg(), config));
+    target.setTitle(nativeTittleToTittleAsset(source.getTitle(), config));
+    target.setVideo(nativeVideoToVideoAsset(source.getVideo(), config));
     target.setLink(linkLinkAssetConverter.map(source.getLink(), config));
   }
 
-  private DataAsset nativeDataToData(NativeData nativeData) throws OpenRtbConverterException {
+  private DataAsset nativeDataToData(NativeData nativeData, Config config) throws OpenRtbConverterException {
     if(isNull(nativeData))
       return null;
     DataAsset dataAsset = new DataAsset();
-    dataAsset.setExt(nativeData.getExt());
+    dataAsset.setExt(Utils.copyMap(nativeData.getExt(), config));
     List<String> value = new ArrayList<>();
     value.add(nativeData.getValue());
     dataAsset.setValue(value);
@@ -81,7 +83,7 @@ public class Asset24ToAsset30Converter implements Converter<AssetResponse, Asset
     return new DataAsset();
   }
 
-  private ImageAsset nativeImageToImageAsset(NativeImage nativeImage) throws OpenRtbConverterException {
+  private ImageAsset nativeImageToImageAsset(NativeImage nativeImage, Config config) throws OpenRtbConverterException {
     if(isNull(nativeImage)){
       return null;
     }
@@ -89,7 +91,7 @@ public class Asset24ToAsset30Converter implements Converter<AssetResponse, Asset
     imageAsset.setH(nativeImage.getH());
     imageAsset.setW(nativeImage.getW());
     imageAsset.setUrl(nativeImage.getUrl());
-    imageAsset.setExt(nativeImage.getExt());
+    imageAsset.setExt(Utils.copyMap(nativeImage.getExt(), config));
     try {
       if (nonNull(nativeImage.getExt()))
         imageAsset.setType((Integer) nativeImage.getExt().get("type"));
@@ -100,11 +102,11 @@ public class Asset24ToAsset30Converter implements Converter<AssetResponse, Asset
     return new ImageAsset();
   }
 
-  private TitleAsset nativeTittleToTittleAsset(NativeTitle nativeTitle) throws OpenRtbConverterException {
+  private TitleAsset nativeTittleToTittleAsset(NativeTitle nativeTitle, Config config) throws OpenRtbConverterException {
     if(isNull(nativeTitle))
       return null;
     TitleAsset titleAsset = new TitleAsset();
-    titleAsset.setExt(nativeTitle.getExt());
+    titleAsset.setExt(Utils.copyMap(nativeTitle.getExt(), config));
     titleAsset.setText(nativeTitle.getText());
     try {
       if (nonNull(nativeTitle.getExt()))
@@ -116,12 +118,12 @@ public class Asset24ToAsset30Converter implements Converter<AssetResponse, Asset
     return new TitleAsset();
   }
 
-  private VideoAsset nativeVideoToVideoAsset(NativeVideo nativeVideo) throws OpenRtbConverterException {
+  private VideoAsset nativeVideoToVideoAsset(NativeVideo nativeVideo, Config config) throws OpenRtbConverterException {
     if(isNull(nativeVideo))
       return null;
     VideoAsset  videoAsset = new VideoAsset();
     videoAsset.setAdm(nativeVideo.getVasttag());
-    videoAsset.setExt(nativeVideo.getExt());
+    videoAsset.setExt(Utils.copyMap(nativeVideo.getExt(), config));
     try {
       if (nonNull(nativeVideo.getExt()))
         videoAsset.setCurl((String) nativeVideo.getExt().get("curl"));

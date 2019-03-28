@@ -77,7 +77,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     nativeImage.setHmin( imageAssetFormat.getHmin() );
     Map<String, Object> map = imageAssetFormat.getExt();
     if ( map != null ) {
-      nativeImage.setExt( new HashMap<>( map ) );
+      nativeImage.setExt( Utils.copyMap(map, config) );
     }
 
     return nativeImage;

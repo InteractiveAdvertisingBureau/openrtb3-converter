@@ -3,6 +3,7 @@ package net.media.converters.request30toRequest25;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Geo;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,6 +45,6 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.req
       target.setRegionfips104((String) source.getExt().get("regionfips104"));
       source.getExt().remove("regionfips104");
     }
-    target.setExt( new HashMap<String, Object>( map ) );
+    target.setExt( Utils.copyMap(map, config) );
   }
 }

@@ -40,17 +40,17 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     }
     assetFormat.setReq( asset.getRequired() );
     assetFormat.setId( asset.getId() );
-    assetFormat.setTitle( nativeTitleToTitleAssetFormat( asset.getTitle() ) );
+    assetFormat.setTitle( nativeTitleToTitleAssetFormat( asset.getTitle(), config ) );
     assetFormat.setImg( nativeImageToNativeImageAssetFormat( asset.getImg(), config ) );
     assetFormat.setVideo( nativeVideoToVideoPlacement( asset.getVideo(), config ) );
-    assetFormat.setData( nativeDataToDataAssetFormat( asset.getData() ) );
+    assetFormat.setData( nativeDataToDataAssetFormat( asset.getData(), config ) );
     Map<String, Object> map = asset.getExt();
     if ( map != null ) {
-      assetFormat.setExt( new HashMap<>( map ) );
+      assetFormat.setExt( Utils.copyMap(map, config) );
     }
   }
 
-  private TitleAssetFormat nativeTitleToTitleAssetFormat(NativeTitle nativeTitle) {
+  private TitleAssetFormat nativeTitleToTitleAssetFormat(NativeTitle nativeTitle, Config config) {
     if ( nativeTitle == null ) {
       return null;
     }
@@ -60,7 +60,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     titleAssetFormat.setLen( nativeTitle.getLen() );
     Map<String, Object> map = nativeTitle.getExt();
     if ( map != null ) {
-      titleAssetFormat.setExt( new HashMap<>( map ) );
+      titleAssetFormat.setExt( Utils.copyMap(map, config) );
     }
 
     return titleAssetFormat;
@@ -82,7 +82,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     imageAssetFormat.setHmin( nativeImage.getHmin() );
     Map<String, Object> map = nativeImage.getExt();
     if ( map != null ) {
-      imageAssetFormat.setExt( new HashMap<>( map ) );
+      imageAssetFormat.setExt( Utils.copyMap(map, config) );
     }
 
     return imageAssetFormat;
@@ -104,7 +104,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     return videoPlacement;
   }
 
-  private DataAssetFormat nativeDataToDataAssetFormat(NativeData nativeData) {
+  private DataAssetFormat nativeDataToDataAssetFormat(NativeData nativeData, Config config) {
     if ( nativeData == null ) {
       return null;
     }
@@ -115,7 +115,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     dataAssetFormat.setLen( nativeData.getLen() );
     Map<String, Object> map = nativeData.getExt();
     if ( map != null ) {
-      dataAssetFormat.setExt( new HashMap<String, Object>( map ) );
+      dataAssetFormat.setExt( Utils.copyMap(map, config) );
     }
 
     return dataAssetFormat;

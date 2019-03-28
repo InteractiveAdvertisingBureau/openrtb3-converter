@@ -51,7 +51,7 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
     target.setPaid( source.getPaid() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt( Utils.copyMap(map, config) );
     }
 
     if(source.getExt() == null)
