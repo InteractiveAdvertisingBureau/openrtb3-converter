@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -20,8 +21,8 @@ public class Deal {
   private String bidFloorCur;
 
   private Integer at;
-  private List<String> wseat;
-  private List<String> wadomain;
+  private Collection<String> wseat;
+  private Collection<String> wadomain;
   private Map<String, Object> ext;
 
   public Deal() {
@@ -49,11 +50,11 @@ public class Deal {
     return this.at;
   }
 
-  public List<String> getWseat() {
+  public Collection<String> getWseat() {
     return this.wseat;
   }
 
-  public List<String> getWadomain() {
+  public Collection<String> getWadomain() {
     return this.wadomain;
   }
 
@@ -73,11 +74,11 @@ public class Deal {
     this.at = at;
   }
 
-  public void setWseat(List<String> wseat) {
+  public void setWseat(Collection<String> wseat) {
     this.wseat = wseat;
   }
 
-  public void setWadomain(List<String> wadomain) {
+  public void setWadomain(Collection<String> wadomain) {
     this.wadomain = wadomain;
   }
 

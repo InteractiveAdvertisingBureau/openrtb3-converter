@@ -1,5 +1,6 @@
 package net.media.openrtb25.response.nativeresponse;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -13,11 +14,11 @@ public class NativeResponseBody {
 
   private String ver;
 
-  private List<AssetResponse> assets;
+  private Collection<AssetResponse> assets;
 
   private Link link;
 
-  private List<String> imptrackers;
+  private Collection<String> imptrackers;
 
   private String jstracker;
 
@@ -30,7 +31,7 @@ public class NativeResponseBody {
     return this.ver;
   }
 
-  public List<AssetResponse> getAssets() {
+  public Collection<AssetResponse> getAssets() {
     return this.assets;
   }
 
@@ -38,7 +39,7 @@ public class NativeResponseBody {
     return this.link;
   }
 
-  public List<String> getImptrackers() {
+  public Collection<String> getImptrackers() {
     return this.imptrackers;
   }
 
@@ -54,7 +55,7 @@ public class NativeResponseBody {
     this.ver = ver;
   }
 
-  public void setAssets(List<AssetResponse> assets) {
+  public void setAssets(Collection<AssetResponse> assets) {
     this.assets = assets;
   }
 
@@ -62,7 +63,7 @@ public class NativeResponseBody {
     this.link = link;
   }
 
-  public void setImptrackers(List<String> imptrackers) {
+  public void setImptrackers(Collection<String> imptrackers) {
     this.imptrackers = imptrackers;
   }
 

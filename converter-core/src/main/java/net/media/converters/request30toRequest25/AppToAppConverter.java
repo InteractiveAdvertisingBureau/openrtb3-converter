@@ -40,7 +40,7 @@ public class AppToAppConverter implements Converter<App,net.media.openrtb25.requ
     OpenRtbConverterException {
     if(source == null)
       return;
-    target.setSectioncat( Utils.copyList(source.getSectcat(), config) );
+    target.setSectioncat( Utils.copyCollection(source.getSectcat(), config) );
     target.setPrivacypolicy( source.getPrivpolicy() );
     target.setPublisher( publisherPublisherConverter.map( source.getPub(), config ) );
     target.setId( source.getId() );
@@ -48,8 +48,8 @@ public class AppToAppConverter implements Converter<App,net.media.openrtb25.requ
     target.setBundle( source.getBundle() );
     target.setDomain( source.getDomain() );
     target.setStoreurl( source.getStoreurl() );
-    target.setCat( Utils.copyList(source.getCat(), config) );
-    target.setPagecat( Utils.copySet(source.getPagecat(), config) );
+    target.setCat( Utils.copyCollection(source.getCat(), config) );
+    target.setPagecat( Utils.copyCollection(source.getPagecat(), config) );
     target.setVer( source.getVer() );
     target.setPaid( source.getPaid() );
     target.setContent( contentContentConverter.map( source.getContent(), config ) );

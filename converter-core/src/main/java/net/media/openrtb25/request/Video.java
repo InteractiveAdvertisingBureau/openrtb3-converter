@@ -1,5 +1,6 @@
 package net.media.openrtb25.request;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -12,54 +13,19 @@ import lombok.Setter;
 
 public class Video {
 
-  public static final Integer DEFAULT_MINDURATION = null;
-
-  public static final Integer DEFAULT_MAXDURATION = null;
-  public static final Integer DEFAULT_SKIP_MIN = null;
-  public static final Integer DEFAULT_SKIP_AFTER = null;
+  public static final Integer DEFAULT_SKIP_MIN = 0;
+  public static final Integer DEFAULT_SKIP_AFTER = 0;
   public static final Integer DEFAULT_BOXING_ALLOWED = 1;
-  private static final int DEFAULT_MIME_SIZE = 6;
-  public static final Set<String> DEFAULT_MIME_TYPES = new HashSet<>
-    (DEFAULT_MIME_SIZE);
-  private static final int DEFAULT_BLOCKED_DOMAIN_SIZE = 5;
-  public static final Set<String> DEFAULT_BLOCKED_DOMAINS = new
-    HashSet<>(DEFAULT_BLOCKED_DOMAIN_SIZE);
-  private static final int DEFAULT_PROTOCOLS_SIZE = 2;
-  public static final Set<Integer> DEFAULT_PROTOCOLS = new HashSet<>
-    (DEFAULT_PROTOCOLS_SIZE);
-  private static final int DEFAULT_API_SIZE = 2;
-  public static final Set<Integer> DEFAULT_APIS = new HashSet<>(DEFAULT_API_SIZE);
 
-  static {
-    DEFAULT_MIME_TYPES.add("video/x-flv");
-    DEFAULT_MIME_TYPES.add("video/mp4");
-    DEFAULT_MIME_TYPES.add("application/x-shockwave-flash");
-    DEFAULT_MIME_TYPES.add("application/javascript");
-    DEFAULT_MIME_TYPES.add("video/webm");
-
-    DEFAULT_BLOCKED_DOMAINS.add("trackmytraffic.biz");
-    DEFAULT_BLOCKED_DOMAINS.add("talk915.pw");
-    DEFAULT_BLOCKED_DOMAINS.add("evangmedia.com");
-    DEFAULT_BLOCKED_DOMAINS.add("shangjiamedia.com");
-    DEFAULT_BLOCKED_DOMAINS.add("ad.com");
-
-    DEFAULT_PROTOCOLS.add(VideoProtocol.VAST2_0.getProtocol());
-    DEFAULT_PROTOCOLS.add(VideoProtocol.VAST2_0_WRAPPER.getProtocol());
-    DEFAULT_PROTOCOLS.add(VideoProtocol.VAST3_0.getProtocol());
-    DEFAULT_PROTOCOLS.add(VideoProtocol.VAST3_0_WRAPPER.getProtocol());
-
-    DEFAULT_APIS.add(VideoAPIs.VPAID_1_0.getApi());
-    DEFAULT_APIS.add(VideoAPIs.VPAID_2_0.getApi());
-  }
 
   @NotEmpty
-  private Set<String> mimes = DEFAULT_MIME_TYPES;
+  private Collection<String> mimes;
 
-  private Integer minduration = DEFAULT_MINDURATION;
+  private Integer minduration;
 
-  private Integer maxduration = DEFAULT_MAXDURATION;
+  private Integer maxduration;
 
-  private Set<Integer> protocols = DEFAULT_PROTOCOLS;
+  private Collection<Integer> protocols;
 
   private Integer w;
 
@@ -79,9 +45,9 @@ public class Video {
 
   private Integer sequence;
 
-  private Set<Integer> battr;
+  private Collection<Integer> battr;
 
-  private Integer maxextended = 0;
+  private Integer maxextended;
 
   private Integer minbitrate;
 
@@ -89,23 +55,23 @@ public class Video {
 
   private Integer boxingallowed = DEFAULT_BOXING_ALLOWED;
 
-  private List<Integer> playbackmethod;
+  private Collection<Integer> playbackmethod;
 
   private Integer playbackend;
 
-  private List<Integer> delivery;
+  private Collection<Integer> delivery;
 
   private Integer pos;
 
-  private List<Banner> companionad;
+  private Collection<Banner> companionad;
 
-  private Set<Integer> api = DEFAULT_APIS;
+  private Collection<Integer> api;
 
-  private List<Integer> companiontype;
+  private Collection<Integer> companiontype;
 
   private Map<String, Object> ext;
 
-  public @NotEmpty Set<String> getMimes() {
+  public @NotEmpty Collection<String> getMimes() {
     return this.mimes;
   }
 
@@ -117,7 +83,7 @@ public class Video {
     return this.maxduration;
   }
 
-  public Set<Integer> getProtocols() {
+  public Collection<Integer> getProtocols() {
     return this.protocols;
   }
 
@@ -157,7 +123,7 @@ public class Video {
     return this.sequence;
   }
 
-  public Set<Integer> getBattr() {
+  public Collection<Integer> getBattr() {
     return this.battr;
   }
 
@@ -177,7 +143,7 @@ public class Video {
     return this.boxingallowed;
   }
 
-  public List<Integer> getPlaybackmethod() {
+  public Collection<Integer> getPlaybackmethod() {
     return this.playbackmethod;
   }
 
@@ -185,7 +151,7 @@ public class Video {
     return this.playbackend;
   }
 
-  public List<Integer> getDelivery() {
+  public Collection<Integer> getDelivery() {
     return this.delivery;
   }
 
@@ -193,15 +159,15 @@ public class Video {
     return this.pos;
   }
 
-  public List<Banner> getCompanionad() {
+  public Collection<Banner> getCompanionad() {
     return this.companionad;
   }
 
-  public Set<Integer> getApi() {
+  public Collection<Integer> getApi() {
     return this.api;
   }
 
-  public List<Integer> getCompaniontype() {
+  public Collection<Integer> getCompaniontype() {
     return this.companiontype;
   }
 
@@ -209,7 +175,7 @@ public class Video {
     return this.ext;
   }
 
-  public void setMimes(@NotEmpty Set<String> mimes) {
+  public void setMimes(@NotEmpty Collection<String> mimes) {
     this.mimes = mimes;
   }
 
@@ -221,7 +187,7 @@ public class Video {
     this.maxduration = maxduration;
   }
 
-  public void setProtocols(Set<Integer> protocols) {
+  public void setProtocols(Collection<Integer> protocols) {
     this.protocols = protocols;
   }
 
@@ -261,7 +227,7 @@ public class Video {
     this.sequence = sequence;
   }
 
-  public void setBattr(Set<Integer> battr) {
+  public void setBattr(Collection<Integer> battr) {
     this.battr = battr;
   }
 
@@ -281,7 +247,7 @@ public class Video {
     this.boxingallowed = boxingallowed;
   }
 
-  public void setPlaybackmethod(List<Integer> playbackmethod) {
+  public void setPlaybackmethod(Collection<Integer> playbackmethod) {
     this.playbackmethod = playbackmethod;
   }
 
@@ -289,7 +255,7 @@ public class Video {
     this.playbackend = playbackend;
   }
 
-  public void setDelivery(List<Integer> delivery) {
+  public void setDelivery(Collection<Integer> delivery) {
     this.delivery = delivery;
   }
 
@@ -297,15 +263,15 @@ public class Video {
     this.pos = pos;
   }
 
-  public void setCompanionad(List<Banner> companionad) {
+  public void setCompanionad(Collection<Banner> companionad) {
     this.companionad = companionad;
   }
 
-  public void setApi(Set<Integer> api) {
+  public void setApi(Collection<Integer> api) {
     this.api = api;
   }
 
-  public void setCompaniontype(List<Integer> companiontype) {
+  public void setCompaniontype(Collection<Integer> companiontype) {
     this.companiontype = companiontype;
   }
 

@@ -20,6 +20,7 @@ import net.media.openrtb3.VideoPlacement;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -99,7 +100,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         imp.getNat().getNativeRequestBody().setSeq(item.getSeq());
       }
       imp.setInstl(display.getInstl());
-      imp.setIframebuster(Utils.copyList(display.getIfrbust(), config));
+      imp.setIframebuster(Utils.copyCollection(display.getIfrbust(), config));
       imp.setClickbrowser(display.getClktype());
     }
     imp.setBidfloorcur( item.getFlrcur() );
@@ -124,9 +125,9 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     if ( secure != null ) {
       imp.setSecure( secure );
     }
-    List<net.media.openrtb3.Metric> metrics = item.getMetric();
+    Collection<net.media.openrtb3.Metric> metrics = item.getMetric();
     if (metrics != null) {
-      List<Metric> metrics1 = new ArrayList<>(metrics.size());
+      Collection<Metric> metrics1 = new ArrayList<>(metrics.size());
       for (net.media.openrtb3.Metric metric : metrics) {
         metrics1.add(metricMetricConverter.map(metric, config));
       }
@@ -147,12 +148,13 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     return pmp;
   }
 
-  private List<Deal> dealListToDealList1(List<net.media.openrtb3.Deal> list, Config config) throws OpenRtbConverterException {
+  private Collection<Deal> dealListToDealList1(Collection<net.media.openrtb3.Deal> list, Config config)
+    throws OpenRtbConverterException {
     if ( list == null ) {
       return null;
     }
 
-    List<Deal> list1 = new ArrayList<Deal>( list.size() );
+    Collection<Deal> list1 = new ArrayList<Deal>( list.size() );
     for ( net.media.openrtb3.Deal deal : list ) {
       list1.add( dealDealConverter.map( deal, config ) );
     }
@@ -317,7 +319,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
       if (nonNull(item.getSpec().getPlacement().getDisplay())) {
         imp.getExt().put("ampren", item.getSpec().getPlacement().getDisplay().getAmpren());
         if (nonNull(item.getSpec().getPlacement().getDisplay().getCtype())) {
-          imp.getExt().put("ctype", Utils.copyList(item.getSpec().getPlacement().getDisplay()
+          imp.getExt().put("ctype", Utils.copyCollection(item.getSpec().getPlacement().getDisplay()
             .getCtype(), config));
         }
         imp.getExt().put("priv", item.getSpec().getPlacement().getDisplay().getPriv());

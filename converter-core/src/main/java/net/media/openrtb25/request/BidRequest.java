@@ -3,6 +3,7 @@ package net.media.openrtb25.request;
 
 import net.media.utils.validator.CheckAtLeastOneNotNull;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -23,7 +24,7 @@ public class BidRequest {
 
   @NotEmpty
   @Valid
-  public List<Imp> imp;
+  public Collection<Imp> imp;
 
   @Valid
   public Site site;
@@ -36,15 +37,15 @@ public class BidRequest {
   @Valid
   public User user;
 
-  public Set<String> badv;
+  public Collection<String> badv;
 
   public Integer at = 2;
 
   public Integer test = DEFAULT_TEST_VALUE;
 
-  public Set<String> wseat;
+  public Collection<String> wseat;
 
-  public Set<String> bseat;
+  public Collection<String> bseat;
 
   public Integer tmax;
 
@@ -52,15 +53,15 @@ public class BidRequest {
   @Valid
   public Source source;
 
-  public Set<String> bcat;
+  public Collection<String> bcat;
 
   public Integer allimps = DEFAULT_ALL_IMPS;
 
-  public List<String> cur;
+  public Collection<String> cur;
 
-  public List<String> wlang;
+  public Collection<String> wlang;
 
-  public List<String> bapp;
+  public Collection<String> bapp;
 
   public Regs regs;
 
@@ -101,7 +102,7 @@ public class BidRequest {
     return this.id;
   }
 
-  public @NotEmpty @Valid List<Imp> getImp() {
+  public @NotEmpty @Valid Collection<Imp> getImp() {
     return this.imp;
   }
 
@@ -121,7 +122,7 @@ public class BidRequest {
     return this.user;
   }
 
-  public Set<String> getBadv() {
+  public Collection<String> getBadv() {
     return this.badv;
   }
 
@@ -133,11 +134,11 @@ public class BidRequest {
     return this.test;
   }
 
-  public Set<String> getWseat() {
+  public Collection<String> getWseat() {
     return this.wseat;
   }
 
-  public Set<String> getBseat() {
+  public Collection<String> getBseat() {
     return this.bseat;
   }
 
@@ -149,7 +150,7 @@ public class BidRequest {
     return this.source;
   }
 
-  public Set<String> getBcat() {
+  public Collection<String> getBcat() {
     return this.bcat;
   }
 
@@ -157,15 +158,15 @@ public class BidRequest {
     return this.allimps;
   }
 
-  public List<String> getCur() {
+  public Collection<String> getCur() {
     return this.cur;
   }
 
-  public List<String> getWlang() {
+  public Collection<String> getWlang() {
     return this.wlang;
   }
 
-  public List<String> getBapp() {
+  public Collection<String> getBapp() {
     return this.bapp;
   }
 
@@ -197,7 +198,7 @@ public class BidRequest {
     this.id = id;
   }
 
-  public void setImp(@NotEmpty @Valid List<Imp> imp) {
+  public void setImp(@NotEmpty @Valid Collection<Imp> imp) {
     this.imp = imp;
   }
 
@@ -217,7 +218,7 @@ public class BidRequest {
     this.user = user;
   }
 
-  public void setBadv(Set<String> badv) {
+  public void setBadv(Collection<String> badv) {
     this.badv = badv;
   }
 
@@ -229,11 +230,11 @@ public class BidRequest {
     this.test = test;
   }
 
-  public void setWseat(Set<String> wseat) {
+  public void setWseat(Collection<String> wseat) {
     this.wseat = wseat;
   }
 
-  public void setBseat(Set<String> bseat) {
+  public void setBseat(Collection<String> bseat) {
     this.bseat = bseat;
   }
 
@@ -245,7 +246,7 @@ public class BidRequest {
     this.source = source;
   }
 
-  public void setBcat(Set<String> bcat) {
+  public void setBcat(Collection<String> bcat) {
     this.bcat = bcat;
   }
 
@@ -253,15 +254,15 @@ public class BidRequest {
     this.allimps = allimps;
   }
 
-  public void setCur(List<String> cur) {
+  public void setCur(Collection<String> cur) {
     this.cur = cur;
   }
 
-  public void setWlang(List<String> wlang) {
+  public void setWlang(Collection<String> wlang) {
     this.wlang = wlang;
   }
 
-  public void setBapp(List<String> bapp) {
+  public void setBapp(Collection<String> bapp) {
     this.bapp = bapp;
   }
 

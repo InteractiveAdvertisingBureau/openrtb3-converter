@@ -10,6 +10,7 @@ import net.media.openrtb3.NativeFormat;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -48,12 +49,13 @@ public class NativeRequestBodyToNativeFormatConverter implements Converter<Nativ
 
   }
 
-  private List<AssetFormat> assetListToAssetFormatList(List<Asset> list, Config config) throws OpenRtbConverterException {
+  private Collection<AssetFormat> assetListToAssetFormatList(Collection<Asset> list, Config
+    config) throws OpenRtbConverterException {
     if ( list == null ) {
       return null;
     }
 
-    List<AssetFormat> list1 = new ArrayList<>( list.size() );
+    Collection<AssetFormat> list1 = new ArrayList<>( list.size() );
     for ( Asset asset : list ) {
       list1.add( assetAssetFormatConverter.map( asset, config ) );
     }

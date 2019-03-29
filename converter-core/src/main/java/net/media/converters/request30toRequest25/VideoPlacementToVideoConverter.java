@@ -10,6 +10,7 @@ import net.media.openrtb3.VideoPlacement;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -47,20 +48,14 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     }
     video.setMinbitrate( videoPlacement.getMinbitr() );
     video.setMaxbitrate( videoPlacement.getMaxbitr() );
-    Set<Integer> set = videoPlacement.getCtype();
-    if ( set != null ) {
-      video.setProtocols( new HashSet<Integer>( set ) );
-    }
+    video.setProtocols(Utils.copyCollection(videoPlacement.getCtype(), config));
     video.setBoxingallowed( videoPlacement.getBoxing() );
     video.setPlacement( videoPlacement.getPtype() );
     video.setPlaybackend( videoPlacement.getPlayend() );
     video.setMinduration( videoPlacement.getMindur() );
-    video.setCompaniontype(Utils.copyList(videoPlacement.getComptype(), config));
+    video.setCompaniontype(Utils.copyCollection(videoPlacement.getComptype(), config));
     video.setCompanionad( companionListToBannerList( videoPlacement.getComp(), config ) );
-    Set<String> set1 = videoPlacement.getMime();
-    if ( set1 != null ) {
-      video.setMimes( new HashSet<String>( set1 ) );
-    }
+    video.setMimes(Utils.copyCollection(videoPlacement.getMime(), config));
     video.setMaxduration( videoPlacement.getMaxdur() );
     video.setMaxextended( videoPlacement.getMaxext() );
     video.setStartdelay( videoPlacement.getDelay() );
@@ -70,26 +65,21 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     video.setSkip( videoPlacement.getSkip() );
     video.setSkipmin( videoPlacement.getSkipmin() );
     video.setSkipafter( videoPlacement.getSkipafter() );
-    List<Integer> list2 = videoPlacement.getDelivery();
-    if ( list2 != null ) {
-      video.setDelivery( new ArrayList<Integer>( list2 ) );
-    }
+    video.setDelivery(Utils.copyCollection(videoPlacement.getDelivery(), config));
     video.setPos( videoPlacement.getPos() );
-    Set<Integer> list3 = videoPlacement.getApi();
-    if ( list3 != null ) {
-      video.setApi( new HashSet<Integer>( list3 ) );
-    }
+    video.setApi(Utils.copyCollection(videoPlacement.getDelivery(), config));
     video.setExt(Utils.copyMap(videoPlacement.getExt(), config));
 
     videoPlacementToVideoAfterMapping( videoPlacement, video );
   }
 
-  private List<Banner> companionListToBannerList(List<Companion> list, Config config) throws OpenRtbConverterException {
+  private Collection<Banner> companionListToBannerList(Collection<Companion> list, Config config) throws
+    OpenRtbConverterException {
     if ( list == null ) {
       return null;
     }
 
-    List<Banner> list1 = new ArrayList<Banner>( list.size() );
+    Collection<Banner> list1 = new ArrayList<Banner>( list.size() );
     for ( Companion companion : list ) {
       list1.add( companionBannerConverter.map( companion, config ) );
     }

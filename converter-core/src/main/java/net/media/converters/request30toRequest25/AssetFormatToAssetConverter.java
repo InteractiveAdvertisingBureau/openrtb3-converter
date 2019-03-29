@@ -69,7 +69,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
 
     NativeImage nativeImage = new NativeImage();
 
-    nativeImage.setMimes(Utils.copyList(imageAssetFormat.getMime(), config));
+    nativeImage.setMimes(Utils.copyCollection(imageAssetFormat.getMime(), config));
     nativeImage.setType( imageAssetFormat.getType() );
     nativeImage.setW( imageAssetFormat.getW() );
     nativeImage.setWmin( imageAssetFormat.getWmin() );
@@ -90,11 +90,11 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
 
     NativeVideo nativeVideo = new NativeVideo();
 
-    nativeVideo.setProtocols(Utils.copySet(videoPlacement.getCtype(), config));
+    nativeVideo.setProtocols(Utils.copyCollection(videoPlacement.getCtype(), config));
     nativeVideo.setMinduration( videoPlacement.getMindur() );
     nativeVideo.setMaxduration( videoPlacement.getMaxdur() );
-    nativeVideo.setMimes(Utils.copySet(videoPlacement.getMime(), config));
-    nativeVideo.setMimes(Utils.copySet(videoPlacement.getMime(), config));
+    nativeVideo.setMimes(Utils.copyCollection(videoPlacement.getMime(), config));
+    nativeVideo.setMimes(Utils.copyCollection(videoPlacement.getMime(), config));
     nativeVideo.setExt(Utils.copyMap(videoPlacement.getExt(), config));
 
     return nativeVideo;

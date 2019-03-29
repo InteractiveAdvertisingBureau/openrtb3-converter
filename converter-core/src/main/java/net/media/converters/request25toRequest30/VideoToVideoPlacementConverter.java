@@ -11,6 +11,7 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -48,10 +49,10 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     if (isNull(video) || isNull(videoPlacement)) {
       return;
     }
-    videoPlacement.setComptype(Utils.copyList(video.getCompaniontype(), config));
+    videoPlacement.setComptype(Utils.copyCollection(video.getCompaniontype(), config));
     videoPlacement.setComp( bannerListToCompanionList( video.getCompanionad(), config ) );
     videoPlacement.setLinear( video.getLinearity() );
-    videoPlacement.setMime(Utils.copySet(video.getMimes(), config));
+    videoPlacement.setMime(Utils.copyCollection(video.getMimes(), config));
     videoPlacement.setMinbitr( video.getMinbitrate() );
     videoPlacement.setPtype( video.getPlacement() );
     videoPlacement.setMaxdur( video.getMaxduration() );
@@ -59,10 +60,7 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     videoPlacement.setDelay( video.getStartdelay() );
     videoPlacement.setPlayend( video.getPlaybackend() );
     videoPlacement.setMindur( video.getMinduration() );
-    Set<Integer> set1 = video.getProtocols();
-    if ( set1 != null ) {
-      videoPlacement.setCtype( new HashSet<Integer>( set1 ) );
-    }
+    videoPlacement.setCtype(Utils.copyCollection(video.getProtocols(), config));
     videoPlacement.setBoxing( video.getBoxingallowed() );
     videoPlacement.setPlaymethod( CollectionUtils.firstElementFromCollection( video
       .getPlaybackmethod() ) );
@@ -74,19 +72,17 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     videoPlacement.setApi(video.getApi());
     videoPlacement.setW( video.getW() );
     videoPlacement.setH( video.getH() );
-    List<Integer> list2 = video.getDelivery();
-    if ( list2 != null ) {
-      videoPlacement.setDelivery( new ArrayList<Integer>( list2 ) );
-    }
+    videoPlacement.setDelivery(Utils.copyCollection(video.getDelivery(), config));
     videoToVideoPlacementAfterMapping(video, videoPlacement);
   }
 
-  private List<Companion> bannerListToCompanionList(List<Banner> list, Config config) throws OpenRtbConverterException {
+  private Collection<Companion> bannerListToCompanionList(Collection<Banner> list, Config config) throws
+    OpenRtbConverterException {
     if ( list == null ) {
       return null;
     }
 
-    List<Companion> list1 = new ArrayList<Companion>( list.size() );
+    Collection<Companion> list1 = new ArrayList<Companion>( list.size() );
     for ( Banner banner : list ) {
       list1.add( bannerCompanionConverter.map( banner, config ) );
     }

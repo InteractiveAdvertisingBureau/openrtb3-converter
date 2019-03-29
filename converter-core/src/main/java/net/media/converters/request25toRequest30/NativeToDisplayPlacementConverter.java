@@ -48,7 +48,7 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
     if (isNull(nat) || isNull(displayPlacement)) {
       return;
     }
-    displayPlacement.setApi(Utils.copyList(nat.getApi(), config));
+    displayPlacement.setApi(Utils.copyCollection(nat.getApi(), config));
     if (nonNull(nat.getRequest())) {
       NativeRequest nativeRequest = null;
       if (nat.getRequest() instanceof String) {

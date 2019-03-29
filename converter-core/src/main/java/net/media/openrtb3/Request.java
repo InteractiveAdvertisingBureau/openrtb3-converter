@@ -3,6 +3,7 @@ package net.media.openrtb3;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -17,8 +18,8 @@ public class Request {
   private Integer test = 0;
   private Integer tmax;
   private Integer at = 2;
-  private List<String> cur = new ArrayList<String>(){{add("USD");}};
-  private Set<String> seat;
+  private Collection<String> cur = new ArrayList<String>(){{add("USD");}};
+  private Collection<String> seat;
   private Integer wseat = 1;
   private String cdata;
   @NotNull
@@ -26,7 +27,7 @@ public class Request {
   private Source source;
   @NotNull
   @Valid
-  private List<Item> item;
+  private Collection<Item> item;
   @JsonProperty("package")
   private Integer pack;
   @NotNull
@@ -50,11 +51,11 @@ public class Request {
     return this.at;
   }
 
-  public List<String> getCur() {
+  public Collection<String> getCur() {
     return this.cur;
   }
 
-  public Set<String> getSeat() {
+  public Collection<String> getSeat() {
     return this.seat;
   }
 
@@ -70,7 +71,7 @@ public class Request {
     return this.source;
   }
 
-  public @NotNull @Valid List<Item> getItem() {
+  public @NotNull @Valid Collection<Item> getItem() {
     return this.item;
   }
 
@@ -102,11 +103,11 @@ public class Request {
     this.at = at;
   }
 
-  public void setCur(List<String> cur) {
+  public void setCur(Collection<String> cur) {
     this.cur = cur;
   }
 
-  public void setSeat(Set<String> seat) {
+  public void setSeat(Collection<String> seat) {
     this.seat = seat;
   }
 
@@ -122,7 +123,7 @@ public class Request {
     this.source = source;
   }
 
-  public void setItem(@NotNull @Valid List<Item> item) {
+  public void setItem(@NotNull @Valid Collection<Item> item) {
     this.item = item;
   }
 

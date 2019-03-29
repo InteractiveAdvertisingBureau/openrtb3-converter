@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ public class Publisher {
   private String id;
   private String name;
   private String domain;
-  private List<String> cat;
+  private Collection<String> cat;
   private Integer cattax;
   private Map<String, Object> ext;
 
@@ -27,7 +28,7 @@ public class Publisher {
     return this.domain;
   }
 
-  public List<String> getCat() {
+  public Collection<String> getCat() {
     return this.cat;
   }
 
@@ -51,7 +52,7 @@ public class Publisher {
     this.domain = domain;
   }
 
-  public void setCat(List<String> cat) {
+  public void setCat(Collection<String> cat) {
     this.cat = cat;
   }
 

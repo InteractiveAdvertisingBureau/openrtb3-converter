@@ -10,6 +10,7 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,14 +41,14 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     displayPlacement.setDisplayfmt( formatListToDisplayFormatList( banner.getFormat(), config) );
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
-        List<Integer> expdir = impBannerExpdir( banner );
-        displayFormat.setExpdir(Utils.copyList(expdir, config));
+        Collection<Integer> expdir = impBannerExpdir( banner );
+        displayFormat.setExpdir(Utils.copyCollection(expdir, config));
       }
     }
-    displayPlacement.setMime(Utils.copyList(banner.getMimes(), config));
+    displayPlacement.setMime(Utils.copyCollection(banner.getMimes(), config));
     displayPlacement.setPos( banner.getPos() );
     displayPlacement.setTopframe( banner.getTopframe() );
-    displayPlacement.setApi(Utils.copyList(banner.getApi(), config));
+    displayPlacement.setApi(Utils.copyCollection(banner.getApi(), config));
     displayPlacement.setW( banner.getW() );
     displayPlacement.setH( banner.getH() );
     Map<String, Object> bannerExt = banner.getExt();
@@ -61,7 +62,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
         displayPlacement.getExt().remove("unit");
       }
       if (bannerExt.containsKey("ctype")) {
-        displayPlacement.setCtype(Utils.copyList((List<Integer>) bannerExt.get
+        displayPlacement.setCtype(Utils.copyCollection((List<Integer>) bannerExt.get
           ("ctype"), config));
         displayPlacement.getExt().remove("ctype");
       }
@@ -77,15 +78,16 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     }
   }
 
-  private List<Integer> impBannerExpdir(Banner banner) {
-    List<Integer> expdir = banner.getExpdir();
+  private Collection<Integer> impBannerExpdir(Banner banner) {
+    Collection<Integer> expdir = banner.getExpdir();
     if ( expdir == null ) {
       return null;
     }
     return expdir;
   }
 
-  private List<DisplayFormat> formatListToDisplayFormatList(List<Format> list, Config config) {
+  private Collection<DisplayFormat> formatListToDisplayFormatList(Collection<Format> list, Config
+    config) {
     if ( list == null ) {
       return null;
     }

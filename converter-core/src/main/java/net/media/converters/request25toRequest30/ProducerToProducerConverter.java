@@ -29,7 +29,7 @@ public class ProducerToProducerConverter implements Converter<Producer, net.medi
     target.setId( source.getId() );
     target.setName( source.getName() );
     target.setDomain( source.getDomain() );
-    target.setCat( Utils.copyList(source.getCat(), config) );
+    target.setCat( Utils.copyCollection(source.getCat(), config) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt( new HashMap<String, Object>( map ) );

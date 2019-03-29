@@ -1,19 +1,20 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class Restrictions {
 
-  private Set<String> bcat;
+  private Collection<String> bcat;
   private Integer cattax = 2;
-  private Set<String> badv;
-  private List<String> bapp;
-  private Set<Integer> battr;
+  private Collection<String> badv;
+  private Collection<String> bapp;
+  private Collection<Integer> battr;
   private Map<String, Object> ext;
 
-  public Set<String> getBcat() {
+  public Collection<String> getBcat() {
     return this.bcat;
   }
 
@@ -21,15 +22,15 @@ public class Restrictions {
     return this.cattax;
   }
 
-  public Set<String> getBadv() {
+  public Collection<String> getBadv() {
     return this.badv;
   }
 
-  public List<String> getBapp() {
+  public Collection<String> getBapp() {
     return this.bapp;
   }
 
-  public Set<Integer> getBattr() {
+  public Collection<Integer> getBattr() {
     return this.battr;
   }
 
@@ -37,7 +38,7 @@ public class Restrictions {
     return this.ext;
   }
 
-  public void setBcat(Set<String> bcat) {
+  public void setBcat(Collection<String> bcat) {
     this.bcat = bcat;
   }
 
@@ -45,15 +46,15 @@ public class Restrictions {
     this.cattax = cattax;
   }
 
-  public void setBadv(Set<String> badv) {
+  public void setBadv(Collection<String> badv) {
     this.badv = badv;
   }
 
-  public void setBapp(List<String> bapp) {
+  public void setBapp(Collection<String> bapp) {
     this.bapp = bapp;
   }
 
-  public void setBattr(Set<Integer> battr) {
+  public void setBattr(Collection<Integer> battr) {
     this.battr = battr;
   }
 

@@ -29,7 +29,7 @@ public class DealToDealConverter implements Converter<Deal, net.media.openrtb3.D
     deal1.setFlr( deal.getBidFloor() );
     deal1.setId( deal.getId() );
     deal1.setAt( deal.getAt() );
-    deal1.setWseat(Utils.copyList(deal.getWseat(), config));
+    deal1.setWseat(Utils.copyCollection(deal.getWseat(), config));
     deal1.setWadomain(deal.getWadomain());
     deal1.setExt(Utils.copyMap(deal.getExt(), config));
   }

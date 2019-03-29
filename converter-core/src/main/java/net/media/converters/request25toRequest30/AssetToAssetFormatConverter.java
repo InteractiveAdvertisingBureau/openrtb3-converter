@@ -74,7 +74,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
 
     ImageAssetFormat imageAssetFormat = new ImageAssetFormat();
 
-    imageAssetFormat.setMime(Utils.copyList(nativeImage.getMimes(), config));
+    imageAssetFormat.setMime(Utils.copyCollection(nativeImage.getMimes(), config));
     imageAssetFormat.setType( nativeImage.getType() );
     imageAssetFormat.setW( nativeImage.getW() );
     imageAssetFormat.setH( nativeImage.getH() );
@@ -97,8 +97,8 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
 
     videoPlacement.setMaxdur( nativeVideo.getMaxduration() );
     videoPlacement.setMindur( nativeVideo.getMinduration() );
-    videoPlacement.setCtype(Utils.copySet(nativeVideo.getProtocols(), config));
-    videoPlacement.setMime(Utils.copySet(nativeVideo.getMimes(), config));
+    videoPlacement.setCtype(Utils.copyCollection(nativeVideo.getProtocols(), config));
+    videoPlacement.setMime(Utils.copyCollection(nativeVideo.getMimes(), config));
     videoPlacement.setExt(Utils.copyMap(nativeVideo.getExt(), config));
 
     return videoPlacement;

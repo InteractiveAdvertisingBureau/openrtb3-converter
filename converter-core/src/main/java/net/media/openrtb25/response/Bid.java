@@ -1,5 +1,6 @@
 package net.media.openrtb25.response;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -20,12 +21,12 @@ public class Bid {
   private String adid;
   private String nurl;
   private Object adm;
-  private List<String> adomain;
+  private Collection<String> adomain;
   private String iurl;
   private String cid;
   private String crid;
-  private Set<String> cat;
-  private List<Integer> attr;
+  private Collection<String> cat;
+  private Collection<Integer> attr;
   private String bundle;
   private Integer api;
   private Integer protocol;
@@ -69,7 +70,7 @@ public class Bid {
     return this.adm;
   }
 
-  public List<String> getAdomain() {
+  public Collection<String> getAdomain() {
     return this.adomain;
   }
 
@@ -85,11 +86,11 @@ public class Bid {
     return this.crid;
   }
 
-  public Set<String> getCat() {
+  public Collection<String> getCat() {
     return this.cat;
   }
 
-  public List<Integer> getAttr() {
+  public Collection<Integer> getAttr() {
     return this.attr;
   }
 
@@ -177,7 +178,7 @@ public class Bid {
     this.adm = adm;
   }
 
-  public void setAdomain(List<String> adomain) {
+  public void setAdomain(Collection<String> adomain) {
     this.adomain = adomain;
   }
 
@@ -193,11 +194,11 @@ public class Bid {
     this.crid = crid;
   }
 
-  public void setCat(Set<String> cat) {
+  public void setCat(Collection<String> cat) {
     this.cat = cat;
   }
 
-  public void setAttr(List<Integer> attr) {
+  public void setAttr(Collection<Integer> attr) {
     this.attr = attr;
   }
 

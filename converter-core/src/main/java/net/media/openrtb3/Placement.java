@@ -2,6 +2,7 @@ package net.media.openrtb3;
 
 import net.media.utils.validator.CheckAtLeastOneNotNull;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -17,7 +18,7 @@ public class Placement {
   private String sdk;
   private String sdkver;
   private Integer reward = 0;
-  private List<String> wlang;
+  private Collection<String> wlang;
   private Integer secure;
   private Integer admx;
   private Integer curlx;
@@ -49,7 +50,7 @@ public class Placement {
     return this.reward;
   }
 
-  public List<String> getWlang() {
+  public Collection<String> getWlang() {
     return this.wlang;
   }
 
@@ -101,7 +102,7 @@ public class Placement {
     this.reward = reward;
   }
 
-  public void setWlang(List<String> wlang) {
+  public void setWlang(Collection<String> wlang) {
     this.wlang = wlang;
   }
 

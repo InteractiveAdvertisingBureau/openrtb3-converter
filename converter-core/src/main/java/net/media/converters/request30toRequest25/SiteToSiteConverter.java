@@ -40,16 +40,16 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.
     OpenRtbConverterException {
     if(source == null)
       return;
-    target.setSectioncat( Utils.copyList(source.getSectcat(), config) );
+    target.setSectioncat( Utils.copyCollection(source.getSectcat(), config) );
     target.setPrivacypolicy( source.getPrivpolicy() );
     target.setPublisher( publisherPublisherConverter.map( source.getPub(), config ) );
     target.setId( source.getId() );
     target.setName( source.getName() );
     target.setDomain( source.getDomain() );
     if ( source.getCat() != null ) {
-      target.setCat( Utils.copyList( source.getCat(), config ) );
+      target.setCat( Utils.copyCollection( source.getCat(), config ) );
     }
-    target.setPagecat( Utils.copySet(source.getPagecat(), config) );
+    target.setPagecat( Utils.copyCollection(source.getPagecat(), config) );
     target.setPage( source.getPage() );
     target.setRef( source.getRef() );
     target.setSearch( source.getSearch() );

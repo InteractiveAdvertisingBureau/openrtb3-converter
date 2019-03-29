@@ -1,12 +1,13 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 public class Video {
 
-  private List<String> mime = null;
-  private List<Integer> api = null;
+  private Collection<String> mime = null;
+  private Collection<Integer> api = null;
   private Integer ctype;
   private Integer dur;
   private Object adm;
@@ -16,11 +17,11 @@ public class Video {
   public Video() {
   }
 
-  public List<String> getMime() {
+  public Collection<String> getMime() {
     return this.mime;
   }
 
-  public List<Integer> getApi() {
+  public Collection<Integer> getApi() {
     return this.api;
   }
 
@@ -44,11 +45,11 @@ public class Video {
     return this.ext;
   }
 
-  public void setMime(List<String> mime) {
+  public void setMime(Collection<String> mime) {
     this.mime = mime;
   }
 
-  public void setApi(List<Integer> api) {
+  public void setApi(Collection<Integer> api) {
     this.api = api;
   }
 

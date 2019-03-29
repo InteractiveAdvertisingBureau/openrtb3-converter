@@ -1,6 +1,7 @@
 package net.media.openrtb25.request;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -10,7 +11,7 @@ import java.util.Set;
  */
 public class Banner {
 
-  public static final List<Integer> DEFAULT_MIME_TYPES = Arrays.asList(1, 2, 4);
+  public static final Collection<Integer> DEFAULT_MIME_TYPES = Arrays.asList(1, 2, 4);
 
   public static final Integer DEFAULT_BANNER_POSITION = 1;
 
@@ -18,23 +19,23 @@ public class Banner {
 
   private Integer h;
 
-  private List<Format> format;
+  private Collection<Format> format;
 
   private String id;
 
-  private List<Integer> btype;
+  private Collection<Integer> btype;
 
-  private Set<Integer> battr;
+  private Collection<Integer> battr;
 
   private Integer pos;
 
-  private List<String> mimes;
+  private Collection<String> mimes;
 
   private Integer topframe;
 
-  private List<Integer> expdir;
+  private Collection<Integer> expdir;
 
-  private List<Integer> api;
+  private Collection<Integer> api;
 
   private Integer vcm;
 
@@ -66,7 +67,7 @@ public class Banner {
     return this.h;
   }
 
-  public List<Format> getFormat() {
+  public Collection<Format> getFormat() {
     return this.format;
   }
 
@@ -74,11 +75,11 @@ public class Banner {
     return this.id;
   }
 
-  public List<Integer> getBtype() {
+  public Collection<Integer> getBtype() {
     return this.btype;
   }
 
-  public Set<Integer> getBattr() {
+  public Collection<Integer> getBattr() {
     return this.battr;
   }
 
@@ -86,7 +87,7 @@ public class Banner {
     return this.pos;
   }
 
-  public List<String> getMimes() {
+  public Collection<String> getMimes() {
     return this.mimes;
   }
 
@@ -94,11 +95,11 @@ public class Banner {
     return this.topframe;
   }
 
-  public List<Integer> getExpdir() {
+  public Collection<Integer> getExpdir() {
     return this.expdir;
   }
 
-  public List<Integer> getApi() {
+  public Collection<Integer> getApi() {
     return this.api;
   }
 
@@ -118,7 +119,7 @@ public class Banner {
     this.h = h;
   }
 
-  public void setFormat(List<Format> format) {
+  public void setFormat(Collection<Format> format) {
     this.format = format;
   }
 
@@ -126,11 +127,11 @@ public class Banner {
     this.id = id;
   }
 
-  public void setBtype(List<Integer> btype) {
+  public void setBtype(Collection<Integer> btype) {
     this.btype = btype;
   }
 
-  public void setBattr(Set<Integer> battr) {
+  public void setBattr(Collection<Integer> battr) {
     this.battr = battr;
   }
 
@@ -138,7 +139,7 @@ public class Banner {
     this.pos = pos;
   }
 
-  public void setMimes(List<String> mimes) {
+  public void setMimes(Collection<String> mimes) {
     this.mimes = mimes;
   }
 
@@ -146,11 +147,11 @@ public class Banner {
     this.topframe = topframe;
   }
 
-  public void setExpdir(List<Integer> expdir) {
+  public void setExpdir(Collection<Integer> expdir) {
     this.expdir = expdir;
   }
 
-  public void setApi(List<Integer> api) {
+  public void setApi(Collection<Integer> api) {
     this.api = api;
   }
 

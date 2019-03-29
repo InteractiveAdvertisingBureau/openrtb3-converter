@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import net.media.utils.validator.CheckAtLeastOneNotNull;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -43,7 +44,7 @@ public class Imp {
 
   private Integer secure;
 
-  private List<String> iframebuster;
+  private Collection<String> iframebuster;
 
   private Pmp pmp;
 
@@ -52,7 +53,7 @@ public class Imp {
   private Integer exp;
 
   @NotEmpty
-  List<Metric> metric;
+  Collection<Metric> metric;
 
   private Map<String, Object> ext;
 
@@ -107,7 +108,7 @@ public class Imp {
     return this.secure;
   }
 
-  public List<String> getIframebuster() {
+  public Collection<String> getIframebuster() {
     return this.iframebuster;
   }
 
@@ -123,7 +124,7 @@ public class Imp {
     return this.exp;
   }
 
-  public @NotEmpty List<Metric> getMetric() {
+  public @NotEmpty Collection<Metric> getMetric() {
     return this.metric;
   }
 
@@ -179,7 +180,7 @@ public class Imp {
     this.secure = secure;
   }
 
-  public void setIframebuster(List<String> iframebuster) {
+  public void setIframebuster(Collection<String> iframebuster) {
     this.iframebuster = iframebuster;
   }
 
@@ -195,7 +196,7 @@ public class Imp {
     this.exp = exp;
   }
 
-  public void setMetric(@NotEmpty List<Metric> metric) {
+  public void setMetric(@NotEmpty Collection<Metric> metric) {
     this.metric = metric;
   }
 

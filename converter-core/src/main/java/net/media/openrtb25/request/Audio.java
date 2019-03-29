@@ -1,5 +1,6 @@
 package net.media.openrtb25.request;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -12,19 +13,19 @@ import javax.validation.constraints.NotEmpty;
 public class Audio {
 
   @NotEmpty
-  private List<String> mimes;
+  private Collection<String> mimes;
 
   private Integer minduration;
 
   private Integer maxduration;
 
-  private List<Integer> protocols;
+  private Collection<Integer> protocols;
 
   private Integer startdelay;
 
   private Integer sequence;
 
-  private List<Integer> battr;
+  private Collection<Integer> battr;
 
   private Integer maxextended;
 
@@ -32,13 +33,13 @@ public class Audio {
 
   private Integer maxbitrate;
 
-  private List<Integer> delivery;
+  private Collection<Integer> delivery;
 
-  private List<Banner> companionad;
+  private Collection<Banner> companionad;
 
-  private List<Integer> api;
+  private Collection<Integer> api;
 
-  private List<Integer> companiontype;
+  private Collection<Integer> companiontype;
 
   private Integer maxseq;
 
@@ -50,7 +51,7 @@ public class Audio {
 
   private Map<String, Object> ext;
 
-  public @NotEmpty List<String> getMimes() {
+  public @NotEmpty Collection<String> getMimes() {
     return this.mimes;
   }
 
@@ -62,7 +63,7 @@ public class Audio {
     return this.maxduration;
   }
 
-  public List<Integer> getProtocols() {
+  public Collection<Integer> getProtocols() {
     return this.protocols;
   }
 
@@ -74,7 +75,7 @@ public class Audio {
     return this.sequence;
   }
 
-  public List<Integer> getBattr() {
+  public Collection<Integer> getBattr() {
     return this.battr;
   }
 
@@ -90,19 +91,19 @@ public class Audio {
     return this.maxbitrate;
   }
 
-  public List<Integer> getDelivery() {
+  public Collection<Integer> getDelivery() {
     return this.delivery;
   }
 
-  public List<Banner> getCompanionad() {
+  public Collection<Banner> getCompanionad() {
     return this.companionad;
   }
 
-  public List<Integer> getApi() {
+  public Collection<Integer> getApi() {
     return this.api;
   }
 
-  public List<Integer> getCompaniontype() {
+  public Collection<Integer> getCompaniontype() {
     return this.companiontype;
   }
 
@@ -126,7 +127,7 @@ public class Audio {
     return this.ext;
   }
 
-  public void setMimes(@NotEmpty List<String> mimes) {
+  public void setMimes(@NotEmpty Collection<String> mimes) {
     this.mimes = mimes;
   }
 
@@ -138,7 +139,7 @@ public class Audio {
     this.maxduration = maxduration;
   }
 
-  public void setProtocols(List<Integer> protocols) {
+  public void setProtocols(Collection<Integer> protocols) {
     this.protocols = protocols;
   }
 
@@ -150,7 +151,7 @@ public class Audio {
     this.sequence = sequence;
   }
 
-  public void setBattr(List<Integer> battr) {
+  public void setBattr(Collection<Integer> battr) {
     this.battr = battr;
   }
 
@@ -166,19 +167,19 @@ public class Audio {
     this.maxbitrate = maxbitrate;
   }
 
-  public void setDelivery(List<Integer> delivery) {
+  public void setDelivery(Collection<Integer> delivery) {
     this.delivery = delivery;
   }
 
-  public void setCompanionad(List<Banner> companionad) {
+  public void setCompanionad(Collection<Banner> companionad) {
     this.companionad = companionad;
   }
 
-  public void setApi(List<Integer> api) {
+  public void setApi(Collection<Integer> api) {
     this.api = api;
   }
 
-  public void setCompaniontype(List<Integer> companiontype) {
+  public void setCompaniontype(Collection<Integer> companiontype) {
     this.companiontype = companiontype;
   }
 

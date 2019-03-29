@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -9,19 +10,19 @@ public class DisplayPlacement {
   private Integer pos;
   private Integer instl = 0;
   private Integer topframe;
-  private List<String> ifrbust;
+  private Collection<String> ifrbust;
   private Integer clktype = 1;
   private Integer ampren;
   private Integer ptype;
   private Integer context;
-  private List<String> mime;
-  private List<Integer> api;
-  private List<Integer> ctype;
+  private Collection<String> mime;
+  private Collection<Integer> api;
+  private Collection<Integer> ctype;
   private Integer w;
   private Integer h;
   private Integer unit = 1;
   private Integer priv = 0;
-  private List<DisplayFormat> displayfmt;
+  private Collection<DisplayFormat> displayfmt;
   @Valid
   private NativeFormat nativefmt;
   @Valid
@@ -40,7 +41,7 @@ public class DisplayPlacement {
     return this.topframe;
   }
 
-  public List<String> getIfrbust() {
+  public Collection<String> getIfrbust() {
     return this.ifrbust;
   }
 
@@ -60,15 +61,15 @@ public class DisplayPlacement {
     return this.context;
   }
 
-  public List<String> getMime() {
+  public Collection<String> getMime() {
     return this.mime;
   }
 
-  public List<Integer> getApi() {
+  public Collection<Integer> getApi() {
     return this.api;
   }
 
-  public List<Integer> getCtype() {
+  public Collection<Integer> getCtype() {
     return this.ctype;
   }
 
@@ -88,7 +89,7 @@ public class DisplayPlacement {
     return this.priv;
   }
 
-  public List<DisplayFormat> getDisplayfmt() {
+  public Collection<DisplayFormat> getDisplayfmt() {
     return this.displayfmt;
   }
 
@@ -116,7 +117,7 @@ public class DisplayPlacement {
     this.topframe = topframe;
   }
 
-  public void setIfrbust(List<String> ifrbust) {
+  public void setIfrbust(Collection<String> ifrbust) {
     this.ifrbust = ifrbust;
   }
 
@@ -136,15 +137,15 @@ public class DisplayPlacement {
     this.context = context;
   }
 
-  public void setMime(List<String> mime) {
+  public void setMime(Collection<String> mime) {
     this.mime = mime;
   }
 
-  public void setApi(List<Integer> api) {
+  public void setApi(Collection<Integer> api) {
     this.api = api;
   }
 
-  public void setCtype(List<Integer> ctype) {
+  public void setCtype(Collection<Integer> ctype) {
     this.ctype = ctype;
   }
 
@@ -164,7 +165,7 @@ public class DisplayPlacement {
     this.priv = priv;
   }
 
-  public void setDisplayfmt(List<DisplayFormat> displayfmt) {
+  public void setDisplayfmt(Collection<DisplayFormat> displayfmt) {
     this.displayfmt = displayfmt;
   }
 

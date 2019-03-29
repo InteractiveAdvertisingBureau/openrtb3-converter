@@ -1,12 +1,13 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 public class Audit {
 
   private Integer status;
-  private List<String> feedback = null;
+  private Collection<String> feedback = null;
   private Integer init;
   private Integer lastmod;
   private Corr corr;
@@ -19,7 +20,7 @@ public class Audit {
     return this.status;
   }
 
-  public List<String> getFeedback() {
+  public Collection<String> getFeedback() {
     return this.feedback;
   }
 
@@ -43,7 +44,7 @@ public class Audit {
     this.status = status;
   }
 
-  public void setFeedback(List<String> feedback) {
+  public void setFeedback(Collection<String> feedback) {
     this.feedback = feedback;
   }
 

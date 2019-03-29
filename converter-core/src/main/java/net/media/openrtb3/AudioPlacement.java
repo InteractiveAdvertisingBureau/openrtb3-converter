@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -16,18 +17,18 @@ public class AudioPlacement {
   private Integer playend;
   private Integer feed;
   private Integer nvol;
-  private List<String> mime;
-  private List<Integer> api;
-  private List<Integer> ctype;
+  private Collection<String> mime;
+  private Collection<Integer> api;
+  private Collection<Integer> ctype;
   private Integer mindur;
   private Integer maxdur;
   private Integer maxext;
   private Integer minbitr;
   private Integer maxbitr;
-  private List<Integer> delivery;
+  private Collection<Integer> delivery;
   private Integer maxseq;
-  private List<Companion> comp;
-  private List<Integer> comptype;
+  private Collection<Companion> comp;
+  private Collection<Integer> comptype;
   private Map<String, Object> ext;
 
   public Integer getDelay() {
@@ -62,15 +63,15 @@ public class AudioPlacement {
     return this.nvol;
   }
 
-  public List<String> getMime() {
+  public Collection<String> getMime() {
     return this.mime;
   }
 
-  public List<Integer> getApi() {
+  public Collection<Integer> getApi() {
     return this.api;
   }
 
-  public List<Integer> getCtype() {
+  public Collection<Integer> getCtype() {
     return this.ctype;
   }
 
@@ -94,7 +95,7 @@ public class AudioPlacement {
     return this.maxbitr;
   }
 
-  public List<Integer> getDelivery() {
+  public Collection<Integer> getDelivery() {
     return this.delivery;
   }
 
@@ -102,11 +103,11 @@ public class AudioPlacement {
     return this.maxseq;
   }
 
-  public List<Companion> getComp() {
+  public Collection<Companion> getComp() {
     return this.comp;
   }
 
-  public List<Integer> getComptype() {
+  public Collection<Integer> getComptype() {
     return this.comptype;
   }
 
@@ -146,15 +147,15 @@ public class AudioPlacement {
     this.nvol = nvol;
   }
 
-  public void setMime(List<String> mime) {
+  public void setMime(Collection<String> mime) {
     this.mime = mime;
   }
 
-  public void setApi(List<Integer> api) {
+  public void setApi(Collection<Integer> api) {
     this.api = api;
   }
 
-  public void setCtype(List<Integer> ctype) {
+  public void setCtype(Collection<Integer> ctype) {
     this.ctype = ctype;
   }
 
@@ -178,7 +179,7 @@ public class AudioPlacement {
     this.maxbitr = maxbitr;
   }
 
-  public void setDelivery(List<Integer> delivery) {
+  public void setDelivery(Collection<Integer> delivery) {
     this.delivery = delivery;
   }
 
@@ -186,11 +187,11 @@ public class AudioPlacement {
     this.maxseq = maxseq;
   }
 
-  public void setComp(List<Companion> comp) {
+  public void setComp(Collection<Companion> comp) {
     this.comp = comp;
   }
 
-  public void setComptype(List<Integer> comptype) {
+  public void setComptype(Collection<Integer> comptype) {
     this.comptype = comptype;
   }
 
