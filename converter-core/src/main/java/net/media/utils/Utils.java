@@ -52,8 +52,7 @@ public class Utils {
     if (nonNull(input)) {
       if (input instanceof Set) {
         return new HashSet<T>(input);
-      }
-      if (input instanceof List) {
+      } else {
         return new ArrayList<T>(input);
       }
     }
