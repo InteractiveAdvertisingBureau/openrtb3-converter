@@ -5,8 +5,6 @@ import java.util.List;
 
 public class NativeBody {
 
-  public static final Integer DEFAULT_NATIVE_PLCMTCNT = 1;
-
   private String ver;
 
   private Integer layout;

@@ -68,41 +68,6 @@ public class Device {
   public Device() {
   }
 
-  public Device clone() {
-    Device device = new Device();
-    device.setOs(os);
-    device.setUa(ua);
-    device.setGeo(geo);
-    device.setDnt(dnt);
-    device.setLmt(lmt);
-    device.setIp(ip);
-    device.setIpv6(ipv6);
-    device.setDevicetype(devicetype);
-    device.setMake(make);
-    device.setModel(model);
-    device.setOsv(osv);
-    device.setHwv(hwv);
-    device.setH(h);
-    device.setW(w);
-    device.setPpi(ppi);
-    device.setPxratio(pxratio);
-    device.setJs(js);
-    device.setGeofetch(geofetch);
-    device.setFlashver(flashver);
-    device.setLanguage(language);
-    device.setCarrier(carrier);
-    device.setConnectiontype(connectiontype);
-    device.setIfa(ifa);
-    device.setDidmd5(didmd5);
-    device.setDpidmd5(dpidmd5);
-    device.setDpidsha1(dpidsha1);
-    device.setDidsha1(didsha1);
-    device.setMacsha1(macsha1);
-    device.setMacmd5(macmd5);
-    device.setExt(ext);
-    return  device;
-  }
-
   public String getUa() {
     return this.ua;
   }

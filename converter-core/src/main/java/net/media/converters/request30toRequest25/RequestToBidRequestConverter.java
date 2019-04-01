@@ -172,12 +172,14 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     }
 
     if(source.getItem() != null && source.getItem().size() > 0) {
-      Set<String> wlang = new HashSet<>();
+      Collection<String> wlang = new HashSet<>();
       for(Item item : source.getItem()) {
-        if(item.getSpec() != null && item.getSpec().getPlacement() != null && item.getSpec().getPlacement().getWlang() != null)
+        if(item.getSpec() != null && item.getSpec().getPlacement() != null && item.getSpec()
+          .getPlacement().getWlang() != null) {
           wlang.addAll(item.getSpec().getPlacement().getWlang());
+        }
       }
-      target.setWlang(new ArrayList<>( wlang ));
+      target.setWlang(Utils.copyCollection(wlang, config));
     }
 
     if(target.getImp() != null) {
@@ -198,4 +200,5 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       target.setExt(new HashMap<>());
     target.getExt().put("dooh", source.getContext().getDooh());
   }
+
 }

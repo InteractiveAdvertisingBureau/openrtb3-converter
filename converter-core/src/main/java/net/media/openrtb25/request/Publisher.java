@@ -12,8 +12,6 @@ import javax.validation.constraints.NotNull;
  */
 public class Publisher  {
 
-  private static final long serialVersionUID = 1;
-
   @NotNull
   private String id;
 
