@@ -1,5 +1,6 @@
 package net.media.openrtb25.request;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +16,7 @@ public class NativeImage {
 
   private Integer hmin;
 
-  private List<String> mimes;
+  private Collection<String> mimes;
 
   private Map<String, Object> ext;
 
@@ -42,7 +43,7 @@ public class NativeImage {
     return this.hmin;
   }
 
-  public List<String> getMimes() {
+  public Collection<String> getMimes() {
     return this.mimes;
   }
 
@@ -70,7 +71,7 @@ public class NativeImage {
     this.hmin = hmin;
   }
 
-  public void setMimes(List<String> mimes) {
+  public void setMimes(Collection<String> mimes) {
     this.mimes = mimes;
   }
 

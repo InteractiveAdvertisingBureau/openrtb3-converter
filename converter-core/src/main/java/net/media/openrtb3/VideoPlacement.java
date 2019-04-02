@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -21,9 +22,9 @@ public class VideoPlacement {
   private Integer playend;
   private Integer clktype;
   @NotEmpty
-  private Set<String> mime;
-  private Set<Integer> api;
-  private Set<Integer> ctype;
+  private Collection<String> mime;
+  private Collection<Integer> api;
+  private Collection<Integer> ctype;
   private Integer w;
   private Integer h;
   private Integer unit = 1;
@@ -32,12 +33,12 @@ public class VideoPlacement {
   private Integer maxext = 0;
   private Integer minbitr;
   private Integer maxbitr;
-  private List<Integer> delivery;
+  private Collection<Integer> delivery;
   private Integer maxseq;
   private Integer linear;
   private Integer boxing = 1;
-  private List<Companion> comp;
-  private List<Integer> comptype;
+  private Collection<Companion> comp;
+  private Collection<Integer> comptype;
   private Map<String, Object> ext;
 
   public Integer getPtype() {
@@ -76,15 +77,15 @@ public class VideoPlacement {
     return this.clktype;
   }
 
-  public @NotEmpty Set<String> getMime() {
+  public @NotEmpty Collection<String> getMime() {
     return this.mime;
   }
 
-  public Set<Integer> getApi() {
+  public Collection<Integer> getApi() {
     return this.api;
   }
 
-  public Set<Integer> getCtype() {
+  public Collection<Integer> getCtype() {
     return this.ctype;
   }
 
@@ -120,7 +121,7 @@ public class VideoPlacement {
     return this.maxbitr;
   }
 
-  public List<Integer> getDelivery() {
+  public Collection<Integer> getDelivery() {
     return this.delivery;
   }
 
@@ -136,11 +137,11 @@ public class VideoPlacement {
     return this.boxing;
   }
 
-  public List<Companion> getComp() {
+  public Collection<Companion> getComp() {
     return this.comp;
   }
 
-  public List<Integer> getComptype() {
+  public Collection<Integer> getComptype() {
     return this.comptype;
   }
 
@@ -184,15 +185,15 @@ public class VideoPlacement {
     this.clktype = clktype;
   }
 
-  public void setMime(@NotEmpty Set<String> mime) {
+  public void setMime(@NotEmpty Collection<String> mime) {
     this.mime = mime;
   }
 
-  public void setApi(Set<Integer> api) {
+  public void setApi(Collection<Integer> api) {
     this.api = api;
   }
 
-  public void setCtype(Set<Integer> ctype) {
+  public void setCtype(Collection<Integer> ctype) {
     this.ctype = ctype;
   }
 
@@ -228,7 +229,7 @@ public class VideoPlacement {
     this.maxbitr = maxbitr;
   }
 
-  public void setDelivery(List<Integer> delivery) {
+  public void setDelivery(Collection<Integer> delivery) {
     this.delivery = delivery;
   }
 
@@ -244,11 +245,11 @@ public class VideoPlacement {
     this.boxing = boxing;
   }
 
-  public void setComp(List<Companion> comp) {
+  public void setComp(Collection<Companion> comp) {
     this.comp = comp;
   }
 
-  public void setComptype(List<Integer> comptype) {
+  public void setComptype(Collection<Integer> comptype) {
     this.comptype = comptype;
   }
 

@@ -7,14 +7,9 @@ import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.Companion;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
-import net.media.utils.ListToListConverter;
 import net.media.utils.Utils;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -49,10 +44,10 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     if (isNull(video) || isNull(videoPlacement)) {
       return;
     }
-    videoPlacement.setComptype(Utils.copyList(video.getCompaniontype(), config));
-    videoPlacement.setComp( ListToListConverter.convert( video.getCompanionad(), bannerCompanionConverter, config ) );
+    videoPlacement.setComptype(Utils.copyCollection(video.getCompaniontype(), config));
+    videoPlacement.setComp( CollectionToCollectionConverter.convert( video.getCompanionad(), bannerCompanionConverter, config ) );
     videoPlacement.setLinear( video.getLinearity() );
-    videoPlacement.setMime(Utils.copySet(video.getMimes(), config));
+    videoPlacement.setMime(Utils.copyCollection(video.getMimes(), config));
     videoPlacement.setMinbitr( video.getMinbitrate() );
     videoPlacement.setPtype( video.getPlacement() );
     videoPlacement.setMaxdur( video.getMaxduration() );
@@ -60,10 +55,7 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     videoPlacement.setDelay( video.getStartdelay() );
     videoPlacement.setPlayend( video.getPlaybackend() );
     videoPlacement.setMindur( video.getMinduration() );
-    Set<Integer> set1 = video.getProtocols();
-    if ( set1 != null ) {
-      videoPlacement.setCtype( Utils.copySet( set1, config ) );
-    }
+    videoPlacement.setCtype(Utils.copyCollection(video.getProtocols(), config));
     videoPlacement.setBoxing( video.getBoxingallowed() );
     videoPlacement.setPlaymethod( CollectionUtils.firstElementFromCollection( video
       .getPlaybackmethod() ) );
@@ -72,14 +64,10 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     videoPlacement.setSkip( video.getSkip() );
     videoPlacement.setSkipmin( video.getSkipmin() );
     videoPlacement.setSkipafter( video.getSkipafter() );
-    videoPlacement.setApi(Utils.copySet(video.getApi(), config));
+    videoPlacement.setApi(Utils.copyCollection(video.getApi(), config));
     videoPlacement.setW( video.getW() );
     videoPlacement.setH( video.getH() );
-    List<Integer> list2 = video.getDelivery();
-    if ( list2 != null ) {
-      videoPlacement.setDelivery( Utils.copyList( list2, config ) );
-    }
-    videoPlacement.setExt(Utils.copyMap(video.getExt(), config));
+    videoPlacement.setDelivery(Utils.copyCollection(video.getDelivery(), config));
     videoToVideoPlacementAfterMapping(video, videoPlacement);
   }
 

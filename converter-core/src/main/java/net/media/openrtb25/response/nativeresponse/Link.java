@@ -1,12 +1,13 @@
 package net.media.openrtb25.response.nativeresponse;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 public class Link {
   private String url;
 
-  private List<String> clicktrackers;
+  private Collection<String> clicktrackers;
 
   private String fallback;
 
@@ -19,7 +20,7 @@ public class Link {
     return this.url;
   }
 
-  public List<String> getClicktrackers() {
+  public Collection<String> getClicktrackers() {
     return this.clicktrackers;
   }
 
@@ -35,7 +36,7 @@ public class Link {
     this.url = url;
   }
 
-  public void setClicktrackers(List<String> clicktrackers) {
+  public void setClicktrackers(Collection<String> clicktrackers) {
     this.clicktrackers = clicktrackers;
   }
 

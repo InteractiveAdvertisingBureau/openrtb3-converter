@@ -2,6 +2,7 @@ package net.media.openrtb3;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +17,7 @@ public class Seatbid {
   private Integer _package;
   @NotNull
   @Valid
-  private List<Bid> bid = null;
+  private Collection<Bid> bid = null;
   private Map<String,Object> ext;
 
   public Seatbid() {
@@ -30,7 +31,7 @@ public class Seatbid {
     return this._package;
   }
 
-  public @NotNull @Valid List<Bid> getBid() {
+  public @NotNull @Valid Collection<Bid> getBid() {
     return this.bid;
   }
 
@@ -46,7 +47,7 @@ public class Seatbid {
     this._package = _package;
   }
 
-  public void setBid(@NotNull @Valid List<Bid> bid) {
+  public void setBid(@NotNull @Valid Collection<Bid> bid) {
     this.bid = bid;
   }
 

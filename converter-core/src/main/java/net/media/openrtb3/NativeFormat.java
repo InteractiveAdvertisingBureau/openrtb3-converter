@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -13,10 +14,10 @@ import javax.validation.constraints.NotEmpty;
 public class NativeFormat {
   @NotEmpty
   @Valid
-  public List<AssetFormat> asset;
+  public Collection<AssetFormat> asset;
   public Map<String, Object> ext;
 
-  public @NotEmpty @Valid List<AssetFormat> getAsset() {
+  public @NotEmpty @Valid Collection<AssetFormat> getAsset() {
     return this.asset;
   }
 
@@ -24,7 +25,7 @@ public class NativeFormat {
     return this.ext;
   }
 
-  public void setAsset(@NotEmpty @Valid List<AssetFormat> asset) {
+  public void setAsset(@NotEmpty @Valid Collection<AssetFormat> asset) {
     this.asset = asset;
   }
 

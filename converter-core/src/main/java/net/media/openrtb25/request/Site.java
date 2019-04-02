@@ -2,6 +2,7 @@ package net.media.openrtb25.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -17,14 +18,14 @@ public class Site {
 
   private String domain;
 
-  private List<String> cat;
+  private Collection<String> cat;
 
   @JsonIgnore
   private String SLD;
 
-  private List<String> sectioncat;
+  private Collection<String> sectioncat;
 
-  private Set<String> pagecat;
+  private Collection<String> pagecat;
 
   private String page;
 
@@ -59,7 +60,7 @@ public class Site {
     return this.domain;
   }
 
-  public List<String> getCat() {
+  public Collection<String> getCat() {
     return this.cat;
   }
 
@@ -67,11 +68,11 @@ public class Site {
     return this.SLD;
   }
 
-  public List<String> getSectioncat() {
+  public Collection<String> getSectioncat() {
     return this.sectioncat;
   }
 
-  public Set<String> getPagecat() {
+  public Collection<String> getPagecat() {
     return this.pagecat;
   }
 
@@ -123,7 +124,7 @@ public class Site {
     this.domain = domain;
   }
 
-  public void setCat(List<String> cat) {
+  public void setCat(Collection<String> cat) {
     this.cat = cat;
   }
 
@@ -131,11 +132,11 @@ public class Site {
     this.SLD = SLD;
   }
 
-  public void setSectioncat(List<String> sectioncat) {
+  public void setSectioncat(Collection<String> sectioncat) {
     this.sectioncat = sectioncat;
   }
 
-  public void setPagecat(Set<String> pagecat) {
+  public void setPagecat(Collection<String> pagecat) {
     this.pagecat = pagecat;
   }
 

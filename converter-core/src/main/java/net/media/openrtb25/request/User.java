@@ -2,6 +2,7 @@ package net.media.openrtb25.request;
 
 import net.media.utils.validator.CheckAtLeastOneNotNull;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +24,7 @@ public class User {
 
   private String customdata;
 
-  private List<net.media.openrtb25.request.Data> data;
+  private Collection<Data> data;
 
   private Map<String, Object> ext;
 
@@ -60,7 +61,7 @@ public class User {
     return this.customdata;
   }
 
-  public List<net.media.openrtb25.request.Data> getData() {
+  public Collection<net.media.openrtb25.request.Data> getData() {
     return this.data;
   }
 
@@ -100,7 +101,7 @@ public class User {
     this.customdata = customdata;
   }
 
-  public void setData(List<net.media.openrtb25.request.Data> data) {
+  public void setData(Collection<net.media.openrtb25.request.Data> data) {
     this.data = data;
   }
 

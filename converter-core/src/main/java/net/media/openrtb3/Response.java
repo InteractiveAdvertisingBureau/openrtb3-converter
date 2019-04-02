@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +16,7 @@ public class Response {
   private String cur;
   private String cdata;
   @Valid
-  private List<Seatbid> seatbid = null;
+  private Collection<Seatbid> seatbid = null;
   private Map<String,Object> ext;
 
   public Response() {
@@ -41,7 +42,7 @@ public class Response {
     return this.cdata;
   }
 
-  public @Valid List<Seatbid> getSeatbid() {
+  public @Valid Collection<Seatbid> getSeatbid() {
     return this.seatbid;
   }
 
@@ -69,7 +70,7 @@ public class Response {
     this.cdata = cdata;
   }
 
-  public void setSeatbid(@Valid List<Seatbid> seatbid) {
+  public void setSeatbid(@Valid Collection<Seatbid> seatbid) {
     this.seatbid = seatbid;
   }
 

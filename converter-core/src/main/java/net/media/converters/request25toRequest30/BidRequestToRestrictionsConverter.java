@@ -29,9 +29,9 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
   public void enhance(BidRequest source, Restrictions target, Config config) {
     if(source == null)
       return;
-    target.setBapp( Utils.copyList(source.getBapp(), config) );
-    target.setBcat( Utils.copySet(source.getBcat(), config) );
-    target.setBadv( Utils.copySet(source.getBadv(), config) );
+    target.setBapp( Utils.copyCollection(source.getBapp(), config) );
+    target.setBcat( Utils.copyCollection(source.getBcat(), config) );
+    target.setBadv( Utils.copyCollection(source.getBadv(), config) );
     if(source == null)
       return;
     if(source.getImp() == null)

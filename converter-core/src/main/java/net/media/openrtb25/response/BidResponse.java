@@ -1,6 +1,7 @@
 package net.media.openrtb25.response;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -15,14 +16,12 @@ public class BidResponse {
   @NotNull
   private String id;
   @Valid
-  private List<SeatBid> seatbid = new ArrayList<>();
+  private Collection<SeatBid> seatbid;
   private String bidid;
   private String cur;
   private String customdata;
   private Integer nbr;
   private Map<String, Object> ext;
-
-  public static final String ENCRYPT_PRICE_FLAG = "encrypt_price";
 
   public BidResponse() {
   }
@@ -31,7 +30,7 @@ public class BidResponse {
     return this.id;
   }
 
-  public @Valid List<SeatBid> getSeatbid() {
+  public @Valid Collection<SeatBid> getSeatbid() {
     return this.seatbid;
   }
 
@@ -59,7 +58,7 @@ public class BidResponse {
     this.id = id;
   }
 
-  public void setSeatbid(@Valid List<SeatBid> seatbid) {
+  public void setSeatbid(@Valid Collection<SeatBid> seatbid) {
     this.seatbid = seatbid;
   }
 

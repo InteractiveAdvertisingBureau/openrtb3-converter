@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +16,7 @@ public class Content {
   private String album;
   private String isrc;
   private String url;
-  private List<String> cat;
+  private Collection<String> cat;
   private Integer cattax;
   private Integer prodq;
   private Integer context;
@@ -29,7 +30,7 @@ public class Content {
   private String lang;
   private Integer embed;
   private Producer producer;
-  private List<Data> data;
+  private Collection<Data> data;
   private Map<String, Object> ext;
 
   public String getId() {
@@ -72,7 +73,7 @@ public class Content {
     return this.url;
   }
 
-  public List<String> getCat() {
+  public Collection<String> getCat() {
     return this.cat;
   }
 
@@ -128,7 +129,7 @@ public class Content {
     return this.producer;
   }
 
-  public List<Data> getData() {
+  public Collection<Data> getData() {
     return this.data;
   }
 
@@ -176,7 +177,7 @@ public class Content {
     this.url = url;
   }
 
-  public void setCat(List<String> cat) {
+  public void setCat(Collection<String> cat) {
     this.cat = cat;
   }
 
@@ -232,7 +233,7 @@ public class Content {
     this.producer = producer;
   }
 
-  public void setData(List<Data> data) {
+  public void setData(Collection<Data> data) {
     this.data = data;
   }
 

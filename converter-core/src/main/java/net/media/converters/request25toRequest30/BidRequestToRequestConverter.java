@@ -14,10 +14,11 @@ import net.media.openrtb3.Placement;
 import net.media.openrtb3.Request;
 import net.media.openrtb3.Spec;
 import net.media.utils.CollectionUtils;
-import net.media.utils.ListToListConverter;
+import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,7 +72,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     if(source == null)
       return;
     target.setContext( bidRequestContextConverter.map( source, config ) );
-    target.setItem( ListToListConverter.convert( source.getImp(), impItemConverter, config ) );
+    target.setItem( CollectionToCollectionConverter.convert( source.getImp(), impItemConverter, config ) );
     target.setPack( source.getAllimps() );
     String customdata = bidRequestUserCustomdata( source );
     if ( customdata != null ) {
@@ -81,13 +82,11 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     target.setTest( source.getTest() );
     target.setTmax( source.getTmax() );
     target.setAt( source.getAt() );
-    if ( source.getCur() != null ) {
-      target.setCur(  Utils.copyList(source.getCur(), config) );
-    }
+    target.setCur(Utils.copyCollection(source.getCur(), config));
     target.setSource( source25Source3Converter.map(source.source, config ));
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( Utils.copyMap(map, config) );
+      target.setExt( new HashMap<String, Object>( map ) );
     }
 
     if (!CollectionUtils.isEmpty(target.getItem())) {
@@ -100,10 +99,10 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     }
     if (source.getWseat()!=null && source.getWseat().size()>0){
       target.setWseat(1);
-      target.setSeat(Utils.copySet(source.getWseat(), config));
+      target.setSeat(Utils.copyCollection(source.getWseat(), config));
     } else {
       target.setWseat(0);
-      target.setSeat(Utils.copySet(source.getBseat(), config));
+      target.setSeat(Utils.copyCollection(source.getBseat(), config));
     }
     if(target.getExt() == null)
       return;
@@ -138,7 +137,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     if ( mappingTarget.getWlang() != null ) {
       if ( bidRequest.getWlang() != null ) {
         mappingTarget.getWlang().clear();
-        mappingTarget.setWlang( Utils.copyList(bidRequest.getWlang(), config) );
+        mappingTarget.getWlang().addAll( Utils.copyCollection(bidRequest.getWlang(), config) );
       }
       else {
         mappingTarget.setWlang( null );
@@ -146,7 +145,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     }
     else {
       if ( bidRequest.getWlang() != null ) {
-        mappingTarget.setWlang( Utils.copyList( bidRequest.getWlang(), config ) );
+        mappingTarget.setWlang( Utils.copyCollection( bidRequest.getWlang(), config ) );
       }
     }
   }

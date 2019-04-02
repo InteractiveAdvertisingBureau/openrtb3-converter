@@ -1,5 +1,6 @@
 package net.media.openrtb25.request;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ public class Pmp {
   public static final Integer DEFAULT_PRIVATE_AUCTION = 0;
   private Integer private_auction = DEFAULT_PRIVATE_AUCTION;
 
-  private List<Deal> deals;
+  private Collection<Deal> deals;
 
   private Map<String, Object> ext;
 
@@ -22,7 +23,7 @@ public class Pmp {
     return this.private_auction;
   }
 
-  public List<Deal> getDeals() {
+  public Collection<Deal> getDeals() {
     return this.deals;
   }
 
@@ -34,7 +35,7 @@ public class Pmp {
     this.private_auction = private_auction;
   }
 
-  public void setDeals(List<Deal> deals) {
+  public void setDeals(Collection<Deal> deals) {
     this.deals = deals;
   }
 

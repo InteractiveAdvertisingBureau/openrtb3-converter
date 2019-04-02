@@ -2,9 +2,8 @@ package net.media.openrtb3;
 
 import net.media.utils.validator.CheckExactlyOneNotNull;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.Map;
-import java.util.Set;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -17,13 +16,13 @@ public class Ad {
 
   @NotNull
   private String id;
-  private List<String> adomain = null;
-  private List<String> bundle = null;
+  private Collection<String> adomain = null;
+  private Collection<String> bundle = null;
   private String iurl;
-  private Set<String> cat = null;
+  private Collection<String> cat = null;
   private Integer cattax;
   private String lang;
-  private List<Integer> attr = null;
+  private Collection<Integer> attr = null;
   private Integer secure;
   private Integer mrating;
   private Integer init;
@@ -45,11 +44,11 @@ public class Ad {
     return this.id;
   }
 
-  public List<String> getAdomain() {
+  public Collection<String> getAdomain() {
     return this.adomain;
   }
 
-  public List<String> getBundle() {
+  public Collection<String> getBundle() {
     return this.bundle;
   }
 
@@ -57,7 +56,7 @@ public class Ad {
     return this.iurl;
   }
 
-  public Set<String> getCat() {
+  public Collection<String> getCat() {
     return this.cat;
   }
 
@@ -69,7 +68,7 @@ public class Ad {
     return this.lang;
   }
 
-  public List<Integer> getAttr() {
+  public Collection<Integer> getAttr() {
     return this.attr;
   }
 
@@ -113,11 +112,11 @@ public class Ad {
     this.id = id;
   }
 
-  public void setAdomain(List<String> adomain) {
+  public void setAdomain(Collection<String> adomain) {
     this.adomain = adomain;
   }
 
-  public void setBundle(List<String> bundle) {
+  public void setBundle(Collection<String> bundle) {
     this.bundle = bundle;
   }
 
@@ -125,7 +124,7 @@ public class Ad {
     this.iurl = iurl;
   }
 
-  public void setCat(Set<String> cat) {
+  public void setCat(Collection<String> cat) {
     this.cat = cat;
   }
 
@@ -137,7 +136,7 @@ public class Ad {
     this.lang = lang;
   }
 
-  public void setAttr(List<Integer> attr) {
+  public void setAttr(Collection<Integer> attr) {
     this.attr = attr;
   }
 

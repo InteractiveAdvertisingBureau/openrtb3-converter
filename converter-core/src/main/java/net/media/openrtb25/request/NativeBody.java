@@ -1,5 +1,6 @@
 package net.media.openrtb25.request;
 
+import java.util.Collection;
 import java.util.List;
 
 public class NativeBody {
@@ -22,11 +23,11 @@ public class NativeBody {
 
   private Integer seq;
 
-  private List<Asset> assets;
+  private Collection<Asset> assets;
 
   private Ext ext;
 
-  public NativeBody(String ver, Integer layout, Integer adunit, Integer context, Integer contextsubtype, Integer plcmttype, Integer plcmtcnt, Integer seq, List<Asset> assets, Ext ext) {
+  public NativeBody(String ver, Integer layout, Integer adunit, Integer context, Integer contextsubtype, Integer plcmttype, Integer plcmtcnt, Integer seq, Collection<Asset> assets, Ext ext) {
     this.ver = ver;
     this.layout = layout;
     this.adunit = adunit;
@@ -75,7 +76,7 @@ public class NativeBody {
     return this.seq;
   }
 
-  public List<Asset> getAssets() {
+  public Collection<Asset> getAssets() {
     return this.assets;
   }
 
@@ -115,7 +116,7 @@ public class NativeBody {
     this.seq = seq;
   }
 
-  public void setAssets(List<Asset> assets) {
+  public void setAssets(Collection<Asset> assets) {
     this.assets = assets;
   }
 
@@ -211,7 +212,7 @@ public class NativeBody {
     private Integer plcmttype;
     private Integer plcmtcnt;
     private Integer seq;
-    private List<Asset> assets;
+    private Collection<Asset> assets;
     private Ext ext;
 
     NativeBodyBuilder() {
@@ -257,7 +258,7 @@ public class NativeBody {
       return this;
     }
 
-    public NativeBody.NativeBodyBuilder assets(List<Asset> assets) {
+    public NativeBody.NativeBodyBuilder assets(Collection<Asset> assets) {
       this.assets = assets;
       return this;
     }

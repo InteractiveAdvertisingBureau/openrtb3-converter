@@ -1,5 +1,6 @@
 package net.media.openrtb25.request;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ public class Data {
 
   private String name;
 
-  private List<Segment> segment;
+  private Collection<Segment> segment;
 
   private Map<String, Object> ext;
 
@@ -27,7 +28,7 @@ public class Data {
     return this.name;
   }
 
-  public List<Segment> getSegment() {
+  public Collection<Segment> getSegment() {
     return this.segment;
   }
 
@@ -43,7 +44,7 @@ public class Data {
     this.name = name;
   }
 
-  public void setSegment(List<Segment> segment) {
+  public void setSegment(Collection<Segment> segment) {
     this.segment = segment;
   }
 

@@ -7,15 +7,12 @@ import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.Companion;
 import net.media.openrtb3.VideoPlacement;
-import net.media.utils.ListToListConverter;
+import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -48,20 +45,14 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     }
     video.setMinbitrate( videoPlacement.getMinbitr() );
     video.setMaxbitrate( videoPlacement.getMaxbitr() );
-    Set<Integer> set = videoPlacement.getCtype();
-    if ( set != null ) {
-      video.setProtocols( Utils.copySet( set, config) );
-    }
+    video.setProtocols(Utils.copyCollection(videoPlacement.getCtype(), config));
     video.setBoxingallowed( videoPlacement.getBoxing() );
     video.setPlacement( videoPlacement.getPtype() );
     video.setPlaybackend( videoPlacement.getPlayend() );
     video.setMinduration( videoPlacement.getMindur() );
-    video.setCompaniontype(Utils.copyList(videoPlacement.getComptype(), config));
-    video.setCompanionad( ListToListConverter.convert( videoPlacement.getComp(), companionBannerConverter, config ) );
-    Set<String> set1 = videoPlacement.getMime();
-    if ( set1 != null ) {
-      video.setMimes( Utils.copySet( set1, config ) );
-    }
+    video.setCompaniontype(Utils.copyCollection(videoPlacement.getComptype(), config));
+    video.setCompanionad( CollectionToCollectionConverter.convert( videoPlacement.getComp(), companionBannerConverter, config ) );
+    video.setMimes(Utils.copyCollection(videoPlacement.getMime(), config));
     video.setMaxduration( videoPlacement.getMaxdur() );
     video.setMaxextended( videoPlacement.getMaxext() );
     video.setStartdelay( videoPlacement.getDelay() );
@@ -71,15 +62,9 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     video.setSkip( videoPlacement.getSkip() );
     video.setSkipmin( videoPlacement.getSkipmin() );
     video.setSkipafter( videoPlacement.getSkipafter() );
-    List<Integer> list2 = videoPlacement.getDelivery();
-    if ( list2 != null ) {
-      video.setDelivery( Utils.copyList( list2, config ) );
-    }
+    video.setDelivery(Utils.copyCollection(videoPlacement.getDelivery(), config));
     video.setPos( videoPlacement.getPos() );
-    Set<Integer> list3 = videoPlacement.getApi();
-    if ( list3 != null ) {
-      video.setApi( Utils.copySet( list3, config ) );
-    }
+    video.setApi(Utils.copyCollection(videoPlacement.getDelivery(), config));
     video.setExt(Utils.copyMap(videoPlacement.getExt(), config));
 
     videoPlacementToVideoAfterMapping( videoPlacement, video );

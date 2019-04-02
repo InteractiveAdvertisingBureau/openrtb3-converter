@@ -14,10 +14,11 @@ import net.media.openrtb3.Request;
 import net.media.openrtb3.Site;
 import net.media.openrtb3.Source;
 import net.media.utils.CollectionUtils;
-import net.media.utils.ListToListConverter;
+import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -104,9 +105,9 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       }
 
       if(source.getContext().getRestrictions() != null) {
-        target.setBapp( Utils.copyList(source.getContext().getRestrictions().getBapp(), config) );
-        target.setBcat( Utils.copySet(source.getContext().getRestrictions().getBcat(), config) );
-        target.setBadv( Utils.copySet(source.getContext().getRestrictions().getBadv(), config) );
+        target.setBapp( Utils.copyCollection(source.getContext().getRestrictions().getBapp(), config) );
+        target.setBcat( Utils.copyCollection(source.getContext().getRestrictions().getBcat(), config) );
+        target.setBadv( Utils.copyCollection(source.getContext().getRestrictions().getBadv(), config) );
         if (source.getContext().getRestrictions().getCattax() != null) {
           if (target.getExt() == null)
             target.setExt(new HashMap<>());
@@ -126,25 +127,25 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       }
     }
     target.setAllimps( source.getPack() );
-    target.setImp( ListToListConverter.convert( source.getItem(), itemImpConverter, config ) );
+    target.setImp( CollectionToCollectionConverter.convert( source.getItem(), itemImpConverter, config ) );
     if (!CollectionUtils.isEmpty(target.getImp())) {
       if (nonNull(source.getContext()) && nonNull(source.getContext().getRestrictions())) {
         for (Imp imp : target.getImp()) {
           if (nonNull(imp.getBanner())) {
             if (nonNull(source.getContext().getRestrictions().getBattr())) {
-              imp.getBanner().setBattr(Utils.copySet(source.getContext().getRestrictions().getBattr
+              imp.getBanner().setBattr(Utils.copyCollection(source.getContext().getRestrictions().getBattr
                 (), config));
             }
           }
           if (nonNull(imp.getVideo())) {
             if (nonNull(source.getContext().getRestrictions().getBattr())) {
-              imp.getVideo().setBattr(Utils.copySet(source.getContext().getRestrictions().getBattr
+              imp.getVideo().setBattr(Utils.copyCollection(source.getContext().getRestrictions().getBattr
                 (), config));
             }
           }
           if (nonNull(imp.getNat())) {
             if (nonNull(source.getContext().getRestrictions().getBattr())) {
-              imp.getNat().setBattr(Utils.copySet(source.getContext().getRestrictions().getBattr
+              imp.getNat().setBattr(Utils.copyCollection(source.getContext().getRestrictions().getBattr
                 (), config));
             }
           }
@@ -156,18 +157,18 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     target.setTest( source.getTest() );
     target.setTmax( source.getTmax() );
     target.setSource( sourceSourceConverter.map( source.getSource(), config ) );
-    List<String> list1 = source.getCur();
+    Collection<String> list1 = source.getCur();
     if ( list1 != null ) {
-      target.setCur( Utils.copyList( list1, config ) );
+      target.setCur( Utils.copyCollection( list1, config ) );
     }
 
     if(source.getWseat() != null) {
 
       if (source.getWseat() == 0) {
-        target.setBseat(Utils.copySet(source.getSeat(), config));
-        target.setBseat(Utils.copySet(source.getSeat(), config));
+        target.setBseat(Utils.copyCollection(source.getSeat(), config));
+        target.setBseat(Utils.copyCollection(source.getSeat(), config));
       } else {
-        target.setWseat(Utils.copySet(source.getSeat(), config));
+        target.setWseat(Utils.copyCollection(source.getSeat(), config));
       }
     }
 

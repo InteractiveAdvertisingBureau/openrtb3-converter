@@ -60,8 +60,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
           ().get("contextsubtype"));
       }
     }
-    nat.setApi(Utils.copyList(displayPlacement.getApi(), config));
-    nat.setExt(Utils.copyMap(displayPlacement.getExt(), config));
+    nat.setApi(Utils.copyCollection(displayPlacement.getApi(), config));
     if (nonNull(displayPlacement.getExt())) {
       if (isNull(nat.getExt())) {
         nat.setExt(new HashMap<>());
@@ -79,5 +78,6 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     } else {
       nat.setRequest(nativeRequest);
     }
+    nat.setExt(Utils.copyMap(displayPlacement.getExt(), config));
   }
 }

@@ -18,10 +18,11 @@ import net.media.openrtb3.Item;
 import net.media.openrtb3.Placement;
 import net.media.openrtb3.Spec;
 import net.media.openrtb3.VideoPlacement;
-import net.media.utils.ListToListConverter;
+import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -83,8 +84,8 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
         item.getExt().put("pmpExt", imp.getPmp().getExt());
       }
       item.setFlrcur( imp.getBidfloorcur() );
-      List<Deal> deals = impPmpDeals( imp );
-      item.setDeal( ListToListConverter.convert( deals, dealDealConverter, config ) );
+      Collection<Deal> deals = impPmpDeals( imp );
+      item.setDeal( CollectionToCollectionConverter.convert( deals, dealDealConverter, config ) );
       item.setFlr( imp.getBidfloor() );
       item.setId( imp.getId() );
       Integer private_auction = impPmpPrivate_auction( imp );
@@ -97,9 +98,13 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
         item.getExt().remove("seq");
       }
       item.setExp( imp.getExp() );
-      List<Metric> metrics = imp.getMetric();
+      Collection<Metric> metrics = imp.getMetric();
       if (metrics != null) {
-        item.setMetric(ListToListConverter.convert(metrics, metricMetricConverter, config));
+        Collection<net.media.openrtb3.Metric> metrics1 = new ArrayList<>(metrics.size());
+        for (Metric metric : metrics) {
+          metrics1.add(metricMetricConverter.map(metric, config));
+        }
+        item.setMetric(metrics1);
       }
       item.setQty(getPlcmtcntFromNative(imp));
       impToItemAfterMapping(imp, item);
@@ -135,7 +140,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       config);
     if (nonNull(mappingTarget.getDisplay())) {
       mappingTarget.getDisplay().setClktype(imp.getClickbrowser());
-      mappingTarget.getDisplay().setIfrbust(Utils.copyList(imp.getIframebuster(), config));
+      mappingTarget.getDisplay().setIfrbust(Utils.copyCollection(imp.getIframebuster(), config));
       mappingTarget.getDisplay().setInstl(imp.getInstl());
     }
     if (nonNull(imp.getExt()) && !imp.getExt().isEmpty() && nonNull(displayPlacement)) {
@@ -156,7 +161,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     mappingTarget.setDisplay( displayPlacement );
   }
 
-  private List<Deal> impPmpDeals(Imp imp) {
+  private Collection<Deal> impPmpDeals(Imp imp) {
     if ( imp == null ) {
       return null;
     }
@@ -164,7 +169,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     if ( pmp == null ) {
       return null;
     }
-    List<Deal> deals = pmp.getDeals();
+    Collection<Deal> deals = pmp.getDeals();
     if ( deals == null ) {
       return null;
     }

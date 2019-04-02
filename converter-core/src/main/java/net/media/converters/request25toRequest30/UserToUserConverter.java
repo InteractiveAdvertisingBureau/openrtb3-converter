@@ -6,10 +6,9 @@ import net.media.converters.Converter;
 import net.media.openrtb25.request.Data;
 import net.media.openrtb25.request.Geo;
 import net.media.openrtb25.request.User;
-import net.media.utils.ListToListConverter;
+import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Utils;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class UserToUserConverter implements Converter<User, net.media.openrtb3.User> {
@@ -46,7 +45,7 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
     target.setGender( source.getGender() );
     target.setKeywords( source.getKeywords() );
     target.setGeo( geoToGeoConverter.map( source.getGeo(), config ) );
-    target.setData( ListToListConverter.convert( source.getData(), dataDataConverter, config ) );
+    target.setData( CollectionToCollectionConverter.convert( source.getData(), dataDataConverter, config ) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt(Utils.copyMap(map, config));

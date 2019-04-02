@@ -10,6 +10,7 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +37,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     if (isNull(displayPlacement) || isNull(banner)) {
       return;
     }
-    banner.setMimes(Utils.copyList(displayPlacement.getMime(), config));
+    banner.setMimes(Utils.copyCollection(displayPlacement.getMime(), config));
     banner.setFormat( displayFormatListToFormatList( displayPlacement.getDisplayfmt(), config ) );
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
@@ -55,12 +56,12 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     banner.setH( displayPlacement.getH() );
     banner.setPos( displayPlacement.getPos() );
     banner.setTopframe( displayPlacement.getTopframe() );
-    banner.setApi(Utils.copyList(displayPlacement.getApi(), config));
+    banner.setApi(Utils.copyCollection(displayPlacement.getApi(), config));
     Map<String, Object> map = displayPlacement.getExt();
     if ( map != null ) {
       banner.setExt(Utils.copyMap(map, config));
       if (map.containsKey("btype")) {
-        banner.setBtype(Utils.copyList((List<Integer>) map.get("btype"), config));
+        banner.setBtype(Utils.copyCollection((List<Integer>) map.get("btype"), config));
         banner.getExt().remove("btype");
       }
     }
@@ -72,12 +73,13 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     }
   }
 
-  private List<Format> displayFormatListToFormatList(List<DisplayFormat> list, Config config) {
+  private Collection<Format> displayFormatListToFormatList(Collection<DisplayFormat> list, Config
+    config) {
     if ( list == null ) {
       return null;
     }
 
-    List<Format> list1 = new ArrayList<Format>( list.size() );
+    Collection<Format> list1 = new ArrayList<Format>( list.size() );
     for ( DisplayFormat displayFormat : list ) {
       list1.add( displayFormatToFormat( displayFormat, config ) );
     }

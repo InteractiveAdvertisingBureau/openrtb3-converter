@@ -1,6 +1,7 @@
 package net.media.openrtb3;
 
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ public class Event {
   @NotNull
   private Integer method;
   private String url;
-  private List<Integer> api;
+  private Collection<Integer> api;
   private Map<String,Object> cdata;
   private Object  ext;
 
@@ -33,7 +34,7 @@ public class Event {
     return this.url;
   }
 
-  public List<Integer> getApi() {
+  public Collection<Integer> getApi() {
     return this.api;
   }
 
@@ -57,7 +58,7 @@ public class Event {
     this.url = url;
   }
 
-  public void setApi(List<Integer> api) {
+  public void setApi(Collection<Integer> api) {
     this.api = api;
   }
 

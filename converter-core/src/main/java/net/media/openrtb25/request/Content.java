@@ -1,5 +1,6 @@
 package net.media.openrtb25.request;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +34,7 @@ public class Content {
 
   private Integer videoquality;
 
-  private List<String> cat;
+  private Collection<String> cat;
 
   private Integer prodq;
 
@@ -57,7 +58,7 @@ public class Content {
 
   private Integer embeddable;
 
-  private List<Data> data;
+  private Collection<Data> data;
 
   private Map<String, Object> ext;
 
@@ -112,7 +113,7 @@ public class Content {
     return this.videoquality;
   }
 
-  public List<String> getCat() {
+  public Collection<String> getCat() {
     return this.cat;
   }
 
@@ -160,7 +161,7 @@ public class Content {
     return this.embeddable;
   }
 
-  public List<Data> getData() {
+  public Collection<Data> getData() {
     return this.data;
   }
 
@@ -216,7 +217,7 @@ public class Content {
     this.videoquality = videoquality;
   }
 
-  public void setCat(List<String> cat) {
+  public void setCat(Collection<String> cat) {
     this.cat = cat;
   }
 
@@ -264,7 +265,7 @@ public class Content {
     this.embeddable = embeddable;
   }
 
-  public void setData(List<Data> data) {
+  public void setData(Collection<Data> data) {
     this.data = data;
   }
 

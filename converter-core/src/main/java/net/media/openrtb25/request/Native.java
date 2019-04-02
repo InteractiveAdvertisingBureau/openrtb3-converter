@@ -3,6 +3,7 @@ package net.media.openrtb25.request;
 import net.media.utils.JacksonObjectMapper;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -25,9 +26,9 @@ public class Native {
 
   private String ver = DEFAULT_NATIVE_VERSION;
 
-  private List<Integer> api;
+  private Collection<Integer> api;
 
-  private Set<Integer> battr;
+  private Collection<Integer> battr;
 
   private Map<String, Object> ext;
 
@@ -77,11 +78,11 @@ public class Native {
     return this.ver;
   }
 
-  public List<Integer> getApi() {
+  public Collection<Integer> getApi() {
     return this.api;
   }
 
-  public Set<Integer> getBattr() {
+  public Collection<Integer> getBattr() {
     return this.battr;
   }
 
@@ -97,11 +98,11 @@ public class Native {
     this.ver = ver;
   }
 
-  public void setApi(List<Integer> api) {
+  public void setApi(Collection<Integer> api) {
     this.api = api;
   }
 
-  public void setBattr(Set<Integer> battr) {
+  public void setBattr(Collection<Integer> battr) {
     this.battr = battr;
   }
 

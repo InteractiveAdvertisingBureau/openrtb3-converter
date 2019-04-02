@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ public class Native {
   @Valid
   private LinkAsset link;
   @Valid
-  private List<Asset> asset = null;
+  private Collection<Asset> asset = null;
   private Map<String,Object> ext;
 
   public Native() {
@@ -21,7 +22,7 @@ public class Native {
     return this.link;
   }
 
-  public @Valid List<Asset> getAsset() {
+  public @Valid Collection<Asset> getAsset() {
     return this.asset;
   }
 
@@ -33,7 +34,7 @@ public class Native {
     this.link = link;
   }
 
-  public void setAsset(@Valid List<Asset> asset) {
+  public void setAsset(@Valid Collection<Asset> asset) {
     this.asset = asset;
   }
 

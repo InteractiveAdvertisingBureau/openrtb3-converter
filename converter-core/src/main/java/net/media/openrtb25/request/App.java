@@ -1,5 +1,6 @@
 package net.media.openrtb25.request;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -19,11 +20,11 @@ public class App {
 
   private String storeurl;
 
-  private List<String> cat;
+  private Collection<String> cat;
 
-  private List<String> sectioncat;
+  private Collection<String> sectioncat;
 
-  private Set<String> pagecat;
+  private Collection<String> pagecat;
 
   private String ver;
 
@@ -62,15 +63,15 @@ public class App {
     return this.storeurl;
   }
 
-  public List<String> getCat() {
+  public Collection<String> getCat() {
     return this.cat;
   }
 
-  public List<String> getSectioncat() {
+  public Collection<String> getSectioncat() {
     return this.sectioncat;
   }
 
-  public Set<String> getPagecat() {
+  public Collection<String> getPagecat() {
     return this.pagecat;
   }
 
@@ -122,15 +123,15 @@ public class App {
     this.storeurl = storeurl;
   }
 
-  public void setCat(List<String> cat) {
+  public void setCat(Collection<String> cat) {
     this.cat = cat;
   }
 
-  public void setSectioncat(List<String> sectioncat) {
+  public void setSectioncat(Collection<String> sectioncat) {
     this.sectioncat = sectioncat;
   }
 
-  public void setPagecat(Set<String> pagecat) {
+  public void setPagecat(Collection<String> pagecat) {
     this.pagecat = pagecat;
   }
 

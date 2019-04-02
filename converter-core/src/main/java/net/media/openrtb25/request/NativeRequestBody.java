@@ -1,5 +1,6 @@
 package net.media.openrtb25.request;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +27,7 @@ public class NativeRequestBody {
   private Integer seq;
 
   @NotEmpty
-  private List<Asset> assets;
+  private Collection<Asset> assets;
 
   private Map<String, Object> ext;
 
@@ -65,7 +66,7 @@ public class NativeRequestBody {
     return this.seq;
   }
 
-  public @NotEmpty List<Asset> getAssets() {
+  public @NotEmpty Collection<Asset> getAssets() {
     return this.assets;
   }
 
@@ -105,7 +106,7 @@ public class NativeRequestBody {
     this.seq = seq;
   }
 
-  public void setAssets(@NotEmpty List<Asset> assets) {
+  public void setAssets(@NotEmpty Collection<Asset> assets) {
     this.assets = assets;
   }
 
