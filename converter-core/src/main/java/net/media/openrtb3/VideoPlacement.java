@@ -17,7 +17,7 @@ public class VideoPlacement {
   private Integer delay;
   private Integer skip;
   private Integer skipmin;
-  private Integer skipafter = 0;
+  private Integer skipafter;
   private Integer playmethod;
   private Integer playend;
   private Integer clktype;

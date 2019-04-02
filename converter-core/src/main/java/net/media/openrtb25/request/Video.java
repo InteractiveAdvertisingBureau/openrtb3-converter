@@ -13,9 +13,6 @@ import lombok.Setter;
 
 public class Video {
 
-  public static final Integer DEFAULT_SKIP_MIN = 0;
-  public static final Integer DEFAULT_SKIP_AFTER = 0;
-  public static final Integer DEFAULT_BOXING_ALLOWED = 1;
 
   @NotEmpty
   private Collection<String> mimes;
@@ -40,7 +37,7 @@ public class Video {
 
   private Integer skipmin;
 
-  private Integer skipafter = DEFAULT_SKIP_AFTER;
+  private Integer skipafter;
 
   private Integer sequence;
 
@@ -52,7 +49,7 @@ public class Video {
 
   private Integer maxbitrate;
 
-  private Integer boxingallowed = DEFAULT_BOXING_ALLOWED;
+  private Integer boxingallowed;
 
   private Collection<Integer> playbackmethod;
 
