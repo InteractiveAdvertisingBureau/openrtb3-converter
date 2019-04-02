@@ -13,7 +13,6 @@ import java.util.Map;
  */
 public class Deal {
 
-  public static final String DEFAULT_BIDFLOOR_CUR = "USD";
 
   private String id;
 
@@ -21,7 +20,7 @@ public class Deal {
   private double bidFloor = 0;
 
   @JsonProperty("bidfloorcur")
-  private String bidFloorCur = DEFAULT_BIDFLOOR_CUR;
+  private String bidFloorCur;
 
   private Integer at;
   private Collection<String> wseat;
