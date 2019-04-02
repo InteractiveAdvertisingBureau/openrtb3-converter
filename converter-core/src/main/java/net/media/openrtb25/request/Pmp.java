@@ -26,7 +26,7 @@ public class Pmp {
     return this.deals;
   }
 
-  public Ext getExt() {
+  public Map<String, Object> getExt() {
     return this.ext;
   }
 
@@ -38,7 +38,7 @@ public class Pmp {
     this.deals = deals;
   }
 
-  public void setExt(Ext ext) {
+  public void setExt(Map ext) {
     this.ext = ext;
   }
 

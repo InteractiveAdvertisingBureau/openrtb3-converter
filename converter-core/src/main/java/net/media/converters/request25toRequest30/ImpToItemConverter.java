@@ -22,6 +22,7 @@ import net.media.utils.ListToListConverter;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -75,6 +76,12 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       impToSpec1( imp, item.getSpec(), config );
       Map<String, Object> map = imp.getExt();
       item.setExt(Utils.copyMap(map, config));
+      if(imp.getPmp() != null && imp.getPmp().getExt() != null) {
+        if(item.getExt() == null) {
+          item.setExt(new HashMap<>());
+        }
+        item.getExt().put("pmpExt", imp.getPmp().getExt());
+      }
       item.setFlrcur( imp.getBidfloorcur() );
       List<Deal> deals = impPmpDeals( imp );
       item.setDeal( ListToListConverter.convert( deals, dealDealConverter, config ) );

@@ -81,9 +81,8 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     target.setTest( source.getTest() );
     target.setTmax( source.getTmax() );
     target.setAt( source.getAt() );
-    List<String> list1 = Utils.copyList(source.getCur(), config);
-    if ( list1 != null ) {
-      target.setCur( new ArrayList<String>( list1 ) );
+    if ( source.getCur() != null ) {
+      target.setCur(  Utils.copyList(source.getCur(), config) );
     }
     target.setSource( source25Source3Converter.map(source.source, config ));
     Map<String, Object> map = source.getExt();
@@ -139,7 +138,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     if ( mappingTarget.getWlang() != null ) {
       if ( bidRequest.getWlang() != null ) {
         mappingTarget.getWlang().clear();
-        mappingTarget.getWlang().addAll( Utils.copyList(bidRequest.getWlang(), config) );
+        mappingTarget.setWlang( Utils.copyList(bidRequest.getWlang(), config) );
       }
       else {
         mappingTarget.setWlang( null );
