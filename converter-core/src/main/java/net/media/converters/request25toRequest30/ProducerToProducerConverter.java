@@ -8,6 +8,8 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+
 public class ProducerToProducerConverter implements Converter<Producer, net.media.openrtb3.Producer> {
   @Override
   public net.media.openrtb3.Producer map(Producer source, Config config) {
@@ -38,6 +40,9 @@ public class ProducerToProducerConverter implements Converter<Producer, net.medi
       return;
     if(source.getExt().containsKey("cattax")) {
       target.setCattax((Integer) source.getExt().get("cattax"));
+    }
+    else {
+      target.setCattax(DEFAULT_CATTAX_TWODOTX);
     }
     target.getExt().remove("cattax");
   }

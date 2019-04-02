@@ -3,12 +3,12 @@ package net.media.openrtb3;
 import java.util.Collection;
 import java.util.Map;
 
-import static net.media.utils.CommonConstants.DEFAULT_CATTAX;
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_THREEDOTX;
 
 public class Restrictions {
 
   private Collection<String> bcat;
-  private Integer cattax = DEFAULT_CATTAX;
+  private Integer cattax = DEFAULT_CATTAX_THREEDOTX;
   private Collection<String> badv;
   private Collection<String> bapp;
   private Collection<Integer> battr;

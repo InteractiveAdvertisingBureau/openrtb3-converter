@@ -8,7 +8,7 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import static net.media.utils.CommonConstants.DEFAULT_CATTAX;
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_THREEDOTX;
 
 
 /**
@@ -23,7 +23,7 @@ public class Ad {
   private Collection<String> bundle = null;
   private String iurl;
   private Collection<String> cat = null;
-  private Integer cattax = DEFAULT_CATTAX;
+  private Integer cattax = DEFAULT_CATTAX_THREEDOTX;
   private String lang;
   private Collection<Integer> attr = null;
   private Integer secure;

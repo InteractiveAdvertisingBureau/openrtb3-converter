@@ -3,7 +3,7 @@ package net.media.openrtb3;
 import java.util.Collection;
 import java.util.Map;
 
-import static net.media.utils.CommonConstants.DEFAULT_CATTAX;
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_THREEDOTX;
 
 public class Site extends DistributionChannel {
 
@@ -11,7 +11,7 @@ public class Site extends DistributionChannel {
   private Collection<String> cat;
   private Collection<String> sectcat;
   private Collection<String> pagecat;
-  private Integer cattax = DEFAULT_CATTAX;
+  private Integer cattax = DEFAULT_CATTAX_THREEDOTX;
   private Integer privpolicy;
   private String keywords;
   private String page;

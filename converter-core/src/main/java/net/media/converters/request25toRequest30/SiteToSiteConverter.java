@@ -11,6 +11,8 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+
 public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.Site> {
 
   private Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter;
@@ -63,6 +65,9 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
       return;
     if(source.getExt().containsKey("cattax")) {
       target.setCattax((Integer) source.getExt().get("cattax"));
+    }
+    else {
+      target.setCattax(DEFAULT_CATTAX_TWODOTX);
     }
     target.setAmp((Integer) source.getExt().get("amp"));
     target.getExt().remove("cattax");
