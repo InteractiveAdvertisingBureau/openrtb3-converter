@@ -15,7 +15,6 @@ import javax.validation.constraints.NotEmpty;
 public class Imp {
 
   public static final Integer DEFAULT_INTERSTITIAL = 0;
-  public static final String DEFAULT_BIDFLOOR_CUR = "USD";
 
   private String id;
 
@@ -39,7 +38,7 @@ public class Imp {
 
   private double bidfloor = 0;
 
-  private String bidfloorcur = DEFAULT_BIDFLOOR_CUR;
+  private String bidfloorcur;
 
   private Integer secure;
 
