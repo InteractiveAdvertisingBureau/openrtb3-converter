@@ -37,7 +37,7 @@ public class Imp {
 
   private Integer instl = DEFAULT_INTERSTITIAL;
 
-  private double bidfloor;
+  private double bidfloor = 0;
 
   private String bidfloorcur = DEFAULT_BIDFLOOR_CUR;
 
