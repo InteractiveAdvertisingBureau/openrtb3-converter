@@ -18,10 +18,12 @@ import net.media.openrtb3.Item;
 import net.media.openrtb3.Placement;
 import net.media.openrtb3.Spec;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -75,9 +77,15 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       impToSpec1( imp, item.getSpec(), config );
       Map<String, Object> map = imp.getExt();
       item.setExt(Utils.copyMap(map, config));
+      if(imp.getPmp() != null && imp.getPmp().getExt() != null) {
+        if(item.getExt() == null) {
+          item.setExt(new HashMap<>());
+        }
+        item.getExt().put("pmpExt", imp.getPmp().getExt());
+      }
       item.setFlrcur( imp.getBidfloorcur() );
       Collection<Deal> deals = impPmpDeals( imp );
-      item.setDeal( dealListToDealList( deals, config ) );
+      item.setDeal( CollectionToCollectionConverter.convert( deals, dealDealConverter, config ) );
       item.setFlr( imp.getBidfloor() );
       item.setId( imp.getId() );
       Integer private_auction = impPmpPrivate_auction( imp );
@@ -166,20 +174,6 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       return null;
     }
     return deals;
-  }
-
-  private Collection<net.media.openrtb3.Deal> dealListToDealList(Collection<Deal> list, Config
-    config) throws OpenRtbConverterException {
-    if ( list == null ) {
-      return null;
-    }
-
-    List<net.media.openrtb3.Deal> list1 = new ArrayList<net.media.openrtb3.Deal>( list.size() );
-    for ( Deal deal : list ) {
-      list1.add( dealDealConverter.map(deal, config) );
-    }
-
-    return list1;
   }
 
   private Integer getPlcmtcntFromNative(Imp imp) {

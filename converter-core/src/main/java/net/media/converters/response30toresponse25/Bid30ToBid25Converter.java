@@ -6,6 +6,7 @@ import net.media.converters.Converter;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Media;
 import net.media.template.MacroMapper;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,10 +36,7 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
     if ( source != null ) {
       Map<String, Object> map = source.getExt();
       if ( map != null ) {
-        target.setExt(new HashMap<>(map) );
-      }
-      else {
-        target.setExt( null );
+        target.setExt(Utils.copyMap(map, config));
       }
       target.setId( source.getId() );
       if ( source.getPrice() != null ) {

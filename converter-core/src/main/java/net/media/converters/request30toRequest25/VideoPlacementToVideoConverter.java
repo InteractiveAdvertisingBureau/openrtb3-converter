@@ -7,15 +7,12 @@ import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.Companion;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -54,7 +51,7 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     video.setPlaybackend( videoPlacement.getPlayend() );
     video.setMinduration( videoPlacement.getMindur() );
     video.setCompaniontype(Utils.copyCollection(videoPlacement.getComptype(), config));
-    video.setCompanionad( companionListToBannerList( videoPlacement.getComp(), config ) );
+    video.setCompanionad( CollectionToCollectionConverter.convert( videoPlacement.getComp(), companionBannerConverter, config ) );
     video.setMimes(Utils.copyCollection(videoPlacement.getMime(), config));
     video.setMaxduration( videoPlacement.getMaxdur() );
     video.setMaxextended( videoPlacement.getMaxext() );
@@ -71,20 +68,6 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     video.setExt(Utils.copyMap(videoPlacement.getExt(), config));
 
     videoPlacementToVideoAfterMapping( videoPlacement, video );
-  }
-
-  private Collection<Banner> companionListToBannerList(Collection<Companion> list, Config config) throws
-    OpenRtbConverterException {
-    if ( list == null ) {
-      return null;
-    }
-
-    Collection<Banner> list1 = new ArrayList<Banner>( list.size() );
-    for ( Companion companion : list ) {
-      list1.add( companionBannerConverter.map( companion, config ) );
-    }
-
-    return list1;
   }
 
   private void videoPlacementToVideoAfterMapping(VideoPlacement videoPlacement, Video video) {

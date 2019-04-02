@@ -6,6 +6,7 @@ import net.media.converters.Converter;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb3.Companion;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +42,7 @@ public class CompanionToBannerConverter implements Converter<Companion, Banner> 
     banner.setId( companion.getId() );
     Map<String, Object> map = companion.getExt();
     if ( map != null ) {
-      banner.setExt( new HashMap<>( map ) );
+      banner.setExt(Utils.copyMap(map, config));
     }
   }
 }

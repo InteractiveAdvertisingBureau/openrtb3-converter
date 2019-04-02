@@ -6,6 +6,7 @@ import net.media.converters.Converter;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb25.response.SeatBid;
 import net.media.openrtb3.Seatbid;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +40,7 @@ public class SeatBid30ToSeatBid25Converter implements Converter<Seatbid,SeatBid>
 
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt(new HashMap<>(map) );
+      target.setExt(Utils.copyMap(map, config));
     }
     else {
       target.setExt( null );

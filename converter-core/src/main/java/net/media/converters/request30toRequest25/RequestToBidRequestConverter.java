@@ -68,6 +68,11 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     if(source == null)
       return;
 
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt(Utils.copyMap(map, config));
+    }
+
     if(source.getContext() != null) {
 
       if (source.getContext().getUser() != null) {
@@ -120,10 +125,6 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       if ( device != null ) {
         target.setDevice( deviceDeviceConverter.map( device, config ) );
       }
-    }
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
     }
     target.setAllimps( source.getPack() );
     target.setImp( CollectionToCollectionConverter.convert( source.getItem(), itemImpConverter, config ) );

@@ -33,7 +33,7 @@ public class DealToDealConverter implements Converter<Deal, net.media.openrtb25.
     deal1.setId( deal.getId() );
     deal1.setAt( deal.getAt() );
     deal1.setWseat(Utils.copyCollection(deal.getWseat(), config));
-    deal1.setWadomain(deal.getWadomain());
+    deal1.setWadomain(Utils.copyCollection(deal.getWadomain(), config));
     deal1.setExt(Utils.copyMap(deal.getExt(), config));
   }
 }

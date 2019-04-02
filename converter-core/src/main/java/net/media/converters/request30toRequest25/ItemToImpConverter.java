@@ -17,6 +17,7 @@ import net.media.openrtb3.Item;
 import net.media.openrtb3.Placement;
 import net.media.openrtb3.Spec;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
@@ -142,24 +143,10 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
 
     Pmp pmp = new Pmp();
 
-    pmp.setDeals( dealListToDealList1( item.getDeal(), config ) );
+    pmp.setDeals( CollectionToCollectionConverter.convert( item.getDeal(), dealDealConverter, config ) );
     pmp.setPrivate_auction( item.getPriv() );
 
     return pmp;
-  }
-
-  private Collection<Deal> dealListToDealList1(Collection<net.media.openrtb3.Deal> list, Config config)
-    throws OpenRtbConverterException {
-    if ( list == null ) {
-      return null;
-    }
-
-    Collection<Deal> list1 = new ArrayList<Deal>( list.size() );
-    for ( net.media.openrtb3.Deal deal : list ) {
-      list1.add( dealDealConverter.map( deal, config ) );
-    }
-
-    return list1;
   }
 
   private VideoPlacement itemSpecPlacementVideo(Item item) {
