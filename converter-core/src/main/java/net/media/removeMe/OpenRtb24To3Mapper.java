@@ -42,7 +42,7 @@ public class OpenRtb24To3Mapper {
     config.setBannerTemplate("");
     config.setValidate(false);
     config.setNativeRequestAsString(true);
-    config.setAdType(AdType.BANNER);
+    //config.setAdType(AdType.BANNER);
     OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
 
     byte[] jsonData = Files.readAllBytes(file.toPath());
@@ -65,7 +65,7 @@ public class OpenRtb24To3Mapper {
           continue;
         }
 
-        config.setAdType(adType);
+        //config.setAdType(adType);
         try {
 //          OpenRTB response30 = openRtbConverter.convert(config, response.getResponse25(), BidResponse
 //            .class, OpenRTB.class);
