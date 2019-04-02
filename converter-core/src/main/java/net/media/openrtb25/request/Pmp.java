@@ -2,6 +2,7 @@ package net.media.openrtb25.request;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by vishnu on 6/5/16.
@@ -13,7 +14,7 @@ public class Pmp {
 
   private Collection<Deal> deals;
 
-  private Ext ext;
+  private Map<String, Object> ext;
 
   public Pmp() {
   }
@@ -26,7 +27,7 @@ public class Pmp {
     return this.deals;
   }
 
-  public Ext getExt() {
+  public Map<String, Object> getExt() {
     return this.ext;
   }
 
@@ -38,7 +39,7 @@ public class Pmp {
     this.deals = deals;
   }
 
-  public void setExt(Ext ext) {
+  public void setExt(Map ext) {
     this.ext = ext;
   }
 

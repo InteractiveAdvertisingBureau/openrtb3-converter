@@ -68,6 +68,11 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     if(source == null)
       return;
 
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt(Utils.copyMap(map, config));
+    }
+
     if(source.getContext() != null) {
 
       if (source.getContext().getUser() != null) {
@@ -121,10 +126,6 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
         target.setDevice( deviceDeviceConverter.map( device, config ) );
       }
     }
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
-    }
     target.setAllimps( source.getPack() );
     target.setImp( CollectionToCollectionConverter.convert( source.getItem(), itemImpConverter, config ) );
     if (!CollectionUtils.isEmpty(target.getImp())) {
@@ -172,12 +173,14 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     }
 
     if(source.getItem() != null && source.getItem().size() > 0) {
-      Set<String> wlang = new HashSet<>();
+      Collection<String> wlang = new HashSet<>();
       for(Item item : source.getItem()) {
-        if(item.getSpec() != null && item.getSpec().getPlacement() != null && item.getSpec().getPlacement().getWlang() != null)
+        if(item.getSpec() != null && item.getSpec().getPlacement() != null && item.getSpec()
+          .getPlacement().getWlang() != null) {
           wlang.addAll(item.getSpec().getPlacement().getWlang());
+        }
       }
-      target.setWlang(new ArrayList<>( wlang ));
+      target.setWlang(Utils.copyCollection(wlang, config));
     }
 
     if(target.getImp() != null) {
@@ -198,4 +201,5 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       target.setExt(new HashMap<>());
     target.getExt().put("dooh", source.getContext().getDooh());
   }
+
 }

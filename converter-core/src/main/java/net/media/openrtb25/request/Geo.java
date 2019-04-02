@@ -26,13 +26,6 @@ public class Geo {
   public Geo() {
   }
 
-  public boolean isEmpty() {
-    return (isNull(this.type) && isNull(this.lat) && isNull(this.lon) &&
-      isNull(this.country) && StringUtils.isBlank(this.region) && StringUtils.isBlank(this.regionfips104) &&
-      StringUtils.isBlank(this.metro) && StringUtils.isBlank(this.city) && StringUtils.isBlank(this.zip) &&
-      isNull(this.utcoffset) && isNull(this.ext));
-  }
-
   public Integer getType() {
     return this.type;
   }

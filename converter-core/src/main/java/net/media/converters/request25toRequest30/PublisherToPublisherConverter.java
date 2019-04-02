@@ -32,7 +32,7 @@ public class PublisherToPublisherConverter implements Converter<Publisher, net.m
     target.setCat( Utils.copyCollection(source.getCat(), config) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt( Utils.copyMap( map, config ) );
     }
   }
 }

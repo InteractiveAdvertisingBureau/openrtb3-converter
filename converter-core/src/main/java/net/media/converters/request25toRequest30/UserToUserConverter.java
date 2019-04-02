@@ -7,8 +7,8 @@ import net.media.openrtb25.request.Data;
 import net.media.openrtb25.request.Geo;
 import net.media.openrtb25.request.User;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.Utils;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class UserToUserConverter implements Converter<User, net.media.openrtb3.User> {
@@ -48,7 +48,7 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
     target.setData( CollectionToCollectionConverter.convert( source.getData(), dataDataConverter, config ) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt(new HashMap<>(map) );
+      target.setExt(Utils.copyMap(map, config));
     }
     if(source.getExt() == null)
       return;

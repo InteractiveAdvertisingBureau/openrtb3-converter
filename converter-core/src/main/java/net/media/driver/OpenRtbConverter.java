@@ -72,7 +72,7 @@ public class OpenRtbConverter {
    */
   public  <U, V> V convert(Config overridingConfig, U source, Class<U> sourceClass, Class<V>
     targetClass) throws ConfigurationException, OpenRtbConverterException {
-    overridingConfig = inhanceConfig(overridingConfig);
+    overridingConfig = enhanceConfig(overridingConfig);
     if (shouldValidate(overridingConfig)) {
       Utils.validate(source);
     }
@@ -108,7 +108,7 @@ public class OpenRtbConverter {
    */
   public <U, V> void enhance(Config overridingConfig, U source, V target, Class<U> sourceClass,
                           Class<V> targetClass) throws ConfigurationException, OpenRtbConverterException {
-    overridingConfig = inhanceConfig(overridingConfig);
+    overridingConfig = enhanceConfig(overridingConfig);
     if (shouldValidate(overridingConfig)) {
       Utils.validate(source);
     }
@@ -137,7 +137,7 @@ public class OpenRtbConverter {
    * @param overridingConfig
    * @return
    */
-  private Config inhanceConfig(Config overridingConfig) {
+  private Config enhanceConfig(Config overridingConfig) {
     if (isNull(overridingConfig)) {
       overridingConfig = new Config(config);
     }
