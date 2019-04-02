@@ -18,7 +18,7 @@ public class Deal {
   private String id;
 
   @JsonProperty("bidfloor")
-  private double bidFloor;
+  private double bidFloor = 0;
 
   @JsonProperty("bidfloorcur")
   private String bidFloorCur = DEFAULT_BIDFLOOR_CUR;
