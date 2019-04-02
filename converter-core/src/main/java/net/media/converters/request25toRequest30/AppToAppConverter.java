@@ -1,6 +1,5 @@
 package net.media.converters.request25toRequest30;
 
-import lombok.extern.slf4j.Slf4j;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
