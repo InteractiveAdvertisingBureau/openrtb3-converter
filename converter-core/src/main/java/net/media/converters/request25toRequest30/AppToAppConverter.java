@@ -60,7 +60,9 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
 
     if(source.getExt() == null)
       return;
-    target.setCattax((Integer) source.getExt().get("cattax"));
+    if(source.getExt().containsKey("cattax")) {
+      target.setCattax((Integer) source.getExt().get("cattax"));
+    }
     target.setStoreid((String) source.getExt().get("storeid"));
     target.getExt().remove("cattax");
     target.getExt().remove("storeid");

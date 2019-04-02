@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import static net.media.utils.CommonConstants.CATTAX_VERSION_THREEDOTX;
+
 public class Restrictions {
 
   private Collection<String> bcat;
-  private Integer cattax = 2;
+  private Integer cattax = CATTAX_VERSION_THREEDOTX;
   private Collection<String> badv;
   private Collection<String> bapp;
   private Collection<Integer> battr;

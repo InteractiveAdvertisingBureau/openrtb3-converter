@@ -36,7 +36,9 @@ public class ProducerToProducerConverter implements Converter<Producer, net.medi
     }
     if(source.getExt() == null)
       return;
-    target.setCattax((Integer) source.getExt().get("cattax"));
+    if(source.getExt().containsKey("cattax")) {
+      target.setCattax((Integer) source.getExt().get("cattax"));
+    }
     target.getExt().remove("cattax");
   }
 }

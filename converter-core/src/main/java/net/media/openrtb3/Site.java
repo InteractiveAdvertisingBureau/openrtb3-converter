@@ -5,13 +5,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import static net.media.utils.CommonConstants.CATTAX_VERSION_THREEDOTX;
+
 public class Site extends DistributionChannel {
 
   private String domain;
   private Collection<String> cat;
   private Collection<String> sectcat;
   private Collection<String> pagecat;
-  private Integer cattax;
+  private Integer cattax = CATTAX_VERSION_THREEDOTX;
   private Integer privpolicy;
   private String keywords;
   private String page;

@@ -71,7 +71,9 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
 
     if(source.getExt() == null)
       return;
-    target.setCattax((Integer) source.getExt().get("cattax"));
+    if(source.getExt().containsKey("cattax")) {
+      target.setCattax((Integer) source.getExt().get("cattax"));
+    }
     target.getExt().remove("cattax");
     if(source.getVideoquality() != null) {
       if(target.getExt() == null)

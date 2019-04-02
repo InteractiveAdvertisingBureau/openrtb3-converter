@@ -6,13 +6,15 @@ import java.util.Map;
 
 import javax.validation.constraints.NotNull;
 
+import static net.media.utils.CommonConstants.CATTAX_VERSION_THREEDOTX;
+
 public class Producer {
   @NotNull
   private String id;
   private String name;
   private String domain;
   private Collection<String> cat;
-  private Integer cattax;
+  private Integer cattax = CATTAX_VERSION_THREEDOTX;
   private Map<String, Object> ext;
 
   public @NotNull String getId() {

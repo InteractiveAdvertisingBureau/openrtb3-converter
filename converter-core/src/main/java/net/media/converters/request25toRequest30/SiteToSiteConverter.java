@@ -61,7 +61,9 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
     }
     if(source.getExt() == null)
       return;
-    target.setCattax((Integer) source.getExt().get("cattax"));
+    if(source.getExt().containsKey("cattax")) {
+      target.setCattax((Integer) source.getExt().get("cattax"));
+    }
     target.setAmp((Integer) source.getExt().get("amp"));
     target.getExt().remove("cattax");
     target.getExt().remove("amp");

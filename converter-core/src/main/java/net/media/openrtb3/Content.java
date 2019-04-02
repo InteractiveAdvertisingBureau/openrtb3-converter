@@ -4,6 +4,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import static net.media.utils.CommonConstants.CATTAX_VERSION_THREEDOTX;
+
 public class Content {
 
   private String id;
@@ -17,7 +19,7 @@ public class Content {
   private String isrc;
   private String url;
   private Collection<String> cat;
-  private Integer cattax;
+  private Integer cattax = CATTAX_VERSION_THREEDOTX;
   private Integer prodq;
   private Integer context;
   private String rating;
