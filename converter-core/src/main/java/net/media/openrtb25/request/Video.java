@@ -38,7 +38,7 @@ public class Video {
 
   private Integer placement;
 
-  private Integer skipmin = DEFAULT_SKIP_MIN;
+  private Integer skipmin;
 
   private Integer skipafter = DEFAULT_SKIP_AFTER;
 
