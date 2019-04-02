@@ -86,7 +86,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     target.setSource( source25Source3Converter.map(source.source, config ));
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( Utils.copyMap(map, config) );
+      target.setExt( new HashMap<String, Object>( map ) );
     }
 
     if (!CollectionUtils.isEmpty(target.getItem())) {

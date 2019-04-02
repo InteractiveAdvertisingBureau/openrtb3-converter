@@ -7,11 +7,9 @@ import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.NativeFormat;
+import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 import static java.util.Objects.isNull;
 
@@ -41,21 +39,8 @@ public class NativeFormatToNativeRequestBodyConverter implements Converter<Nativ
       return;
     }
     nativeRequestBody.setExt(Utils.copyMap(nativeFormat.getExt(), config));
-    nativeRequestBody.setAssets( assetFormatListToAssetList( nativeFormat.getAsset(), config ) );
+    nativeRequestBody.setAssets( CollectionToCollectionConverter.convert( nativeFormat.getAsset(), assetFormatAssetConverter, config ) );
 
   }
 
-  private Collection<Asset> assetFormatListToAssetList(Collection<AssetFormat> list, Config config) throws
-    OpenRtbConverterException {
-    if ( list == null ) {
-      return null;
-    }
-
-    Collection<Asset> list1 = new ArrayList<Asset>( list.size() );
-    for ( AssetFormat assetFormat : list ) {
-      list1.add( assetFormatAssetConverter.map( assetFormat, config ) );
-    }
-
-    return list1;
-  }
 }
