@@ -23,7 +23,7 @@ public class Item {
   private Collection<Metric> metric;
   private Collection<Deal> deal;
   @JsonProperty("private")
-  private Integer priv = 0;
+  private Integer priv;
   @NotNull
   @Valid
   private Spec spec;

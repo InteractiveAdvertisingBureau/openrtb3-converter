@@ -9,8 +9,7 @@ import java.util.Map;
  */
 public class Pmp {
 
-  public static final Integer DEFAULT_PRIVATE_AUCTION = 0;
-  private Integer private_auction = DEFAULT_PRIVATE_AUCTION;
+  private Integer private_auction;
 
   private Collection<Deal> deals;
 
