@@ -2,6 +2,7 @@ package net.media.converters.request30toRequest25;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Geo;
 
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import java.util.Map;
 
 public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.request.Geo> {
   @Override
-  public net.media.openrtb25.request.Geo map(Geo source, Config config) {
+  public net.media.openrtb25.request.Geo map(Geo source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -22,7 +23,7 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.req
   }
 
   @Override
-  public void enhance(Geo source, net.media.openrtb25.request.Geo target, Config config) {
+  public void enhance(Geo source, net.media.openrtb25.request.Geo target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setIpservice( source.getIpserv() );
@@ -41,8 +42,11 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.req
     if(map == null)
       return;
     if(source.getExt().containsKey("regionfips104")) {
-      target.setRegionfips104((String) source.getExt().get("regionfips104"));
-      source.getExt().remove("regionfips104");
+      try {
+        target.setRegionfips104((String) source.getExt().get("regionfips104"));
+        source.getExt().remove("regionfips104");
+      } catch (ClassCastException e) {
+        throw new OpenRtbConverterException("error while typecasting ext for Geo", e);      }
     }
     target.setExt( new HashMap<String, Object>( map ) );
   }

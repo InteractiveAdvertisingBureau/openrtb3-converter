@@ -2,6 +2,7 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayFormat;
@@ -24,7 +25,7 @@ import static java.util.Objects.nonNull;
 public class BannerToDisplayPlacementConverter implements Converter<Banner, DisplayPlacement> {
 
   @Override
-  public DisplayPlacement map(Banner banner, Config config) {
+  public DisplayPlacement map(Banner banner, Config config) throws OpenRtbConverterException{
     if (isNull(banner)) {
       return null;
     }
@@ -34,7 +35,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
   }
 
   @Override
-  public void enhance(Banner banner, DisplayPlacement displayPlacement, Config config) {
+  public void enhance(Banner banner, DisplayPlacement displayPlacement, Config config) throws OpenRtbConverterException {
     if (isNull(banner) || isNull(displayPlacement)) {
       return;
     }
@@ -52,23 +53,27 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     displayPlacement.setW( banner.getW() );
     displayPlacement.setH( banner.getH() );
     Map<String, Object> bannerExt = banner.getExt();
-    if (nonNull(bannerExt)) {
-      if (isNull(displayPlacement.getExt())) {
-        displayPlacement.setExt(new HashMap<>());
+    try {
+      if (nonNull(bannerExt)) {
+        if (isNull(displayPlacement.getExt())) {
+          displayPlacement.setExt(new HashMap<>());
+        }
+        displayPlacement.getExt().putAll(bannerExt);
+        if (bannerExt.containsKey("unit")) {
+          displayPlacement.setUnit((Integer) bannerExt.get("unit"));
+          displayPlacement.getExt().remove("unit");
+        }
+        if (bannerExt.containsKey("ctype")) {
+          displayPlacement.setCtype(Utils.copyCollection((List<Integer>) bannerExt.get
+            ("ctype"), config));
+          displayPlacement.getExt().remove("ctype");
+        }
+        if (bannerExt.containsKey("seq")) {
+          displayPlacement.getExt().remove("seq");
+        }
       }
-      displayPlacement.getExt().putAll(bannerExt);
-      if (bannerExt.containsKey("unit")) {
-        displayPlacement.setUnit((Integer) bannerExt.get("unit"));
-        displayPlacement.getExt().remove("unit");
-      }
-      if (bannerExt.containsKey("ctype")) {
-        displayPlacement.setCtype(Utils.copyCollection((List<Integer>) bannerExt.get
-          ("ctype"), config));
-        displayPlacement.getExt().remove("ctype");
-      }
-      if (bannerExt.containsKey("seq")) {
-        displayPlacement.getExt().remove("seq");
-      }
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for Banner", e);
     }
     if (!CollectionUtils.isEmpty(banner.getBtype())) {
       if (isNull(displayPlacement.getExt())) {

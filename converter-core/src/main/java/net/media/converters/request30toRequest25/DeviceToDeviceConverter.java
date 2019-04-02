@@ -68,8 +68,12 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       if(map.containsKey("flashver")) {
-        target.setFlashver((String) source.getExt().get("flashver"));
-        map.remove("flashver");
+        try {
+          target.setFlashver((String) source.getExt().get("flashver"));
+          map.remove("flashver");
+        } catch (ClassCastException e) {
+          throw new OpenRtbConverterException("error while typecasting ext for Device", e);
+        }
       }
       target.setExt(new HashMap<>(map) );
     }

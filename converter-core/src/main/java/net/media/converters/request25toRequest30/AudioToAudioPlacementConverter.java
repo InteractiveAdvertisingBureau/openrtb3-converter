@@ -83,28 +83,32 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     return list1;
   }
 
-  private void audioToAudioPlacementAfterMapping(Audio audio, AudioPlacement audioPlacement) {
-    if (nonNull(audio) && nonNull(audio.getExt()) && nonNull(audioPlacement)) {
-      if (audio.getExt().containsKey("skip")) {
-        audioPlacement.setSkip((Integer) audio.getExt().get("skip"));
-        audioPlacement.getExt().remove("skip");
+  private void audioToAudioPlacementAfterMapping(Audio audio, AudioPlacement audioPlacement) throws OpenRtbConverterException {
+    try {
+      if (nonNull(audio) && nonNull(audio.getExt()) && nonNull(audioPlacement)) {
+        if (audio.getExt().containsKey("skip")) {
+          audioPlacement.setSkip((Integer) audio.getExt().get("skip"));
+          audioPlacement.getExt().remove("skip");
+        }
+        if (audio.getExt().containsKey("skipmin")) {
+          audioPlacement.setSkipmin((Integer) audio.getExt().get("skipmin"));
+          audioPlacement.getExt().remove("skipmin");
+        }
+        if (audio.getExt().containsKey("skipafter")) {
+          audioPlacement.setSkipafter((Integer) audio.getExt().get("skipafter"));
+          audioPlacement.getExt().remove("skipafter");
+        }
+        if (audio.getExt().containsKey("playmethod")) {
+          audioPlacement.setPlaymethod((Integer) audio.getExt().get("playmethod"));
+          audioPlacement.getExt().remove("playmethod");
+        }
+        if (audio.getExt().containsKey("playend")) {
+          audioPlacement.setPlayend((Integer) audio.getExt().get("playend"));
+          audioPlacement.getExt().remove("playend");
+        }
       }
-      if (audio.getExt().containsKey("skipmin")) {
-        audioPlacement.setSkipmin((Integer) audio.getExt().get("skipmin"));
-        audioPlacement.getExt().remove("skipmin");
-      }
-      if (audio.getExt().containsKey("skipafter")) {
-        audioPlacement.setSkipafter((Integer) audio.getExt().get("skipafter"));
-        audioPlacement.getExt().remove("skipafter");
-      }
-      if (audio.getExt().containsKey("playmethod")) {
-        audioPlacement.setPlaymethod((Integer) audio.getExt().get("playmethod"));
-        audioPlacement.getExt().remove("playmethod");
-      }
-      if (audio.getExt().containsKey("playend")) {
-        audioPlacement.setPlayend((Integer) audio.getExt().get("playend"));
-        audioPlacement.getExt().remove("playend");
-      }
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for Audio", e);
     }
   }
 }
