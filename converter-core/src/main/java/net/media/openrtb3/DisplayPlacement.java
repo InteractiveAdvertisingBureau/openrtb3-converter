@@ -8,7 +8,7 @@ import javax.validation.Valid;
 
 public class DisplayPlacement {
   private Integer pos;
-  private Integer instl = 0;
+  private Integer instl;
   private Integer topframe;
   private Collection<String> ifrbust;
   private Integer clktype = 1;
