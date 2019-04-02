@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public class Bid {
   //Todo code change  for  this  field
   @NotNull
   @Valid
-  private List<Macro> macro = null;
+  private Collection<Macro> macro = null;
   @NotNull
   @Valid
   private Media media;
@@ -78,7 +79,7 @@ public class Bid {
     return this.mid;
   }
 
-  public @NotNull @Valid List<Macro> getMacro() {
+  public @NotNull @Valid Collection<Macro> getMacro() {
     return this.macro;
   }
 
@@ -134,7 +135,7 @@ public class Bid {
     this.mid = mid;
   }
 
-  public void setMacro(@NotNull @Valid List<Macro> macro) {
+  public void setMacro(@NotNull @Valid Collection<Macro> macro) {
     this.macro = macro;
   }
 

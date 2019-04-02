@@ -29,7 +29,7 @@ public class PublisherToPublisherConverter implements Converter<Publisher, net.m
     target.setId( source.getId() );
     target.setName( source.getName() );
     target.setDomain( source.getDomain() );
-    target.setCat( Utils.copyList(source.getCat(), config) );
+    target.setCat( Utils.copyCollection(source.getCat(), config) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt( Utils.copyMap( map, config ) );

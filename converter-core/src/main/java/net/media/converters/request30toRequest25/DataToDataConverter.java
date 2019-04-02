@@ -5,8 +5,7 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Data;
 import net.media.openrtb3.Segment;
-import net.media.utils.ListToListConverter;
-import net.media.utils.Utils;
+import net.media.utils.CollectionToCollectionConverter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,10 +38,10 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb25.
     OpenRtbConverterException {
     target.setId( source.getId() );
     target.setName( source.getName() );
-    target.setSegment( ListToListConverter.convert( source.getSegment(), segmentSegmentConverter, config ) );
+    target.setSegment( CollectionToCollectionConverter.convert( source.getSegment(), segmentSegmentConverter, config ) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( Utils.copyMap(map, config) );
+      target.setExt( new HashMap<String, Object>( map ) );
     }
   }
 }

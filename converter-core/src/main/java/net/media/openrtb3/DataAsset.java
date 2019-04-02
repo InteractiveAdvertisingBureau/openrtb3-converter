@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +11,7 @@ import javax.validation.constraints.NotNull;
  */
 public class DataAsset {
     @NotNull
-    private List<String> value = null;
+    private Collection<String> value = null;
     private Integer len;
     private Integer type;
     private Map<String,Object> ext;
@@ -18,7 +19,7 @@ public class DataAsset {
   public DataAsset() {
   }
 
-  public @NotNull List<String> getValue() {
+  public @NotNull Collection<String> getValue() {
     return this.value;
   }
 
@@ -34,7 +35,7 @@ public class DataAsset {
     return this.ext;
   }
 
-  public void setValue(@NotNull List<String> value) {
+  public void setValue(@NotNull Collection<String> value) {
     this.value = value;
   }
 

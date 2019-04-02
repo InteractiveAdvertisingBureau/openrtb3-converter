@@ -10,6 +10,7 @@ import net.media.openrtb3.Companion;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,8 +44,8 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     if (isNull(audioPlacement) || isNull(audio)) {
       return;
     }
-    audio.setDelivery(Utils.copyList(audioPlacement.getDelivery(), config));
-    audio.setApi(Utils.copyList(audioPlacement.getApi(), config));
+    audio.setDelivery(Utils.copyCollection(audioPlacement.getDelivery(), config));
+    audio.setApi(Utils.copyCollection(audioPlacement.getApi(), config));
     audio.setMaxseq( audioPlacement.getMaxseq() );
     audio.setFeed( audioPlacement.getFeed() );
     audio.setNvol( audioPlacement.getNvol() );
@@ -72,12 +73,13 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     }
   }
 
-  protected List<Banner> companionListToBannerList(List<Companion> list, Config config) throws OpenRtbConverterException {
+  protected Collection<Banner> companionListToBannerList(Collection<Companion> list, Config
+    config) throws OpenRtbConverterException {
     if ( list == null ) {
       return null;
     }
 
-    List<Banner> list1 = new ArrayList<>( list.size() );
+    Collection<Banner> list1 = new ArrayList<>( list.size() );
     for ( Companion companion : list ) {
       list1.add( companionBannerConverter.map( companion, config ) );
     }

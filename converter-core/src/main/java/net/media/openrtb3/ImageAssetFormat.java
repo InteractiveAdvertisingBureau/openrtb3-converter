@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -9,7 +10,7 @@ import java.util.Map;
 
 public class ImageAssetFormat {
   private Integer type;
-  private List<String> mime;
+  private Collection<String> mime;
   private Integer w;
   private Integer h;
   private Integer wmin;
@@ -22,7 +23,7 @@ public class ImageAssetFormat {
     return this.type;
   }
 
-  public List<String> getMime() {
+  public Collection<String> getMime() {
     return this.mime;
   }
 
@@ -58,7 +59,7 @@ public class ImageAssetFormat {
     this.type = type;
   }
 
-  public void setMime(List<String> mime) {
+  public void setMime(Collection<String> mime) {
     this.mime = mime;
   }
 

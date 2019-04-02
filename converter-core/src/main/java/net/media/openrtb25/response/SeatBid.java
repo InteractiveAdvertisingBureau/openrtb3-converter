@@ -1,6 +1,7 @@
 package net.media.openrtb25.response;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +15,7 @@ public class SeatBid {
 
   @NotNull
   @Valid
-  private List<Bid> bid = new ArrayList<>();
+  private Collection<Bid> bid;
 
   private String seat;
 
@@ -25,7 +26,7 @@ public class SeatBid {
   public SeatBid() {
   }
 
-  public @NotNull @Valid List<Bid> getBid() {
+  public @NotNull @Valid Collection<Bid> getBid() {
     return this.bid;
   }
 
@@ -41,7 +42,7 @@ public class SeatBid {
     return this.ext;
   }
 
-  public void setBid(@NotNull @Valid List<Bid> bid) {
+  public void setBid(@NotNull @Valid Collection<Bid> bid) {
     this.bid = bid;
   }
 

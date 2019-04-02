@@ -1,5 +1,6 @@
 package net.media.openrtb25.request;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
@@ -9,7 +10,7 @@ import javax.validation.constraints.NotNull;
 public class NativeVideo {
 
   @NotEmpty
-  private Set<String> mimes;
+  private Collection<String> mimes;
 
   @NotNull
   private Integer minduration;
@@ -18,14 +19,14 @@ public class NativeVideo {
   private Integer maxduration;
 
   @NotEmpty
-  private Set<Integer> protocols;
+  private Collection<Integer> protocols;
 
   private Map<String, Object> ext;
 
   public NativeVideo() {
   }
 
-  public @NotEmpty Set<String> getMimes() {
+  public @NotEmpty Collection<String> getMimes() {
     return this.mimes;
   }
 
@@ -37,7 +38,7 @@ public class NativeVideo {
     return this.maxduration;
   }
 
-  public @NotEmpty Set<Integer> getProtocols() {
+  public @NotEmpty Collection<Integer> getProtocols() {
     return this.protocols;
   }
 
@@ -45,7 +46,7 @@ public class NativeVideo {
     return this.ext;
   }
 
-  public void setMimes(@NotEmpty Set<String> mimes) {
+  public void setMimes(@NotEmpty Collection<String> mimes) {
     this.mimes = mimes;
   }
 
@@ -57,7 +58,7 @@ public class NativeVideo {
     this.maxduration = maxduration;
   }
 
-  public void setProtocols(@NotEmpty Set<Integer> protocols) {
+  public void setProtocols(@NotEmpty Collection<Integer> protocols) {
     this.protocols = protocols;
   }
 

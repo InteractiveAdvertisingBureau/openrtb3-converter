@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -7,9 +8,9 @@ import java.util.Set;
 public class App extends DistributionChannel {
 
   private String domain;
-  private List<String> cat;
-  private List<String> sectcat;
-  private Set<String> pagecat;
+  private Collection<String> cat;
+  private Collection<String> sectcat;
+  private Collection<String> pagecat;
   private Integer cattax;
   private Integer privpolicy;
   private String keywords;
@@ -24,15 +25,15 @@ public class App extends DistributionChannel {
     return this.domain;
   }
 
-  public List<String> getCat() {
+  public Collection<String> getCat() {
     return this.cat;
   }
 
-  public List<String> getSectcat() {
+  public Collection<String> getSectcat() {
     return this.sectcat;
   }
 
-  public Set<String> getPagecat() {
+  public Collection<String> getPagecat() {
     return this.pagecat;
   }
 
@@ -76,15 +77,15 @@ public class App extends DistributionChannel {
     this.domain = domain;
   }
 
-  public void setCat(List<String> cat) {
+  public void setCat(Collection<String> cat) {
     this.cat = cat;
   }
 
-  public void setSectcat(List<String> sectcat) {
+  public void setSectcat(Collection<String> sectcat) {
     this.sectcat = sectcat;
   }
 
-  public void setPagecat(Set<String> pagecat) {
+  public void setPagecat(Collection<String> pagecat) {
     this.pagecat = pagecat;
   }
 

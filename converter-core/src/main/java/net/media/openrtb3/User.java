@@ -2,6 +2,7 @@ package net.media.openrtb3;
 
 import net.media.utils.validator.CheckAtLeastOneNotNull;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +15,7 @@ public class User {
   private String keywords;
   private String consent;
   private Geo geo;
-  private List<Data> data;
+  private Collection<Data> data;
   private Map<String, Object> ext;
 
   public String getId() {
@@ -45,7 +46,7 @@ public class User {
     return this.geo;
   }
 
-  public List<Data> getData() {
+  public Collection<Data> getData() {
     return this.data;
   }
 
@@ -81,7 +82,7 @@ public class User {
     this.geo = geo;
   }
 
-  public void setData(List<Data> data) {
+  public void setData(Collection<Data> data) {
     this.data = data;
   }
 

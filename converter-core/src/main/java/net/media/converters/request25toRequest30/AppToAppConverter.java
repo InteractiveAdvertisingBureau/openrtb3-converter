@@ -40,14 +40,14 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
     if(source == null)
       return;
     target.setPrivpolicy( source.getPrivacypolicy() );
-    target.setSectcat( Utils.copyList(source.getSectioncat(), config) );
+    target.setSectcat( Utils.copyCollection(source.getSectioncat(), config) );
     target.setPub( publisherPublisherConverter.map( source.getPublisher(), config ) );
     target.setId( source.getId() );
     target.setName( source.getName() );
     target.setContent( contentContentConverter.map( source.getContent(), config ) );
     target.setDomain( source.getDomain() );
-    target.setCat( Utils.copyList(source.getCat(), config) );
-    target.setPagecat( Utils.copySet(source.getPagecat(), config) );
+    target.setCat( Utils.copyCollection(source.getCat(), config) );
+    target.setPagecat( Utils.copyCollection(source.getPagecat(), config) );
     target.setKeywords( source.getKeywords() );
     target.setBundle( source.getBundle() );
     target.setStoreurl( source.getStoreurl() );

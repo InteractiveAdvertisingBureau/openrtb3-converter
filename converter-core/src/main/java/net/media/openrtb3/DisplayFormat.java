@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ public class DisplayFormat {
   private Integer h;
   private Integer wratio;
   private Integer hratio;
-  private List<Integer> expdir;
+  private Collection<Integer> expdir;
   private Map<String, Object> ext;
 
   public Integer getW() {
@@ -31,7 +32,7 @@ public class DisplayFormat {
     return this.hratio;
   }
 
-  public List<Integer> getExpdir() {
+  public Collection<Integer> getExpdir() {
     return this.expdir;
   }
 
@@ -55,7 +56,7 @@ public class DisplayFormat {
     this.hratio = hratio;
   }
 
-  public void setExpdir(List<Integer> expdir) {
+  public void setExpdir(Collection<Integer> expdir) {
     this.expdir = expdir;
   }
 

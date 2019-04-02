@@ -1,5 +1,6 @@
 package net.media.openrtb3;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +11,7 @@ public class LinkAsset {
   @NotNull
   private String url;
   private String urlfb;
-  private List<String> trkr = null;
+  private Collection<String> trkr = null;
   private Map<String,Object> ext;
 
   public LinkAsset() {
@@ -20,7 +21,7 @@ public class LinkAsset {
     LinkAsset linkAsset = new LinkAsset();
     linkAsset.setUrl((String)map.get("url"));
     linkAsset.setUrlfb((String)map.get("urlfb"));
-    linkAsset.setTrkr((List<String>)map.get("trkr"));
+    linkAsset.setTrkr((Collection<String>)map.get("trkr"));
     linkAsset.setExt((Map<String,Object>)map.get("ext"));
     return linkAsset;
   }
@@ -33,7 +34,7 @@ public class LinkAsset {
     return this.urlfb;
   }
 
-  public List<String> getTrkr() {
+  public Collection<String> getTrkr() {
     return this.trkr;
   }
 
@@ -49,7 +50,7 @@ public class LinkAsset {
     this.urlfb = urlfb;
   }
 
-  public void setTrkr(List<String> trkr) {
+  public void setTrkr(Collection<String> trkr) {
     this.trkr = trkr;
   }
 

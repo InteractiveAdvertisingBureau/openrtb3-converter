@@ -1,5 +1,6 @@
 package net.media.openrtb25.request;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +16,7 @@ public class Producer {
 
   private String name;
 
-  private List<String> cat;
+  private Collection<String> cat;
 
   private String domain;
 
@@ -32,7 +33,7 @@ public class Producer {
     return this.name;
   }
 
-  public List<String> getCat() {
+  public Collection<String> getCat() {
     return this.cat;
   }
 
@@ -52,7 +53,7 @@ public class Producer {
     this.name = name;
   }
 
-  public void setCat(List<String> cat) {
+  public void setCat(Collection<String> cat) {
     this.cat = cat;
   }
 

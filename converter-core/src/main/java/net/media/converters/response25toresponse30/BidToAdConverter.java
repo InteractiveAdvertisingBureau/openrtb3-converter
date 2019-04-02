@@ -59,16 +59,16 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
       return;
     }
     target.setId( source.getCrid() );
-    target.setAdomain(Utils.copyList(source.getAdomain(),config));
+    target.setAdomain(Utils.copyCollection(source.getAdomain(),config));
     if(nonNull(source.getBundle())){
       List<String> bundle = new ArrayList<>();
       bundle.add(source.getBundle());
       target.setBundle(bundle);
     }
     target.setIurl( source.getIurl() );
-    target.setCat(Utils.copySet(source.getCat(),config));
+    target.setCat(Utils.copyCollection(source.getCat(),config));
     target.setLang(source.getLanguage());
-    target.setAttr(Utils.copyList(source.getAttr(),config));
+    target.setAttr(Utils.copyCollection(source.getAttr(),config));
     target.setMrating(source.getQagmediarating());
     Map<String, Object> map = source.getExt();
     if ( map != null ) {

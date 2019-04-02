@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import net.media.utils.validator.CheckExactlyOneNotNull;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ import javax.validation.Valid;
 public class Display {
 
   private String mime;
-  private List<Integer> api = null;
+  private Collection<Integer> api = null;
   private Integer ctype;
   private Integer w;
   private Integer h;
@@ -28,7 +29,7 @@ public class Display {
   @JsonProperty("native")
   private Native _native;
   @Valid
-  private List<Event> event = null;
+  private Collection<Event> event = null;
   private Map<String,Object> ext;
 
   public Display() {
@@ -38,7 +39,7 @@ public class Display {
     return this.mime;
   }
 
-  public List<Integer> getApi() {
+  public Collection<Integer> getApi() {
     return this.api;
   }
 
@@ -82,7 +83,7 @@ public class Display {
     return this._native;
   }
 
-  public @Valid List<Event> getEvent() {
+  public @Valid Collection<Event> getEvent() {
     return this.event;
   }
 
@@ -94,7 +95,7 @@ public class Display {
     this.mime = mime;
   }
 
-  public void setApi(List<Integer> api) {
+  public void setApi(Collection<Integer> api) {
     this.api = api;
   }
 
@@ -138,7 +139,7 @@ public class Display {
     this._native = _native;
   }
 
-  public void setEvent(@Valid List<Event> event) {
+  public void setEvent(@Valid Collection<Event> event) {
     this.event = event;
   }
 

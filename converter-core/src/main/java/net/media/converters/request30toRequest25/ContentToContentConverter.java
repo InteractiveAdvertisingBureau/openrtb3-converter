@@ -6,7 +6,7 @@ import net.media.converters.Converter;
 import net.media.openrtb3.Content;
 import net.media.openrtb3.Data;
 import net.media.openrtb3.Producer;
-import net.media.utils.ListToListConverter;
+import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -59,12 +59,12 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     target.setIsrc( source.getIsrc() );
     target.setProducer( producerProducerConverter.map( source.getProducer(), config ) );
     target.setUrl( source.getUrl() );
-    target.setCat( Utils.copyList(source.getCat(), config) );
+    target.setCat( Utils.copyCollection(source.getCat(), config) );
     target.setProdq( source.getProdq() );
     target.setContext( source.getContext() );
     target.setKeywords( source.getKeywords() );
     target.setLen( source.getLen() );
-    target.setData( ListToListConverter.convert( source.getData(), dataDataConverter, config ) );
+    target.setData( CollectionToCollectionConverter.convert( source.getData(), dataDataConverter, config ) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt( Utils.copyMap(map, config) );

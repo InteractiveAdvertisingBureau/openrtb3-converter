@@ -2,6 +2,7 @@ package net.media.openrtb3;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -19,8 +20,8 @@ public class Item {
   private Integer exp;
   private Integer dt;
   private Integer dlvy = 0;
-  private List<Metric> metric;
-  private List<Deal> deal;
+  private Collection<Metric> metric;
+  private Collection<Deal> deal;
   @JsonProperty("private")
   private Integer priv = 0;
   @NotNull
@@ -60,11 +61,11 @@ public class Item {
     return this.dlvy;
   }
 
-  public List<Metric> getMetric() {
+  public Collection<Metric> getMetric() {
     return this.metric;
   }
 
-  public List<Deal> getDeal() {
+  public Collection<Deal> getDeal() {
     return this.deal;
   }
 
@@ -112,11 +113,11 @@ public class Item {
     this.dlvy = dlvy;
   }
 
-  public void setMetric(List<Metric> metric) {
+  public void setMetric(Collection<Metric> metric) {
     this.metric = metric;
   }
 
-  public void setDeal(List<Deal> deal) {
+  public void setDeal(Collection<Deal> deal) {
     this.deal = deal;
   }
 

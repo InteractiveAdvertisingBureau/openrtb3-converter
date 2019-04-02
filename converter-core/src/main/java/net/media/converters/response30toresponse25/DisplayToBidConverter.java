@@ -12,6 +12,7 @@ import net.media.openrtb3.Display;
 import net.media.openrtb3.Native;
 import net.media.template.MacroMapper;
 import net.media.utils.JacksonObjectMapper;
+import net.media.utils.Utils;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -40,14 +41,13 @@ public class DisplayToBidConverter implements Converter<Display,Bid> {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
 
-    //bid.setAdm(display.getAdm());
-    ObjectMapper mapper = new ObjectMapper();
+    ObjectMapper mapper = Utils.getMapper();
     target.setH(source.getH());
     target.setW(source.getW());
     target.setWratio(source.getWratio());
     target.setHratio(source.getHratio());
     if(nonNull(source.getApi())  && source.getApi().size()>0)
-      target.setApi(source.getApi().get(0));
+      target.setApi(source.getApi().iterator().next());
     if(isNull(target.getExt())){
       target.setExt(new HashMap<>());
     }
