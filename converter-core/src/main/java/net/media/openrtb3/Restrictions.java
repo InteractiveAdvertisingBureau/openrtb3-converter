@@ -1,16 +1,14 @@
 package net.media.openrtb3;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-import static net.media.utils.CommonConstants.CATTAX_VERSION_THREEDOTX;
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX;
 
 public class Restrictions {
 
   private Collection<String> bcat;
-  private Integer cattax = CATTAX_VERSION_THREEDOTX;
+  private Integer cattax = DEFAULT_CATTAX;
   private Collection<String> badv;
   private Collection<String> bapp;
   private Collection<Integer> battr;
