@@ -17,7 +17,7 @@ public class Request {
   private String id;
   private Integer test;
   private Integer tmax;
-  private Integer at = 2;
+  private Integer at;
   private Collection<String> cur = new ArrayList<String>(){{add("USD");}};
   private Collection<String> seat;
   private Integer wseat = 1;
