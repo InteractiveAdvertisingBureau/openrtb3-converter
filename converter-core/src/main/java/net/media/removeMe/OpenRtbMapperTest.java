@@ -114,7 +114,7 @@ public class OpenRtbMapperTest {
     config.setBannerTemplate("");
     config.setValidate(false);
     config.setNativeRequestAsString(true);
-    config.setAdType(AdType.BANNER);
+    //config.setAdType(AdType.BANNER);
     OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
 
     byte[] jsonData = Files.readAllBytes(file.toPath());
@@ -136,7 +136,7 @@ public class OpenRtbMapperTest {
           System.out.println("invalid ad type");
           continue;
         }
-        config.setAdType(adType);
+        //config.setAdType(adType);
         OpenRTB response30 = openRtbConverter.convert(config, response.getResponse25(), BidResponse
           .class, OpenRTB.class);
         //System.out.println( objectMapper.writeValueAsString(response30));
