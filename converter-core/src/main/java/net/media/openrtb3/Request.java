@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 public class Request {
   @NotEmpty
   private String id;
-  private Integer test = 0;
+  private Integer test;
   private Integer tmax;
   private Integer at = 2;
   private Collection<String> cur = new ArrayList<String>(){{add("USD");}};
