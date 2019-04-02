@@ -18,7 +18,7 @@ public class App extends DistributionChannel {
   private String storeid;
   private String storeurl;
   private String ver;
-  private Integer paid;
+  private Integer paid = 0;
   private Map<String, Object> ext;
 
   public String getDomain() {
