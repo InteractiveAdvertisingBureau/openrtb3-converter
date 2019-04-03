@@ -2,7 +2,9 @@ package net.media.converters.request30toRequest25;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
 import net.media.openrtb3.Geo;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -10,21 +12,21 @@ import java.util.Map;
 
 public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.request.Geo> {
   @Override
-  public net.media.openrtb25.request.Geo map(Geo source, Config config) {
+  public net.media.openrtb25.request.Geo map(Geo source, Config config, Provider<Conversion, Converter> converterProvider) {
     if ( source == null ) {
       return null;
     }
 
     net.media.openrtb25.request.Geo geo1 = new net.media.openrtb25.request.Geo();
 
-    enhance(source, geo1, config );
+    enhance(source, geo1, config, converterProvider );
 
     return geo1;
   }
 
   @Override
-  public void enhance(Geo source, net.media.openrtb25.request.Geo target, Config config) {
-    if(source == null)
+  public void enhance(Geo source, net.media.openrtb25.request.Geo target, Config config, Provider<Conversion, Converter> converterProvider) {
+    if(source == null || target == null)
       return;
     target.setIpservice( source.getIpserv() );
     target.setAccuracy( source.getAccur() );

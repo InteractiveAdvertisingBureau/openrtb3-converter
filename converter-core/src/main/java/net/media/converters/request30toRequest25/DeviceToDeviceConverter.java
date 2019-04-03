@@ -1,11 +1,13 @@
 package net.media.converters.request30toRequest25;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Device;
 import net.media.openrtb3.Geo;
 import net.media.utils.OsMap;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -13,36 +15,31 @@ import java.util.Map;
 
 public class DeviceToDeviceConverter implements Converter<Device, net.media.openrtb25.request.Device> {
 
-  private Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter;
-
-  @java.beans.ConstructorProperties({"geoGeoConverter"})
-  public DeviceToDeviceConverter(Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter) {
-    this.geoGeoConverter = geoGeoConverter;
-  }
-
   @Override
-  public net.media.openrtb25.request.Device map(Device source, Config config) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.Device map(Device source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
 
     net.media.openrtb25.request.Device device1 = new net.media.openrtb25.request.Device();
 
-    enhance( source, device1, config );
+    enhance( source, device1, config, converterProvider );
 
     return device1;
   }
 
   @Override
-  public void enhance(Device source, net.media.openrtb25.request.Device target, Config config)
+  public void enhance(Device source, net.media.openrtb25.request.Device target, Config config, Provider<Conversion, Converter> converterProvider)
     throws OpenRtbConverterException {
-    if(source == null)
+    if(source == null || target == null)
       return;
+    Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter =
+      converterProvider.fetch(new Conversion(Geo.class, net.media.openrtb25.request.Geo.class));
     target.setLanguage( source.getLang() );
     target.setConnectiontype( source.getContype() );
     target.setDevicetype( source.getType() );
     target.setUa( source.getUa() );
-    target.setGeo( geoGeoConverter.map( source.getGeo(), config ) );
+    target.setGeo( geoGeoConverter.map( source.getGeo(), config, converterProvider ) );
     if ( source.getDnt() != null ) {
       target.setDnt( Integer.parseInt( source.getDnt() ) );
     }
