@@ -1,13 +1,25 @@
 cases:
- - inputFile: master.json
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
    inputEdits:
-     c.d: "\"1\""
-     c.f: 2
-   outputFile:
+     id: 2
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
    outputEdits:
-     c.d.e: 2
-     m.n.k: 3
-   purpose: VALID_BIDDER
+     request.item[0].id: 2
+   purpose: idIntFormat
+   params:
+     adType: m
+     yaar: e
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"ab\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "\"ab\""
+   purpose: idStringFormat
    params:
      adType: m
      yaar: e
