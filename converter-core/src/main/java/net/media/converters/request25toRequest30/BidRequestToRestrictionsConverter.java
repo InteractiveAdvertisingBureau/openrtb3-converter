@@ -13,6 +13,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+
 public class BidRequestToRestrictionsConverter implements Converter<BidRequest, Restrictions> {
   @Override
   public Restrictions map(BidRequest source, Config config) throws OpenRtbConverterException{
@@ -59,6 +61,8 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
       if (source.getExt().containsKey("cattax")) {
         target.setCattax((Integer) source.getExt().get("cattax"));
         source.getExt().remove("cattax");
+      } else {
+        target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
       if (source.getExt().containsKey("restrictionsExt")) {
         target.setExt((Map<String, Object>) source.getExt().get("restrictionsExt"));

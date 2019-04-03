@@ -9,6 +9,8 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+
 public class ProducerToProducerConverter implements Converter<Producer, net.media.openrtb3.Producer> {
   @Override
   public net.media.openrtb3.Producer map(Producer source, Config config) throws OpenRtbConverterException {
@@ -38,9 +40,14 @@ public class ProducerToProducerConverter implements Converter<Producer, net.medi
     if(source.getExt() == null)
       return;
     try {
-      target.setCattax((Integer) source.getExt().get("cattax"));
+      if (source.getExt().containsKey("cattax")) {
+        target.setCattax((Integer) source.getExt().get("cattax"));
+      } else {
+        target.setCattax(DEFAULT_CATTAX_TWODOTX);
+      }
       target.getExt().remove("cattax");
     } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Producer", e);    }
+      throw new OpenRtbConverterException("error while typecasting ext for Producer", e);
+    }
   }
 }

@@ -12,6 +12,8 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+
 public class ContentToContentConverter implements Converter<Content, net.media.openrtb3.Content> {
 
   private Converter<Producer, net.media.openrtb3.Producer> producerProducerConverter;
@@ -72,7 +74,11 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     if(source.getExt() == null)
       return;
     try {
-      target.setCattax((Integer) source.getExt().get("cattax"));
+      if (source.getExt().containsKey("cattax")) {
+        target.setCattax((Integer) source.getExt().get("cattax"));
+      } else {
+        target.setCattax(DEFAULT_CATTAX_TWODOTX);
+      }
       target.getExt().remove("cattax");
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Content", e);
