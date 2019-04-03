@@ -1,10 +1,11 @@
 package net.media.openrtb3;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 import javax.validation.constraints.NotNull;
+
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_THREEDOTX;
 
 public class Producer {
   @NotNull
@@ -12,7 +13,7 @@ public class Producer {
   private String name;
   private String domain;
   private Collection<String> cat;
-  private Integer cattax;
+  private Integer cattax = DEFAULT_CATTAX_THREEDOTX;
   private Map<String, Object> ext;
 
   public @NotNull String getId() {
