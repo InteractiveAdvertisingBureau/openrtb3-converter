@@ -1,5 +1,6 @@
 package net.media.converters.request30toRequest25;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -7,6 +8,7 @@ import net.media.openrtb3.Content;
 import net.media.openrtb3.Data;
 import net.media.openrtb3.Producer;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -14,33 +16,28 @@ import java.util.Map;
 
 public class ContentToContentConverter implements Converter<Content, net.media.openrtb25.request.Content> {
 
-  private Converter<Producer, net.media.openrtb25.request.Producer> producerProducerConverter;
-  private Converter<Data, net.media.openrtb25.request.Data> dataDataConverter;
-
-  @java.beans.ConstructorProperties({"producerProducerConverter", "dataDataConverter"})
-  public ContentToContentConverter(Converter<Producer, net.media.openrtb25.request.Producer> producerProducerConverter, Converter<Data, net.media.openrtb25.request.Data> dataDataConverter) {
-    this.producerProducerConverter = producerProducerConverter;
-    this.dataDataConverter = dataDataConverter;
-  }
-
   @Override
-  public net.media.openrtb25.request.Content map(Content source, Config config) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.Content map(Content source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
 
     net.media.openrtb25.request.Content content1 = new net.media.openrtb25.request.Content();
 
-    enhance( source, content1, config );
+    enhance( source, content1, config, converterProvider );
 
     return content1;
   }
 
   @Override
-  public void enhance(Content source, net.media.openrtb25.request.Content target, Config config)
+  public void enhance(Content source, net.media.openrtb25.request.Content target, Config config, Provider<Conversion, Converter> converterProvider)
     throws OpenRtbConverterException {
-    if(source == null)
+    if(source == null || target == null)
       return;
+    Converter<Producer, net.media.openrtb25.request.Producer> producerProducerConverter =
+      converterProvider.fetch(new Conversion(Producer.class, net.media.openrtb25.request.Producer.class));
+    Converter<Data, net.media.openrtb25.request.Data> dataDataConverter =
+      converterProvider.fetch(new Conversion(Data.class, net.media.openrtb25.request.Data.class));
     target.setContentrating( source.getRating() );
     target.setSourcerelationship( source.getSrcrel() );
     target.setUserrating( source.getUrating() );
@@ -57,7 +54,7 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     target.setGenre( source.getGenre() );
     target.setAlbum( source.getAlbum() );
     target.setIsrc( source.getIsrc() );
-    target.setProducer( producerProducerConverter.map( source.getProducer(), config ) );
+    target.setProducer( producerProducerConverter.map( source.getProducer(), config, converterProvider ) );
     target.setUrl( source.getUrl() );
     target.setCat( Utils.copyCollection(source.getCat(), config) );
     target.setProdq( source.getProdq() );
