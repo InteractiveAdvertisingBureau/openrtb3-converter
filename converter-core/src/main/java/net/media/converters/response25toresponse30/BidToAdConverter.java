@@ -18,6 +18,7 @@ import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
 /**
  * @author shiva.b
@@ -85,14 +86,19 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
         target.getExt().remove("lastMod");
         target.setMrating((Integer) ext.get("mrating"));
         target.getExt().remove("mrating");
-        target.setCattax((Integer) ext.get("cattax"));
+        if(ext.containsKey("cattax")) {
+          target.setCattax((Integer) ext.get("cattax"));
+        }
+        else {
+          target.setCattax(DEFAULT_CATTAX_TWODOTX);
+        }
         target.getExt().remove("cattax");
       }
     }
     catch (Exception e) {
       throw new OpenRtbConverterException("error while type casting ext in bid", e);
     }
-    switch (config.getAdType()) {
+    switch (config.getAdType(source.getId())) {
       case BANNER:
       case NATIVE:
         target.setDisplay(bidDisplayConverter.map(source, config));

@@ -1,8 +1,9 @@
 package net.media.openrtb3;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
+
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_THREEDOTX;
 
 public class Content {
 
@@ -17,7 +18,7 @@ public class Content {
   private String isrc;
   private String url;
   private Collection<String> cat;
-  private Integer cattax;
+  private Integer cattax = DEFAULT_CATTAX_THREEDOTX;
   private Integer prodq;
   private Integer context;
   private String rating;

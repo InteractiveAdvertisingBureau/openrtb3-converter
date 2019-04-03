@@ -13,9 +13,12 @@ import javax.validation.constraints.NotNull;
 
 @CheckExactlyOneNotNull(fieldNames = {"title", "img", "video", "data"})
 public class AssetFormat {
+
+  private static final Integer DEFAULT_REQUIRED = 0;
+
   @NotNull
   private Integer id;
-  private Integer req;
+  private Integer req = DEFAULT_REQUIRED;
   @Valid
   private TitleAssetFormat title;
   private ImageAssetFormat img;

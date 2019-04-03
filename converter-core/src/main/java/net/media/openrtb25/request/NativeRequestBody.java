@@ -8,8 +8,6 @@ import javax.validation.constraints.NotEmpty;
 
 public class NativeRequestBody {
 
-  public static final Integer DEFAULT_NATIVE_PLCMTCNT = 1;
-
   private String ver = Native.DEFAULT_NATIVE_VERSION;
 
   private Integer layout;

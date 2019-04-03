@@ -14,9 +14,8 @@ import javax.validation.constraints.NotEmpty;
 @CheckAtLeastOneNotNull(fieldNames = {"video", "banner", "nat", "audio"})
 public class Imp {
 
-  public static final Integer DEFAULT_INTERSTITIAL = null;
-  public static final int MINIMUM_POS_VALUE = 0;
-  public static final int MAXIMUM_POS_VALUE = 7;
+
+  private static final double DEFAULT_BIDFLOOR = 0.0;
 
   private String id;
 
@@ -36,9 +35,9 @@ public class Imp {
 
   private String displaymanagerver;
 
-  private Integer instl = DEFAULT_INTERSTITIAL;
+  private Integer instl;
 
-  private double bidfloor;
+  private double bidfloor = DEFAULT_BIDFLOOR;
 
   private String bidfloorcur;
 

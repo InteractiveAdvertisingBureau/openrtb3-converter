@@ -12,12 +12,15 @@ import javax.validation.constraints.NotEmpty;
  */
 
 public class VideoPlacement {
+
+  private static final Integer DEFAULT_UNITS = 1;
+
   private Integer ptype;
   private Integer pos;
   private Integer delay;
   private Integer skip;
-  private Integer skipmin = 0;
-  private Integer skipafter = 0;
+  private Integer skipmin;
+  private Integer skipafter;
   private Integer playmethod;
   private Integer playend;
   private Integer clktype;
@@ -27,7 +30,7 @@ public class VideoPlacement {
   private Collection<Integer> ctype;
   private Integer w;
   private Integer h;
-  private Integer unit = 1;
+  private Integer unit = DEFAULT_UNITS;
   private Integer mindur;
   private Integer maxdur;
   private Integer maxext = 0;
@@ -36,7 +39,7 @@ public class VideoPlacement {
   private Collection<Integer> delivery;
   private Integer maxseq;
   private Integer linear;
-  private Integer boxing = 1;
+  private Integer boxing;
   private Collection<Companion> comp;
   private Collection<Integer> comptype;
   private Map<String, Object> ext;

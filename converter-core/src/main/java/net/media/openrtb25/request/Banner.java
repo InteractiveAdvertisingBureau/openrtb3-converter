@@ -11,10 +11,6 @@ import java.util.Set;
  */
 public class Banner {
 
-  public static final Collection<Integer> DEFAULT_MIME_TYPES = Arrays.asList(1, 2, 4);
-
-  public static final Integer DEFAULT_BANNER_POSITION = 1;
-
   private Integer w;
 
   private Integer h;

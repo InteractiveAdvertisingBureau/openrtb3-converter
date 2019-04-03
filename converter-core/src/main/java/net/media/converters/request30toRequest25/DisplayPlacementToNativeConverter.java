@@ -56,9 +56,13 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       nativeRequest.getNativeRequestBody().setContext(displayPlacement.getContext());
       nativeRequest.getNativeRequestBody().setPlcmttype(displayPlacement.getPtype());
       if (nonNull(displayPlacement.getExt())) {
-        nativeRequest.getNativeRequestBody().setContextsubtype((Integer) displayPlacement.getExt
-          ().get("contextsubtype"));
-        displayPlacement.getExt().remove("contextsubtype");
+        try {
+          nativeRequest.getNativeRequestBody().setContextsubtype((Integer) displayPlacement.getExt
+            ().get("contextsubtype"));
+          displayPlacement.getExt().remove("contextsubtype");
+        } catch (ClassCastException e) {
+          throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+        }
       }
     }
     nat.setApi(Utils.copyCollection(displayPlacement.getApi(), config));
@@ -67,8 +71,12 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
         nat.setExt(new HashMap<>());
       }
       nat.getExt().putAll(displayPlacement.getExt());
-      nat.setVer((String) displayPlacement.getExt().get("nativeversion"));
-      nat.getExt().remove("nativeversion");
+      try {
+        nat.setVer((String) displayPlacement.getExt().get("nativeversion"));
+        nat.getExt().remove("nativeversion");
+      } catch (ClassCastException e) {
+        throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+      }
     }
     if (config.getNativeRequestAsString()) {
       try {
@@ -79,16 +87,20 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     } else {
       nat.setRequest(nativeRequest);
     }
+    try {
+      if (displayPlacement.getPriv() != null) {
+        if (nat.getExt() == null)
+          nat.setExt(new HashMap<>());
+        nat.getExt().put("priv", displayPlacement.getPriv());
+      }
+      if (displayPlacement.getCtype() != null) {
+        if (nat.getExt() == null)
+          nat.setExt(new HashMap<>());
+        nat.getExt().put("ctype", displayPlacement.getCtype());
+      }
+    } catch(ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+    }
     nat.setExt(Utils.copyMap(displayPlacement.getExt(), config));
-    if(displayPlacement.getPriv() != null) {
-      if(nat.getExt() == null)
-        nat.setExt(new HashMap<>());
-      nat.getExt().put("priv", displayPlacement.getPriv());
-    }
-    if(displayPlacement.getCtype() != null) {
-      if(nat.getExt() == null)
-        nat.setExt(new HashMap<>());
-      nat.getExt().put("ctype", displayPlacement.getCtype());
-    }
   }
 }

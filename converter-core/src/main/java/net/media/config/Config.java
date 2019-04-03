@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 import java.net.URL;
+import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -21,7 +22,6 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
  * @author shiva.b
  */
 
-
 public class Config {
 
   private static final boolean DEFAULT_NATIVE_REQUEST_AS_STRING = true;
@@ -31,6 +31,8 @@ public class Config {
   private static final boolean DEFAULT_DISABLE_CLONING = false;
 
   private static final boolean DEFAULT_VALIDATE = true;
+
+  private static final AdType DEFAULT_AD_TYPE = AdType.BANNER;
 
   private static final String DEFAULT_BANNER_TEMPLATE;
   static {
@@ -55,7 +57,7 @@ public class Config {
   /**
    * {@link AdType} provides the adType for response conversion
    */
-  private AdType adType;
+  private Map<String, AdType> adTypeMapping;
 
   private Boolean disableCloning;
   /**
@@ -66,7 +68,7 @@ public class Config {
   public Config(Config oldConfig) {
     this.bannerTemplate = oldConfig.bannerTemplate;
     this.nativeRequestAsString = oldConfig.nativeRequestAsString;
-    this.adType = oldConfig.adType;
+    this.adTypeMapping = oldConfig.adTypeMapping;
     this.validate = oldConfig.validate;
     this.disableCloning = oldConfig.disableCloning;
   }
@@ -84,7 +86,7 @@ public class Config {
       .bannerTemplate;
     this.nativeRequestAsString = isNull(this.nativeRequestAsString) ? config
       .nativeRequestAsString : this.nativeRequestAsString;
-    this.adType = isNull(this.adType) ? config.adType : this.adType;
+    this.adTypeMapping = isNull(this.adTypeMapping) ? config.adTypeMapping : this.adTypeMapping;
     this.validate = isNull(this.validate) ? config.validate : this.validate;
     this.disableCloning = isNull(this.disableCloning) ? config.getDisableCloning() : this
       .disableCloning;
@@ -277,8 +279,11 @@ public class Config {
     return support.toYAML(this);
   }
 
-  public AdType getAdType() {
-    return this.adType;
+  public AdType  getAdType(String impressionId) {
+    if (isNull(adTypeMapping) || !adTypeMapping.containsKey(impressionId)) {
+      return DEFAULT_AD_TYPE;
+    }
+    return adTypeMapping.get(impressionId);
   }
 
   public Boolean getDisableCloning() {
@@ -293,8 +298,8 @@ public class Config {
     this.nativeResponseAsString = nativeResponseAsString;
   }
 
-  public void setAdType(AdType adType) {
-    this.adType = adType;
+  public void setAdTypeMapping(Map<String, AdType> adTypeMapping) {
+    this.adTypeMapping = adTypeMapping;
   }
 
   public void setDisableCloning(Boolean disableCloning) {
@@ -303,6 +308,11 @@ public class Config {
 
   public void setValidate(Boolean validate) {
     this.validate = validate;
+  }
+
+
+  protected boolean canEqual(Object other) {
+    return other instanceof Config;
   }
 
   public boolean equals(Object o) {
@@ -322,9 +332,9 @@ public class Config {
     final Object other$nativeResponseAsString = other.getNativeResponseAsString();
     if (this$nativeResponseAsString == null ? other$nativeResponseAsString != null : !this$nativeResponseAsString.equals(other$nativeResponseAsString))
       return false;
-    final Object this$adType = this.getAdType();
-    final Object other$adType = other.getAdType();
-    if (this$adType == null ? other$adType != null : !this$adType.equals(other$adType))
+    final Object this$adTypeMapping = this.adTypeMapping;
+    final Object other$adTypeMapping = other.adTypeMapping;
+    if (this$adTypeMapping == null ? other$adTypeMapping != null : !this$adTypeMapping.equals(other$adTypeMapping))
       return false;
     final Object this$disableCloning = this.getDisableCloning();
     final Object other$disableCloning = other.getDisableCloning();
@@ -346,8 +356,8 @@ public class Config {
     result = result * PRIME + ($nativeRequestAsString == null ? 43 : $nativeRequestAsString.hashCode());
     final Object $nativeResponseAsString = this.getNativeResponseAsString();
     result = result * PRIME + ($nativeResponseAsString == null ? 43 : $nativeResponseAsString.hashCode());
-    final Object $adType = this.getAdType();
-    result = result * PRIME + ($adType == null ? 43 : $adType.hashCode());
+    final Object $adTypeMapping = this.adTypeMapping;
+    result = result * PRIME + ($adTypeMapping == null ? 43 : $adTypeMapping.hashCode());
     final Object $disableCloning = this.getDisableCloning();
     result = result * PRIME + ($disableCloning == null ? 43 : $disableCloning.hashCode());
     final Object $validate = this.getValidate();
@@ -355,11 +365,7 @@ public class Config {
     return result;
   }
 
-  protected boolean canEqual(Object other) {
-    return other instanceof Config;
-  }
-
   public String toString() {
-    return "net.media.config.Config(bannerTemplate=" + this.getBannerTemplate() + ", nativeRequestAsString=" + this.getNativeRequestAsString() + ", nativeResponseAsString=" + this.getNativeResponseAsString() + ", adType=" + this.getAdType() + ", disableCloning=" + this.getDisableCloning() + ", validate=" + this.getValidate() + ")";
+    return "net.media.config.Config(bannerTemplate=" + this.getBannerTemplate() + ", nativeRequestAsString=" + this.getNativeRequestAsString() + ", nativeResponseAsString=" + this.getNativeResponseAsString() + ", adTypeMapping=" + this.adTypeMapping + ", disableCloning=" + this.getDisableCloning() + ", validate=" + this.getValidate() + ")";
   }
 }

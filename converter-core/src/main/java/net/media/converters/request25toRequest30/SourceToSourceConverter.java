@@ -2,6 +2,7 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Source;
 import net.media.utils.Utils;
 
@@ -13,7 +14,7 @@ import java.util.Map;
  */
 public class SourceToSourceConverter implements Converter<Source, net.media.openrtb3.Source> {
   @Override
-  public net.media.openrtb3.Source map(Source source, Config config) {
+  public net.media.openrtb3.Source map(Source source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -26,7 +27,7 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
   }
 
   @Override
-  public void enhance(Source source, net.media.openrtb3.Source target, Config config) {
+  public void enhance(Source source, net.media.openrtb3.Source target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setTid( source.getTid() );
@@ -42,16 +43,19 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
     }
     if(source.getExt() == null)
       return;
-    target.setTs((Integer) source.getExt().get("ts"));
-    target.setDs((String) source.getExt().get("ds"));
-    target.setDsmap((String) source.getExt().get("dsMap"));
-    target.setCert((String) source.getExt().get("cert"));
-    target.setDigest((String) source.getExt().get("digest"));
-    target.getExt().remove("ts");
-    target.getExt().remove("ds");
-    target.getExt().remove("dsMap");
-    target.getExt().remove("cert");
-    target.getExt().remove("digest");
+    try {
+      target.setTs((Integer) source.getExt().get("ts"));
+      target.setDs((String) source.getExt().get("ds"));
+      target.setDsmap((String) source.getExt().get("dsMap"));
+      target.setCert((String) source.getExt().get("cert"));
+      target.setDigest((String) source.getExt().get("digest"));
+      target.getExt().remove("ts");
+      target.getExt().remove("ds");
+      target.getExt().remove("dsMap");
+      target.getExt().remove("cert");
+      target.getExt().remove("digest");
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for Source", e);    }
 
   }
 }

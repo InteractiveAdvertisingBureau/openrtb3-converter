@@ -9,10 +9,14 @@ import java.util.Map;
  */
 
 public class AudioPlacement {
+
+  private static Integer DEFAULT_SKIPMIN = 0;
+  private static Integer DEFAULT_SKIPAFTER = 0;
+
   private Integer delay;
   private Integer skip;
-  private Integer skipmin = 0;
-  private Integer skipafter = 0;
+  private Integer skipmin = DEFAULT_SKIPMIN;
+  private Integer skipafter = DEFAULT_SKIPAFTER;
   private Integer playmethod;
   private Integer playend;
   private Integer feed;

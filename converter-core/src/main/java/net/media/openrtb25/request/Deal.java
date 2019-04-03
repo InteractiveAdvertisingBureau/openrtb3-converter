@@ -12,10 +12,13 @@ import java.util.Map;
  * Created by vishnu on 6/5/16.
  */
 public class Deal {
+
+  private static final double DEFAULT_BIDFLOOR = 0.0;
+
   private String id;
 
   @JsonProperty("bidfloor")
-  private double bidFloor;
+  private double bidFloor = DEFAULT_BIDFLOOR;
 
   @JsonProperty("bidfloorcur")
   private String bidFloorCur;
@@ -33,9 +36,8 @@ public class Deal {
     return bidFloorCur;
   }
 
-  //Couldn't find a reliable default setting annotation
   public void setBidFloorCur(String bidFloorCur) {
-    this.bidFloorCur = StringUtils.isBlank(bidFloorCur) ? "USD" : bidFloorCur;
+    this.bidFloorCur = bidFloorCur;
   }
 
   public String getId() {
