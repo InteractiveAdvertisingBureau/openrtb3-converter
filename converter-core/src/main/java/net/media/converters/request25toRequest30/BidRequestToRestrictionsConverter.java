@@ -2,9 +2,11 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
 import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb3.Restrictions;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.Collection;
@@ -14,27 +16,25 @@ import java.util.Set;
 
 public class BidRequestToRestrictionsConverter implements Converter<BidRequest, Restrictions> {
   @Override
-  public Restrictions map(BidRequest source, Config config) {
+  public Restrictions map(BidRequest source, Config config, Provider<Conversion, Converter> converterProvider) {
     if ( source == null ) {
       return null;
     }
 
     Restrictions restrictions = new Restrictions();
 
-    enhance( source, restrictions, config );
+    enhance( source, restrictions, config, converterProvider );
 
     return restrictions;
   }
 
   @Override
-  public void enhance(BidRequest source, Restrictions target, Config config) {
-    if(source == null)
+  public void enhance(BidRequest source, Restrictions target, Config config, Provider<Conversion, Converter> converterProvider) {
+    if(source == null || target == null)
       return;
     target.setBapp( Utils.copyCollection(source.getBapp(), config) );
     target.setBcat( Utils.copyCollection(source.getBcat(), config) );
     target.setBadv( Utils.copyCollection(source.getBadv(), config) );
-    if(source == null)
-      return;
     if(source.getImp() == null)
       return;
     if(source.getImp().size() == 0)
