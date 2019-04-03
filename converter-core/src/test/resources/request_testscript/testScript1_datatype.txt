@@ -8,34 +8,25 @@ cases:
    outputEdits:
      request.item[0].id: 2
    purpose: idIntFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     id: "ab"
+     id: "\"ab\""
    outputFile: BANNER30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     at: "ab"
+     at: "\"ab\""
    outputFile: BANNER30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].at: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      at: 1
@@ -44,10 +35,7 @@ cases:
    outputEdits:
      request.item[0].at: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      test: 1
@@ -56,22 +44,16 @@ cases:
    outputEdits:
      request.item[0].test: 1
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     test: "a"
+     test: "\"a\""
    outputFile: BANNER30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].test: "a"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      tmax: 1
@@ -80,10 +62,7 @@ cases:
    outputEdits:
      request.item[0].tmax: 1
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      tmax: "\"as\""
@@ -92,10 +71,7 @@ cases:
    outputEdits:
      request.item[0].tmax: "as"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      wseat[0]: 1
@@ -104,10 +80,7 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      wseat[0]: "\"aa\""
@@ -116,21 +89,25 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     wseat[0]: "\"aa\""
+     wseat[1]: "\"bb\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
     inputType: "REQUEST25"
     inputEdits:
-      wseat: "\"aa\""
+      wseat: 1
     outputFile: BANNER30.json
     outputType: "REQUEST30"
     outputEdits:
       request.item[0].id: "ab"
     purpose: idStringFormat
-    params:
-      adType: m
-      yaar: e
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -140,10 +117,7 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      bseat[0]: "\"string\""
@@ -152,21 +126,25 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     bseat[0]: "\"string\""
+     bseat[1]: "\"string2\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
     inputType: "REQUEST25"
     inputEdits:
-      bseat: "\"string\""
+      bseat: 1
     outputFile: BANNER30.json
     outputType: "REQUEST30"
     outputEdits:
       request.item[0].id: "ab"
     purpose: idStringFormat
-    params:
-      adType: m
-      yaar: e
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -176,10 +154,7 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      allimps: "\"dd\""
@@ -188,10 +163,7 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      wlang[0]: "\"en\""
@@ -200,10 +172,7 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
     inputType: "REQUEST25"
     inputEdits:
       wlang[0]: "\"en\""
@@ -213,9 +182,6 @@ cases:
     outputEdits:
       request.item[0].id: "ab"
     purpose: idStringFormat
-    params:
-      adType: m
-      yaar: e
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -225,10 +191,7 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      wlang: 1
@@ -237,10 +200,7 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      bcat[0]: "\"as\""
@@ -249,10 +209,7 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      bcat[0]: "\"as\""
@@ -262,9 +219,6 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -274,10 +228,7 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      bcat: 4
@@ -286,9 +237,6 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -298,10 +246,7 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      badv[0]: "\"as\""
@@ -311,9 +256,6 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -323,10 +265,7 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      badv[0]: 44
@@ -335,9 +274,6 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -347,10 +283,7 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      bapp[0]: "\"as\""
@@ -360,9 +293,6 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -372,10 +302,7 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
+- inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      bapp: 44
@@ -384,9 +311,187 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     source.fd: 1
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     source.fd: "\"dd\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     source.tid: 1
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     source.tid: "\"ff\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     source.pchain: "\"ff\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     source.pchain: 22
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     regs.coppa: 1
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     regs.coppa: "\"1\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     cur[0]: "\"USD\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     cur[0]: "\"USD\""
+     cur[1]: "\"EUR\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     cur[0]: 1
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     cur: 1
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.ua: 1
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.ua: "\"eew\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.ip: "\"123.145.167.10\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.ip: 1
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.dnt: "\"eew\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.dnt: 1
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.lmt: "\"eew\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+- inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.lmt: 1
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -396,21 +501,6 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -420,21 +510,6 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -444,21 +519,6 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -468,21 +528,6 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -492,21 +537,6 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -516,21 +546,6 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -540,21 +555,6 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -564,21 +564,6 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -588,21 +573,6 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
 - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -612,138 +582,3 @@ cases:
    outputEdits:
      request.item[0].id: "ab"
    purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
-- inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
-- inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
-- inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
-- inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
-- inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "ab"
-   purpose: idStringFormat
-   params:
-     adType: m
-     yaar: e
