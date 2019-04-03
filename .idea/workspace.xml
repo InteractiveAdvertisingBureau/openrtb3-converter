@@ -2,28 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8daf70d7-4061-460d-b027-809fd53ae728" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_APP_23.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_APP_24.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_APP_30.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_SITE_30.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_23.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_24.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_25.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_30.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_SITE_23.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_SITE_24.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_SITE_25.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_SITE_30.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_APP_23.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_APP_24.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_APP_25.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_APP_30.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_23.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_24.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_25.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_30.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_SITE_25.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_SITE_25.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/java/net.media/TestCaseGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/java/net.media/TestCaseGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/edits/sample_edits.txt" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/response_testscript/sample_edits.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER30.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER30.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_APP_23.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_APP_23.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_APP_24.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_APP_24.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_APP_25.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_APP_25.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_APP_30.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_APP_30.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_SITE_23.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_SITE_23.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_SITE_24.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_SITE_24.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_SITE_25.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_SITE_25.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_SITE_30.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_SITE_30.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/MASTER.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_23.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_APP_23.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_24.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_APP_24.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_25.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_APP_25.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_30.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_APP_30.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_SITE_23.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_SITE_23.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_SITE_24.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_SITE_24.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_SITE_25.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_SITE_25.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_SITE_30.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_SITE_30.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_APP_23.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_APP_23.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_APP_24.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_APP_24.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_APP_25.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_APP_25.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_APP_30.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_APP_30.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_23.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_23.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_24.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_24.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_25.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_25.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_30.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_30.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/sample_edits1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/request_testscript/testScript1_datatype.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/converter-bechmark/target/" />
     <ignored path="$PROJECT_DIR$/converter-api/target/" />
@@ -41,52 +49,90 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_APP_23.json">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_SITE_25.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="378" column="6" selection-start-line="378" selection-start-column="6" selection-end-line="378" selection-end-column="6" />
+              <folding>
+                <element signature="n#!!block;n#source#0;n#!!top" />
+                <element signature="n#!!block;n#regs#0;n#!!top" />
+                <element signature="n#!!block;n#ext#0;n#!!top" />
+                <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!top" />
+                <element signature="n#!!block;n#publisher#0;n#!!block;n#site#0;n#!!top" />
+                <element signature="n#!!block;n#ext#0;n#!!block;n#publisher#0;n#!!block;n#site#0;n#!!top" />
+                <element signature="n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#publisher#0;n#!!block;n#site#0;n#!!top" />
+                <element signature="n#!!block;n#producer#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+                <element signature="n#!!block;n#ext#0;n#!!block;n#producer#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+                <element signature="e#4217#5044#0" />
+                <element signature="n#!!block;n#ext#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+                <element signature="n#!!block;n#ext#0;n#!!block;n#site#0;n#!!top" />
+                <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#site#0;n#!!top" />
+                <element signature="n#!!block;n#device#0;n#!!top" />
+                <element signature="n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+                <element signature="n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+                <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+                <element signature="n#!!block;n#ext#0;n#!!block;n#device#0;n#!!top" />
+                <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#device#0;n#!!top" />
+                <element signature="n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+                <element signature="n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+                <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+                <element signature="e#7974#8280#0" />
+                <element signature="e#8303#8585#0" />
+                <element signature="n#!!block;n#ext#0;n#!!block;n#user#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_SITE_24.json">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_23.json">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_SITE_30.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="260" column="3" selection-start-line="260" selection-start-column="3" selection-end-line="260" selection-end-column="3" />
+              <folding>
+                <element signature="n#!!block;n#source#0;n#!!block;n#request#0;n#!!top" />
+                <element signature="e#394#1923#0" />
+                <element signature="n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+                <element signature="n#!!block;n#ext#0;n#!!block;n#request#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_APP_23.json">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_24.json">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_APP_25.json">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_25.json">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_APP_30.json">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_30.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_SITE_23.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_SITE_24.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_30.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_25.json">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/response_testscript/sample_edits.txt">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_24.json">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/request_testscript/testScript1_datatype.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-6803" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_24.json">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -206,30 +252,7 @@
               <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="net.media" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="edits" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -245,7 +268,15 @@
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="master" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="request_testscript" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="response_testscript" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -259,7 +290,7 @@
     <property name="SearchEverywhereHistoryKey" value="Disp&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Display.java&#10;Ad&#9;PSI&#9;JAVA://net.media.openrtb3.Ad&#10;bid&#9;PSI&#9;JAVA://net.media.openrtb3.Bid&#10;Bid&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAdConverter.java&#10;Ope&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/mapper/OpenRtb24To3Mapper.java&#10;ope&#9;PSI&#9;JAVA://net.media.mapper.OpenRtb24To3Mapper&#10;open&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/OpenRtbConverter.java&#10;Bid24&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid24ToBid30Converter.java&#10;SeatBid&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Seatbid.java&#10;Bidto&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToDisplayConverter.java&#10;Dis&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response30toresponse25/DisplayToBidConverter.java&#10;banner&#9;PSI&#9;JAVA://net.media.openrtb3.Banner&#10;openrt&#9;PSI&#9;JAVA://net.media.OpenRtbConverter&#10;OPen&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/OpenRtbConverter.java&#10;Sea&#9;PSI&#9;JAVA://net.media.openrtb3.Seatbid&#10;Seat&#9;PSI&#9;JAVA://net.media.openrtb25.response.SeatBid&#10;ad&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Ad.java&#10;video&#9;PSI&#9;JAVA://net.media.openrtb3.Video&#10;confi&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/config/Config.java&#10;Open&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/mapper/OpenRtb24To3Mapper.java&#10;OpenRt&#9;PSI&#9;JAVA://net.media.mapper.OpenRtb24To3Mapper&#10;jac&#9;PSI&#9;JAVA://net.media.util.JacksonObjectMapper&#10;bidto&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToVideoConverter.java&#10;bidtoVide&#9;PSI&#9;JAVA://net.media.converters.response25toresponse30.BidToVideoConverter&#10;bidtoA&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAdConverter.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554283955339" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554285813731" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -271,6 +302,8 @@
       <recent name="$PROJECT_DIR$/converter-core/src/test/resources" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/converter-core/src/test/resources/request_testscript" />
+      <recent name="$PROJECT_DIR$/converter-core/src/test/resources" />
       <recent name="$PROJECT_DIR$/converter-core/src/test/resources/master" />
       <recent name="$PROJECT_DIR$/converter-core/src/test/resources/edits" />
     </key>
@@ -440,7 +473,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3352181" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -450,7 +482,7 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32876712" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39918116" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -519,7 +551,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/converter-core/src/test/java/net.media/TestCaseGenerator.java</url>
-          <line>79</line>
+          <line>76</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
@@ -531,19 +563,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/resources/30To25ResponseVideo.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1382">
-          <caret line="258" column="22" selection-start-line="258" selection-start-column="22" selection-end-line="258" selection-end-column="22" />
-          <folding>
-            <element signature="e#110#9752#0" expanded="false" />
-            <element signature="e#11741#12325#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/resources/admTemplate.properties" />
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Asset30ToAsset25Converter.java" />
     <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/NativeFormatToNativeRequestBodyConverter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
@@ -588,9 +607,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/native25To30.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/MASTER.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/converter-api/src/main/java/net/media/api/servlets/ConverterServlet.java">
@@ -656,7 +672,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/sample_edits.txt">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/request_testscript/sample_edits.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
@@ -670,35 +686,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/sample_edits1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_SITE_25.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_SITE_25.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_23.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_23.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_APP_25.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_APP_25.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_APP_24.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_APP_24.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_APP_23.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_APP_23.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_APP_30.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_APP_30.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_SITE_30.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_SITE_30.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER30.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER30.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-952">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
@@ -709,23 +718,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_SITE_30.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="262" lean-forward="true" selection-start-line="262" selection-end-line="262" />
-          <folding>
-            <element signature="n#!!block;n#source#0;n#!!block;n#request#0;n#!!top" />
-            <element signature="e#394#1923#0" />
-            <element signature="n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
-            <element signature="n#!!block;n#ext#0;n#!!block;n#request#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_SITE_23.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_SITE_25.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_APP_24.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_APP_23.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_APP_24.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_APP_25.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_APP_30.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_SITE_23.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_SITE_24.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_30.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_25.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_24.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_SITE_24.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_SITE_25.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="229" column="22" selection-start-line="229" selection-start-column="22" selection-end-line="229" selection-end-column="22" />
+        <state relative-caret-position="190">
+          <caret line="378" column="6" selection-start-line="378" selection-start-column="6" selection-end-line="378" selection-end-column="6" />
           <folding>
             <element signature="n#!!block;n#source#0;n#!!top" />
             <element signature="n#!!block;n#regs#0;n#!!top" />
@@ -736,6 +768,7 @@
             <element signature="n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#publisher#0;n#!!block;n#site#0;n#!!top" />
             <element signature="n#!!block;n#producer#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
             <element signature="n#!!block;n#ext#0;n#!!block;n#producer#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="e#4217#5044#0" />
             <element signature="n#!!block;n#ext#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
             <element signature="n#!!block;n#ext#0;n#!!block;n#site#0;n#!!top" />
             <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#site#0;n#!!top" />
@@ -748,55 +781,55 @@
             <element signature="n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
             <element signature="n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
             <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="e#7974#8280#0" />
+            <element signature="e#8303#8585#0" />
             <element signature="n#!!block;n#ext#0;n#!!block;n#user#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_SITE_24.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/MASTER.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_SITE_23.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_SITE_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="260" column="3" selection-start-line="260" selection-start-column="3" selection-end-line="260" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!block;n#source#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="e#394#1923#0" />
+            <element signature="n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_APP_23.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_APP_30.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_APP_25.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_APP_25.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_APP_30.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_APP_24.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_response/BANNER30.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/BANNER_APP_23.json">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/sample_edits1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/response_testscript/sample_edits.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_23.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_24.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_25.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_APP_30.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_SITE_23.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/NATIVE_SITE_24.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_30.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_25.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/VAST_SITE_24.json">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/request_testscript/testScript1_datatype.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6803" />
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

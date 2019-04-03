@@ -3,13 +3,10 @@ package net.media;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SequenceWriter;
 import com.fasterxml.jackson.databind.node.*;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,15 +26,15 @@ public class TestCaseGenerator {
       .registerModule(new Jdk8Module())
       .registerModule(new JavaTimeModule());*/
     mapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
-    for(Path path : Files.list(Paths.get(basePath + "edits")).collect(Collectors.toList())) {
+    for(Path path : Files.list(Paths.get(basePath + "request_testscript")).collect(Collectors.toList())) {
       String json2 = new String(Files.readAllBytes(path));
       final Test test = mapper.readValue(json2, Test.class);
 
       for(Case aCase: test.getCases()) {
         generateJsons(aCase);
         objectMapper.writerWithDefaultPrettyPrinter()
-          .writeValue(new File(basePath + "generated/" + aCase.getPurpose() + ".json"), aCase);
-      /*try (FileWriter writer = new FileWriter(new File(basePath + "generated/" + aCase.getPurpose() + ".yaml"))) {
+          .writeValue(new File(basePath + "generatedRequest/" + aCase.getPurpose() + ".json"), aCase);
+      /*try (FileWriter writer = new FileWriter(new File(basePath + "generatedRequest/" + aCase.getPurpose() + ".yaml"))) {
         new Yaml().dump(map, writer);
       }*/
       }
@@ -46,7 +43,7 @@ public class TestCaseGenerator {
 
   public static Case generateJsons(Case aCase) throws IOException{
 
-    String inputJson = new String(Files.readAllBytes(Paths.get(basePath + "master/" + aCase.getInputFile())));
+    String inputJson = new String(Files.readAllBytes(Paths.get(basePath + "master_request/" + aCase.getInputFile())));
     JsonNode inputJsonObject = objectMapper.readValue(inputJson, JsonNode.class);
     for(Map.Entry<String, String> entry: aCase.getInputEdits().entrySet()) {
       modify(inputJsonObject, getNode(entry.getValue()), entry.getKey().split("\\."), 0);
@@ -54,7 +51,7 @@ public class TestCaseGenerator {
     aCase.setInputJson(inputJsonObject);
 
     if(aCase.getOutputFile() != null && !aCase.getOutputFile().trim().equals("null") && !aCase.getOutputFile().trim().equals("")) {
-      String outputJson = new String(Files.readAllBytes(Paths.get(basePath + "master/" + aCase.getOutputFile())));
+      String outputJson = new String(Files.readAllBytes(Paths.get(basePath + "master_request/" + aCase.getOutputFile())));
       JsonNode outputJsonObject = objectMapper.readValue(outputJson, JsonNode.class);
       for(Map.Entry<String, String> entry: aCase.getOutputEdits().entrySet()) {
         modify(outputJsonObject, getNode(entry.getValue()), entry.getKey().split("\\."), 0);
@@ -87,7 +84,7 @@ public class TestCaseGenerator {
     int newIndex = index + 1;
     if(!fieldName.contains("[")) {
       if (index == path.length - 1) {
-        /*if (master.get(fieldName).isContainerNode()) {
+        /*if (master_request.get(fieldName).isContainerNode()) {
           throw new RuntimeException("Unexpected Container Node found.");
         }*/
         ((ObjectNode) master).replace(fieldName, nodeToSet);
