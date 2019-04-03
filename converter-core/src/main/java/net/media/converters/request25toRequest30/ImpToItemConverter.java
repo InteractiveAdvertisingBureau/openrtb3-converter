@@ -50,11 +50,14 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
 
   @Override
   public void enhance(Imp imp, Item item, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+    if(imp == null || item == null) {
+      return;
+    }
     Converter<Deal, net.media.openrtb3.Deal> dealDealConverter = converterProvider.fetch(new Conversion
             (Deal.class, net.media.openrtb3.Deal.class));
     Converter<Metric, net.media.openrtb3.Metric> metricMetricConverter = converterProvider.fetch(new Conversion
             (Metric.class, net.media.openrtb3.Metric.class));
-    if (nonNull(imp)) {
+
       if ( item.getSpec() == null ) {
         item.setSpec( new Spec() );
       }
@@ -92,7 +95,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       }
       item.setQty(getPlcmtcntFromNative(imp));
       impToItemAfterMapping(imp, item);
-    }
+
   }
 
   private void impToSpec1(Imp imp, Spec mappingTarget, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {

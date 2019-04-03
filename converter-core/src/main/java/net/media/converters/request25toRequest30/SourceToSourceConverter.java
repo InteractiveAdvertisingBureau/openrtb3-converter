@@ -29,7 +29,7 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
 
   @Override
   public void enhance(Source source, net.media.openrtb3.Source target, Config config, Provider<Conversion, Converter> converterProvider) {
-    if(source == null)
+    if(source == null || target == null)
       return;
     target.setTid( source.getTid() );
     target.setPchain( source.getPchain() );

@@ -31,7 +31,7 @@ public class BidRequestToContextConverter implements Converter<BidRequest, Conte
 
   @Override
   public void enhance(BidRequest source, Context target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
-    if(source == null)
+    if(source == null || target == null)
       return;
     Converter<Regs, net.media.openrtb3.Regs> regsRegsConverter = converterProvider.fetch(new Conversion
             (Regs.class, net.media.openrtb3.Regs.class));

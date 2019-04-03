@@ -60,8 +60,9 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
 
   @Override
   public void enhance(BidRequest source, Request target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
-    if(source == null)
+    if(source == null || target == null) {
       return;
+    }
     Converter<BidRequest, Context> bidRequestContextConverter = converterProvider.fetch(new Conversion
             (BidRequest.class, Context.class));
     Converter<Imp, Item> impItemConverter = converterProvider.fetch(new Conversion

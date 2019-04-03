@@ -26,7 +26,7 @@ public class MetricToMetricConverter implements Converter<Metric, net.media.open
 
   @Override
   public void enhance(Metric metric, net.media.openrtb3.Metric metric1, Config config, Provider<Conversion, Converter> converterProvider) {
-    if (metric != null) {
+    if (metric != null && metric1 != null) {
       metric1.setType(metric.getType());
       metric1.setVendor(metric.getVendor());
       metric1.setValue(metric.getValue());

@@ -26,7 +26,7 @@ public class SegmentToSegmentConverter implements Converter<Segment, net.media.o
 
   @Override
   public void enhance(Segment source, net.media.openrtb3.Segment target, Config config, Provider<Conversion, Converter> converterProvider) {
-    if(source == null)
+    if(source == null || target == null)
       return;
     target.setId( source.getId() );
     target.setName( source.getName() );

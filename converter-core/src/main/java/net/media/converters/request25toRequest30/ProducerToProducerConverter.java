@@ -26,7 +26,7 @@ public class ProducerToProducerConverter implements Converter<Producer, net.medi
 
   @Override
   public void enhance(Producer source, net.media.openrtb3.Producer target, Config config, Provider<Conversion, Converter> converterProvider) {
-    if(source == null)
+    if(source == null || target == null)
       return;
     target.setId( source.getId() );
     target.setName( source.getName() );

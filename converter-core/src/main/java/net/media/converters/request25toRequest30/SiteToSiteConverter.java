@@ -30,7 +30,7 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
 
   @Override
   public void enhance(Site source, net.media.openrtb3.Site target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
-    if(source == null)
+    if(source == null || target == null)
       return;
     Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter = converterProvider.fetch(new Conversion
             (Publisher.class, net.media.openrtb3.Publisher.class));

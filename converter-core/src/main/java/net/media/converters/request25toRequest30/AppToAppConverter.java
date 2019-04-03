@@ -30,7 +30,7 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
 
   @Override
   public void enhance(App source, net.media.openrtb3.App target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
-    if(source == null)
+    if(source == null || target == null)
       return;
     target.setPrivpolicy( source.getPrivacypolicy() );
     target.setSectcat( Utils.copyCollection(source.getSectioncat(), config) );

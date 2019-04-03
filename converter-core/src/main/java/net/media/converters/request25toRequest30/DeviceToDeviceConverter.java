@@ -31,7 +31,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
 
   @Override
   public void enhance(Device source, net.media.openrtb3.Device target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
-    if(source == null)
+    if(source == null || target == null)
       return;
     Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter = converterProvider.fetch(new Conversion
             (Geo.class, net.media.openrtb3.Geo.class));

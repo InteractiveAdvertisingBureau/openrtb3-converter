@@ -26,7 +26,7 @@ public class PublisherToPublisherConverter implements Converter<Publisher, net.m
 
   @Override
   public void enhance(Publisher source, net.media.openrtb3.Publisher target, Config config, Provider<Conversion, Converter> converterProvider) {
-    if(source == null)
+    if(source == null || target == null)
       return;
     target.setId( source.getId() );
     target.setName( source.getName() );

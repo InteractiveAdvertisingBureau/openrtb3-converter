@@ -26,7 +26,7 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo>
 
   @Override
   public void enhance(Geo source, net.media.openrtb3.Geo target, Config config, Provider<Conversion, Converter> converterProvider) {
-    if(source == null)
+    if(source == null || target == null)
       return;
     target.setIpserv( source.getIpservice() );
     target.setAccur( source.getAccuracy() );

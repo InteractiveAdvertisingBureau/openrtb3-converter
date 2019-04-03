@@ -27,7 +27,7 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.R
 
   @Override
   public void enhance(Regs source, net.media.openrtb3.Regs target, Config config, Provider<Conversion, Converter> converterProvider) {
-    if(source == null)
+    if(source == null || target == null)
       return;
     target.setCoppa( source.getCoppa() );
     Map<String, Object> map = source.getExt();

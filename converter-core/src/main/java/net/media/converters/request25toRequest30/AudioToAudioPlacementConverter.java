@@ -39,6 +39,9 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
 
   @Override
   public void enhance(Audio audio, AudioPlacement audioPlacement, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+    if(audio == null || audioPlacement == null) {
+      return;
+    }
     audioPlacement.setComptype(Utils.copyCollection(audio.getCompaniontype(), config));
     audioPlacement.setExt(Utils.copyMap(audio.getExt(), config));
     if (nonNull(audio.getStitched())) {

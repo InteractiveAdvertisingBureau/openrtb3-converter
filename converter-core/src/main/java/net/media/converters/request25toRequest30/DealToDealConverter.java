@@ -24,7 +24,7 @@ public class DealToDealConverter implements Converter<Deal, net.media.openrtb3.D
 
   @Override
   public void enhance(Deal deal, net.media.openrtb3.Deal deal1, Config config, Provider<Conversion, Converter> converterProvider) {
-    if ( deal == null ) {
+    if ( deal == null || deal1 == null) {
       return;
     }
     deal1.setFlrcur( deal.getBidFloorCur() );

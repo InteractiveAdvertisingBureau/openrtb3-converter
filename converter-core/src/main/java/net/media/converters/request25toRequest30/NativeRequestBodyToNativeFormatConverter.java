@@ -37,7 +37,7 @@ public class NativeRequestBodyToNativeFormatConverter implements Converter<Nativ
   @Override
   public void enhance(NativeRequestBody nativeRequestBody, NativeFormat nativeFormat, Config
     config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
-    if ( nativeRequestBody == null ) {
+    if ( nativeRequestBody == null || nativeFormat == null) {
       return;
     }
     Converter<Asset, AssetFormat> assetAssetFormatConverter = converterProvider.fetch(new Conversion

@@ -30,7 +30,7 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb3.D
 
   @Override
   public void enhance(Data source, net.media.openrtb3.Data target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
-    if(source == null)
+    if(source == null || target == null)
       return;
     Converter<net.media.openrtb25.request.Segment, Segment> segmentSegmentConverter = converterProvider.fetch(new Conversion
             (net.media.openrtb25.request.Segment.class, Segment.class));
