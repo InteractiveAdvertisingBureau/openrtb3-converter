@@ -7,11 +7,16 @@ import java.util.Map;
 import javax.validation.Valid;
 
 public class DisplayPlacement {
+
+  private static final Integer DEFAULT_CLICKTYPE = 1;
+  private static final Integer DEFAULT_UNITS = 1;
+  private static final Integer DEFAULT_PRIVACY_NOTICE = 0;
+
   private Integer pos;
-  private Integer instl = 0;
+  private Integer instl;
   private Integer topframe;
   private Collection<String> ifrbust;
-  private Integer clktype = 1;
+  private Integer clktype = DEFAULT_CLICKTYPE;
   private Integer ampren;
   private Integer ptype;
   private Integer context;
@@ -20,8 +25,8 @@ public class DisplayPlacement {
   private Collection<Integer> ctype;
   private Integer w;
   private Integer h;
-  private Integer unit = 1;
-  private Integer priv = 0;
+  private Integer unit = DEFAULT_UNITS;
+  private Integer priv = DEFAULT_PRIVACY_NOTICE;
   private Collection<DisplayFormat> displayfmt;
   @Valid
   private NativeFormat nativefmt;
