@@ -2,6 +2,7 @@ package net.media.converters.request30toRequest25;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.NativeData;
 import net.media.openrtb25.request.NativeImage;
@@ -24,7 +25,7 @@ import static java.util.Objects.isNull;
  */
 public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset> {
   @Override
-  public Asset map(AssetFormat assetFormat, Config config) {
+  public Asset map(AssetFormat assetFormat, Config config) throws OpenRtbConverterException {
     if ( assetFormat == null ) {
       return null;
     }
@@ -34,7 +35,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
   }
 
   @Override
-  public void enhance(AssetFormat assetFormat, Asset asset, Config config) {
+  public void enhance(AssetFormat assetFormat, Asset asset, Config config) throws OpenRtbConverterException {
     if (isNull(assetFormat) || isNull(asset)) {
       return;
     }
@@ -62,7 +63,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
   }
 
   private NativeImage imageAssetFormatToNativeImage(ImageAssetFormat imageAssetFormat, Config
-    config) {
+    config) throws OpenRtbConverterException {
     if ( imageAssetFormat == null ) {
       return null;
     }
@@ -78,6 +79,20 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     Map<String, Object> map = imageAssetFormat.getExt();
     if ( map != null ) {
       nativeImage.setExt( Utils.copyMap(map, config) );
+    }
+    try {
+      if (imageAssetFormat.getHratio() != null) {
+        if (nativeImage.getExt() == null)
+          nativeImage.setExt(new HashMap<>());
+        imageAssetFormat.getExt().put("hratio", imageAssetFormat.getHratio());
+      }
+      if (imageAssetFormat.getWratio() != null) {
+        if (nativeImage.getExt() == null)
+          nativeImage.setExt(new HashMap<>());
+        imageAssetFormat.getExt().put("wratio", imageAssetFormat.getWratio());
+      }
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException(e);
     }
 
     return nativeImage;
