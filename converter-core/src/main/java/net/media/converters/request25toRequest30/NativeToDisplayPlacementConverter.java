@@ -80,11 +80,11 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
         }
         displayPlacement.setNativefmt(nativeRequestBodyNativeFormatConverter.map(nativeRequest
           .getNativeRequestBody(), config));
-        if (nonNull(nat.getExt()) && nonNull(displayPlacement.getNativefmt())) {
-          if (isNull(displayPlacement.getNativefmt().getExt())) {
-            displayPlacement.getNativefmt().setExt(new HashMap<>());
+        if (nonNull(nat.getExt())) {
+          if (isNull(displayPlacement.getExt())) {
+            displayPlacement.setExt(new HashMap<>());
           }
-          displayPlacement.getNativefmt().getExt().putAll(nat.getExt());
+          displayPlacement.getExt().putAll(nat.getExt());
         }
         if (nonNull(nat.getExt())) {
           if (nat.getExt().containsKey("ctype")) {
@@ -92,6 +92,15 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
             if (nonNull(displayPlacement.getNativefmt()) && nonNull(displayPlacement.getNativefmt()
               .getExt())) {
               displayPlacement.getNativefmt().getExt().remove("ctype");
+            }
+          }
+        }
+        if (nonNull(nat.getExt())) {
+          if (nat.getExt().containsKey("priv")) {
+            displayPlacement.setPriv((Integer) nat.getExt().get("priv"));
+            if (nonNull(displayPlacement.getNativefmt()) && nonNull(displayPlacement.getNativefmt()
+              .getExt())) {
+              displayPlacement.getNativefmt().getExt().remove("priv");
             }
           }
         }

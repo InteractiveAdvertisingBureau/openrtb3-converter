@@ -71,6 +71,30 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       }
       banner.getExt().put("unit", displayPlacement.getUnit());
     }
+    if(nonNull(displayPlacement.getPtype())) {
+      if (isNull(banner.getExt())) {
+        banner.setExt(new HashMap<>());
+      }
+      banner.getExt().put("ptype", displayPlacement.getPtype());
+    }
+    if(nonNull(displayPlacement.getContext())) {
+      if (isNull(banner.getExt())) {
+        banner.setExt(new HashMap<>());
+      }
+      banner.getExt().put("context", displayPlacement.getContext());
+    }
+    if(nonNull(displayPlacement.getCtype())) {
+      if (isNull(banner.getExt())) {
+        banner.setExt(new HashMap<>());
+      }
+      banner.getExt().put("ctype", displayPlacement.getCtype());
+    }
+    if(nonNull(displayPlacement.getPriv())) {
+      if (isNull(banner.getExt())) {
+        banner.setExt(new HashMap<>());
+      }
+      banner.getExt().put("priv", displayPlacement.getPriv());
+    }
   }
 
   private Collection<Format> displayFormatListToFormatList(Collection<DisplayFormat> list, Config

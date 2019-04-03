@@ -66,6 +66,18 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
           ("ctype"), config));
         displayPlacement.getExt().remove("ctype");
       }
+      if (bannerExt.containsKey("ptype")) {
+        displayPlacement.setPtype((Integer) bannerExt.get("ptype"));
+        displayPlacement.getExt().remove("ptype");
+      }
+      if (bannerExt.containsKey("context")) {
+        displayPlacement.setContext((Integer) bannerExt.get("context"));
+        displayPlacement.getExt().remove("context");
+      }
+      if (bannerExt.containsKey("priv")) {
+        displayPlacement.setPriv((Integer) bannerExt.get("priv"));
+        displayPlacement.getExt().remove("priv");
+      }
       if (bannerExt.containsKey("seq")) {
         displayPlacement.getExt().remove("seq");
       }

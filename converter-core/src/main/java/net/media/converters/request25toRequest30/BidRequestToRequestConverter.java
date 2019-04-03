@@ -134,19 +134,6 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
       return;
     }
 
-    if ( mappingTarget.getWlang() != null ) {
-      if ( bidRequest.getWlang() != null ) {
-        mappingTarget.getWlang().clear();
-        mappingTarget.getWlang().addAll( Utils.copyCollection(bidRequest.getWlang(), config) );
-      }
-      else {
-        mappingTarget.setWlang( null );
-      }
-    }
-    else {
-      if ( bidRequest.getWlang() != null ) {
-        mappingTarget.setWlang( Utils.copyCollection( bidRequest.getWlang(), config ) );
-      }
-    }
+    mappingTarget.setWlang( Utils.copyCollection(bidRequest.getWlang(), config) );
   }
 }

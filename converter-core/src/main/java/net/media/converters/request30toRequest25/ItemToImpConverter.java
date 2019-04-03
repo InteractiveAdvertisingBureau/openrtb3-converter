@@ -145,6 +145,12 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
 
     pmp.setDeals( CollectionToCollectionConverter.convert( item.getDeal(), dealDealConverter, config ) );
     pmp.setPrivate_auction( item.getPriv() );
+    if(item.getExt() != null) {
+      if(item.getExt().containsKey("pmp")) {
+        Pmp pmp1 = (Pmp) item.getExt().get("pmp");
+        pmp.setExt(pmp1.getExt());
+      }
+    }
 
     return pmp;
   }
@@ -309,7 +315,6 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
           imp.getExt().put("ctype", Utils.copyCollection(item.getSpec().getPlacement().getDisplay()
             .getCtype(), config));
         }
-        imp.getExt().put("priv", item.getSpec().getPlacement().getDisplay().getPriv());
         imp.getExt().put("event", item.getSpec().getPlacement().getDisplay().getEvent());
       }
     }
