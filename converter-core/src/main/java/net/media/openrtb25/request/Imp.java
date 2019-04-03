@@ -15,7 +15,7 @@ import javax.validation.constraints.NotEmpty;
 public class Imp {
 
 
-  private static final Double DEFAULT_BIDFLOOR = 0.0;
+  private static final double DEFAULT_BIDFLOOR = 0.0;
 
   private String id;
 
