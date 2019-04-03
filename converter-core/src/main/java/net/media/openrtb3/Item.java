@@ -11,15 +11,19 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 public class Item {
+
+  private static final Integer DEFAULT_QUANTITY = 1;
+  private static final Integer DEFAULT_DELIVERY_METHOD = 0;
+
   @NotBlank
   private String id;
-  private Integer qty = 1;
+  private Integer qty = DEFAULT_QUANTITY;
   private Integer seq;
   private double flr;
-  private String flrcur = "USD";
+  private String flrcur;
   private Integer exp;
   private Integer dt;
-  private Integer dlvy = 0;
+  private Integer dlvy = DEFAULT_DELIVERY_METHOD;
   private Collection<Metric> metric;
   private Collection<Deal> deal;
   @JsonProperty("private")

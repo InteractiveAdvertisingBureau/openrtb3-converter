@@ -13,6 +13,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class Request {
+
+  private static final Integer DEFAULT_WSEAT = 1;
+
   @NotEmpty
   private String id;
   private Integer test;
@@ -20,7 +23,7 @@ public class Request {
   private Integer at;
   private Collection<String> cur = new ArrayList<String>(){{add("USD");}};
   private Collection<String> seat;
-  private Integer wseat = 1;
+  private Integer wseat = DEFAULT_WSEAT;
   private String cdata;
   @NotNull
   @Valid

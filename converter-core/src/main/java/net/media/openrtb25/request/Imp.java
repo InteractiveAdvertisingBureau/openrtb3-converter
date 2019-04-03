@@ -15,6 +15,8 @@ import javax.validation.constraints.NotEmpty;
 public class Imp {
 
 
+  private static final Double DEFAULT_BIDFLOOR = 0.0;
+
   private String id;
 
   private Video video;
@@ -35,7 +37,7 @@ public class Imp {
 
   private Integer instl;
 
-  private double bidfloor = 0;
+  private double bidfloor = DEFAULT_BIDFLOOR;
 
   private String bidfloorcur;
 

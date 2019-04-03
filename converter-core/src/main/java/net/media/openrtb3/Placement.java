@@ -13,11 +13,15 @@ import javax.validation.Valid;
 
 @CheckAtLeastOneNotNull(fieldNames={"display", "video", "audio"})
 public class Placement {
+
+  private static final Integer DEFAULT_SERVER_SIDE_AD_INSERTION = 0;
+  private static final Integer DEFAULT_REWARDED_PLACEMENT = 0;
+
   private String tagid;
-  private Integer ssai = 0;
+  private Integer ssai = DEFAULT_SERVER_SIDE_AD_INSERTION;
   private String sdk;
   private String sdkver;
-  private Integer reward = 0;
+  private Integer reward = DEFAULT_REWARDED_PLACEMENT;
   private Collection<String> wlang;
   private Integer secure;
   private Integer admx;

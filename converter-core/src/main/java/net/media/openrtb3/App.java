@@ -7,6 +7,8 @@ import java.util.Set;
 
 public class App extends DistributionChannel {
 
+  private static final Integer DEFAULT_PAID = 0;
+
   private String domain;
   private Collection<String> cat;
   private Collection<String> sectcat;
@@ -18,7 +20,7 @@ public class App extends DistributionChannel {
   private String storeid;
   private String storeurl;
   private String ver;
-  private Integer paid = 0;
+  private Integer paid = DEFAULT_PAID;
   private Map<String, Object> ext;
 
   public String getDomain() {

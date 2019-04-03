@@ -13,11 +13,12 @@ import java.util.Map;
  */
 public class Deal {
 
+  private static final Double DEFAULT_BIDFLOOR = 0.0;
 
   private String id;
 
   @JsonProperty("bidfloor")
-  private double bidFloor = 0;
+  private double bidFloor = DEFAULT_BIDFLOOR;
 
   @JsonProperty("bidfloorcur")
   private String bidFloorCur;
