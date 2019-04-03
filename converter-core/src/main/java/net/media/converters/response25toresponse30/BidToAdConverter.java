@@ -1,5 +1,6 @@
 package net.media.converters.response25toresponse30;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -9,6 +10,7 @@ import net.media.openrtb3.Audio;
 import net.media.openrtb3.Audit;
 import net.media.openrtb3.Display;
 import net.media.openrtb3.Video;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
@@ -24,37 +26,18 @@ import static java.util.Objects.nonNull;
  */
 public class BidToAdConverter implements Converter<Bid, Ad> {
 
-  private Converter<Bid, Display> bidDisplayConverter;
-
-  private Converter<Bid, Audio> bidAudioConverter;
-
-  private Converter<Bid, Video> bidVideoConverter;
-
-  private Converter<Bid, Audit> bidAuditConverter;
-
-  public BidToAdConverter(
-    Converter<Bid, Display> bidDisplayConverter,
-    Converter<Bid, Audio> bidAudioConverter,
-    Converter<Bid, Video> bidVideoConverter,
-    Converter<Bid, Audit> bidAuditConverter) {
-    this.bidAudioConverter = bidAudioConverter;
-    this.bidAuditConverter = bidAuditConverter;
-    this.bidDisplayConverter = bidDisplayConverter;
-    this.bidVideoConverter = bidVideoConverter;
-  }
-
   @Override
-  public Ad map(Bid source, Config config) throws OpenRtbConverterException {
+  public Ad map(Bid source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
     if (isNull(source)) {
       return null;
     }
     Ad ad = new Ad();
-    enhance(source, ad, config);
+    enhance(source, ad, config, converterProvider);
     return ad;
   }
 
   @Override
-  public void enhance(Bid source, Ad target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, Ad target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException{
     if (isNull(source) || isNull(target)) {
       return;
     }
@@ -92,19 +75,24 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
     catch (Exception e) {
       throw new OpenRtbConverterException("error while type casting ext in bid", e);
     }
+
     switch (config.getAdType(source.getId())) {
       case BANNER:
       case NATIVE:
-        target.setDisplay(bidDisplayConverter.map(source, config));
+        Converter<Bid, Display> bidDisplayConverter = converterProvider.fetch(new Conversion(Bid.class, Display.class));
+        target.setDisplay(bidDisplayConverter.map(source, config, converterProvider));
         break;
       case VIDEO:
-        target.setVideo(bidVideoConverter.map(source, config));
+        Converter<Bid, Video> bidVideoConverter = converterProvider.fetch(new Conversion(Bid.class, Video.class));
+        target.setVideo(bidVideoConverter.map(source, config, converterProvider));
         break;
       case AUDIO:
-        target.setAudio(bidAudioConverter.map(source, config));
+        Converter<Bid, Audio> bidAudioConverter = converterProvider.fetch(new Conversion(Bid.class, Audio.class));
+        target.setAudio(bidAudioConverter.map(source, config, converterProvider));
         break;
       case AUDIT:
-        target.setAudit(bidAuditConverter.map(source, config));
+        Converter<Bid, Audit> bidAuditConverter = converterProvider.fetch(new Conversion(Bid.class, Audit.class));
+        target.setAudit(bidAuditConverter.map(source, config, converterProvider));
         break;
     }
   }
