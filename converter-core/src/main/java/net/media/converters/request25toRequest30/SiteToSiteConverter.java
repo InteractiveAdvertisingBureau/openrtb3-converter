@@ -63,14 +63,17 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
     }
     if(source.getExt() == null)
       return;
-    if(source.getExt().containsKey("cattax")) {
-      target.setCattax((Integer) source.getExt().get("cattax"));
+    try {
+      if (source.getExt().containsKey("cattax")) {
+        target.setCattax((Integer) source.getExt().get("cattax"));
+      } else {
+        target.setCattax(DEFAULT_CATTAX_TWODOTX);
+      }
+      target.setAmp((Integer) source.getExt().get("amp"));
+      target.getExt().remove("cattax");
+      target.getExt().remove("amp");
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for Site", e);
     }
-    else {
-      target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    }
-    target.setAmp((Integer) source.getExt().get("amp"));
-    target.getExt().remove("cattax");
-    target.getExt().remove("amp");
   }
 }

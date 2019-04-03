@@ -2,6 +2,7 @@ package net.media.converters.request30toRequest25;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Source;
 import net.media.utils.Utils;
 
@@ -10,7 +11,7 @@ import java.util.Map;
 
 public class SourceToSourceConverter implements Converter<Source, net.media.openrtb25.request.Source> {
   @Override
-  public net.media.openrtb25.request.Source map(Source source, Config config) {
+  public net.media.openrtb25.request.Source map(Source source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -23,7 +24,7 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
   }
 
   @Override
-  public void enhance(Source source, net.media.openrtb25.request.Source target, Config config) {
+  public void enhance(Source source, net.media.openrtb25.request.Source target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
     target.setTid( source.getTid() );
@@ -61,8 +62,11 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
     if(source.getExt() == null)
       return;
     if(source.getExt().containsKey("fd")) {
-      target.setFd((Integer) source.getExt().get("fd"));
-      target.getExt().remove("fd");
+      try {
+        target.setFd((Integer) source.getExt().get("fd"));
+        target.getExt().remove("fd");
+      } catch (ClassCastException e) {
+        throw new OpenRtbConverterException("error while typecasting ext for Source", e);      }
     }
   }
 }

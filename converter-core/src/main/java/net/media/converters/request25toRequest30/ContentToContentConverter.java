@@ -73,13 +73,16 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
 
     if(source.getExt() == null)
       return;
-    if(source.getExt().containsKey("cattax")) {
-      target.setCattax((Integer) source.getExt().get("cattax"));
+    try {
+      if (source.getExt().containsKey("cattax")) {
+        target.setCattax((Integer) source.getExt().get("cattax"));
+      } else {
+        target.setCattax(DEFAULT_CATTAX_TWODOTX);
+      }
+      target.getExt().remove("cattax");
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for Content", e);
     }
-    else {
-      target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    }
-    target.getExt().remove("cattax");
     if(source.getVideoquality() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());

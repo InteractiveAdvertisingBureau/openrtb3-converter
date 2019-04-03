@@ -2,6 +2,7 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb3.Restrictions;
@@ -16,7 +17,7 @@ import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
 public class BidRequestToRestrictionsConverter implements Converter<BidRequest, Restrictions> {
   @Override
-  public Restrictions map(BidRequest source, Config config) {
+  public Restrictions map(BidRequest source, Config config) throws OpenRtbConverterException{
     if ( source == null ) {
       return null;
     }
@@ -29,7 +30,7 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
   }
 
   @Override
-  public void enhance(BidRequest source, Restrictions target, Config config) {
+  public void enhance(BidRequest source, Restrictions target, Config config) throws OpenRtbConverterException{
     if(source == null)
       return;
     target.setBapp( Utils.copyCollection(source.getBapp(), config) );
@@ -56,16 +57,19 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
     }
     if(source.getExt() == null)
       return;
-    if(source.getExt().containsKey("cattax")) {
-      target.setCattax((Integer) source.getExt().get("cattax"));
-      source.getExt().remove("cattax");
-    }
-    else {
-      target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    }
-    if (source.getExt().containsKey("restrictionsExt")) {
-      target.setExt((Map<String, Object>) source.getExt().get("restrictionsExt"));
-      source.getExt().remove("restrictionsExt");
+    try {
+      if (source.getExt().containsKey("cattax")) {
+        target.setCattax((Integer) source.getExt().get("cattax"));
+        source.getExt().remove("cattax");
+      } else {
+        target.setCattax(DEFAULT_CATTAX_TWODOTX);
+      }
+      if (source.getExt().containsKey("restrictionsExt")) {
+        target.setExt((Map<String, Object>) source.getExt().get("restrictionsExt"));
+        source.getExt().remove("restrictionsExt");
+      }
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for BidRequest", e);
     }
   }
 }

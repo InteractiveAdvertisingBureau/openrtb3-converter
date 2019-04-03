@@ -88,7 +88,11 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
         }
         if (nonNull(nat.getExt())) {
           if (nat.getExt().containsKey("ctype")) {
-            displayPlacement.setCtype(new ArrayList<>((List<Integer>) nat.getExt().get("ctype")));
+            try {
+              displayPlacement.setCtype(new ArrayList<>((List<Integer>) nat.getExt().get("ctype")));
+            } catch (ClassCastException e) {
+              throw new OpenRtbConverterException("error while typecasting ext for Native", e);
+            }
             if (nonNull(displayPlacement.getNativefmt()) && nonNull(displayPlacement.getNativefmt()
               .getExt())) {
               displayPlacement.getNativefmt().getExt().remove("ctype");
