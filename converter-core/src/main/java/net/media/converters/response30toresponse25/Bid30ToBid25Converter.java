@@ -1,11 +1,13 @@
 package net.media.converters.response30toresponse25;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Media;
 import net.media.template.MacroMapper;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -15,21 +17,19 @@ import static java.util.Objects.isNull;
 
 public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, Bid> {
 
-  Converter<Media,Bid> mediaBidConverter;
-
-  public Bid30ToBid25Converter(Converter<Media,Bid> mediaBidConverter){
-    this.mediaBidConverter = mediaBidConverter;
-  }
 
   @Override
-  public Bid map(net.media.openrtb3.Bid source, Config config) throws OpenRtbConverterException {
+  public Bid map(net.media.openrtb3.Bid source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
     Bid bid = new Bid();
-    enhance(source,bid,config);
+    enhance(source,bid,config, converterProvider);
     return bid;
   }
 
   @Override
-  public void enhance(net.media.openrtb3.Bid source, Bid target, Config config) throws OpenRtbConverterException {
+  public void enhance(net.media.openrtb3.Bid source, Bid target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+    Converter<Media, Bid> mediaBidConverter = converterProvider.fetch(new Conversion(Media.class,
+      Bid.class));
+
     if ( source == null && target == null && config == null ) {
       return ;
     }
@@ -57,7 +57,7 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
       target.setAdid(source.getMid());
 //      target.getExt().put("qagmediarating", source.getMid());
       target.getExt().put("macro",source.getMacro());
-      mediaBidConverter.enhance(source.getMedia(),target,config);
+      mediaBidConverter.enhance(source.getMedia(),target,config, converterProvider);
       MacroMapper.macroReplaceTwoX(target);
     }
   }
