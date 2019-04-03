@@ -68,7 +68,7 @@ public class BidResponseToResponseConverter implements Converter<BidResponse, Re
       response.setExt( null );
     }
     if(nonNull(response.getExt()) && nonNull(bidResponse.getExt())){
-      response.getExt().put("customerData",bidResponse.getCustomdata());
+      response.getExt().put("customData",bidResponse.getCustomdata());
       try {
         response.setCdata((String) bidResponse.getExt().get("cdata"));
       }

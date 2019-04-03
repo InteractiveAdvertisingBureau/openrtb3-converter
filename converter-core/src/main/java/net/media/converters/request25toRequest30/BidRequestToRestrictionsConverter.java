@@ -8,6 +8,7 @@ import net.media.openrtb25.request.Imp;
 import net.media.openrtb3.Restrictions;
 import net.media.utils.Utils;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -39,7 +40,7 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
       return;
     if(source.getImp().size() == 0)
       return;
-    Set<Integer> battr = new HashSet<>();
+    Collection<Integer> battr = new HashSet<>();
     for(Imp imp : source.getImp()) {
       if(imp.getBanner() != null && imp.getBanner().getBattr() != null) {
         battr.addAll(imp.getBanner().getBattr());
@@ -50,7 +51,7 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
       }
     }
     if(battr.size()>0) {
-      target.setBattr(battr);
+      target.setBattr(Utils.copyCollection(battr, config));
     }
     if(source.getExt() == null)
       return;

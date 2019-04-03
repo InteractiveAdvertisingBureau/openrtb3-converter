@@ -3,9 +3,13 @@ package net.media.openrtb25.request;
 import java.util.Map;
 
 public class Source {
+
   private Integer fd;
+
   private String tid;
+
   private String pchain;
+
   private Map<String, Object> ext;
 
   public Source() {

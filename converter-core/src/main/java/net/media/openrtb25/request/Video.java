@@ -17,7 +17,6 @@ public class Video {
   public static final Integer DEFAULT_SKIP_AFTER = 0;
   public static final Integer DEFAULT_BOXING_ALLOWED = 1;
 
-
   @NotEmpty
   private Collection<String> mimes;
 

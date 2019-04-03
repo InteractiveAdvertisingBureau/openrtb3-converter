@@ -52,7 +52,7 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     if(nonNull(source.getApi()))
       target.setApi(new ArrayList<>(source.getApi()));
     target.setCurl(source.getNurl());
-    if (config.getAdType() == AdType.NATIVE) {
+    if (config.getAdType(source.getId()) == AdType.NATIVE) {
       if (source.getAdm() instanceof String) {
         try {
           NativeResponse nativeResponse = Utils.getMapper().readValue((String) source.getAdm(),
@@ -73,7 +73,7 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
         }
       }
     }
-    else if (config.getAdType() == AdType.BANNER) {
+    else if (config.getAdType(source.getId()) == AdType.BANNER) {
       target.setAdm(source.getAdm());
     }
     if (nonNull(source.getExt())) {
@@ -83,9 +83,9 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
         target.setPriv((String) ext.get("priv"));
         target.setMime((String) ext.get("mime"));
 
-        if (config.getAdType() == AdType.BANNER) {
+        if (config.getAdType(source.getId()) == AdType.BANNER) {
           target.setBanner(Banner.HashMapToBanner((Map<String, Object>) ext.get("banner")));
-        } else if (config.getAdType() == AdType.NATIVE) {
+        } else if (config.getAdType(source.getId()) == AdType.NATIVE) {
           target.set_native((net.media.openrtb3.Native) ext.get("native"));
         }
         target.setEvent((List<Event>) ext.get(ext.get("event")));

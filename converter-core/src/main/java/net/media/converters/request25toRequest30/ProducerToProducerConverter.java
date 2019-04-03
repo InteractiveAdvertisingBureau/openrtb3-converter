@@ -33,7 +33,7 @@ public class ProducerToProducerConverter implements Converter<Producer, net.medi
     target.setCat( Utils.copyCollection(source.getCat(), config) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt( Utils.copyMap( map, config ) );
     }
     if(source.getExt() == null)
       return;

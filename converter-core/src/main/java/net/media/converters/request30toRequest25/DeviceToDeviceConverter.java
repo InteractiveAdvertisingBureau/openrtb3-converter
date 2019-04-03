@@ -6,6 +6,7 @@ import net.media.converters.Converter;
 import net.media.openrtb3.Device;
 import net.media.openrtb3.Geo;
 import net.media.utils.OsMap;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -75,7 +76,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
           throw new OpenRtbConverterException("error while typecasting ext for Device", e);
         }
       }
-      target.setExt(new HashMap<>(map) );
+      target.setExt( Utils.copyMap(map, config) );
     }
   }
 }

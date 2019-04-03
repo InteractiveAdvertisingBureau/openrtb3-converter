@@ -20,9 +20,6 @@ public class Site {
 
   private Collection<String> cat;
 
-  @JsonIgnore
-  private String SLD;
-
   private Collection<String> sectioncat;
 
   private Collection<String> pagecat;
@@ -62,10 +59,6 @@ public class Site {
 
   public Collection<String> getCat() {
     return this.cat;
-  }
-
-  public String getSLD() {
-    return this.SLD;
   }
 
   public Collection<String> getSectioncat() {
@@ -126,10 +119,6 @@ public class Site {
 
   public void setCat(Collection<String> cat) {
     this.cat = cat;
-  }
-
-  public void setSLD(String SLD) {
-    this.SLD = SLD;
   }
 
   public void setSectioncat(Collection<String> sectioncat) {
@@ -194,9 +183,6 @@ public class Site {
     final Object this$cat = this.getCat();
     final Object other$cat = other.getCat();
     if (this$cat == null ? other$cat != null : !this$cat.equals(other$cat)) return false;
-    final Object this$SLD = this.getSLD();
-    final Object other$SLD = other.getSLD();
-    if (this$SLD == null ? other$SLD != null : !this$SLD.equals(other$SLD)) return false;
     final Object this$sectioncat = this.getSectioncat();
     final Object other$sectioncat = other.getSectioncat();
     if (this$sectioncat == null ? other$sectioncat != null : !this$sectioncat.equals(other$sectioncat))
@@ -252,8 +238,6 @@ public class Site {
     result = result * PRIME + ($domain == null ? 43 : $domain.hashCode());
     final Object $cat = this.getCat();
     result = result * PRIME + ($cat == null ? 43 : $cat.hashCode());
-    final Object $SLD = this.getSLD();
-    result = result * PRIME + ($SLD == null ? 43 : $SLD.hashCode());
     final Object $sectioncat = this.getSectioncat();
     result = result * PRIME + ($sectioncat == null ? 43 : $sectioncat.hashCode());
     final Object $pagecat = this.getPagecat();
@@ -284,6 +268,6 @@ public class Site {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.Site(id=" + this.getId() + ", name=" + this.getName() + ", domain=" + this.getDomain() + ", cat=" + this.getCat() + ", SLD=" + this.getSLD() + ", sectioncat=" + this.getSectioncat() + ", pagecat=" + this.getPagecat() + ", page=" + this.getPage() + ", ref=" + this.getRef() + ", search=" + this.getSearch() + ", mobile=" + this.getMobile() + ", privacypolicy=" + this.getPrivacypolicy() + ", publisher=" + this.getPublisher() + ", content=" + this.getContent() + ", keywords=" + this.getKeywords() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.Site(id=" + this.getId() + ", name=" + this.getName() + ", domain=" + this.getDomain() + ", cat=" + this.getCat() + ", sectioncat=" + this.getSectioncat() + ", pagecat=" + this.getPagecat() + ", page=" + this.getPage() + ", ref=" + this.getRef() + ", search=" + this.getSearch() + ", mobile=" + this.getMobile() + ", privacypolicy=" + this.getPrivacypolicy() + ", publisher=" + this.getPublisher() + ", content=" + this.getContent() + ", keywords=" + this.getKeywords() + ", ext=" + this.getExt() + ")";
   }
 }

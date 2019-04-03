@@ -15,6 +15,7 @@ import net.media.openrtb3.ImageAsset;
 import net.media.openrtb3.LinkAsset;
 import net.media.openrtb3.TitleAsset;
 import net.media.openrtb3.VideoAsset;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 
@@ -40,21 +41,21 @@ public class Asset30ToAsset25Converter implements Converter<Asset,AssetResponse>
     if(isNull(source) || isNull(target) || isNull(config))
       return;
 
-    target.setData(dataTonativeData(source.getData()));
+    target.setData(dataTonativeData(source.getData(), config));
     target.setId(source.getId());
     target.setRequired(source.getReq());
-    target.setImg(imageAssetToNativeImage(source.getImage()));
-    target.setVideo(videoAssetToNativeVideo(source.getVideo()));
-    target.setTitle(tittleAssetToNativeTittle(source.getTitle()));
+    target.setImg(imageAssetToNativeImage(source.getImage(), config));
+    target.setVideo(videoAssetToNativeVideo(source.getVideo(), config));
+    target.setTitle(tittleAssetToNativeTittle(source.getTitle(), config));
     target.setLink(linkAssetLinkConverter.map(source.getLink(),config));
 
 
   }
-  private NativeData dataTonativeData(DataAsset data){
+  private NativeData dataTonativeData(DataAsset data, Config config){
     if( isNull(data))
       return null;
     NativeData nativeData = new NativeData();
-    nativeData.setExt(data.getExt());
+    nativeData.setExt(Utils.copyMap(data.getExt(), config));
     if(nonNull(data.getExt())){
       nativeData.setLabel((String)data.getExt().get("label"));
     }
@@ -68,11 +69,11 @@ public class Asset30ToAsset25Converter implements Converter<Asset,AssetResponse>
   }
 
 
-  private NativeImage imageAssetToNativeImage(ImageAsset imageAsset){
+  private NativeImage imageAssetToNativeImage(ImageAsset imageAsset, Config config){
     if(isNull(imageAsset))
       return null;
     NativeImage nativeImage = new NativeImage();
-    nativeImage.setExt(imageAsset.getExt());
+    nativeImage.setExt(Utils.copyMap(imageAsset.getExt(), config));
     nativeImage.setH(imageAsset.getH());
     nativeImage.setW(imageAsset.getW());
     nativeImage.setUrl(imageAsset.getUrl());
@@ -82,11 +83,11 @@ public class Asset30ToAsset25Converter implements Converter<Asset,AssetResponse>
     return new NativeImage();
   }
 
-  private NativeVideo videoAssetToNativeVideo(VideoAsset videoAsset){
+  private NativeVideo videoAssetToNativeVideo(VideoAsset videoAsset, Config config){
     if(isNull(videoAsset))
       return null;
     NativeVideo nativeVideo = new NativeVideo();
-    nativeVideo.setExt(videoAsset.getExt());
+    nativeVideo.setExt(Utils.copyMap(videoAsset.getExt(), config));
     nativeVideo.setVasttag(videoAsset.getAdm());
     if(isNull(nativeVideo.getExt())){
       nativeVideo.setExt(new HashMap<>());
@@ -95,11 +96,11 @@ public class Asset30ToAsset25Converter implements Converter<Asset,AssetResponse>
     return new NativeVideo();
   }
 
-  private NativeTitle tittleAssetToNativeTittle(TitleAsset titleAsset){
+  private NativeTitle tittleAssetToNativeTittle(TitleAsset titleAsset, Config config){
     if(isNull(titleAsset))
       return null;
     NativeTitle nativeTitle = new NativeTitle();
-    nativeTitle.setExt(titleAsset.getExt());
+    nativeTitle.setExt(Utils.copyMap(titleAsset.getExt(), config));
     nativeTitle.setText(titleAsset.getText());
     if(isNull(nativeTitle.getExt())){
       nativeTitle.setExt(new HashMap<>());

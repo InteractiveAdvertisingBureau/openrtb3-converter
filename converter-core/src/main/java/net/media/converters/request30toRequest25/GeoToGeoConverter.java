@@ -4,6 +4,7 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Geo;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -48,6 +49,6 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.req
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for Geo", e);      }
     }
-    target.setExt( new HashMap<String, Object>( map ) );
+    target.setExt( Utils.copyMap(map, config) );
   }
 }

@@ -3,6 +3,7 @@ package net.media.converters.request30toRequest25;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Regs;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +29,7 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb25.
     target.setCoppa( source.getCoppa() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt(new HashMap<>(map) );
+      target.setExt(Utils.copyMap(map, config));
     }
     if(source.getGdpr() == null)
       return;
