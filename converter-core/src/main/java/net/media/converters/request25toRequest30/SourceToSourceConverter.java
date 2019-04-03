@@ -2,7 +2,9 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
 import net.media.openrtb25.request.Source;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -13,20 +15,20 @@ import java.util.Map;
  */
 public class SourceToSourceConverter implements Converter<Source, net.media.openrtb3.Source> {
   @Override
-  public net.media.openrtb3.Source map(Source source, Config config) {
+  public net.media.openrtb3.Source map(Source source, Config config, Provider<Conversion, Converter> converterProvider) {
     if ( source == null ) {
       return null;
     }
 
     net.media.openrtb3.Source source1 = new net.media.openrtb3.Source();
 
-    enhance( source, source1, config);
+    enhance( source, source1, config, converterProvider);
 
     return source1;
   }
 
   @Override
-  public void enhance(Source source, net.media.openrtb3.Source target, Config config) {
+  public void enhance(Source source, net.media.openrtb3.Source target, Config config, Provider<Conversion, Converter> converterProvider) {
     if(source == null)
       return;
     target.setTid( source.getTid() );

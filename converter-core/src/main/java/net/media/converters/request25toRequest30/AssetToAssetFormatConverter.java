@@ -2,6 +2,7 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
 import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.NativeData;
 import net.media.openrtb25.request.NativeImage;
@@ -12,6 +13,7 @@ import net.media.openrtb3.DataAssetFormat;
 import net.media.openrtb3.ImageAssetFormat;
 import net.media.openrtb3.TitleAssetFormat;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -24,17 +26,17 @@ import static java.util.Objects.isNull;
  */
 public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat> {
   @Override
-  public AssetFormat map(Asset asset, Config config) {
+  public AssetFormat map(Asset asset, Config config, Provider<Conversion, Converter> converterProvider) {
     if ( asset == null ) {
       return null;
     }
     AssetFormat assetFormat = new AssetFormat();
-    enhance(asset, assetFormat, config);
+    enhance(asset, assetFormat, config, converterProvider);
     return assetFormat;
   }
 
   @Override
-  public void enhance(Asset asset, AssetFormat assetFormat, Config config) {
+  public void enhance(Asset asset, AssetFormat assetFormat, Config config, Provider<Conversion, Converter> converterProvider) {
     if (isNull(asset) || isNull(assetFormat)) {
       return;
     }

@@ -1,5 +1,6 @@
 package net.media.converters.request25toRequest30;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -19,6 +20,7 @@ import net.media.openrtb3.Placement;
 import net.media.openrtb3.Spec;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
@@ -36,45 +38,27 @@ import static java.util.Objects.nonNull;
 
 public class ImpToItemConverter implements Converter<Imp, Item> {
 
-  private Converter<Banner, DisplayPlacement> bannerDisplayPlacementConverter;
-
-  private Converter<Native, DisplayPlacement> nativeDisplayPlacementConverter;
-
-  private Converter<Video, VideoPlacement> videoVideoPlacementConverter;
-
-  private Converter<Audio, AudioPlacement> audioAudioPlacementConverter;
-
-  private Converter<Deal, net.media.openrtb3.Deal> dealDealConverter;
-
-  private Converter<Metric, net.media.openrtb3.Metric> metricMetricConverter;
-
-  @java.beans.ConstructorProperties({"bannerDisplayPlacementConverter", "nativeDisplayPlacementConverter", "videoVideoPlacementConverter", "audioAudioPlacementConverter", "dealDealConverter", "metricMetricConverter"})
-  public ImpToItemConverter(Converter<Banner, DisplayPlacement> bannerDisplayPlacementConverter, Converter<Native, DisplayPlacement> nativeDisplayPlacementConverter, Converter<Video, VideoPlacement> videoVideoPlacementConverter, Converter<Audio, AudioPlacement> audioAudioPlacementConverter, Converter<Deal, net.media.openrtb3.Deal> dealDealConverter, Converter<Metric, net.media.openrtb3.Metric> metricMetricConverter) {
-    this.bannerDisplayPlacementConverter = bannerDisplayPlacementConverter;
-    this.nativeDisplayPlacementConverter = nativeDisplayPlacementConverter;
-    this.videoVideoPlacementConverter = videoVideoPlacementConverter;
-    this.audioAudioPlacementConverter = audioAudioPlacementConverter;
-    this.dealDealConverter = dealDealConverter;
-    this.metricMetricConverter = metricMetricConverter;
-  }
-
   @Override
-  public Item map(Imp imp, Config config) throws OpenRtbConverterException {
+  public Item map(Imp imp, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
     if (isNull(imp)) {
       return null;
     }
     Item item = new Item();
-    enhance(imp, item, config);
+    enhance(imp, item, config, converterProvider);
     return item;
   }
 
   @Override
-  public void enhance(Imp imp, Item item, Config config) throws OpenRtbConverterException {
+  public void enhance(Imp imp, Item item, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+    Converter<Deal, net.media.openrtb3.Deal> dealDealConverter = converterProvider.fetch(new Conversion
+            (Deal.class, net.media.openrtb3.Deal.class));
+    Converter<Metric, net.media.openrtb3.Metric> metricMetricConverter = converterProvider.fetch(new Conversion
+            (Metric.class, net.media.openrtb3.Metric.class));
     if (nonNull(imp)) {
       if ( item.getSpec() == null ) {
         item.setSpec( new Spec() );
       }
-      impToSpec1( imp, item.getSpec(), config );
+      impToSpec1( imp, item.getSpec(), config, converterProvider );
       Map<String, Object> map = imp.getExt();
       item.setExt(Utils.copyMap(map, config));
       if(imp.getPmp() != null && imp.getPmp().getExt() != null) {
@@ -102,7 +86,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       if (metrics != null) {
         Collection<net.media.openrtb3.Metric> metrics1 = new ArrayList<>(metrics.size());
         for (Metric metric : metrics) {
-          metrics1.add(metricMetricConverter.map(metric, config));
+          metrics1.add(metricMetricConverter.map(metric, config, converterProvider));
         }
         item.setMetric(metrics1);
       }
@@ -111,7 +95,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     }
   }
 
-  private void impToSpec1(Imp imp, Spec mappingTarget, Config config) throws OpenRtbConverterException {
+  private void impToSpec1(Imp imp, Spec mappingTarget, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
     if ( imp == null ) {
       return;
     }
@@ -119,16 +103,23 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     if ( mappingTarget.getPlacement() == null ) {
       mappingTarget.setPlacement( new Placement() );
     }
-    impToPlacement1( imp, mappingTarget.getPlacement(), config );
+    impToPlacement1( imp, mappingTarget.getPlacement(), config, converterProvider );
   }
 
-  private void impToPlacement1(Imp imp, Placement mappingTarget, Config config) throws OpenRtbConverterException {
+  private void impToPlacement1(Imp imp, Placement mappingTarget, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
     if ( imp == null ) {
       return;
     }
-
-    mappingTarget.setAudio( audioAudioPlacementConverter.map( imp.getAudio(), config) );
-    mappingTarget.setVideo( videoVideoPlacementConverter.map( imp.getVideo(), config) );
+    Converter<Banner, DisplayPlacement> bannerDisplayPlacementConverter = converterProvider.fetch(new Conversion
+            (Banner.class, DisplayPlacement.class));
+    Converter<Audio, AudioPlacement> audioAudioPlacementConverter = converterProvider.fetch(new Conversion
+            (Audio.class, AudioPlacement.class));
+    Converter<Video, VideoPlacement> videoVideoPlacementConverter = converterProvider.fetch(new Conversion
+            (Video.class, VideoPlacement.class));
+    Converter<Native, DisplayPlacement> nativeDisplayPlacementConverter = converterProvider.fetch(new Conversion
+            (Native.class, DisplayPlacement.class));
+    mappingTarget.setAudio( audioAudioPlacementConverter.map( imp.getAudio(), config, converterProvider) );
+    mappingTarget.setVideo( videoVideoPlacementConverter.map( imp.getVideo(), config, converterProvider) );
     if (nonNull(mappingTarget.getVideo())) {
       mappingTarget.getVideo().setClktype(imp.getClickbrowser());
     }
@@ -137,7 +128,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     mappingTarget.setSdkver( imp.getDisplaymanagerver() );
     mappingTarget.setSecure( imp.getSecure() );
     DisplayPlacement displayPlacement = bannerDisplayPlacementConverter.map(imp.getBanner(),
-      config);
+      config, converterProvider);
     if (nonNull(mappingTarget.getDisplay())) {
       mappingTarget.getDisplay().setClktype(imp.getClickbrowser());
       mappingTarget.getDisplay().setIfrbust(Utils.copyCollection(imp.getIframebuster(), config));
@@ -157,7 +148,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     if (isNull(displayPlacement) && nonNull(imp.getNat())) {
       displayPlacement = new DisplayPlacement();
     }
-    nativeDisplayPlacementConverter.enhance(imp.getNat(), displayPlacement, config);
+    nativeDisplayPlacementConverter.enhance(imp.getNat(), displayPlacement, config, converterProvider);
     mappingTarget.setDisplay( displayPlacement );
   }
 

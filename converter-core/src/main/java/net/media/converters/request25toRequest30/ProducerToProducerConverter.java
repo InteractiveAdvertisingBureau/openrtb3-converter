@@ -2,7 +2,9 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
 import net.media.openrtb25.request.Producer;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -10,20 +12,20 @@ import java.util.Map;
 
 public class ProducerToProducerConverter implements Converter<Producer, net.media.openrtb3.Producer> {
   @Override
-  public net.media.openrtb3.Producer map(Producer source, Config config) {
+  public net.media.openrtb3.Producer map(Producer source, Config config, Provider<Conversion, Converter> converterProvider) {
     if ( source == null ) {
       return null;
     }
 
     net.media.openrtb3.Producer producer1 = new net.media.openrtb3.Producer();
 
-    enhance( source, producer1, config );
+    enhance( source, producer1, config, converterProvider );
 
     return producer1;
   }
 
   @Override
-  public void enhance(Producer source, net.media.openrtb3.Producer target, Config config) {
+  public void enhance(Producer source, net.media.openrtb3.Producer target, Config config, Provider<Conversion, Converter> converterProvider) {
     if(source == null)
       return;
     target.setId( source.getId() );

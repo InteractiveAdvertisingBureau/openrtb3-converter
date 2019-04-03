@@ -2,11 +2,13 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CollectionUtils;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
@@ -24,17 +26,17 @@ import static java.util.Objects.nonNull;
 public class BannerToDisplayPlacementConverter implements Converter<Banner, DisplayPlacement> {
 
   @Override
-  public DisplayPlacement map(Banner banner, Config config) {
+  public DisplayPlacement map(Banner banner, Config config, Provider<Conversion, Converter> converterProvider) {
     if (isNull(banner)) {
       return null;
     }
     DisplayPlacement displayPlacement = new DisplayPlacement();
-    enhance(banner, displayPlacement, config);
+    enhance(banner, displayPlacement, config, converterProvider);
     return displayPlacement;
   }
 
   @Override
-  public void enhance(Banner banner, DisplayPlacement displayPlacement, Config config) {
+  public void enhance(Banner banner, DisplayPlacement displayPlacement, Config config, Provider<Conversion, Converter> converterProvider) {
     if (isNull(banner) || isNull(displayPlacement)) {
       return;
     }

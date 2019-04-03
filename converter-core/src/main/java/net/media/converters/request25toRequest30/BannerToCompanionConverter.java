@@ -1,11 +1,13 @@
 package net.media.converters.request25toRequest30;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb3.Companion;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import static java.util.Objects.nonNull;
@@ -16,32 +18,27 @@ import static java.util.Objects.nonNull;
 
 public class BannerToCompanionConverter implements Converter<Banner, Companion> {
 
-  private Converter<Banner, DisplayPlacement> bannerDisplayPlacementConverter;
-
-  @java.beans.ConstructorProperties({"bannerDisplayPlacementConverter"})
-  public BannerToCompanionConverter(Converter<Banner, DisplayPlacement> bannerDisplayPlacementConverter) {
-    this.bannerDisplayPlacementConverter = bannerDisplayPlacementConverter;
-  }
-
   @Override
-  public Companion map(Banner banner, Config config) throws OpenRtbConverterException {
+  public Companion map(Banner banner, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
     if ( banner == null ) {
       return null;
     }
 
     Companion companion = new Companion();
-    enhance(banner, companion, config);
+    enhance(banner, companion, config, converterProvider);
 
     return companion;
   }
 
   @Override
-  public void enhance(Banner banner, Companion companion, Config config) throws OpenRtbConverterException {
+  public void enhance(Banner banner, Companion companion, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
     if (nonNull(banner.getId())) {
       companion.setId(banner.getId());
     }
+    Converter<Banner, DisplayPlacement> bannerDisplayPlacementConverter = converterProvider.fetch(new Conversion
+            (Banner.class, DisplayPlacement.class));
     companion.setVcm( banner.getVcm() );
-    companion.setDisplay( bannerDisplayPlacementConverter.map( banner, config) );
+    companion.setDisplay( bannerDisplayPlacementConverter.map( banner, config, converterProvider) );
     companion.setId( banner.getId() );
   }
 }
