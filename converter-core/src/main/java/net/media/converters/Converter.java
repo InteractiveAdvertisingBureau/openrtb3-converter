@@ -1,7 +1,9 @@
 package net.media.converters;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
+import net.media.utils.Provider;
 
 /**
  *
@@ -12,7 +14,9 @@ import net.media.config.Config;
  */
 public interface Converter<U, V> {
 
-  V map(U source, Config config) throws OpenRtbConverterException;
+  V map(U source, Config config, Provider<Conversion, Converter> converterProvider) throws
+    OpenRtbConverterException;
 
-  void enhance(U source, V target, Config config) throws OpenRtbConverterException;
+  void enhance(U source, V target, Config config, Provider<Conversion, Converter>
+    converterProvider) throws OpenRtbConverterException;
 }

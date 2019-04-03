@@ -41,4 +41,9 @@ public class ConverterManager {
     return converterProvider.fetch(new Conversion(source, target));
   }
 
+  public Provider<Conversion, Converter> getConverterProvider(Map<Conversion, Converter>
+                                                                overrideMap) {
+    return null;
+  }
+
 }
