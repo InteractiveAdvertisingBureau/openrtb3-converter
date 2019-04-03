@@ -1,5 +1,6 @@
 package net.media.converters.response25toresponse30;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -8,6 +9,7 @@ import net.media.openrtb25.response.SeatBid;
 import net.media.openrtb3.Response;
 import net.media.openrtb3.Seatbid;
 import net.media.utils.CollectionUtils;
+import net.media.utils.Provider;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,24 +23,18 @@ import static java.util.Objects.nonNull;
  */
 public class BidResponseToResponseConverter implements Converter<BidResponse, Response> {
 
-  private Converter<SeatBid, Seatbid> seatBidSeatbidConverter;
-
-  public BidResponseToResponseConverter(Converter<SeatBid, Seatbid> seatBidSeatbidConverter) {
-    this.seatBidSeatbidConverter = seatBidSeatbidConverter;
-  }
-
   /**
    * @param bidResponse
    * @param config
    * @return
    */
   @Override
-  public Response map(BidResponse bidResponse, Config config)throws OpenRtbConverterException {
+  public Response map(BidResponse bidResponse, Config config, Provider<Conversion, Converter> converterProvider)throws OpenRtbConverterException {
     if ( bidResponse == null ) {
       return null;
     }
     Response response = new Response();
-    enhance(bidResponse, response, config);
+    enhance(bidResponse, response, config, converterProvider);
     return response;
   }
 
@@ -48,15 +44,16 @@ public class BidResponseToResponseConverter implements Converter<BidResponse, Re
    * @param response
    */
   @Override
-  public void enhance(BidResponse bidResponse, Response response, Config config)throws OpenRtbConverterException {
+  public void enhance(BidResponse bidResponse, Response response, Config config, Provider<Conversion, Converter> converterProvider)throws OpenRtbConverterException {
     response.setId( bidResponse.getId() );
     response.setBidid( bidResponse.getBidid() );
     response.setNbr( bidResponse.getNbr() );
     response.setCur( bidResponse.getCur() );
+    Converter<SeatBid, Seatbid> converter = converterProvider.fetch(new Conversion(SeatBid.class, SeatBid.class));
     if (!CollectionUtils.isEmpty(bidResponse.getSeatbid())) {
       List<Seatbid> seatbids = new ArrayList<>();
       for (SeatBid seatBid : bidResponse.getSeatbid()) {
-        seatbids.add(seatBidSeatbidConverter.map(seatBid, config));
+        seatbids.add(converter.map(seatBid, config, converterProvider));
       }
       response.setSeatbid(seatbids);
     }

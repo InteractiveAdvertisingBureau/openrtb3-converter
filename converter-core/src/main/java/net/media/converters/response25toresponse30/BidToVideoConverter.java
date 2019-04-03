@@ -1,11 +1,13 @@
 package net.media.converters.response25toresponse30;
 
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Video;
+import net.media.utils.Provider;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,17 +22,17 @@ import static java.util.Objects.nonNull;
 public class BidToVideoConverter implements Converter<Bid, Video> {
 
   @Override
-  public Video map(Bid source, Config config) throws OpenRtbConverterException {
+  public Video map(Bid source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
     if (source == null) {
       return null;
     }
     Video video = new Video();
-    enhance(source, video, config);
+    enhance(source, video, config, converterProvider);
     return video;
   }
 
   @Override
-  public void enhance(Bid source, Video target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, Video target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException{
     if (source == null || target == null) {
       return;
     }
