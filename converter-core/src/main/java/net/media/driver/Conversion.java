@@ -3,14 +3,14 @@ package net.media.driver;
 /**
  * @author shiva.b
  */
-public class Conversion {
+public class Conversion<U, V> {
 
-  private Class source;
+  private Class<U> source;
 
-  private Class target;
+  private Class<V> target;
 
   @java.beans.ConstructorProperties({"source", "target"})
-  public Conversion(Class source, Class target) {
+  public Conversion(Class<U> source, Class<V> target) {
     this.source = source;
     this.target = target;
   }
@@ -23,11 +23,11 @@ public class Conversion {
     return this.target;
   }
 
-  public void setSource(Class source) {
+  public void setSource(Class<U> source) {
     this.source = source;
   }
 
-  public void setTarget(Class target) {
+  public void setTarget(Class<V> target) {
     this.target = target;
   }
 
