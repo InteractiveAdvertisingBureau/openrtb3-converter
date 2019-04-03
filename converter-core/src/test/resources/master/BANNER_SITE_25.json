@@ -10,13 +10,33 @@
     "tid": "dd",
     "pchain": "dd",
     "ext": {
-      "dummy": "ff"
+      "object": {
+        "a" : "dsd",
+        "arraySample": ["a"],
+        "jsonArraySample": [{"id": 1}],
+        "obj" : {
+          "a" : 1
+        }
+      },
+      "arraySample": ["a"],
+      "jsonArraySample": [{"id": 1}],
+      "Key": "value"
     }
   },
   "regs": {
     "coppa": 1,
     "ext": {
-      "dummy": "ff"
+      "object": {
+        "a" : "dsd",
+        "arraySample": ["a"],
+        "jsonArraySample": [{"id": 1}],
+        "obj" : {
+          "a" : 1
+        }
+      },
+      "arraySample": ["a"],
+      "jsonArraySample": [{"id": 1}],
+      "Key": "value"
     }
   },
   "ext": {
@@ -127,7 +147,17 @@
       "cat": ["IAB3-1", "IAB3-2"],
       "domain": "foobar.com",
       "ext": {
-        "dummy": "ff"
+        "object": {
+          "a" : "dsd",
+          "arraySample": ["a"],
+          "jsonArraySample": [{"id": 1}],
+          "obj" : {
+            "a" : 1
+          }
+        },
+        "arraySample": ["a"],
+        "jsonArraySample": [{"id": 1}],
+        "Key": "value"
       }
     },
     "content": {
@@ -146,7 +176,17 @@
         "cat": ["IAB3-1", "IAB3-2"],
         "domain": "abc.com",
         "ext": {
-          "dummy": "ff"
+          "object": {
+            "a" : "dsd",
+            "arraySample": ["a"],
+            "jsonArraySample": [{"id": 1}],
+            "obj" : {
+              "a" : 1
+            }
+          },
+          "arraySample": ["a"],
+          "jsonArraySample": [{"id": 1}],
+          "Key": "value"
         }
       },
       "url": "ewfe.com",
@@ -163,9 +203,52 @@
       "len": 2,
       "language": "en",
       "embeddable": 1,
-      "data": [{}],
+      "data": [{
+        "id": "wwe",
+        "name": "ee",
+        "segment": [{
+          "id": "ew",
+          "name": "rewfe",
+          "value": "ew",
+          "ext": {
+            "object": {
+              "a" : "dsd",
+              "arraySample": ["a"],
+              "jsonArraySample": [{"id": 1}],
+              "obj" : {
+                "a" : 1
+              }
+            },
+            "arraySample": ["a"],
+            "jsonArraySample": [{"id": 1}],
+            "Key": "value"
+          }      }],
+        "ext": {
+          "object": {
+            "a" : "dsd",
+            "arraySample": ["a"],
+            "jsonArraySample": [{"id": 1}],
+            "obj" : {
+              "a" : 1
+            }
+          },
+          "arraySample": ["a"],
+          "jsonArraySample": [{"id": 1}],
+          "Key": "value"
+        }
+      }],
       "ext": {
-        "dummy": "ff"
+        "object": {
+          "a" : "dsd",
+          "arraySample": ["a"],
+          "jsonArraySample": [{"id": 1}],
+          "obj" : {
+            "a" : 1
+          }
+        },
+        "arraySample": ["a"],
+        "jsonArraySample": [{"id": 1}],
+        "Key": "value"
       }
     },
     "ext": {
