@@ -6,6 +6,7 @@ import net.media.converters.request30toRequest25.OpenRtbToBidRequestConverter;
 import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb25.response.BidResponse;
 import net.media.openrtb3.OpenRTB;
+import net.media.utils.ConverterProvider;
 import net.media.utils.ConverterProxy;
 import net.media.utils.Provider;
 
@@ -20,7 +21,7 @@ public class ConverterManager {
   private Provider<Conversion, Converter> converterProvider;
 
   public ConverterManager(Map<Conversion, Converter> overrideMap) {
-    converterProvider = new Provider<>(null);
+    converterProvider = new ConverterProvider(null);
     new Convert25To30RequestManager(converterProvider);
     new Convert30To25RequestManager(converterProvider);
     new Convert25To30ResponseManager(converterProvider);
