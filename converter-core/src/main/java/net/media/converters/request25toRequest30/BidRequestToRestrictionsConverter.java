@@ -64,9 +64,12 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
       } else {
         target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
-      if (source.getExt().containsKey("restrictionsExt")) {
-        target.setExt((Map<String, Object>) source.getExt().get("restrictionsExt"));
-        source.getExt().remove("restrictionsExt");
+      if (source.getExt().containsKey("restrictions")) {
+        Restrictions restrictions = (Restrictions) source.getExt().get("restrictions");
+        if (restrictions.getExt() != null) {
+          target.setExt(restrictions.getExt());
+        }
+        source.getExt().remove("restrictions");
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for BidRequest", e);

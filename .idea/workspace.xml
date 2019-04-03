@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ce24c19-3d72-44fb-8e44-f74ecd788224" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/validator/CheckAtMostOneNotNull.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToCompanionConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToCompanionConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRequestConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRequestConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRestrictionsConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRestrictionsConverter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ImpToItemConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ImpToItemConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAdConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAdConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Pmp.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Pmp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/NativeToDisplayPlacementConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/NativeToDisplayPlacementConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToBannerConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToBannerConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToNativeConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToNativeConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ItemToImpConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ItemToImpConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/RequestToBidRequestConverter.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/RequestToBidRequestConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/BidRequest.java" afterPath="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/BidRequest.java" />
     </list>
     <ignored path="open-rtb-converter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,28 +40,8 @@
       <file leaf-file-name="Request.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Request.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="15">
               <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BidRequestToRequestConverter.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRequestConverter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="140" column="30" lean-forward="false" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BidRequest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/BidRequest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -64,38 +50,8 @@
       <file leaf-file-name="Display.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Display.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Source.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Source.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Item.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Item.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Placement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Placement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="24" column="19" lean-forward="false" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+            <state relative-caret-position="75">
+              <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -104,115 +60,81 @@
       <file leaf-file-name="DisplayPlacement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/DisplayPlacement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+            <state relative-caret-position="117">
+              <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DisplayFormat.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/DisplayFormat.java">
+      <file leaf-file-name="Native.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Native.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="39" column="3" lean-forward="false" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
+            <state relative-caret-position="107">
+              <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Banner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Banner.java">
+      <file leaf-file-name="Pmp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Pmp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+            <state relative-caret-position="210">
+              <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NativeToDisplayPlacementConverter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/NativeToDisplayPlacementConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="86" column="26" lean-forward="false" selection-start-line="86" selection-start-column="26" selection-end-line="86" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImpToItemConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ImpToItemConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="82" column="35" lean-forward="true" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DisplayPlacementToBannerConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToBannerConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="473">
+              <caret line="95" column="60" lean-forward="false" selection-start-line="95" selection-start-column="60" selection-end-line="95" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BannerToDisplayPlacementConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="71" column="7" lean-forward="true" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DisplayPlacementToNativeConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToNativeConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="60" column="59" lean-forward="false" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
               <folding>
-                <element signature="e#2743#2744#0" expanded="true" />
-                <element signature="e#2767#2768#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Video.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Video.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VideoPlacement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/VideoPlacement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-              <folding>
-                <element signature="e#4577#4578#0" expanded="true" />
-                <element signature="e#4601#4602#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AudioPlacement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/AudioPlacement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Audio.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Audio.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConverterServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-api/src/main/java/net/media/api/servlets/ConverterServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-244">
-              <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-api/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="167" column="34" lean-forward="true" selection-start-line="167" selection-start-column="34" selection-end-line="167" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConverterApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-api/src/main/java/net/media/api/ConverterApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConverterListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter-api/src/main/java/net/media/api/ConverterListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -220,8 +142,20 @@
       <file leaf-file-name="ItemToImpConverter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ItemToImpConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3915">
-              <caret line="286" column="36" lean-forward="false" selection-start-line="286" selection-start-column="36" selection-end-line="286" selection-end-column="36" />
+            <state relative-caret-position="-1773">
+              <caret line="150" column="33" lean-forward="false" selection-start-line="150" selection-start-column="33" selection-end-line="150" selection-end-column="33" />
+              <folding>
+                <marker date="1554267410883" expanded="true" signature="10072:10268" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Imp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Imp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -233,6 +167,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -250,6 +185,11 @@
       <find>ampren</find>
       <find>play</find>
       <find>$catt</find>
+      <find>getwlan</find>
+      <find>pmp</find>
+      <find>ptype</find>
+      <find>ctype</find>
+      <find>priv</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -263,14 +203,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/SourceToSourceConverter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/UserToUserConverter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ContentToContentConverter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DeviceToDeviceConverter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ProducerToProducerConverter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/PublisherToPublisherConverter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/RegsToRegsConverter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/SegmentToSegmentConverter.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/SiteToSiteConverter.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/UserToUserConverter.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Ad.java" />
@@ -281,7 +213,6 @@
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Restrictions.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Seatbid.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Video.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/BidRequest.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Content.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/nativeresponse/AssetResponse.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/nativeresponse/Link.java" />
@@ -307,13 +238,22 @@
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/driver/Convert30To25ResponseManager.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/OpenRtbMapperTest.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/SeatBid25ToSeatBid30Converter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRequestConverter.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Pmp.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ImpToItemConverter.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAdConverter.java" />
         <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToCompanionConverter.java" />
-        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java" />
         <option value="$PROJECT_DIR$/converter-api/pom.xml" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/validator/CheckAtMostOneNotNull.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/BidRequest.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRestrictionsConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRequestConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/RequestToBidRequestConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Request.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToBannerConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ItemToImpConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ImpToItemConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToNativeConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/NativeToDisplayPlacementConverter.java" />
       </list>
     </option>
   </component>
@@ -353,8 +293,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -592,6 +533,17 @@
             </path>
             <path>
               <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="validator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
@@ -626,14 +578,22 @@
               <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
               <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+              <item name="annotation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -644,7 +604,7 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="audio&#9;PSI&#9;JAVA://net.media.openrtb25.request.Audio&#10;audip&#9;PSI&#9;JAVA://net.media.openrtb3.AudioPlacement&#10;videopl&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/VideoPlacement.java&#10;video&#9;PSI&#9;JAVA://net.media.openrtb3.Video&#10;banner&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb25/request/Banner.java&#10;displayf&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/DisplayFormat.java&#10;displa&#9;PSI&#9;JAVA://net.media.openrtb3.Display&#10;placement&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Placement.java&#10;item&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Item.java&#10;source&#9;PSI&#9;JAVA://net.media.openrtb25.request.Source&#10;bidreq&#9;PSI&#9;JAVA://net.media.openrtb25.request.BidRequest&#10;reque&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Request.java&#10;openr&#9;PSI&#9;JAVA://net.media.openrtb3.OpenRTB&#10;list&#9;PSI&#9;JAVA://net.media.utils.ListToListConverter&#10;bannertocom&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToCompanionConverter.java&#10;displaytobi&#9;PSI&#9;JAVA://net.media.converters.response30toresponse25.DisplayToBidConverter&#10;config&#9;PSI&#9;JAVA://net.media.config.Config&#10;videopla&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/VideoPlacement.java&#10;bannertodis&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java&#10;companio&#9;PSI&#9;JAVA://net.media.openrtb3.Companion&#10;bidtoad&#9;PSI&#9;JAVA://net.media.converters.response25toresponse30.BidToAdConverter&#10;pmp&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb25/request/Pmp.java&#10;utils&#9;PSI&#9;JAVA://net.media.utils.Utils&#10;Video&#9;FILE&#9;file:///Users/shiva.b/Documents/openrtb-converter/converter-core/src/main/java/net/media/openrtb25/request/Video.java&#10;BidRes&#9;PSI&#9;JAVA://net.media.openrtb25.response.BidResponse&#10;SeatBi&#9;FILE&#9;file:///Users/shiva.b/Documents/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Seatbid.java&#10;HashMa&#9;PSI&#9;JAVA://java.util.HashMap&#10;Disp&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Display.java&#10;Ad&#9;PSI&#9;JAVA://net.media.openrtb3.Ad&#10;bid&#9;PSI&#9;JAVA://net.media.openrtb3.Bid&#10;Bid&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAdConverter.java&#10;Ope&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/mapper/OpenRtb24To3Mapper.java&#10;ope&#9;PSI&#9;JAVA://net.media.mapper.OpenRtb24To3Mapper&#10;open&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/OpenRtbConverter.java&#10;Bid24&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid24ToBid30Converter.java&#10;SeatBid&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Seatbid.java&#10;Bidto&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToDisplayConverter.java&#10;Dis&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response30toresponse25/DisplayToBidConverter.java&#10;openrt&#9;PSI&#9;JAVA://net.media.OpenRtbConverter&#10;OPen&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/OpenRtbConverter.java&#10;Sea&#9;PSI&#9;JAVA://net.media.openrtb3.Seatbid&#10;Seat&#9;PSI&#9;JAVA://net.media.openrtb25.response.SeatBid&#10;ad&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Ad.java&#10;confi&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/config/Config.java&#10;Open&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/mapper/OpenRtb24To3Mapper.java&#10;OpenRt&#9;PSI&#9;JAVA://net.media.mapper.OpenRtb24To3Mapper&#10;jac&#9;PSI&#9;JAVA://net.media.util.JacksonObjectMapper&#10;bidto&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToVideoConverter.java&#10;bidtoVide&#9;PSI&#9;JAVA://net.media.converters.response25toresponse30.BidToVideoConverter&#10;bidtoA&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAdConverter.java" />
+    <property name="SearchEverywhereHistoryKey" value="native&#9;PSI&#9;JAVA://net.media.openrtb25.request.Native&#10;imp&#9;PSI&#9;JAVA://net.media.openrtb25.request.Imp&#10;itemtoim&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request30toRequest25/ItemToImpConverter.java&#10;pmp&#9;PSI&#9;JAVA://net.media.openrtb25.request.Pmp&#10;nativetod&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request25toRequest30/NativeToDisplayPlacementConverter.java&#10;displatona&#9;PSI&#9;JAVA://net.media.converters.request30toRequest25.DisplayPlacementToNativeConverter&#10;bannerto&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java&#10;displayplacementto&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToBannerConverter.java&#10;displ&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/DisplayPlacement.java&#10;display&#9;PSI&#9;JAVA://net.media.openrtb3.Display&#10;displa&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Display.java&#10;place&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Placement.java&#10;item&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Item.java&#10;restri&#9;PSI&#9;JAVA://net.media.openrtb3.Restrictions&#10;user&#9;PSI&#9;JAVA://net.media.openrtb25.request.User&#10;bidre&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb25/request/BidRequest.java&#10;request&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Request.java&#10;audio&#9;PSI&#9;JAVA://net.media.openrtb25.request.Audio&#10;audip&#9;PSI&#9;JAVA://net.media.openrtb3.AudioPlacement&#10;videopl&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/VideoPlacement.java&#10;video&#9;PSI&#9;JAVA://net.media.openrtb3.Video&#10;banner&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb25/request/Banner.java&#10;displayf&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/DisplayFormat.java&#10;placement&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Placement.java&#10;source&#9;PSI&#9;JAVA://net.media.openrtb25.request.Source&#10;bidreq&#9;PSI&#9;JAVA://net.media.openrtb25.request.BidRequest&#10;reque&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Request.java&#10;openr&#9;PSI&#9;JAVA://net.media.openrtb3.OpenRTB&#10;list&#9;PSI&#9;JAVA://net.media.utils.ListToListConverter&#10;bannertocom&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToCompanionConverter.java&#10;displaytobi&#9;PSI&#9;JAVA://net.media.converters.response30toresponse25.DisplayToBidConverter&#10;config&#9;PSI&#9;JAVA://net.media.config.Config&#10;videopla&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/VideoPlacement.java&#10;bannertodis&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java&#10;companio&#9;PSI&#9;JAVA://net.media.openrtb3.Companion&#10;bidtoad&#9;PSI&#9;JAVA://net.media.converters.response25toresponse30.BidToAdConverter&#10;utils&#9;PSI&#9;JAVA://net.media.utils.Utils&#10;Video&#9;FILE&#9;file:///Users/shiva.b/Documents/openrtb-converter/converter-core/src/main/java/net/media/openrtb25/request/Video.java&#10;BidRes&#9;PSI&#9;JAVA://net.media.openrtb25.response.BidResponse&#10;SeatBi&#9;FILE&#9;file:///Users/shiva.b/Documents/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Seatbid.java&#10;HashMa&#9;PSI&#9;JAVA://java.util.HashMap&#10;Disp&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Display.java&#10;Ad&#9;PSI&#9;JAVA://net.media.openrtb3.Ad&#10;bid&#9;PSI&#9;JAVA://net.media.openrtb3.Bid&#10;Bid&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAdConverter.java&#10;Ope&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/mapper/OpenRtb24To3Mapper.java&#10;ope&#9;PSI&#9;JAVA://net.media.mapper.OpenRtb24To3Mapper&#10;open&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/OpenRtbConverter.java&#10;Bid24&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response25toresponse30/Bid24ToBid30Converter.java&#10;SeatBid&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Seatbid.java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="LombokPluginEnabledInProject" value="true" />
@@ -1361,7 +1321,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52763000" />
+    <option name="totallyTimeSpent" value="61026000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1383,36 +1343,58 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40145397" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34517047" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32091346" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24969475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21875" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40145397" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CodotaView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34517047" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32091346" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24969475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21875" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1483,141 +1465,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe/OpenRtbMapperTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/AudioToAudioPlacementConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="65" column="37" lean-forward="false" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6570">
-          <caret line="473" column="11" lean-forward="false" selection-start-line="473" selection-start-column="11" selection-end-line="473" selection-end-column="11" />
-          <folding>
-            <element signature="e#19296#19297#0" expanded="false" />
-            <element signature="e#19379#19380#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToNativeConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="62" column="21" lean-forward="false" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="44" column="27" lean-forward="false" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Pmp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ImpToItemConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="93" column="44" lean-forward="true" selection-start-line="93" selection-start-column="44" selection-end-line="93" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="271" column="6" lean-forward="false" selection-start-line="271" selection-start-column="6" selection-end-line="271" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/NativeRequestBody.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="103" column="18" lean-forward="false" selection-start-line="103" selection-start-column="18" selection-end-line="103" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Spec.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Companion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/CompanionToBannerConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="39" column="58" lean-forward="false" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/Override.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToBannerConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="60" column="33" lean-forward="false" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/VideoToVideoPlacementConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="81" column="19" lean-forward="false" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/AssetToAssetFormatConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="101" column="19" lean-forward="false" selection-start-line="101" selection-start-column="19" selection-end-line="101" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/Converter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/ConverterProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/config/Config.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3750">
@@ -1629,13 +1476,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="32" column="3" lean-forward="false" selection-start-line="32" selection-start-column="3" selection-end-line="32" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1698,43 +1538,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/ListToListConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/ListToListConverter.java" />
     <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/OpenRTB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Request.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/BidRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Display.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1746,45 +1554,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Placement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="24" column="19" lean-forward="false" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/DisplayPlacement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/DisplayFormat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="39" column="3" lean-forward="false" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
-          <folding />
+          <folding>
+            <marker date="1554212877406" expanded="false" signature="1034:1038" ph=" }" />
+            <marker date="1554212877406" expanded="false" signature="1085:1092" ph=" { " />
+            <marker date="1554212877406" expanded="false" signature="1107:1111" ph=" }" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Banner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <element signature="e#2743#2744#0" expanded="true" />
-            <element signature="e#2767#2768#0" expanded="true" />
+            <marker date="1554212877394" expanded="false" signature="2815:2822" ph=" { " />
+            <marker date="1554212877394" expanded="false" signature="2837:2841" ph=" }" />
+            <marker date="1554212877394" expanded="false" signature="2888:2895" ph=" { " />
+            <marker date="1554212877394" expanded="false" signature="2910:2914" ph=" }" />
+            <marker date="1554212877394" expanded="true" signature="2950:5569" ph="{...}" />
+            <marker date="1554212877394" expanded="true" signature="5595:7117" ph="{...}" />
+            <marker date="1554212877394" expanded="false" signature="7161:7168" ph=" { " />
+            <marker date="1554212877394" expanded="false" signature="7199:7203" ph=" }" />
+            <marker date="1554212877394" expanded="true" signature="7232:7661" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1792,8 +1587,24 @@
     <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Video.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <marker date="1554212877412" expanded="false" signature="924:928" ph=" }" />
+            <marker date="1554212877412" expanded="false" signature="967:974" ph=" { " />
+            <marker date="1554212877412" expanded="false" signature="993:997" ph=" }" />
+            <marker date="1554212877412" expanded="false" signature="1032:1039" ph=" { " />
+            <marker date="1554212877412" expanded="false" signature="1092:1099" ph=" { " />
+            <marker date="1554212877412" expanded="false" signature="1114:1118" ph=" }" />
+            <marker date="1554212877412" expanded="false" signature="1154:1161" ph=" { " />
+            <marker date="1554212877412" expanded="false" signature="1178:1182" ph=" }" />
+            <marker date="1554212877412" expanded="false" signature="1229:1236" ph=" { " />
+            <marker date="1554212877412" expanded="false" signature="1251:1255" ph=" }" />
+            <marker date="1554212877412" expanded="true" signature="1291:2757" ph="{...}" />
+            <marker date="1554212877412" expanded="true" signature="2783:3625" ph="{...}" />
+            <marker date="1554212877412" expanded="false" signature="3669:3676" ph=" { " />
+            <marker date="1554212877412" expanded="false" signature="3706:3710" ph=" }" />
+            <marker date="1554212877412" expanded="true" signature="3739:3980" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1802,8 +1613,9 @@
         <state relative-caret-position="330">
           <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
           <folding>
-            <element signature="e#4577#4578#0" expanded="true" />
-            <element signature="e#4601#4602#0" expanded="true" />
+            <marker date="1554212877413" expanded="false" signature="4671:4675" ph=" }" />
+            <marker date="1554212877413" expanded="false" signature="4722:4729" ph=" { " />
+            <marker date="1554212877413" expanded="false" signature="4744:4748" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -1811,40 +1623,12 @@
     <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/AudioPlacement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ItemToImpConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3915">
-          <caret line="286" column="36" lean-forward="false" selection-start-line="286" selection-start-column="36" selection-end-line="286" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Audio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-api/src/main/java/net/media/api/ConverterListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter-api/src/main/java/net/media/api/ConverterApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <marker date="1554212877403" expanded="false" signature="3681:3685" ph=" }" />
+            <marker date="1554212877403" expanded="false" signature="3732:3739" ph=" { " />
+            <marker date="1554212877403" expanded="false" signature="3754:3758" ph=" }" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1858,7 +1642,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/converter-api/src/main/java/net/media/api/servlets/ConverterServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-244">
+        <state relative-caret-position="15">
           <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
           <folding />
         </state>
@@ -1867,15 +1651,272 @@
     <entry file="file://$PROJECT_DIR$/converter-api/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
-          <caret line="167" column="34" lean-forward="true" selection-start-line="167" selection-start-column="34" selection-end-line="167" selection-end-column="34" />
+          <caret line="167" column="34" lean-forward="false" selection-start-line="167" selection-start-column="34" selection-end-line="167" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToContextConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Audio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <marker date="1554212877394" expanded="false" signature="3470:3474" ph=" }" />
+            <marker date="1554212877394" expanded="false" signature="3515:3522" ph=" { " />
+            <marker date="1554212877394" expanded="false" signature="3543:3547" ph=" }" />
+            <marker date="1554212877394" expanded="false" signature="3584:3591" ph=" { " />
+            <marker date="1554212877394" expanded="false" signature="3657:3664" ph=" { " />
+            <marker date="1554212877394" expanded="false" signature="3689:3693" ph=" }" />
+            <marker date="1554212877394" expanded="false" signature="3730:3737" ph=" { " />
+            <marker date="1554212877394" expanded="false" signature="3754:3758" ph=" }" />
+            <marker date="1554212877394" expanded="false" signature="3805:3812" ph=" { " />
+            <marker date="1554212877394" expanded="false" signature="3827:3831" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-api/src/main/java/net/media/api/ConverterApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-api/src/main/java/net/media/api/ConverterListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/annotation/Documented.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="41" column="18" lean-forward="false" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/validator/CheckAtMostOneNotNull.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="46" column="20" lean-forward="false" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/validator/CheckExactlyOneNotNull.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="35" column="64" lean-forward="false" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/validator/CheckAtLeastOneNotNull.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="53" column="18" lean-forward="false" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/BidRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="64" column="28" lean-forward="false" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+          <folding>
+            <element signature="e#3228#3229#0" expanded="true" />
+            <element signature="e#3255#3256#0" expanded="true" />
+            <element signature="e#4923#4924#0" expanded="true" />
+            <element signature="e#4951#4952#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Restrictions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/RequestToBidRequestConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="175" column="7" lean-forward="true" selection-start-line="175" selection-start-column="7" selection-end-line="175" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Placement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="52" column="32" lean-forward="false" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
+          <folding>
+            <element signature="e#1887#1888#0" expanded="true" />
+            <element signature="e#1915#1916#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRestrictionsConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="62" column="43" lean-forward="false" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRequestConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="140" column="30" lean-forward="false" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="30" />
+        <state relative-caret-position="383">
+          <caret line="136" column="38" lean-forward="false" selection-start-line="136" selection-start-column="38" selection-end-line="136" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToBannerConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="95" column="60" lean-forward="false" selection-start-line="95" selection-start-column="60" selection-end-line="95" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Pmp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ItemToImpConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1773">
+          <caret line="150" column="33" lean-forward="false" selection-start-line="150" selection-start-column="33" selection-end-line="150" selection-end-column="33" />
+          <folding>
+            <marker date="1554267410883" expanded="true" signature="10072:10268" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Imp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ImpToItemConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="82" column="35" lean-forward="true" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="71" column="7" lean-forward="true" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Display.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToNativeConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="60" column="59" lean-forward="false" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/DisplayPlacement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Native.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/NativeToDisplayPlacementConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="86" column="26" lean-forward="false" selection-start-line="86" selection-start-column="26" selection-end-line="86" selection-end-column="26" />
           <folding />
         </state>
       </provider>

@@ -59,6 +59,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
         try {
           nativeRequest.getNativeRequestBody().setContextsubtype((Integer) displayPlacement.getExt
             ().get("contextsubtype"));
+          displayPlacement.getExt().remove("contextsubtype");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
         }
@@ -85,6 +86,20 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       }
     } else {
       nat.setRequest(nativeRequest);
+    }
+    try {
+      if (displayPlacement.getPriv() != null) {
+        if (nat.getExt() == null)
+          nat.setExt(new HashMap<>());
+        nat.getExt().put("priv", displayPlacement.getPriv());
+      }
+      if (displayPlacement.getCtype() != null) {
+        if (nat.getExt() == null)
+          nat.setExt(new HashMap<>());
+        nat.getExt().put("ctype", displayPlacement.getCtype());
+      }
+    } catch(ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
     }
     nat.setExt(Utils.copyMap(displayPlacement.getExt(), config));
   }

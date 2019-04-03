@@ -78,10 +78,12 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       Map<String, Object> map = imp.getExt();
       item.setExt(Utils.copyMap(map, config));
       if(imp.getPmp() != null && imp.getPmp().getExt() != null) {
+        Pmp pmp = new Pmp();
+        pmp.setExt(imp.getPmp().getExt());
         if(item.getExt() == null) {
           item.setExt(new HashMap<>());
         }
-        item.getExt().put("pmpExt", imp.getPmp().getExt());
+        item.getExt().put("pmp", pmp);
       }
       item.setFlrcur( imp.getBidfloorcur() );
       Collection<Deal> deals = impPmpDeals( imp );
@@ -147,9 +149,6 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       if (nonNull(imp.getExt()) && !imp.getExt().isEmpty() && nonNull(displayPlacement)) {
         if (imp.getExt().containsKey("ampren")) {
           displayPlacement.setAmpren((Integer) imp.getExt().get("ampren"));
-        }
-        if (imp.getExt().containsKey("priv")) {
-          displayPlacement.setPriv((Integer) imp.getExt().get("priv"));
         }
         if (imp.getExt().containsKey("event")) {
           displayPlacement.setEvent((EventSpec) imp.getExt().get("event"));
