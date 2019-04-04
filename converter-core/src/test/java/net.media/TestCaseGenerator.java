@@ -52,7 +52,13 @@ public class TestCaseGenerator {
 
     if(aCase.getOutputFile() != null && !aCase.getOutputFile().trim().equals("null") && !aCase.getOutputFile().trim().equals("")) {
       String outputJson = new String(Files.readAllBytes(Paths.get(basePath + "master_request/" + aCase.getOutputFile())));
-      JsonNode outputJsonObject = objectMapper.readValue(outputJson, JsonNode.class);
+      JsonNode outputJsonObject = null;
+      try {
+         outputJsonObject = objectMapper.readValue(outputJson, JsonNode.class);
+      }
+      catch (Exception e) {
+        System.out.println(e);
+      }
       for(Map.Entry<String, String> entry: aCase.getOutputEdits().entrySet()) {
         modify(outputJsonObject, getNode(entry.getValue()), entry.getKey().split("\\."), 0);
       }
@@ -87,7 +93,12 @@ public class TestCaseGenerator {
         /*if (master_request.get(fieldName).isContainerNode()) {
           throw new RuntimeException("Unexpected Container Node found.");
         }*/
-        ((ObjectNode) master).replace(fieldName, nodeToSet);
+        try {
+          ((ObjectNode) master).replace(fieldName, nodeToSet);
+        }
+        catch (Exception e) {
+          System.out.println(fieldName + " " + nodeToSet);
+        }
       } else {
         modify(master.get(fieldName), nodeToSet, path, newIndex);
       }
