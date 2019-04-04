@@ -1,20 +1,24 @@
 package net.media.converters.request25toRequest30;
 
-import lombok.AllArgsConstructor;
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.Device;
 import net.media.openrtb25.request.Geo;
 import net.media.utils.OsMap;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
 public class DeviceToDeviceConverter implements Converter<Device, net.media.openrtb3.Device> {
 
   private Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter;
+
+  @java.beans.ConstructorProperties({"geoToGeoConverter"})
+  public DeviceToDeviceConverter(Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter) {
+    this.geoToGeoConverter = geoToGeoConverter;
+  }
 
   @Override
   public net.media.openrtb3.Device map(Device source, Config config) throws OpenRtbConverterException {
@@ -62,7 +66,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     target.setMccmnc( source.getMccmnc() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt( Utils.copyMap(map, config) );
     }
     if(source.getFlashver() != null) {
       if(target.getExt() == null)
@@ -71,11 +75,15 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     }
     if(source.getExt() == null)
       return;
-    target.setXff((String) source.getExt().get("xff"));
-    target.getExt().remove("xff");
-    target.setIptr((Integer) source.getExt().get("iptr"));
-    target.getExt().remove("iptr");
-    target.setIptr((Integer) source.getExt().get("mccmncsim"));
-    target.getExt().remove("mccmncsim");
+    try {
+      target.setXff((String) source.getExt().get("xff"));
+      target.getExt().remove("xff");
+      target.setIptr((Integer) source.getExt().get("iptr"));
+      target.getExt().remove("iptr");
+      target.setIptr((Integer) source.getExt().get("mccmncsim"));
+      target.getExt().remove("mccmncsim");
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for Device", e);
+    }
   }
 }

@@ -1,7 +1,6 @@
 package net.media.converters.request25toRequest30;
 
-import lombok.AllArgsConstructor;
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.Content;
@@ -12,11 +11,18 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+
 public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.Site> {
 
   private Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter;
   private Converter<Content, net.media.openrtb3.Content> contentContentConverter;
+
+  @java.beans.ConstructorProperties({"publisherPublisherConverter", "contentContentConverter"})
+  public SiteToSiteConverter(Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter, Converter<Content, net.media.openrtb3.Content> contentContentConverter) {
+    this.publisherPublisherConverter = publisherPublisherConverter;
+    this.contentContentConverter = contentContentConverter;
+  }
 
   @Override
   public net.media.openrtb3.Site map(Site source, Config config) throws OpenRtbConverterException {
@@ -36,16 +42,16 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
     if(source == null)
       return;
     target.setPrivpolicy( source.getPrivacypolicy() );
-    target.setSectcat( Utils.copyList(source.getSectioncat(), config) );
+    target.setSectcat( Utils.copyCollection(source.getSectioncat(), config) );
     target.setPub( publisherPublisherConverter.map( source.getPublisher(), config ) );
     target.setId( source.getId() );
     target.setName( source.getName() );
     target.setContent( contentContentConverter.map( source.getContent(), config ) );
     target.setDomain( source.getDomain() );
     if ( source.getCat() != null ) {
-      target.setCat( Utils.copyList( source.getCat(), config ) );
+      target.setCat( Utils.copyCollection( source.getCat(), config ) );
     }
-    target.setPagecat( Utils.copySet(source.getPagecat(), config) );
+    target.setPagecat( Utils.copyCollection(source.getPagecat(), config) );
     target.setKeywords( source.getKeywords() );
     target.setPage( source.getPage() );
     target.setRef( source.getRef() );
@@ -53,13 +59,21 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
     target.setMobile( source.getMobile() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt( Utils.copyMap( map, config ) );
     }
     if(source.getExt() == null)
       return;
-    target.setCattax((Integer) source.getExt().get("cattax"));
-    target.setAmp((Integer) source.getExt().get("amp"));
-    target.getExt().remove("cattax");
-    target.getExt().remove("amp");
+    try {
+      if (source.getExt().containsKey("cattax")) {
+        target.setCattax((Integer) source.getExt().get("cattax"));
+      } else {
+        target.setCattax(DEFAULT_CATTAX_TWODOTX);
+      }
+      target.setAmp((Integer) source.getExt().get("amp"));
+      target.getExt().remove("cattax");
+      target.getExt().remove("amp");
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for Site", e);
+    }
   }
 }

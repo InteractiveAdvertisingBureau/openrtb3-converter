@@ -7,11 +7,7 @@ import net.media.utils.Utils;
 
 import static java.util.Objects.isNull;
 
-/**
- * Created by rajat.go on 04/01/19.
- */
-public class MetricToMetricConverter implements Converter<Metric, net.media.openrtb25.request
-  .Metric> {
+public class MetricToMetricConverter implements Converter<Metric, net.media.openrtb25.request.Metric> {
   @Override
   public net.media.openrtb25.request.Metric map(Metric metric, Config config) {
     if (isNull(metric)) {

@@ -1,22 +1,27 @@
 package net.media.converters.request30toRequest25;
 
-import lombok.AllArgsConstructor;
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Data;
 import net.media.openrtb3.Geo;
 import net.media.openrtb3.User;
-import net.media.utils.ListToListConverter;
+import net.media.utils.Utils;
+import net.media.utils.CollectionToCollectionConverter;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
 public class UserToUserConverter implements Converter<User, net.media.openrtb25.request.User> {
 
   private Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter;
   private Converter<Data, net.media.openrtb25.request.Data> dataDataConverter;
+
+  @java.beans.ConstructorProperties({"geoGeoConverter", "dataDataConverter"})
+  public UserToUserConverter(Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter, Converter<Data, net.media.openrtb25.request.Data> dataDataConverter) {
+    this.geoGeoConverter = geoGeoConverter;
+    this.dataDataConverter = dataDataConverter;
+  }
 
   @Override
   public net.media.openrtb25.request.User map(User source, Config config) throws OpenRtbConverterException {
@@ -42,10 +47,10 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb25.
     target.setGender( source.getGender() );
     target.setGeo( geoGeoConverter.map( source.getGeo(), config ) );
     target.setKeywords( source.getKeywords() );
-    target.setData( ListToListConverter.convert( source.getData(), dataDataConverter, config ) );
+    target.setData( CollectionToCollectionConverter.convert( source.getData(), dataDataConverter, config ) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt(Utils.copyMap(map, config));
     }
     if(source.getConsent() != null) {
       if(target.getExt() == null)

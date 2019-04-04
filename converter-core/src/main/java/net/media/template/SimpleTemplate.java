@@ -5,8 +5,6 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import lombok.AllArgsConstructor;
-
 /**
  * Created by shiva.b on 02/01/19.
  */
@@ -76,9 +74,14 @@ public class SimpleTemplate implements Template {
     return res.append(tail).toString();
   }
 
-  @AllArgsConstructor
   static class Group {
     Token token;
     String prefix;
+
+    @java.beans.ConstructorProperties({"token", "prefix"})
+    public Group(Token token, String prefix) {
+      this.token = token;
+      this.prefix = prefix;
+    }
   }
 }

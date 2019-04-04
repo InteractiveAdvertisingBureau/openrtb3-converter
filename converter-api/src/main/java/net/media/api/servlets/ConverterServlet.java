@@ -4,17 +4,24 @@ package net.media.api.servlets;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import com.google.inject.Inject;
-import lombok.extern.slf4j.Slf4j;
-import net.media.OpenRtbConverter;
-import net.media.OpenRtbConverterException;
+
 import net.media.api.models.Request2xPayload;
 import net.media.api.models.RequestResponse3xPayload;
 import net.media.api.models.Response2xPayload;
 import net.media.config.Config;
+import net.media.driver.OpenRtbConverter;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb25.response.BidResponse;
 import net.media.openrtb3.OpenRTB;
 import net.media.utils.JacksonObjectMapper;
+
+import org.slf4j.Logger;
+
+import java.io.IOException;
+import java.util.Map;
+import java.util.Objects;
+import java.util.function.BiConsumer;
 
 import javax.naming.ConfigurationException;
 import javax.servlet.ServletConfig;
@@ -22,16 +29,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.Map;
-import java.util.Objects;
-import java.util.function.BiConsumer;
 
 import static java.util.Objects.isNull;
 
-@Slf4j
 public class ConverterServlet extends HttpServlet {
 
+  private static final Logger log = org.slf4j.LoggerFactory.getLogger(ConverterServlet.class);
   @Inject
   private OpenRtbConverter openRtbConverter;
   private Table<String, String, BiConsumer<HttpServletRequest, HttpServletResponse>> queryActionMap;

@@ -1,6 +1,6 @@
 package net.media.converters.response25toresponse30;
 
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.response.Bid;
@@ -13,13 +13,12 @@ import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
 /**
  * @author shiva.b
@@ -61,35 +60,45 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
       return;
     }
     target.setId( source.getCrid() );
-    target.setAdomain(Utils.copyList(source.getAdomain(),config));
+    target.setAdomain(Utils.copyCollection(source.getAdomain(),config));
     if(nonNull(source.getBundle())){
       List<String> bundle = new ArrayList<>();
       bundle.add(source.getBundle());
       target.setBundle(bundle);
     }
     target.setIurl( source.getIurl() );
-    target.setCat(Utils.copySet(source.getCat(),config));
+    target.setCat(Utils.copyCollection(source.getCat(),config));
     target.setLang(source.getLanguage());
-    target.setAttr(Utils.copyList(source.getAttr(),config));
+    target.setAttr(Utils.copyCollection(source.getAttr(),config));
     target.setMrating(source.getQagmediarating());
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt(new HashMap<>(map));
+      target.setExt(Utils.copyMap(map, config));
     }
     try {
-      if (nonNull(source) && nonNull(source.getExt())) {
+      if (nonNull(source.getExt())) {
         Map<String, Object> ext = source.getExt();
         target.setSecure((Integer) ext.get("secure"));
+        target.getExt().remove("secure");
         target.setInit((Integer) ext.get("init"));
+        target.getExt().remove("init");
         target.setLastmod((Integer) ext.get("lastMod"));
+        target.getExt().remove("lastMod");
         target.setMrating((Integer) ext.get("mrating"));
-        target.setCattax((Integer) ext.get("cattax"));
+        target.getExt().remove("mrating");
+        if(ext.containsKey("cattax")) {
+          target.setCattax((Integer) ext.get("cattax"));
+        }
+        else {
+          target.setCattax(DEFAULT_CATTAX_TWODOTX);
+        }
+        target.getExt().remove("cattax");
       }
     }
     catch (Exception e) {
       throw new OpenRtbConverterException("error while type casting ext in bid", e);
     }
-    switch (config.getAdType()) {
+    switch (config.getAdType(source.getId())) {
       case BANNER:
       case NATIVE:
         target.setDisplay(bidDisplayConverter.map(source, config));
