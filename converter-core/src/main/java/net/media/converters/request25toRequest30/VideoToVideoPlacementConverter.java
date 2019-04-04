@@ -42,7 +42,8 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     Converter<Banner, Companion> bannerCompanionConverter = converterProvider.fetch(new Conversion
             (Banner.class, Companion.class));
     videoPlacement.setComptype(Utils.copyCollection(video.getCompaniontype(), config));
-    videoPlacement.setComp( CollectionToCollectionConverter.convert( video.getCompanionad(), bannerCompanionConverter, config ) );
+    videoPlacement.setComp( CollectionToCollectionConverter.convert( video.getCompanionad(),
+      bannerCompanionConverter, config, converterProvider ) );
     videoPlacement.setLinear( video.getLinearity() );
     videoPlacement.setMime(Utils.copyCollection(video.getMimes(), config));
     videoPlacement.setMinbitr( video.getMinbitrate() );

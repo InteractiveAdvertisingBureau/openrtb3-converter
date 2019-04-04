@@ -3,6 +3,7 @@ package net.media.config;
 import com.google.common.base.Strings;
 
 import net.media.enums.AdType;
+import net.media.enums.OpenRtbVersion;
 import net.media.utils.PropertiesFileLoader;
 
 import java.io.File;
@@ -35,6 +36,9 @@ public class Config {
   private static final AdType DEFAULT_AD_TYPE = AdType.BANNER;
 
   private static final String DEFAULT_BANNER_TEMPLATE;
+
+  private static final OpenRtbVersion DEFAULT_OPENRTB_2_X_VERSION = OpenRtbVersion.TWO_DOT_FIVE;
+
   static {
     DEFAULT_BANNER_TEMPLATE = PropertiesFileLoader.templateProperties.getProperty("template.banner.adm");
   }
@@ -65,12 +69,15 @@ public class Config {
    */
   private Boolean validate;
 
+  private OpenRtbVersion openRtbVersion2_XVersion;
+
   public Config(Config oldConfig) {
     this.bannerTemplate = oldConfig.bannerTemplate;
     this.nativeRequestAsString = oldConfig.nativeRequestAsString;
     this.adTypeMapping = oldConfig.adTypeMapping;
     this.validate = oldConfig.validate;
     this.disableCloning = oldConfig.disableCloning;
+    this.openRtbVersion2_XVersion = oldConfig.openRtbVersion2_XVersion;
   }
 
   public Config() {
@@ -90,6 +97,8 @@ public class Config {
     this.validate = isNull(this.validate) ? config.validate : this.validate;
     this.disableCloning = isNull(this.disableCloning) ? config.getDisableCloning() : this
       .disableCloning;
+    this.openRtbVersion2_XVersion = isNull(this.openRtbVersion2_XVersion) ? config
+      .getOpenRtbVersion2_XVersion() : this.openRtbVersion2_XVersion;
   }
 
   public String  getBannerTemplate(){
@@ -119,6 +128,11 @@ public class Config {
 
   public Boolean isCloningDisabled() {
     return nonNull(disableCloning) ? disableCloning : DEFAULT_DISABLE_CLONING;
+  }
+
+  public OpenRtbVersion getOpenRtbVersion2_XVersion() {
+    return nonNull(openRtbVersion2_XVersion) ? openRtbVersion2_XVersion :
+      DEFAULT_OPENRTB_2_X_VERSION;
   }
 
   /**
@@ -308,6 +322,10 @@ public class Config {
 
   public void setValidate(Boolean validate) {
     this.validate = validate;
+  }
+
+  public void setOpenRtbVersion2_XVersion(OpenRtbVersion openRtbVersion2_XVersion) {
+    this.openRtbVersion2_XVersion = openRtbVersion2_XVersion;
   }
 
 

@@ -72,7 +72,8 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       }
       item.setFlrcur( imp.getBidfloorcur() );
       Collection<Deal> deals = impPmpDeals( imp );
-      item.setDeal( CollectionToCollectionConverter.convert( deals, dealDealConverter, config ) );
+      item.setDeal( CollectionToCollectionConverter.convert( deals, dealDealConverter, config,
+        converterProvider) );
       item.setFlr( imp.getBidfloor() );
       item.setId( imp.getId() );
       Integer private_auction = impPmpPrivate_auction( imp );

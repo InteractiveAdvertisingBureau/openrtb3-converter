@@ -42,7 +42,8 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
     target.setGender( source.getGender() );
     target.setKeywords( source.getKeywords() );
     target.setGeo( geoToGeoConverter.map( source.getGeo(), config, converterProvider ) );
-    target.setData( CollectionToCollectionConverter.convert( source.getData(), dataDataConverter, config ) );
+    target.setData( CollectionToCollectionConverter.convert( source.getData(), dataDataConverter,
+      config, converterProvider ) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt(Utils.copyMap(map, config));

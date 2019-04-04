@@ -124,7 +124,8 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       }
     }
     target.setAllimps( source.getPack() );
-    target.setImp( CollectionToCollectionConverter.convert( source.getItem(), itemImpConverter, config ) );
+    target.setImp( CollectionToCollectionConverter.convert( source.getItem(), itemImpConverter,
+      config, converterProvider ) );
     if (!CollectionUtils.isEmpty(target.getImp())) {
       if (nonNull(source.getContext()) && nonNull(source.getContext().getRestrictions())) {
         for (Imp imp : target.getImp()) {

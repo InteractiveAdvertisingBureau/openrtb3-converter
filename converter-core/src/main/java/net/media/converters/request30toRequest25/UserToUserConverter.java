@@ -44,7 +44,8 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb25.
     target.setGender( source.getGender() );
     target.setGeo( geoGeoConverter.map( source.getGeo(), config, converterProvider ) );
     target.setKeywords( source.getKeywords() );
-    target.setData( CollectionToCollectionConverter.convert( source.getData(), dataDataConverter, config ) );
+    target.setData( CollectionToCollectionConverter.convert( source.getData(), dataDataConverter,
+      config, converterProvider ) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt(Utils.copyMap(map, config));

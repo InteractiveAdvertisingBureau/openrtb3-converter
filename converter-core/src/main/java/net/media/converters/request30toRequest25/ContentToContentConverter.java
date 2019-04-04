@@ -61,7 +61,8 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     target.setContext( source.getContext() );
     target.setKeywords( source.getKeywords() );
     target.setLen( source.getLen() );
-    target.setData( CollectionToCollectionConverter.convert( source.getData(), dataDataConverter, config ) );
+    target.setData( CollectionToCollectionConverter.convert( source.getData(), dataDataConverter,
+      config, converterProvider ) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt( Utils.copyMap(map, config) );

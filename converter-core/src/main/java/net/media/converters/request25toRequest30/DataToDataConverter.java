@@ -36,7 +36,8 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb3.D
             (net.media.openrtb25.request.Segment.class, Segment.class));
     target.setId( source.getId() );
     target.setName( source.getName() );
-    target.setSegment( CollectionToCollectionConverter.convert( source.getSegment(), segmentSegmentConverter, config ) );
+    target.setSegment( CollectionToCollectionConverter.convert( source.getSegment(),
+      segmentSegmentConverter, config, converterProvider ) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt( Utils.copyMap(map, config) );

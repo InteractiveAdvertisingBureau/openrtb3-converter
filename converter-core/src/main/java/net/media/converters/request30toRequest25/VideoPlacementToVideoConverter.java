@@ -47,7 +47,8 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     video.setPlaybackend( videoPlacement.getPlayend() );
     video.setMinduration( videoPlacement.getMindur() );
     video.setCompaniontype(Utils.copyCollection(videoPlacement.getComptype(), config));
-    video.setCompanionad( CollectionToCollectionConverter.convert( videoPlacement.getComp(), companionBannerConverter, config ) );
+    video.setCompanionad( CollectionToCollectionConverter.convert( videoPlacement.getComp(),
+      companionBannerConverter, config, converterProvider ) );
     video.setMimes(Utils.copyCollection(videoPlacement.getMime(), config));
     video.setMaxduration( videoPlacement.getMaxdur() );
     video.setMaxextended( videoPlacement.getMaxext() );

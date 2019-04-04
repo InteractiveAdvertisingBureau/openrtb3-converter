@@ -68,7 +68,8 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     Converter<Imp, Item> impItemConverter = converterProvider.fetch(new Conversion
             (Imp.class, Item.class));
     target.setContext( bidRequestContextConverter.map( source, config, converterProvider ) );
-    target.setItem( CollectionToCollectionConverter.convert( source.getImp(), impItemConverter, config ) );
+    target.setItem( CollectionToCollectionConverter.convert( source.getImp(), impItemConverter,
+      config, converterProvider ) );
     target.setPack( source.getAllimps() );
     String customdata = bidRequestUserCustomdata( source );
     if ( customdata != null ) {

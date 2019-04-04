@@ -132,7 +132,8 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
 
     Pmp pmp = new Pmp();
 
-    pmp.setDeals( CollectionToCollectionConverter.convert( item.getDeal(), dealDealConverter, config ) );
+    pmp.setDeals( CollectionToCollectionConverter.convert( item.getDeal(), dealDealConverter,
+      config, converterProvider ) );
     pmp.setPrivate_auction( item.getPriv() );
 
     return pmp;
