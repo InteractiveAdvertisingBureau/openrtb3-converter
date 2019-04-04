@@ -4,25 +4,6 @@
   "test": 1,
   "tmax": 100,
   "wseat": ["a"],
-  "bseat": ["b"],
-  "source": {
-    "fd": 1,
-    "tid": "dd",
-    "pchain": "dd",
-    "ext": {
-      "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
-        }
-      },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "Key": "value"
-    }
-  },
   "regs": {
     "coppa": 1,
     "ext": {
@@ -54,20 +35,11 @@
   },
   "cur": ["USD"],
   "allimps": 0,
-  "wlang": ["en"],
   "bcat": ["bb"],
   "badv": ["cc"],
   "bapp": ["nn"],
   "imp": [{
     "id": "1",
-    "metric": [{
-      "type": "dd",
-      "value": 1.0,
-      "vendor": "dssf",
-      "ext": {
-        "dummy": "ff"
-      }
-    }],
     "bidfloor": 0.03,
     "bidfloorcur": "USD",
     "pmp": {
@@ -95,188 +67,124 @@
     "instl": 0,
     "tagid": "re",
     "exp": 1,
-    "banner": {
-      "id": "dd",
-      "format": [
-        {
-        "w": 200,
-        "h": 20,
-        "wratio": 1,
-        "hratio": 2,
-        "wmin":3,
-        "ext": {
-          "dummy": "ff"
-        }
-      },
-      {
-        "w": 33,
-        "h": 11,
-        "wratio": 1,
-        "hratio": 2,
-        "wmin":3,
-        "ext": {
-          "dummy": "ff"
-        }
-      }],
-      "h": 250,
-      "w": 300,
-      "wmax": 22,
-      "hmax": 11,
-      "wmin": 1,
-      "hmin": 9,
-      "btype": [3, 4],
-      "battr": [1, 2],
-      "topframe": 22,
-      "expdir": [3, 9],
-      "api": [3, 2],
-      "vcm": 22,
-      "mimes": ["application/x-shockwave-flash",
-        "image/jpg"
+    "native": {
+      "ver": "1.1",
+      "api": [
+        1,
+        2,
+        3
       ],
-      "pos": 0,
+      "battr": [
+        2,
+        5,
+        8
+      ],
       "ext": {
-        "dummy": "ff"
+        "dummy": "entry"
+      },
+      "request": {
+        "ver": "1.1",
+        "layout": 0,
+        "adunit": 1,
+        "context": 1,
+        "contextsubtype": 2,
+        "plcmttype": 3,
+        "plcmtcnt": 4,
+        "seq": 5,
+        "ext": {
+          "dummy": "object"
+        },
+        "asset": [{
+          "id": 1,
+          "required": 0,
+          "title": {
+            "len": 20,
+            "ext": {
+              "dummy": "entry"
+            }
+          },
+          "img": {
+            "type": 1,
+            "mimes": [
+              "abc",
+              "def"
+            ],
+            "w": 20,
+            "h": 20,
+            "wmin": 20,
+            "hmin": 20,
+            "ext": {
+              "wratio": 20,
+              "hratio": 20
+            }
+          },
+          "video":{
+            "mimes": [
+              "a",
+              "bc",
+              "def"
+            ],
+            "minduration": 1,
+            "maxduration": 2,
+            "protocols": [
+              2,
+              3,
+              4
+            ],
+            "ext": {
+              "dummy": "entry"
+            }
+          },
+          "data": {
+            "type": 1,
+            "len": 2,
+            "ext": {
+              "dummy": "entry"
+            }
+          },
+          "ext": {
+            "dummy": "entry"
+          }
+        }]
       }
     },
     "ext": {
       "dummy": "ff"
     }
   }],
-  "site": {
-    "id": "102855",
-    "name": "abdk",
-    "sectioncat": ["zz", "dd"],
-    "pagecat": ["as", "ss"],
-    "cat": ["IAB3-1", "IAB3-2"],
-    "ref": "sdfe",
-    "search": "eded",
-    "mobile": 1,
+  "app": {
+    "id": "app_id",
+    "name": "app_name",
+    "bundle": "com.foo.mygame",
+    "domain": "mygame.foo.com",
+    "storeurl": "abc.def",
+    "cat": [
+      "abc",
+      "def",
+      "ghi"
+    ],
+    "sectioncat": [
+      "abcd",
+      "defg",
+      "ghij"
+    ],
+    "pagecat": [
+      "abca",
+      "defd",
+      "ghif"
+    ],
+    "ver": "2.x",
     "privacypolicy": 1,
-    "keywords": "ewew",
-    "domain": "www.foobar.com",
-    "page": "http://www.foobar.com/1234.html ",
+    "paid": 1,
     "publisher": {
-      "id": "8953",
-      "name": "foobar.com",
-      "cat": ["IAB3-1", "IAB3-2"],
-      "domain": "foobar.com",
-      "ext": {
-        "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
-          }
-        },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "Key": "value"
-      }
+      "dummy": "dummy"
     },
     "content": {
-      "id": "rfewa",
-      "episode": 1,
-      "title": "sf",
-      "series": "rf",
-      "season": "wed",
-      "genre": "sefw",
-      "album": "edwe",
-      "artist": "we",
-      "isrc": "ewde",
-      "producer": {
-        "id": "eew",
-        "name": "edew",
-        "cat": ["IAB3-1", "IAB3-2"],
-        "domain": "abc.com",
-        "ext": {
-          "object": {
-            "a" : "dsd",
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "obj" : {
-              "a" : 1
-            }
-          },
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "Key": "value"
-        }
-      },
-      "url": "ewfe.com",
-      "cat": ["IAB3-1", "IAB3-2"],
-      "prodq": 1,
-      "videoquality": 2,
-      "context": 1,
-      "contentrating": "wqewq",
-      "userrating": "ewew",
-      "qagmediarating": 1,
-      "keywords": "efea",
-      "livestream": 1,
-      "sourcerelationship": 1,
-      "len": 2,
-      "language": "en",
-      "embeddable": 1,
-      "data": [{
-        "id": "wwe",
-        "name": "ee",
-        "segment": [{
-          "id": "ew",
-          "name": "rewfe",
-          "value": "ew",
-          "ext": {
-            "object": {
-              "a" : "dsd",
-              "arraySample": ["a"],
-              "jsonArraySample": [{"id": 1}],
-              "obj" : {
-                "a" : 1
-              }
-            },
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "Key": "value"
-          }      }],
-        "ext": {
-          "object": {
-            "a" : "dsd",
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "obj" : {
-              "a" : 1
-            }
-          },
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "Key": "value"
-        }
-      }],
-      "ext": {
-        "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
-          }
-        },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "Key": "value"
-      }
+      "dummy": "entry"
     },
-    "ext": {
-      "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
-        }
-      },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "Key": "value"
+    "keywords": "abc,def,ghi",
+    "ext":{
+      "dummy": "ff"
     }
   },
   "device": {
@@ -328,7 +236,6 @@
     "flashver": "ewe",
     "language": "weew",
     "carrier": "weew",
-    "mccmnc": "ewew",
     "connectiontype": 2,
     "ext": {
       "object": {

@@ -206,6 +206,7 @@ cases:
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -225,414 +226,31 @@ cases:
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     cur[0]: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     cur: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      device.ua: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.ua: "\"eew\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.ip: "\"123.145.167.10\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.ip: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.dnt: "\"eew\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.dnt: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.lmt: "\"eew\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.lmt: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.ipv6: "\"123.145.167.1.3.2\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.ipv6: 11
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.devicetype: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.devicetype: "\"ee\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.make: "\"ee\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.make: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.model: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.model: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.os: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.os: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.osv: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.osv: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.hwv: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.hwv: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.h: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.h: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.w: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.w: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.ppi: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.ppi: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.pxratio: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.pxratio: 1.2
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.js: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.js: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.geofetch: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.geofetch: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.flashver: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.flashver: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.language: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.language: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.carrier: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.carrier: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.mccmnc: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.mccmnc: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.connectiontype: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.connectiontype: "\"ff\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
@@ -642,222 +260,50 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     device.ua: "\"eew\""
+     device.ip: "\"123.145.167.10\""
+     device.dnt: 1
+     device.lmt: 1
+     device.ipv6: "\"123.145.167.1.3.2\""
+     device.devicetype: 1
+     device.make: "\"ee\""
+     device.model: "\"ff\""
+     device.os: "\"ff\""
+     device.osv: "\"ff\""
+     device.hwv: "\"ff\""
+     device.h: 1
+     device.w: 1
+     device.ppi: 1
+     device.pxratio: 1.2
+     device.js: 1
+     device.geofetch: 1
+     device.flashver: "\"ff\""
+     device.language: "\"ff\""
+     device.carrier: "\"ff\""
+     device.mccmnc: "\"ff\""
+     device.connectiontype: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id:  "\"ab\""
+   purpose: idStringFormat
+
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      device.geo.lat: 22.22
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.geo.lat: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.geo.lon: 22.22
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.geo.lon: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.geo.type: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.geo.type: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.geo.accuracy: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.geo.accuracy: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.geo.lastfix: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.geo.lastfix: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.geo.ipservice: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.geo.ipservice: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.geo.country: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.geo.country: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.geo.region: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.geo.region: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.geo.regionfips104: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.geo.regionfips104: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.geo.metro: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.geo.metro: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.geo.city: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.geo.city: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     device.geo.zip: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.geo.zip: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      device.geo.utcoffset: 1
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
@@ -867,114 +313,33 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     device.geo.lat: "\"ff\""
+     device.geo.lon: "\"ff\""
+     device.geo.type: "\"ff\""
+     device.geo.accuracy: "\"ff\""
+     device.geo.lastfix: "\"ff\""
+     device.geo.ipservice: "\"ff\""
+     device.geo.country: 1
+     device.geo.region: 1
+     device.geo.regionfips104: 1
+     device.geo.metro: 1
+     device.geo.city: 1
+     device.geo.zip: 1
      device.geo.utcoffset: "\"ff\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      user.id: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.id: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.buyeruid: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      user.buyeruid: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      user.yob: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.yob: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.gender: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      user.gender: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.keywords: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      user.keywords: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.customdata: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      user.customdata: "\"ff\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
@@ -984,24 +349,23 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     user.id: 1
+     user.buyeruid: 1
+     user.yob: "\"ff\""
+     user.gender: 1
+     user.keywords: 1
+     user.customdata: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id:  "\"ab\""
+   purpose: idStringFormat
+
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      user.data.id: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.data.id: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      user.data.name: 1
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
@@ -1011,51 +375,19 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     user.data.id: "\"ff\""
      user.data.name: "\"ff\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      user.data.segment[0].id: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.data.segment[0].id: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      user.data.segment[0].name: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.data.segment[0].name: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      user.data.segment[0].value: 1
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
@@ -1065,12 +397,59 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     user.data.segment[0].id: "\"ff\""
+     user.data.segment[0].name: "\"ff\""
      user.data.segment[0].value: "\"ff\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.geo.lat: 22.22
+     user.geo.lon: 22.22
+     user.geo.type: 1
+     user.geo.accuracy: 1
+     user.geo.lastfix: 1
+     user.geo.ipservice: 1
+     user.geo.country: "\"ff\""
+     device.geo.region: "\"ff\""
+     device.geo.regionfips104: "\"ff\""
+     device.geo.metro: "\"ff\""
+     device.geo.city: "\"ff\""
+     device.geo.zip: "\"ff\""
+     device.geo.utcoffset: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id:  "\"ab\""
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.geo.lat: "\"ff\""
+     device.geo.lon: "\"ff\""
+     device.geo.type: "\"ff\""
+     device.geo.accuracy: "\"ff\""
+     device.geo.lastfix: "\"ff\""
+     device.geo.ipservice: "\"ff\""
+     device.geo.country: 1
+     device.geo.region: 1
+     device.geo.regionfips104: 1
+     device.geo.metro: 1
+     device.geo.city: 1
+     device.geo.zip: 1
+     device.geo.utcoffset: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id:  "\"ab\""
+   purpose: idStringFormat
+
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
