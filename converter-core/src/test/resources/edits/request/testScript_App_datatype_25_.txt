@@ -21,13 +21,85 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      app.id: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "\"ab\""
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      app.name: 2
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "\"ab\""
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      app.bundle: 3
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "\"ab\""
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      app.domain: 4
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "\"ab\""
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      app.storeurl: 5
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "\"ab\""
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      app.ver: 6
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "\"ab\""
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      app.privacypolicy: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "\"ab\""
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      app.paid: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "\"ab\""
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      app.keywords: 1
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
@@ -38,6 +110,7 @@ cases:
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
+     app.cat[*]: null
      app.cat: 1
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
@@ -47,15 +120,18 @@ cases:
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
+     app.cat[*]: null
      app.cat[0]: 1
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
+
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
+     app.cat[*]: null
      app.cat[0]: "\"a1\""
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"

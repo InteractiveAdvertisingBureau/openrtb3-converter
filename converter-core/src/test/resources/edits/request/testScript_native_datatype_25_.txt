@@ -10,14 +10,41 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeValidDatatype
+   purpose: nativeInvalidDatatype
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].native.request: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: nativeInvalidDatatype
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].native.ver: 2
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: nativeInvalidDatatype
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].native.api: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: nativeInvalidDatatype
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].native.battr: "\"ab\""
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
