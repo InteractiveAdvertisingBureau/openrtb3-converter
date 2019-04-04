@@ -39,7 +39,6 @@ public class OpenRtb24To3Mapper {
     ClassLoader classLoader = getClass().getClassLoader();
     File file = new File(classLoader.getResource("25To30Test.json").getFile());
     Config config = new Config();
-    config.setBannerTemplate("");
     config.setValidate(false);
     config.setNativeRequestAsString(true);
     //config.setAdType(AdType.BANNER);

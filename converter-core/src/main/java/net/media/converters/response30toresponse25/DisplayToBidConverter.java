@@ -95,13 +95,7 @@ public class DisplayToBidConverter implements Converter<Display,Bid> {
     }
     else {
       target.getExt().put("banner",source.getBanner());
-      if (nonNull(source.getBanner()) && !isEmpty(config.getBannerTemplate())) {
-        target.setAdm(MacroMapper.macroReplaceTemplate(config.getBannerTemplate(), source.getBanner()));
-      }
-      else if(nonNull(source.getBanner())){
-        target.setAdm(source.getBanner());
-      }
-      else if (nonNull(source.getAdm())){
+      if (nonNull(source.getAdm())){
         target.setAdm(source.getAdm());
       }
     }
