@@ -35,79 +35,79 @@ cases:
      request.item[0].id: "\"ab\""
    purpose: idStringFormat
 
- - inputFile: BANNER_SITE_25.json
+ - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
      app.cat: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
+ - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
      app.cat[0]: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
+ - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
      app.cat[0]: "\"a1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
+ - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
      app.cat[0]: "\"a1\""
      app.cat[1]: "\"b1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
 
- - inputFile: BANNER_SITE_25.json
+ - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
      app.sectioncat[0]: "\"a1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
+ - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
      app.sectioncat[0]: "\"a1\""
      app.sectioncat[1]: "\"b1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
 
- - inputFile: BANNER_SITE_25.json
+ - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
      app.pagecat[0]: "\"a1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
+ - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
      app.pagecat[0]: "\"a1\""
      app.pagecat[1]: "\"b1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -137,21 +137,21 @@ cases:
      request.item[0].id: "\"ab\""
    purpose: idStringFormat
 
- - inputFile: BANNER_SITE_25.json
+ - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
      app.publisher.cat[0]: "\"a1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
+ - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
      app.publisher.cat[0]: "\"a1\""
      app.publisher.cat[1]: "\"b1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -219,22 +219,112 @@ cases:
      request.item[0].id: 2
    purpose: idStringFormat
 
- - inputFile: BANNER_SITE_25.json
+ - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
      app.content.cat[0]: "\"a1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
+ - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
      app.content.cat[0]: "\"a1\""
      app.content.cat[1]: "\"b1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.producer.id: "\"ab\""
+     app.content.producer.name: "\"ab\""
+     app.content.producer.domain: "\"abc.com\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.producer.id: 1
+     app.content.producer.name: 1
+     app.content.producer.domain: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.producer.cat[0]: "\"a1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id:  "\"ab\""
+   purpose: idStringFormat
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.producer.cat[0]: "\"IAB3-1\""
+     app.content.producer.cat[1]: "\"IAB3-1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id:  "\"ab\""
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.data[0].id: "\"ab\""
+     app.content.data[0].name: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.data[0].id: 1
+     app.content.data[0].name: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.data[0].segment[0].id: "\"ab\""
+     app.content.data[0].segment[0].name: "\"ab\""
+     app.content.data[0].segment[0].value: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: idStringFormat
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.data[0].segment[0].id: 1
+     app.content.data[0].segment[0].name: 1
+     app.content.data[0].segment[0].value: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
    purpose: idStringFormat

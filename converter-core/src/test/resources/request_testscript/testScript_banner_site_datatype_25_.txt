@@ -3,80 +3,35 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      id: 2
-   outputFile: BANNER30.json
+     at: "\"ab\""
+     test: "\"a\""
+     tmax: "\"as\""
+     allimps: "\"dd\""
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     id: "\"ab\""
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+   purpose: invalidData
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     at: "\"ab\""
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].at:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
+     id: "\"ab\""
      at: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].at:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].test: 1
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: "\"a\""
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].test: "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      tmax: 1
-   outputFile: BANNER30.json
+     allimps: 0
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].tmax: 1
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     tmax: "\"as\""
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].tmax: "\"ff\""
-   purpose: idStringFormat
+     request.item[0].id: "\"ab\""
+   purpose: validData
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      wseat[0]: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -85,7 +40,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      wseat[0]: "\"aa\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -95,7 +50,16 @@ cases:
    inputEdits:
      wseat[0]: "\"aa\""
      wseat[1]: "\"bb\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id:  "\"ab\""
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     wseat: 1
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -104,26 +68,8 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     wseat: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     bseat[0]: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      bseat[0]: "\"string\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -133,35 +79,7 @@ cases:
    inputEdits:
      bseat[0]: "\"string\""
      bseat[1]: "\"string2\""
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     bseat: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     allimps: 0
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     allimps: "\"dd\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -171,7 +89,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      wlang[0]: "\"en\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -181,25 +99,7 @@ cases:
    inputEdits:
      wlang[0]: "\"en\""
      wlang[1]: "\"fr\""
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     wlang[0]: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     wlang: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -209,7 +109,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      bcat[0]: "\"as\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -219,25 +119,7 @@ cases:
    inputEdits:
      bcat[0]: "\"as\""
      bcat[1]: "\"bc\""
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     bcat[0]: 4
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     bcat: 4
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -247,7 +129,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      badv[0]: "\"as\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -257,34 +139,17 @@ cases:
    inputEdits:
      badv[0]: "\"as\""
      badv[1]: "\"bc\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     badv: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     badv[0]: 44
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      bapp[0]: "\"as\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -294,34 +159,19 @@ cases:
    inputEdits:
      bapp[0]: "\"as\""
      bapp[1]: "\"bs\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     bapp[0]: 11
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     bapp: 44
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      source.fd: 1
-   outputFile: BANNER30.json
+     source.tid: "\"ff\""
+     source.pchain: "\"ff\""
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -330,52 +180,19 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      source.fd: "\"dd\""
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      source.tid: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     source.tid: "\"ff\""
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     source.pchain: "\"ff\""
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
      source.pchain: 22
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      regs.coppa: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -384,7 +201,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      regs.coppa: "\"1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -393,7 +210,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      cur[0]: "\"USD\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -403,7 +220,7 @@ cases:
    inputEdits:
      cur[0]: "\"USD\""
      cur[1]: "\"EUR\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -412,7 +229,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      cur[0]: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -421,7 +238,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      cur: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -430,7 +247,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.ua: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -439,7 +256,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.ua: "\"eew\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -448,7 +265,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.ip: "\"123.145.167.10\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -457,7 +274,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.ip: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -466,7 +283,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.dnt: "\"eew\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -475,7 +292,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.dnt: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -484,7 +301,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.lmt: "\"eew\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -493,7 +310,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.lmt: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -502,7 +319,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.ipv6: "\"123.145.167.1.3.2\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -511,7 +328,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.ipv6: 11
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -520,7 +337,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.devicetype: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -529,7 +346,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.devicetype: "\"ee\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -538,7 +355,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.make: "\"ee\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -547,7 +364,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.make: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -556,7 +373,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.model: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -565,7 +382,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.model: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -574,7 +391,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.os: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -583,7 +400,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.os: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -592,7 +409,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.osv: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -601,7 +418,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.osv: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -610,7 +427,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.hwv: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -619,7 +436,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.hwv: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -628,7 +445,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.h: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -637,7 +454,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.h: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -646,7 +463,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.w: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -655,7 +472,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.w: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -664,7 +481,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.ppi: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -673,7 +490,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.ppi: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -682,7 +499,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.pxratio: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -691,7 +508,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.pxratio: 1.2
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -700,7 +517,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.js: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -709,7 +526,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.js: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -718,7 +535,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geofetch: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -727,7 +544,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geofetch: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -736,7 +553,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.flashver: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -745,7 +562,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.flashver: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -754,7 +571,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.language: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -763,7 +580,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.language: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -772,7 +589,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.carrier: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -781,7 +598,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.carrier: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -790,7 +607,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.mccmnc: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -799,7 +616,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.mccmnc: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -808,7 +625,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.connectiontype: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -817,7 +634,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.connectiontype: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -826,7 +643,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.lat: 22.22
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -835,7 +652,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.lat: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -844,7 +661,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.lon: 22.22
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -853,7 +670,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.lon: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -862,7 +679,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.type: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -871,7 +688,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.type: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -880,7 +697,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.accuracy: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -889,7 +706,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.accuracy: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -898,7 +715,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.lastfix: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -907,7 +724,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.lastfix: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -916,7 +733,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.ipservice: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -925,7 +742,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.ipservice: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -934,7 +751,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.country: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -943,7 +760,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.country: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -952,7 +769,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.region: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -961,7 +778,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.region: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -970,7 +787,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.regionfips104: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -979,7 +796,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.regionfips104: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -988,7 +805,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.metro: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -997,7 +814,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.metro: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1006,7 +823,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.city: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1015,7 +832,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.city: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1024,7 +841,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.zip: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1033,7 +850,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.zip: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1042,7 +859,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.utcoffset: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1051,7 +868,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.geo.utcoffset: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1060,7 +877,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.id: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1069,7 +886,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.id: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1078,7 +895,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.buyeruid: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1087,7 +904,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.buyeruid: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1096,7 +913,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.yob: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1105,7 +922,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.yob: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1114,7 +931,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.gender: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1123,7 +940,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.gender: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1132,7 +949,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.keywords: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1141,7 +958,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.keywords: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1150,7 +967,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.customdata: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1159,7 +976,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.customdata: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1168,7 +985,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.data.id: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1177,7 +994,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.data.id: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1186,7 +1003,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.data.name: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1195,7 +1012,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.data.name: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1204,7 +1021,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.data.segment[0].id: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1213,7 +1030,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.data.segment[0].id: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1222,7 +1039,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.data.segment[0].name: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1231,7 +1048,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.data.segment[0].name: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1240,7 +1057,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.data.segment[0].value: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1249,7 +1066,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.data.segment[0].value: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1258,7 +1075,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.lat: 22.22
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1267,7 +1084,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.lat: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1276,7 +1093,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.lon: 22.22
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1285,7 +1102,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.lon: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1294,7 +1111,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.type: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1303,7 +1120,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.type: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1312,7 +1129,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.accuracy: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1321,7 +1138,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.accuracy: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1330,7 +1147,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.lastfix: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1339,7 +1156,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.lastfix: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1348,7 +1165,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.ipservice: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1357,7 +1174,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.ipservice: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1366,7 +1183,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.country: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1375,7 +1192,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.country: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1384,7 +1201,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.region: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1393,7 +1210,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.region: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1402,7 +1219,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.regionfips104: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1411,7 +1228,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.regionfips104: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1420,7 +1237,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.metro: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1429,7 +1246,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.metro: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1438,7 +1255,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.city: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1447,7 +1264,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.city: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1456,7 +1273,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.zip: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1465,7 +1282,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.zip: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1475,7 +1292,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.utcoffset: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1484,7 +1301,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.utcoffset: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1494,7 +1311,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.id: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1503,7 +1320,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.id: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1513,7 +1330,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.name: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1522,7 +1339,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.name: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1532,7 +1349,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.sectioncat: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1541,7 +1358,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.sectioncat[0]: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1550,7 +1367,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.sectioncat[0]: "\"a1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1560,7 +1377,7 @@ cases:
    inputEdits:
      site.sectioncat[0]: "\"a1\""
      site.sectioncat[1]: "\"b1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1570,7 +1387,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.cat: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1579,7 +1396,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.cat[0]: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1588,7 +1405,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.cat[0]: "\"IAB3-1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1598,7 +1415,7 @@ cases:
    inputEdits:
      site.cat[0]: "\"IAB3-1\""
      site.cat[1]: "\"IAB3-3\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1608,7 +1425,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.pagecat: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1617,7 +1434,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.pagecat[0]: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1626,7 +1443,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.pagecat[0]: "\"IAB3-1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1636,7 +1453,7 @@ cases:
    inputEdits:
      site.pagecat[0]: "\"IAB3-1\""
      site.pagecat[1]: "\"IAB3-1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1646,7 +1463,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.ref: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1655,7 +1472,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.ref: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1665,7 +1482,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.search: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1674,7 +1491,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.search: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1684,7 +1501,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.mobile: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1693,7 +1510,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.mobile: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1703,7 +1520,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.privacypolicy: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1712,7 +1529,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.privacypolicy: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1722,7 +1539,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.keywords: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1731,7 +1548,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.keywords: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1741,7 +1558,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.domain: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1750,7 +1567,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.domain: "\"www.foobar.com\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1760,7 +1577,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.page: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1769,7 +1586,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.page: "\"http://www.foobar.com/1234.html\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1779,7 +1596,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.publisher.id: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1788,7 +1605,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.publisher.id: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1798,7 +1615,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.publisher.name: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1807,7 +1624,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.publisher.name: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1817,7 +1634,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.publisher.cat: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1826,7 +1643,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.publisher.cat[0]: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1835,7 +1652,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.publisher.cat[0]: "\"IAB3-1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1845,7 +1662,7 @@ cases:
    inputEdits:
      site.publisher.cat[0]: "\"IAB3-1\""
      site.publisher.cat[1]: "\"IAB3-3\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1855,7 +1672,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.publisher.domain: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1864,7 +1681,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.publisher.domain: "\"www.foobar.com\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -1874,7 +1691,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.id: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1883,7 +1700,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.id: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1893,7 +1710,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.episode: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1902,7 +1719,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.episode: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1912,7 +1729,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.title: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1921,7 +1738,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.title: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1931,7 +1748,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.series: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1940,7 +1757,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.series: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1950,7 +1767,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.season: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1959,7 +1776,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.season: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1969,7 +1786,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.genre: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1978,7 +1795,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.genre: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1988,7 +1805,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.album: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -1997,7 +1814,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.album: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2007,7 +1824,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.artist: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2016,7 +1833,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.artist: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2026,7 +1843,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.isrc: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2035,7 +1852,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.isrc: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2045,7 +1862,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.url: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2054,7 +1871,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.url: "\"https://www.foobar.com\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2064,7 +1881,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.prodq: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2073,7 +1890,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.prodq: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2083,7 +1900,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.videoquality: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2092,7 +1909,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.videoquality: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2102,7 +1919,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.cat: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2111,7 +1928,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.cat[0]: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2120,7 +1937,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.cat[0]: "\"IAB3-1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2130,7 +1947,7 @@ cases:
    inputEdits:
      site.content.cat[0]: "\"IAB3-1\""
      site.content.cat[1]: "\"IAB3-3\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2140,7 +1957,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.context: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2149,7 +1966,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.context: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2159,7 +1976,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.contentrating: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2168,7 +1985,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.contentrating: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2178,7 +1995,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.userrating: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2187,7 +2004,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.userrating: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2197,7 +2014,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.qagmediarating: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2206,7 +2023,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.qagmediarating: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2216,7 +2033,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.keywords: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2225,7 +2042,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.keywords: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2235,7 +2052,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.livestream: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2244,7 +2061,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.livestream: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2254,7 +2071,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.sourcerelationship: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2263,7 +2080,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.sourcerelationship: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2273,7 +2090,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.len: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2282,7 +2099,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.len: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2292,7 +2109,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.language: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2301,7 +2118,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.language: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2311,7 +2128,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.embeddable: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2320,7 +2137,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.embeddable: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2330,7 +2147,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.producer.id: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2339,7 +2156,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.producer.id: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2349,7 +2166,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.producer.name: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2358,7 +2175,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.producer.name: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2368,7 +2185,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.producer.cat: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2377,7 +2194,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.producer.cat[0]: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2386,7 +2203,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.producer.cat[0]: "\"IAB3-1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2396,7 +2213,7 @@ cases:
    inputEdits:
      site.content.producer.cat[0]: "\"IAB3-1\""
      site.content.producer.cat[1]: "\"IAB3-3\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2406,7 +2223,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.producer.domain: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2415,7 +2232,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.producer.domain: "\"https://www.foobar.com\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2425,7 +2242,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.data[0].id: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2434,7 +2251,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.data[0].id: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2444,7 +2261,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.data[0].name: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2453,7 +2270,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.data[0].name: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2463,7 +2280,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.data[0].segment[0].id: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2472,7 +2289,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.data[0].segment[0].id: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2482,7 +2299,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.data[0].segment[0].name: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2491,7 +2308,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.data[0].segment[0].name: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2501,7 +2318,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.data[0].segment[0].value: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2510,7 +2327,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      site.content.data[0].segment[0].value: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2520,7 +2337,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].id: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2529,7 +2346,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].id: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2539,7 +2356,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].bidfloor: 0.03
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2548,7 +2365,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].bidfloor: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2558,7 +2375,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].bidfloorcur: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2567,7 +2384,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].bidfloorcur: "\"USD\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2577,7 +2394,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].displaymanager: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2586,7 +2403,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].displaymanager: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2596,7 +2413,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].displaymanagerver: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2605,7 +2422,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].displaymanagerver: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2615,7 +2432,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].clickbrowser: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2624,7 +2441,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].clickbrowser: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2634,7 +2451,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].secure: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2643,7 +2460,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].secure: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2653,7 +2470,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].instl: 0
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2662,7 +2479,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].instl: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2672,7 +2489,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].tagid: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2681,7 +2498,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].tagid: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2691,7 +2508,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].exp: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2700,7 +2517,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].exp: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2710,7 +2527,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].iframebuster: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2719,7 +2536,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].iframebuster[0]: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2728,7 +2545,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].iframebuster[0]: "\"IAB3-1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2738,7 +2555,7 @@ cases:
    inputEdits:
      imp[0].iframebuster[0]: "\"IAB3-1\""
      imp[0].iframebuster[1]: "\"IAB3-2\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2748,7 +2565,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].metric[0].type: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2757,7 +2574,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].metric[0].type: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2767,7 +2584,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].metric[0].value: 1.0
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2776,7 +2593,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].metric[0].value: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2786,7 +2603,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].metric[0].vendor: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2795,7 +2612,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].metric[0].vendor: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2805,7 +2622,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.private_auction: 0
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2814,7 +2631,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.private_auction: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2824,7 +2641,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.deals[0].id: 0
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2833,7 +2650,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.deals[0].id: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2843,7 +2660,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.deals[0].bidfloor: 0.1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2852,7 +2669,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.deals[0].bidfloor: "\"ff\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2862,7 +2679,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.deals[0].bidfloorcur: 0.1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2871,7 +2688,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.deals[0].bidfloorcur: "\"USD\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2882,7 +2699,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.deals[0].at: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2891,7 +2708,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.deals[0].at: "\"USD\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].keywords:  "\"ab\""
@@ -2900,7 +2717,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.deals[0].wseat: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2909,7 +2726,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.deals[0].wseat[0]: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2918,7 +2735,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.deals[0].wseat[0]: "\"IAB3-1\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2928,7 +2745,7 @@ cases:
    inputEdits:
      imp[0].pmp.deals[0].wseat[0]: "\"IAB3-1\""
      imp[0].pmp.deals[0].wseat[1]: "\"IAB3-2\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2938,7 +2755,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.deals[0].wadomain: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2947,7 +2764,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.deals[0].wadomain[0]: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2956,7 +2773,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].pmp.deals[0].wadomain[0]: "\"abc.com\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2966,7 +2783,7 @@ cases:
    inputEdits:
      imp[0].pmp.deals[0].wadomain[0]: "\"abc.com\""
      imp[0].pmp.deals[0].wadomain[1]: "\"ac.com\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -2976,7 +2793,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.id: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
@@ -2985,7 +2802,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.id:: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: "\"ab\""
@@ -2995,7 +2812,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.h: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
@@ -3004,7 +2821,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.h:: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: "\"ab\""
@@ -3014,7 +2831,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.w: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
@@ -3023,7 +2840,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.w:: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: "\"ab\""
@@ -3033,7 +2850,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.wmax: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
@@ -3042,7 +2859,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.wmax:: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: "\"ab\""
@@ -3052,7 +2869,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.hmax: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
@@ -3061,7 +2878,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.hmax:: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: "\"ab\""
@@ -3071,7 +2888,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.wmin: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
@@ -3080,7 +2897,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.wmin:: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: "\"ab\""
@@ -3090,7 +2907,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.hmin: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
@@ -3099,7 +2916,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.hmin:: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: "\"ab\""
@@ -3109,7 +2926,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.topframe: 22
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
@@ -3118,7 +2935,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.topframe:: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: "\"ab\""
@@ -3128,7 +2945,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.vcm: 22
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
@@ -3137,7 +2954,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.vcm:: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: "\"ab\""
@@ -3147,7 +2964,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.pos: 0
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
@@ -3156,7 +2973,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.pos:: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: "\"ab\""
@@ -3166,7 +2983,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.btype: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3175,7 +2992,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.btype[0]: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3184,7 +3001,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.btype[0]: 3
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3194,7 +3011,7 @@ cases:
    inputEdits:
      imp[0].banner.btype[0]: 3
      imp[0].banner.btype[1]: 4
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3204,7 +3021,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.battr: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3213,7 +3030,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.battr[0]: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3222,7 +3039,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.battr[0]: 3
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3232,7 +3049,7 @@ cases:
    inputEdits:
      imp[0].banner.battr[0]: 1
      imp[0].banner.battr[1]: 2
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3242,7 +3059,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.expdir: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3251,7 +3068,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.expdir[0]: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3260,7 +3077,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.expdir[0]: 3
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3270,7 +3087,7 @@ cases:
    inputEdits:
      imp[0].banner.expdir[0]: 3
      imp[0].banner.expdir[1]: 4
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3280,7 +3097,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.api: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3289,7 +3106,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.api[0]: "\"ab\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3298,7 +3115,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.api[0]: 3
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3308,7 +3125,7 @@ cases:
    inputEdits:
      imp[0].banner.api[0]: 3
      imp[0].banner.api[1]: 4
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3318,7 +3135,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.mimes: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3327,7 +3144,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.mimes[0]: 1
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3336,7 +3153,7 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].banner.mimes[0]: "\"application/x-shockwave-flash\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
@@ -3346,7 +3163,7 @@ cases:
    inputEdits:
      imp[0].banner.mimes[0]: "\"application/x-shockwave-flash\""
      imp[0].banner.mimes[1]: "\"image/jpg\""
-   outputFile: BANNER30.json
+   outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id:  "\"ab\""
