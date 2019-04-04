@@ -16,7 +16,7 @@ import java.util.Map;
 public class AppToAppConverter implements Converter<App,net.media.openrtb25.request.App> {
 
   @Override
-  public net.media.openrtb25.request.App map(App source, Config config, Provider<Conversion, Converter>
+  public net.media.openrtb25.request.App map(App source, Config config, Provider
     converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
@@ -30,7 +30,7 @@ public class AppToAppConverter implements Converter<App,net.media.openrtb25.requ
   }
 
   @Override
-  public void enhance(App source, net.media.openrtb25.request.App target, Config config, Provider<Conversion, Converter>
+  public void enhance(App source, net.media.openrtb25.request.App target, Config config, Provider
     converterProvider) throws
     OpenRtbConverterException {
     if(source == null || target == null)

@@ -1,7 +1,7 @@
 package net.media.driver;
 
 import net.media.converters.Converter;
-import net.media.converters.response30toResponse24.Bid30ToBid24Converter;
+import net.media.converters.response30toResponse23.Bid30ToBid23Converter;
 import net.media.openrtb3.Bid;
 import net.media.utils.Provider;
 
@@ -10,10 +10,10 @@ import net.media.utils.Provider;
  */
 
 @SuppressWarnings("unchecked")
-public class Converter30To24ResponseManager {
+public class Convert30To23ResponseManager {
 
-  public Converter30To24ResponseManager(Provider<Conversion, Converter> converterProvider) {
+  public Convert30To23ResponseManager(Provider converterProvider) {
     converterProvider.register(new Conversion(Bid.class, net.media.openrtb25.response.Bid.class),
-      new Bid30ToBid24Converter());
+      new Bid30ToBid23Converter());
   }
 }

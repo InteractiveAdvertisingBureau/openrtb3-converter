@@ -33,7 +33,7 @@ import static java.util.Objects.nonNull;
 public class ItemToImpConverter implements Converter<Item, Imp> {
 
   @Override
-  public Imp map(Item item, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Imp map(Item item, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( item == null ) {
       return null;
     }
@@ -45,7 +45,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
   }
 
   @Override
-  public void enhance(Item item, Imp imp, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public void enhance(Item item, Imp imp, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(imp) || isNull(item)) {
       return;
     }
@@ -122,7 +122,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     }
   }
 
-  private Pmp itemToPmp(Item item, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  private Pmp itemToPmp(Item item, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( item == null ) {
       return null;
     }

@@ -20,7 +20,7 @@ import static java.util.Objects.nonNull;
 public class ContentToContentConverter extends net.media.converters.request30toRequest25.ContentToContentConverter {
 
   public void enhance(Content source, net.media.openrtb25.request.Content target, Config config,
-                      Provider<Conversion, Converter> converterProvider)
+                      Provider converterProvider)
   throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;

@@ -27,7 +27,7 @@ import static java.util.Objects.nonNull;
 public class BannerToDisplayPlacementConverter implements Converter<Banner, DisplayPlacement> {
 
   @Override
-  public DisplayPlacement map(Banner banner, Config config, Provider<Conversion, Converter>
+  public DisplayPlacement map(Banner banner, Config config, Provider
     converterProvider) throws OpenRtbConverterException {
     if (isNull(banner)) {
       return null;
@@ -39,7 +39,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
 
   @Override
   public void enhance(Banner banner, DisplayPlacement displayPlacement, Config config,
-                      Provider<Conversion, Converter> converterProvider) throws
+                      Provider converterProvider) throws
     OpenRtbConverterException {
     if (isNull(banner) || isNull(displayPlacement)) {
       return;

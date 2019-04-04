@@ -46,7 +46,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
   }
 
   @Override
-  public Request map(BidRequest source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Request map(BidRequest source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -59,7 +59,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
   }
 
   @Override
-  public void enhance(BidRequest source, Request target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public void enhance(BidRequest source, Request target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(source == null || target == null) {
       return;
     }

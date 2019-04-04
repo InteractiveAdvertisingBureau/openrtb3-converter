@@ -22,7 +22,7 @@ import static java.util.Objects.nonNull;
 
 public class DisplayPlacementToBannerConverter implements Converter<DisplayPlacement, Banner> {
   @Override
-  public Banner map(DisplayPlacement displayPlacement, Config config, Provider<Conversion, Converter> converterProvider) {
+  public Banner map(DisplayPlacement displayPlacement, Config config, Provider converterProvider) {
     if ( displayPlacement == null ) {
       return null;
     }
@@ -35,7 +35,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
   }
 
   @Override
-  public void enhance(DisplayPlacement displayPlacement, Banner banner, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(DisplayPlacement displayPlacement, Banner banner, Config config, Provider converterProvider) {
     if (isNull(displayPlacement) || isNull(banner)) {
       return;
     }

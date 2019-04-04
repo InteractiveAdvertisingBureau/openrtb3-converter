@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo> {
   @Override
-  public net.media.openrtb3.Geo map(Geo source, Config config, Provider<Conversion, Converter>
+  public net.media.openrtb3.Geo map(Geo source, Config config, Provider
     converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
@@ -28,7 +28,7 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo>
 
   @Override
   public void enhance(Geo source, net.media.openrtb3.Geo target, Config config,
-                      Provider<Conversion, Converter> converterProvider) throws
+                      Provider converterProvider) throws
     OpenRtbConverterException {
     if(source == null || target == null)
       return;

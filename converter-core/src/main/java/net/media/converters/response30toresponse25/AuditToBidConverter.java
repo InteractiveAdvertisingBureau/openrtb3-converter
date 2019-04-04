@@ -15,7 +15,7 @@ import static java.util.Objects.isNull;
 public class AuditToBidConverter implements Converter<Audit,Bid> {
 
 
-  public Bid map(Audit source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Bid map(Audit source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     Bid  bid = new Bid();
@@ -23,7 +23,7 @@ public class AuditToBidConverter implements Converter<Audit,Bid> {
     return bid;
   }
 
-  public  void enhance(Audit source, Bid target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public  void enhance(Audit source, Bid target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
     if(isNull(target.getExt())){

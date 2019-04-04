@@ -18,7 +18,7 @@ import static java.util.Objects.isNull;
 public class CompanionToBannerConverter implements Converter<Companion, Banner> {
 
   @Override
-  public Banner map(Companion companion, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Banner map(Companion companion, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( companion == null ) {
       return null;
     }
@@ -28,7 +28,7 @@ public class CompanionToBannerConverter implements Converter<Companion, Banner> 
   }
 
   @Override
-  public void enhance(Companion companion, Banner banner, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public void enhance(Companion companion, Banner banner, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(companion) || isNull(banner)) {
       return;
     }

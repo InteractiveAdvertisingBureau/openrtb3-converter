@@ -39,7 +39,7 @@ import static java.util.Objects.nonNull;
 public class ImpToItemConverter implements Converter<Imp, Item> {
 
   @Override
-  public Item map(Imp imp, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Item map(Imp imp, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(imp)) {
       return null;
     }
@@ -49,7 +49,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
   }
 
   @Override
-  public void enhance(Imp imp, Item item, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public void enhance(Imp imp, Item item, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(imp == null || item == null) {
       return;
     }
@@ -99,7 +99,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
 
   }
 
-  private void impToSpec1(Imp imp, Spec mappingTarget, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  private void impToSpec1(Imp imp, Spec mappingTarget, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( imp == null ) {
       return;
     }
@@ -110,7 +110,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     impToPlacement1( imp, mappingTarget.getPlacement(), config, converterProvider );
   }
 
-  private void impToPlacement1(Imp imp, Placement mappingTarget, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  private void impToPlacement1(Imp imp, Placement mappingTarget, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( imp == null ) {
       return;
     }

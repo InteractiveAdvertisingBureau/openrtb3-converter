@@ -59,13 +59,12 @@ import net.media.openrtb3.Site;
 import net.media.openrtb3.Source;
 import net.media.openrtb3.User;
 import net.media.openrtb3.VideoPlacement;
-import net.media.utils.ConverterProxy;
 import net.media.utils.Provider;
 
 @SuppressWarnings("unchecked")
 public class Convert30To25RequestManager {
 
-  public Convert30To25RequestManager(Provider<Conversion, Converter> converterProvider) {
+  public Convert30To25RequestManager(Provider converterProvider) {
     converterProvider.register(new Conversion(AssetFormat.class, Asset.class), new AssetFormatToAssetConverter());
     converterProvider.register(new Conversion(NativeFormat.class, NativeRequestBody.class), new
       NativeFormatToNativeRequestBodyConverter());

@@ -14,7 +14,7 @@ import net.media.utils.Provider;
 public class LinkToLinkAssetConverter implements Converter<Link, LinkAsset> {
 
   @Override
-  public LinkAsset map(Link source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public LinkAsset map(Link source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (source == null) {
       return null;
     }
@@ -24,7 +24,7 @@ public class LinkToLinkAssetConverter implements Converter<Link, LinkAsset> {
   }
 
   @Override
-  public void enhance(Link source, LinkAsset target, Config config, Provider<Conversion, Converter> converterProvider)throws OpenRtbConverterException {
+  public void enhance(Link source, LinkAsset target, Config config, Provider converterProvider)throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }

@@ -60,13 +60,12 @@ import net.media.openrtb3.Segment;
 import net.media.openrtb3.Site;
 import net.media.openrtb3.User;
 import net.media.openrtb3.VideoPlacement;
-import net.media.utils.ConverterProxy;
 import net.media.utils.Provider;
 
 @SuppressWarnings("unchecked")
 public class Convert25To30RequestManager {
 
-  public Convert25To30RequestManager(Provider<Conversion, Converter> converterProvider) {
+  public Convert25To30RequestManager(Provider converterProvider) {
     converterProvider.register(new Conversion(Banner.class, DisplayPlacement.class), new BannerToDisplayPlacementConverter());
     converterProvider.register(new Conversion(Banner.class, Companion.class), new BannerToCompanionConverter());
     converterProvider.register(new Conversion(Asset.class, AssetFormat.class), new AssetToAssetFormatConverter());

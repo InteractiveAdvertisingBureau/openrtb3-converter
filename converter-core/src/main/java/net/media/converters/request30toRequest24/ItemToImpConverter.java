@@ -28,7 +28,7 @@ import static java.util.Objects.nonNull;
 public class ItemToImpConverter extends net.media.converters
   .request30toRequest25.ItemToImpConverter {
 
-  public void enhance(Item item, Imp imp, Config config, Provider<Conversion, Converter>
+  public void enhance(Item item, Imp imp, Config config, Provider
     converterProvider) throws OpenRtbConverterException {
     if (item == null || imp == null) {
       return;

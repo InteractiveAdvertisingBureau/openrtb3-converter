@@ -24,7 +24,7 @@ import net.media.utils.Provider;
 @SuppressWarnings("unchecked")
 public class Convert30To24RequestManager {
 
-  public Convert30To24RequestManager(Provider<Conversion, Converter> converterProvider) {
+  public Convert30To24RequestManager(Provider converterProvider) {
     converterProvider.register(new Conversion(Device.class, net.media.openrtb25.request.Device
       .class), new DeviceToDeviceConverter());
     converterProvider.register(new Conversion(DisplayPlacement.class, Banner.class), new

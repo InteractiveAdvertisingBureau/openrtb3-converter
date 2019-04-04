@@ -16,7 +16,7 @@ import java.util.Map;
 public class DataToDataConverter implements Converter<Data, net.media.openrtb25.request.Data> {
 
   @Override
-  public net.media.openrtb25.request.Data map(Data source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.Data map(Data source, Config config, Provider converterProvider) throws OpenRtbConverterException {
 
     if ( source == null ) {
       return null;
@@ -30,7 +30,7 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb25.
   }
 
   @Override
-  public void enhance(Data source, net.media.openrtb25.request.Data target, Config config, Provider<Conversion, Converter> converterProvider) throws
+  public void enhance(Data source, net.media.openrtb25.request.Data target, Config config, Provider converterProvider) throws
     OpenRtbConverterException {
     if(target == null || source == null)
       return;

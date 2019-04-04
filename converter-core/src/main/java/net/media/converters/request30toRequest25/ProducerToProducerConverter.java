@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class ProducerToProducerConverter implements Converter<Producer, net.media.openrtb25.request.Producer> {
   @Override
-  public net.media.openrtb25.request.Producer map(Producer source, Config config, Provider<Conversion, Converter> converterProvider) {
+  public net.media.openrtb25.request.Producer map(Producer source, Config config, Provider converterProvider) {
     if ( source == null ) {
       return null;
     }
@@ -25,7 +25,7 @@ public class ProducerToProducerConverter implements Converter<Producer, net.medi
   }
 
   @Override
-  public void enhance(Producer source, net.media.openrtb25.request.Producer target, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(Producer source, net.media.openrtb25.request.Producer target, Config config, Provider converterProvider) {
     if(source == null || target == null)
       return;
     target.setId( source.getId() );

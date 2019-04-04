@@ -19,7 +19,7 @@ public class VideoToVideoPlacementConverter extends net.media.converters
   .request25toRequest30.VideoToVideoPlacementConverter {
 
   public void enhance(Video video, VideoPlacement videoPlacement, Config config,
-                      Provider<Conversion, Converter> converterProvider) throws
+                      Provider converterProvider) throws
     OpenRtbConverterException {
     if (video == null || videoPlacement == null) {
       return;

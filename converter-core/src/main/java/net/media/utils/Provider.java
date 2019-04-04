@@ -1,5 +1,8 @@
 package net.media.utils;
 
+import net.media.converters.Converter;
+import net.media.driver.Conversion;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -25,22 +28,23 @@ import static java.util.Objects.isNull;
  * @author shiva.b
  * @since 1.0
  */
-public class Provider<K,V> {
+public class Provider {
 
-  private Map<K,V> providerMap;
+  private Map<Conversion, Converter> providerMap;
 
-  private V defaultValue;
-
-  public Provider(V defaultValue) {
+  public Provider() {
     providerMap = new ConcurrentHashMap<>();
-    this.defaultValue = defaultValue;
+  }
+
+  public Provider(Provider provider) {
+    providerMap = new ConcurrentHashMap<>(provider.providerMap);
   }
 
   /**
    * @param key
    * @param value
    */
-  public void register(K key, V value) {
+  public <X, Y> void register(Conversion<X, Y> key, Converter<X, Y> value) {
     providerMap.put(key, value);
   }
 
@@ -50,45 +54,19 @@ public class Provider<K,V> {
    * @return
    * @throws IllegalArgumentException
    */
-  public V fetch(K key) throws IllegalArgumentException {
-    V value = providerMap.get(key);
+  public <X, Y> Converter<X, Y> fetch(Conversion<X, Y> key) throws IllegalArgumentException {
+    Converter<X, Y> value = providerMap.get(key);
     if (isNull(value)) {
       throw new IllegalArgumentException("key not registered " + key);
     }
     return value;
   }
 
-  /**
-   * @apiNote final value could be null in case the key is not found in the map and default value
-   * is null.
-   *
-   * @param key
-   * @return
-   */
-  public V fetchDefaultIfNotFound(K key) {
-    if (isNull(key)) {
-      return defaultValue;
-    }
-    V value = providerMap.get(key);
-    if (isNull(value)) {
-      return defaultValue;
-    }
-    return value;
-  }
-
-  public boolean contains(K key) {
+  public <X, Y> boolean contains(Conversion<X, Y> key) {
     if (isNull(key) || !providerMap.containsKey(key)) {
       return false;
     }
     return true;
-  }
-
-  /**
-   *
-   * @return default value for the mapping
-   */
-  public V getDefaultValue() {
-    return this.defaultValue;
   }
 
   /**
@@ -97,4 +75,5 @@ public class Provider<K,V> {
   public void clear() {
     providerMap.clear();
   }
+
 }

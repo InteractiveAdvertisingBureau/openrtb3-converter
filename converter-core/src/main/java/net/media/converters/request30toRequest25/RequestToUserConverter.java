@@ -9,12 +9,12 @@ import net.media.utils.Provider;
 
 public class RequestToUserConverter implements Converter<Request, User> {
   @Override
-  public User map(Request source, Config config, Provider<Conversion, Converter> converterProvider) {
+  public User map(Request source, Config config, Provider converterProvider) {
     return null;
   }
 
   @Override
-  public void enhance(Request source, User target, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(Request source, User target, Config config, Provider converterProvider) {
     if ( source == null ) {
       return;
     }

@@ -14,7 +14,7 @@ import static java.util.Objects.isNull;
 
 public class DealToDealConverter implements Converter<Deal, net.media.openrtb25.request.Deal> {
   @Override
-  public net.media.openrtb25.request.Deal map(Deal deal, Config config, Provider<Conversion, Converter> converterProvider) {
+  public net.media.openrtb25.request.Deal map(Deal deal, Config config, Provider converterProvider) {
     if ( deal == null ) {
       return null;
     }
@@ -24,7 +24,7 @@ public class DealToDealConverter implements Converter<Deal, net.media.openrtb25.
   }
 
   @Override
-  public void enhance(Deal deal, net.media.openrtb25.request.Deal deal1, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(Deal deal, net.media.openrtb25.request.Deal deal1, Config config, Provider converterProvider) {
     if (isNull(deal) || isNull(deal1)) {
       return;
     }

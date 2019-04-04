@@ -14,9 +14,9 @@ import net.media.utils.Provider;
  */
 public interface Converter<U, V> {
 
-  V map(U source, Config config, Provider<Conversion, Converter> converterProvider) throws
+  V map(U source, Config config, Provider converterProvider) throws
     OpenRtbConverterException;
 
-  void enhance(U source, V target, Config config, Provider<Conversion, Converter>
-    converterProvider) throws OpenRtbConverterException;
+  void enhance(U source, V target, Config config, Provider converterProvider) throws
+    OpenRtbConverterException;
 }

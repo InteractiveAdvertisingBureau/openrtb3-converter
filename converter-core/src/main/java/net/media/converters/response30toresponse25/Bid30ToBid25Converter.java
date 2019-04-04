@@ -19,14 +19,14 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
 
 
   @Override
-  public Bid map(net.media.openrtb3.Bid source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Bid map(net.media.openrtb3.Bid source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     Bid bid = new Bid();
     enhance(source,bid,config, converterProvider);
     return bid;
   }
 
   @Override
-  public void enhance(net.media.openrtb3.Bid source, Bid target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public void enhance(net.media.openrtb3.Bid source, Bid target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     Converter<Media, Bid> mediaBidConverter = converterProvider.fetch(new Conversion(Media.class,
       Bid.class));
 

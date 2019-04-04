@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class PublisherToPublisherConverter implements Converter<Publisher, net.media.openrtb3.Publisher> {
   @Override
-  public net.media.openrtb3.Publisher map(Publisher source, Config config, Provider<Conversion, Converter> converterProvider) {
+  public net.media.openrtb3.Publisher map(Publisher source, Config config, Provider converterProvider) {
     if ( source == null ) {
       return null;
     }
@@ -25,7 +25,7 @@ public class PublisherToPublisherConverter implements Converter<Publisher, net.m
   }
 
   @Override
-  public void enhance(Publisher source, net.media.openrtb3.Publisher target, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(Publisher source, net.media.openrtb3.Publisher target, Config config, Provider converterProvider) {
     if(source == null || target == null)
       return;
     target.setId( source.getId() );

@@ -34,7 +34,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
 
 
   @Override
-  public Asset map(AssetResponse source, Config config, Provider<Conversion, Converter> converterProvider)throws OpenRtbConverterException {
+  public Asset map(AssetResponse source, Config config, Provider converterProvider)throws OpenRtbConverterException {
     if (isNull(source)) {
       return null;
     }
@@ -44,7 +44,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
   }
 
   @Override
-  public void enhance(AssetResponse source, Asset target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public void enhance(AssetResponse source, Asset target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }

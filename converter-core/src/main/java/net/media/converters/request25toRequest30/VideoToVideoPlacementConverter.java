@@ -23,7 +23,7 @@ import static java.util.Objects.nonNull;
 public class VideoToVideoPlacementConverter implements Converter<Video, VideoPlacement> {
 
   @Override
-  public VideoPlacement map(Video video, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public VideoPlacement map(Video video, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( video == null) {
       return null;
     }
@@ -35,7 +35,7 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
   }
 
   @Override
-  public void enhance(Video video, VideoPlacement videoPlacement, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public void enhance(Video video, VideoPlacement videoPlacement, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(video) || isNull(videoPlacement)) {
       return;
     }

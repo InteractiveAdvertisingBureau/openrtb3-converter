@@ -16,7 +16,7 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 public class VideoToBidConverter implements Converter<Video,Bid> {
 
-  public Bid map(Video source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Bid map(Video source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     Bid  bid = new Bid();
@@ -24,7 +24,7 @@ public class VideoToBidConverter implements Converter<Video,Bid> {
     return bid;
   }
 
-  public  void enhance(Video source, Bid target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public  void enhance(Video source, Bid target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
 

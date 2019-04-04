@@ -17,7 +17,7 @@ import java.util.Map;
 public class UserToUserConverter implements Converter<User, net.media.openrtb25.request.User> {
 
   @Override
-  public net.media.openrtb25.request.User map(User source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.User map(User source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -30,7 +30,7 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb25.
   }
 
   @Override
-  public void enhance(User source, net.media.openrtb25.request.User target, Config config, Provider<Conversion, Converter> converterProvider) throws
+  public void enhance(User source, net.media.openrtb25.request.User target, Config config, Provider converterProvider) throws
     OpenRtbConverterException {
     if(source == null || target == null)
       return;

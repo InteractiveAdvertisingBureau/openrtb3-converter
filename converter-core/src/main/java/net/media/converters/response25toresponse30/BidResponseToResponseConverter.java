@@ -29,7 +29,7 @@ public class BidResponseToResponseConverter implements Converter<BidResponse, Re
    * @return
    */
   @Override
-  public Response map(BidResponse bidResponse, Config config, Provider<Conversion, Converter> converterProvider)throws OpenRtbConverterException {
+  public Response map(BidResponse bidResponse, Config config, Provider converterProvider)throws OpenRtbConverterException {
     if ( bidResponse == null ) {
       return null;
     }
@@ -44,7 +44,7 @@ public class BidResponseToResponseConverter implements Converter<BidResponse, Re
    * @param response
    */
   @Override
-  public void enhance(BidResponse bidResponse, Response response, Config config, Provider<Conversion, Converter> converterProvider)throws OpenRtbConverterException {
+  public void enhance(BidResponse bidResponse, Response response, Config config, Provider converterProvider)throws OpenRtbConverterException {
     response.setId( bidResponse.getId() );
     response.setBidid( bidResponse.getBidid() );
     response.setNbr( bidResponse.getNbr() );

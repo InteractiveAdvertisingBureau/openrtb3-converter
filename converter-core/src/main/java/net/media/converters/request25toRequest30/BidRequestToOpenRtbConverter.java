@@ -17,7 +17,7 @@ import static java.util.Objects.isNull;
 
 public class BidRequestToOpenRtbConverter implements Converter<BidRequest, OpenRTB> {
   @Override
-  public OpenRTB map(BidRequest source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public OpenRTB map(BidRequest source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(source)) {
       return null;
     }
@@ -29,7 +29,7 @@ public class BidRequestToOpenRtbConverter implements Converter<BidRequest, OpenR
   }
 
   @Override
-  public void enhance(BidRequest source, OpenRTB target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public void enhance(BidRequest source, OpenRTB target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(source) || isNull(target)) {
       return;
     }

@@ -17,7 +17,7 @@ import java.util.Map;
 public class ContentToContentConverter implements Converter<Content, net.media.openrtb3.Content> {
 
   @Override
-  public net.media.openrtb3.Content map(Content source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public net.media.openrtb3.Content map(Content source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -30,7 +30,7 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
   }
 
   @Override
-  public void enhance(Content source, net.media.openrtb3.Content target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public void enhance(Content source, net.media.openrtb3.Content target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(source == null || target == null)
       return;
     Converter<Producer, net.media.openrtb3.Producer> producerProducerConverter = converterProvider.fetch(new Conversion

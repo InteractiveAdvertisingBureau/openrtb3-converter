@@ -21,7 +21,7 @@ import static java.util.Objects.nonNull;
 public class SeatBid30ToSeatBid25Converter implements Converter<Seatbid,SeatBid>{
 
   @Override
-  public SeatBid map(Seatbid source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public SeatBid map(Seatbid source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     SeatBid  seatBid = new SeatBid();
@@ -30,7 +30,7 @@ public class SeatBid30ToSeatBid25Converter implements Converter<Seatbid,SeatBid>
   }
 
   @Override
-  public void enhance(Seatbid source, SeatBid target, Config config, Provider<Conversion, Converter> converterProvider)  throws OpenRtbConverterException {
+  public void enhance(Seatbid source, SeatBid target, Config config, Provider converterProvider)  throws OpenRtbConverterException {
 
     Converter<net.media.openrtb3.Bid, Bid> bidBidConverter = converterProvider.fetch(new
       Conversion(net.media.openrtb3.Bid.class, Bid.class));

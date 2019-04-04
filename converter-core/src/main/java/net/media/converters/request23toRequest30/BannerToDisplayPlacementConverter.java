@@ -20,7 +20,7 @@ public class BannerToDisplayPlacementConverter extends net.media.converters
   .request25toRequest30.BannerToDisplayPlacementConverter {
 
   public void enhance(Banner banner, DisplayPlacement displayPlacement, Config config,
-                      Provider<Conversion, Converter> converterProvider) throws
+                      Provider converterProvider) throws
     OpenRtbConverterException {
     if (banner == null || displayPlacement == null) {
       return;

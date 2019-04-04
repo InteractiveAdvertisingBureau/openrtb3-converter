@@ -28,7 +28,7 @@ import net.media.utils.Provider;
 @SuppressWarnings("unchecked")
 public class Convert23To30RequestManager {
 
-  public Convert23To30RequestManager(Provider<Conversion, Converter> converterProvider) {
+  public Convert23To30RequestManager(Provider converterProvider) {
     converterProvider.register(new Conversion(Banner.class, DisplayPlacement.class), new
       BannerToDisplayPlacementConverter());
     converterProvider.register(new Conversion(BidRequest.class, Request.class), new

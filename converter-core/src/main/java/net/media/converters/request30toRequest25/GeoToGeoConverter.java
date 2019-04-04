@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.request.Geo> {
   @Override
-  public net.media.openrtb25.request.Geo map(Geo source, Config config, Provider<Conversion, Converter> converterProvider) {
+  public net.media.openrtb25.request.Geo map(Geo source, Config config, Provider converterProvider) {
     if ( source == null ) {
       return null;
     }
@@ -25,7 +25,7 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.req
   }
 
   @Override
-  public void enhance(Geo source, net.media.openrtb25.request.Geo target, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(Geo source, net.media.openrtb25.request.Geo target, Config config, Provider converterProvider) {
     if(source == null || target == null)
       return;
     target.setIpservice( source.getIpserv() );

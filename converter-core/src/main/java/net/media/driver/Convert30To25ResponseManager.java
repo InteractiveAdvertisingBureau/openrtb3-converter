@@ -30,7 +30,6 @@ import net.media.openrtb3.Native;
 import net.media.openrtb3.OpenRTB;
 import net.media.openrtb3.Seatbid;
 import net.media.openrtb3.Video;
-import net.media.utils.ConverterProxy;
 import net.media.utils.Provider;
 
 /**
@@ -39,7 +38,7 @@ import net.media.utils.Provider;
 @SuppressWarnings("unchecked")
 public class Convert30To25ResponseManager {
 
-  public Convert30To25ResponseManager(Provider<Conversion, Converter> converterProvider) {
+  public Convert30To25ResponseManager(Provider converterProvider) {
     converterProvider.register(new Conversion(LinkAsset.class, Link.class), new LinkAssetToLinkConverter());
     converterProvider.register(new Conversion(Asset.class, AssetResponse.class), new Asset30ToAsset25Converter());
     converterProvider.register(new Conversion(Native.class, NativeResponse.class), new Native30ToNative10Converter());

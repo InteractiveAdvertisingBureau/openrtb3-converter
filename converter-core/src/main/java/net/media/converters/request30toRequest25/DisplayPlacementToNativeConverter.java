@@ -23,7 +23,7 @@ import static java.util.Objects.nonNull;
 public class DisplayPlacementToNativeConverter implements Converter<DisplayPlacement, Native> {
 
   @Override
-  public Native map(DisplayPlacement displayPlacement, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Native map(DisplayPlacement displayPlacement, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (displayPlacement == null) {
       return null;
     }
@@ -36,7 +36,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
   }
 
   @Override
-  public void enhance(DisplayPlacement displayPlacement, Native nat, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public void enhance(DisplayPlacement displayPlacement, Native nat, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(displayPlacement) || isNull(nat)) {
       return;
     }

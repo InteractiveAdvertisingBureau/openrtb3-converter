@@ -26,9 +26,9 @@ import net.media.utils.Provider;
  */
 
 @SuppressWarnings("unchecked")
-public class Converter30To23RequestManager {
+public class Convert30To23RequestManager {
 
-  public Converter30To23RequestManager(Provider<Conversion, Converter> converterProvider) {
+  public Convert30To23RequestManager(Provider converterProvider) {
     converterProvider.register(new Conversion(Device.class, net.media.openrtb25.request.Device
       .class), new DeviceToDeviceConverter());
     converterProvider.register(new Conversion(DisplayPlacement.class, Banner.class), new

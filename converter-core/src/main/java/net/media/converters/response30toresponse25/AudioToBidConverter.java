@@ -17,7 +17,7 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
 public class AudioToBidConverter implements Converter<Audio,Bid> {
 
 
-  public Bid map(Audio source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Bid map(Audio source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     Bid  bid = new Bid();
@@ -25,7 +25,7 @@ public class AudioToBidConverter implements Converter<Audio,Bid> {
     return bid;
   }
 
-  public  void enhance(Audio source, Bid target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public  void enhance(Audio source, Bid target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
 

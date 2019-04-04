@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class SourceToSourceConverter implements Converter<Source, net.media.openrtb3.Source> {
   @Override
-  public net.media.openrtb3.Source map(Source source, Config config, Provider<Conversion, Converter> converterProvider) {
+  public net.media.openrtb3.Source map(Source source, Config config, Provider converterProvider) {
     if ( source == null ) {
       return null;
     }
@@ -28,7 +28,7 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
   }
 
   @Override
-  public void enhance(Source source, net.media.openrtb3.Source target, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(Source source, net.media.openrtb3.Source target, Config config, Provider converterProvider) {
     if(source == null || target == null)
       return;
     target.setTid( source.getTid() );

@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class SegmentToSegmentConverter implements Converter<Segment, net.media.openrtb25.request.Segment> {
   @Override
-  public net.media.openrtb25.request.Segment map(Segment source, Config config, Provider<Conversion, Converter> converterProvider) {
+  public net.media.openrtb25.request.Segment map(Segment source, Config config, Provider converterProvider) {
     if ( source == null ) {
       return null;
     }
@@ -25,7 +25,7 @@ public class SegmentToSegmentConverter implements Converter<Segment, net.media.o
   }
 
   @Override
-  public void enhance(Segment source, net.media.openrtb25.request.Segment target, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(Segment source, net.media.openrtb25.request.Segment target, Config config, Provider converterProvider) {
     if(source == null || target == null)
       return;
     target.setId( source.getId() );

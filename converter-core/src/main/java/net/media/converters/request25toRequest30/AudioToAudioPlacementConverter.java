@@ -26,7 +26,7 @@ import static java.util.Objects.nonNull;
 public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPlacement> {
 
   @Override
-  public AudioPlacement map(Audio audio, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public AudioPlacement map(Audio audio, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( audio == null) {
       return null;
     }
@@ -38,7 +38,7 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
   }
 
   @Override
-  public void enhance(Audio audio, AudioPlacement audioPlacement, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public void enhance(Audio audio, AudioPlacement audioPlacement, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(audio == null || audioPlacement == null) {
       return;
     }
@@ -67,7 +67,7 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     audioToAudioPlacementAfterMapping( audio, audioPlacement );
   }
 
-  private Collection<Companion> bannerListToCompanionList(Collection<Banner> list, Config config, Provider<Conversion, Converter> converterProvider)
+  private Collection<Companion> bannerListToCompanionList(Collection<Banner> list, Config config, Provider converterProvider)
     throws OpenRtbConverterException {
     if ( list == null ) {
       return null;

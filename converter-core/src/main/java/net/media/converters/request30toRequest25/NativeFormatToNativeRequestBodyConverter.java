@@ -19,7 +19,7 @@ public class NativeFormatToNativeRequestBodyConverter implements Converter<Nativ
   NativeRequestBody> {
 
   @Override
-  public NativeRequestBody map(NativeFormat nativeFormat, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public NativeRequestBody map(NativeFormat nativeFormat, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( nativeFormat == null ) {
       return null;
     }
@@ -29,7 +29,7 @@ public class NativeFormatToNativeRequestBodyConverter implements Converter<Nativ
   }
 
   @Override
-  public void enhance(NativeFormat nativeFormat, NativeRequestBody nativeRequestBody, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public void enhance(NativeFormat nativeFormat, NativeRequestBody nativeRequestBody, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(nativeFormat) || isNull(nativeRequestBody)) {
       return;
     }

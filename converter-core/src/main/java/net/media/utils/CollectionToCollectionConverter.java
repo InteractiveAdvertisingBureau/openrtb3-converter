@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class CollectionToCollectionConverter {
   public static <S,T> Collection<T> convert(Collection<S> collection, Converter<S, T>
-    stConverter, Config config, Provider<Conversion, Converter> converterProvider)
+    stConverter, Config config, Provider converterProvider)
     throws OpenRtbConverterException {
     if ( collection == null ) {
       return null;

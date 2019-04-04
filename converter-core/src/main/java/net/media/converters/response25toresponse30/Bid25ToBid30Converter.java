@@ -18,7 +18,7 @@ import static java.util.Objects.isNull;
 public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.Bid> {
 
   @Override
-  public net.media.openrtb3.Bid map(Bid source, Config config, Provider<Conversion, Converter> converterProvider)throws OpenRtbConverterException {
+  public net.media.openrtb3.Bid map(Bid source, Config config, Provider converterProvider)throws OpenRtbConverterException {
     if (isNull(source)) {
       return null;
     }
@@ -28,7 +28,7 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
   }
 
   @Override
-  public void enhance(Bid source, net.media.openrtb3.Bid target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException{
+  public void enhance(Bid source, net.media.openrtb3.Bid target, Config config, Provider converterProvider) throws OpenRtbConverterException{
     if (source == null || target == null) {
       return;
     }
@@ -36,7 +36,8 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
     target.setItem( source.getImpid() );
     target.setDeal( source.getDealid() );
     target.setPurl( source.getNurl() );
-    Converter<Bid, Media> converter = converterProvider.fetch(new Conversion(Bid.class, Media.class));
+    Converter<Bid, Media> converter = converterProvider.fetch(new Conversion<>(Bid.class, Media
+      .class));
     target.setMedia(converter.map(source, config, converterProvider));
     target.setId( source.getId() );
     target.setPrice( source.getPrice() );

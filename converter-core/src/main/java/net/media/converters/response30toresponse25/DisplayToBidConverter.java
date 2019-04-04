@@ -25,7 +25,7 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 public class DisplayToBidConverter implements Converter<Display,Bid> {
 
-  public Bid map(Display source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Bid map(Display source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     Bid  bid = new Bid();
@@ -33,7 +33,7 @@ public class DisplayToBidConverter implements Converter<Display,Bid> {
     return bid;
   }
 
-  public  void enhance(Display source, Bid target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public  void enhance(Display source, Bid target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     Converter<Native, NativeResponse> nativeBidConverter = converterProvider.fetch(new Conversion
       (Native.class, NativeResponse.class));
 

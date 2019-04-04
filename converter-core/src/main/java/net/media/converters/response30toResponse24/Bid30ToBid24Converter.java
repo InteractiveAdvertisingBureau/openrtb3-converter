@@ -19,7 +19,7 @@ import static java.util.Objects.nonNull;
 public class Bid30ToBid24Converter extends Bid30ToBid25Converter {
 
   public void enhance(net.media.openrtb3.Bid source, Bid target, Config config,
-                      Provider<Conversion, Converter> converterProvider) throws
+                      Provider converterProvider) throws
     OpenRtbConverterException {
     if (source == null) {
       return;

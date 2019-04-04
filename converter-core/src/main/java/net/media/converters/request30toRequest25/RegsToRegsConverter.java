@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb25.request.Regs> {
   @Override
-  public net.media.openrtb25.request.Regs map(Regs source, Config config, Provider<Conversion, Converter> converterProvider) {
+  public net.media.openrtb25.request.Regs map(Regs source, Config config, Provider converterProvider) {
     if ( source == null ) {
       return null;
     }
@@ -25,7 +25,7 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb25.
   }
 
   @Override
-  public void enhance(Regs source, net.media.openrtb25.request.Regs target, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(Regs source, net.media.openrtb25.request.Regs target, Config config, Provider converterProvider) {
     if(source == null || target == null)
       return;
     target.setCoppa( source.getCoppa() );

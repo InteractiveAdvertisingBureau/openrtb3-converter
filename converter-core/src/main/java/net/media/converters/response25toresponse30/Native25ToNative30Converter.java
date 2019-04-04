@@ -26,7 +26,7 @@ import static org.apache.commons.collections.CollectionUtils.isEmpty;
 public class Native25ToNative30Converter implements Converter<NativeResponse, Native> {
 
   @Override
-  public Native map(NativeResponse source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Native map(NativeResponse source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (source == null) {
       return null;
     }
@@ -36,7 +36,7 @@ public class Native25ToNative30Converter implements Converter<NativeResponse, Na
   }
 
   @Override
-  public void enhance(NativeResponse source, Native target, Config config, Provider<Conversion, Converter> converterProvider)throws OpenRtbConverterException {
+  public void enhance(NativeResponse source, Native target, Config config, Provider converterProvider)throws OpenRtbConverterException {
     if (source == null || target == null || source.getNativeResponseBody() == null) {
       return;
     }

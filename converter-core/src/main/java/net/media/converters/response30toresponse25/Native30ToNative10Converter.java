@@ -21,7 +21,7 @@ import static java.util.Objects.nonNull;
 
 public class Native30ToNative10Converter implements Converter<Native,NativeResponse> {
 
-  public NativeResponse map(Native source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public NativeResponse map(Native source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     NativeResponse  nativeResponse = new NativeResponse();
@@ -31,7 +31,7 @@ public class Native30ToNative10Converter implements Converter<Native,NativeRespo
     return nativeResponse;
   }
 
-  public void enhance(Native source, NativeResponse target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException  {
+  public void enhance(Native source, NativeResponse target, Config config, Provider converterProvider) throws OpenRtbConverterException  {
 
     Converter<Asset, AssetResponse> assetAssetResponseConverter = converterProvider.fetch(new
       Conversion(Asset.class, AssetResponse.class));

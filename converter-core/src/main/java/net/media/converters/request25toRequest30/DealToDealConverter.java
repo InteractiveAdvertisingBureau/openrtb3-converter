@@ -12,7 +12,7 @@ import net.media.utils.Utils;
  */
 public class DealToDealConverter implements Converter<Deal, net.media.openrtb3.Deal> {
   @Override
-  public net.media.openrtb3.Deal map(Deal deal, Config config, Provider<Conversion, Converter> converterProvider) {
+  public net.media.openrtb3.Deal map(Deal deal, Config config, Provider converterProvider) {
     if ( deal == null ) {
       return null;
     }
@@ -23,7 +23,7 @@ public class DealToDealConverter implements Converter<Deal, net.media.openrtb3.D
   }
 
   @Override
-  public void enhance(Deal deal, net.media.openrtb3.Deal deal1, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(Deal deal, net.media.openrtb3.Deal deal1, Config config, Provider converterProvider) {
     if ( deal == null || deal1 == null) {
       return;
     }

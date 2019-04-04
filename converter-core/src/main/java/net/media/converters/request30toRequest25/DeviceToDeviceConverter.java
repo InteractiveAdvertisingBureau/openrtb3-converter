@@ -16,7 +16,7 @@ import java.util.Map;
 public class DeviceToDeviceConverter implements Converter<Device, net.media.openrtb25.request.Device> {
 
   @Override
-  public net.media.openrtb25.request.Device map(Device source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.Device map(Device source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -29,7 +29,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
   }
 
   @Override
-  public void enhance(Device source, net.media.openrtb25.request.Device target, Config config, Provider<Conversion, Converter> converterProvider)
+  public void enhance(Device source, net.media.openrtb25.request.Device target, Config config, Provider converterProvider)
     throws OpenRtbConverterException {
     if(source == null || target == null)
       return;

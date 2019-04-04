@@ -22,7 +22,7 @@ import static java.util.Objects.nonNull;
 public class BidToVideoConverter implements Converter<Bid, Video> {
 
   @Override
-  public Video map(Bid source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Video map(Bid source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (source == null) {
       return null;
     }
@@ -32,7 +32,7 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
   }
 
   @Override
-  public void enhance(Bid source, Video target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException{
+  public void enhance(Bid source, Video target, Config config, Provider converterProvider) throws OpenRtbConverterException{
     if (source == null || target == null) {
       return;
     }

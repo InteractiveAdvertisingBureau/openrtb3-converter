@@ -26,7 +26,7 @@ import static java.util.Objects.isNull;
  */
 public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat> {
   @Override
-  public AssetFormat map(Asset asset, Config config, Provider<Conversion, Converter> converterProvider) {
+  public AssetFormat map(Asset asset, Config config, Provider converterProvider) {
     if ( asset == null ) {
       return null;
     }
@@ -36,7 +36,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
   }
 
   @Override
-  public void enhance(Asset asset, AssetFormat assetFormat, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(Asset asset, AssetFormat assetFormat, Config config, Provider converterProvider) {
     if (isNull(asset) || isNull(assetFormat)) {
       return;
     }

@@ -13,7 +13,7 @@ import static java.util.Objects.isNull;
 
 public class LinkAssetToLinkConverter implements Converter<LinkAsset,Link> {
 
-  public Link map(LinkAsset source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Link map(LinkAsset source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     Link link = new Link();
@@ -21,7 +21,7 @@ public class LinkAssetToLinkConverter implements Converter<LinkAsset,Link> {
     return link;
   }
 
-  public void enhance(LinkAsset source, Link target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public void enhance(LinkAsset source, Link target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return;
 

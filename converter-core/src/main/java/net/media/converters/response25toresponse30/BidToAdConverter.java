@@ -27,7 +27,7 @@ import static java.util.Objects.nonNull;
 public class BidToAdConverter implements Converter<Bid, Ad> {
 
   @Override
-  public Ad map(Bid source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Ad map(Bid source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(source)) {
       return null;
     }
@@ -37,7 +37,7 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
   }
 
   @Override
-  public void enhance(Bid source, Ad target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException{
+  public void enhance(Bid source, Ad target, Config config, Provider converterProvider) throws OpenRtbConverterException{
     if (isNull(source) || isNull(target)) {
       return;
     }

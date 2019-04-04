@@ -24,7 +24,7 @@ import static org.apache.commons.collections.CollectionUtils.isEmpty;
 public class SeatBid25ToSeatBid30Converter implements Converter<SeatBid, Seatbid> {
 
   @Override
-  public Seatbid map(SeatBid source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public Seatbid map(SeatBid source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -34,7 +34,7 @@ public class SeatBid25ToSeatBid30Converter implements Converter<SeatBid, Seatbid
   }
 
   @Override
-  public void enhance(SeatBid source, Seatbid seatbid, Config config, Provider<Conversion, Converter> converterProvider)throws OpenRtbConverterException {
+  public void enhance(SeatBid source, Seatbid seatbid, Config config, Provider converterProvider)throws OpenRtbConverterException {
     if (source == null || seatbid == null) {
       return;
     }

@@ -15,7 +15,7 @@ import net.media.utils.Provider;
 public class Bid25ToMediaConverter implements Converter<Bid, Media> {
 
   @Override
-  public Media map(Bid source, Config config, Provider<Conversion, Converter> converterProvider)throws OpenRtbConverterException {
+  public Media map(Bid source, Config config, Provider converterProvider)throws OpenRtbConverterException {
     if (source == null) {
       return null;
     }
@@ -25,7 +25,7 @@ public class Bid25ToMediaConverter implements Converter<Bid, Media> {
   }
 
   @Override
-  public void enhance(Bid source, Media target, Config config, Provider<Conversion, Converter> converterProvider)throws OpenRtbConverterException {
+  public void enhance(Bid source, Media target, Config config, Provider converterProvider)throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }

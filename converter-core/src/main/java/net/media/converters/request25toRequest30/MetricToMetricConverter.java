@@ -15,7 +15,7 @@ import static java.util.Objects.isNull;
 public class MetricToMetricConverter implements Converter<Metric, net.media.openrtb3.Metric> {
 
   @Override
-  public net.media.openrtb3.Metric map(Metric metric, Config config, Provider<Conversion, Converter> converterProvider) {
+  public net.media.openrtb3.Metric map(Metric metric, Config config, Provider converterProvider) {
     if (isNull(metric)) {
       return null;
     }
@@ -25,7 +25,7 @@ public class MetricToMetricConverter implements Converter<Metric, net.media.open
   }
 
   @Override
-  public void enhance(Metric metric, net.media.openrtb3.Metric metric1, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(Metric metric, net.media.openrtb3.Metric metric1, Config config, Provider converterProvider) {
     if (metric != null && metric1 != null) {
       metric1.setType(metric.getType());
       metric1.setVendor(metric.getVendor());

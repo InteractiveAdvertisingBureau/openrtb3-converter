@@ -17,7 +17,7 @@ import static java.util.Objects.nonNull;
 public class GeoToGeoConverter extends net.media.converters.request30toRequest25.GeoToGeoConverter {
 
   public void enhance(Geo source, net.media.openrtb25.request.Geo target, Config config,
-                      Provider<Conversion, Converter> converterProvider) {
+                      Provider converterProvider) {
     if (source == null || target == null) {
       return;
     }

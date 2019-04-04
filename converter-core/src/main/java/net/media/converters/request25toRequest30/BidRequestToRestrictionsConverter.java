@@ -16,7 +16,7 @@ import java.util.Set;
 
 public class BidRequestToRestrictionsConverter implements Converter<BidRequest, Restrictions> {
   @Override
-  public Restrictions map(BidRequest source, Config config, Provider<Conversion, Converter> converterProvider) {
+  public Restrictions map(BidRequest source, Config config, Provider converterProvider) {
     if ( source == null ) {
       return null;
     }
@@ -29,7 +29,7 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
   }
 
   @Override
-  public void enhance(BidRequest source, Restrictions target, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(BidRequest source, Restrictions target, Config config, Provider converterProvider) {
     if(source == null || target == null)
       return;
     target.setBapp( Utils.copyCollection(source.getBapp(), config) );

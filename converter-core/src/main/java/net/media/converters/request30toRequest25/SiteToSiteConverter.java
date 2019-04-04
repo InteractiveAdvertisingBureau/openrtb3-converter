@@ -16,7 +16,7 @@ import java.util.Map;
 public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.request.Site> {
 
   @Override
-  public net.media.openrtb25.request.Site map(Site source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.Site map(Site source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -29,7 +29,7 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.
   }
 
   @Override
-  public void enhance(Site source, net.media.openrtb25.request.Site target, Config config, Provider<Conversion, Converter> converterProvider) throws
+  public void enhance(Site source, net.media.openrtb25.request.Site target, Config config, Provider converterProvider) throws
     OpenRtbConverterException {
     if(source == null || target == null)
       return;

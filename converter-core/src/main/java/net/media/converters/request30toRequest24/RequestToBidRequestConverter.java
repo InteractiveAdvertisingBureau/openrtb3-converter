@@ -27,9 +27,8 @@ import static java.util.Objects.nonNull;
 public class RequestToBidRequestConverter extends net.media.converters
   .request30toRequest25.RequestToBidRequestConverter {
 
-  public void enhance(Request source, BidRequest target, Config config, Provider<Conversion,
-    Converter> converterProvider) throws
-    OpenRtbConverterException {
+  public void enhance(Request source, BidRequest target, Config config, Provider
+    converterProvider) throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }

@@ -22,7 +22,7 @@ import static java.util.Objects.nonNull;
 public class BidToAudioConverter implements Converter<Bid, Audio> {
 
   @Override
-  public Audio map(Bid source, Config config, Provider<Conversion, Converter> converterProvider)throws OpenRtbConverterException {
+  public Audio map(Bid source, Config config, Provider converterProvider)throws OpenRtbConverterException {
     if (isNull(source)) {
       return null;
     }
@@ -32,7 +32,7 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
   }
 
   @Override
-  public void enhance(Bid source, Audio target, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException{
+  public void enhance(Bid source, Audio target, Config config, Provider converterProvider) throws OpenRtbConverterException{
 
     if (isNull(source) || isNull(target)) {
       return;

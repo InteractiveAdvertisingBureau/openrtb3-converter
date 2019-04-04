@@ -26,7 +26,7 @@ import static java.util.Objects.nonNull;
 
 public class Asset30ToAsset25Converter implements Converter<Asset,AssetResponse> {
 
-  public AssetResponse map(Asset source, Config config, Provider<Conversion, Converter> converterProvider) throws OpenRtbConverterException{
+  public AssetResponse map(Asset source, Config config, Provider converterProvider) throws OpenRtbConverterException{
     if(isNull(source) || isNull(config))
       return  null;
     AssetResponse assetResponse = new AssetResponse();
@@ -34,7 +34,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset,AssetResponse>
     return assetResponse;
   }
 
-  public void enhance(Asset source, AssetResponse target, Config config, Provider<Conversion, Converter> converterProvider) throws
+  public void enhance(Asset source, AssetResponse target, Config config, Provider converterProvider) throws
     OpenRtbConverterException {
 
     Converter<LinkAsset, Link> linkAssetLinkConverter = converterProvider.fetch(new Conversion
