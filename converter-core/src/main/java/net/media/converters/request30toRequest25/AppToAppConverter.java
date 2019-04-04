@@ -1,7 +1,6 @@
 package net.media.converters.request30toRequest25;
 
-import lombok.AllArgsConstructor;
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.App;
@@ -12,11 +11,16 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
 public class AppToAppConverter implements Converter<App,net.media.openrtb25.request.App> {
 
   Converter<Publisher, net.media.openrtb25.request.Publisher> publisherPublisherConverter;
   Converter<Content, net.media.openrtb25.request.Content> contentContentConverter;
+
+  @java.beans.ConstructorProperties({"publisherPublisherConverter", "contentContentConverter"})
+  public AppToAppConverter(Converter<Publisher, net.media.openrtb25.request.Publisher> publisherPublisherConverter, Converter<Content, net.media.openrtb25.request.Content> contentContentConverter) {
+    this.publisherPublisherConverter = publisherPublisherConverter;
+    this.contentContentConverter = contentContentConverter;
+  }
 
   @Override
   public net.media.openrtb25.request.App map(App source, Config config) throws OpenRtbConverterException {
@@ -36,7 +40,7 @@ public class AppToAppConverter implements Converter<App,net.media.openrtb25.requ
     OpenRtbConverterException {
     if(source == null)
       return;
-    target.setSectioncat( Utils.copyList(source.getSectcat(), config) );
+    target.setSectioncat( Utils.copyCollection(source.getSectcat(), config) );
     target.setPrivacypolicy( source.getPrivpolicy() );
     target.setPublisher( publisherPublisherConverter.map( source.getPub(), config ) );
     target.setId( source.getId() );
@@ -44,15 +48,15 @@ public class AppToAppConverter implements Converter<App,net.media.openrtb25.requ
     target.setBundle( source.getBundle() );
     target.setDomain( source.getDomain() );
     target.setStoreurl( source.getStoreurl() );
-    target.setCat( Utils.copyList(source.getCat(), config) );
-    target.setPagecat( Utils.copySet(source.getPagecat(), config) );
+    target.setCat( Utils.copyCollection(source.getCat(), config) );
+    target.setPagecat( Utils.copyCollection(source.getPagecat(), config) );
     target.setVer( source.getVer() );
     target.setPaid( source.getPaid() );
     target.setContent( contentContentConverter.map( source.getContent(), config ) );
     target.setKeywords( source.getKeywords() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt( Utils.copyMap(map, config) );
     }
     if(source.getCattax() != null) {
       if(target.getExt() == null)

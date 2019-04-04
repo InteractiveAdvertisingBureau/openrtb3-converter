@@ -1,22 +1,26 @@
 package net.media.converters.request25toRequest30;
 
-import lombok.AllArgsConstructor;
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.Data;
 import net.media.openrtb25.request.Geo;
 import net.media.openrtb25.request.User;
-import net.media.utils.ListToListConverter;
+import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.Utils;
 
-import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
 public class UserToUserConverter implements Converter<User, net.media.openrtb3.User> {
 
   private Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter;
   private Converter<Data, net.media.openrtb3.Data> dataDataConverter;
+
+  @java.beans.ConstructorProperties({"geoToGeoConverter", "dataDataConverter"})
+  public UserToUserConverter(Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter, Converter<Data, net.media.openrtb3.Data> dataDataConverter) {
+    this.geoToGeoConverter = geoToGeoConverter;
+    this.dataDataConverter = dataDataConverter;
+  }
 
   @Override
   public net.media.openrtb3.User map(User source, Config config) throws OpenRtbConverterException {
@@ -41,14 +45,18 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
     target.setGender( source.getGender() );
     target.setKeywords( source.getKeywords() );
     target.setGeo( geoToGeoConverter.map( source.getGeo(), config ) );
-    target.setData( ListToListConverter.convert( source.getData(), dataDataConverter, config ) );
+    target.setData( CollectionToCollectionConverter.convert( source.getData(), dataDataConverter, config ) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt(Utils.copyMap(map, config));
     }
     if(source.getExt() == null)
       return;
-    target.setConsent((String) source.getExt().get("consent"));
-    target.getExt().remove("consent");
+    try {
+      target.setConsent((String) source.getExt().get("consent"));
+      target.getExt().remove("consent");
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for User", e);
+    }
   }
 }

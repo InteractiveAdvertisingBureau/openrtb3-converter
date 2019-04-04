@@ -1,22 +1,27 @@
 package net.media.converters.request25toRequest30;
 
-import lombok.AllArgsConstructor;
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.App;
 import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Publisher;
 import net.media.utils.Utils;
-
 import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+
 public class AppToAppConverter implements Converter<App, net.media.openrtb3.App> {
 
   private Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter;
   private Converter<Content, net.media.openrtb3.Content> contentContentConverter;
+
+  @java.beans.ConstructorProperties({"publisherPublisherConverter", "contentContentConverter"})
+  public AppToAppConverter(Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter, Converter<Content, net.media.openrtb3.Content> contentContentConverter) {
+    this.publisherPublisherConverter = publisherPublisherConverter;
+    this.contentContentConverter = contentContentConverter;
+  }
 
   @Override
   public net.media.openrtb3.App map(App source, Config config) throws OpenRtbConverterException {
@@ -36,14 +41,14 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
     if(source == null)
       return;
     target.setPrivpolicy( source.getPrivacypolicy() );
-    target.setSectcat( Utils.copyList(source.getSectioncat(), config) );
+    target.setSectcat( Utils.copyCollection(source.getSectioncat(), config) );
     target.setPub( publisherPublisherConverter.map( source.getPublisher(), config ) );
     target.setId( source.getId() );
     target.setName( source.getName() );
     target.setContent( contentContentConverter.map( source.getContent(), config ) );
     target.setDomain( source.getDomain() );
-    target.setCat( Utils.copyList(source.getCat(), config) );
-    target.setPagecat( Utils.copySet(source.getPagecat(), config) );
+    target.setCat( Utils.copyCollection(source.getCat(), config) );
+    target.setPagecat( Utils.copyCollection(source.getPagecat(), config) );
     target.setKeywords( source.getKeywords() );
     target.setBundle( source.getBundle() );
     target.setStoreurl( source.getStoreurl() );
@@ -51,15 +56,23 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
     target.setPaid( source.getPaid() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt( Utils.copyMap(map, config) );
     }
 
     if(source.getExt() == null)
       return;
-    target.setCattax((Integer) source.getExt().get("cattax"));
-    target.setStoreid((String) source.getExt().get("storeid"));
-    target.getExt().remove("cattax");
-    target.getExt().remove("storeid");
+    try {
+      if (source.getExt().containsKey("cattax")) {
+        target.setCattax((Integer) source.getExt().get("cattax"));
+      } else {
+        target.setCattax(DEFAULT_CATTAX_TWODOTX);
+      }
+      target.setStoreid((String) source.getExt().get("storeid"));
+      target.getExt().remove("cattax");
+      target.getExt().remove("storeid");
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for app", e);
+    }
 
   }
 }

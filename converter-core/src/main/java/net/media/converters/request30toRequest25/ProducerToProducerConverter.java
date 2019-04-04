@@ -28,11 +28,11 @@ public class ProducerToProducerConverter implements Converter<Producer, net.medi
       return;
     target.setId( source.getId() );
     target.setName( source.getName() );
-    target.setCat( Utils.copyList(source.getCat(), config) );
+    target.setCat( Utils.copyCollection(source.getCat(), config) );
     target.setDomain( source.getDomain() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt( Utils.copyMap( map, config ) );
     }
     if(source.getCattax() != null) {
       if(target.getExt() == null)

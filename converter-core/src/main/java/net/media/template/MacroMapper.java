@@ -2,9 +2,15 @@ package net.media.template;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+
 import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb25.response.nativeresponse.NativeResponseBody;
-import net.media.openrtb3.*;
+import net.media.openrtb3.Audio;
+import net.media.openrtb3.Banner;
+import net.media.openrtb3.Bid;
+import net.media.openrtb3.Display;
+import net.media.openrtb3.Native;
+import net.media.openrtb3.Video;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;

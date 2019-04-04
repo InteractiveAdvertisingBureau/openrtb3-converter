@@ -1,7 +1,6 @@
 package net.media.converters.request30toRequest25;
 
-import lombok.AllArgsConstructor;
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.BidRequest;
@@ -9,14 +8,19 @@ import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.User;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionUtils;
-import net.media.utils.ListToListConverter;
+import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import static java.util.Objects.nonNull;
 
-@AllArgsConstructor
 public class RequestToBidRequestConverter implements Converter<Request, BidRequest> {
 
   private Converter<net.media.openrtb3.User, User> userUserConverter;
@@ -27,6 +31,19 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
   private Converter<Device, net.media.openrtb25.request.Device> deviceDeviceConverter;
   private Converter<Source, net.media.openrtb25.request.Source> sourceSourceConverter;
   private Converter<Item, net.media.openrtb25.request.Imp> itemImpConverter;
+
+  @java.beans.ConstructorProperties({"userUserConverter", "requestUserConverter", "appAppConverter", "regsRegsConverter", "siteSiteConverter", "deviceDeviceConverter", "sourceSourceConverter", "itemImpConverter"})
+  public RequestToBidRequestConverter(Converter<net.media.openrtb3.User, User> userUserConverter, Converter<Request, User> requestUserConverter, Converter<App, net.media.openrtb25.request.App> appAppConverter, Converter<Regs, net.media.openrtb25.request.Regs> regsRegsConverter, Converter<Site, net.media.openrtb25.request.Site> siteSiteConverter, Converter<Device, net.media.openrtb25.request.Device> deviceDeviceConverter, Converter<Source, net.media.openrtb25.request.Source> sourceSourceConverter, Converter<Item, Imp> itemImpConverter) {
+    this.userUserConverter = userUserConverter;
+    this.requestUserConverter = requestUserConverter;
+    this.appAppConverter = appAppConverter;
+    this.regsRegsConverter = regsRegsConverter;
+    this.siteSiteConverter = siteSiteConverter;
+    this.deviceDeviceConverter = deviceDeviceConverter;
+    this.sourceSourceConverter = sourceSourceConverter;
+    this.itemImpConverter = itemImpConverter;
+  }
+
   @Override
   public BidRequest map(Request source, Config config) throws OpenRtbConverterException {
     if ( source == null ) {
@@ -44,6 +61,11 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
   public void enhance(Request source, BidRequest target, Config config) throws OpenRtbConverterException {
     if(source == null)
       return;
+
+    Map<String, Object> map = source.getExt();
+    if ( map != null ) {
+      target.setExt(Utils.copyMap(map, config));
+    }
 
     if(source.getContext() != null) {
 
@@ -77,9 +99,9 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       }
 
       if(source.getContext().getRestrictions() != null) {
-        target.setBapp( Utils.copyList(source.getContext().getRestrictions().getBapp(), config) );
-        target.setBcat( Utils.copySet(source.getContext().getRestrictions().getBcat(), config) );
-        target.setBadv( Utils.copySet(source.getContext().getRestrictions().getBadv(), config) );
+        target.setBapp( Utils.copyCollection(source.getContext().getRestrictions().getBapp(), config) );
+        target.setBcat( Utils.copyCollection(source.getContext().getRestrictions().getBcat(), config) );
+        target.setBadv( Utils.copyCollection(source.getContext().getRestrictions().getBadv(), config) );
         if (source.getContext().getRestrictions().getCattax() != null) {
           if (target.getExt() == null)
             target.setExt(new HashMap<>());
@@ -89,7 +111,9 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
         if (source.getContext().getRestrictions().getExt() != null) {
           if (target.getExt() == null)
             target.setExt(new HashMap<>());
-          target.getExt().put("restrictionsExt", source.getContext().getRestrictions().getExt());
+          Restrictions restrictions = new Restrictions();
+          restrictions.setExt(source.getContext().getRestrictions().getExt());
+          target.getExt().put("restrictions", restrictions);
         }
       }
 
@@ -98,30 +122,26 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
         target.setDevice( deviceDeviceConverter.map( device, config ) );
       }
     }
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
-    }
     target.setAllimps( source.getPack() );
-    target.setImp( ListToListConverter.convert( source.getItem(), itemImpConverter, config ) );
+    target.setImp( CollectionToCollectionConverter.convert( source.getItem(), itemImpConverter, config ) );
     if (!CollectionUtils.isEmpty(target.getImp())) {
       if (nonNull(source.getContext()) && nonNull(source.getContext().getRestrictions())) {
         for (Imp imp : target.getImp()) {
           if (nonNull(imp.getBanner())) {
             if (nonNull(source.getContext().getRestrictions().getBattr())) {
-              imp.getBanner().setBattr(Utils.copySet(source.getContext().getRestrictions().getBattr
+              imp.getBanner().setBattr(Utils.copyCollection(source.getContext().getRestrictions().getBattr
                 (), config));
             }
           }
           if (nonNull(imp.getVideo())) {
             if (nonNull(source.getContext().getRestrictions().getBattr())) {
-              imp.getVideo().setBattr(Utils.copySet(source.getContext().getRestrictions().getBattr
+              imp.getVideo().setBattr(Utils.copyCollection(source.getContext().getRestrictions().getBattr
                 (), config));
             }
           }
           if (nonNull(imp.getNat())) {
             if (nonNull(source.getContext().getRestrictions().getBattr())) {
-              imp.getNat().setBattr(Utils.copySet(source.getContext().getRestrictions().getBattr
+              imp.getNat().setBattr(Utils.copyCollection(source.getContext().getRestrictions().getBattr
                 (), config));
             }
           }
@@ -133,28 +153,30 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     target.setTest( source.getTest() );
     target.setTmax( source.getTmax() );
     target.setSource( sourceSourceConverter.map( source.getSource(), config ) );
-    List<String> list1 = source.getCur();
+    Collection<String> list1 = source.getCur();
     if ( list1 != null ) {
-      target.setCur( Utils.copyList( list1, config ) );
+      target.setCur( Utils.copyCollection( list1, config ) );
     }
 
     if(source.getWseat() != null) {
 
       if (source.getWseat() == 0) {
-        target.setBseat(Utils.copySet(source.getSeat(), config));
-        target.setBseat(Utils.copySet(source.getSeat(), config));
+        target.setBseat(Utils.copyCollection(source.getSeat(), config));
+        target.setBseat(Utils.copyCollection(source.getSeat(), config));
       } else {
-        target.setWseat(Utils.copySet(source.getSeat(), config));
+        target.setWseat(Utils.copyCollection(source.getSeat(), config));
       }
     }
 
     if(source.getItem() != null && source.getItem().size() > 0) {
-      Set<String> wlang = new HashSet<>();
+      Collection<String> wlang = new HashSet<>();
       for(Item item : source.getItem()) {
-        if(item.getSpec() != null && item.getSpec().getPlacement() != null && item.getSpec().getPlacement().getWlang() != null)
+        if(item.getSpec() != null && item.getSpec().getPlacement() != null && item.getSpec()
+          .getPlacement().getWlang() != null) {
           wlang.addAll(item.getSpec().getPlacement().getWlang());
+        }
       }
-      target.setWlang(new ArrayList<>( wlang ));
+      target.setWlang(Utils.copyCollection(wlang, config));
     }
 
     if(target.getImp() != null) {
@@ -175,4 +197,5 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       target.setExt(new HashMap<>());
     target.getExt().put("dooh", source.getContext().getDooh());
   }
+
 }

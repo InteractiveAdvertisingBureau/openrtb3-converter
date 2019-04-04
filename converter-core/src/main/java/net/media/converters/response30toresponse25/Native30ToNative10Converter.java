@@ -1,6 +1,6 @@
 package net.media.converters.response30toresponse25;
 
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.response.nativeresponse.AssetResponse;
@@ -53,7 +53,7 @@ public class Native30ToNative10Converter implements Converter<Native,NativeRespo
     nativeResponseBody.setExt(source.getExt());
     try {
       if (nonNull(source.getExt())) {
-        nativeResponseBody.setJstracker((String) source.getExt().get("_jsTracker"));
+        nativeResponseBody.setJstracker((String) source.getExt().get("jsTracker"));
         nativeResponseBody.setImptrackers((List<String>) source.getExt().get("impTrackers"));
       }
     }

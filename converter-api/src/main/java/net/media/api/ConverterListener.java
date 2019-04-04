@@ -2,13 +2,15 @@ package net.media.api;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import lombok.extern.slf4j.Slf4j;
+
+import org.slf4j.Logger;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-@Slf4j
 public class ConverterListener implements ServletContextListener {
+  private static final Logger log = org.slf4j.LoggerFactory.getLogger(ConverterListener.class);
+
   @Override
   public void contextInitialized(ServletContextEvent sce) {
     try {

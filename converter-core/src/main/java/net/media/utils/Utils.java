@@ -4,12 +4,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.media.config.Config;
 
+import org.apache.commons.collections.*;
+
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+import java.util.Queue;
 import java.util.Set;
 
 import javax.naming.ConfigurationException;
@@ -32,32 +35,26 @@ public class Utils {
     return mapper;
   }
 
-  public static <T> List<T> copyList(List<T> input, Config config){
-    if (config.isCloningDisabled()) {
-      return input;
-    }
-    if (nonNull(input)) {
-      return new ArrayList<>(input);
-    }
-    return null;
-  }
-
-  public static <T> Set<T> copySet(Set<T> input, Config config){
-    if (config.isCloningDisabled()) {
-      return input;
-    }
-    if (nonNull(input)) {
-      return new HashSet<>(input);
-    }
-    return null;
-  }
-
   public static <U,V> Map<U,V> copyMap(Map<U,V> input, Config config){
     if (config.isCloningDisabled()) {
       return input;
     }
     if (nonNull(input)) {
       return new HashMap<>(input);
+    }
+    return null;
+  }
+
+  public static <T> Collection<T> copyCollection(Collection<T> input, Config config){
+    if (config.isCloningDisabled()) {
+      return input;
+    }
+    if (nonNull(input)) {
+      if (input instanceof Set) {
+        return new HashSet<T>(input);
+      } else {
+        return new ArrayList<T>(input);
+      }
     }
     return null;
   }

@@ -1,11 +1,12 @@
 package net.media.converters.response25toresponse30;
 
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Audit;
 import net.media.openrtb3.Corr;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -34,15 +35,15 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       try {
-        target.setExt(new HashMap<>(map));
+        target.setExt(Utils.copyMap(map, config));
         if (map.containsKey("corr")) {
           target.setCorr((Corr) map.get("corr"));
         }
         if (map.containsKey("status")) {
           target.setStatus((Integer) map.get("status"));
         }
-        if (map.containsKey("init")) {
-          target.setInit((Integer) map.get("init"));
+        if (map.containsKey("audit")) {
+          target.setInit(((Audit) map.get("audit")).getInit());
         }
         if (map.containsKey("lastMod")) {
           target.setLastmod((Integer) map.get("lastMode"));
