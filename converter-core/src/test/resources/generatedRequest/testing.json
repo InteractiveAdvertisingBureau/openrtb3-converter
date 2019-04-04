@@ -495,7 +495,8 @@
   "outputFile" : "BANNER30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
-    "request.item[0].id" : "2"
+    "status": "ERROR"
+    //"request.item[0].id" : "2"
   },
   "outputJson" : {
     "ver" : "3.0",
@@ -760,6 +761,8 @@
     }
   },
   "purpose" : "idIntFormat",
-  "params" : null,
+  "params" : {
+    "validate": false
+  },
   "status" : null
 }

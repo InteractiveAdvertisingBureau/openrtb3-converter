@@ -40,7 +40,6 @@ public class ConverterTester {
         try {
            testPojo = JacksonObjectMapper.getMapper().readValue(jsonData, TestPojo.class);
         } catch (Exception e) {
-
         }
         if (isNull(testPojo) || isNull(testPojo.getInputType()) || isNull(testPojo.getOutputType
           ())) {
