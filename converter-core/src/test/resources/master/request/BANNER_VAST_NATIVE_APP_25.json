@@ -4,6 +4,25 @@
   "test": 1,
   "tmax": 100,
   "wseat": ["a"],
+  "bseat": ["b"],
+  "source": {
+    "fd": 1,
+    "tid": "dd",
+    "pchain": "dd",
+    "ext": {
+      "object": {
+        "a" : "dsd",
+        "arraySample": ["a"],
+        "jsonArraySample": [{"id": 1}],
+        "obj" : {
+          "a" : 1
+        }
+      },
+      "arraySample": ["a"],
+      "jsonArraySample": [{"id": 1}],
+      "Key": "value"
+    }
+  },
   "regs": {
     "coppa": 1,
     "ext": {
@@ -35,10 +54,20 @@
   },
   "cur": ["USD"],
   "allimps": 0,
+  "wlang": ["en"],
   "bcat": ["bb"],
   "badv": ["cc"],
+  "bapp": ["nn"],
   "imp": [{
     "id": "1",
+    "metric": [{
+      "type": "dd",
+      "value": 1.0,
+      "vendor": "dssf",
+      "ext": {
+        "dummy": "ff"
+      }
+    }],
     "bidfloor": 0.03,
     "bidfloorcur": "USD",
     "pmp": {
@@ -60,91 +89,52 @@
     },
     "displaymanager": "dd",
     "displaymanagerver": "22",
+    "clickbrowser": 1,
     "secure": 1,
+    "iframebuster": ["ss", "abc"],
     "instl": 0,
     "tagid": "re",
     "exp": 1,
-    "native": {
-      "ver": "1.1",
-      "api": [
-        1,
-        2,
-        3
-      ],
-      "battr": [
-        2,
-        5,
-        8
-      ],
-      "ext": {
-        "dummy": "entry"
-      },
-      "request": {
-        "native" : {
-        "ver": "1.1",
-        "layout": 0,
-        "adunit": 1,
-        "context": 1,
-        "contextsubtype": 2,
-        "plcmttype": 3,
-        "plcmtcnt": 4,
-        "seq": 5,
+    "banner": {
+      "id": "dd",
+      "format": [{
+        "w": 200,
+        "h": 20,
+        "wratio": 1,
+        "hratio": 2,
+        "wmin":3,
         "ext": {
-          "dummy": "object"
-        },
-        "asset": [{
-          "id": 1,
-          "required": 0,
-          "title": {
-            "len": 20,
-            "ext": {
-              "dummy": "entry"
-            }
-          },
-          "img": {
-            "type": 1,
-            "mimes": [
-              "abc",
-              "def"
-            ],
-            "w": 20,
-            "h": 20,
-            "wmin": 20,
-            "hmin": 20,
-            "ext": {
-              "wratio": 20,
-              "hratio": 20
-            }
-          },
-          "video":{
-            "mimes": [
-              "a",
-              "bc",
-              "def"
-            ],
-            "minduration": 1,
-            "maxduration": 2,
-            "protocols": [
-              2,
-              3,
-              4
-            ],
-            "ext": {
-              "dummy": "entry"
-            }
-          },
-          "data": {
-            "type": 1,
-            "len": 2,
-            "ext": {
-              "dummy": "entry"
-            }
-          },
-          "ext": {
-            "dummy": "entry"
-          }
-        }]
-      }}
+          "dummy": "ff"
+        }
+      }, {
+        "w": 33,
+        "h": 11,
+        "wratio": 1,
+        "hratio": 2,
+        "wmin":3,
+        "ext": {
+          "dummy": "ff"
+        }
+      }],
+      "h": 250,
+      "w": 300,
+      "wmax": 22,
+      "hmax": 11,
+      "wmin": 1,
+      "hmin": 9,
+      "btype": [3, 4],
+      "battr": [1, 2],
+      "topframe": 22,
+      "expdir": [3, 9],
+      "api": [3, 2],
+      "vcm": 22,
+      "mimes": ["application/x-shockwave-flash",
+        "image/jpg"
+      ],
+      "pos": 0,
+      "ext": {
+        "dummy": "ff"
+      }
     },
     "ext": {
       "dummy": "ff"
@@ -294,6 +284,9 @@
       "lat": 22.22,
       "lon": 22.2,
       "type": 1,
+      "accuracy": 1,
+      "lastfix": 1,
+      "ipservice": 2,
       "country": "sd",
       "region": "eew",
       "regionfips104": "eew",
@@ -329,9 +322,11 @@
     "ppi": 1,
     "pxratio": 1.2,
     "js": 1,
+    "geofetch": 2,
     "flashver": "ewe",
     "language": "weew",
     "carrier": "weew",
+    "mccmnc": "ewew",
     "connectiontype": 2,
     "ext": {
       "object": {
@@ -432,3 +427,17 @@
 
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
