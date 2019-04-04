@@ -2,12 +2,12 @@
   "inputFile" : "BANNER_SITE_25.json",
   "inputType" : "REQUEST25",
   "inputEdits" : {
-    "user.customdata" : "\"ff\""
+    "test" : null
   },
   "inputJson" : {
     "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
     "at" : 1,
-    "test" : 1,
+    "test" : null,
     "tmax" : 100,
     "wseat" : [ "a" ],
     "bseat" : [ "b" ],
@@ -397,7 +397,7 @@
       "yob" : 2,
       "gender" : "M",
       "keywords" : "ewew",
-      "customdata" : "ff",
+      "customdata" : "ewew",
       "geo" : {
         "lat" : 22.22,
         "lon" : 22.2,
@@ -495,7 +495,7 @@
   "outputFile" : "BANNER30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
-    "request.item[0].id" : "\"ab\""
+    "request.test" : null
   },
   "outputJson" : {
     "ver" : "3.0",
@@ -503,7 +503,7 @@
     "domainVer" : "1.0",
     "request" : {
       "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
-      "test" : 1,
+      "test" : null,
       "tmax" : 100,
       "at" : 1,
       "cur" : [ "USD" ],
@@ -519,7 +519,7 @@
         }
       },
       "item" : [ {
-        "id" : "ab",
+        "id" : "1",
         "seq" : 1,
         "flr" : 0.03,
         "flrcur" : "USD",
@@ -759,6 +759,10 @@
       "package" : 0
     }
   },
-  "purpose" : "idStringFormat",
-  "params" : null
+  "purpose" : "test_is_null",
+  "params" : {
+    "adType" : "m",
+    "yaar" : "e"
+  },
+  "status" : "success"
 }
