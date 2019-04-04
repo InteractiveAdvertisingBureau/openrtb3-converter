@@ -64,48 +64,50 @@
     "instl": 0,
     "tagid": "re",
     "exp": 1,
-    "video": {
+    "audio": {
       "mimes": [
-        "video/abc",
-        "video/mp4"
+        "abc",
+        "def"
       ],
-      "minduration": 20,
-      "maxduration": 30,
+      "minduration": 3,
+      "maxduration": 6,
       "protocols": [
-        2,
-        4,
-        5
+        1
       ],
-      "w": 200,
-      "h": 300,
-      "startdelay": 5,
-      "placement": 0,
-      "linearity": 1,
-      "skip": 1,
-      "skipmin": 1,
-      "skipafter": 1,
+      "startdelay": 1,
       "sequence": 1,
       "battr": [
-        2,
-        5,
-        8
-      ],
-      "maxextended": 2,
-      "minbitrate": 3,
-      "maxbitrate": 1,
-      "boxingallowed": 0,
-      "playbackmethod": [
         1,
-        4,
-        9
-      ],
-      "playbackend": 1,
-      "delivery": [
         2
       ],
-      "pos": 2,
+      "maxextended":1,
+      "minbitrate": 1,
+      "maxbitrate": 1,
+      "delivery": [
+        1,
+        2
+      ],
       "companionad": [{
         "id": "dd",
+        "format": [{
+          "w": 200,
+          "h": 20,
+          "wratio": 1,
+          "hratio": 2,
+          "wmin":3,
+          "ext": {
+            "dummy": "ff"
+          }
+        }, {
+          "w": 33,
+          "h": 11,
+          "wratio": 1,
+          "hratio": 2,
+          "wmin":3,
+          "ext": {
+            "dummy": "ff"
+          }
+        }],
         "h": 250,
         "w": 300,
         "wmax": 22,
@@ -117,6 +119,7 @@
         "topframe": 22,
         "expdir": [3, 9],
         "api": [3, 2],
+        "vcm": 22,
         "mimes": ["application/x-shockwave-flash",
           "image/jpg"
         ],
@@ -127,13 +130,22 @@
       }],
       "api": [
         1,
-        3
+        2
       ],
       "companiontype": [
-        1
+        1,
+        2
       ],
-      "ext": {
-        "dummy": "drf"
+      "maxseq": 1,
+      "feed": 1,
+      "stitched": 1,
+      "nvol": 5,
+      "ext":{
+        "delay": 1,
+        "skipmin": 1,
+        "skipafter": 1,
+        "playmethod": 1,
+        "playend": 1
       }
     },
     "ext": {
