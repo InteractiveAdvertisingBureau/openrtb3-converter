@@ -2,12 +2,14 @@ package net.media.api;
 
 
 import net.media.api.servlets.ConverterServlet;
+
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
 
-import javax.servlet.ServletException;
 import java.io.File;
+
+import javax.servlet.ServletException;
 
 public class ConverterApplication {
 

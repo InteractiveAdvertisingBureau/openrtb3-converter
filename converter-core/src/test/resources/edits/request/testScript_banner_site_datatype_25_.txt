@@ -6,8 +6,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: invalidData
+     request.id: "\"2\""
+   purpose: invalidData1
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -16,8 +16,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: invalidData
+     status: "ERROR"
+   purpose: invalidData2
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -26,8 +26,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: invalidData
+     status: "ERROR"
+   purpose: invalidData3
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -36,8 +36,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: invalidData
+     status: "ERROR"
+   purpose: invalidData4
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -46,8 +46,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: invalidData
+     status: "ERROR"
+   purpose: invalidData5
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -60,8 +60,12 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: validData
+     request.id: "\"ab\""
+     request.at: 1
+     request.test: 1
+     request.tmax: 1
+     request.package: 0
+   purpose: validData1
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -71,8 +75,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.seat[0]:  "\"1\""
+   purpose: idStringFormat1
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -81,8 +85,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.seat[0]:  "\"aa\""
+   purpose: idStringFormat2
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -92,8 +96,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.seat[0]:  "\"aa\""
+     request.seat[1]:  "\"bb\""
+   purpose: idStringFormat3
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -102,8 +107,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat4
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -113,8 +118,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.seat[0]:  "\"string\""
+   purpose: idStringFormat5
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -124,8 +129,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.seat[0]:  "\"string\""
+     request.seat[1]:  "\"string2\""
+   purpose: idStringFormat6
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -135,8 +141,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.wlang[0]:  "\"en\""
+   purpose: idStringFormat7
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -146,8 +152,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.wlang[0]:  "\"en\""
+     request.item[0].spec.placement.wlang[1]:  "\"fr\""
+   purpose: idStringFormat8
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -157,8 +164,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.restrictions.bcat[0]:  "\"as\""
+   purpose: idStringFormat9
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -168,8 +175,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.restrictions.bcat[0]:  "\"as\""
+     request.context.restrictions.bcat[1]:  "\"bc\""
+   purpose: idStringFormat10
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -179,8 +187,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.restrictions.badv[0]:  "\"as\""
+   purpose: idStringFormat11
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -190,8 +198,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.restrictions.badv[0]:  "\"as\""
+     request.context.restrictions.badv[1]:  "\"bc\""
+   purpose: idStringFormat12
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -201,8 +210,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.restrictions.bapp[0]:  "\"as\""
+   purpose: idStringFormat13
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -212,8 +221,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.restrictions.bapp[0]:  "\"as\""
+     request.context.restrictions.bapp[1]:  "\"bs\""
+   purpose: idStringFormat14
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -224,8 +234,10 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.source.ext.fd:  1
+     request.source.tid:  "\"ff\""
+     request.source.pchain:  "\"ff\""
+   purpose: idStringFormat15
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -234,8 +246,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat16
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -244,8 +256,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.source.tid:  "\"1\""
+   purpose: idStringFormat17
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -254,8 +266,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.source.pchain:  "\"22\""
+   purpose: idStringFormat18
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -264,8 +276,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.regs.coppa:  1
+   purpose: idStringFormat19
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -273,8 +285,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.regs.coppa:  "\"1\""
+   purpose: idStringFormat20
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -284,8 +296,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.cur[0]:  "\"USD\""
+   purpose: idStringFormat21
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -295,8 +307,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.cur[0]:  "\"USD\""
+     request.cur[1]:  "\"EUR\""
+   purpose: idStringFormat22
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -305,8 +318,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.device.ua:  "\"1\""
+   purpose: idStringFormat23
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -315,8 +328,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.device.ip:  "\"1\""
+   purpose: idStringFormat24
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -325,8 +338,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat25
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -335,8 +348,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat26
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -345,8 +358,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.device.ipv6:  "\"11\""
+   purpose: idStringFormat27
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -355,8 +368,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat28
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -365,8 +378,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.device.make:  "\"1\""
+   purpose: idStringFormat29
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -375,8 +388,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.device.model:  "\"1\""
+   purpose: idStringFormat30
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -385,8 +398,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.device.os:  "\"1\""
+   purpose: idStringFormat31
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -395,8 +408,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.device.osv:  "\"1\""
+   purpose: idStringFormat32
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -405,8 +418,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.device.hwv:  "\"1\""
+   purpose: idStringFormat33
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -415,8 +428,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat34
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -425,8 +438,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat35
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -435,8 +448,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat36
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -445,8 +458,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat37
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -455,8 +468,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat38
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -465,8 +478,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat39
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -475,7 +488,7 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
+     request.context.device.ext.flashver:  "\"1\""
    purpose: idStringFormat
 
  - inputFile: BANNER_SITE_25.json
@@ -485,8 +498,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.device.lang:  "\"1\""
+   purpose: idStringFormat40
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -495,8 +508,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.device.carrier:  "\"1\""
+   purpose: idStringFormat41
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -505,8 +518,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.device.mccmnc:  "\"1\""
+   purpose: idStringFormat42
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -515,8 +528,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat43
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -529,7 +542,7 @@ cases:
      device.devicetype: 1
      device.make: "\"ee\""
      device.model: "\"ff\""
-     device.os: "\"ff\""
+     device.os: "\"android\""
      device.osv: "\"ff\""
      device.hwv: "\"ff\""
      device.h: 1
@@ -546,9 +559,35 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.device.ua:  "\"eew\""
+     request.context.device.ip:  "\"123.145.167.10\""
+     request.context.device.dnt:  1
+     request.context.device.lmt:  1
+     request.context.device.ipv6:  "\"123.145.167.1.3.2\""
+     request.context.device.type:  1
+     request.context.device.make:  "\"ee\""
+     request.context.device.model:  "\"ff\""
+     request.context.device.os:  2
+     request.context.device.osv:  "\"ff\""
+     request.context.device.hwv:  "\"ff\""
+     request.context.device.h:  1
+     request.context.device.w:  1
+     request.context.device.ppi:  1
+     request.context.device.pxratio:  1.2
+     request.context.device.js:  1
+     request.context.device.geofetch:  1
+     request.context.device.ext.flashver:  "\"ff\""
+   purpose: idStringFormat44
 
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.os: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.os: 0
+   purpose: idStringFormat45
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -569,8 +608,21 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.device.geo.lat:  22.22
+     request.context.device.geo.lon:  22.22
+     request.context.device.geo.type:  1
+     request.context.device.geo.accur:  1
+     request.context.device.geo.lastfix:  1
+     request.context.device.geo.ipserv:  1
+     request.context.device.geo.country:  "\"ff\""
+     request.context.device.geo.region:  "\"ff\""
+     request.context.device.geo.ext.regionfips104:  "\"ff\""
+     request.context.device.geo.metro:  "\"ff\""
+     request.context.device.geo.city:  "\"ff\""
+     request.context.device.geo.zip:  "\"ff\""
+     request.context.device.geo.utcoffset:  1
+   purpose: idStringFormat46
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -590,8 +642,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat47
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -605,8 +657,13 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.user.id:  "\"ff\""
+     request.context.user.buyeruid:  "\"ff\""
+     request.context.user.yob:  1
+     request.context.user.gender:  "\"ff\""
+     request.context.user.keywords:  "\"ff\""
+     request.cdata:  "\"ff\""
+   purpose: idStringFormat48
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -615,8 +672,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.user.id:  "\"1\""
+   purpose: idStringFormat49
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -625,8 +682,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.user.buyeruid:  "\"1\""
+   purpose: idStringFormat50
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -635,8 +692,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat51
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -645,8 +702,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.user.gender:  "\"1\""
+   purpose: idStringFormat52
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -655,8 +712,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.user.keywords:  "\"1\""
+   purpose: idStringFormat53
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -665,8 +722,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.cdata:  "\"1\""
+   purpose: idStringFormat54
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -675,8 +732,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.user.data.id:  "\"1\""
+   purpose: idStringFormat55
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -685,8 +742,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.user.data.name:  "\"1\""
+   purpose: idStringFormat56
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -696,8 +753,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.user.data.id:  "\"ff\""
+     request.user.data.name:  "\"ff\""
+   purpose: idStringFormat57
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -706,8 +764,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.user.data.segment[0].id:  "\"1\""
+   purpose: idStringFormat58
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -716,8 +774,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.user.data.segment[0].name:  "\"1\""
+   purpose: idStringFormat59
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -726,8 +784,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.user.data.segment[0].value:  "\"1\""
+   purpose: idStringFormat60
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -738,8 +796,10 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.user.data.segment[0].id:  "\"ff\""
+     request.context.user.data.segment[0].name:  "\"ff\""
+     request.context.user.data.segment[0].value:  "\"ff\""
+   purpose: idStringFormat61
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -760,8 +820,21 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.user.geo.lat: 22.22
+     request.context.user.geo.lon: 22.22
+     request.context.user.geo.type: 1
+     request.context.user.geo.accur: 1
+     request.context.user.geo.lastfix: 1
+     request.context.user.geo.ipserv: 1
+     request.context.user.geo.country: "\"ff\""
+     request.context.user.geo.region: "\"ff\""
+     request.context.user.geo.ext.regionfips104: "\"ff\""
+     request.context.user.geo.metro: "\"ff\""
+     request.context.user.geo.city: "\"ff\""
+     request.context.user.geo.zip: "\"ff\""
+     request.context.user.geo.utcoffset: 1
+
+   purpose: idStringFormat62
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -770,8 +843,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat63
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -780,8 +853,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat64
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -790,8 +863,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat65
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -800,8 +873,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat66
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -810,8 +883,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat67
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -820,68 +893,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.geo.country: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.geo.region: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.geo.regionfips104: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.geo.metro: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.geo.city: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     user.geo.zip: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat68
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -890,8 +903,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat69
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"

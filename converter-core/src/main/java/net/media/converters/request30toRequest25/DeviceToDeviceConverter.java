@@ -1,20 +1,24 @@
 package net.media.converters.request30toRequest25;
 
-import lombok.AllArgsConstructor;
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Device;
 import net.media.openrtb3.Geo;
 import net.media.utils.OsMap;
+import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
 public class DeviceToDeviceConverter implements Converter<Device, net.media.openrtb25.request.Device> {
 
   private Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter;
+
+  @java.beans.ConstructorProperties({"geoGeoConverter"})
+  public DeviceToDeviceConverter(Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter) {
+    this.geoGeoConverter = geoGeoConverter;
+  }
 
   @Override
   public net.media.openrtb25.request.Device map(Device source, Config config) throws OpenRtbConverterException {
@@ -65,10 +69,14 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       if(map.containsKey("flashver")) {
-        target.setFlashver((String) source.getExt().get("flashver"));
-        map.remove("flashver");
+        try {
+          target.setFlashver((String) source.getExt().get("flashver"));
+          map.remove("flashver");
+        } catch (ClassCastException e) {
+          throw new OpenRtbConverterException("error while typecasting ext for Device", e);
+        }
       }
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt( Utils.copyMap(map, config) );
     }
   }
 }

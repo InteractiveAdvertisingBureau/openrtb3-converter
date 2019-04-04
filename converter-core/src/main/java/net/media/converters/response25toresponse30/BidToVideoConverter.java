@@ -1,7 +1,7 @@
 package net.media.converters.response25toresponse30;
 
 
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.response.Bid;

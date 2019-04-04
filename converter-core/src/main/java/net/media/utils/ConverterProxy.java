@@ -1,12 +1,10 @@
 package net.media.utils;
 
-import net.media.Conversion;
+import net.media.driver.Conversion;
 import net.media.converters.Converter;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
-
-import static java.util.Objects.nonNull;
 
 /**
  * @author shiva.b

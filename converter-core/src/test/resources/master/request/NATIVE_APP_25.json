@@ -181,38 +181,140 @@
     }
   }],
   "app": {
-    "id": "app_id",
-    "name": "app_name",
-    "bundle": "com.foo.mygame",
-    "domain": "mygame.foo.com",
-    "storeurl": "abc.def",
-    "cat": [
-      "abc",
-      "def",
-      "ghi"
-    ],
-    "sectioncat": [
-      "abcd",
-      "defg",
-      "ghij"
-    ],
-    "pagecat": [
-      "abca",
-      "defd",
-      "ghif"
-    ],
-    "ver": "2.x",
+    "id": "123456",
+    "name": "xyztesting",
+    "bundle": "com.xyz.abc",
+    "domain": "google.com",
+    "storeurl": "package.com.xyz",
+    "cat": ["abc", "xyz"],
+    "sectioncat": ["axx", "cde"],
+    "pagecat": ["aaa", "bbb"],
+    "ver": "1.2",
     "privacypolicy": 1,
-    "paid": 1,
+    "paid": 0,
     "publisher": {
-      "dummy": "dummy"
+      "id": "8953",
+      "name": "foobar.com",
+      "cat": ["IAB3-1", "IAB3-2"],
+      "domain": "foobar.com",
+      "ext": {
+        "object": {
+          "a" : "dsd",
+          "arraySample": ["a"],
+          "jsonArraySample": [{"id": 1}],
+          "obj" : {
+            "a" : 1
+          }
+        },
+        "arraySample": ["a"],
+        "jsonArraySample": [{"id": 1}],
+        "Key": "value"
+      }
     },
     "content": {
-      "dummy": "entry"
+      "id": "rfewa",
+      "episode": 1,
+      "title": "sf",
+      "series": "rf",
+      "season": "wed",
+      "genre": "sefw",
+      "album": "edwe",
+      "artist": "we",
+      "isrc": "ewde",
+      "producer": {
+        "id": "eew",
+        "name": "edew",
+        "cat": ["IAB3-1", "IAB3-2"],
+        "domain": "abc.com",
+        "ext": {
+          "object": {
+            "a" : "dsd",
+            "arraySample": ["a"],
+            "jsonArraySample": [{"id": 1}],
+            "obj" : {
+              "a" : 1
+            }
+          },
+          "arraySample": ["a"],
+          "jsonArraySample": [{"id": 1}],
+          "Key": "value"
+        }
+      },
+      "url": "ewfe.com",
+      "cat": ["IAB3-1", "IAB3-2"],
+      "prodq": 1,
+      "videoquality": 2,
+      "context": 1,
+      "contentrating": "wqewq",
+      "userrating": "ewew",
+      "qagmediarating": 1,
+      "keywords": "efea",
+      "livestream": 1,
+      "sourcerelationship": 1,
+      "len": 2,
+      "language": "en",
+      "embeddable": 1,
+      "data": [{
+        "id": "wwe",
+        "name": "ee",
+        "segment": [{
+          "id": "ew",
+          "name": "rewfe",
+          "value": "ew",
+          "ext": {
+            "object": {
+              "a" : "dsd",
+              "arraySample": ["a"],
+              "jsonArraySample": [{"id": 1}],
+              "obj" : {
+                "a" : 1
+              }
+            },
+            "arraySample": ["a"],
+            "jsonArraySample": [{"id": 1}],
+            "Key": "value"
+          }      }],
+        "ext": {
+          "object": {
+            "a" : "dsd",
+            "arraySample": ["a"],
+            "jsonArraySample": [{"id": 1}],
+            "obj" : {
+              "a" : 1
+            }
+          },
+          "arraySample": ["a"],
+          "jsonArraySample": [{"id": 1}],
+          "Key": "value"
+        }
+      }],
+      "ext": {
+        "object": {
+          "a" : "dsd",
+          "arraySample": ["a"],
+          "jsonArraySample": [{"id": 1}],
+          "obj" : {
+            "a" : 1
+          }
+        },
+        "arraySample": ["a"],
+        "jsonArraySample": [{"id": 1}],
+        "Key": "value"
+      }
     },
-    "keywords": "abc,def,ghi",
-    "ext":{
-      "dummy": "ff"
+    "keywords": "abcd,def",
+    "ext": {
+      "object": {
+        "a" : "dsd",
+        "arraySample": ["a"],
+        "jsonArraySample": [{"id": 1}],
+        "obj" : {
+          "a" : 1
+        }
+      },
+      "arraySample": ["a"],
+      "jsonArraySample": [{"id": 1}],
+      "Key": "value"
     }
   },
   "device": {

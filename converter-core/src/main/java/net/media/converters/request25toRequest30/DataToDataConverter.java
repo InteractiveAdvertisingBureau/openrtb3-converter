@@ -1,20 +1,24 @@
 package net.media.converters.request25toRequest30;
 
-import lombok.AllArgsConstructor;
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.Data;
 import net.media.openrtb3.Segment;
-import net.media.utils.ListToListConverter;
+import net.media.utils.Utils;
+import net.media.utils.CollectionToCollectionConverter;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
 public class DataToDataConverter implements Converter<Data, net.media.openrtb3.Data> {
 
   private Converter<net.media.openrtb25.request.Segment, Segment> segmentSegmentConverter;
+
+  @java.beans.ConstructorProperties({"segmentSegmentConverter"})
+  public DataToDataConverter(Converter<net.media.openrtb25.request.Segment, Segment> segmentSegmentConverter) {
+    this.segmentSegmentConverter = segmentSegmentConverter;
+  }
 
   @Override
   public net.media.openrtb3.Data map(Data source, Config config) throws OpenRtbConverterException {
@@ -35,10 +39,10 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb3.D
       return;
     target.setId( source.getId() );
     target.setName( source.getName() );
-    target.setSegment( ListToListConverter.convert( source.getSegment(), segmentSegmentConverter, config ) );
+    target.setSegment( CollectionToCollectionConverter.convert( source.getSegment(), segmentSegmentConverter, config ) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt( Utils.copyMap(map, config) );
     }
   }
 }

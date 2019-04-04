@@ -1,6 +1,6 @@
 package net.media.converters.response25toresponse30;
 
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.response.BidResponse;
@@ -67,20 +67,6 @@ public class BidResponseToResponseConverter implements Converter<BidResponse, Re
     else {
       response.setExt( null );
     }
-    if(nonNull(response.getExt()) && nonNull(bidResponse.getExt())){
-      response.getExt().put("customerData",bidResponse.getCustomdata());
-      try {
-        response.setCdata((String) bidResponse.getExt().get("cdata"));
-      }
-      catch (Exception e) {
-        throw new OpenRtbConverterException("error while casting cdata in bidResponse.ext", e);
-      }
-      response.getExt().remove("cdata");
-    }
-    else if(nonNull(bidResponse.getCustomdata())) {
-      Map<String,Object>  ext = new HashMap<>();
-      ext.put("customData",bidResponse.getCustomdata());
-      response.setExt(ext);
-    }
+    response.setCdata(bidResponse.getCustomdata());
   }
 }
