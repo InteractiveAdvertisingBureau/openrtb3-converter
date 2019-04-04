@@ -23,7 +23,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastValidDatatype
+   purpose: TC2001
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
@@ -33,7 +33,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2002
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
@@ -43,7 +43,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2003
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
@@ -53,7 +53,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2004
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
@@ -63,7 +63,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2005
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
@@ -73,7 +73,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2006
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
@@ -83,7 +83,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2007
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
@@ -93,7 +93,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2008
 
 
  - inputFile: VAST_SITE_25.json
@@ -104,7 +104,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2009
 
 
  - inputFile: VAST_SITE_25.json
@@ -115,7 +115,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2010
 
 
  - inputFile: VAST_SITE_25.json
@@ -126,7 +126,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2011
 
 
  - inputFile: VAST_SITE_25.json
@@ -137,7 +137,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2012
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
@@ -147,7 +147,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2013
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
@@ -157,7 +157,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2014
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
@@ -167,7 +167,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2015
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
@@ -177,7 +177,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2016
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
@@ -187,7 +187,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2017
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
@@ -197,7 +197,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2018
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -208,7 +208,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2019
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -220,7 +220,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2020
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -231,7 +231,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2021
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -243,7 +243,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2022
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -254,7 +254,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2023
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -266,7 +266,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2024
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -277,7 +277,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2025
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -289,7 +289,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2026
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -300,7 +300,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2027
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -312,7 +312,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2028
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -323,7 +323,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2029
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -335,7 +335,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2030
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -354,7 +354,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2031
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -364,7 +364,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2032
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -374,7 +374,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2033
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -384,7 +384,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2034
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -394,7 +394,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2035
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -404,7 +404,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2036
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -414,7 +414,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2037
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -424,7 +424,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2038
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -434,7 +434,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2039
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -444,7 +444,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2040
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -462,7 +462,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2041
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -474,7 +474,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2042
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -485,7 +485,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2043
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -497,7 +497,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2044
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -508,7 +508,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2045
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -520,7 +520,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2046
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -531,7 +531,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2047
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -543,7 +543,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2048
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -554,7 +554,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2049
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -566,7 +566,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2050
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -581,7 +581,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2051
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -592,7 +592,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2052
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -603,7 +603,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2053
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -614,7 +614,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2054
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -625,7 +625,7 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2055
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -636,5 +636,5 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC2056
 

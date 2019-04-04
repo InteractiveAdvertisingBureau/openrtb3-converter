@@ -14,8 +14,16 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+      openrtb.request.context.app.id: "\"ab\""
+      openrtb.request.context.app.name: "\"ab\""
+      openrtb.request.context.app.bundle: "\"ab\""
+      openrtb.request.context.app.domain: "\"ab\""
+      openrtb.request.context.app.storeurl: "\"ab\""
+      openrtb.request.context.app.ver: "\"ab\""
+      openrtb.request.context.privacypolicy: 1
+      openrtb.request.context.app.paid: 0
+      openrtb.request.context.app.keywords: "\"ab,fe\""
+   purpose: TC1
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -24,8 +32,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+      openrtb.request.context.app.id: "\"1\""
+   purpose: TC2
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -34,8 +42,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.name: "\"2\""
+   purpose: TC3
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -44,8 +52,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.bundle: "\"3\""
+   purpose: TC4
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -54,8 +62,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.domain: "\"4\""
+   purpose: TC5
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -64,8 +72,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.storeurl: "\"5\""
+   purpose: TC6
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -74,8 +82,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.ver: "\"6\""
+   purpose: TC7
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -84,8 +92,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     status: ERROR
+   purpose: TC8
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -94,8 +102,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     status: ERROR
+   purpose: TC9
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -104,8 +112,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.keywords: "\"1\""
+   purpose: TC10
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -115,8 +123,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: ERROR
+   purpose: TC11
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -126,8 +134,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.cat[0]:  "\"1\""
+   purpose: TC12
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -137,8 +145,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.cat[0]:  "\"a1\""
+   purpose: TC13
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -149,8 +157,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.cat[0]:  "\"a1\""
+     openrtb.request.context.app.cat[1]:  "\"b1\""
+   purpose: TC14
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -160,8 +169,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.sectcat[0]  "\"a1\""
+   purpose: TC15
+
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -171,8 +181,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.sectcat[0]:  "\"a1\""
+     openrtb.request.context.app.sectcat[1]:  "\"b1\""
+   purpose: TC16
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -182,8 +193,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.pagecat[0]:  "\"a1\""
+   purpose: TC17
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -194,8 +205,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.pagecat[0]:  "\"a1\""
+     openrtb.request.context.app.pagecat[1]:  "\"b1\""
+   purpose: TC18
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -206,8 +218,10 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.publisher.id: "\"ab\""
+     openrtb.request.context.app.publisher.name: "\"ab\""
+     openrtb.request.context.app.publisher.domain: "\"ab\""
+   purpose: TC19
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -216,8 +230,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.publisher.id: "\"1\""
+   purpose: TC20
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -226,8 +240,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.publisher.name: "\"2\""
+   purpose: TC21
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -236,8 +250,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.publisher.domain: "\"3\""
+   purpose: TC22
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -247,8 +261,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.publisher.cat[0]:  "\"a1\""
+   purpose: TC23
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -259,8 +273,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.publisher.cat[0]:  "\"a1\""
+     openrtb.request.context.app.publisher.cat[1]:  "\"b1\""
+   purpose: TC24
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -290,8 +305,30 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.id :  "\"ab\""
+     openrtb.request.context.app.content.episode:  1
+     openrtb.request.context.app.content.title :  "\"ab\""
+     openrtb.request.context.app.content.series :  "\"ab\""
+     openrtb.request.context.app.content.season :  "\"ab\""
+     openrtb.request.context.app.content.genre :  "\"ab\""
+     openrtb.request.context.app.content.album :  "\"ab\""
+     openrtb.request.context.app.content.artist :  "\"ab\""
+     openrtb.request.context.app.content.isrc :  "\"ab\""
+     openrtb.request.context.app.content.url :  "\"ab\""
+     openrtb.request.context.app.content.prodq :  1
+     openrtb.request.context.app.content.ext.videoquality :  2
+     openrtb.request.context.app.content.context :  1
+     openrtb.request.context.app.content.rating :  "\"ab\""
+     openrtb.request.context.app.content.urating :  "\"ab\""
+     openrtb.request.context.app.content.mrating :  1
+     openrtb.request.context.app.content.keywords :  "\"ab\""
+     openrtb.request.context.app.content.live :  1
+     openrtb.request.context.app.content.srcrel:  1
+     openrtb.request.context.app.content.len :  2
+     openrtb.request.context.app.content.lang :  "\"en\""
+     openrtb.request.context.app.content.embed: 1
+
+   purpose: TC25
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -300,8 +337,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.id: "\"1\""
+   purpose: TC26
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -310,8 +347,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     status: ERROR
+   purpose: TC27
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -320,8 +357,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.title: "\"1\""
+   purpose: TC28
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -330,8 +367,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.series: "\"1\""
+   purpose: TC29
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -340,8 +377,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.season: "\"1\""
+   purpose: TC30
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -350,8 +387,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.genre: "\"1\""
+   purpose: TC31
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -360,8 +397,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.album: "\"1\""
+   purpose: TC32
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -370,8 +407,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.artist: "\"1\""
+   purpose: TC33
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -380,8 +417,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.isrc: "\"1\""
+   purpose: TC34
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -390,8 +427,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.url: "\"1\""
+   purpose: TC35
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -400,8 +437,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     status: ERROR
+   purpose: TC36
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -410,8 +447,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     status: ERROR
+    purpose: TC37
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -420,8 +457,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     status: ERROR
+   purpose: TC38
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -430,8 +467,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.rating: "\"1\""
+   purpose: TC39
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -440,8 +477,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.urating: 1
+   purpose: TC40
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -450,8 +487,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     status: ERROR
+   purpose: TC41
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -460,8 +497,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.keywords: "\"1\""
+   purpose: TC42
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -470,8 +507,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     status: ERROR
+   purpose: TC43
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -480,8 +517,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     status: ERROR
+   purpose: TC44
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -490,8 +527,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     status: ERROR
+   purpose: TC45
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -500,8 +537,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.lang: "\"1\""
+   purpose: TC46
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -510,8 +547,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     status: ERROR
+   purpose: TC47
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -521,8 +558,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.content.cat[0]:  "\"a1\""
+   purpose: TC48
+
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -532,8 +570,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.content.cat[0]="\"a1\""
+     openrtb.request.context.app.content.cat[1]="\"b1\""
+   purpose: TC49
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -544,8 +583,10 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.id: "\"ab\""
+     openrtb.request.context.app.content.name: "\"ab\""
+     openrtb.request.context.app.content.domain: "\"abc.com\""
+   purpose: TC50
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -554,8 +595,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.producer.id: "\"1\""
+   purpose: TC51
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -564,8 +605,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.producer.name: "\"1\""
+   purpose: TC52
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -574,8 +615,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.producer.domain: "\"1\""
+   purpose: TC53
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -585,9 +626,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
-   
+     openrtb.request.context.app.producer.cat[0]: "\"a1\""
+   purpose: TC54
+
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -597,8 +638,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     openrtb.request.context.app.producer.cat[0]:  "\"IAB3-1\""
+     openrtb.request.context.app.producer.cat[1]:  "\"IAB3-1\""
+   purpose: TC55
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -608,8 +650,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.data[0].id: "\"ab\""
+     openrtb.request.context.app.content.data[0].name: "\"ab\""
+   purpose: TC56
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -618,8 +661,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.data[0].id: "\"1\""
+   purpose: TC57
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -628,8 +671,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.data[0].name: "\"1\""
+   purpose: TC58
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -640,8 +683,10 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.data[0].segment[0].id: "\"ab\""
+     openrtb.request.context.app.content.data[0].segment[0].name: "\"ab\""
+     openrtb.request.context.app.content.data[0].segment[0].value: "\"ab\""
+   purpose: TC59
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -650,8 +695,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.data[0].segment[0].id: "\"1\""
+   purpose: TC60
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -660,8 +705,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.data[0].segment[0].name: "\"1\""
+   purpose: TC61
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -670,5 +715,5 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idStringFormat
+     openrtb.request.context.app.content.data[0].segment[0].value: "\"1\""
+   purpose: TC62
