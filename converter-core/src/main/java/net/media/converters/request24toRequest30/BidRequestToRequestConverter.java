@@ -24,20 +24,35 @@ public class BidRequestToRequestConverter extends net.media.converters
 
   public void enhance(BidRequest source, Request target, Config config, Provider<Conversion,
     Converter> converterProvider) throws OpenRtbConverterException {
-    if (source == null) {
+    if (source == null || target == null) {
       return;
     }
     if (nonNull(source.getExt())) {
       if (source.getExt().containsKey("bseat")) {
-        source.setBseat((Collection<String>) source.getExt().get("bseat"));
+        try {
+          source.setBseat((Collection<String>) source.getExt().get("bseat"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting bseat from bidRequest.ext.bseat",
+            e);
+        }
         source.getExt().remove("bseat");
       }
       if (source.getExt().containsKey("wlang")) {
-        source.setWlang((Collection<String>) source.getExt().get("wlang"));
+        try {
+          source.setWlang((Collection<String>) source.getExt().get("wlang"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting wlang from bidRequest.ext.wlang",
+            e);
+        }
         source.getExt().remove("wlang");
       }
       if (source.getExt().containsKey("source")) {
-        source.setSource((Source) source.getExt().get("source"));
+        try {
+          source.setSource((Source) source.getExt().get("source"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting wlang from bidRequest.ext.wlang",
+            e);
+        }
         source.getExt().remove("source");
       }
     }

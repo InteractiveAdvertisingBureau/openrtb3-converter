@@ -19,12 +19,17 @@ public class DeviceToDeviceConverter extends net.media.converters
   public void enhance(Device source, net.media.openrtb3.Device target, Config config,
                       Provider<Conversion, Converter> converterProvider) throws
     OpenRtbConverterException {
-    if (source == null) {
+    if (source == null || target == null) {
       return;
     }
     if (nonNull(source.getExt())) {
       if (source.getExt().containsKey("mccmnc")) {
-        source.setMccmnc((String) source.getExt().get("mccmnc"));
+        try {
+          source.setMccmnc((String) source.getExt().get("mccmnc"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting mccmnc from device.ext.mccmnc",
+            e);
+        }
         source.getExt().remove("mccmnc");
       }
     }

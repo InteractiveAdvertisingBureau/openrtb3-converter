@@ -30,12 +30,17 @@ public class ImpToItemConverter extends net.media.converters
 
   public void enhance(Imp imp, Item item, Config config, Provider<Conversion, Converter>
     converterProvider) throws OpenRtbConverterException {
-    if (imp == null) {
+    if (imp == null || item == null) {
       return;
     }
     if (nonNull(imp.getExt())) {
       if (imp.getExt().containsKey("metric")) {
-        imp.setMetric((Collection<Metric>) imp.getExt().get("metric"));
+        try {
+          imp.setMetric((Collection<Metric>) imp.getExt().get("metric"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting metric from imp.ext.metric",
+            e);
+        }
         imp.getExt().remove("metric");
       }
     }

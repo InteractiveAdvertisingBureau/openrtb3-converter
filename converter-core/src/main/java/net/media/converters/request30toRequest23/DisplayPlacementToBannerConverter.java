@@ -21,7 +21,7 @@ public class DisplayPlacementToBannerConverter extends net.media.converters
 
   public void enhance(DisplayPlacement displayPlacement, Banner banner, Config config,
                       Provider<Conversion, Converter> converterProvider) {
-    if (displayPlacement == null) {
+    if (displayPlacement == null || banner == null) {
       return;
     }
     super.enhance(displayPlacement, banner, config, converterProvider);

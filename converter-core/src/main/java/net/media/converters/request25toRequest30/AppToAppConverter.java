@@ -57,8 +57,18 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
 
     if(source.getExt() == null)
       return;
-    target.setCattax((Integer) source.getExt().get("cattax"));
-    target.setStoreid((String) source.getExt().get("storeid"));
+    try {
+      target.setCattax((Integer) source.getExt().get("cattax"));
+    } catch (Exception e) {
+      throw new OpenRtbConverterException("Error in setting app.cattax from app.ext" +
+        ".cattax", e);
+    }
+    try {
+      target.setStoreid((String) source.getExt().get("storeid"));
+    } catch (Exception e) {
+      throw new OpenRtbConverterException("Error in setting app.storeid from app.ext" +
+        ".storeid", e);
+    }
     target.getExt().remove("cattax");
     target.getExt().remove("storeid");
 

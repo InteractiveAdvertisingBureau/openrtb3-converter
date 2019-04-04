@@ -3,6 +3,7 @@ package net.media.converters.request25toRequest30;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Geo;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
@@ -12,7 +13,8 @@ import java.util.Map;
 
 public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo> {
   @Override
-  public net.media.openrtb3.Geo map(Geo source, Config config, Provider<Conversion, Converter> converterProvider) {
+  public net.media.openrtb3.Geo map(Geo source, Config config, Provider<Conversion, Converter>
+    converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -25,7 +27,9 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo>
   }
 
   @Override
-  public void enhance(Geo source, net.media.openrtb3.Geo target, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(Geo source, net.media.openrtb3.Geo target, Config config,
+                      Provider<Conversion, Converter> converterProvider) throws
+    OpenRtbConverterException {
     if(source == null || target == null)
       return;
     target.setIpserv( source.getIpservice() );

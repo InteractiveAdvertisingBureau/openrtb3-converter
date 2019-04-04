@@ -18,7 +18,7 @@ public class GeoToGeoConverter extends net.media.converters.request30toRequest25
 
   public void enhance(Geo source, net.media.openrtb25.request.Geo target, Config config,
                       Provider<Conversion, Converter> converterProvider) {
-    if (source == null) {
+    if (source == null || target == null) {
       return;
     }
     super.enhance(source, target, config, converterProvider);

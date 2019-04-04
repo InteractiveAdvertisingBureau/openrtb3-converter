@@ -30,7 +30,7 @@ public class RequestToBidRequestConverter extends net.media.converters
   public void enhance(Request source, BidRequest target, Config config, Provider<Conversion,
     Converter> converterProvider) throws
     OpenRtbConverterException {
-    if (source == null) {
+    if (source == null || target == null) {
       return;
     }
     super.enhance(source, target, config, converterProvider);

@@ -22,7 +22,7 @@ public class ContentToContentConverter extends net.media.converters.request30toR
   public void enhance(Content source, net.media.openrtb25.request.Content target, Config config,
                       Provider<Conversion, Converter> converterProvider)
   throws OpenRtbConverterException {
-    if (source == null) {
+    if (source == null || target == null) {
       return;
     }
     super.enhance(source, target, config, converterProvider);

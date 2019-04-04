@@ -29,20 +29,35 @@ public class ImpToItemConverter extends net.media.converters
 
   public void enhance(Imp imp, Item item, Config config, Provider<Conversion, Converter>
     converterProvider) throws OpenRtbConverterException {
-    if (imp == null) {
+    if (imp == null || item == null) {
       return;
     }
     if (nonNull(imp.getExt())) {
       if (imp.getExt().containsKey("metric")) {
-        imp.setMetric((Collection<Metric>) imp.getExt().get("metric"));
+        try {
+          imp.setMetric((Collection<Metric>) imp.getExt().get("metric"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting metric from imp.ext.accuracy",
+            e);
+        }
         imp.getExt().remove("metric");
       }
       if (imp.getExt().containsKey("clickbrowser")) {
-        imp.setClickbrowser((Integer) imp.getExt().get("clickbrowser"));
+        try {
+          imp.setClickbrowser((Integer) imp.getExt().get("clickbrowser"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting clickbrowser from imp.ext" +
+            ".clickbrowser", e);
+        }
         imp.getExt().remove("clickbrowser");
       }
       if (imp.getExt().containsKey("exp")) {
-        imp.setExp((Integer) imp.getExt().get("exp"));
+        try {
+          imp.setExp((Integer) imp.getExt().get("exp"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting exp from imp.ext" +
+            ".exp", e);
+        }
         imp.getExt().remove("exp");
       }
     }

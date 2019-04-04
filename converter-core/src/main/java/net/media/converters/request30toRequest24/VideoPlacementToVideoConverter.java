@@ -24,7 +24,7 @@ public class VideoPlacementToVideoConverter extends net.media.converters
   public void enhance(VideoPlacement videoPlacement, Video video, Config config,
                       Provider<Conversion, Converter> converterProvider) throws
     OpenRtbConverterException {
-    if (videoPlacement == null) {
+    if (videoPlacement == null || video == null) {
       return;
     }
     super.enhance(videoPlacement, video, config, converterProvider);

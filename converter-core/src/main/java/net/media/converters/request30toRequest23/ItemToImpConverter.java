@@ -30,7 +30,7 @@ public class ItemToImpConverter extends net.media.converters.request30toRequest2
 
   public void enhance(Item item, Imp imp, Config config, Provider<Conversion, Converter>
     converterProvider) throws OpenRtbConverterException {
-    if (item == null) {
+    if (item == null || imp == null) {
       return;
     }
     super.enhance(item, imp, config, converterProvider);

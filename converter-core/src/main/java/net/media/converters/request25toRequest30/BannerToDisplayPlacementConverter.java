@@ -3,6 +3,7 @@ package net.media.converters.request25toRequest30;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayFormat;
@@ -26,7 +27,8 @@ import static java.util.Objects.nonNull;
 public class BannerToDisplayPlacementConverter implements Converter<Banner, DisplayPlacement> {
 
   @Override
-  public DisplayPlacement map(Banner banner, Config config, Provider<Conversion, Converter> converterProvider) {
+  public DisplayPlacement map(Banner banner, Config config, Provider<Conversion, Converter>
+    converterProvider) throws OpenRtbConverterException {
     if (isNull(banner)) {
       return null;
     }
@@ -36,7 +38,9 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
   }
 
   @Override
-  public void enhance(Banner banner, DisplayPlacement displayPlacement, Config config, Provider<Conversion, Converter> converterProvider) {
+  public void enhance(Banner banner, DisplayPlacement displayPlacement, Config config,
+                      Provider<Conversion, Converter> converterProvider) throws
+    OpenRtbConverterException {
     if (isNull(banner) || isNull(displayPlacement)) {
       return;
     }

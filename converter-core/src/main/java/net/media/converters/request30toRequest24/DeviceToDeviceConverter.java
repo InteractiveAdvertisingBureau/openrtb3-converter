@@ -22,7 +22,7 @@ public class DeviceToDeviceConverter extends net.media.converters
   public void enhance(Device source, net.media.openrtb25.request.Device target, Config config,
                       Provider<Conversion, Converter> converterProvider)
     throws OpenRtbConverterException {
-    if (source == null) {
+    if (source == null || target == null) {
       return;
     }
     super.enhance(source, target, config, converterProvider);

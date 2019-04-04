@@ -21,16 +21,26 @@ public class VideoToVideoPlacementConverter extends net.media.converters
   public void enhance(Video video, VideoPlacement videoPlacement, Config config,
                       Provider<Conversion, Converter> converterProvider) throws
     OpenRtbConverterException {
-    if (video == null) {
+    if (video == null || videoPlacement == null) {
       return;
     }
     if (nonNull(video.getExt())) {
       if (video.getExt().containsKey("placement")) {
-        video.setPlacement((Integer) video.getExt().get("placement"));
+        try {
+          video.setPlacement((Integer) video.getExt().get("placement"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting placement from video.ext.placement",
+            e);
+        }
         video.getExt().remove("placement");
       }
       if (video.getExt().containsKey("playbackend")) {
-        video.setPlaybackend((Integer) video.getExt().get("playbackend"));
+        try {
+          video.setPlaybackend((Integer) video.getExt().get("playbackend"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting playbackend from video.ext" +
+            ".playbackend", e);
+        }
         video.getExt().remove("playbackend");
       }
     }

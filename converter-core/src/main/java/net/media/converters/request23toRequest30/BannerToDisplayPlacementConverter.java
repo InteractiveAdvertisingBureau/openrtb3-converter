@@ -3,6 +3,7 @@ package net.media.converters.request23toRequest30;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayPlacement;
@@ -19,8 +20,9 @@ public class BannerToDisplayPlacementConverter extends net.media.converters
   .request25toRequest30.BannerToDisplayPlacementConverter {
 
   public void enhance(Banner banner, DisplayPlacement displayPlacement, Config config,
-                      Provider<Conversion, Converter> converterProvider) {
-    if (banner == null) {
+                      Provider<Conversion, Converter> converterProvider) throws
+    OpenRtbConverterException {
+    if (banner == null || displayPlacement == null) {
       return;
     }
     if (nonNull(banner.getExt())) {
@@ -29,7 +31,12 @@ public class BannerToDisplayPlacementConverter extends net.media.converters
         banner.getExt().remove("vcm");
       }
       if (banner.getExt().containsKey("format")) {
-        banner.setFormat((Collection<Format>) banner.getExt().get("format"));
+        try {
+          banner.setFormat((Collection<Format>) banner.getExt().get("format"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting banner.format from banner.ext" +
+            ".format", e);
+        }
         banner.getExt().remove("format");
       }
     }

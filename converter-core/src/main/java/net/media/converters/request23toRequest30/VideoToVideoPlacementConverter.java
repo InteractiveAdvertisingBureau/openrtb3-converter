@@ -21,28 +21,51 @@ public class VideoToVideoPlacementConverter extends net.media.converters
   public void enhance(Video video, VideoPlacement videoPlacement, Config config,
                       Provider<Conversion, Converter> converterProvider) throws
     OpenRtbConverterException {
-    if (video == null) {
+    if (video == null || videoPlacement == null) {
       return;
     }
     if (nonNull(video.getExt())) {
       if (video.getExt().containsKey("placement")) {
-        video.setPlacement((Integer) video.getExt().get("placement"));
+        try {
+          video.setPlacement((Integer) video.getExt().get("placement"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting placement from video.ext.placement",
+            e);
+        }
         video.getExt().remove("placement");
       }
       if (video.getExt().containsKey("playbackend")) {
-        video.setPlaybackend((Integer) video.getExt().get("playbackend"));
+        try {
+          video.setPlaybackend((Integer) video.getExt().get("playbackend"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting playbackend from imp.ext" +
+            ".playbackend", e);
+        }
         video.getExt().remove("playbackend");
       }
       if (video.getExt().containsKey("skip")) {
-        video.setSkip((Integer) video.getExt().get("skip"));
+        try {
+          video.setSkip((Integer) video.getExt().get("skip"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting skip from video.ext.skip", e);
+        }
         video.getExt().remove("skip");
       }
       if (video.getExt().containsKey("skipmin")) {
-        video.setSkipmin((Integer) video.getExt().get("skipmin"));
+        try {
+          video.setSkipmin((Integer) video.getExt().get("skipmin"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting skipmin from video.ext.skipmin", e);
+        }
         video.getExt().remove("skipmin");
       }
       if (video.getExt().containsKey("skipafter")) {
-        video.setSkipafter((Integer) video.getExt().get("skipafter"));
+        try {
+          video.setSkipafter((Integer) video.getExt().get("skipafter"));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("Error in setting skipafter from video.ext" +
+            ".skipafter", e);
+        }
         video.getExt().remove("skipafter");
       }
     }
