@@ -66,6 +66,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     wseat[*]: null
      wseat[0]: 1
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
@@ -75,6 +76,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     wseat[*]: null
      wseat[0]: "\"aa\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
@@ -84,6 +86,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     wseat[*]: null
      wseat[0]: "\"aa\""
      wseat[1]: "\"bb\""
    outputFile: BANNER_SITE_30.json
@@ -94,6 +97,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     wseat[*]: null
      wseat: 1
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
@@ -104,6 +108,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     bseat[*]: null
      bseat[0]: "\"string\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
@@ -113,6 +118,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     bseat[*]: null
      bseat[0]: "\"string\""
      bseat[1]: "\"string2\""
    outputFile: BANNER_SITE_30.json
@@ -124,6 +130,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     wlang[*]: null
      wlang[0]: "\"en\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
@@ -133,6 +140,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     wlang[*]: null
      wlang[0]: "\"en\""
      wlang[1]: "\"fr\""
    outputFile: BANNER_SITE_30.json
@@ -144,6 +152,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     bcat[*]: null
      bcat[0]: "\"as\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
@@ -153,6 +162,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     bcat[*]: null
      bcat[0]: "\"as\""
      bcat[1]: "\"bc\""
    outputFile: BANNER_SITE_30.json
@@ -164,6 +174,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     badv[*]: null
      badv[0]: "\"as\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
@@ -173,6 +184,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     badv[*]: null
      badv[0]: "\"as\""
      badv[1]: "\"bc\""
    outputFile: BANNER_SITE_30.json
@@ -184,6 +196,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     bapp[*]: null
      bapp[0]: "\"as\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
@@ -193,6 +206,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     bapp[*]: null
      bapp[0]: "\"as\""
      bapp[1]: "\"bs\""
    outputFile: BANNER_SITE_30.json
@@ -265,6 +279,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     cur[*]: null
      cur[0]: "\"USD\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
@@ -274,6 +289,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
+     cur[*]: null
      cur[0]: "\"USD\""
      cur[1]: "\"EUR\""
    outputFile: BANNER_SITE_30.json
