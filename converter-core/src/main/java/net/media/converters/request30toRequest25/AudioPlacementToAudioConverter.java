@@ -79,7 +79,7 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     }
 
     Collection<Banner> list1 = new ArrayList<>( list.size() );
-    Converter<Companion, Banner> companionBannerConverter = converterProvider.fetch(new Conversion(Companion.class, Banner.class));
+    Converter<Companion, Banner> companionBannerConverter = converterProvider.fetch(new Conversion<>(Companion.class, Banner.class));
     for ( Companion companion : list ) {
       list1.add( companionBannerConverter.map( companion, config, converterProvider ) );
     }

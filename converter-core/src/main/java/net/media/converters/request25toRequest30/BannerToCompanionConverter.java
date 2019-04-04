@@ -35,7 +35,7 @@ public class BannerToCompanionConverter implements Converter<Banner, Companion> 
     if(banner == null || companion == null) {
       return;
     }
-    Converter<Banner, DisplayPlacement> bannerDisplayPlacementConverter = converterProvider.fetch(new Conversion
+    Converter<Banner, DisplayPlacement> bannerDisplayPlacementConverter = converterProvider.fetch(new Conversion<>
             (Banner.class, DisplayPlacement.class));
     companion.setVcm( banner.getVcm() );
     companion.setDisplay( bannerDisplayPlacementConverter.map( banner, config, converterProvider) );

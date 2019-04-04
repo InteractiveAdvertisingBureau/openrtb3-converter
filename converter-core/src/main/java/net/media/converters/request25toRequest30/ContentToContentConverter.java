@@ -35,9 +35,9 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
   public void enhance(Content source, net.media.openrtb3.Content target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(source == null || target == null)
       return;
-    Converter<Producer, net.media.openrtb3.Producer> producerProducerConverter = converterProvider.fetch(new Conversion
+    Converter<Producer, net.media.openrtb3.Producer> producerProducerConverter = converterProvider.fetch(new Conversion<>
             (Producer.class, net.media.openrtb3.Producer.class));
-    Converter<net.media.openrtb25.request.Data, Data> dataDataConverter = converterProvider.fetch(new Conversion
+    Converter<net.media.openrtb25.request.Data, Data> dataDataConverter = converterProvider.fetch(new Conversion<>
             (net.media.openrtb25.request.Data.class, Data.class));
     target.setMrating( source.getQagmediarating() );
     target.setSrcrel( source.getSourcerelationship() );

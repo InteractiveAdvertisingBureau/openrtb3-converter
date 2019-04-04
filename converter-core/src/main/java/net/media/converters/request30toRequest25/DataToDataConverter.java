@@ -35,7 +35,7 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb25.
     if(target == null || source == null)
       return;
     Converter<Segment, net.media.openrtb25.request.Segment> segmentSegmentConverter =
-      converterProvider.fetch(new Conversion(Segment.class, net.media.openrtb25.request.Segment.class));
+      converterProvider.fetch(new Conversion<>(Segment.class, net.media.openrtb25.request.Segment.class));
     target.setId( source.getId() );
     target.setName( source.getName() );
     target.setSegment( CollectionToCollectionConverter.convert( source.getSegment(),

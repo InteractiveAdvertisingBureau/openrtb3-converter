@@ -63,9 +63,9 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     if(source == null || target == null) {
       return;
     }
-    Converter<BidRequest, Context> bidRequestContextConverter = converterProvider.fetch(new Conversion
+    Converter<BidRequest, Context> bidRequestContextConverter = converterProvider.fetch(new Conversion<>
             (BidRequest.class, Context.class));
-    Converter<Imp, Item> impItemConverter = converterProvider.fetch(new Conversion
+    Converter<Imp, Item> impItemConverter = converterProvider.fetch(new Conversion<>
             (Imp.class, Item.class));
     target.setContext( bidRequestContextConverter.map( source, config, converterProvider ) );
     target.setItem( CollectionToCollectionConverter.convert( source.getImp(), impItemConverter,
@@ -80,7 +80,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     target.setTmax( source.getTmax() );
     target.setAt( source.getAt() );
     target.setCur(Utils.copyCollection(source.getCur(), config));
-    Converter<Source, net.media.openrtb3.Source> source25Source3Converter = converterProvider.fetch(new Conversion
+    Converter<Source, net.media.openrtb3.Source> source25Source3Converter = converterProvider.fetch(new Conversion<>
             (Source.class, net.media.openrtb3.Source.class));
     target.setSource( source25Source3Converter.map(source.source, config, converterProvider ));
     Map<String, Object> map = source.getExt();

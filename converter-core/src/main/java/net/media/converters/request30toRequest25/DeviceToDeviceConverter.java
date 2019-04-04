@@ -34,7 +34,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     if(source == null || target == null)
       return;
     Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter =
-      converterProvider.fetch(new Conversion(Geo.class, net.media.openrtb25.request.Geo.class));
+      converterProvider.fetch(new Conversion<>(Geo.class, net.media.openrtb25.request.Geo.class));
     target.setLanguage( source.getLang() );
     target.setConnectiontype( source.getContype() );
     target.setDevicetype( source.getType() );

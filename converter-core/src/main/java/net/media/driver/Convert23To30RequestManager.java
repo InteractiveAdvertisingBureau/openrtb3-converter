@@ -29,18 +29,18 @@ import net.media.utils.Provider;
 public class Convert23To30RequestManager {
 
   public Convert23To30RequestManager(Provider converterProvider) {
-    converterProvider.register(new Conversion(Banner.class, DisplayPlacement.class), new
+    converterProvider.register(new Conversion<>(Banner.class, DisplayPlacement.class), new
       BannerToDisplayPlacementConverter());
-    converterProvider.register(new Conversion(BidRequest.class, Request.class), new
+    converterProvider.register(new Conversion<>(BidRequest.class, Request.class), new
       BidRequestToRequestConverter());
-    converterProvider.register(new Conversion(Device.class, net.media.openrtb3.Device.class), new
+    converterProvider.register(new Conversion<>(Device.class, net.media.openrtb3.Device.class), new
       DeviceToDeviceConverter());
-    converterProvider.register(new Conversion(Imp.class, Item.class), new ImpToItemConverter());
-    converterProvider.register(new Conversion(Video.class, VideoPlacement.class), new
+    converterProvider.register(new Conversion<>(Imp.class, Item.class), new ImpToItemConverter());
+    converterProvider.register(new Conversion<>(Video.class, VideoPlacement.class), new
       VideoToVideoPlacementConverter());
-    converterProvider.register(new Conversion(Content.class, net.media.openrtb3.Content.class), new
+    converterProvider.register(new Conversion<>(Content.class, net.media.openrtb3.Content.class), new
       ContentToContentConverter());
-    converterProvider.register(new Conversion(Geo.class, net.media.openrtb3.Geo.class), new
+    converterProvider.register(new Conversion<>(Geo.class, net.media.openrtb3.Geo.class), new
       GeoToGeoConverter());
   }
 }

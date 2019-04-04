@@ -37,7 +37,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset,AssetResponse>
   public void enhance(Asset source, AssetResponse target, Config config, Provider converterProvider) throws
     OpenRtbConverterException {
 
-    Converter<LinkAsset, Link> linkAssetLinkConverter = converterProvider.fetch(new Conversion
+    Converter<LinkAsset, Link> linkAssetLinkConverter = converterProvider.fetch(new Conversion<>
       (LinkAsset.class, Link.class));
 
     if(isNull(source) || isNull(target) || isNull(config))

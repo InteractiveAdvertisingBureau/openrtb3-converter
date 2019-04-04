@@ -22,7 +22,7 @@ public class MediatoBidConverter implements Converter<Media,Bid> {
   }
 
   public  void enhance(Media source, Bid target, Config config, Provider converterProvider) throws OpenRtbConverterException {
-    Converter<Ad, Bid> adBidConverter = converterProvider.fetch(new Conversion(Ad.class, Bid.class));
+    Converter<Ad, Bid> adBidConverter = converterProvider.fetch(new Conversion<>(Ad.class, Bid.class));
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
     adBidConverter.enhance(source.getAd(),target,config, converterProvider);

@@ -32,9 +32,9 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
   public void enhance(User source, net.media.openrtb3.User target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(source == null || target == null)
       return;
-    Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter = converterProvider.fetch(new Conversion
+    Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter = converterProvider.fetch(new Conversion<>
             (Geo.class, net.media.openrtb3.Geo.class));
-    Converter<Data, net.media.openrtb3.Data> dataDataConverter = converterProvider.fetch(new Conversion
+    Converter<Data, net.media.openrtb3.Data> dataDataConverter = converterProvider.fetch(new Conversion<>
             (Data.class, net.media.openrtb3.Data.class));
     target.setId( source.getId() );
     target.setBuyeruid( source.getBuyeruid() );

@@ -44,20 +44,20 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       return;
 
     Converter<net.media.openrtb3.User, User> userUserConverter =
-      converterProvider.fetch(new Conversion(net.media.openrtb3.User.class, User.class));
-    Converter<Request, User> requestUserConverter = converterProvider.fetch(new Conversion(Request.class, User.class));
+      converterProvider.fetch(new Conversion<>(net.media.openrtb3.User.class, User.class));
+    Converter<Request, User> requestUserConverter = converterProvider.fetch(new Conversion<>(Request.class, User.class));
     Converter<App, net.media.openrtb25.request.App> appAppConverter =
-      converterProvider.fetch(new Conversion(App.class, net.media.openrtb25.request.App.class));
+      converterProvider.fetch(new Conversion<>(App.class, net.media.openrtb25.request.App.class));
     Converter<Regs, net.media.openrtb25.request.Regs> regsRegsConverter =
-      converterProvider.fetch(new Conversion(Regs.class, net.media.openrtb25.request.Regs.class));
+      converterProvider.fetch(new Conversion<>(Regs.class, net.media.openrtb25.request.Regs.class));
     Converter<Site, net.media.openrtb25.request.Site> siteSiteConverter =
-      converterProvider.fetch(new Conversion(Site.class, net.media.openrtb25.request.Site.class));
+      converterProvider.fetch(new Conversion<>(Site.class, net.media.openrtb25.request.Site.class));
     Converter<Device, net.media.openrtb25.request.Device> deviceDeviceConverter =
-      converterProvider.fetch(new Conversion(Device.class, net.media.openrtb25.request.Device.class));
+      converterProvider.fetch(new Conversion<>(Device.class, net.media.openrtb25.request.Device.class));
     Converter<Source, net.media.openrtb25.request.Source> sourceSourceConverter =
-      converterProvider.fetch(new Conversion(Source.class, net.media.openrtb25.request.Source.class));
+      converterProvider.fetch(new Conversion<>(Source.class, net.media.openrtb25.request.Source.class));
     Converter<Item, net.media.openrtb25.request.Imp> itemImpConverter =
-      converterProvider.fetch(new Conversion(Item.class, Imp.class));
+      converterProvider.fetch(new Conversion<>(Item.class, Imp.class));
 
     Map<String, Object> map = source.getExt();
     if ( map != null ) {

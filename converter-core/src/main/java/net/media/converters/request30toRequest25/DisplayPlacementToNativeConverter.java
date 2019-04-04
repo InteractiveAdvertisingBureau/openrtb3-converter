@@ -41,7 +41,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       return;
     }
     Converter<NativeFormat, NativeRequestBody> nativeFormatNativeRequestBodyConverter =
-      converterProvider.fetch(new Conversion(NativeFormat.class, NativeRequestBody.class));
+      converterProvider.fetch(new Conversion<>(NativeFormat.class, NativeRequestBody.class));
     NativeRequestBody nativeRequestBody = nativeFormatNativeRequestBodyConverter.map
       (displayPlacement.getNativefmt(), config, converterProvider);
     if (isNull(nativeRequestBody)) {

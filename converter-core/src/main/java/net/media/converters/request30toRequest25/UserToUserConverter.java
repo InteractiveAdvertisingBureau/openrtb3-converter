@@ -35,9 +35,9 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb25.
     if(source == null || target == null)
       return;
     Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter =
-      converterProvider.fetch(new Conversion(Geo.class, net.media.openrtb25.request.Geo.class));
+      converterProvider.fetch(new Conversion<>(Geo.class, net.media.openrtb25.request.Geo.class));
     Converter<Data, net.media.openrtb25.request.Data> dataDataConverter =
-      converterProvider.fetch(new Conversion(Data.class, net.media.openrtb25.request.Data.class));
+      converterProvider.fetch(new Conversion<>(Data.class, net.media.openrtb25.request.Data.class));
     target.setId( source.getId() );
     target.setBuyeruid( source.getBuyeruid() );
     target.setYob( source.getYob() );

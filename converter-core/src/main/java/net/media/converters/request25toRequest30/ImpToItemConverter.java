@@ -52,9 +52,9 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     if(imp == null || item == null) {
       return;
     }
-    Converter<Deal, net.media.openrtb3.Deal> dealDealConverter = converterProvider.fetch(new Conversion
+    Converter<Deal, net.media.openrtb3.Deal> dealDealConverter = converterProvider.fetch(new Conversion<>
             (Deal.class, net.media.openrtb3.Deal.class));
-    Converter<Metric, net.media.openrtb3.Metric> metricMetricConverter = converterProvider.fetch(new Conversion
+    Converter<Metric, net.media.openrtb3.Metric> metricMetricConverter = converterProvider.fetch(new Conversion<>
             (Metric.class, net.media.openrtb3.Metric.class));
 
       if ( item.getSpec() == null ) {
@@ -115,13 +115,13 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     if ( imp == null ) {
       return;
     }
-    Converter<Banner, DisplayPlacement> bannerDisplayPlacementConverter = converterProvider.fetch(new Conversion
+    Converter<Banner, DisplayPlacement> bannerDisplayPlacementConverter = converterProvider.fetch(new Conversion<>
             (Banner.class, DisplayPlacement.class));
-    Converter<Audio, AudioPlacement> audioAudioPlacementConverter = converterProvider.fetch(new Conversion
+    Converter<Audio, AudioPlacement> audioAudioPlacementConverter = converterProvider.fetch(new Conversion<>
             (Audio.class, AudioPlacement.class));
-    Converter<Video, VideoPlacement> videoVideoPlacementConverter = converterProvider.fetch(new Conversion
+    Converter<Video, VideoPlacement> videoVideoPlacementConverter = converterProvider.fetch(new Conversion<>
             (Video.class, VideoPlacement.class));
-    Converter<Native, DisplayPlacement> nativeDisplayPlacementConverter = converterProvider.fetch(new Conversion
+    Converter<Native, DisplayPlacement> nativeDisplayPlacementConverter = converterProvider.fetch(new Conversion<>
             (Native.class, DisplayPlacement.class));
     mappingTarget.setAudio( audioAudioPlacementConverter.map( imp.getAudio(), config, converterProvider) );
     mappingTarget.setVideo( videoVideoPlacementConverter.map( imp.getVideo(), config, converterProvider) );

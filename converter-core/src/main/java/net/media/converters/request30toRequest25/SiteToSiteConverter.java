@@ -34,9 +34,9 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.
     if(source == null || target == null)
       return;
     Converter<Publisher, net.media.openrtb25.request.Publisher> publisherPublisherConverter =
-      converterProvider.fetch(new Conversion(Publisher.class, net.media.openrtb25.request.Publisher.class));
+      converterProvider.fetch(new Conversion<>(Publisher.class, net.media.openrtb25.request.Publisher.class));
     Converter<Content, net.media.openrtb25.request.Content> contentContentConverter =
-      converterProvider.fetch(new Conversion(Content.class, net.media.openrtb25.request.Content.class));
+      converterProvider.fetch(new Conversion<>(Content.class, net.media.openrtb25.request.Content.class));
     target.setSectioncat( Utils.copyCollection(source.getSectcat(), config) );
     target.setPrivacypolicy( source.getPrivpolicy() );
     target.setPublisher( publisherPublisherConverter.map( source.getPub(), config, converterProvider) );

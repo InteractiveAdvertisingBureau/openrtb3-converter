@@ -69,7 +69,7 @@ public class NativeRequestBodyToNativeFormatConverter implements Converter<Nativ
       }
       nativeFormat.getExt().put("ver", nativeRequestBody.getVer());
     }
-    Converter<Asset, AssetFormat> assetAssetFormatConverter = converterProvider.fetch(new Conversion
+    Converter<Asset, AssetFormat> assetAssetFormatConverter = converterProvider.fetch(new Conversion<>
       (Asset.class, AssetFormat.class));
     nativeFormat.setAsset( CollectionToCollectionConverter.convert( nativeRequestBody.getAssets()
       , assetAssetFormatConverter, config, converterProvider ) );
