@@ -55,15 +55,6 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     if (nonNull(nativeRequest.getNativeRequestBody())) {
       nativeRequest.getNativeRequestBody().setContext(displayPlacement.getContext());
       nativeRequest.getNativeRequestBody().setPlcmttype(displayPlacement.getPtype());
-      if (nonNull(displayPlacement.getExt())) {
-        try {
-          nativeRequest.getNativeRequestBody().setContextsubtype((Integer) displayPlacement.getExt
-            ().get("contextsubtype"));
-          displayPlacement.getExt().remove("contextsubtype");
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
-        }
-      }
     }
     nat.setApi(Utils.copyCollection(displayPlacement.getApi(), config));
     if (nonNull(displayPlacement.getExt())) {
@@ -72,8 +63,10 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       }
       nat.getExt().putAll(displayPlacement.getExt());
       try {
-        nat.setVer((String) displayPlacement.getExt().get("nativeversion"));
-        nat.getExt().remove("nativeversion");
+        if(displayPlacement.getNativefmt().getExt() != null && displayPlacement.getNativefmt().getExt().containsKey("ver")) {
+          nat.setVer((String) displayPlacement.getNativefmt().getExt().get("ver"));
+          displayPlacement.getNativefmt().getExt().remove("ver");
+        }
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
       }

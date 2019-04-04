@@ -79,6 +79,12 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     }
     if (nonNull(imp.getVideo())) {
       imp.getVideo().setSequence(item.getSeq());
+      if (nonNull(item.getQty())) {
+        if (isNull(imp.getVideo().getExt())) {
+          imp.getVideo().setExt(new HashMap<>());
+        }
+        imp.getVideo().getExt().put("qty", item.getQty());
+      }
     }
     String sdkver = itemSpecPlacementSdkver( item );
     if ( sdkver != null ) {
@@ -93,6 +99,12 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
             imp.getBanner().setExt(new HashMap<>());
           }
           imp.getBanner().getExt().put("seq", item.getSeq());
+        }
+        if (nonNull(item.getQty())) {
+          if (isNull(imp.getBanner().getExt())) {
+            imp.getBanner().setExt(new HashMap<>());
+          }
+          imp.getBanner().getExt().put("qty", item.getQty());
         }
       }
       imp.setNat(displayPlacementNativeConverter.map(display, config));
@@ -119,6 +131,12 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     }
     if (nonNull(imp.getAudio())) {
       imp.getAudio().setSequence(item.getSeq());
+      if (nonNull(item.getQty())) {
+        if (isNull(imp.getAudio().getExt())) {
+          imp.getAudio().setExt(new HashMap<>());
+        }
+        imp.getAudio().getExt().put("qty", item.getQty());
+      }
     }
     imp.setId( item.getId() );
     imp.setExp( item.getExp() );
@@ -294,7 +312,6 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         if (isNull(imp.getExt())) {
           imp.setExt(new HashMap<>());
         }
-        imp.getExt().put("qty", item.getQty());
         imp.getExt().put("dt", item.getDt());
         imp.getExt().put("dlvy", item.getDlvy());
       }
