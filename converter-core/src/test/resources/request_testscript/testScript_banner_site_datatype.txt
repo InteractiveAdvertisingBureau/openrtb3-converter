@@ -3153,20 +3153,189 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     imp[0].banner.hmin: 1
+     imp[0].banner.btype: "\"ab\""
    outputFile: BANNER30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idIntFormat
+     request.item[0].id: "ab"
+   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     imp[0].banner.hmin:: "\"ab\""
+     imp[0].banner.btype[0]: "\"ab\""
    outputFile: BANNER30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: "\"ab\""
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.btype[0]: 3
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.btype[0]: 3
+     imp[0].banner.btype[1]: 4
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
    purpose: idStringFormat
 
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.battr: "\"ab\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.battr[0]: "\"ab\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.battr[0]: 3
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.battr[0]: 1
+     imp[0].banner.battr[1]: 2
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
 
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.expdir: "\"ab\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.expdir[0]: "\"ab\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.expdir[0]: 3
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.expdir[0]: 3
+     imp[0].banner.expdir[1]: 4
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.api: "\"ab\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.api[0]: "\"ab\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.api[0]: 3
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.api[0]: 3
+     imp[0].banner.api[1]: 4
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.mimes: 1
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.mimes[0]: 1
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.mimes[0]: "\"application/x-shockwave-flash\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.mimes[0]: "\"application/x-shockwave-flash\""
+     imp[0].banner.mimes[1]: "\"image/jpg\""
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: "ab"
+   purpose: idStringFormat
