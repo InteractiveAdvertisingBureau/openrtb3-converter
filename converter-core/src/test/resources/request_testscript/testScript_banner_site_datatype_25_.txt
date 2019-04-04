@@ -3,6 +3,9 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      id: 2
+     at: "\"ab\""
+     test: "\"a\""
+     tmax: "\"as\""
    outputFile: BANNER30.json
    outputType: "REQUEST30"
    outputEdits:
@@ -12,66 +15,15 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      id: "\"ab\""
+     at: 1
+     test: 1
+     tmax: 1
    outputFile: BANNER30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: "\"ab\""
    purpose: idStringFormat
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     at: "\"ab\""
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].at:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     at: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].at:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].test: 1
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     test: "\"a\""
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].test: "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     tmax: 1
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].tmax: 1
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     tmax: "\"as\""
-   outputFile: BANNER30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].tmax: "\"ff\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -110,6 +62,7 @@ cases:
    outputEdits:
      request.item[0].id:  "\"ab\""
    purpose: idStringFormat
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:

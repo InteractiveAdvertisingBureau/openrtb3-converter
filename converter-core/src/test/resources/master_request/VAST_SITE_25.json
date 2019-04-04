@@ -137,7 +137,8 @@
       "pos": 2,
       "companionad": [{
         "id": "dd",
-        "format": [{
+        "format": [
+          {
           "w": 200,
           "h": 20,
           "wratio": 1,
@@ -146,7 +147,8 @@
           "ext": {
             "dummy": "ff"
           }
-        }, {
+        },
+          {
           "w": 33,
           "h": 11,
           "wratio": 1,
