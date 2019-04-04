@@ -102,12 +102,12 @@ public class TestCaseGenerator {
       if (index == path.length - 1) {
         if(textBetweenBs.contains(",")) {
           final String[] elements = textBetweenBs.split(",");
-          Arrays.stream(elements).forEach(x -> ((ArrayNode) arrayNode).insert(Integer.parseInt(x.trim()), nodeToSet));
+          Arrays.stream(elements).forEach(x -> padArrayNode(((ArrayNode) arrayNode), Integer.parseInt(x.trim())).set(Integer.parseInt(x.trim()), getNode(nodeToSet.toString())));
         } else if (!textBetweenBs.equals("*")) {
-          ((ArrayNode) arrayNode).insert(Integer.parseInt(textBetweenBs), nodeToSet);
+          padArrayNode(((ArrayNode) arrayNode), Integer.parseInt(textBetweenBs)).set(Integer.parseInt(textBetweenBs), getNode(nodeToSet.toString()));
         } else {
-          final int size = master.size();
-          IntStream.range(0, size).forEach(x -> ((ArrayNode) arrayNode).insert(x, nodeToSet));
+          final int size = arrayNode.size();
+          IntStream.range(0, size).forEach(x -> padArrayNode(((ArrayNode) arrayNode), x).set(x, getNode(nodeToSet.toString())));
         }
       } else {
         if(textBetweenBs.contains(",")) {
@@ -121,5 +121,18 @@ public class TestCaseGenerator {
         }
       }
     }
+  }
+
+  public static ArrayNode padArrayNode(ArrayNode arrayNode, int index) {
+    if(index < 0) {
+      throw new RuntimeException("Index cannot be less than 0");
+    }
+    if(index + 1 <= arrayNode.size()) {
+      return arrayNode;
+    }
+    for(int i = 0; i <= index - arrayNode.size(); i++) {
+      arrayNode.add(NullNode.getInstance());
+    }
+    return arrayNode;
   }
 }
