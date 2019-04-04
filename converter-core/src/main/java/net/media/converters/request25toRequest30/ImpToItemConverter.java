@@ -139,11 +139,6 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     mappingTarget.setSecure( imp.getSecure() );
     DisplayPlacement displayPlacement = bannerDisplayPlacementConverter.map(imp.getBanner(),
       config);
-    if (nonNull(mappingTarget.getDisplay())) {
-      mappingTarget.getDisplay().setClktype(imp.getClickbrowser());
-      mappingTarget.getDisplay().setIfrbust(Utils.copyCollection(imp.getIframebuster(), config));
-      mappingTarget.getDisplay().setInstl(imp.getInstl());
-    }
     try {
       if (nonNull(imp.getExt()) && !imp.getExt().isEmpty() && nonNull(displayPlacement)) {
         if (imp.getExt().containsKey("ampren")) {
@@ -161,6 +156,11 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     }
     nativeDisplayPlacementConverter.enhance(imp.getNat(), displayPlacement, config);
     mappingTarget.setDisplay( displayPlacement );
+    if (nonNull(mappingTarget.getDisplay())) {
+      mappingTarget.getDisplay().setClktype(imp.getClickbrowser());
+      mappingTarget.getDisplay().setIfrbust(Utils.copyCollection(imp.getIframebuster(), config));
+      mappingTarget.getDisplay().setInstl(imp.getInstl());
+    }
   }
 
   private Collection<Deal> impPmpDeals(Imp imp) {

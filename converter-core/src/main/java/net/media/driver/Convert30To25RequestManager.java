@@ -1,6 +1,7 @@
 package net.media.driver;
 
 import net.media.converters.Converter;
+import net.media.converters.request25toRequest30.MetricToMetricConverter;
 import net.media.converters.request30toRequest25.AppToAppConverter;
 import net.media.converters.request30toRequest25.AssetFormatToAssetConverter;
 import net.media.converters.request30toRequest25.AudioPlacementToAudioConverter;
@@ -99,7 +100,7 @@ public class Convert30To25RequestManager {
   });
 
   private ConverterProxy metricToMetricConverter = new ConverterProxy(net.media.converters
-    .request25toRequest30.MetricToMetricConverter::new);
+    .request30toRequest25.MetricToMetricConverter::new);
 
   private ConverterProxy dealToDealConverter = new ConverterProxy(DealToDealConverter::new);
 
@@ -163,7 +164,7 @@ public class Convert30To25RequestManager {
       new Conversion(Content.class, net.media.openrtb25.request.Content.class)
     );
     Converter<Publisher, net.media.openrtb25.request.Publisher> publisherPublisherConverter = publisherToPublisherConverter.apply(
-      new Conversion(Site.class, net.media.openrtb25.request.Site.class)
+      new Conversion(Publisher.class, net.media.openrtb25.request.Publisher.class)
     );
     return new SiteToSiteConverter(publisherPublisherConverter, contentContentConverter);
   });
@@ -173,7 +174,7 @@ public class Convert30To25RequestManager {
       new Conversion(Content.class, net.media.openrtb25.request.Content.class)
     );
     Converter<Publisher, net.media.openrtb25.request.Publisher> publisherPublisherConverter = publisherToPublisherConverter.apply(
-      new Conversion(Site.class, net.media.openrtb25.request.Site.class)
+      new Conversion(Publisher.class, net.media.openrtb25.request.Publisher.class)
     );
     return new AppToAppConverter(publisherPublisherConverter, contentContentConverter);
   });
