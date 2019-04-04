@@ -39,19 +39,19 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     if (isNull(banner) || isNull(displayPlacement)) {
       return;
     }
-    displayPlacement.setDisplayfmt( formatListToDisplayFormatList( banner.getFormat(), config) );
+    displayPlacement.setDisplayfmt(formatListToDisplayFormatList(banner.getFormat(), config));
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
-        Collection<Integer> expdir = impBannerExpdir( banner );
+        Collection<Integer> expdir = impBannerExpdir(banner);
         displayFormat.setExpdir(Utils.copyCollection(expdir, config));
       }
     }
     displayPlacement.setMime(Utils.copyCollection(banner.getMimes(), config));
-    displayPlacement.setPos( banner.getPos() );
-    displayPlacement.setTopframe( banner.getTopframe() );
+    displayPlacement.setPos(banner.getPos());
+    displayPlacement.setTopframe(banner.getTopframe());
     displayPlacement.setApi(Utils.copyCollection(banner.getApi(), config));
-    displayPlacement.setW( banner.getW() );
-    displayPlacement.setH( banner.getH() );
+    displayPlacement.setW(banner.getW());
+    displayPlacement.setH(banner.getH());
     Map<String, Object> bannerExt = banner.getExt();
     try {
       if (nonNull(bannerExt)) {
@@ -84,7 +84,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
           displayPlacement.getExt().remove("seq");
         }
       }
-    }catch (ClassCastException e) {
+    } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Banner", e);
     }
     if (!CollectionUtils.isEmpty(banner.getBtype())) {
@@ -92,6 +92,12 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
         displayPlacement.setExt(new HashMap<>());
       }
       displayPlacement.getExt().put("btype", new ArrayList<>(banner.getBtype()));
+    }
+    if (banner.getId() != null) {
+      if (isNull(displayPlacement.getExt())) {
+        displayPlacement.setExt(new HashMap<>());
+      }
+      displayPlacement.getExt().put("id", banner.getId());
     }
   }
 

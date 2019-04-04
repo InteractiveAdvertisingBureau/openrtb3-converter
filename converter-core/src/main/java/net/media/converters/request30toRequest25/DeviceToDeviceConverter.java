@@ -78,5 +78,20 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
       }
       target.setExt( Utils.copyMap(map, config) );
     }
+    if(source.getXff() != null) {
+      if(target.getExt() == null)
+        target.setExt(new HashMap<>());
+      target.getExt().put("xff", source.getXff());
+    }
+    if(source.getIptr() != null) {
+      if(target.getExt() == null)
+        target.setExt(new HashMap<>());
+      target.getExt().put("iptr", source.getIptr());
+    }
+    if(source.getMccmncsim() != null) {
+      if(target.getExt() == null)
+        target.setExt(new HashMap<>());
+      target.getExt().put("mccmncsim", source.getMccmncsim());
+    }
   }
 }

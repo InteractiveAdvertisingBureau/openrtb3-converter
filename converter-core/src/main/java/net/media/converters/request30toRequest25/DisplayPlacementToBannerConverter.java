@@ -73,6 +73,14 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
           throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
         }
       }
+      if (map.containsKey("id")) {
+        try {
+          banner.setId((String) map.get("id"));
+          banner.getExt().remove("id");
+        } catch (ClassCastException e) {
+          throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+        }
+      }
     }
     if (nonNull(displayPlacement.getUnit())) {
       if (isNull(banner.getExt())) {

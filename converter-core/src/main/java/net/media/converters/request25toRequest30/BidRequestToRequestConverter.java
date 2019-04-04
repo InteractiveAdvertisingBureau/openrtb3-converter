@@ -107,7 +107,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     if(target.getExt() == null)
       return;
     target.getExt().remove("cattax");
-    target.getExt().remove("restrictionsExt");
+    target.getExt().remove("restrictions");
     if(source.getExt() == null)
       return;
     if(source.getExt().containsKey("dooh")) {
