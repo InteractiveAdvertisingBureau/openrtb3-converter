@@ -47,8 +47,12 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     Map<String, Object> map = audioPlacement.getExt();
     if ( map != null ) {
       audio.setExt(Utils.copyMap(map, config));
-      audio.setStitched((Integer) map.get("stitched"));
-      audio.getExt().remove("stitched");
+      try {
+        audio.setStitched((Integer) map.get("stitched"));
+        audio.getExt().remove("stitched");
+      } catch (ClassCastException e) {
+        throw new OpenRtbConverterException("error while typecasting ext for Audio", e);
+      }
     }
     audio.setCompanionad(companionListToBannerList(audioPlacement.getComp(), config, converterProvider));
     audioPlacementToAudioAfterMapping( audioPlacement, audio );

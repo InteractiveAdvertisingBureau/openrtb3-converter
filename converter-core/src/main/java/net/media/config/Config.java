@@ -35,20 +35,7 @@ public class Config {
 
   private static final AdType DEFAULT_AD_TYPE = AdType.BANNER;
 
-  private static final String DEFAULT_BANNER_TEMPLATE;
-
   private static final OpenRtbVersion DEFAULT_OPENRTB_2_X_VERSION = OpenRtbVersion.TWO_DOT_FIVE;
-
-  static {
-    DEFAULT_BANNER_TEMPLATE = PropertiesFileLoader.templateProperties.getProperty("template.banner.adm");
-  }
-  /**
-   * This config is used for response conversion from 3.x to 2.x version.
-   * If 3.x response does not have an adm, we need to build the adm for
-   * version 2.x from banner object of 3.x response. For this, the user
-   * needs to define a bannerTemplate which helps us to do so
-   */
-  private String bannerTemplate;
 
   /**
    * This config determines the type of native request from 3.x to 2.x,
@@ -72,12 +59,13 @@ public class Config {
   private OpenRtbVersion openRtbVersion2_XVersion;
 
   public Config(Config oldConfig) {
-    this.bannerTemplate = oldConfig.bannerTemplate;
-    this.nativeRequestAsString = oldConfig.nativeRequestAsString;
-    this.adTypeMapping = oldConfig.adTypeMapping;
-    this.validate = oldConfig.validate;
-    this.disableCloning = oldConfig.disableCloning;
-    this.openRtbVersion2_XVersion = oldConfig.openRtbVersion2_XVersion;
+    if (nonNull(oldConfig)) {
+      this.nativeRequestAsString = oldConfig.nativeRequestAsString;
+      this.adTypeMapping = oldConfig.adTypeMapping;
+      this.validate = oldConfig.validate;
+      this.disableCloning = oldConfig.disableCloning;
+      this.openRtbVersion2_XVersion = oldConfig.openRtbVersion2_XVersion;
+    }
   }
 
   public Config() {
@@ -89,8 +77,6 @@ public class Config {
    * @param config
    */
   public void updateEmptyFields(Config config) {
-    this.bannerTemplate = isEmpty(this.bannerTemplate) ? config.bannerTemplate : this
-      .bannerTemplate;
     this.nativeRequestAsString = isNull(this.nativeRequestAsString) ? config
       .nativeRequestAsString : this.nativeRequestAsString;
     this.adTypeMapping = isNull(this.adTypeMapping) ? config.adTypeMapping : this.adTypeMapping;
@@ -99,17 +85,6 @@ public class Config {
       .disableCloning;
     this.openRtbVersion2_XVersion = isNull(this.openRtbVersion2_XVersion) ? config
       .getOpenRtbVersion2_XVersion() : this.openRtbVersion2_XVersion;
-  }
-
-  public String  getBannerTemplate(){
-    if(Strings.isNullOrEmpty(this.bannerTemplate)){
-      return DEFAULT_BANNER_TEMPLATE;
-    }
-    return this.bannerTemplate;
-  }
-
-  public void setBannerTemplate(String template){
-    this.bannerTemplate = template;
   }
 
   public Boolean getNativeRequestAsString() {
@@ -338,10 +313,6 @@ public class Config {
     if (!(o instanceof Config)) return false;
     final Config other = (Config) o;
     if (!other.canEqual((Object) this)) return false;
-    final Object this$bannerTemplate = this.getBannerTemplate();
-    final Object other$bannerTemplate = other.getBannerTemplate();
-    if (this$bannerTemplate == null ? other$bannerTemplate != null : !this$bannerTemplate.equals(other$bannerTemplate))
-      return false;
     final Object this$nativeRequestAsString = this.getNativeRequestAsString();
     final Object other$nativeRequestAsString = other.getNativeRequestAsString();
     if (this$nativeRequestAsString == null ? other$nativeRequestAsString != null : !this$nativeRequestAsString.equals(other$nativeRequestAsString))
@@ -368,8 +339,6 @@ public class Config {
   public int hashCode() {
     final int PRIME = 59;
     int result = 1;
-    final Object $bannerTemplate = this.getBannerTemplate();
-    result = result * PRIME + ($bannerTemplate == null ? 43 : $bannerTemplate.hashCode());
     final Object $nativeRequestAsString = this.getNativeRequestAsString();
     result = result * PRIME + ($nativeRequestAsString == null ? 43 : $nativeRequestAsString.hashCode());
     final Object $nativeResponseAsString = this.getNativeResponseAsString();
@@ -384,6 +353,6 @@ public class Config {
   }
 
   public String toString() {
-    return "net.media.config.Config(bannerTemplate=" + this.getBannerTemplate() + ", nativeRequestAsString=" + this.getNativeRequestAsString() + ", nativeResponseAsString=" + this.getNativeResponseAsString() + ", adTypeMapping=" + this.adTypeMapping + ", disableCloning=" + this.getDisableCloning() + ", validate=" + this.getValidate() + ")";
+    return "net.media.config.Config(nativeRequestAsString=" + this.getNativeRequestAsString() + ", nativeResponseAsString=" + this.getNativeResponseAsString() + ", adTypeMapping=" + this.adTypeMapping + ", disableCloning=" + this.getDisableCloning() + ", validate=" + this.getValidate() + ")";
   }
 }

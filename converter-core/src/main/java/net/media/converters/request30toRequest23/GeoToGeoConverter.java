@@ -3,6 +3,7 @@ package net.media.converters.request30toRequest23;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Geo;
 import net.media.utils.Provider;
 
@@ -17,7 +18,7 @@ import static java.util.Objects.nonNull;
 public class GeoToGeoConverter extends net.media.converters.request30toRequest25.GeoToGeoConverter {
 
   public void enhance(Geo source, net.media.openrtb25.request.Geo target, Config config,
-                      Provider converterProvider) {
+                      Provider converterProvider) throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }

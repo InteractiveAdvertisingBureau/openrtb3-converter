@@ -31,7 +31,9 @@ public class AuditToBidConverter implements Converter<Audit,Bid> {
     }
     target.getExt().put("status",source.getStatus());
     target.getExt().put("feedback",source.getFeedback());
-    target.getExt().put("init",source.getInit());
+    Audit audit = new Audit();
+    audit.setInit(source.getInit());
+    target.getExt().put("audit", audit);
     target.getExt().put("lastmod",source.getLastmod());
     target.getExt().put("corr",source.getCorr());
     target.getExt().putAll(source.getExt());

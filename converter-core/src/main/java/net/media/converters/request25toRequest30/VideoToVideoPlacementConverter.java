@@ -69,16 +69,20 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     videoToVideoPlacementAfterMapping(video, videoPlacement);
   }
 
-  private void videoToVideoPlacementAfterMapping(Video video, VideoPlacement videoPlacement) {
-    if (nonNull(video) && nonNull(video.getExt()) && nonNull(videoPlacement)) {
-      if (video.getExt().containsKey("unit")) {
-        videoPlacement.setUnit((Integer) video.getExt().get("unit"));
-        videoPlacement.getExt().remove("unit");
+  private void videoToVideoPlacementAfterMapping(Video video, VideoPlacement videoPlacement) throws OpenRtbConverterException {
+    try {
+      if (nonNull(video) && nonNull(video.getExt()) && nonNull(videoPlacement)) {
+        if (video.getExt().containsKey("unit")) {
+          videoPlacement.setUnit((Integer) video.getExt().get("unit"));
+          videoPlacement.getExt().remove("unit");
+        }
+        if (video.getExt().containsKey("maxseq")) {
+          videoPlacement.setMaxseq((Integer) video.getExt().get("maxseq"));
+          videoPlacement.getExt().remove("maxseq");
+        }
       }
-      if (video.getExt().containsKey("maxseq")) {
-        videoPlacement.setMaxseq((Integer) video.getExt().get("maxseq"));
-        videoPlacement.getExt().remove("maxseq");
-      }
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for Video", e);
     }
   }
 }

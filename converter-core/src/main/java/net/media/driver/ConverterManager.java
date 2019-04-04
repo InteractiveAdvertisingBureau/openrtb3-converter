@@ -7,6 +7,8 @@ import net.media.utils.Provider;
 
 import java.util.Map;
 
+import static java.util.Objects.nonNull;
+
 /**
  * @author shiva.b
  */
@@ -22,22 +24,26 @@ public class ConverterManager {
     new Convert25To30ResponseManager(converterProvider);
     new Convert30To25ResponseManager(converterProvider);
     add2_XConverters(converterProvider, config);
-    overrideMap.forEach((conversion, converter) -> {
-      converterProvider.register(conversion, converter);
-    });
+    if (nonNull(overrideMap)) {
+      overrideMap.forEach((conversion, converter) -> {
+        converterProvider.register(conversion, converter);
+      });
+    }
   }
 
   private void add2_XConverters(Provider converterProvider, Config config) {
-    if (OpenRtbVersion.TWO_DOT_FOUR.equals(config.getOpenRtbVersion2_XVersion())) {
-      new Convert24To30RequestManager(converterProvider);
-      new Convert30To24RequestManager(converterProvider);
-      new Convert24To30ResponseManager(converterProvider);
-      new Convert30To24ResponseManager(converterProvider);
-    } else if (OpenRtbVersion.TWO_DOT_THREE.equals(config.getOpenRtbVersion2_XVersion())) {
-      new Convert23To30RequestManager(converterProvider);
-      new Convert30To23RequestManager(converterProvider);
-      new Convert23To30ResponseManager(converterProvider);
-      new Convert30To23ResponseManager(converterProvider);
+    if (nonNull(config)) {
+      if (OpenRtbVersion.TWO_DOT_FOUR.equals(config.getOpenRtbVersion2_XVersion())) {
+        new Convert24To30RequestManager(converterProvider);
+        new Convert30To24RequestManager(converterProvider);
+        new Convert24To30ResponseManager(converterProvider);
+        new Convert30To24ResponseManager(converterProvider);
+      } else if (OpenRtbVersion.TWO_DOT_THREE.equals(config.getOpenRtbVersion2_XVersion())) {
+        new Convert23To30RequestManager(converterProvider);
+        new Convert30To23RequestManager(converterProvider);
+        new Convert23To30ResponseManager(converterProvider);
+        new Convert30To23ResponseManager(converterProvider);
+      }
     }
   }
 
@@ -48,9 +54,11 @@ public class ConverterManager {
   public Provider getConverterProvider(Map<Conversion, Converter> overrideMap, Config config) {
     Provider provider = new Provider(converterProvider);
     add2_XConverters(converterProvider, config);
-    overrideMap.forEach((conversion, converter) -> {
-      converterProvider.register(conversion, converter);
-    });
+    if (nonNull(overrideMap)) {
+      overrideMap.forEach((conversion, converter) -> {
+        converterProvider.register(conversion, converter);
+      });
+    }
     return provider;
   }
 

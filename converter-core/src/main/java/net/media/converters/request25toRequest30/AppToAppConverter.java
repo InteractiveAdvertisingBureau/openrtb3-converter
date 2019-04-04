@@ -9,9 +9,10 @@ import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Publisher;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
 public class AppToAppConverter implements Converter<App, net.media.openrtb3.App> {
 
@@ -58,19 +59,17 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
     if(source.getExt() == null)
       return;
     try {
-      target.setCattax((Integer) source.getExt().get("cattax"));
-    } catch (Exception e) {
-      throw new OpenRtbConverterException("Error in setting app.cattax from app.ext" +
-        ".cattax", e);
-    }
-    try {
+      if (source.getExt().containsKey("cattax")) {
+        target.setCattax((Integer) source.getExt().get("cattax"));
+      } else {
+        target.setCattax(DEFAULT_CATTAX_TWODOTX);
+      }
       target.setStoreid((String) source.getExt().get("storeid"));
-    } catch (Exception e) {
-      throw new OpenRtbConverterException("Error in setting app.storeid from app.ext" +
-        ".storeid", e);
+      target.getExt().remove("cattax");
+      target.getExt().remove("storeid");
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for app", e);
     }
-    target.getExt().remove("cattax");
-    target.getExt().remove("storeid");
 
   }
 }

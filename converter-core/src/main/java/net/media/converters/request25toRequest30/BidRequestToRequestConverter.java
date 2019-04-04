@@ -112,8 +112,12 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     if(source.getExt().containsKey("dooh")) {
       if(target.getContext() == null)
         target.setContext(new Context());
-      Dooh dooh = (Dooh)source.getExt().get("dooh");
-      target.getContext().setDooh(dooh);
+      try {
+        Dooh dooh = (Dooh) source.getExt().get("dooh");
+        target.getContext().setDooh(dooh);
+      } catch (ClassCastException e) {
+        throw new OpenRtbConverterException("error while typecasting ext for BidRequest", e);
+      }
     }
   }
 
@@ -133,19 +137,6 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
       return;
     }
 
-    if ( mappingTarget.getWlang() != null ) {
-      if ( bidRequest.getWlang() != null ) {
-        mappingTarget.getWlang().clear();
-        mappingTarget.getWlang().addAll( Utils.copyCollection(bidRequest.getWlang(), config) );
-      }
-      else {
-        mappingTarget.setWlang( null );
-      }
-    }
-    else {
-      if ( bidRequest.getWlang() != null ) {
-        mappingTarget.setWlang( Utils.copyCollection( bidRequest.getWlang(), config ) );
-      }
-    }
+    mappingTarget.setWlang( Utils.copyCollection(bidRequest.getWlang(), config) );
   }
 }

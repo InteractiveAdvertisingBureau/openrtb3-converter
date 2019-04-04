@@ -10,6 +10,8 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.util.Objects.nonNull;
+
 public class PublisherToPublisherConverter implements Converter<Publisher, net.media.openrtb25.request.Publisher> {
   @Override
   public net.media.openrtb25.request.Publisher map(Publisher source, Config config, Provider converterProvider) {
@@ -33,6 +35,9 @@ public class PublisherToPublisherConverter implements Converter<Publisher, net.m
     target.setName( source.getName() );
     target.setCat( Utils.copyCollection(source.getCat(), config) );
     target.setDomain( source.getDomain() );
+    if (nonNull(source.getCattax())) {
+      target.getExt().put("cattax", source.getCattax());
+    }
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt( Utils.copyMap( map, config ) );

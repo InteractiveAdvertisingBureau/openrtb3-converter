@@ -52,10 +52,6 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     if (nonNull(nativeRequest.getNativeRequestBody())) {
       nativeRequest.getNativeRequestBody().setContext(displayPlacement.getContext());
       nativeRequest.getNativeRequestBody().setPlcmttype(displayPlacement.getPtype());
-      if (nonNull(displayPlacement.getExt())) {
-        nativeRequest.getNativeRequestBody().setContextsubtype((Integer) displayPlacement.getExt
-          ().get("contextsubtype"));
-      }
     }
     nat.setApi(Utils.copyCollection(displayPlacement.getApi(), config));
     if (nonNull(displayPlacement.getExt())) {
@@ -63,8 +59,14 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
         nat.setExt(new HashMap<>());
       }
       nat.getExt().putAll(displayPlacement.getExt());
-      nat.setVer((String) displayPlacement.getExt().get("nativeversion"));
-      nat.getExt().remove("nativeversion");
+      try {
+        if(displayPlacement.getNativefmt().getExt() != null && displayPlacement.getNativefmt().getExt().containsKey("ver")) {
+          nat.setVer((String) displayPlacement.getNativefmt().getExt().get("ver"));
+          displayPlacement.getNativefmt().getExt().remove("ver");
+        }
+      } catch (ClassCastException e) {
+        throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+      }
     }
     if (config.getNativeRequestAsString()) {
       try {
@@ -74,6 +76,20 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       }
     } else {
       nat.setRequest(nativeRequest);
+    }
+    try {
+      if (displayPlacement.getPriv() != null) {
+        if (nat.getExt() == null)
+          nat.setExt(new HashMap<>());
+        nat.getExt().put("priv", displayPlacement.getPriv());
+      }
+      if (displayPlacement.getCtype() != null) {
+        if (nat.getExt() == null)
+          nat.setExt(new HashMap<>());
+        nat.getExt().put("ctype", displayPlacement.getCtype());
+      }
+    } catch(ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
     }
     nat.setExt(Utils.copyMap(displayPlacement.getExt(), config));
   }

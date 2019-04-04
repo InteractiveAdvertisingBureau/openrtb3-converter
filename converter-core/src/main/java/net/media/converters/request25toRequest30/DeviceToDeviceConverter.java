@@ -73,11 +73,15 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     }
     if(source.getExt() == null)
       return;
-    target.setXff((String) source.getExt().get("xff"));
-    target.getExt().remove("xff");
-    target.setIptr((Integer) source.getExt().get("iptr"));
-    target.getExt().remove("iptr");
-    target.setIptr((Integer) source.getExt().get("mccmncsim"));
-    target.getExt().remove("mccmncsim");
+    try {
+      target.setXff((String) source.getExt().get("xff"));
+      target.getExt().remove("xff");
+      target.setIptr((Integer) source.getExt().get("iptr"));
+      target.getExt().remove("iptr");
+      target.setIptr((Integer) source.getExt().get("mccmncsim"));
+      target.getExt().remove("mccmncsim");
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for Device", e);
+    }
   }
 }

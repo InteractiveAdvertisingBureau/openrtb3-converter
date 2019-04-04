@@ -2,6 +2,7 @@ package net.media.openrtb25.request;
 
 
 import net.media.utils.validator.CheckAtLeastOneNotNull;
+import net.media.utils.validator.CheckAtMostOneNotNull;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,12 +14,11 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @CheckAtLeastOneNotNull(fieldNames = {"site", "app"})
+@CheckAtMostOneNotNull(fieldNames = {"wseat", "bseat"})
 public class BidRequest {
 
   //BidRequest parameters
-  public static final Integer DEFAULT_TEST_VALUE = 0;
   public static final Integer DEFAULT_ALL_IMPS = 0;
-  public static final Integer DEFAULT_AT = 2;
 
   @NotEmpty
   public String id;
@@ -40,9 +40,9 @@ public class BidRequest {
 
   public Collection<String> badv;
 
-  public Integer at = DEFAULT_AT;
+  public Integer at;
 
-  public Integer test = DEFAULT_TEST_VALUE;
+  public Integer test;
 
   public Collection<String> wseat;
 

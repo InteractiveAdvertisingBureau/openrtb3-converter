@@ -7,13 +7,7 @@ import net.media.converters.Converter;
 import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.User;
-import net.media.openrtb3.App;
-import net.media.openrtb3.Device;
-import net.media.openrtb3.Item;
-import net.media.openrtb3.Regs;
-import net.media.openrtb3.Request;
-import net.media.openrtb3.Site;
-import net.media.openrtb3.Source;
+import net.media.openrtb3.*;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
@@ -114,7 +108,9 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
         if (source.getContext().getRestrictions().getExt() != null) {
           if (target.getExt() == null)
             target.setExt(new HashMap<>());
-          target.getExt().put("restrictionsExt", source.getContext().getRestrictions().getExt());
+          Restrictions restrictions = new Restrictions();
+          restrictions.setExt(source.getContext().getRestrictions().getExt());
+          target.getExt().put("restrictions", restrictions);
         }
       }
 

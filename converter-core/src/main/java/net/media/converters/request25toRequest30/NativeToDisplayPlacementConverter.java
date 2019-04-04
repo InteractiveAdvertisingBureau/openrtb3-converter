@@ -68,27 +68,33 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
       if (nonNull(nativeRequest) && nonNull(nativeRequest.getNativeRequestBody())) {
         displayPlacement.setPtype(nativeRequest.getNativeRequestBody().getPlcmttype());
         displayPlacement.setContext(nativeRequest.getNativeRequestBody().getContext());
-        if (nonNull(nativeRequest.getNativeRequestBody().getContextsubtype())) {
+        displayPlacement.setNativefmt(nativeRequestBodyNativeFormatConverter.map(nativeRequest
+          .getNativeRequestBody(), config, converterProvider));
+        if (nonNull(nat.getExt())) {
           if (isNull(displayPlacement.getExt())) {
             displayPlacement.setExt(new HashMap<>());
           }
-          displayPlacement.getExt().put("contextsubtype", nativeRequest.getNativeRequestBody()
-            .getContextsubtype());
-        }
-        displayPlacement.setNativefmt(nativeRequestBodyNativeFormatConverter.map(nativeRequest
-          .getNativeRequestBody(), config, converterProvider));
-        if (nonNull(nat.getExt()) && nonNull(displayPlacement.getNativefmt())) {
-          if (isNull(displayPlacement.getNativefmt().getExt())) {
-            displayPlacement.getNativefmt().setExt(new HashMap<>());
-          }
-          displayPlacement.getNativefmt().getExt().putAll(nat.getExt());
+          displayPlacement.getExt().putAll(nat.getExt());
         }
         if (nonNull(nat.getExt())) {
           if (nat.getExt().containsKey("ctype")) {
-            displayPlacement.setCtype(new ArrayList<>((List<Integer>) nat.getExt().get("ctype")));
+            try {
+              displayPlacement.setCtype(new ArrayList<>((List<Integer>) nat.getExt().get("ctype")));
+            } catch (ClassCastException e) {
+              throw new OpenRtbConverterException("error while typecasting ext for Native", e);
+            }
             if (nonNull(displayPlacement.getNativefmt()) && nonNull(displayPlacement.getNativefmt()
               .getExt())) {
               displayPlacement.getNativefmt().getExt().remove("ctype");
+            }
+          }
+        }
+        if (nonNull(nat.getExt())) {
+          if (nat.getExt().containsKey("priv")) {
+            displayPlacement.setPriv((Integer) nat.getExt().get("priv"));
+            if (nonNull(displayPlacement.getNativefmt()) && nonNull(displayPlacement.getNativefmt()
+              .getExt())) {
+              displayPlacement.getNativefmt().getExt().remove("priv");
             }
           }
         }

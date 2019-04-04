@@ -58,23 +58,39 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     displayPlacement.setW( banner.getW() );
     displayPlacement.setH( banner.getH() );
     Map<String, Object> bannerExt = banner.getExt();
-    if (nonNull(bannerExt)) {
-      if (isNull(displayPlacement.getExt())) {
-        displayPlacement.setExt(new HashMap<>());
+    try {
+      if (nonNull(bannerExt)) {
+        if (isNull(displayPlacement.getExt())) {
+          displayPlacement.setExt(new HashMap<>());
+        }
+        displayPlacement.getExt().putAll(bannerExt);
+        if (bannerExt.containsKey("unit")) {
+          displayPlacement.setUnit((Integer) bannerExt.get("unit"));
+          displayPlacement.getExt().remove("unit");
+        }
+        if (bannerExt.containsKey("ctype")) {
+          displayPlacement.setCtype(Utils.copyCollection((List<Integer>) bannerExt.get
+            ("ctype"), config));
+          displayPlacement.getExt().remove("ctype");
+        }
+        if (bannerExt.containsKey("ptype")) {
+          displayPlacement.setPtype((Integer) bannerExt.get("ptype"));
+          displayPlacement.getExt().remove("ptype");
+        }
+        if (bannerExt.containsKey("context")) {
+          displayPlacement.setContext((Integer) bannerExt.get("context"));
+          displayPlacement.getExt().remove("context");
+        }
+        if (bannerExt.containsKey("priv")) {
+          displayPlacement.setPriv((Integer) bannerExt.get("priv"));
+          displayPlacement.getExt().remove("priv");
+        }
+        if (bannerExt.containsKey("seq")) {
+          displayPlacement.getExt().remove("seq");
+        }
       }
-      displayPlacement.getExt().putAll(bannerExt);
-      if (bannerExt.containsKey("unit")) {
-        displayPlacement.setUnit((Integer) bannerExt.get("unit"));
-        displayPlacement.getExt().remove("unit");
-      }
-      if (bannerExt.containsKey("ctype")) {
-        displayPlacement.setCtype(Utils.copyCollection((List<Integer>) bannerExt.get
-          ("ctype"), config));
-        displayPlacement.getExt().remove("ctype");
-      }
-      if (bannerExt.containsKey("seq")) {
-        displayPlacement.getExt().remove("seq");
-      }
+    }catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for Banner", e);
     }
     if (!CollectionUtils.isEmpty(banner.getBtype())) {
       if (isNull(displayPlacement.getExt())) {

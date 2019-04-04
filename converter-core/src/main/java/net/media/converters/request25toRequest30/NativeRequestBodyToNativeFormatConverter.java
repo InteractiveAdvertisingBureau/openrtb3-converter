@@ -15,7 +15,11 @@ import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 /**
  * Created by rajat.go on 03/01/19.
@@ -40,11 +44,35 @@ public class NativeRequestBodyToNativeFormatConverter implements Converter<Nativ
     if ( nativeRequestBody == null || nativeFormat == null) {
       return;
     }
-    Converter<Asset, AssetFormat> assetAssetFormatConverter = converterProvider.fetch(new Conversion
-            (Asset.class, AssetFormat.class));
     nativeFormat.setExt(Utils.copyMap(nativeRequestBody.getExt(), config));
+    if (nonNull(nativeRequestBody.getContextsubtype())) {
+      if (isNull(nativeFormat.getExt())) {
+        nativeFormat.setExt(new HashMap<>());
+      }
+      nativeFormat.getExt().put("contextsubtype", nativeRequestBody.getContextsubtype());
+    }
+    if (nonNull(nativeRequestBody.getAdunit())) {
+      if (isNull(nativeFormat.getExt())) {
+        nativeFormat.setExt(new HashMap<>());
+      }
+      nativeFormat.getExt().put("adunit", nativeRequestBody.getAdunit());
+    }
+    if (nonNull(nativeRequestBody.getLayout())) {
+      if (isNull(nativeFormat.getExt())) {
+        nativeFormat.setExt(new HashMap<>());
+      }
+      nativeFormat.getExt().put("layout", nativeRequestBody.getLayout());
+    }
+    if (nonNull(nativeRequestBody.getVer())) {
+      if (isNull(nativeFormat.getExt())) {
+        nativeFormat.setExt(new HashMap<>());
+      }
+      nativeFormat.getExt().put("ver", nativeRequestBody.getVer());
+    }
+    Converter<Asset, AssetFormat> assetAssetFormatConverter = converterProvider.fetch(new Conversion
+      (Asset.class, AssetFormat.class));
     nativeFormat.setAsset( CollectionToCollectionConverter.convert( nativeRequestBody.getAssets()
-      ,  assetAssetFormatConverter, config, converterProvider ) );
+      , assetAssetFormatConverter, config, converterProvider ) );
 
   }
 

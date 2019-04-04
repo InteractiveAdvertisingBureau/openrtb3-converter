@@ -3,6 +3,7 @@ package net.media.converters.request30toRequest25;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayFormat;
@@ -22,7 +23,8 @@ import static java.util.Objects.nonNull;
 
 public class DisplayPlacementToBannerConverter implements Converter<DisplayPlacement, Banner> {
   @Override
-  public Banner map(DisplayPlacement displayPlacement, Config config, Provider converterProvider) {
+  public Banner map(DisplayPlacement displayPlacement, Config config, Provider converterProvider)
+    throws OpenRtbConverterException {
     if ( displayPlacement == null ) {
       return null;
     }
@@ -35,7 +37,8 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
   }
 
   @Override
-  public void enhance(DisplayPlacement displayPlacement, Banner banner, Config config, Provider converterProvider) {
+  public void enhance(DisplayPlacement displayPlacement, Banner banner, Config config, Provider
+    converterProvider) throws OpenRtbConverterException {
     if (isNull(displayPlacement) || isNull(banner)) {
       return;
     }
@@ -48,8 +51,12 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
           if (isNull(banner.getExpdir())) {
             banner.setExpdir(formatExpdir);
           } else {
-            banner.setExpdir((List<Integer>) org.apache.commons.collections.CollectionUtils.union
-              (banner.getExpdir(), formatExpdir));
+            try {
+              banner.setExpdir((List<Integer>) org.apache.commons.collections.CollectionUtils.union
+                (banner.getExpdir(), formatExpdir));
+            } catch (ClassCastException e) {
+              throw new OpenRtbConverterException("error while typecasting expdir for DisplayPlacement", e);
+            }
           }
         }
       }
@@ -63,8 +70,12 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     if ( map != null ) {
       banner.setExt(Utils.copyMap(map, config));
       if (map.containsKey("btype")) {
-        banner.setBtype(Utils.copyCollection((List<Integer>) map.get("btype"), config));
-        banner.getExt().remove("btype");
+        try {
+          banner.setBtype(Utils.copyCollection((List<Integer>) map.get("btype"), config));
+          banner.getExt().remove("btype");
+        } catch (ClassCastException e) {
+          throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+        }
       }
     }
     if (nonNull(displayPlacement.getUnit())) {
@@ -73,10 +84,34 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       }
       banner.getExt().put("unit", displayPlacement.getUnit());
     }
+    if(nonNull(displayPlacement.getPtype())) {
+      if (isNull(banner.getExt())) {
+        banner.setExt(new HashMap<>());
+      }
+      banner.getExt().put("ptype", displayPlacement.getPtype());
+    }
+    if(nonNull(displayPlacement.getContext())) {
+      if (isNull(banner.getExt())) {
+        banner.setExt(new HashMap<>());
+      }
+      banner.getExt().put("context", displayPlacement.getContext());
+    }
+    if(nonNull(displayPlacement.getCtype())) {
+      if (isNull(banner.getExt())) {
+        banner.setExt(new HashMap<>());
+      }
+      banner.getExt().put("ctype", displayPlacement.getCtype());
+    }
+    if(nonNull(displayPlacement.getPriv())) {
+      if (isNull(banner.getExt())) {
+        banner.setExt(new HashMap<>());
+      }
+      banner.getExt().put("priv", displayPlacement.getPriv());
+    }
   }
 
   private Collection<Format> displayFormatListToFormatList(Collection<DisplayFormat> list, Config
-    config) {
+    config) throws OpenRtbConverterException {
     if ( list == null ) {
       return null;
     }
@@ -89,7 +124,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     return list1;
   }
 
-  private Format displayFormatToFormat(DisplayFormat displayFormat, Config config) {
+  private Format displayFormatToFormat(DisplayFormat displayFormat, Config config) throws OpenRtbConverterException {
     if ( displayFormat == null ) {
       return null;
     }
@@ -103,7 +138,11 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     Map<String, Object> map = displayFormat.getExt();
     if ( map != null ) {
       format.setExt(Utils.copyMap(map, config));
-      format.setWmin((Integer) map.get("wmin"));
+      try {
+        format.setWmin((Integer) map.get("wmin"));
+      } catch (ClassCastException e) {
+        throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+      }
     }
 
     return format;
