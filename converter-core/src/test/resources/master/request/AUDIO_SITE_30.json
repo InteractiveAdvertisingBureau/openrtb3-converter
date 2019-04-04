@@ -63,43 +63,36 @@
           "secure": 1,
           "admx": 1,
           "curlx": 0,
-          "video": {
-            "ptype": 1,
-            "pos": 1,
+          "audio": {
             "delay": 1,
             "skip": 1,
             "skipmin": 1,
             "skipafter": 1,
-            "playmethod": 1,
             "playend": 1,
-            "clktype": 1,
+            "feed": 1,
+            "nvol": 1,
             "mime": [
-              "abc",
-              "def"
+              "1",
+              "2"
             ],
             "api": [
-              2,
-              3
-            ],
-            "ctype": [
-              2,
-              3
-            ],
-            "w": 1,
-            "h": 1,
-            "unit": 1,
-            "mindur": 1,
-            "maxdur": 1,
-            "maxext": 1,
-            "minbitr": 2,
-            "maxbitr": 2,
-            "delivery": [
               1,
               2
             ],
+            "ctype": [
+              1,
+              2
+            ],
+            "mindur": 1,
+            "maxdur": 1,
+            "maxext": 1,
+            "minbitr": 1,
+            "maxbitr": 1,
+            "delivery": [
+              2,
+              1
+            ],
             "maxseq": 1,
-            "linear": 1,
-            "boxing": 1,
             "comp": {
               "id": "3.0",
               "vcm": 1,
@@ -167,13 +160,15 @@
               },
               "ext": {
                 "dummy": "entry"
-              },
-              "comptype": [
-                1,
-                2
-              ]
+              }
+            },
+            "comptype": [
+              1
+            ],
+            "ext": {
+              "stitched": 1
             }
-          }
+          },
         }
       },
       "ext": {
