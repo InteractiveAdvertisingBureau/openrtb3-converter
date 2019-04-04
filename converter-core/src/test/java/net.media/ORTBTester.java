@@ -25,7 +25,7 @@ public class ORTBTester<U, V> {
     String FAILURE = "FAILURE";
     try {
       U bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
-      V converted = openRtbConverter.convert(bidRequest, sourceClass, targetClass);
+      V converted = openRtbConverter.convert(config, bidRequest, sourceClass, targetClass);
 
       JSONAssert.assertEquals(JacksonObjectMapper.getMapper().writeValueAsString(target),
                 JacksonObjectMapper.getMapper().writeValueAsString(converted), true);
@@ -41,5 +41,11 @@ public class ORTBTester<U, V> {
       System.out.println(e.getMessage());
       testOutput.getFailedTestList().add(outputTestPojo);
     }
+  }
+
+  public static void main(String[] args) {
+    String exception = "\\nExpected: domainSpec\\n     but none found\\n ; \\nExpected: domainVer\\n     but none found\\n ; \\nExpected: request\\n     but none found\\n ; \\nExpected: ver\\n     but none found\\n ; \\nUnexpected: allimps\\n ; \\nUnexpected: at\\n ; \\nUnexpected: badv\\n ; \\nUnexpected: bapp\\n ; \\nUnexpected: bcat\\n ; \\nUnexpected: bseat\\n ; \\nUnexpected: cur\\n ; \\nUnexpected: device\\n ; \\nUnexpected: ext\\n ; \\nUnexpected: id\\n ; \\nUnexpected: imp\\n ; \\nUnexpected: regs\\n ; \\nUnexpected: site\\n ; \\nUnexpected: source\\n ; \\nUnexpected: test\\n ; \\nUnexpected: tmax\\n ; \\nUnexpected: user\\n ; \\nUnexpected: wlang\\n ; \\nUnexpected: wseat\\n";
+    exception.replaceAll("\\n", "\\\n");
+    System.out.println(exception);
   }
 }
