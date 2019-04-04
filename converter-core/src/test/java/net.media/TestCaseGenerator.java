@@ -8,6 +8,8 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -26,24 +28,36 @@ public class TestCaseGenerator {
       .registerModule(new Jdk8Module())
       .registerModule(new JavaTimeModule());*/
     mapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
-    for(Path path : Files.list(Paths.get(basePath + "request_testscript")).collect(Collectors.toList())) {
-      String json2 = new String(Files.readAllBytes(path));
-      final Test test = mapper.readValue(json2, Test.class);
+    for(Path rootPath: Files.list(Paths.get(basePath + "edits")).collect(Collectors.toList())) {
+      for(Path path: Files.list(rootPath).collect(Collectors.toList())) {
+        try {
+          String json2 = new String(Files.readAllBytes(path));
+          final Test test = mapper.readValue(json2, Test.class);
 
-      for(Case aCase: test.getCases()) {
-        generateJsons(aCase);
-        objectMapper.writerWithDefaultPrettyPrinter()
-          .writeValue(new File(basePath + "generatedRequest/" + aCase.getPurpose() + ".json"), aCase);
-      /*try (FileWriter writer = new FileWriter(new File(basePath + "generatedRequest/" + aCase.getPurpose() + ".yaml"))) {
+          for (Case aCase : test.getCases()) {
+            generateJsons(aCase, rootPath.getFileName().toString());
+            objectMapper.writerWithDefaultPrettyPrinter()
+                    .writeValue(new File(basePath + "generated/" + rootPath.getFileName().toString() + "/" + aCase.getPurpose() + ".json"), aCase);
+      /*try (FileWriter writer = new FileWriter(new File(basePath + "request/" + aCase.getPurpose() + ".yaml"))) {
         new Yaml().dump(map, writer);
       }*/
+          }
+        } catch (Exception e) {
+          StringWriter writer = new StringWriter();
+          PrintWriter writer1 = new PrintWriter(writer);
+          e.printStackTrace(writer1);
+          System.out.println(path.toAbsolutePath().toString());
+          System.out.println(writer.toString());
+          System.out.println("----------------------------------");
+        }
       }
+
     }
   }
 
-  public static Case generateJsons(Case aCase) throws IOException{
+  public static Case generateJsons(Case aCase, String rootDir) throws IOException{
 
-    String inputJson = new String(Files.readAllBytes(Paths.get(basePath + "master_request/" + aCase.getInputFile())));
+    String inputJson = new String(Files.readAllBytes(Paths.get(basePath + "master/"+ rootDir + "/" + aCase.getInputFile())));
     JsonNode inputJsonObject = objectMapper.readValue(inputJson, JsonNode.class);
     for(Map.Entry<String, String> entry: aCase.getInputEdits().entrySet()) {
       modify(inputJsonObject, getNode(entry.getValue()), entry.getKey().split("\\."), 0);
@@ -51,7 +65,7 @@ public class TestCaseGenerator {
     aCase.setInputJson(inputJsonObject);
 
     if(aCase.getOutputFile() != null && !aCase.getOutputFile().trim().equals("null") && !aCase.getOutputFile().trim().equals("")) {
-      String outputJson = new String(Files.readAllBytes(Paths.get(basePath + "master_request/" + aCase.getOutputFile())));
+      String outputJson = new String(Files.readAllBytes(Paths.get(basePath + "master/"+ rootDir + "/" + aCase.getOutputFile())));
       JsonNode outputJsonObject = objectMapper.readValue(outputJson, JsonNode.class);
       for(Map.Entry<String, String> entry: aCase.getOutputEdits().entrySet()) {
         modify(outputJsonObject, getNode(entry.getValue()), entry.getKey().split("\\."), 0);
@@ -80,46 +94,51 @@ public class TestCaseGenerator {
   }
 
   public static void modify(JsonNode master, JsonNode nodeToSet, String[] path, int index) {
-    String fieldName = path[index].trim();
-    int newIndex = index + 1;
-    if(!fieldName.contains("[")) {
-      if (index == path.length - 1) {
-        /*if (master_request.get(fieldName).isContainerNode()) {
+    try {
+      String fieldName = path[index].trim();
+      int newIndex = index + 1;
+      if (!fieldName.contains("[")) {
+        if (index == path.length - 1) {
+        /*if (request.get(fieldName).isContainerNode()) {
           throw new RuntimeException("Unexpected Container Node found.");
         }*/
-        ((ObjectNode) master).replace(fieldName, nodeToSet);
-      } else {
-        modify(master.get(fieldName), nodeToSet, path, newIndex);
-      }
-
-    } else {
-      int indexOfLeftSB = fieldName.indexOf('[');
-      int indexOfRightSB = fieldName.indexOf(']');
-      String textBetweenBs = fieldName.substring(indexOfLeftSB + 1, indexOfRightSB).trim();
-      String newFieldName = fieldName.substring(0, indexOfLeftSB).trim();
-
-      final JsonNode arrayNode = master.get(newFieldName);
-      if (index == path.length - 1) {
-        if(textBetweenBs.contains(",")) {
-          final String[] elements = textBetweenBs.split(",");
-          Arrays.stream(elements).forEach(x -> padArrayNode(((ArrayNode) arrayNode), Integer.parseInt(x.trim())).set(Integer.parseInt(x.trim()), getNode(nodeToSet.toString())));
-        } else if (!textBetweenBs.equals("*")) {
-          padArrayNode(((ArrayNode) arrayNode), Integer.parseInt(textBetweenBs)).set(Integer.parseInt(textBetweenBs), getNode(nodeToSet.toString()));
+          ((ObjectNode) master).replace(fieldName, nodeToSet);
         } else {
-          final int size = arrayNode.size();
-          IntStream.range(0, size).forEach(x -> padArrayNode(((ArrayNode) arrayNode), x).set(x, getNode(nodeToSet.toString())));
+          modify(master.get(fieldName), nodeToSet, path, newIndex);
         }
+
       } else {
-        if(textBetweenBs.contains(",")) {
-          final String[] elements = textBetweenBs.split(",");
-          Arrays.stream(elements).forEach(x -> modify(arrayNode.get(Integer.parseInt(x.trim())), nodeToSet, path, newIndex));
-        } else if (!textBetweenBs.equals("*")) {
-          modify(arrayNode.get(Integer.parseInt(textBetweenBs)), nodeToSet, path, newIndex);
+        int indexOfLeftSB = fieldName.indexOf('[');
+        int indexOfRightSB = fieldName.indexOf(']');
+        String textBetweenBs = fieldName.substring(indexOfLeftSB + 1, indexOfRightSB).trim();
+        String newFieldName = fieldName.substring(0, indexOfLeftSB).trim();
+
+        final JsonNode arrayNode = master.get(newFieldName);
+        if (index == path.length - 1) {
+          if (textBetweenBs.contains(",")) {
+            final String[] elements = textBetweenBs.split(",");
+            Arrays.stream(elements).forEach(x -> padArrayNode(((ArrayNode) arrayNode), Integer.parseInt(x.trim())).set(Integer.parseInt(x.trim()), getNode(nodeToSet.toString())));
+          } else if (!textBetweenBs.equals("*")) {
+            padArrayNode(((ArrayNode) arrayNode), Integer.parseInt(textBetweenBs)).set(Integer.parseInt(textBetweenBs), getNode(nodeToSet.toString()));
+          } else {
+            final int size = arrayNode.size();
+            IntStream.range(0, size).forEach(x -> padArrayNode(((ArrayNode) arrayNode), x).set(x, getNode(nodeToSet.toString())));
+          }
         } else {
-          final int size = master.size();
-          IntStream.range(0, size).forEach(x -> modify(arrayNode.get(x), nodeToSet, path, newIndex));
+          if (textBetweenBs.contains(",")) {
+            final String[] elements = textBetweenBs.split(",");
+            Arrays.stream(elements).forEach(x -> modify(arrayNode.get(Integer.parseInt(x.trim())), nodeToSet, path, newIndex));
+          } else if (!textBetweenBs.equals("*")) {
+            modify(arrayNode.get(Integer.parseInt(textBetweenBs)), nodeToSet, path, newIndex);
+          } else {
+            final int size = master.size();
+            IntStream.range(0, size).forEach(x -> modify(arrayNode.get(x), nodeToSet, path, newIndex));
+          }
         }
       }
+    } catch (Exception e) {
+      System.out.println(path[index]);
+      throw new RuntimeException(e);
     }
   }
 

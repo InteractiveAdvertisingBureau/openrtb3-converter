@@ -24,4 +24,6 @@ public class TestPojo {
   private Config config;
 
   private String purpose;
+
+  private Config params;
 }

@@ -17,10 +17,26 @@ public class ORTBTester<U, V> {
   private OpenRtbConverter openRtbConverter;
 
   public <U, V> void test(Object source, Class<U> sourceClass, Object target, Class<V> targetClass,
-                          Config config) throws Exception {
-    U bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
-    V converted = openRtbConverter.convert(bidRequest, sourceClass, targetClass);
-    JSONAssert.assertEquals(JacksonObjectMapper.getMapper().writeValueAsString(target),
-      JacksonObjectMapper.getMapper().writeValueAsString(converted), true);
+                          Config config, TestPojo inputPojo, TestOutput testOutput, String inputFile) throws Exception {
+
+    String FAILURE = "FAILURE";
+    try {
+      U bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
+      V converted = openRtbConverter.convert(bidRequest, sourceClass, targetClass);
+
+      JSONAssert.assertEquals(JacksonObjectMapper.getMapper().writeValueAsString(target),
+                JacksonObjectMapper.getMapper().writeValueAsString(converted), true);
+
+    } catch(Exception | AssertionError e) {
+      OutputTestPojo outputTestPojo = new OutputTestPojo();
+      outputTestPojo.setInputFile(inputFile);
+      outputTestPojo.setStatus(FAILURE);
+      outputTestPojo.setInputType(inputPojo.getInputType());
+      outputTestPojo.setOutputType(inputPojo.getOutputType());
+      outputTestPojo.setException(e.getMessage());
+
+      System.out.println(e.getMessage());
+      testOutput.getFailedTestList().add(outputTestPojo);
+    }
   }
 }
