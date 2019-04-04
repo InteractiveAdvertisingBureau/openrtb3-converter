@@ -1,5 +1,6 @@
 package net.media.converters.request25toRequest30;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -15,6 +16,7 @@ import net.media.openrtb3.Request;
 import net.media.openrtb3.Spec;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
@@ -27,17 +29,6 @@ import java.util.Map;
  * Created by rajat.go on 03/01/19.
  */
 public class BidRequestToRequestConverter implements Converter<BidRequest, Request> {
-
-  Converter<Imp, Item> impItemConverter;
-  Converter<BidRequest, Context> bidRequestContextConverter;
-  Converter<Source, net.media.openrtb3.Source> source25Source3Converter;
-
-  @java.beans.ConstructorProperties({"impItemConverter", "bidRequestContextConverter", "source25Source3Converter"})
-  public BidRequestToRequestConverter(Converter<Imp, Item> impItemConverter, Converter<BidRequest, Context> bidRequestContextConverter, Converter<Source, net.media.openrtb3.Source> source25Source3Converter) {
-    this.impItemConverter = impItemConverter;
-    this.bidRequestContextConverter = bidRequestContextConverter;
-    this.source25Source3Converter = source25Source3Converter;
-  }
 
   private String bidRequestUserCustomdata(BidRequest bidRequest) {
     if ( bidRequest == null ) {
@@ -55,24 +46,30 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
   }
 
   @Override
-  public Request map(BidRequest source, Config config) throws OpenRtbConverterException {
+  public Request map(BidRequest source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
 
     Request request = new Request();
 
-    enhance( source, request, config );
+    enhance( source, request, config, converterProvider );
 
     return request;
   }
 
   @Override
-  public void enhance(BidRequest source, Request target, Config config) throws OpenRtbConverterException {
-    if(source == null)
+  public void enhance(BidRequest source, Request target, Config config, Provider converterProvider) throws OpenRtbConverterException {
+    if(source == null || target == null) {
       return;
-    target.setContext( bidRequestContextConverter.map( source, config ) );
-    target.setItem( CollectionToCollectionConverter.convert( source.getImp(), impItemConverter, config ) );
+    }
+    Converter<BidRequest, Context> bidRequestContextConverter = converterProvider.fetch(new Conversion
+            (BidRequest.class, Context.class));
+    Converter<Imp, Item> impItemConverter = converterProvider.fetch(new Conversion
+            (Imp.class, Item.class));
+    target.setContext( bidRequestContextConverter.map( source, config, converterProvider ) );
+    target.setItem( CollectionToCollectionConverter.convert( source.getImp(), impItemConverter,
+      config, converterProvider ) );
     target.setPack( source.getAllimps() );
     String customdata = bidRequestUserCustomdata( source );
     if ( customdata != null ) {
@@ -83,7 +80,9 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     target.setTmax( source.getTmax() );
     target.setAt( source.getAt() );
     target.setCur(Utils.copyCollection(source.getCur(), config));
-    target.setSource( source25Source3Converter.map(source.source, config ));
+    Converter<Source, net.media.openrtb3.Source> source25Source3Converter = converterProvider.fetch(new Conversion
+            (Source.class, net.media.openrtb3.Source.class));
+    target.setSource( source25Source3Converter.map(source.source, config, converterProvider ));
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt( new HashMap<String, Object>( map ) );

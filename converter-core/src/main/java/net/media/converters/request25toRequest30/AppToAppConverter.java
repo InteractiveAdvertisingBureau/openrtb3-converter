@@ -1,11 +1,13 @@
 package net.media.converters.request25toRequest30;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.App;
 import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Publisher;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,38 +16,33 @@ import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
 public class AppToAppConverter implements Converter<App, net.media.openrtb3.App> {
 
-  private Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter;
-  private Converter<Content, net.media.openrtb3.Content> contentContentConverter;
-
-  @java.beans.ConstructorProperties({"publisherPublisherConverter", "contentContentConverter"})
-  public AppToAppConverter(Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter, Converter<Content, net.media.openrtb3.Content> contentContentConverter) {
-    this.publisherPublisherConverter = publisherPublisherConverter;
-    this.contentContentConverter = contentContentConverter;
-  }
-
   @Override
-  public net.media.openrtb3.App map(App source, Config config) throws OpenRtbConverterException {
+  public net.media.openrtb3.App map(App source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
 
     net.media.openrtb3.App app1 = new net.media.openrtb3.App();
 
-    enhance( source, app1, config );
+    enhance( source, app1, config, converterProvider);
 
     return app1;
   }
 
   @Override
-  public void enhance(App source, net.media.openrtb3.App target, Config config) throws OpenRtbConverterException {
-    if(source == null)
+  public void enhance(App source, net.media.openrtb3.App target, Config config, Provider converterProvider) throws OpenRtbConverterException {
+    if(source == null || target == null)
       return;
     target.setPrivpolicy( source.getPrivacypolicy() );
     target.setSectcat( Utils.copyCollection(source.getSectioncat(), config) );
-    target.setPub( publisherPublisherConverter.map( source.getPublisher(), config ) );
+    Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter = converterProvider.fetch(new Conversion
+            (Publisher.class, net.media.openrtb3.Publisher.class));
+    Converter<Content, net.media.openrtb3.Content> contentContentConverter = converterProvider.fetch(new Conversion
+            (Content.class, net.media.openrtb3.Content.class));
+    target.setPub( publisherPublisherConverter.map( source.getPublisher(), config, converterProvider ) );
     target.setId( source.getId() );
     target.setName( source.getName() );
-    target.setContent( contentContentConverter.map( source.getContent(), config ) );
+    target.setContent( contentContentConverter.map( source.getContent(), config, converterProvider) );
     target.setDomain( source.getDomain() );
     target.setCat( Utils.copyCollection(source.getCat(), config) );
     target.setPagecat( Utils.copyCollection(source.getPagecat(), config) );

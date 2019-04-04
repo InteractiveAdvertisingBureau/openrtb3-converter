@@ -1,5 +1,6 @@
 package net.media.utils;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -12,7 +13,7 @@ import java.util.Set;
 
 public class CollectionToCollectionConverter {
   public static <S,T> Collection<T> convert(Collection<S> collection, Converter<S, T>
-    stConverter, Config config)
+    stConverter, Config config, Provider converterProvider)
     throws OpenRtbConverterException {
     if ( collection == null ) {
       return null;
@@ -24,7 +25,7 @@ public class CollectionToCollectionConverter {
       collection1 = new ArrayList<T>( collection.size() );
     }
     for ( S value : collection ) {
-      collection1.add( stConverter.map( value, config ) );
+      collection1.add( stConverter.map( value, config, converterProvider ) );
     }
 
     return collection1;

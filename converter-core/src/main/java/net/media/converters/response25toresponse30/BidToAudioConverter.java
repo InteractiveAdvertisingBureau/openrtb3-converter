@@ -1,10 +1,12 @@
 package net.media.converters.response25toresponse30;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Audio;
+import net.media.utils.Provider;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,18 +20,19 @@ import static java.util.Objects.nonNull;
  * @author shiva.b
  */
 public class BidToAudioConverter implements Converter<Bid, Audio> {
+
   @Override
-  public Audio map(Bid source, Config config)throws OpenRtbConverterException {
+  public Audio map(Bid source, Config config, Provider converterProvider)throws OpenRtbConverterException {
     if (isNull(source)) {
       return null;
     }
     Audio audio = new Audio();
-    enhance(source, audio, config);
+    enhance(source, audio, config, converterProvider);
     return null;
   }
 
   @Override
-  public void enhance(Bid source, Audio target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, Audio target, Config config, Provider converterProvider) throws OpenRtbConverterException{
 
     if (isNull(source) || isNull(target)) {
       return;

@@ -2,7 +2,9 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
 import net.media.openrtb25.request.Deal;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 /**
@@ -10,19 +12,19 @@ import net.media.utils.Utils;
  */
 public class DealToDealConverter implements Converter<Deal, net.media.openrtb3.Deal> {
   @Override
-  public net.media.openrtb3.Deal map(Deal deal, Config config) {
+  public net.media.openrtb3.Deal map(Deal deal, Config config, Provider converterProvider) {
     if ( deal == null ) {
       return null;
     }
 
     net.media.openrtb3.Deal deal1 = new net.media.openrtb3.Deal();
-    enhance(deal, deal1, config);
+    enhance(deal, deal1, config, converterProvider);
     return deal1;
   }
 
   @Override
-  public void enhance(Deal deal, net.media.openrtb3.Deal deal1, Config config) {
-    if ( deal == null ) {
+  public void enhance(Deal deal, net.media.openrtb3.Deal deal1, Config config, Provider converterProvider) {
+    if ( deal == null || deal1 == null) {
       return;
     }
     deal1.setFlrcur( deal.getBidFloorCur() );

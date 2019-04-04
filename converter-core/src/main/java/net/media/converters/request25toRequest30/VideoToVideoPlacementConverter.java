@@ -1,5 +1,6 @@
 package net.media.converters.request25toRequest30;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -9,6 +10,7 @@ import net.media.openrtb3.Companion;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import static java.util.Objects.isNull;
@@ -20,32 +22,28 @@ import static java.util.Objects.nonNull;
 
 public class VideoToVideoPlacementConverter implements Converter<Video, VideoPlacement> {
 
-  private Converter<Banner, Companion> bannerCompanionConverter;
-
-  @java.beans.ConstructorProperties({"bannerCompanionConverter"})
-  public VideoToVideoPlacementConverter(Converter<Banner, Companion> bannerCompanionConverter) {
-    this.bannerCompanionConverter = bannerCompanionConverter;
-  }
-
   @Override
-  public VideoPlacement map(Video video, Config config) throws OpenRtbConverterException {
+  public VideoPlacement map(Video video, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( video == null) {
       return null;
     }
 
     VideoPlacement videoPlacement = new VideoPlacement();
-    enhance(video, videoPlacement, config);
+    enhance(video, videoPlacement, config, converterProvider);
 
     return videoPlacement;
   }
 
   @Override
-  public void enhance(Video video, VideoPlacement videoPlacement, Config config) throws OpenRtbConverterException {
+  public void enhance(Video video, VideoPlacement videoPlacement, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(video) || isNull(videoPlacement)) {
       return;
     }
+    Converter<Banner, Companion> bannerCompanionConverter = converterProvider.fetch(new Conversion
+            (Banner.class, Companion.class));
     videoPlacement.setComptype(Utils.copyCollection(video.getCompaniontype(), config));
-    videoPlacement.setComp( CollectionToCollectionConverter.convert( video.getCompanionad(), bannerCompanionConverter, config ) );
+    videoPlacement.setComp( CollectionToCollectionConverter.convert( video.getCompanionad(),
+      bannerCompanionConverter, config, converterProvider ) );
     videoPlacement.setLinear( video.getLinearity() );
     videoPlacement.setMime(Utils.copyCollection(video.getMimes(), config));
     videoPlacement.setMinbitr( video.getMinbitrate() );
