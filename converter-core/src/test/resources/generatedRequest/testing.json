@@ -70,7 +70,7 @@
       } ],
       "Key" : "value"
     },
-    "cur" : 2,
+    "cur" : ["2"],
     "allimps" : 0,
     "wlang" : [ "en" ],
     "bcat" : [ "bb" ],
