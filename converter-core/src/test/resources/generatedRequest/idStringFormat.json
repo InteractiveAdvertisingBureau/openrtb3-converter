@@ -2,10 +2,10 @@
   "inputFile" : "BANNER_SITE_25.json",
   "inputType" : "REQUEST25",
   "inputEdits" : {
-    "id" : "\"ab\""
+    "user.customdata" : "\"ff\""
   },
   "inputJson" : {
-    "id" : "ab",
+    "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
     "at" : 1,
     "test" : 1,
     "tmax" : 100,
@@ -397,7 +397,7 @@
       "yob" : 2,
       "gender" : "M",
       "keywords" : "ewew",
-      "customdata" : "ewew",
+      "customdata" : "ff",
       "geo" : {
         "lat" : 22.22,
         "lon" : 22.2,
@@ -760,8 +760,5 @@
     }
   },
   "purpose" : "idStringFormat",
-  "params" : {
-    "adType" : "m",
-    "yaar" : "e"
-  }
+  "params" : null
 }
