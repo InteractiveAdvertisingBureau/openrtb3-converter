@@ -13,7 +13,7 @@ import net.media.utils.Provider;
 public class Convert23To30ResponseManager {
 
   public Convert23To30ResponseManager(Provider converterProvider) {
-    converterProvider.register(new Conversion(Bid.class, net.media.openrtb3.Bid.class), new
+    converterProvider.register(new Conversion<>(Bid.class, net.media.openrtb3.Bid.class), new
       Bid23ToBid30Converter());
   }
 }

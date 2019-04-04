@@ -29,7 +29,7 @@ public class Bid25ToMediaConverter implements Converter<Bid, Media> {
     if (source == null || target == null) {
       return;
     }
-    Converter<Bid, Ad> bidAdConverter = converterProvider.fetch(new Conversion(Bid.class, Ad.class));
+    Converter<Bid, Ad> bidAdConverter = converterProvider.fetch(new Conversion<>(Bid.class, Ad.class));
     target.setAd(bidAdConverter.map(source, config, converterProvider));
   }
 }

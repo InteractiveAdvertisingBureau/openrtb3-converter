@@ -72,7 +72,7 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     if ( list == null ) {
       return null;
     }
-    Converter<Banner, net.media.openrtb3.Companion> bannerCompanionConverter = converterProvider.fetch(new Conversion
+    Converter<Banner, net.media.openrtb3.Companion> bannerCompanionConverter = converterProvider.fetch(new Conversion<>
             (Banner.class, Companion.class));
     Collection<Companion> list1 = new ArrayList<Companion>( list.size() );
     for ( Banner banner : list ) {

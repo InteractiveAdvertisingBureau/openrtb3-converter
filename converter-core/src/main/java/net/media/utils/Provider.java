@@ -55,7 +55,12 @@ public class Provider {
    * @throws IllegalArgumentException
    */
   public <X, Y> Converter<X, Y> fetch(Conversion<X, Y> key) throws IllegalArgumentException {
-    Converter<X, Y> value = providerMap.get(key);
+    Converter<X, Y> value;
+    try {
+      value = providerMap.get(key);
+    } catch (Exception e) {
+      throw new IllegalArgumentException("Error in casting converter ", e);
+    }
     if (isNull(value)) {
       throw new IllegalArgumentException("key not registered " + key);
     }

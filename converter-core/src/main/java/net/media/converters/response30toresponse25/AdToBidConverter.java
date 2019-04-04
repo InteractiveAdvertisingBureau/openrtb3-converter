@@ -33,13 +33,13 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
   public void enhance(Ad source, Bid target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
-    Converter<Display, Bid>displayBidConverter = converterProvider.fetch(new Conversion(Display.class,
+    Converter<Display, Bid>displayBidConverter = converterProvider.fetch(new Conversion<>(Display.class,
       Bid.class));
-    Converter<Video, Bid> videoBidConverter = converterProvider.fetch(new Conversion(Video.class,
+    Converter<Video, Bid> videoBidConverter = converterProvider.fetch(new Conversion<>(Video.class,
       Bid.class));
-    Converter<Audio, Bid> audioBidConverter = converterProvider.fetch(new Conversion(Audio.class,
+    Converter<Audio, Bid> audioBidConverter = converterProvider.fetch(new Conversion<>(Audio.class,
       Bid.class));
-    Converter<Audit, Bid> auditBidConverter = converterProvider.fetch(new Conversion(Audit.class,
+    Converter<Audit, Bid> auditBidConverter = converterProvider.fetch(new Conversion<>(Audit.class,
       Bid.class));
 
     target.setCrid(source.getId());

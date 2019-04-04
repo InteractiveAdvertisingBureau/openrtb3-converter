@@ -49,12 +49,13 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     if (isNull(imp) || isNull(item)) {
       return;
     }
-    Converter<DisplayPlacement, Banner> displayPlacementBannerConverter = converterProvider.fetch(new Conversion(DisplayPlacement.class, Banner.class));
-    Converter<DisplayPlacement, Native> displayPlacementNativeConverter = converterProvider.fetch(new Conversion(DisplayPlacement.class, Native.class));
-    Converter<VideoPlacement, Video> videoPlacementVideoConverter = converterProvider.fetch(new Conversion(DisplayPlacement.class, Video.class));
-    Converter<AudioPlacement, Audio> audioPlacementAudioConverter = converterProvider.fetch(new Conversion(AudioPlacement.class, Audio.class));
+    Converter<DisplayPlacement, Banner> displayPlacementBannerConverter = converterProvider.fetch(new Conversion<>(DisplayPlacement.class, Banner.class));
+    Converter<DisplayPlacement, Native> displayPlacementNativeConverter = converterProvider.fetch(new Conversion<>(DisplayPlacement.class, Native.class));
+    Converter<VideoPlacement, Video> videoPlacementVideoConverter = converterProvider.fetch(new
+      Conversion<>(VideoPlacement.class, Video.class));
+    Converter<AudioPlacement, Audio> audioPlacementAudioConverter = converterProvider.fetch(new Conversion<>(AudioPlacement.class, Audio.class));
     Converter<net.media.openrtb3.Metric, Metric> metricMetricConverter =
-      converterProvider.fetch(new Conversion(net.media.openrtb3.Metric.class, Metric.class));
+      converterProvider.fetch(new Conversion<>(net.media.openrtb3.Metric.class, Metric.class));
     imp.setPmp( itemToPmp( item, config, converterProvider ) );
     imp.setExt(Utils.copyMap(item.getExt(), config));
     fillExtMap(item, imp, config);
@@ -146,7 +147,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     }
 
     Converter<net.media.openrtb3.Deal, Deal> dealDealConverter =
-      converterProvider.fetch(new Conversion(net.media.openrtb3.Deal.class, Deal.class));
+      converterProvider.fetch(new Conversion<>(net.media.openrtb3.Deal.class, Deal.class));
 
     Pmp pmp = new Pmp();
 

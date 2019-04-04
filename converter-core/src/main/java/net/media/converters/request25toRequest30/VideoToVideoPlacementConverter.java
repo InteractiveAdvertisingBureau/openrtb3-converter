@@ -39,7 +39,7 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     if (isNull(video) || isNull(videoPlacement)) {
       return;
     }
-    Converter<Banner, Companion> bannerCompanionConverter = converterProvider.fetch(new Conversion
+    Converter<Banner, Companion> bannerCompanionConverter = converterProvider.fetch(new Conversion<>
             (Banner.class, Companion.class));
     videoPlacement.setComptype(Utils.copyCollection(video.getCompaniontype(), config));
     videoPlacement.setComp( CollectionToCollectionConverter.convert( video.getCompanionad(),

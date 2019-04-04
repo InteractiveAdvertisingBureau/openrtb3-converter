@@ -85,19 +85,19 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
     switch (config.getAdType(source.getId())) {
       case BANNER:
       case NATIVE:
-        Converter<Bid, Display> bidDisplayConverter = converterProvider.fetch(new Conversion(Bid.class, Display.class));
+        Converter<Bid, Display> bidDisplayConverter = converterProvider.fetch(new Conversion<>(Bid.class, Display.class));
         target.setDisplay(bidDisplayConverter.map(source, config, converterProvider));
         break;
       case VIDEO:
-        Converter<Bid, Video> bidVideoConverter = converterProvider.fetch(new Conversion(Bid.class, Video.class));
+        Converter<Bid, Video> bidVideoConverter = converterProvider.fetch(new Conversion<>(Bid.class, Video.class));
         target.setVideo(bidVideoConverter.map(source, config, converterProvider));
         break;
       case AUDIO:
-        Converter<Bid, Audio> bidAudioConverter = converterProvider.fetch(new Conversion(Bid.class, Audio.class));
+        Converter<Bid, Audio> bidAudioConverter = converterProvider.fetch(new Conversion<>(Bid.class, Audio.class));
         target.setAudio(bidAudioConverter.map(source, config, converterProvider));
         break;
       case AUDIT:
-        Converter<Bid, Audit> bidAuditConverter = converterProvider.fetch(new Conversion(Bid.class, Audit.class));
+        Converter<Bid, Audit> bidAuditConverter = converterProvider.fetch(new Conversion<>(Bid.class, Audit.class));
         target.setAudit(bidAuditConverter.map(source, config, converterProvider));
         break;
     }

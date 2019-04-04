@@ -35,9 +35,9 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     if(source == null || target == null)
       return;
     Converter<Producer, net.media.openrtb25.request.Producer> producerProducerConverter =
-      converterProvider.fetch(new Conversion(Producer.class, net.media.openrtb25.request.Producer.class));
+      converterProvider.fetch(new Conversion<>(Producer.class, net.media.openrtb25.request.Producer.class));
     Converter<Data, net.media.openrtb25.request.Data> dataDataConverter =
-      converterProvider.fetch(new Conversion(Data.class, net.media.openrtb25.request.Data.class));
+      converterProvider.fetch(new Conversion<>(Data.class, net.media.openrtb25.request.Data.class));
     target.setContentrating( source.getRating() );
     target.setSourcerelationship( source.getSrcrel() );
     target.setUserrating( source.getUrating() );

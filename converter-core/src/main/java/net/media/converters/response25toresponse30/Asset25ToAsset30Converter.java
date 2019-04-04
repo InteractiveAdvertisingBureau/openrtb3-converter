@@ -54,7 +54,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     target.setImage(nativeImageToImageAsset(source.getImg(), config));
     target.setTitle(nativeTittleToTittleAsset(source.getTitle(), config));
     target.setVideo(nativeVideoToVideoAsset(source.getVideo(), config));
-    Converter<Link, LinkAsset> converter = converterProvider.fetch(new Conversion(Link.class, LinkAsset.class));
+    Converter<Link, LinkAsset> converter = converterProvider.fetch(new Conversion<>(Link.class, LinkAsset.class));
     target.setLink(converter.map(source.getLink(), config, converterProvider));
   }
 

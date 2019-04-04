@@ -34,7 +34,7 @@ public class DisplayToBidConverter implements Converter<Display,Bid> {
   }
 
   public  void enhance(Display source, Bid target, Config config, Provider converterProvider) throws OpenRtbConverterException {
-    Converter<Native, NativeResponse> nativeBidConverter = converterProvider.fetch(new Conversion
+    Converter<Native, NativeResponse> nativeBidConverter = converterProvider.fetch(new Conversion<>
       (Native.class, NativeResponse.class));
 
     if(isNull(source) || isNull(target) || isNull(config))

@@ -49,7 +49,8 @@ public class BidResponseToResponseConverter implements Converter<BidResponse, Re
     response.setBidid( bidResponse.getBidid() );
     response.setNbr( bidResponse.getNbr() );
     response.setCur( bidResponse.getCur() );
-    Converter<SeatBid, Seatbid> converter = converterProvider.fetch(new Conversion(SeatBid.class, SeatBid.class));
+    Converter<SeatBid, Seatbid> converter = converterProvider.fetch(new Conversion<>(SeatBid
+      .class, Seatbid.class));
     if (!CollectionUtils.isEmpty(bidResponse.getSeatbid())) {
       List<Seatbid> seatbids = new ArrayList<>();
       for (SeatBid seatBid : bidResponse.getSeatbid()) {

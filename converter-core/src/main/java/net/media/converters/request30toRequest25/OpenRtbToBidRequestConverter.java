@@ -21,7 +21,7 @@ public class OpenRtbToBidRequestConverter implements Converter<OpenRTB, BidReque
     if (isNull(source.getRequest())) {
       return null;
     }
-    Converter<Request, BidRequest> requestBidRequestConverter = converterProvider.fetch(new Conversion(Request.class, BidRequest.class));
+    Converter<Request, BidRequest> requestBidRequestConverter = converterProvider.fetch(new Conversion<>(Request.class, BidRequest.class));
     return requestBidRequestConverter.map(source.getRequest(), config, converterProvider);
   }
 

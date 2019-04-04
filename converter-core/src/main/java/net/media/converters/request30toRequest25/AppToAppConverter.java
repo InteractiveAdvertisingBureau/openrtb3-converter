@@ -38,9 +38,9 @@ public class AppToAppConverter implements Converter<App,net.media.openrtb25.requ
     target.setSectioncat( Utils.copyCollection(source.getSectcat(), config) );
     target.setPrivacypolicy( source.getPrivpolicy() );
     Converter<Publisher, net.media.openrtb25.request.Publisher> publisherPublisherConverter =
-      converterProvider.fetch(new Conversion(Publisher.class, net.media.openrtb25.request.Publisher.class));
+      converterProvider.fetch(new Conversion<>(Publisher.class, net.media.openrtb25.request.Publisher.class));
     Converter<Content, net.media.openrtb25.request.Content> contentContentConverter =
-      converterProvider.fetch(new Conversion(Content.class, net.media.openrtb25.request.Content.class));
+      converterProvider.fetch(new Conversion<>(Content.class, net.media.openrtb25.request.Content.class));
     target.setPublisher( publisherPublisherConverter.map( source.getPub(), config, converterProvider ) );
     target.setId( source.getId() );
     target.setName( source.getName() );

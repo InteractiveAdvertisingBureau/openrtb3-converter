@@ -45,8 +45,8 @@ public class Native25ToNative30Converter implements Converter<NativeResponse, Na
     }
     target.getExt().put("jsTracker", source.getNativeResponseBody().getJstracker());
     target.getExt().put("impTrackers", source.getNativeResponseBody().getImptrackers());
-    Converter<Link, LinkAsset> linkLinkAssetConverter = converterProvider.fetch(new Conversion(Link.class, LinkAsset.class));
-    Converter<AssetResponse, Asset> assetResponseAssetConverter = converterProvider.fetch(new Conversion(AssetResponse.class, Asset.class));
+    Converter<Link, LinkAsset> linkLinkAssetConverter = converterProvider.fetch(new Conversion<>(Link.class, LinkAsset.class));
+    Converter<AssetResponse, Asset> assetResponseAssetConverter = converterProvider.fetch(new Conversion<>(AssetResponse.class, Asset.class));
     linkLinkAssetConverter.map(source.getNativeResponseBody().getLink(), config, converterProvider);
     if (!isEmpty(source.getNativeResponseBody().getAssets())) {
       List<Asset> assetList = new ArrayList<>();

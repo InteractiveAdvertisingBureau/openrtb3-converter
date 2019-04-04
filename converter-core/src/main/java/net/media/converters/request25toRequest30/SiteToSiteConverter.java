@@ -34,9 +34,9 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
   public void enhance(Site source, net.media.openrtb3.Site target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(source == null || target == null)
       return;
-    Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter = converterProvider.fetch(new Conversion
+    Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter = converterProvider.fetch(new Conversion<>
             (Publisher.class, net.media.openrtb3.Publisher.class));
-    Converter<Content, net.media.openrtb3.Content> contentContentConverter = converterProvider.fetch(new Conversion
+    Converter<Content, net.media.openrtb3.Content> contentContentConverter = converterProvider.fetch(new Conversion<>
             (Content.class, net.media.openrtb3.Content.class));
     target.setPrivpolicy( source.getPrivacypolicy() );
     target.setSectcat( Utils.copyCollection(source.getSectioncat(), config) );

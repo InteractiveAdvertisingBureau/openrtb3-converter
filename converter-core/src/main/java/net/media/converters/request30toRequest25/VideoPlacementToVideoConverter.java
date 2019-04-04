@@ -38,7 +38,7 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     if (isNull(video) || isNull(videoPlacement)) {
       return;
     }
-    Converter<Companion, Banner> companionBannerConverter = converterProvider.fetch(new Conversion(Companion.class, Banner.class));
+    Converter<Companion, Banner> companionBannerConverter = converterProvider.fetch(new Conversion<>(Companion.class, Banner.class));
     video.setMinbitrate( videoPlacement.getMinbitr() );
     video.setMaxbitrate( videoPlacement.getMaxbitr() );
     video.setProtocols(Utils.copyCollection(videoPlacement.getCtype(), config));

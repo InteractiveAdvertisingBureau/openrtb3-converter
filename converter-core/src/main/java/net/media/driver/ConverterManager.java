@@ -48,7 +48,7 @@ public class ConverterManager {
   }
 
   public <U, V> Converter<U, V> getConverter(Class<U> source, Class<V> target) {
-    return converterProvider.fetch(new Conversion(source, target));
+    return converterProvider.fetch(new Conversion<>(source, target));
   }
 
   public Provider getConverterProvider(Map<Conversion, Converter> overrideMap, Config config) {

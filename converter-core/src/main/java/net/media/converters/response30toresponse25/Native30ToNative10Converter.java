@@ -35,7 +35,7 @@ public class Native30ToNative10Converter implements Converter<Native,NativeRespo
 
     Converter<Asset, AssetResponse> assetAssetResponseConverter = converterProvider.fetch(new
       Conversion(Asset.class, AssetResponse.class));
-    Converter<LinkAsset, Link> linkAssetLinkConverter = converterProvider.fetch(new Conversion
+    Converter<LinkAsset, Link> linkAssetLinkConverter = converterProvider.fetch(new Conversion<>
       (LinkAsset.class, Link.class));
 
     if(isNull(source) || isNull(target) || isNull(config))

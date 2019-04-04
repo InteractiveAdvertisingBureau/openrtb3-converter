@@ -48,7 +48,7 @@ public class SeatBid25ToSeatBid30Converter implements Converter<SeatBid, Seatbid
     }
     seatbid.set_package(source.getGroup());
     seatbid.setSeat(source.getSeat());
-    Converter<Bid, net.media.openrtb3.Bid> bid25ToBid30Converter = converterProvider.fetch(new Conversion(Bid.class, net.media.openrtb3.Bid.class));
+    Converter<Bid, net.media.openrtb3.Bid> bid25ToBid30Converter = converterProvider.fetch(new Conversion<>(Bid.class, net.media.openrtb3.Bid.class));
     if (!isEmpty(source.getBid())) {
       List<net.media.openrtb3.Bid> bidList = new ArrayList<>();
       for (Bid bid : source.getBid()) {

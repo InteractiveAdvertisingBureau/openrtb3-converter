@@ -33,7 +33,7 @@ public class BidRequestToOpenRtbConverter implements Converter<BidRequest, OpenR
     if (isNull(source) || isNull(target)) {
       return;
     }
-    Converter<BidRequest, Request> bidRequestRequestConverter = converterProvider.fetch(new Conversion
+    Converter<BidRequest, Request> bidRequestRequestConverter = converterProvider.fetch(new Conversion<>
             (BidRequest.class, Request.class));
     target.setRequest(bidRequestRequestConverter.map(source, config, converterProvider));
   }

@@ -43,7 +43,7 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
     if (isNull(nat) || isNull(displayPlacement)) {
       return;
     }
-    Converter<NativeRequestBody, NativeFormat> nativeRequestBodyNativeFormatConverter = converterProvider.fetch(new Conversion
+    Converter<NativeRequestBody, NativeFormat> nativeRequestBodyNativeFormatConverter = converterProvider.fetch(new Conversion<>
             (NativeRequestBody.class, NativeFormat.class));
     displayPlacement.setApi(Utils.copyCollection(nat.getApi(), config));
     if (nonNull(nat.getRequest())) {
