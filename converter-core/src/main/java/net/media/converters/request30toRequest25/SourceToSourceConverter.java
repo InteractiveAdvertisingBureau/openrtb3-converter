@@ -51,7 +51,7 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
     if(source.getDsmap() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
-      target.getExt().put("dsMap", source.getDsmap());
+      target.getExt().put("dsmap", source.getDsmap());
     }
     if(source.getCert() != null) {
       if(target.getExt() == null)

@@ -22,10 +22,7 @@ import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -156,8 +153,14 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     pmp.setPrivate_auction( item.getPriv() );
     if(item.getExt() != null) {
       if(item.getExt().containsKey("pmp")) {
-        Pmp pmp1 = (Pmp) item.getExt().get("pmp");
-        pmp.setExt(pmp1.getExt());
+        try {
+          Map<String, Object> pmp1 = (Map<String, Object>) item.getExt().get("pmp");
+          if(pmp1.containsKey("ext")) {
+            pmp.setExt((Map<String, Object>) pmp1.get("ext"));
+          }
+        } catch (ClassCastException e) {
+          throw new OpenRtbConverterException("Error in converting pmp ext ", e);
+        }
       }
     }
 
