@@ -1,5 +1,6 @@
 package net.media.converters.response30toresponse25;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -15,6 +16,7 @@ import net.media.openrtb3.ImageAsset;
 import net.media.openrtb3.LinkAsset;
 import net.media.openrtb3.TitleAsset;
 import net.media.openrtb3.VideoAsset;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -23,21 +25,21 @@ import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 public class Asset30ToAsset25Converter implements Converter<Asset,AssetResponse> {
-  Converter<LinkAsset,Link> linkAssetLinkConverter;
-  public Asset30ToAsset25Converter(Converter<LinkAsset,Link> linkAssetLinkConverter){
-    this.linkAssetLinkConverter = linkAssetLinkConverter;
-  }
 
-  public AssetResponse map(Asset source, Config config) throws OpenRtbConverterException{
+  public AssetResponse map(Asset source, Config config, Provider converterProvider) throws OpenRtbConverterException{
     if(isNull(source) || isNull(config))
       return  null;
     AssetResponse assetResponse = new AssetResponse();
-    enhance(source,assetResponse,config);
+    enhance(source,assetResponse,config, converterProvider);
     return assetResponse;
   }
 
-  public void enhance(Asset source, AssetResponse target, Config config) throws
+  public void enhance(Asset source, AssetResponse target, Config config, Provider converterProvider) throws
     OpenRtbConverterException {
+
+    Converter<LinkAsset, Link> linkAssetLinkConverter = converterProvider.fetch(new Conversion
+      (LinkAsset.class, Link.class));
+
     if(isNull(source) || isNull(target) || isNull(config))
       return;
 
@@ -47,7 +49,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset,AssetResponse>
     target.setImg(imageAssetToNativeImage(source.getImage(), config));
     target.setVideo(videoAssetToNativeVideo(source.getVideo(), config));
     target.setTitle(tittleAssetToNativeTittle(source.getTitle(), config));
-    target.setLink(linkAssetLinkConverter.map(source.getLink(),config));
+    target.setLink(linkAssetLinkConverter.map(source.getLink(),config, converterProvider));
 
 
   }

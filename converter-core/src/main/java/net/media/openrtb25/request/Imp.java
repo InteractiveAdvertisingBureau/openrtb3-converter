@@ -52,7 +52,7 @@ public class Imp {
   private Integer exp;
 
   @NotEmpty
-  Collection<Metric> metric;
+  private Collection<Metric> metric;
 
   private Map<String, Object> ext;
 

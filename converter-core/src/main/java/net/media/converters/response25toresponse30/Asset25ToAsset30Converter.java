@@ -1,5 +1,6 @@
 package net.media.converters.response25toresponse30;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -15,6 +16,7 @@ import net.media.openrtb3.ImageAsset;
 import net.media.openrtb3.LinkAsset;
 import net.media.openrtb3.TitleAsset;
 import net.media.openrtb3.VideoAsset;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
@@ -30,24 +32,19 @@ import static java.util.Objects.nonNull;
  */
 public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset> {
 
-  private Converter<Link, LinkAsset> linkLinkAssetConverter;
-
-  public Asset25ToAsset30Converter(Converter<Link, LinkAsset> linkLinkAssetConverter) {
-    this.linkLinkAssetConverter = linkLinkAssetConverter;
-  }
 
   @Override
-  public Asset map(AssetResponse source, Config config)throws OpenRtbConverterException {
+  public Asset map(AssetResponse source, Config config, Provider converterProvider)throws OpenRtbConverterException {
     if (isNull(source)) {
       return null;
     }
     Asset asset = new Asset();
-    enhance(source, asset, config);
+    enhance(source, asset, config, converterProvider);
     return asset;
   }
 
   @Override
-  public void enhance(AssetResponse source, Asset target, Config config) throws OpenRtbConverterException {
+  public void enhance(AssetResponse source, Asset target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }
@@ -57,7 +54,8 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     target.setImage(nativeImageToImageAsset(source.getImg(), config));
     target.setTitle(nativeTittleToTittleAsset(source.getTitle(), config));
     target.setVideo(nativeVideoToVideoAsset(source.getVideo(), config));
-    target.setLink(linkLinkAssetConverter.map(source.getLink(), config));
+    Converter<Link, LinkAsset> converter = converterProvider.fetch(new Conversion(Link.class, LinkAsset.class));
+    target.setLink(converter.map(source.getLink(), config, converterProvider));
   }
 
   private DataAsset nativeDataToData(NativeData nativeData, Config config) throws OpenRtbConverterException {

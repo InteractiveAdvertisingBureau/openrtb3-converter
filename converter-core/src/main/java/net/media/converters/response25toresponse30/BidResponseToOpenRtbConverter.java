@@ -1,22 +1,18 @@
 package net.media.converters.response25toresponse30;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.response.BidResponse;
 import net.media.openrtb3.OpenRTB;
 import net.media.openrtb3.Response;
+import net.media.utils.Provider;
 
 /**
  * @author shiva.b
  */
 public class BidResponseToOpenRtbConverter implements Converter<BidResponse, OpenRTB> {
-
-  private Converter<BidResponse, Response> bidResponseResponseConverter;
-
-  public BidResponseToOpenRtbConverter(Converter<BidResponse, Response> bidResponseToResponseConverter) {
-    this.bidResponseResponseConverter = bidResponseToResponseConverter;
-  }
 
   /**
    *
@@ -25,9 +21,9 @@ public class BidResponseToOpenRtbConverter implements Converter<BidResponse, Ope
    * @return
    */
   @Override
-  public OpenRTB map(BidResponse source, Config config) throws OpenRtbConverterException {
+  public OpenRTB map(BidResponse source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     OpenRTB openRTB = new OpenRTB();
-    enhance(source, openRTB, config);
+    enhance(source, openRTB, config, converterProvider);
     return openRTB;
   }
 
@@ -37,8 +33,9 @@ public class BidResponseToOpenRtbConverter implements Converter<BidResponse, Ope
    * @param target
    */
   @Override
-  public void enhance(BidResponse source, OpenRTB target, Config config) throws OpenRtbConverterException{
+  public void enhance(BidResponse source, OpenRTB target, Config config, Provider converterProvider) throws OpenRtbConverterException{
     target.setDomainSpec("3.0");
-    target.setResponse(bidResponseResponseConverter.map(source, config));
+    Converter<BidResponse, Response> converter = converterProvider.fetch(new Conversion(BidResponse.class, Response.class));
+    target.setResponse(converter.map(source, config, converterProvider));
   }
 }

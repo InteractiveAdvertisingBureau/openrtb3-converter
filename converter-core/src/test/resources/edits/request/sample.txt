@@ -1,0 +1,12 @@
+cases:
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: 2
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: idIntFormat
+
