@@ -38,8 +38,9 @@ public class PublisherToPublisherConverter implements Converter<Publisher, net.m
     if (nonNull(source.getCattax())) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
-      target.getExt().put("cattax", source.getCattax());
+
     }
+    target.getExt().put("cattax", source.getCattax());
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt( Utils.copyMap( map, config ) );

@@ -4,7 +4,6 @@
   "test": 1,
   "tmax": 100,
   "wseat": ["a"],
-  "bseat": null,
   "source": {
     "fd": 1,
     "tid": "dd",
@@ -15,8 +14,7 @@
       "dsmap" : "abcdefghij",
       "cert" : "abc.com/xyz/efg",
       "digest" : "digest:digest, abcde:efg",
-      "dummy" : "ff",
-      "fd" : 1
+      "dummy" : "ff"
 
     }
   },
@@ -31,6 +29,7 @@
     "cattax" : 2,
     "dummy" : "ff",
     "restrictions": {
+      "cattax" : 2,
       "ext": {
         "dummy": "ff"
       }
@@ -104,16 +103,11 @@
         }],
       "h": 250,
       "w": 300,
-      "wmax": 22,
-      "hmax": 11,
-      "wmin": 1,
-      "hmin": 9,
       "btype": [3, 4],
       "battr": [1, 2],
       "topframe": 22,
       "expdir": [3, 9],
       "api": [3, 2],
-      "vcm": 22,
       "mimes": ["application/x-shockwave-flash",
         "image/jpg"
       ],
@@ -240,8 +234,7 @@
       }],
       "ext": {
         "cattax" :2,
-        "dummy" :"ff",
-        "videoquality": 2
+        "dummy" :"ff"
       }
     },
     "ext": {
@@ -294,8 +287,7 @@
     "ext": {
       "xff" : "1.2.3.4",
       "iptr" : 1,
-      "dummy" : "ff",
-      "flashver" : "ewe"
+      "dummy" : "ff"
     }
   },
   "user": {
