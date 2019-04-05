@@ -147,7 +147,10 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     if ( map != null ) {
       format.setExt(Utils.copyMap(map, config));
       try {
-        format.setWmin((Integer) map.get("wmin"));
+        if(map.containsKey("wmin")) {
+          format.setWmin((Integer) map.get("wmin"));
+          format.getExt().remove("wmin");
+        }
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
       }
