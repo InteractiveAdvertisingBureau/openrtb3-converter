@@ -85,6 +85,38 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
           throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
         }
       }
+      if (map.containsKey("hmax")) {
+        try {
+          banner.setHmax((Integer) map.get("hmax"));
+          banner.getExt().remove("hmax");
+        } catch (ClassCastException e) {
+          throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+        }
+      }
+      if (map.containsKey("wmax")) {
+        try {
+          banner.setWmax((Integer) map.get("wmax"));
+          banner.getExt().remove("wmax");
+        } catch (ClassCastException e) {
+          throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+        }
+      }
+      if (map.containsKey("hmin")) {
+        try {
+          banner.setHmin((Integer) map.get("hmin"));
+          banner.getExt().remove("hmin");
+        } catch (ClassCastException e) {
+          throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+        }
+      }
+      if (map.containsKey("wmin")) {
+        try {
+          banner.setWmin((Integer) map.get("wmin"));
+          banner.getExt().remove("wmin");
+        } catch (ClassCastException e) {
+          throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+        }
+      }
     }
     if (nonNull(displayPlacement.getUnit())) {
       if (isNull(banner.getExt())) {
