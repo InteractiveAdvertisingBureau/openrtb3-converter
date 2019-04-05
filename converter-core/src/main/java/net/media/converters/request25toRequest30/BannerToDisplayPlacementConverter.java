@@ -104,6 +104,30 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
       }
       displayPlacement.getExt().put("id", banner.getId());
     }
+    if (banner.getHmax() != null) {
+      if (isNull(displayPlacement.getExt())) {
+        displayPlacement.setExt(new HashMap<>());
+      }
+      displayPlacement.getExt().put("hmax", banner.getHmax());
+    }
+    if (banner.getHmin() != null) {
+      if (isNull(displayPlacement.getExt())) {
+        displayPlacement.setExt(new HashMap<>());
+      }
+      displayPlacement.getExt().put("hmin", banner.getHmin());
+    }
+    if (banner.getWmax() != null) {
+      if (isNull(displayPlacement.getExt())) {
+        displayPlacement.setExt(new HashMap<>());
+      }
+      displayPlacement.getExt().put("wmax", banner.getWmax());
+    }
+    if (banner.getWmin() != null) {
+      if (isNull(displayPlacement.getExt())) {
+        displayPlacement.setExt(new HashMap<>());
+      }
+      displayPlacement.getExt().put("wmin", banner.getWmin());
+    }
   }
 
   private Collection<Integer> impBannerExpdir(Banner banner) {

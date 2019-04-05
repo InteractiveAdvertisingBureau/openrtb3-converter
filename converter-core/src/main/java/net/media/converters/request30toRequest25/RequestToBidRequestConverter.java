@@ -192,6 +192,8 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
           imp.getVideo().setBattr(source.getContext().getRestrictions().getBattr());
         if (imp.getNat() != null)
           imp.getNat().setBattr(source.getContext().getRestrictions().getBattr());
+        if (imp.getAudio() != null)
+          imp.getAudio().setBattr(source.getContext().getRestrictions().getBattr());
       }
     }
 
