@@ -77,14 +77,16 @@ public class Config {
    * @param config
    */
   public void updateEmptyFields(Config config) {
-    this.nativeRequestAsString = isNull(this.nativeRequestAsString) ? config
-      .nativeRequestAsString : this.nativeRequestAsString;
-    this.adTypeMapping = isNull(this.adTypeMapping) ? config.adTypeMapping : this.adTypeMapping;
-    this.validate = isNull(this.validate) ? config.validate : this.validate;
-    this.disableCloning = isNull(this.disableCloning) ? config.getDisableCloning() : this
-      .disableCloning;
-    this.openRtbVersion2_XVersion = isNull(this.openRtbVersion2_XVersion) ? config
-      .getOpenRtbVersion2_XVersion() : this.openRtbVersion2_XVersion;
+    if (nonNull(config)) {
+      this.nativeRequestAsString = isNull(this.nativeRequestAsString) ? config
+        .nativeRequestAsString : this.nativeRequestAsString;
+      this.adTypeMapping = isNull(this.adTypeMapping) ? config.adTypeMapping : this.adTypeMapping;
+      this.validate = isNull(this.validate) ? config.validate : this.validate;
+      this.disableCloning = isNull(this.disableCloning) ? config.disableCloning : this
+        .disableCloning;
+      this.openRtbVersion2_XVersion = isNull(this.openRtbVersion2_XVersion) ? config
+        .openRtbVersion2_XVersion : this.openRtbVersion2_XVersion;
+    }
   }
 
   public Boolean getNativeRequestAsString() {
@@ -308,51 +310,47 @@ public class Config {
     return other instanceof Config;
   }
 
+  @Override
   public boolean equals(Object o) {
-    if (o == this) return true;
+    if (this == o) return true;
     if (!(o instanceof Config)) return false;
-    final Config other = (Config) o;
-    if (!other.canEqual((Object) this)) return false;
-    final Object this$nativeRequestAsString = this.getNativeRequestAsString();
-    final Object other$nativeRequestAsString = other.getNativeRequestAsString();
-    if (this$nativeRequestAsString == null ? other$nativeRequestAsString != null : !this$nativeRequestAsString.equals(other$nativeRequestAsString))
+
+    Config config = (Config) o;
+
+    if (getNativeRequestAsString() != null ? !getNativeRequestAsString().equals(config.getNativeRequestAsString()) : config.getNativeRequestAsString() != null)
       return false;
-    final Object this$nativeResponseAsString = this.getNativeResponseAsString();
-    final Object other$nativeResponseAsString = other.getNativeResponseAsString();
-    if (this$nativeResponseAsString == null ? other$nativeResponseAsString != null : !this$nativeResponseAsString.equals(other$nativeResponseAsString))
+    if (getNativeResponseAsString() != null ? !getNativeResponseAsString().equals(config.getNativeResponseAsString()) : config.getNativeResponseAsString() != null)
       return false;
-    final Object this$adTypeMapping = this.adTypeMapping;
-    final Object other$adTypeMapping = other.adTypeMapping;
-    if (this$adTypeMapping == null ? other$adTypeMapping != null : !this$adTypeMapping.equals(other$adTypeMapping))
+    if (adTypeMapping != null ? !adTypeMapping.equals(config.adTypeMapping) : config.adTypeMapping != null)
       return false;
-    final Object this$disableCloning = this.getDisableCloning();
-    final Object other$disableCloning = other.getDisableCloning();
-    if (this$disableCloning == null ? other$disableCloning != null : !this$disableCloning.equals(other$disableCloning))
+    if (getDisableCloning() != null ? !getDisableCloning().equals(config.getDisableCloning()) : config.getDisableCloning() != null)
       return false;
-    final Object this$validate = this.getValidate();
-    final Object other$validate = other.getValidate();
-    if (this$validate == null ? other$validate != null : !this$validate.equals(other$validate))
+    if (getValidate() != null ? !getValidate().equals(config.getValidate()) : config.getValidate() != null)
       return false;
-    return true;
+    return getOpenRtbVersion2_XVersion() == config.getOpenRtbVersion2_XVersion();
+
   }
 
+  @Override
   public int hashCode() {
-    final int PRIME = 59;
-    int result = 1;
-    final Object $nativeRequestAsString = this.getNativeRequestAsString();
-    result = result * PRIME + ($nativeRequestAsString == null ? 43 : $nativeRequestAsString.hashCode());
-    final Object $nativeResponseAsString = this.getNativeResponseAsString();
-    result = result * PRIME + ($nativeResponseAsString == null ? 43 : $nativeResponseAsString.hashCode());
-    final Object $adTypeMapping = this.adTypeMapping;
-    result = result * PRIME + ($adTypeMapping == null ? 43 : $adTypeMapping.hashCode());
-    final Object $disableCloning = this.getDisableCloning();
-    result = result * PRIME + ($disableCloning == null ? 43 : $disableCloning.hashCode());
-    final Object $validate = this.getValidate();
-    result = result * PRIME + ($validate == null ? 43 : $validate.hashCode());
+    int result = getNativeRequestAsString() != null ? getNativeRequestAsString().hashCode() : 0;
+    result = 31 * result + (getNativeResponseAsString() != null ? getNativeResponseAsString().hashCode() : 0);
+    result = 31 * result + (adTypeMapping != null ? adTypeMapping.hashCode() : 0);
+    result = 31 * result + (getDisableCloning() != null ? getDisableCloning().hashCode() : 0);
+    result = 31 * result + (getValidate() != null ? getValidate().hashCode() : 0);
+    result = 31 * result + (getOpenRtbVersion2_XVersion() != null ? getOpenRtbVersion2_XVersion().hashCode() : 0);
     return result;
   }
 
+  @Override
   public String toString() {
-    return "net.media.config.Config(nativeRequestAsString=" + this.getNativeRequestAsString() + ", nativeResponseAsString=" + this.getNativeResponseAsString() + ", adTypeMapping=" + this.adTypeMapping + ", disableCloning=" + this.getDisableCloning() + ", validate=" + this.getValidate() + ")";
+    return "Config{" +
+      "nativeRequestAsString=" + nativeRequestAsString +
+      ", nativeResponseAsString=" + nativeResponseAsString +
+      ", adTypeMapping=" + adTypeMapping +
+      ", disableCloning=" + disableCloning +
+      ", validate=" + validate +
+      ", openRtbVersion2_XVersion=" + openRtbVersion2_XVersion +
+      '}';
   }
 }
