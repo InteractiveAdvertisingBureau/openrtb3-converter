@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.media.open-rtb-converter</groupId>
+    <artifactId>open-rtb-converter</artifactId>
+    <version>1.2.1</version>
+    <properties>
+        <jackson.version>2.8.0</jackson.version>
+        <dropwizard.version>1.1.0</dropwizard.version>
+        <guice.version>3.0</guice.version>
+        <tomcat.version>9.0.0.M6</tomcat.version>
+        <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
+        <lombok.version>1.16.14</lombok.version>
+        <guava.version>23.0</guava.version>
+        <log4j.version>2.7</log4j.version>
+    </properties>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>converter-api</module>
+        <module>converter-core</module>
+        <module>converter-bechmark</module>
+    </modules>
+
+    <scm>
+        <connection>scm:git:http://tree.mn/Video-AdExchange/openrtb-converter.git</connection>
+        <url>http://tree.mn/Video-AdExchange/openrtb-converter</url>
+        <developerConnection>scm:git:http://tree.mn/Video-AdExchange/openrtb-converter.git</developerConnection>
+      <tag>HEAD</tag>
+  </scm>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.4.2</version>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <releaseProfiles>releases</releaseProfiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>releases</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.5.1</version>
+                        <executions>
+                            <execution>
+                                <id>default-deploy</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>deploy</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <serverId>nexus-releases</serverId>
+                            <nexusUrl>http://repository.media.net/</nexusUrl>
+                            <skipStaging>true</skipStaging>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>corp1</id>
+            <name>Corporate Repository</name>
+            <url>scp://172.16.140.221:8080/nexus/content/repositories/medianet/</url>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
+
+</project>

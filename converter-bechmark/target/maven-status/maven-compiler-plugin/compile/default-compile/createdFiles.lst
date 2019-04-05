@@ -1,0 +1,17 @@
+net/media/converter/benchmark/generated/Response24ToResponse30BenchMark_ResponseState_jmhType_B1.class
+META-INF/CompilerHints
+org/openjdk/jmh/infra/generated/Blackhole_jmhType_B1.class
+org/openjdk/jmh/infra/generated/Blackhole_jmhType_B3.class
+net/media/converter/benchmark/generated/Response24ToResponse30BenchMark_jmhType_B1.class
+org/openjdk/jmh/infra/generated/Blackhole_jmhType_B2.class
+net/media/converter/benchmark/generated/Response24ToResponse30BenchMark_ResponseState_jmhType_B2.class
+net/media/converter/benchmark/Response24ToResponse30BenchMark$ResponseState.class
+net/media/converter/benchmark/generated/Response24ToResponse30BenchMark_bannerResponse_jmhTest.class
+org/openjdk/jmh/infra/generated/Blackhole_jmhType.class
+net/media/converter/benchmark/generated/Response24ToResponse30BenchMark_jmhType_B2.class
+net/media/converter/benchmark/generated/Response24ToResponse30BenchMark_ResponseState_jmhType.class
+META-INF/BenchmarkList
+net/media/converter/benchmark/generated/Response24ToResponse30BenchMark_ResponseState_jmhType_B3.class
+net/media/converter/benchmark/generated/Response24ToResponse30BenchMark_jmhType.class
+net/media/converter/benchmark/generated/Response24ToResponse30BenchMark_jmhType_B3.class
+net/media/converter/benchmark/Response24ToResponse30BenchMark.class

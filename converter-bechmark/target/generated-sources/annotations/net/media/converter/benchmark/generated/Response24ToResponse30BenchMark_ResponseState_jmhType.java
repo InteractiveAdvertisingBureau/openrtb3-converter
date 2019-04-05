@@ -1,0 +1,4 @@
+package net.media.converter.benchmark.generated;
+public class Response24ToResponse30BenchMark_ResponseState_jmhType extends Response24ToResponse30BenchMark_ResponseState_jmhType_B3 {
+}
+

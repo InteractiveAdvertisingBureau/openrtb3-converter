@@ -1,0 +1,94 @@
+cases:
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     test : 1
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.test: 1
+   purpose: test_is_1
+   status : success
+   params:
+     adType: m
+     yaar: e
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     test : 0
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.test: 0
+   purpose: test_is_0
+   status : success
+   params:
+     adType: m
+     yaar: e
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     test : null
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.test: null
+   purpose: test_is_null
+   status : success
+   params:
+     adType: m
+     yaar: e
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at : 0
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.at: 0
+   purpose: testing
+   status : success
+   params:
+     adType: m
+     yaar: e
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at : 1
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.at: 1
+   purpose: testing
+   status : success
+   params:
+     adType: m
+     yaar: e
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at : null
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.at: null
+   purpose: testing
+   status : success
+   params:
+     adType: m
+     yaar: e
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     cur : null
+     cur : 2
+   outputFile: BANNER30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.cur[0]: "\"USD\""
+     request.cur[1]: "\"INR\""
+   purpose: testing
+   status : success
+   params:
+     adType: m
+     yaar: e
