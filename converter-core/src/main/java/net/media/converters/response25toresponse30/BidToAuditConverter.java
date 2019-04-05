@@ -47,8 +47,8 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
         if (map.containsKey("audit")) {
           target.setInit(((Audit) map.get("audit")).getInit());
         }
-        if (map.containsKey("lastMod")) {
-          target.setLastmod((Integer) map.get("lastMode"));
+        if (map.containsKey("lastmod")) {
+          target.setLastmod((Integer) map.get("lastmode"));
         }
         if (map.containsKey("feedback")) {
           target.setFeedback((List<String>) map.get("feedback"));
