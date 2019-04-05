@@ -21,7 +21,7 @@ public class Bid30ToBid24Converter extends Bid30ToBid25Converter {
   public void enhance(net.media.openrtb3.Bid source, Bid target, Config config,
                       Provider converterProvider) throws
     OpenRtbConverterException {
-    if (source == null) {
+    if (source == null || target == null) {
       return;
     }
     super.enhance(source, target, config, converterProvider);

@@ -9,6 +9,7 @@ import net.media.openrtb3.Audio;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +48,7 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
     }
     target.setAdm( source.getAdm() );
 
-    if(nonNull(source.getApi())) { target.setApi(new ArrayList<>(source.getApi())); }
+    if(nonNull(source.getApi())) { target.setApi(new ArrayList<>(Arrays.asList(source.getApi()))); }
     target.setCurl(source.getNurl());
 
     if (nonNull(source.getExt())) {

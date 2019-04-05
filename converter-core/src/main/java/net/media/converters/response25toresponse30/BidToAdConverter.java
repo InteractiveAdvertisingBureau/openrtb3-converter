@@ -65,10 +65,8 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
         target.getExt().remove("secure");
         target.setInit((Integer) ext.get("init"));
         target.getExt().remove("init");
-        target.setLastmod((Integer) ext.get("lastMod"));
+        target.setLastmod((Integer) ext.get("lastmod"));
         target.getExt().remove("lastMod");
-        target.setMrating((Integer) ext.get("mrating"));
-        target.getExt().remove("mrating");
         if(ext.containsKey("cattax")) {
           target.setCattax((Integer) ext.get("cattax"));
         }
