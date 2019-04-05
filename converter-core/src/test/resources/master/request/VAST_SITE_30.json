@@ -68,6 +68,10 @@
             "pos": 1,
             "delay": 1,
             "skip": 1,
+            "comptype": [
+              1,
+              2
+            ],
             "skipmin": 1,
             "skipafter": 1,
             "playmethod": 1,
@@ -143,11 +147,7 @@
               },
               "ext": {
                 "dummy": "entry"
-              },
-              "comptype": [
-                1,
-                2
-              ]
+              }
             }]
           }
         }

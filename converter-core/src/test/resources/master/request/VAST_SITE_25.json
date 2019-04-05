@@ -80,6 +80,7 @@
         "abc",
         "def"
       ],
+      "companiontype": [1,2],
       "minduration": 1,
       "maxduration": 1,
       "protocols": [
