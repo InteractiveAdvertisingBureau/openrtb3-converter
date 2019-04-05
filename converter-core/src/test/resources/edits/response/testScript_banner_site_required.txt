@@ -1,0 +1,306 @@
+cases:
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     id: null
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: requiredFieldBidResponseId
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     id: 9999
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseId
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     id: "\"helloworld\""
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"helloworld\""
+   purpose: requiredFieldBidResponseIdValid
+   status: SUCCESS
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid: null
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: requiredFieldBidResponseSeatBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid: 9999
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseSeatBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid: "this is a string"
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseSeatBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid: []
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseSeatBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid: null
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: requiredFieldBidResponseSeatBidBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid: 9999
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseSeatBidBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid: "this is a string"
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseSeatBidBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid: []
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseSeatBidBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].id: null
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: requiredFieldBidResponseSeatBidBidId
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].id: 9999
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseSeatBidBidId
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].id: []
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseSeatBidBidId
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].id: "\"helloworld\""
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.seatbid[0].bid[0].id: "\"helloworld\""
+   purpose: validFieldBidResponseSeatBidBidId
+   status: SUCCESS
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].impid: null
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: requiredFieldBidResponseSeatBidBidImpId
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].impid: 9999
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseSeatBidBidImpId
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].impid: "\"helloworld\""
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.seatbid[0].bid[0].impid: "\"helloworld\""
+   purpose: validFieldBidResponseSeatBidBidImpId
+   status: SUCCESS
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].price: null
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: requiredFieldBidResponseSeatBidBidPrice
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].price: "this is a string"
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseSeatBidBidPrice
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].price: []
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseSeatBidBidPrice
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].price: 20.5
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.seatbid[0].bid[0].price: 20.5
+   purpose: validFieldBidResponseSeatBidBidPrice
+   status: SUCCESS
+
+
+
+
+
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].group: "this is a string"
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseSeatBidGroup
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].group: []
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseSeatBidGroup
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].group: 20.5
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: invalidFieldBidResponseSeatBidGroup
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].group: 2
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.seatbid[0].package: 2
+   purpose: validFieldBidResponseSeatBidBidGroup
+   status: SUCCESS
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].group: 200
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.seatbid[0].package: 200
+   purpose: validFieldBidResponseSeatBidBidGroup
+   status: SUCCESS
+
+
+
+
