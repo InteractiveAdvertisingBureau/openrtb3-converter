@@ -1,5 +1,6 @@
 package net.media.converters.request30toRequest25;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -9,6 +10,7 @@ import net.media.openrtb25.request.User;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
@@ -23,44 +25,39 @@ import static java.util.Objects.nonNull;
 
 public class RequestToBidRequestConverter implements Converter<Request, BidRequest> {
 
-  private Converter<net.media.openrtb3.User, User> userUserConverter;
-  private Converter<Request, User> requestUserConverter;
-  private Converter<App, net.media.openrtb25.request.App> appAppConverter;
-  private Converter<Regs, net.media.openrtb25.request.Regs> regsRegsConverter;
-  private Converter<Site, net.media.openrtb25.request.Site> siteSiteConverter;
-  private Converter<Device, net.media.openrtb25.request.Device> deviceDeviceConverter;
-  private Converter<Source, net.media.openrtb25.request.Source> sourceSourceConverter;
-  private Converter<Item, net.media.openrtb25.request.Imp> itemImpConverter;
-
-  @java.beans.ConstructorProperties({"userUserConverter", "requestUserConverter", "appAppConverter", "regsRegsConverter", "siteSiteConverter", "deviceDeviceConverter", "sourceSourceConverter", "itemImpConverter"})
-  public RequestToBidRequestConverter(Converter<net.media.openrtb3.User, User> userUserConverter, Converter<Request, User> requestUserConverter, Converter<App, net.media.openrtb25.request.App> appAppConverter, Converter<Regs, net.media.openrtb25.request.Regs> regsRegsConverter, Converter<Site, net.media.openrtb25.request.Site> siteSiteConverter, Converter<Device, net.media.openrtb25.request.Device> deviceDeviceConverter, Converter<Source, net.media.openrtb25.request.Source> sourceSourceConverter, Converter<Item, Imp> itemImpConverter) {
-    this.userUserConverter = userUserConverter;
-    this.requestUserConverter = requestUserConverter;
-    this.appAppConverter = appAppConverter;
-    this.regsRegsConverter = regsRegsConverter;
-    this.siteSiteConverter = siteSiteConverter;
-    this.deviceDeviceConverter = deviceDeviceConverter;
-    this.sourceSourceConverter = sourceSourceConverter;
-    this.itemImpConverter = itemImpConverter;
-  }
-
   @Override
-  public BidRequest map(Request source, Config config) throws OpenRtbConverterException {
+  public BidRequest map(Request source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
 
     BidRequest bidRequest = new BidRequest();
 
-    enhance( source, bidRequest, config );
+    enhance( source, bidRequest, config, converterProvider );
 
     return bidRequest;
   }
 
   @Override
-  public void enhance(Request source, BidRequest target, Config config) throws OpenRtbConverterException {
-    if(source == null)
+  public void enhance(Request source, BidRequest target, Config config, Provider converterProvider) throws OpenRtbConverterException {
+    if(source == null || target == null)
       return;
+
+    Converter<net.media.openrtb3.User, User> userUserConverter =
+      converterProvider.fetch(new Conversion<>(net.media.openrtb3.User.class, User.class));
+    Converter<Request, User> requestUserConverter = converterProvider.fetch(new Conversion<>(Request.class, User.class));
+    Converter<App, net.media.openrtb25.request.App> appAppConverter =
+      converterProvider.fetch(new Conversion<>(App.class, net.media.openrtb25.request.App.class));
+    Converter<Regs, net.media.openrtb25.request.Regs> regsRegsConverter =
+      converterProvider.fetch(new Conversion<>(Regs.class, net.media.openrtb25.request.Regs.class));
+    Converter<Site, net.media.openrtb25.request.Site> siteSiteConverter =
+      converterProvider.fetch(new Conversion<>(Site.class, net.media.openrtb25.request.Site.class));
+    Converter<Device, net.media.openrtb25.request.Device> deviceDeviceConverter =
+      converterProvider.fetch(new Conversion<>(Device.class, net.media.openrtb25.request.Device.class));
+    Converter<Source, net.media.openrtb25.request.Source> sourceSourceConverter =
+      converterProvider.fetch(new Conversion<>(Source.class, net.media.openrtb25.request.Source.class));
+    Converter<Item, net.media.openrtb25.request.Imp> itemImpConverter =
+      converterProvider.fetch(new Conversion<>(Item.class, Imp.class));
 
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
@@ -71,7 +68,7 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
 
       if (source.getContext().getUser() != null) {
         if (target.getUser() == null) {
-          target.setUser(userUserConverter.map(source.getContext().getUser(), config));
+          target.setUser(userUserConverter.map(source.getContext().getUser(), config, converterProvider));
         }
       } else {
         target.setUser(null);
@@ -80,22 +77,22 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
         if (target.getUser() == null) {
           target.setUser(new User());
         }
-        requestUserConverter.enhance(source, target.getUser(), config);
+        requestUserConverter.enhance(source, target.getUser(), config, converterProvider);
       }
 
       App app = source.getContext().getApp();
       if ( app != null ) {
-        target.setApp( appAppConverter.map( app, config ) );
+        target.setApp( appAppConverter.map( app, config, converterProvider ) );
       }
 
       Regs regs = source.getContext().getRegs();
       if ( regs != null ) {
-        target.setRegs( regsRegsConverter.map( regs, config ) );
+        target.setRegs( regsRegsConverter.map( regs, config, converterProvider ) );
       }
 
       Site site = source.getContext().getSite();
       if ( site != null ) {
-        target.setSite( siteSiteConverter.map( site, config ) );
+        target.setSite( siteSiteConverter.map( site, config, converterProvider ) );
       }
 
       if(source.getContext().getRestrictions() != null) {
@@ -119,11 +116,12 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
 
       Device device = source.getContext().getDevice();
       if ( device != null ) {
-        target.setDevice( deviceDeviceConverter.map( device, config ) );
+        target.setDevice( deviceDeviceConverter.map( device, config, converterProvider ) );
       }
     }
     target.setAllimps( source.getPack() );
-    target.setImp( CollectionToCollectionConverter.convert( source.getItem(), itemImpConverter, config ) );
+    target.setImp( CollectionToCollectionConverter.convert( source.getItem(), itemImpConverter,
+      config, converterProvider ) );
     if (!CollectionUtils.isEmpty(target.getImp())) {
       if (nonNull(source.getContext()) && nonNull(source.getContext().getRestrictions())) {
         for (Imp imp : target.getImp()) {
@@ -152,7 +150,7 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     target.setAt( source.getAt() );
     target.setTest( source.getTest() );
     target.setTmax( source.getTmax() );
-    target.setSource( sourceSourceConverter.map( source.getSource(), config ) );
+    target.setSource( sourceSourceConverter.map( source.getSource(), config, converterProvider ) );
     Collection<String> list1 = source.getCur();
     if ( list1 != null ) {
       target.setCur( Utils.copyCollection( list1, config ) );

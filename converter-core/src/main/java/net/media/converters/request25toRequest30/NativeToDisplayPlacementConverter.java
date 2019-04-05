@@ -1,5 +1,6 @@
 package net.media.converters.request25toRequest30;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -9,6 +10,7 @@ import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.NativeFormat;
 import net.media.utils.JacksonObjectMapper;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.io.IOException;
@@ -25,29 +27,24 @@ import static java.util.Objects.nonNull;
 
 public class NativeToDisplayPlacementConverter implements Converter<Native, DisplayPlacement> {
 
-  private Converter<NativeRequestBody, NativeFormat> nativeRequestBodyNativeFormatConverter;
-
-  @java.beans.ConstructorProperties({"nativeRequestBodyNativeFormatConverter"})
-  public NativeToDisplayPlacementConverter(Converter<NativeRequestBody, NativeFormat> nativeRequestBodyNativeFormatConverter) {
-    this.nativeRequestBodyNativeFormatConverter = nativeRequestBodyNativeFormatConverter;
-  }
-
   @Override
-  public DisplayPlacement map(Native nat, Config config) throws OpenRtbConverterException {
+  public DisplayPlacement map(Native nat, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(nat)) {
       return null;
     }
 
     DisplayPlacement displayPlacement = new DisplayPlacement();
-    enhance(nat, displayPlacement, config);
+    enhance(nat, displayPlacement, config, converterProvider);
     return displayPlacement;
   }
 
   @Override
-  public void enhance(Native nat, DisplayPlacement displayPlacement, Config config) throws OpenRtbConverterException {
+  public void enhance(Native nat, DisplayPlacement displayPlacement, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(nat) || isNull(displayPlacement)) {
       return;
     }
+    Converter<NativeRequestBody, NativeFormat> nativeRequestBodyNativeFormatConverter = converterProvider.fetch(new Conversion<>
+            (NativeRequestBody.class, NativeFormat.class));
     displayPlacement.setApi(Utils.copyCollection(nat.getApi(), config));
     if (nonNull(nat.getRequest())) {
       NativeRequest nativeRequest = null;
@@ -72,7 +69,7 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
         displayPlacement.setPtype(nativeRequest.getNativeRequestBody().getPlcmttype());
         displayPlacement.setContext(nativeRequest.getNativeRequestBody().getContext());
         displayPlacement.setNativefmt(nativeRequestBodyNativeFormatConverter.map(nativeRequest
-          .getNativeRequestBody(), config));
+          .getNativeRequestBody(), config, converterProvider));
         if (nonNull(nat.getExt())) {
           if (isNull(displayPlacement.getExt())) {
             displayPlacement.setExt(new HashMap<>());

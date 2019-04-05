@@ -1,5 +1,6 @@
 package net.media.converters.response30toresponse25;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -10,6 +11,7 @@ import net.media.openrtb3.Audio;
 import net.media.openrtb3.Audit;
 import net.media.openrtb3.Display;
 import net.media.openrtb3.Video;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -19,29 +21,26 @@ import static java.util.Objects.nonNull;
 
 public class AdToBidConverter implements Converter<Ad,Bid>{
 
-  Converter<Display,Bid> displayBidConverter;
-  Converter<Video,Bid> videoBidConverter;
-  Converter<Audio,Bid> audioBidConverter;
-  Converter<Audit,Bid> auditBidConverter;
-
-  public AdToBidConverter(Converter<Display,Bid> displayBidConverter,Converter<Video,Bid> videoBidConverter,Converter<Audio,Bid>  audioBidConverter,Converter<Audit,Bid> auditBidConverter){
-    this.displayBidConverter =displayBidConverter;
-    this.videoBidConverter = videoBidConverter;
-    this.audioBidConverter  = audioBidConverter;
-    this.auditBidConverter = auditBidConverter;
-  }
-
-  public Bid map(Ad source, Config config) throws OpenRtbConverterException {
+  public Bid map(Ad source, Config config, Provider converterProvider) throws
+    OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
     Bid  bid = new Bid();
-    enhance(source,bid,config);
+    enhance(source,bid,config, converterProvider);
     return bid;
   }
 
-  public void enhance(Ad source, Bid target, Config config) throws OpenRtbConverterException {
+  public void enhance(Ad source, Bid target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
+    Converter<Display, Bid>displayBidConverter = converterProvider.fetch(new Conversion<>(Display.class,
+      Bid.class));
+    Converter<Video, Bid> videoBidConverter = converterProvider.fetch(new Conversion<>(Video.class,
+      Bid.class));
+    Converter<Audio, Bid> audioBidConverter = converterProvider.fetch(new Conversion<>(Audio.class,
+      Bid.class));
+    Converter<Audit, Bid> auditBidConverter = converterProvider.fetch(new Conversion<>(Audit.class,
+      Bid.class));
 
     target.setCrid(source.getId());
 
@@ -75,16 +74,16 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
     switch (adType) {
       case BANNER:
       case NATIVE:
-        displayBidConverter.enhance(source.getDisplay(),target,config);
+        displayBidConverter.enhance(source.getDisplay(),target,config, converterProvider);
         break;
       case VIDEO:
-        videoBidConverter.enhance(source.getVideo(),target,config);
+        videoBidConverter.enhance(source.getVideo(),target,config, converterProvider);
         break;
       case AUDIO:
-        audioBidConverter.enhance(source.getAudio(),target,config);
+        audioBidConverter.enhance(source.getAudio(),target,config, converterProvider);
         break;
       case AUDIT:
-        auditBidConverter.enhance(source.getAudit(),target,config);
+        auditBidConverter.enhance(source.getAudit(),target,config, converterProvider);
         break;
     }
 

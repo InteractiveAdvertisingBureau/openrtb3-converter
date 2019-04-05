@@ -11,7 +11,7 @@ public class ConverterModule extends AbstractModule{
 
   @Override
   protected void configure() {
-    bind(ConverterManager.class).toInstance(new ConverterManager(null));
+    bind(ConverterManager.class).toInstance(new ConverterManager(null, null));
     bind(Config.class).toInstance(new Config());
     bind(OpenRtbConverter.class).in(Scopes.SINGLETON);
   }

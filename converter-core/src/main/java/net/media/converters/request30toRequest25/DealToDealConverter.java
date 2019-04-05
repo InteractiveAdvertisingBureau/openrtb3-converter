@@ -2,7 +2,9 @@ package net.media.converters.request30toRequest25;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
 import net.media.openrtb3.Deal;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
@@ -12,17 +14,17 @@ import static java.util.Objects.isNull;
 
 public class DealToDealConverter implements Converter<Deal, net.media.openrtb25.request.Deal> {
   @Override
-  public net.media.openrtb25.request.Deal map(Deal deal, Config config) {
+  public net.media.openrtb25.request.Deal map(Deal deal, Config config, Provider converterProvider) {
     if ( deal == null ) {
       return null;
     }
     net.media.openrtb25.request.Deal deal1 = new net.media.openrtb25.request.Deal();
-    enhance(deal, deal1, config);
+    enhance(deal, deal1, config, converterProvider);
     return deal1;
   }
 
   @Override
-  public void enhance(Deal deal, net.media.openrtb25.request.Deal deal1, Config config) {
+  public void enhance(Deal deal, net.media.openrtb25.request.Deal deal1, Config config, Provider converterProvider) {
     if (isNull(deal) || isNull(deal1)) {
       return;
     }

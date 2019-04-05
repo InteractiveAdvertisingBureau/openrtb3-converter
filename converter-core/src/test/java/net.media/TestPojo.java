@@ -5,8 +5,6 @@ import net.media.config.Config;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Map;
-
 /**
  * Created by rajat.go on 09/01/19.
  */
@@ -26,8 +24,6 @@ public class TestPojo {
   private Config config;
 
   private String purpose;
-
-  private Map<String, String> outputEdits;
 
   private Config params;
 }
