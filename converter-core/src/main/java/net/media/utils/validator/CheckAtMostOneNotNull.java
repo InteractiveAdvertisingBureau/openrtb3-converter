@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
-@Constraint(validatedBy = CheckExactlyOneNotNull.CheckExactlyOneNotNullValidator.class)
+@Constraint(validatedBy = CheckAtMostOneNotNull.CheckAtMostOneNotNullValidator.class)
 @Documented
 public @interface CheckAtMostOneNotNull {
   String message() default "";
@@ -22,7 +22,7 @@ public @interface CheckAtMostOneNotNull {
 
   String[] fieldNames();
 
-  public class CheckExactlyOneNotNullValidator implements ConstraintValidator<CheckExactlyOneNotNull, Object> {
+  public class CheckAtMostOneNotNullValidator implements ConstraintValidator<CheckAtMostOneNotNull, Object> {
     private String[] fieldNames;
     public void initialize(CheckAtMostOneNotNull constraint) {
       this.fieldNames = constraint.fieldNames();
@@ -38,7 +38,7 @@ public @interface CheckAtMostOneNotNull {
           Object property = PropertyUtils.getProperty(object, fieldName);
           if(property!=null) {
             if(firstField) {
-              ValidatorErrorHandler.setErrorMessage(context, "exactly one of the following should be present: " + Arrays.toString(fieldNames));
+              ValidatorErrorHandler.setErrorMessage(context, "At most one of the following should be present: " + Arrays.toString(fieldNames));
               return false;
             }
             firstField = true;
@@ -46,7 +46,7 @@ public @interface CheckAtMostOneNotNull {
         }
         return true;
       } catch (Exception e) {
-        ValidatorErrorHandler.setErrorMessage(context, "Exactly one of the following should be present: " + fieldNames);
+        ValidatorErrorHandler.setErrorMessage(context, "At most one of the following should be present: " + fieldNames);
         return false;
       }
     }

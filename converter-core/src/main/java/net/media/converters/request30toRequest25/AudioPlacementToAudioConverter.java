@@ -1,5 +1,6 @@
 package net.media.converters.request30toRequest25;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -7,6 +8,7 @@ import net.media.openrtb25.request.Audio;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.Companion;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
@@ -20,27 +22,20 @@ import static java.util.Objects.nonNull;
 
 public class AudioPlacementToAudioConverter implements Converter<AudioPlacement, Audio> {
 
-  private Converter<Companion, Banner> companionBannerConverter;
-
-  @java.beans.ConstructorProperties({"companionBannerConverter"})
-  public AudioPlacementToAudioConverter(Converter<Companion, Banner> companionBannerConverter) {
-    this.companionBannerConverter = companionBannerConverter;
-  }
-
   @Override
-  public Audio map(AudioPlacement audioPlacement, Config config) throws OpenRtbConverterException {
+  public Audio map(AudioPlacement audioPlacement, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( audioPlacement == null ) {
       return null;
     }
 
     Audio audio = new Audio();
-    enhance(audioPlacement, audio, config);
+    enhance(audioPlacement, audio, config, converterProvider);
 
     return audio;
   }
 
   @Override
-  public void enhance(AudioPlacement audioPlacement, Audio audio, Config config) throws OpenRtbConverterException {
+  public void enhance(AudioPlacement audioPlacement, Audio audio, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(audioPlacement) || isNull(audio)) {
       return;
     }
@@ -49,6 +44,15 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     audio.setMaxseq( audioPlacement.getMaxseq() );
     audio.setFeed( audioPlacement.getFeed() );
     audio.setNvol( audioPlacement.getNvol() );
+    audio.setCompaniontype(audioPlacement.getComptype());
+    audio.setMaxbitrate(audioPlacement.getMaxbitr());
+    audio.setMaxduration(audioPlacement.getMaxdur());
+    audio.setMaxextended(audioPlacement.getMaxext());
+    audio.setMimes(audioPlacement.getMime());
+    audio.setMinbitrate(audioPlacement.getMinbitr());
+    audio.setMinduration(audioPlacement.getMindur());
+    audio.setStartdelay(audioPlacement.getDelay());
+    audio.setProtocols(audioPlacement.getCtype());
     Map<String, Object> map = audioPlacement.getExt();
     if ( map != null ) {
       audio.setExt(Utils.copyMap(map, config));
@@ -59,7 +63,7 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
         throw new OpenRtbConverterException("error while typecasting ext for Audio", e);
       }
     }
-    audio.setCompanionad(companionListToBannerList(audioPlacement.getComp(), config));
+    audio.setCompanionad(companionListToBannerList(audioPlacement.getComp(), config, converterProvider));
     audioPlacementToAudioAfterMapping( audioPlacement, audio );
   }
 
@@ -78,14 +82,15 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
   }
 
   protected Collection<Banner> companionListToBannerList(Collection<Companion> list, Config
-    config) throws OpenRtbConverterException {
+    config, Provider converterProvider) throws OpenRtbConverterException {
     if ( list == null ) {
       return null;
     }
 
     Collection<Banner> list1 = new ArrayList<>( list.size() );
+    Converter<Companion, Banner> companionBannerConverter = converterProvider.fetch(new Conversion<>(Companion.class, Banner.class));
     for ( Companion companion : list ) {
-      list1.add( companionBannerConverter.map( companion, config ) );
+      list1.add( companionBannerConverter.map( companion, config, converterProvider ) );
     }
 
     return list1;

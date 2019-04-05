@@ -1,11 +1,14 @@
 package net.media.converters.request25toRequest30;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Device;
 import net.media.openrtb25.request.Geo;
 import net.media.utils.OsMap;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -13,30 +16,25 @@ import java.util.Map;
 
 public class DeviceToDeviceConverter implements Converter<Device, net.media.openrtb3.Device> {
 
-  private Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter;
-
-  @java.beans.ConstructorProperties({"geoToGeoConverter"})
-  public DeviceToDeviceConverter(Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter) {
-    this.geoToGeoConverter = geoToGeoConverter;
-  }
-
   @Override
-  public net.media.openrtb3.Device map(Device source, Config config) throws OpenRtbConverterException {
+  public net.media.openrtb3.Device map(Device source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
 
     net.media.openrtb3.Device device1 = new net.media.openrtb3.Device();
 
-    enhance( source, device1, config );
+    enhance( source, device1, config, converterProvider );
 
     return device1;
   }
 
   @Override
-  public void enhance(Device source, net.media.openrtb3.Device target, Config config) throws OpenRtbConverterException {
-    if(source == null)
+  public void enhance(Device source, net.media.openrtb3.Device target, Config config, Provider converterProvider) throws OpenRtbConverterException {
+    if(source == null || target == null)
       return;
+    Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter = converterProvider.fetch(new Conversion<>
+            (Geo.class, net.media.openrtb3.Geo.class));
     target.setContype( source.getConnectiontype() );
     target.setType( source.getDevicetype() );
     target.setLang( source.getLanguage() );
@@ -62,7 +60,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     target.setIpv6( source.getIpv6() );
     target.setCarrier( source.getCarrier() );
     target.setGeofetch( source.getGeofetch() );
-    target.setGeo( geoToGeoConverter.map( source.getGeo(), config ) );
+    target.setGeo( geoToGeoConverter.map( source.getGeo(), config, converterProvider ) );
     target.setMccmnc( source.getMccmnc() );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
@@ -80,7 +78,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
       target.getExt().remove("xff");
       target.setIptr((Integer) source.getExt().get("iptr"));
       target.getExt().remove("iptr");
-      target.setIptr((Integer) source.getExt().get("mccmncsim"));
+      target.setMccmncsim((String) source.getExt().get("mccmncsim"));
       target.getExt().remove("mccmncsim");
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Device", e);

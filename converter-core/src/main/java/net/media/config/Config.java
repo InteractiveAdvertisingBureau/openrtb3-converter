@@ -3,6 +3,7 @@ package net.media.config;
 import com.google.common.base.Strings;
 
 import net.media.enums.AdType;
+import net.media.enums.OpenRtbVersion;
 import net.media.utils.PropertiesFileLoader;
 
 import java.io.File;
@@ -17,11 +18,10 @@ import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 /**
- * ORTB converter configuration
+ * Provides a handle to read configuration from several data formats.
  *
  * @author shiva.b
  */
-
 public class Config {
 
   private static final boolean DEFAULT_NATIVE_REQUEST_AS_STRING = true;
@@ -34,48 +34,89 @@ public class Config {
 
   private static final AdType DEFAULT_AD_TYPE = AdType.BANNER;
 
+  private static final OpenRtbVersion DEFAULT_OPENRTB_2_X_VERSION = OpenRtbVersion.TWO_DOT_FIVE;
 
   /**
-   * This config determines the type of native request from 3.x to 2.x,
-   * as native request can be an object as well as a string in 2.x
+   * Determines the type of native request in 2.x while converting from 3.x to 2.x.
+   * Note: Native request can be an object as well as a string in 2.x.
    */
   private Boolean nativeRequestAsString;
 
+  /**
+   * Determines the type of native response in 2.x while converting from 3.x to 2.x.
+   * Note: Native response ADM can be an object as well as a string in 2.x.
+   */
   private Boolean nativeResponseAsString;
 
   /**
-   * {@link AdType} provides the adType for response conversion
+   * Used for converting 2.x response to 3.0 response, and vice versa.
+   * Stores the {@link AdType} against impression ids which will aid in conversion.
+   * Example: Say, the map has the following mapping:
+   * <pre>
+   *   {imp1, BANNER}
+   *   {imp2, VIDEO}
+   *   {imp3, NATIVE}
+   * </pre>
+   * If in 2.x response, bidResponse.seatBid.bid.impId = imp1, then when converting
+   * to 3.0, this impression will be converted to {@link net.media.openrtb3.Banner}
+   * object. Aditionally, if in 3.0 response, openrtb.response.seatbid.bid.media.ad.display.banner
+   * is not null, then an appropriate bidResponse.seatBid.bid will be created with impId = imp1.
+   * Note that, support for multiple ad types for a single impression is not supported.
    */
   private Map<String, AdType> adTypeMapping;
 
-  private Boolean disableCloning;
   /**
-   * This config determines whether the input request or response needs to be validated
+   * Whether to clone object references or not while conversion.
+   * Only used for collections.
+   */
+  private Boolean disableCloning;
+
+  /**
+   * Determines whether the input request or response needs to be v
+   * alidated or not.
    */
   private Boolean validate;
 
+  /**
+   * Determines the minor version in 2.x spec. By default, it is set to {@link OpenRtbVersion#TWO_DOT_FIVE},
+   * but can be overridden
+   */
+  private OpenRtbVersion openRtbVersion2_XVersion;
+
+  /**
+   * For internal use when no overriding config to drive the conversion is found.
+   *
+   * @param oldConfig the last set / updated config
+   */
   public Config(Config oldConfig) {
-    this.nativeRequestAsString = oldConfig.nativeRequestAsString;
-    this.adTypeMapping = oldConfig.adTypeMapping;
-    this.validate = oldConfig.validate;
-    this.disableCloning = oldConfig.disableCloning;
+    if (nonNull(oldConfig)) {
+      this.nativeRequestAsString = oldConfig.nativeRequestAsString;
+      this.adTypeMapping = oldConfig.adTypeMapping;
+      this.validate = oldConfig.validate;
+      this.disableCloning = oldConfig.disableCloning;
+      this.openRtbVersion2_XVersion = oldConfig.openRtbVersion2_XVersion;
+    }
   }
 
   public Config() {
   }
 
   /**
-   * fills the fields that are not present in the conversion request
+   * Sets the fields that are not present in the conversion request.
    *
-   * @param config
+   * @param config see {@link Config}
    */
   public void updateEmptyFields(Config config) {
-    this.nativeRequestAsString = isNull(this.nativeRequestAsString) ? config
-      .nativeRequestAsString : this.nativeRequestAsString;
-    this.adTypeMapping = isNull(this.adTypeMapping) ? config.adTypeMapping : this.adTypeMapping;
-    this.validate = isNull(this.validate) ? config.validate : this.validate;
-    this.disableCloning = isNull(this.disableCloning) ? config.getDisableCloning() : this
-      .disableCloning;
+    if (nonNull(config)) {
+      this.nativeRequestAsString = isNull(this.nativeRequestAsString) ? config
+        .nativeRequestAsString : this.nativeRequestAsString;
+      this.adTypeMapping = isNull(this.adTypeMapping) ? config.adTypeMapping : this.adTypeMapping;
+      this.validate = isNull(this.validate) ? config.validate : this.validate;
+      this.disableCloning = isNull(this.disableCloning) ? config.disableCloning : this
+        .disableCloning;
+      this.openRtbVersion2_XVersion = isNull(this.openRtbVersion2_XVersion) ? config
+        .openRtbVersion2_XVersion : this.openRtbVersion2_XVersion;
+    }
   }
 
   public Boolean getNativeRequestAsString() {
@@ -96,12 +137,19 @@ public class Config {
     return nonNull(disableCloning) ? disableCloning : DEFAULT_DISABLE_CLONING;
   }
 
+  public OpenRtbVersion getOpenRtbVersion2_XVersion() {
+    return nonNull(openRtbVersion2_XVersion) ? openRtbVersion2_XVersion :
+      DEFAULT_OPENRTB_2_X_VERSION;
+  }
+
   /**
-   * Read config object stored in JSON format from <code>String</code>
+   * Creates config object from JSON string.
    *
    * @param content of config
-   * @return config
-   * @throws IOException error
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromJSON(String content) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -109,11 +157,14 @@ public class Config {
   }
 
   /**
-   * Read config object stored in JSON format from <code>InputStream</code>
+   * Creates config object from input stream.
+   * The input stream must be drawn from JSON String.
    *
-   * @param inputStream object
-   * @return config
-   * @throws IOException error
+   * @param inputStream see appropriate implementation of {@link InputStream}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromJSON(InputStream inputStream) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -121,12 +172,14 @@ public class Config {
   }
 
   /**
-   * Read config object stored in JSON format from <code>File</code>
+   * Creates config object from JSON string stored in the file using the input {@link ClassLoader}.
    *
-   * @param file object
-   * @param classLoader class loader
-   * @return config
-   * @throws IOException error
+   * @param file object see {@link File}
+   * @param classLoader see {@link ClassLoader}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromJSON(File file, ClassLoader classLoader) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -134,22 +187,26 @@ public class Config {
   }
 
   /**
-   * Read config object stored in JSON format from <code>File</code>
+   * Creates config object from JSON string stored in the file.
    *
-   * @param file object
-   * @return config
-   * @throws IOException error
+   * @param file object see {@link File}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromJSON(File file) throws IOException {
     return fromJSON(file, null);
   }
 
   /**
-   * Read config object stored in JSON format from <code>URL</code>
+   * Creates config object from JSON string that will be fetched from the {@link URL}.
    *
-   * @param url object
-   * @return config
-   * @throws IOException error
+   * @param url object see {@link URL}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromJSON(URL url) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -157,11 +214,13 @@ public class Config {
   }
 
   /**
-   * Read config object stored in JSON format from <code>Reader</code>
+   * Creates config object from JSON String via {@link Reader}.
    *
-   * @param reader object
-   * @return config
-   * @throws IOException error
+   * @param reader see appropriate implementation of {@link Reader}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromJSON(Reader reader) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -169,22 +228,26 @@ public class Config {
   }
 
   /**
-   * Convert current configuration to JSON format
+   * Converts current configuration to JSON format
    *
    * @return config in json format
-   * @throws IOException error
+   *
+   * @throws IOException when conversion fails
    */
   public String toJSON() throws IOException {
     ConfigSupport support = new ConfigSupport();
     return support.toJSON(this);
   }
 
+
   /**
-   * Read config object stored in YAML format from <code>String</code>
+   * Creates config object from YAML string.
    *
-   * @param content of config
-   * @return config
-   * @throws IOException error
+   * @param content YAML string
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromYAML(String content) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -192,11 +255,14 @@ public class Config {
   }
 
   /**
-   * Read config object stored in YAML format from <code>InputStream</code>
+   * Creates config object from input stream.
+   * The input stream must be drawn from YAML String.
    *
-   * @param inputStream object
-   * @return config
-   * @throws IOException error
+   * @param inputStream see appropriate implementation of {@link InputStream}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromYAML(InputStream inputStream) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -204,27 +270,41 @@ public class Config {
   }
 
   /**
-   * Read config object stored in YAML format from <code>File</code>
+   * Creates config object from YAML string stored in the file.
    *
-   * @param file object
-   * @return config
-   * @throws IOException error
+   * @param file object see {@link File}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromYAML(File file) throws IOException {
     return fromYAML(file, null);
   }
 
+  /**
+   * Creates config object from YAML string stored in the file using the input {@link ClassLoader}.
+   *
+   * @param file object see {@link File}
+   * @param classLoader see {@link ClassLoader}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
+   */
   public static Config fromYAML(File file, ClassLoader classLoader) throws IOException {
     ConfigSupport support = new ConfigSupport();
     return support.fromYAML(file, Config.class, classLoader);
   }
 
   /**
-   * Read config object stored in YAML format from <code>URL</code>
+   * Creates config object from YAML string that will be fetched from the {@link URL}.
    *
-   * @param url object
-   * @return config
-   * @throws IOException error
+   * @param url object see {@link URL}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromYAML(URL url) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -232,11 +312,13 @@ public class Config {
   }
 
   /**
-   * Read config object stored in YAML format from <code>Reader</code>
+   * Creates config object from YAML String via {@link Reader}.
    *
-   * @param reader object
-   * @return config
-   * @throws IOException error
+   * @param reader see appropriate implementation of {@link Reader}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromYAML(Reader reader) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -244,17 +326,18 @@ public class Config {
   }
 
   /**
-   * Convert current configuration to YAML format
+   * Converts current configuration to YAML format
    *
-   * @return config in yaml format
-   * @throws IOException error
+   * @return config in YAML format
+   *
+   * @throws IOException when conversion fails
    */
   public String toYAML() throws IOException {
     ConfigSupport support = new ConfigSupport();
     return support.toYAML(this);
   }
 
-  public AdType  getAdType(String impressionId) {
+  public AdType getAdType(String impressionId) {
     if (isNull(adTypeMapping) || !adTypeMapping.containsKey(impressionId)) {
       return DEFAULT_AD_TYPE;
     }
@@ -285,56 +368,56 @@ public class Config {
     this.validate = validate;
   }
 
+  public void setOpenRtbVersion2_XVersion(OpenRtbVersion openRtbVersion2_XVersion) {
+    this.openRtbVersion2_XVersion = openRtbVersion2_XVersion;
+  }
+
 
   protected boolean canEqual(Object other) {
     return other instanceof Config;
   }
 
+  @Override
   public boolean equals(Object o) {
-    if (o == this) return true;
+    if (this == o) return true;
     if (!(o instanceof Config)) return false;
-    final Config other = (Config) o;
-    if (!other.canEqual((Object) this)) return false;
-    final Object this$nativeRequestAsString = this.getNativeRequestAsString();
-    final Object other$nativeRequestAsString = other.getNativeRequestAsString();
-    if (this$nativeRequestAsString == null ? other$nativeRequestAsString != null : !this$nativeRequestAsString.equals(other$nativeRequestAsString))
+
+    Config config = (Config) o;
+
+    if (getNativeRequestAsString() != null ? !getNativeRequestAsString().equals(config.getNativeRequestAsString()) : config.getNativeRequestAsString() != null)
       return false;
-    final Object this$nativeResponseAsString = this.getNativeResponseAsString();
-    final Object other$nativeResponseAsString = other.getNativeResponseAsString();
-    if (this$nativeResponseAsString == null ? other$nativeResponseAsString != null : !this$nativeResponseAsString.equals(other$nativeResponseAsString))
+    if (getNativeResponseAsString() != null ? !getNativeResponseAsString().equals(config.getNativeResponseAsString()) : config.getNativeResponseAsString() != null)
       return false;
-    final Object this$adTypeMapping = this.adTypeMapping;
-    final Object other$adTypeMapping = other.adTypeMapping;
-    if (this$adTypeMapping == null ? other$adTypeMapping != null : !this$adTypeMapping.equals(other$adTypeMapping))
+    if (adTypeMapping != null ? !adTypeMapping.equals(config.adTypeMapping) : config.adTypeMapping != null)
       return false;
-    final Object this$disableCloning = this.getDisableCloning();
-    final Object other$disableCloning = other.getDisableCloning();
-    if (this$disableCloning == null ? other$disableCloning != null : !this$disableCloning.equals(other$disableCloning))
+    if (getDisableCloning() != null ? !getDisableCloning().equals(config.getDisableCloning()) : config.getDisableCloning() != null)
       return false;
-    final Object this$validate = this.getValidate();
-    final Object other$validate = other.getValidate();
-    if (this$validate == null ? other$validate != null : !this$validate.equals(other$validate))
+    if (getValidate() != null ? !getValidate().equals(config.getValidate()) : config.getValidate() != null)
       return false;
-    return true;
+    return getOpenRtbVersion2_XVersion() == config.getOpenRtbVersion2_XVersion();
+
   }
 
+  @Override
   public int hashCode() {
-    final int PRIME = 59;
-    int result = 1;
-    final Object $nativeRequestAsString = this.getNativeRequestAsString();
-    result = result * PRIME + ($nativeRequestAsString == null ? 43 : $nativeRequestAsString.hashCode());
-    final Object $nativeResponseAsString = this.getNativeResponseAsString();
-    result = result * PRIME + ($nativeResponseAsString == null ? 43 : $nativeResponseAsString.hashCode());
-    final Object $adTypeMapping = this.adTypeMapping;
-    result = result * PRIME + ($adTypeMapping == null ? 43 : $adTypeMapping.hashCode());
-    final Object $disableCloning = this.getDisableCloning();
-    result = result * PRIME + ($disableCloning == null ? 43 : $disableCloning.hashCode());
-    final Object $validate = this.getValidate();
-    result = result * PRIME + ($validate == null ? 43 : $validate.hashCode());
+    int result = getNativeRequestAsString() != null ? getNativeRequestAsString().hashCode() : 0;
+    result = 31 * result + (getNativeResponseAsString() != null ? getNativeResponseAsString().hashCode() : 0);
+    result = 31 * result + (adTypeMapping != null ? adTypeMapping.hashCode() : 0);
+    result = 31 * result + (getDisableCloning() != null ? getDisableCloning().hashCode() : 0);
+    result = 31 * result + (getValidate() != null ? getValidate().hashCode() : 0);
+    result = 31 * result + (getOpenRtbVersion2_XVersion() != null ? getOpenRtbVersion2_XVersion().hashCode() : 0);
     return result;
   }
 
+  @Override
   public String toString() {
-    return "net.media.config.Config(nativeRequestAsString=" + this.getNativeRequestAsString() + ", nativeResponseAsString=" + this.getNativeResponseAsString() + ", adTypeMapping=" + this.adTypeMapping + ", disableCloning=" + this.getDisableCloning() + ", validate=" + this.getValidate() + ")";
+    return "Config{" +
+      "nativeRequestAsString=" + nativeRequestAsString +
+      ", nativeResponseAsString=" + nativeResponseAsString +
+      ", adTypeMapping=" + adTypeMapping +
+      ", disableCloning=" + disableCloning +
+      ", validate=" + validate +
+      ", openRtbVersion2_XVersion=" + openRtbVersion2_XVersion +
+      '}';
   }
 }

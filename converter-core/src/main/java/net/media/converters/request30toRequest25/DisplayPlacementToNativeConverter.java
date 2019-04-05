@@ -2,6 +2,7 @@ package net.media.converters.request30toRequest25;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -11,6 +12,7 @@ import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.NativeFormat;
 import net.media.utils.JacksonObjectMapper;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -20,20 +22,13 @@ import static java.util.Objects.nonNull;
 
 public class DisplayPlacementToNativeConverter implements Converter<DisplayPlacement, Native> {
 
-  private Converter<NativeFormat, NativeRequestBody> nativeFormatNativeRequestBodyConverter;
-
-  @java.beans.ConstructorProperties({"nativeFormatNativeRequestBodyConverter"})
-  public DisplayPlacementToNativeConverter(Converter<NativeFormat, NativeRequestBody> nativeFormatNativeRequestBodyConverter) {
-    this.nativeFormatNativeRequestBodyConverter = nativeFormatNativeRequestBodyConverter;
-  }
-
   @Override
-  public Native map(DisplayPlacement displayPlacement, Config config) throws OpenRtbConverterException {
+  public Native map(DisplayPlacement displayPlacement, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (displayPlacement == null) {
       return null;
     }
     Native nat = new Native();
-    enhance(displayPlacement, nat, config);
+    enhance(displayPlacement, nat, config, converterProvider);
     if (isNull(nat.getNativeRequestBody())) {
       return null;
     }
@@ -41,12 +36,14 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
   }
 
   @Override
-  public void enhance(DisplayPlacement displayPlacement, Native nat, Config config) throws OpenRtbConverterException {
+  public void enhance(DisplayPlacement displayPlacement, Native nat, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(displayPlacement) || isNull(nat)) {
       return;
     }
+    Converter<NativeFormat, NativeRequestBody> nativeFormatNativeRequestBodyConverter =
+      converterProvider.fetch(new Conversion<>(NativeFormat.class, NativeRequestBody.class));
     NativeRequestBody nativeRequestBody = nativeFormatNativeRequestBodyConverter.map
-      (displayPlacement.getNativefmt(), config);
+      (displayPlacement.getNativefmt(), config, converterProvider);
     if (isNull(nativeRequestBody)) {
       return;
     }
@@ -55,15 +52,6 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     if (nonNull(nativeRequest.getNativeRequestBody())) {
       nativeRequest.getNativeRequestBody().setContext(displayPlacement.getContext());
       nativeRequest.getNativeRequestBody().setPlcmttype(displayPlacement.getPtype());
-      if (nonNull(displayPlacement.getExt())) {
-        try {
-          nativeRequest.getNativeRequestBody().setContextsubtype((Integer) displayPlacement.getExt
-            ().get("contextsubtype"));
-          displayPlacement.getExt().remove("contextsubtype");
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
-        }
-      }
     }
     nat.setApi(Utils.copyCollection(displayPlacement.getApi(), config));
     if (nonNull(displayPlacement.getExt())) {
@@ -72,8 +60,10 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       }
       nat.getExt().putAll(displayPlacement.getExt());
       try {
-        nat.setVer((String) displayPlacement.getExt().get("nativeversion"));
-        nat.getExt().remove("nativeversion");
+        if(displayPlacement.getNativefmt().getExt() != null && displayPlacement.getNativefmt().getExt().containsKey("ver")) {
+          nat.setVer((String) displayPlacement.getNativefmt().getExt().get("ver"));
+          displayPlacement.getNativefmt().getExt().remove("ver");
+        }
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
       }

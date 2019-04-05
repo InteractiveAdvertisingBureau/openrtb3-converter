@@ -2,8 +2,10 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Source;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -14,21 +16,23 @@ import java.util.Map;
  */
 public class SourceToSourceConverter implements Converter<Source, net.media.openrtb3.Source> {
   @Override
-  public net.media.openrtb3.Source map(Source source, Config config) throws OpenRtbConverterException {
+  public net.media.openrtb3.Source map(Source source, Config config, Provider converterProvider)
+    throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
 
     net.media.openrtb3.Source source1 = new net.media.openrtb3.Source();
 
-    enhance( source, source1, config);
+    enhance( source, source1, config, converterProvider);
 
     return source1;
   }
 
   @Override
-  public void enhance(Source source, net.media.openrtb3.Source target, Config config) throws OpenRtbConverterException {
-    if(source == null)
+  public void enhance(Source source, net.media.openrtb3.Source target, Config config, Provider
+    converterProvider) throws OpenRtbConverterException {
+    if(source == null || target == null)
       return;
     target.setTid( source.getTid() );
     target.setPchain( source.getPchain() );
@@ -46,12 +50,12 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
     try {
       target.setTs((Integer) source.getExt().get("ts"));
       target.setDs((String) source.getExt().get("ds"));
-      target.setDsmap((String) source.getExt().get("dsMap"));
+      target.setDsmap((String) source.getExt().get("dsmap"));
       target.setCert((String) source.getExt().get("cert"));
       target.setDigest((String) source.getExt().get("digest"));
       target.getExt().remove("ts");
       target.getExt().remove("ds");
-      target.getExt().remove("dsMap");
+      target.getExt().remove("dsmap");
       target.getExt().remove("cert");
       target.getExt().remove("digest");
     } catch (ClassCastException e) {

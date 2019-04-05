@@ -1,11 +1,13 @@
 package net.media.converters.response25toresponse30;
 
+import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Audit;
 import net.media.openrtb3.Corr;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -19,7 +21,7 @@ import static java.util.Objects.isNull;
  */
 public class BidToAuditConverter implements Converter<Bid, Audit> {
   @Override
-  public Audit map(Bid source, Config config) throws OpenRtbConverterException {
+  public Audit map(Bid source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(source)) {
       return null;
     }
@@ -28,7 +30,7 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
   }
 
   @Override
-  public void enhance(Bid source, Audit target, Config config) throws OpenRtbConverterException{
+  public void enhance(Bid source, Audit target, Config config, Provider converterProvider) throws OpenRtbConverterException{
     if (isNull(source) || isNull(target)) {
       return;
     }

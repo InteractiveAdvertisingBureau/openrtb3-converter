@@ -3,7 +3,10 @@ package net.media.converters.request30toRequest25;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
+import net.media.driver.Conversion;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Source;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -11,21 +14,23 @@ import java.util.Map;
 
 public class SourceToSourceConverter implements Converter<Source, net.media.openrtb25.request.Source> {
   @Override
-  public net.media.openrtb25.request.Source map(Source source, Config config) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.Source map(Source source, Config config, Provider
+    converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
 
     net.media.openrtb25.request.Source source1 = new net.media.openrtb25.request.Source();
 
-    enhance( source, source1, config );
+    enhance( source, source1, config, converterProvider );
 
     return source1;
   }
 
   @Override
-  public void enhance(Source source, net.media.openrtb25.request.Source target, Config config) throws OpenRtbConverterException {
-    if(source == null)
+  public void enhance(Source source, net.media.openrtb25.request.Source target, Config config,
+                      Provider converterProvider) throws OpenRtbConverterException {
+    if(source == null || target == null)
       return;
     target.setTid( source.getTid() );
     target.setPchain( source.getPchain() );
@@ -46,7 +51,7 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
     if(source.getDsmap() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
-      target.getExt().put("dsMap", source.getDsmap());
+      target.getExt().put("dsmap", source.getDsmap());
     }
     if(source.getCert() != null) {
       if(target.getExt() == null)
