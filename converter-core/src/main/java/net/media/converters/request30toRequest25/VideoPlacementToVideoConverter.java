@@ -61,7 +61,7 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     video.setSkipafter( videoPlacement.getSkipafter() );
     video.setDelivery(Utils.copyCollection(videoPlacement.getDelivery(), config));
     video.setPos( videoPlacement.getPos() );
-    video.setApi(Utils.copyCollection(videoPlacement.getDelivery(), config));
+    video.setApi(Utils.copyCollection(videoPlacement.getApi(), config));
     video.setExt(Utils.copyMap(videoPlacement.getExt(), config));
 
     videoPlacementToVideoAfterMapping( videoPlacement, video );

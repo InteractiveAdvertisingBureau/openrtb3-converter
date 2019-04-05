@@ -38,7 +38,14 @@ public class CompanionToBannerConverter implements Converter<Companion, Banner> 
     banner.setId( companion.getId() );
     Map<String, Object> map = companion.getExt();
     if ( map != null ) {
-      banner.setExt(Utils.copyMap(map, config));
+      if(banner.getExt() == null)
+        banner.setExt(Utils.copyMap(map, config));
+      else
+        try {
+          banner.getExt().putAll(Utils.copyMap(map, config));
+        } catch (Exception e) {
+          throw new OpenRtbConverterException("companion to banner conversion failed ", e);
+        }
     }
   }
 }

@@ -66,6 +66,7 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     videoPlacement.setW( video.getW() );
     videoPlacement.setH( video.getH() );
     videoPlacement.setDelivery(Utils.copyCollection(video.getDelivery(), config));
+    videoPlacement.setExt(Utils.copyMap(video.getExt(), config));
     videoToVideoPlacementAfterMapping(video, videoPlacement);
   }
 
