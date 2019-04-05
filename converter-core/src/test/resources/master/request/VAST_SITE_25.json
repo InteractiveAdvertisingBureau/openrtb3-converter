@@ -29,7 +29,6 @@
     "cattax" : 2,
     "dummy" : "ff",
     "restrictions": {
-      "cattax" : 2,
       "ext": {
         "dummy": "ff"
       }
@@ -43,6 +42,7 @@
   "bapp": ["nn"],
   "imp": [{
     "id": "1",
+    "clickbrowser": 1,
     "metric": [{
       "type": "dd",
       "value": 1.0,
@@ -72,10 +72,7 @@
     },
     "displaymanager": "dd",
     "displaymanagerver": "22",
-    "clickbrowser": 1,
     "secure": 1,
-    "iframebuster": ["abc","def"],
-    "instl": 0,
     "tagid": "re",
     "exp": 1,
     "video": {
@@ -113,7 +110,46 @@
         1,2
       ],
       "pos": 1,
-
+      "companionad": [{
+        "id": "3.0",
+        "vcm": 1,
+        "pos": 0,
+        "topframe": 22,
+        "expdir": [3, 9],
+        "mimes": ["application/x-shockwave-flash", "image/jpg"],
+        "api": [3, 2],
+        "w": 300,
+        "h": 250,
+        "btype": [3, 4],
+        "format": [{
+          "ext": {
+            "dummy": "ffaa"
+          },
+          "h": 20,
+          "hratio": 30,
+          "w": 200,
+          "wmin": 3,
+          "wratio": 200
+        },
+          {
+            "ext": {
+              "dummy": "ffaa"
+            },
+            "h": 11,
+            "hratio": 30,
+            "w": 33,
+            "wmin": 3,
+            "wratio": 200
+          }],
+        "ext": {
+          "ptype": 1,
+          "context": 2,
+          "ctype": [1],
+          "unit": 1,
+          "priv": 0,
+          "dummy": "entry"
+        }
+      }],
       "api": [
         2,
         3
@@ -121,7 +157,6 @@
       "ext": {
         "unit" :1,
         "maxseq":1,
-        "dummy": "drf",
         "qty" :1
       }
     },
@@ -133,32 +168,6 @@
       "dlvy": 1,
       "sequence" :1,
       "curlx" : 0,
-      "ampren" : 1,
-      "event": [{
-        "type": 1,
-        "method": [1],
-        "api": [1,2],
-        "jstrk": ["abc", "Def"],
-        "wjs": 1,
-        "pxtrk": ["abc", "def"],
-        "wpx": 1,
-        "ext": {
-          "dummy": "ffaa"
-        }
-      },
-        {
-          "type": 1,
-          "method": [1],
-          "api": [1,2],
-          "jstrk": ["abc", "Def"],
-          "wjs": 1,
-          "pxtrk": ["abc", "def"],
-          "wpx": 1,
-          "ext": {
-            "dummy": "ffaa"
-          }
-        }
-      ],
       "dummy": "ff"
     }
   }],
