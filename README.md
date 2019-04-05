@@ -91,4 +91,4 @@ Support for conversion is provided where each item or impression is mapped to on
 
 Details about how to use the library are available [here](https://github.com/media-net/openrtb3-converter/wiki/OpenRTB-3.0-Converter---Usage-Guidelines).
 
-The mappings which serve as the standard for conversion between OpenRTB 3.0 and OpenRTB 2.5 are available [here](MAPPINGS.md) and here [PDF](openrtb-3-converter-mappings.pdf).
+The mappings which serve as the standard for conversion between OpenRTB 3.0 and OpenRTB 2.5 are available [here](MAPPINGS.md) and here [PDF](https://github.com/media-net/openrtb3-converter/raw/master/openrtb-3-converter-mappings.pdf).
