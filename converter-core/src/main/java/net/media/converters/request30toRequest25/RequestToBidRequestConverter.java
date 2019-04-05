@@ -138,6 +138,12 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
                 (), config));
             }
           }
+          if (nonNull(imp.getAudio())) {
+            if (nonNull(source.getContext().getRestrictions().getBattr())) {
+              imp.getAudio().setBattr(Utils.copyCollection(source.getContext().getRestrictions().getBattr
+                (), config));
+            }
+          }
           if (nonNull(imp.getNat())) {
             if (nonNull(source.getContext().getRestrictions().getBattr())) {
               imp.getNat().setBattr(Utils.copyCollection(source.getContext().getRestrictions().getBattr

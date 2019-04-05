@@ -52,6 +52,8 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
         battr.addAll(imp.getVideo().getBattr());
       } else if(imp.getNat() != null && imp.getNat().getBattr() != null) {
         battr.addAll(imp.getNat().getBattr());
+      } else if(imp.getAudio() != null && imp.getAudio().getBattr() != null) {
+        battr.addAll(imp.getAudio().getBattr());
       }
     }
     if(battr.size()>0) {
