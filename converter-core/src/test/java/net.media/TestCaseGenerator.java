@@ -19,8 +19,7 @@ import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -38,8 +37,6 @@ public class TestCaseGenerator {
     for(Path rootPath: Files.list(Paths.get(basePath + "edits")).collect(Collectors.toList())) {
       for(Path path: Files.list(rootPath).collect(Collectors.toList())) {
         try {
-          if(path.getFileName().toString().equals("testScript_config.txt")==false)
-            continue;
           String json2 = new String(Files.readAllBytes(path));
           final Test test = mapper.readValue(json2, Test.class);
 

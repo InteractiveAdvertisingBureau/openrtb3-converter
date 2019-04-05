@@ -1,0 +1,2524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9ce24c19-3d72-44fb-8e44-f74ecd788224" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_DOOH_30.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_DOOH_30.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_DOOH_30.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_DOOH_30.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <ignored path="open-rtb-converter.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <ignored path="$PROJECT_DIR$/converter-core/target/" />
+    <ignored path="$PROJECT_DIR$/converter-api/target/" />
+    <ignored path="$PROJECT_DIR$/converter-bechmark/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-497127923">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="363331082">
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="json" value="2793" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JSON" value="2793" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="AUDIO_SITE_24" value="1" />
+          <entry key="java" value="6" />
+          <entry key="json" value="38" />
+          <entry key="txt" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="6" />
+          <entry key="JSON" value="38" />
+          <entry key="PLAIN_TEXT" value="3" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="open-rtb-converter" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/AdToBidConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/OpenRtbResponseToBidResponseConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="735">
+              <caret line="49" column="57" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/Converter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/MediatoBidConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/template/MacroMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="765">
+              <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Bid.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/response/Bid.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="585">
+              <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/DisplayPlacement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/NativeFormat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/AssetFormat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Request.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRequestConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1995">
+              <caret line="133" column="30" selection-start-line="133" selection-start-column="30" selection-end-line="133" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/VideoToVideoPlacementConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1335">
+              <caret line="107" selection-start-line="107" selection-end-line="107" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/VideoPlacement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Companion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/SiteToSiteConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="795">
+              <caret line="63" column="3" selection-start-line="63" selection-start-column="3" selection-end-line="63" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ProducerToProducerConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="40" column="3" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/AudioToAudioPlacementConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="666">
+              <caret line="86" column="7" selection-start-line="86" selection-start-column="7" selection-end-line="86" selection-end-column="7" />
+              <folding>
+                <element signature="e#2704#2715#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/java/net.media/TestCaseGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1380">
+              <caret line="105" column="11" selection-start-line="105" selection-start-column="11" selection-end-line="105" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_30.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="364" column="23" lean-forward="true" selection-start-line="364" selection-start-column="23" selection-end-line="364" selection-end-column="23" />
+              <folding>
+                <element signature="e#1327#4241#0" />
+                <element signature="n#!!block;n#site#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_DOOH_30.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="180" column="6" lean-forward="true" selection-start-line="180" selection-start-column="6" selection-end-line="195" selection-end-column="8" />
+              <folding>
+                <element signature="e#1327#4108#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_DOOH_30.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="700">
+              <caret line="380" lean-forward="true" selection-start-line="380" selection-end-line="380" />
+              <folding>
+                <element signature="e#1327#4241#0" />
+                <element signature="n#!!block;n#app#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_DOOH_30.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="700">
+              <caret line="331" selection-start-line="331" selection-end-line="331" />
+              <folding>
+                <element signature="n#!!block;n#app#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_DOOH_30.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="700">
+              <caret line="472" column="1" selection-start-line="472" selection-start-column="1" selection-end-line="472" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_30.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="455">
+              <caret line="368" column="24" lean-forward="true" selection-end-line="380" />
+              <folding>
+                <element signature="e#1327#4241#0" />
+                <element signature="n#!!block;n#app#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_App_datatype_25_.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_native_datatype_25_.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_24.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1615">
+              <caret line="290" column="4" selection-start-line="290" selection-start-column="4" selection-end-line="290" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!block;n#app#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_25.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="97" column="11" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="11" />
+              <folding>
+                <element signature="n#!!block;n#app#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_24.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1615">
+              <caret line="290" column="4" selection-start-line="290" selection-start-column="4" selection-end-line="290" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!block;n#site#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_24.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1594">
+              <caret line="293" column="4" selection-start-line="293" selection-start-column="4" selection-end-line="293" selection-end-column="4" />
+              <folding>
+                <element signature="e#1356#2857#0" />
+                <element signature="e#1734#2541#0" />
+                <element signature="n#!!block;n#site#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_APP_25.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1840">
+              <caret line="142" column="2" selection-start-line="142" selection-start-column="2" selection-end-line="278" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!block;n#app#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_APP_24.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1615">
+              <caret line="243" column="4" selection-start-line="243" selection-start-column="4" selection-end-line="243" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!block;n#app#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_SITE_24.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1615">
+              <caret line="107" column="2" lean-forward="true" selection-start-line="107" selection-start-column="2" selection-end-line="243" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!block;n#site#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_25.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1435">
+              <caret line="322" column="29" lean-forward="true" selection-start-line="322" selection-start-column="29" selection-end-line="322" selection-end-column="29" />
+              <folding>
+                <element signature="e#2549#2928#0" />
+                <element signature="n#!!block;n#site#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_25.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1630">
+              <caret line="321" column="4" selection-start-line="321" selection-start-column="4" selection-end-line="321" selection-end-column="4" />
+              <folding>
+                <element signature="e#1867#3368#0" />
+                <element signature="e#2245#3052#0" />
+                <element signature="n#!!block;n#site#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_23.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="374" column="11" lean-forward="true" selection-end-line="397" />
+              <folding>
+                <element signature="e#1280#2781#0" />
+                <element signature="e#1658#2465#0" />
+                <element signature="n#!!block;n#site#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_24.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1615">
+              <caret line="281" column="4" selection-start-line="281" selection-start-column="4" selection-end-line="281" selection-end-column="4" />
+              <folding>
+                <element signature="e#2038#2845#0" />
+                <element signature="n#!!block;n#site#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_30.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="352" column="19" lean-forward="true" selection-end-line="375" />
+              <folding>
+                <element signature="e#1327#4108#0" />
+                <element signature="n#!!block;n#site#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_23.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1555">
+              <caret line="290" column="4" selection-start-line="290" selection-start-column="4" selection-end-line="290" selection-end-column="4" />
+              <folding>
+                <element signature="e#1280#2743#0" />
+                <element signature="e#1539#2346#0" />
+                <element signature="n#!!block;n#app#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_APP_23.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="359" column="20" lean-forward="true" selection-start-line="359" selection-start-column="20" selection-end-line="359" selection-end-column="20" />
+              <folding>
+                <element signature="n#!!block;n#app#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_SITE_23.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1555">
+              <caret line="91" column="2" lean-forward="true" selection-start-line="91" selection-start-column="2" selection-end-line="188" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!block;n#site#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_23.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1555">
+              <caret line="287" column="4" selection-start-line="287" selection-start-column="4" selection-end-line="287" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!block;n#app#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_23.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1555">
+              <caret line="248" column="4" selection-start-line="248" selection-start-column="4" selection-end-line="248" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!block;n#site#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_24.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1615">
+              <caret line="281" column="4" selection-start-line="281" selection-start-column="4" selection-end-line="281" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!block;n#app#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_24.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1615">
+              <caret line="293" column="4" selection-start-line="293" selection-start-column="4" selection-end-line="293" selection-end-column="4" />
+              <folding>
+                <element signature="e#1356#2857#0" />
+                <element signature="e#1734#2541#0" />
+                <element signature="n#!!block;n#app#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_25.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1630">
+              <caret line="309" column="4" selection-start-line="309" selection-start-column="4" selection-end-line="309" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!block;n#app#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_25.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1630">
+              <caret line="185" column="6" selection-start-line="185" selection-start-column="3" selection-end-line="185" selection-end-column="6" />
+              <folding>
+                <element signature="e#1866#3367#0" />
+                <element signature="e#2244#3051#0" />
+                <element signature="n#!!block;n#app#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_30.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="180" column="10" selection-start-line="180" selection-start-column="7" selection-end-line="180" selection-end-column="10" />
+              <folding>
+                <element signature="e#1327#3478#0" />
+                <element signature="n#!!block;n#app#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_23.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1555">
+              <caret line="239" column="4" selection-start-line="239" selection-start-column="4" selection-end-line="239" selection-end-column="4" />
+              <folding>
+                <element signature="e#1962#2769#0" />
+                <element signature="n#!!block;n#site#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_23.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1555">
+              <caret line="278" column="4" selection-start-line="278" selection-start-column="4" selection-end-line="278" selection-end-column="4" />
+              <folding>
+                <element signature="e#1962#2769#0" />
+                <element signature="n#!!block;n#app#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_APP_30.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="309" column="18" lean-forward="true" selection-end-line="331" />
+              <folding>
+                <element signature="n#!!block;n#app#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_SITE_25.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+              <folding>
+                <element signature="n#!!block;n#site#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_30.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="455" column="8" lean-forward="true" selection-end-line="472" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_25.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1630">
+              <caret line="318" column="4" selection-start-line="318" selection-start-column="4" selection-end-line="318" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!block;n#site#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_30.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="635">
+              <caret line="472" column="1" selection-start-line="472" selection-start-column="1" selection-end-line="472" selection-end-column="1" />
+              <folding>
+                <element signature="n#!!block;n#site#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_SITE_30.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="309" column="18" lean-forward="true" selection-end-line="331" />
+              <folding>
+                <element signature="n#!!block;n#site#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/VideoAsset.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ContentToContentConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="900">
+              <caret line="71" column="7" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BidRequestToRestrictionsConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="795">
+              <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/BidRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="AnnotationType" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>seq</find>
+      <find>displayplacement.setext(</find>
+      <find>banner.getext</find>
+      <find>getad</find>
+      <find>bid</find>
+      <find>bannerdisplaypla</find>
+      <find>ampren</find>
+      <find>play</find>
+      <find>$catt</find>
+      <find>getwlan</find>
+      <find>pmp</find>
+      <find>ptype</find>
+      <find>ctype</find>
+      <find>priv</find>
+      <find>classca</find>
+      <find>companionad</find>
+      <find>comp</find>
+      <find>spec</find>
+      <find>video</find>
+      <find>dis</find>
+      <find>compa</find>
+      <find>bann</find>
+      <find>companiona</find>
+      <find>audio</find>
+      <find>si</find>
+      <find>display</find>
+      <find>site</find>
+      <find>native</find>
+      <find>pub</find>
+      <find>app</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/RequestToBidRequestConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb3/Request.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToBannerConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/ItemToImpConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/ImpToItemConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToNativeConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/NativeToDisplayPlacementConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request30toRequest25/AssetFormatToAssetConverter.java" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_SITE_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_SITE_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_SITE_23.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_APP_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_APP_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_APP_23.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master_request/BANNER_APP_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_APP_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_SITE_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_APP_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_23.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_23.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_23.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_APP_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_23.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_23.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_23.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/DOOH_APP_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/DOOH_SITE_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_DOOH_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_DOOH_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_DOOH_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_DOOH_30.json" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="-508" />
+    <option name="y" value="-1440" />
+    <option name="width" value="2560" />
+    <option name="height" value="1440" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <autoscrollToSource ProjectPane="true" />
+      <autoscrollFromSource ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="net.media" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="edits" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="edits" type="462c0819:PsiDirectoryNode" />
+              <item name="request" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="master" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="master" type="462c0819:PsiDirectoryNode" />
+              <item name="request" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="net.media" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="generatedRequest" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="request_testscript" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="response_testscript" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="LombokPluginEnabledInProject" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="VideoPl&#9;PSI&#9;JAVA://net.media.openrtb3.VideoPlacement&#10;Display&#9;FILE&#9;file:///Users/varun.b/cookie_manager/ortb/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/DisplayPlacement.java&#10;VideoAss&#9;PSI&#9;JAVA://net.media.openrtb3.VideoAsset&#10;native&#9;PSI&#9;JAVA://net.media.openrtb25.request.Native&#10;imp&#9;PSI&#9;JAVA://net.media.openrtb25.request.Imp&#10;itemtoim&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request30toRequest25/ItemToImpConverter.java&#10;pmp&#9;PSI&#9;JAVA://net.media.openrtb25.request.Pmp&#10;nativetod&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request25toRequest30/NativeToDisplayPlacementConverter.java&#10;displatona&#9;PSI&#9;JAVA://net.media.converters.request30toRequest25.DisplayPlacementToNativeConverter&#10;bannerto&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java&#10;displayplacementto&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToBannerConverter.java&#10;displ&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/DisplayPlacement.java&#10;display&#9;PSI&#9;JAVA://net.media.openrtb3.Display&#10;displa&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Display.java&#10;place&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Placement.java&#10;item&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Item.java&#10;restri&#9;PSI&#9;JAVA://net.media.openrtb3.Restrictions&#10;user&#9;PSI&#9;JAVA://net.media.openrtb25.request.User&#10;bidre&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb25/request/BidRequest.java&#10;request&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Request.java&#10;audio&#9;PSI&#9;JAVA://net.media.openrtb25.request.Audio&#10;audip&#9;PSI&#9;JAVA://net.media.openrtb3.AudioPlacement&#10;videopl&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/VideoPlacement.java&#10;video&#9;PSI&#9;JAVA://net.media.openrtb3.Video&#10;banner&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb25/request/Banner.java&#10;displayf&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/DisplayFormat.java&#10;placement&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Placement.java&#10;source&#9;PSI&#9;JAVA://net.media.openrtb25.request.Source&#10;bidreq&#9;PSI&#9;JAVA://net.media.openrtb25.request.BidRequest&#10;reque&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Request.java&#10;openr&#9;PSI&#9;JAVA://net.media.openrtb3.OpenRTB&#10;list&#9;PSI&#9;JAVA://net.media.utils.ListToListConverter&#10;bannertocom&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToCompanionConverter.java&#10;displaytobi&#9;PSI&#9;JAVA://net.media.converters.response30toresponse25.DisplayToBidConverter&#10;config&#9;PSI&#9;JAVA://net.media.config.Config&#10;videopla&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/VideoPlacement.java&#10;bannertodis&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java&#10;companio&#9;PSI&#9;JAVA://net.media.openrtb3.Companion&#10;bidtoad&#9;PSI&#9;JAVA://net.media.converters.response25toresponse30.BidToAdConverter&#10;utils&#9;PSI&#9;JAVA://net.media.utils.Utils&#10;Video&#9;FILE&#9;file:///Users/shiva.b/Documents/openrtb-converter/converter-core/src/main/java/net/media/openrtb25/request/Video.java&#10;BidRes&#9;PSI&#9;JAVA://net.media.openrtb25.response.BidResponse&#10;SeatBi&#9;FILE&#9;file:///Users/shiva.b/Documents/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Seatbid.java&#10;HashMa&#9;PSI&#9;JAVA://java.util.HashMap&#10;Disp&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Display.java&#10;Ad&#9;PSI&#9;JAVA://net.media.openrtb3.Ad&#10;bid&#9;PSI&#9;JAVA://net.media.openrtb3.Bid&#10;Bid&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAdConverter.java&#10;Ope&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/mapper/OpenRtb24To3Mapper.java&#10;ope&#9;PSI&#9;JAVA://net.media.mapper.OpenRtb24To3Mapper" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554403360727" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/converter-core/src/test/resources/master/request" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.OpenRtb24To3Mapper">
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <module name="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="converter-core" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    </configuration>
+    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="converter-core" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="converter-core" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="converter-core" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenRtb24To3Mapper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="net.media.removeMe.OpenRtb24To3Mapper" />
+      <module name="converter-core" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.media.removeMe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenRtbMapperTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="net.media.removeMe.OpenRtbMapperTest" />
+      <module name="converter-core" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.media.removeMe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCaseGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="net.media.TestCaseGenerator" />
+      <module name="converter-core" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.media.driver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="converter-core" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="converter-core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="converter-core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="converter-core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <module name="converter-core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="converter-core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <module name="converter-core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.OpenRtb24To3Mapper" />
+      <item itemvalue="Application.TestCaseGenerator" />
+      <item itemvalue="Application.OpenRtbMapperTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.OpenRtb24To3Mapper" />
+        <item itemvalue="Application.OpenRtbMapperTest" />
+        <item itemvalue="Application.TestCaseGenerator" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9ce24c19-3d72-44fb-8e44-f74ecd788224" name="Default" comment="" />
+      <created>1547019396051</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1547019396051</updated>
+      <workItem from="1547019397410" duration="3821000" />
+      <workItem from="1547410622308" duration="746000" />
+      <workItem from="1547547173371" duration="556000" />
+      <workItem from="1553785595566" duration="4448000" />
+      <workItem from="1553856826763" duration="4037000" />
+      <workItem from="1554192709061" duration="1613000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="61446000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-508" y="-1440" width="2560" height="1440" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20015885" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="DB Browser" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Project Explorer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Job Explorer" order="8" />
+      <window_info id="Learn" order="9" />
+      <window_info id="Palette&#9;" order="10" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.21875" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34517047" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3096591" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Console" order="7" />
+      <window_info anchor="bottom" id="DB Execution Console" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.33927247" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32954547" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="JProfiler" order="13" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24959612" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Designer" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" weight="0.40145397" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="CodotaView" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+      <window_info anchor="right" id="Data View" order="11" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3352181" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32876712" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39918116" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32958034" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.51369864" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.5863014" />
+      <window_info anchor="right" id="Maven" order="0" weight="0.32956383" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.24959612" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Data View" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
+      <window_info anchor="right" id="Dynamic Properties" order="11" />
+      <window_info anchor="right" id="Bean Validation" order="12" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/SeatBid30ToSeatBid25Converter.java</url>
+          <line>35</line>
+          <properties />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid25Converter.java</url>
+          <line>59</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid25Converter.java</url>
+          <line>60</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid25Converter.java</url>
+          <line>62</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/AdToBidConverter.java</url>
+          <line>57</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToVideoConverter.java</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Video.java</url>
+          <line>284</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_APP_24.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
+          <folding>
+            <element signature="n#!!block;n#regs#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!top" />
+            <element signature="n#!!block;n#app#0;n#!!top" />
+            <element signature="n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#user#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_APP_25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
+          <folding>
+            <element signature="n#!!block;n#source#0;n#!!top" />
+            <element signature="n#!!block;n#regs#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!top" />
+            <element signature="n#!!block;n#app#0;n#!!top" />
+            <element signature="n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#user#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_23.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+          <folding>
+            <element signature="n#!!block;n#regs#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!top" />
+            <element signature="n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#publisher#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#publisher#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#publisher#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#producer#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#producer#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#user#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_24.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
+          <folding>
+            <element signature="n#!!block;n#regs#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!top" />
+            <element signature="n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#publisher#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#publisher#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#publisher#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#producer#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#producer#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#user#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="192" column="5" selection-start-line="192" selection-start-column="5" selection-end-line="192" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!block;n#source#0;n#!!top" />
+            <element signature="n#!!block;n#regs#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!top" />
+            <element signature="n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#publisher#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#publisher#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#publisher#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#producer#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#producer#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#obj#0;n#!!block;n#object#0;n#!!block;n#ext#0;n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#user#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generatedRequest/idIntFormat.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4095">
+          <caret line="762" column="4" selection-start-line="762" selection-start-column="4" selection-end-line="762" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#inputEdits#0;n#!!top" />
+            <element signature="n#!!block;n#inputJson#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/request25toRequest30/AudioToAudioPlacementConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="86" column="7" selection-start-line="86" selection-start-column="7" selection-end-line="86" selection-end-column="7" />
+          <folding>
+            <element signature="e#2704#2715#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_APP_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="354" column="21" lean-forward="true" selection-end-line="472" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/NATIVE_SITE_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="90" column="25" lean-forward="true" selection-end-line="471" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_APP_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="44" column="15" selection-end-line="380" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-139" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_App_datatype_25_.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_native_datatype_25_.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_APP_23.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="359" column="20" lean-forward="true" selection-start-line="359" selection-start-column="20" selection-end-line="359" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!block;n#app#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_SITE_23.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1555">
+          <caret line="91" column="2" lean-forward="true" selection-start-line="91" selection-start-column="2" selection-end-line="188" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#site#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_23.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1555">
+          <caret line="290" column="4" selection-start-line="290" selection-start-column="4" selection-end-line="290" selection-end-column="4" />
+          <folding>
+            <element signature="e#1280#2743#0" />
+            <element signature="e#1539#2346#0" />
+            <element signature="n#!!block;n#app#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_23.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1555">
+          <caret line="287" column="4" selection-start-line="287" selection-start-column="4" selection-end-line="287" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#app#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_23.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1555">
+          <caret line="248" column="4" selection-start-line="248" selection-start-column="4" selection-end-line="248" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#site#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_23.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1555">
+          <caret line="278" column="4" selection-start-line="278" selection-start-column="4" selection-end-line="278" selection-end-column="4" />
+          <folding>
+            <element signature="e#1962#2769#0" />
+            <element signature="n#!!block;n#app#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_23.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1555">
+          <caret line="239" column="4" selection-start-line="239" selection-start-column="4" selection-end-line="239" selection-end-column="4" />
+          <folding>
+            <element signature="e#1962#2769#0" />
+            <element signature="n#!!block;n#site#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_24.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1615">
+          <caret line="293" column="4" selection-start-line="293" selection-start-column="4" selection-end-line="293" selection-end-column="4" />
+          <folding>
+            <element signature="e#1356#2857#0" />
+            <element signature="e#1734#2541#0" />
+            <element signature="n#!!block;n#app#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_24.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1594">
+          <caret line="293" column="4" selection-start-line="293" selection-start-column="4" selection-end-line="293" selection-end-column="4" />
+          <folding>
+            <element signature="e#1356#2857#0" />
+            <element signature="e#1734#2541#0" />
+            <element signature="n#!!block;n#site#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_APP_24.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1615">
+          <caret line="243" column="4" selection-start-line="243" selection-start-column="4" selection-end-line="243" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#app#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_SITE_24.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1615">
+          <caret line="107" column="2" lean-forward="true" selection-start-line="107" selection-start-column="2" selection-end-line="243" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#site#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_24.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1615">
+          <caret line="290" column="4" selection-start-line="290" selection-start-column="4" selection-end-line="290" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#app#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_24.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1615">
+          <caret line="290" column="4" selection-start-line="290" selection-start-column="4" selection-end-line="290" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#site#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_24.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1615">
+          <caret line="281" column="4" selection-start-line="281" selection-start-column="4" selection-end-line="281" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#app#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_24.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1615">
+          <caret line="281" column="4" selection-start-line="281" selection-start-column="4" selection-end-line="281" selection-end-column="4" />
+          <folding>
+            <element signature="e#2038#2845#0" />
+            <element signature="n#!!block;n#site#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1630">
+          <caret line="185" column="6" selection-start-line="185" selection-start-column="3" selection-end-line="185" selection-end-column="6" />
+          <folding>
+            <element signature="e#1866#3367#0" />
+            <element signature="e#2244#3051#0" />
+            <element signature="n#!!block;n#app#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1630">
+          <caret line="321" column="4" selection-start-line="321" selection-start-column="4" selection-end-line="321" selection-end-column="4" />
+          <folding>
+            <element signature="e#1867#3368#0" />
+            <element signature="e#2245#3052#0" />
+            <element signature="n#!!block;n#site#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_APP_25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1840">
+          <caret line="142" column="2" selection-start-line="142" selection-start-column="2" selection-end-line="278" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#app#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1630">
+          <caret line="318" column="4" selection-start-line="318" selection-start-column="4" selection-end-line="318" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#site#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1630">
+          <caret line="309" column="4" selection-start-line="309" selection-start-column="4" selection-end-line="309" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#app#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1435">
+          <caret line="322" column="29" lean-forward="true" selection-start-line="322" selection-start-column="29" selection-end-line="322" selection-end-column="29" />
+          <folding>
+            <element signature="e#2549#2928#0" />
+            <element signature="n#!!block;n#site#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="635">
+          <caret line="472" column="1" selection-start-line="472" selection-start-column="1" selection-end-line="472" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#site#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_SITE_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="309" column="18" lean-forward="true" selection-end-line="331" />
+          <folding>
+            <element signature="n#!!block;n#site#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/DOOH_SITE_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="307" column="15" lean-forward="true" selection-start-line="307" selection-start-column="15" selection-end-line="307" selection-end-column="15" />
+          <folding>
+            <element signature="n#!!block;n#site#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/DOOH_APP_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-595">
+          <caret line="65" column="18" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!block;n#app#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="364" column="23" lean-forward="true" selection-start-line="364" selection-start-column="23" selection-end-line="364" selection-end-column="23" />
+          <folding>
+            <element signature="e#1327#4241#0" />
+            <element signature="n#!!block;n#site#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_23.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="374" column="11" lean-forward="true" selection-end-line="397" />
+          <folding>
+            <element signature="e#1280#2781#0" />
+            <element signature="e#1658#2465#0" />
+            <element signature="n#!!block;n#site#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="352" column="19" lean-forward="true" selection-end-line="375" />
+          <folding>
+            <element signature="e#1327#4108#0" />
+            <element signature="n#!!block;n#site#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="180" column="10" selection-start-line="180" selection-start-column="7" selection-end-line="180" selection-end-column="10" />
+          <folding>
+            <element signature="e#1327#3478#0" />
+            <element signature="n#!!block;n#app#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_SITE_25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!block;n#site#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="97" column="11" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="11" />
+          <folding>
+            <element signature="n#!!block;n#app#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_DOOH_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="180" column="6" lean-forward="true" selection-start-line="180" selection-start-column="6" selection-end-line="195" selection-end-column="8" />
+          <folding>
+            <element signature="e#1327#4108#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_APP_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="309" column="18" lean-forward="true" selection-end-line="331" />
+          <folding>
+            <element signature="n#!!block;n#app#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_DOOH_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="331" selection-start-line="331" selection-end-line="331" />
+          <folding>
+            <element signature="n#!!block;n#app#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="455" column="8" lean-forward="true" selection-end-line="472" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_DOOH_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="472" column="1" selection-start-line="472" selection-start-column="1" selection-end-line="472" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="368" column="24" lean-forward="true" selection-end-line="380" />
+          <folding>
+            <element signature="e#1327#4241#0" />
+            <element signature="n#!!block;n#app#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_DOOH_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="380" lean-forward="true" selection-start-line="380" selection-end-line="380" />
+          <folding>
+            <element signature="e#1327#4241#0" />
+            <element signature="n#!!block;n#app#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>converter-api</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

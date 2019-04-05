@@ -2,25 +2,12 @@ cases:
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     imp[0].native.request: "\"ab\""
-     imp[0].native.ver: "\"2.x\""
-     imp[0].native.api: 1
-     imp[0].native.battr: 2
+     imp[0].native.ver: "\"2.1\""
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
-
- - inputFile: NATIVE_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].native.request: 1
-   outputFile: BANNER_APP_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC1001
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
@@ -30,25 +17,445 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC1002
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     imp[0].native.api: "\"ab\""
+     imp[0].native.api[*]: null
+     imp[0].native.api[0]: "\"ab\""
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC1003
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     imp[0].native.battr: "\"ab\""
+     imp[0].native.api[*]: null
+     imp[0].native.api[0]: 1
+     imp[0].native.api[1]: 2
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: nativeInvalidDatatype
+   purpose: TC1004
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.battr[*]: null
+     imp[0].native.battr[0]: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1005
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.battr[*]: null
+     imp[0].native.battr[0]: 1
+     imp[0].native.battr[1]: 2
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1006
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.ver: "\"1.1\""
+     imp[0].native.request.layout: 0
+     imp[0].native.request.adunit: 1
+     imp[0].native.request.context: 1
+     imp[0].native.request.contextsubtype: 2
+     imp[0].native.request.plcmttype: 3
+     imp[0].native.request.plcmtcnt: 4
+     imp[0].native.request.seq: 5
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1007
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.ver: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1008
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.layout: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1009
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.adunit: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1010
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.context: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1011
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.contextsubtype: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1012
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.plcmttype: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1013
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.plcmtcnt: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1014
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.seq: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1015
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].id: 1
+     imp[0].native.request.asset[0].required: 0
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1016
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].id: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1017
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].required: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1018
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].title.len: 20
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1019
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].title.len: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1020
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].img.type: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1021
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].img.w: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1022
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].img.h: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1023
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].img.wmin: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1024
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].img.hmin: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1025
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].img.type: 1
+     imp[0].native.request.asset[0].img.w: 40
+     imp[0].native.request.asset[0].img.h: 20
+     imp[0].native.request.asset[0].img.wmin: 40
+     imp[0].native.request.asset[0].img.hmin: 20
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1026
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].img.ext.wratio: 20
+     imp[0].native.request.asset[0].img.ext.hratio: 20
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1027
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].img.ext.wratio: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1028
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].img.ext.hratio: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1029
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].img.mimes[*]: null
+     imp[0].native.request.asset[0].img.mimes[0]: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1030
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].img.mimes[*]: null
+     imp[0].native.request.asset[0].img.mimes[0]: "\"ab\""
+     imp[0].native.request.asset[0].img.mimes[1]: "\"bc\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1031
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].video.mimes[*]: null
+     imp[0].native.request.asset[0].video.mimes[0]: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1032
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].video.mimes[*]: null
+     imp[0].native.request.asset[0].video.mimes[0]: "\"ab\""
+     imp[0].native.request.asset[0].video.mimes[1]: "\"bc\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1033
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].video.protocols[*]: null
+     imp[0].native.request.asset[0].video.protocols[0]: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1034
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].video.protocols[*]: null
+     imp[0].native.request.asset[0].video.protocols[0]: 1
+     imp[0].native.request.asset[0].video.protocols[1]: 2
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1035
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].video.minduration: 1
+     imp[0].native.request.asset[0].video.maxduration: 2
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1036
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].video.minduration: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1037
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].video.maxduration: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1038
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].data.type: 1
+     imp[0].native.request.asset[0].data.len: 2
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1039
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].data.type: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1040
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.asset[0].data.len: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC1041
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
