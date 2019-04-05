@@ -16,6 +16,7 @@ import net.media.utils.Utils;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -46,8 +47,12 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     target.setW( source.getW() );
     target.setHratio( source.getHratio() );
     if(nonNull(source.getApi()))
-      target.setApi(new ArrayList<>(source.getApi()));
-    target.setCurl(source.getNurl());
+      target.setApi(new ArrayList<>(Arrays.asList(source.getApi())));
+    if (nonNull(source.getExt())) {
+      if (source.getExt().containsKey("curl")) {
+        target.setCurl((String) source.getExt().get("curl"));
+      }
+    }
     Converter<NativeResponse, Native> converter = converterProvider.fetch(new Conversion<>(NativeResponse.class, Native.class));
     if (config.getAdType(source.getId()) == AdType.NATIVE) {
       if (source.getAdm() instanceof String) {
@@ -81,11 +86,22 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
         target.setMime((String) ext.get("mime"));
 
         if (config.getAdType(source.getId()) == AdType.BANNER) {
-          target.setBanner(Banner.HashMapToBanner((Map<String, Object>) ext.get("banner")));
+          if (ext.containsKey("banner")) {
+            target.setBanner(Banner.HashMapToBanner((Map<String, Object>) ext.get("banner")));
+          }
         } else if (config.getAdType(source.getId()) == AdType.NATIVE) {
-          target.set_native((net.media.openrtb3.Native) ext.get("native"));
+          if (ext.containsKey("native")) {
+            Native _native = null;
+            try {
+              _native = Utils.getMapper().convertValue(ext.get("native"), Native.class);
+              target.set_native(_native);
+            } catch (Exception e) {
+              throw new OpenRtbConverterException("Error in setting displayConverter.native from " +
+                "bid.ext.native", e);
+            }
+          }
         }
-        target.setEvent((List<Event>) ext.get(ext.get("event")));
+        target.setEvent((List<Event>) ext.get("event"));
       }
       catch (Exception e) {
         throw new OpenRtbConverterException("error while casting contents of bid.ext", e);

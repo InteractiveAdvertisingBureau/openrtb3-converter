@@ -1,6 +1,8 @@
 package net.media.openrtb3;
 
 
+import java.util.Map;
+
 import javax.validation.constraints.NotNull;
 
 public class Macro {
@@ -8,12 +10,21 @@ public class Macro {
   @NotNull
   private String key;
   private String value;
+  private Map<String, Object> ext;
 
   public Macro() {
   }
 
   public @NotNull String getKey() {
     return this.key;
+  }
+
+  public Map<String, Object> getExt() {
+    return ext;
+  }
+
+  public void setExt(Map<String, Object> ext) {
+    this.ext = ext;
   }
 
   public String getValue() {
@@ -24,39 +35,43 @@ public class Macro {
     this.key = key;
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof Macro)) return false;
+
+    Macro macro = (Macro) o;
+
+    if (getKey() != null ? !getKey().equals(macro.getKey()) : macro.getKey() != null) return false;
+    if (getValue() != null ? !getValue().equals(macro.getValue()) : macro.getValue() != null)
+      return false;
+    return getExt() != null ? getExt().equals(macro.getExt()) : macro.getExt() == null;
+
+  }
+
+  @Override
+  public int hashCode() {
+    int result = getKey() != null ? getKey().hashCode() : 0;
+    result = 31 * result + (getValue() != null ? getValue().hashCode() : 0);
+    result = 31 * result + (getExt() != null ? getExt().hashCode() : 0);
+    return result;
+  }
+
   public void setValue(String value) {
     this.value = value;
+
   }
 
-  public boolean equals(Object o) {
-    if (o == this) return true;
-    if (!(o instanceof Macro)) return false;
-    final Macro other = (Macro) o;
-    if (!other.canEqual((Object) this)) return false;
-    final Object this$key = this.getKey();
-    final Object other$key = other.getKey();
-    if (this$key == null ? other$key != null : !this$key.equals(other$key)) return false;
-    final Object this$value = this.getValue();
-    final Object other$value = other.getValue();
-    if (this$value == null ? other$value != null : !this$value.equals(other$value)) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    final int PRIME = 59;
-    int result = 1;
-    final Object $key = this.getKey();
-    result = result * PRIME + ($key == null ? 43 : $key.hashCode());
-    final Object $value = this.getValue();
-    result = result * PRIME + ($value == null ? 43 : $value.hashCode());
-    return result;
+  @Override
+  public String toString() {
+    return "Macro{" +
+      "key='" + key + '\'' +
+      ", value='" + value + '\'' +
+      ", ext=" + ext +
+      '}';
   }
 
   protected boolean canEqual(Object other) {
     return other instanceof Macro;
-  }
-
-  public String toString() {
-    return "net.media.openrtb3.Macro(key=" + this.getKey() + ", value=" + this.getValue() + ")";
   }
 }
