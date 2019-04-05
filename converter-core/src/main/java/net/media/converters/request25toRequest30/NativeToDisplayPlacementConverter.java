@@ -71,13 +71,6 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
       if (nonNull(nativeRequest) && nonNull(nativeRequest.getNativeRequestBody())) {
         displayPlacement.setPtype(nativeRequest.getNativeRequestBody().getPlcmttype());
         displayPlacement.setContext(nativeRequest.getNativeRequestBody().getContext());
-        if (nonNull(nativeRequest.getNativeRequestBody().getContextsubtype())) {
-          if (isNull(displayPlacement.getExt())) {
-            displayPlacement.setExt(new HashMap<>());
-          }
-          displayPlacement.getExt().put("contextsubtype", nativeRequest.getNativeRequestBody()
-            .getContextsubtype());
-        }
         displayPlacement.setNativefmt(nativeRequestBodyNativeFormatConverter.map(nativeRequest
           .getNativeRequestBody(), config));
         if (nonNull(nat.getExt())) {

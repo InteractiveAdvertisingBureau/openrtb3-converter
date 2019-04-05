@@ -5,12 +5,12 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import com.google.inject.Inject;
 
-import net.media.OpenRtbConverter;
-import net.media.OpenRtbConverterException;
 import net.media.api.models.Request2xPayload;
 import net.media.api.models.RequestResponse3xPayload;
 import net.media.api.models.Response2xPayload;
 import net.media.config.Config;
+import net.media.driver.OpenRtbConverter;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest;
 import net.media.openrtb25.response.BidResponse;
 import net.media.openrtb3.OpenRTB;

@@ -24,7 +24,6 @@ import net.media.utils.Utils;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
@@ -108,7 +107,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
         }
         item.setMetric(metrics1);
       }
-      item.setQty(getPlcmtcntFromNative(imp));
+      item.setQty(getQuantity(imp));
       impToItemAfterMapping(imp, item);
     }
   }
@@ -140,11 +139,6 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     mappingTarget.setSecure( imp.getSecure() );
     DisplayPlacement displayPlacement = bannerDisplayPlacementConverter.map(imp.getBanner(),
       config);
-    if (nonNull(mappingTarget.getDisplay())) {
-      mappingTarget.getDisplay().setClktype(imp.getClickbrowser());
-      mappingTarget.getDisplay().setIfrbust(Utils.copyCollection(imp.getIframebuster(), config));
-      mappingTarget.getDisplay().setInstl(imp.getInstl());
-    }
     try {
       if (nonNull(imp.getExt()) && !imp.getExt().isEmpty() && nonNull(displayPlacement)) {
         if (imp.getExt().containsKey("ampren")) {
@@ -162,6 +156,11 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     }
     nativeDisplayPlacementConverter.enhance(imp.getNat(), displayPlacement, config);
     mappingTarget.setDisplay( displayPlacement );
+    if (nonNull(mappingTarget.getDisplay())) {
+      mappingTarget.getDisplay().setClktype(imp.getClickbrowser());
+      mappingTarget.getDisplay().setIfrbust(Utils.copyCollection(imp.getIframebuster(), config));
+      mappingTarget.getDisplay().setInstl(imp.getInstl());
+    }
   }
 
   private Collection<Deal> impPmpDeals(Imp imp) {
@@ -179,9 +178,36 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     return deals;
   }
 
-  private Integer getPlcmtcntFromNative(Imp imp) {
-    if (nonNull(imp) && nonNull(imp.getNat()) && nonNull(imp.getNat().getNativeRequestBody())) {
+  private Integer getQuantity(Imp imp) throws OpenRtbConverterException {
+    if ( imp == null ) {
+      return null;
+    }
+    Video video = imp.getVideo();
+    try {
+      if (nonNull(video) && nonNull(video.getExt()) && video.getExt().containsKey("qty")) {
+        return (Integer) video.getExt().get("qty");
+      }
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for Imp", e);
+    }
+    if (nonNull(imp.getNat()) && nonNull(imp.getNat().getNativeRequestBody())) {
       return imp.getNat().getNativeRequestBody().getPlcmtcnt();
+    }
+    Banner banner = imp.getBanner();
+    try {
+      if (nonNull(banner) && nonNull(banner.getExt()) && banner.getExt().containsKey("qty")) {
+        return (Integer) banner.getExt().get("qty");
+      }
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for Imp", e);
+    }
+    Audio audio = imp.getAudio();
+    try {
+      if (nonNull(audio) && nonNull(audio.getExt()) && audio.getExt().containsKey("qty")) {
+        return (Integer) audio.getExt().get("qty");
+      }
+    } catch (ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for Imp", e);
     }
     return null;
   }

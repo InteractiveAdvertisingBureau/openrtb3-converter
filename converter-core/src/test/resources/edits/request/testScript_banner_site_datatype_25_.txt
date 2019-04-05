@@ -913,18 +913,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.name: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.id:  "\"1\""
+   purpose: idStringFormat70
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -933,8 +923,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.ref:  "\"1\""
+   purpose: idStringFormat71
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -943,8 +933,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.search:  "\"1\""
+   purpose: idStringFormat72
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -953,8 +943,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat73
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -971,8 +961,16 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.id: "\"ff\""
+     request.context.site.name: "\"ff\""
+     request.context.site.ref: "\"ff\""
+     request.context.site.search: "\"ff\""
+     request.context.site.mobile: 1
+     request.context.site.privacypolicy: 1
+     request.context.site.keywords: "\"ff\""
+     request.context.site.domain: "\"www.foobar.com\""
+     request.context.site.page: "\"http://www.foobar.com/1234.html\""
+   purpose: idStringFormat74
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -981,8 +979,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.sectcat[0]:  "\"a1\""
+   purpose: idStringFormat75
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -991,8 +990,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.sectcat[0]:  "\"a1\""
+     request.context.site.sectcat[1]:  "\"b1\""
+   purpose: idStringFormat76
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1001,8 +1001,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.cat[0]: "\"IAB3-1\""
+   purpose: idStringFormat77
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1011,8 +1011,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.cat[0]: "\"IAB3-1\""
+     request.context.site.cat[1]: "\"IAB3-3\""
+   purpose: idStringFormat78
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1021,8 +1022,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     rrequest.context.site.pagecat[0]: "\"IAB3-1\""
+   purpose: idStringFormat79
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1031,8 +1033,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.pagecat[0]: "\"IAB3-1\""
+     request.context.site.pagecat[1]: "\"IAB3-1\""
+   purpose: idStringFormat80
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1041,8 +1044,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat81
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1051,38 +1054,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.domain: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.page: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.publisher.id: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.keywords:  "\"1\""
+   purpose: idStringFormat82
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1093,18 +1066,10 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.publisher.name: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.pub.id:  "\"ff\""
+     request.context.site.pub.name:  "\"ff\""
+     request.context.site.pub.domain:  "\"www.foobar.com\""
+   purpose: idStringFormat83
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1113,8 +1078,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.pub.cat[0]:  "\"IAB3-1\""
+   purpose: idStringFormat84
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1123,28 +1089,10 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.pub.cat[0]:  "\"IAB3-1\""
+     request.context.site.pub.cat[1]:  "\"IAB3-3\""
+   purpose: idStringFormat85
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.publisher.domain: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.id: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1164,8 +1112,20 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.id: "\"ff\""
+     request.context.site.content.episode: 1
+     request.context.site.content.title: "\"ff\""
+     request.context.site.content.series: "\"ff\""
+     request.context.site.content.season: "\"ff\""
+     request.context.site.content.genre: "\"ff\""
+     request.context.site.content.album: "\"ff\""
+     request.context.site.content.artist: "\"ff\""
+     request.context.site.content.isrc: "\"ff\""
+     request.context.site.content.url: "\"https://www.foobar.com\""
+     request.context.site.content.prodq: 1
+     request.context.site.content.ext.videoquality: 1
+     request.context.site.content.urating: "\"ff\""
+   purpose: idStringFormat86
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1174,88 +1134,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.title: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.series: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.season: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.genre: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.album: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.artist: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.isrc: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.url: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat87
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1264,8 +1144,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat88
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1274,75 +1154,23 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     status: "ERROR"
+   purpose: idStringFormat89
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     site.content.cat: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.cat[0]: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.cat[0]: "\"IAB3-1\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
+     site.content.cat[*]: null
      site.content.cat[0]: "\"IAB3-1\""
      site.content.cat[1]: "\"IAB3-3\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.cat[*]: null
+     request.context.site.content.cat[0]: "\"IAB3-1\""
+     request.context.site.content.cat[1]: "\"IAB3-3\""
+   purpose: idStringFormat90
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.context: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.context: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.contentrating: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1350,8 +1178,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.rating:  "\"ff\""
+   purpose: idStringFormat91
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1360,8 +1188,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.urating:  "\"1\""
+   purpose: idStringFormat92
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1370,27 +1198,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.qagmediarating: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.mrating: 1
+   purpose: idStringFormat93
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.keywords: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1398,18 +1208,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.keywords:  "\"ff\""
+   purpose: idStringFormat94
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.livestream: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1417,18 +1218,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.live:  "\"ff\""
+   purpose: idStringFormat95
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.sourcerelationship: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1436,8 +1228,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.srcrel:  "\"ff\""
+   purpose: idStringFormat96
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1446,27 +1238,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.len: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.len:  1
+   purpose: idStringFormat97
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.language: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1474,8 +1248,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.lang:  "\"ff\""
+   purpose: idStringFormat98
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1484,27 +1258,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.embeddable: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.embed:  1
+   purpose: idStringFormat99
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.producer.id: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1512,18 +1268,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.producer.id:  "\"ff\""
+   purpose: idStringFormat100
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.producer.name: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1531,36 +1278,19 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.producer.name:  "\"ff\""
+   purpose: idStringFormat101
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     site.content.producer.cat: 1
+     site.content.producer.cat[0]: "ab"
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.producer.cat[0]: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.producer.cat[0]: "\"IAB3-1\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.producer.cat[0]:  "\"ab\""
+   purpose: idStringFormat102
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1569,18 +1299,10 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.producer.cat[0]:  "\"IAB3-1\""
+     request.context.site.content.producer.cat[1]:  "\"IAB3-3\""
+   purpose: idStringFormat103
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.producer.domain: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1588,18 +1310,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.producer.domain:  "\"https://www.foobar.com\""
+   purpose: idStringFormat104
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.data[0].id: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1607,18 +1320,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.data[0].id:  "\"ff\""
+   purpose: idStringFormat105
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.data[0].name: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1626,18 +1330,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.data[0].name:  "\"ff\""
+   purpose: idStringFormat106
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.data[0].segment[0].id: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1645,18 +1340,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.data[0].segment[0].id:  "\"ff\""
+   purpose: idStringFormat107
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.data[0].segment[0].name: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1664,18 +1350,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.data[0].segment[0].name:  "\"ff\""
+   purpose: idStringFormat108
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     site.content.data[0].segment[0].value: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1683,18 +1360,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.context.site.content.data[0].segment[0].value:  "\"ff\""
+   purpose: idStringFormat109
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].id: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1702,8 +1370,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].id:  "\"ff\""
+   purpose: idStringFormat110
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1712,27 +1380,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].bidfloor: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].flr:  0.03
+   purpose: idStringFormat111
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].bidfloorcur: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1740,18 +1390,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].flrcur:  "\"USD\""
+   purpose: idStringFormat112
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].displaymanager: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1759,18 +1400,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].item.spec.placement.sdk:  "\"ff\""
+   purpose: idStringFormat113
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].displaymanagerver: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1778,8 +1410,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].item.spec.placement.sdkver:  "\"ff\""
+   purpose: idStringFormat114
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1788,17 +1420,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].clickbrowser: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item.spec.placement.display.clktype: 1
+   purpose: idStringFormat115
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1807,17 +1430,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].secure: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item.spec.placement.secure:  1
+   purpose: idStringFormat116
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1826,27 +1440,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].instl: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item.spec.placement.display.instl:  0
+   purpose: idStringFormat117
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].tagid: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1854,8 +1450,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item.spec.placement.tagid:  "\"ff\""
+   purpose: idStringFormat118
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1864,36 +1460,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].exp: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item.exp: 1
+   purpose: idStringFormat119
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].iframebuster: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].iframebuster[0]: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1901,8 +1470,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item.spec.placement.display.ifrbust[0]:  "\"IAB3-1\""
+   purpose: idStringFormat120
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1911,18 +1481,10 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item.spec.placement.display.ifrbust[0]:  "\"IAB3-1\""
+     request.item.spec.placement.display.ifrbust[1]:  "\"IAB3-2\""
+   purpose: idStringFormat121
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].metric[0].type: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1930,8 +1492,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].metric[0].type:  "\"ff\""
+   purpose: idStringFormat122
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1940,27 +1502,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].metric[0].value: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].metric[0].value:  1.0
+   purpose: idStringFormat123
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].metric[0].vendor: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -1968,8 +1512,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].metric[0].vendor:  "\"ff\""
+   purpose: idStringFormat124
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -1978,27 +1522,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].pmp.private_auction: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].private:  0
+   purpose: idStringFormat125
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].pmp.deals[0].id: 0
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2006,8 +1532,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].deal[0].id:  "\"ff\""
+   purpose: idStringFormat126
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -2016,27 +1542,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].pmp.deals[0].bidfloor: "\"ff\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].deal[0].flr:  0.1
+   purpose: idStringFormat126
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].pmp.deals[0].bidfloorcur: 0.1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2044,9 +1552,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
-
+     request.item[0].deal[0].flrcur:  "\"USD\""
+   purpose: idStringFormat127
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -2055,35 +1562,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].keywords:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].pmp.deals[0].at: "\"USD\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].keywords:  "\"ab\""
+     request.item[0].deal[0].at: 1
+   purpose: idStringFormat128
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].pmp.deals[0].wseat: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].pmp.deals[0].wseat[0]: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2091,8 +1572,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].deal[0].wseat[0]:  "\"IAB3-1\""
+   purpose: idStringFormat129
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2101,27 +1583,10 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].deal[0].wseat[0]:  "\"IAB3-1\""
+     request.item[0].deal[0].wseat[0]:  "\"IAB3-2\""
+   purpose: idStringFormat130
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].pmp.deals[0].wadomain: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].pmp.deals[0].wadomain[0]: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2129,8 +1594,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].deal[0].wadomain[0]:  "\"abc.com\""
+   purpose: idStringFormat131
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2139,27 +1605,19 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].deal[0].wadomain[0]:  "\"abc.com\""
+     request.item[0].deal[0].wadomain[1]:  "\"ac.com\""
+   purpose: idStringFormat132
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     imp[0].banner.id: 1
+     imp[0].banner.id: "\"ab\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idIntFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.id:: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.display.ext.id: "\"ab\""
+   purpose: idIntFormat133
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -2168,17 +1626,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idIntFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.h:: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.display.h: 1
+   purpose: idIntFormat134
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -2187,17 +1636,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idIntFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.w:: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.display.w: 1
+   purpose: idIntFormat135
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -2206,17 +1646,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idIntFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.wmax:: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     request.imp.spec.placement.display.displayfmt.ext.wmax: 1
+   purpose: idIntFormat136
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -2225,17 +1656,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idIntFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.hmax:: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     request.imp.spec.placement.display.displayfmt.ext.hmax: 1
+   purpose: idIntFormat137
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -2244,17 +1666,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idIntFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.wmin:: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     request.imp.spec.placement.display.displayfmt.ext.wmin: 1
+   purpose: idIntFormat138
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -2263,17 +1676,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idIntFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.hmin:: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     request.imp.spec.placement.display.displayfmt.ext.hmin: 1
+   purpose: idIntFormat139
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -2282,36 +1686,8 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idIntFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.topframe:: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
-
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.vcm: 22
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: 2
-   purpose: idIntFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.vcm:: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.display.topframe: 22
+   purpose: idIntFormat140
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
@@ -2320,36 +1696,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
-   purpose: idIntFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.pos:: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id: "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.display.pos: 0
+   purpose: idIntFormat141
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.btype: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.btype[0]: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2357,8 +1706,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.display.ext.btype[0]:  3
+   purpose: idStringFormat142
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2367,27 +1717,10 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.display.ext.btype[0]:  3
+     request.item[0].spec.placement.display.ext.btype[1]:  4
+   purpose: idStringFormat143
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.battr: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.battr[0]: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2395,8 +1728,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.restrictions.battr[0]: 3
+   purpose: idStringFormat144
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2405,27 +1739,10 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.context.restrictions.battr[0]: 1
+     request.context.restrictions.battr[1]: 2
+   purpose: idStringFormat145
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.expdir: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.expdir[0]: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2433,8 +1750,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.display.displayfmt.expdir[0]:  3
+   purpose: idStringFormat146
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2443,27 +1761,10 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.display.displayfmt.expdir[0]:  3
+     request.item[0].spec.placement.display.displayfmt.expdir[1]:  4
+   purpose: idStringFormat147
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.api: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.api[0]: "\"ab\""
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2471,8 +1772,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.display.displayplacement.api[0]:  3
+   purpose: idStringFormat148
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2481,27 +1783,10 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.display.displayplacement.api[0]:  3
+     request.item[0].spec.placement.display.displayplacement.api[1]:  4
+   purpose: idStringFormat149
 
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.mimes: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
- - inputFile: BANNER_SITE_25.json
-   inputType: "REQUEST25"
-   inputEdits:
-     imp[0].banner.mimes[0]: 1
-   outputFile: BANNER_SITE_30.json
-   outputType: "REQUEST30"
-   outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2509,8 +1794,9 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.display.mime[0]: "\"application/x-shockwave-flash\""
+   purpose: idStringFormat150
+
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -2519,5 +1805,6 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id:  "\"ab\""
-   purpose: idStringFormat
+     request.item[0].spec.placement.display.mime[0]: "\"application/x-shockwave-flash\""
+     request.item[0].spec.placement.display.mime[1]: "\"image/jpg\""
+   purpose: idStringFormat151

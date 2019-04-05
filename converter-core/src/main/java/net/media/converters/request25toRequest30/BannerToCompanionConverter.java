@@ -37,9 +37,8 @@ public class BannerToCompanionConverter implements Converter<Banner, Companion> 
 
   @Override
   public void enhance(Banner banner, Companion companion, Config config) throws OpenRtbConverterException {
-    if (nonNull(banner.getId())) {
-      companion.setId(banner.getId());
-    }
+    if(banner == null || companion == null)
+      return;
     companion.setVcm( banner.getVcm() );
     companion.setDisplay( bannerDisplayPlacementConverter.map( banner, config) );
     companion.setId( banner.getId() );
