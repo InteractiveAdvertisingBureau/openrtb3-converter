@@ -138,8 +138,7 @@ public class Config {
   }
 
   public OpenRtbVersion getOpenRtbVersion2_XVersion() {
-    return nonNull(openRtbVersion2_XVersion) ? openRtbVersion2_XVersion :
-      DEFAULT_OPENRTB_2_X_VERSION;
+    return openRtbVersion2_XVersion;
   }
 
   /**
