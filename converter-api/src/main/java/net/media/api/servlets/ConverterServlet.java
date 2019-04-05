@@ -5,6 +5,9 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import com.google.inject.Inject;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+
 import net.media.api.models.Request2xPayload;
 import net.media.api.models.RequestResponse3xPayload;
 import net.media.api.models.Response2xPayload;

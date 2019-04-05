@@ -51,7 +51,6 @@ public class Imp {
 
   private Integer exp;
 
-  @NotEmpty
   private Collection<Metric> metric;
 
   private Map<String, Object> ext;
@@ -123,7 +122,7 @@ public class Imp {
     return this.exp;
   }
 
-  public @NotEmpty Collection<Metric> getMetric() {
+  public Collection<Metric> getMetric() {
     return this.metric;
   }
 
@@ -195,7 +194,7 @@ public class Imp {
     this.exp = exp;
   }
 
-  public void setMetric(@NotEmpty Collection<Metric> metric) {
+  public void setMetric(Collection<Metric> metric) {
     this.metric = metric;
   }
 

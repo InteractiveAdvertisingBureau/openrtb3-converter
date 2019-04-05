@@ -10,6 +10,8 @@ import java.util.Map;
 import static java.util.Objects.nonNull;
 
 /**
+ * Stores and manages {@link Converter} implementations that can be used for various transformation operations.
+ *
  * @author shiva.b
  */
 @SuppressWarnings("unchecked")
