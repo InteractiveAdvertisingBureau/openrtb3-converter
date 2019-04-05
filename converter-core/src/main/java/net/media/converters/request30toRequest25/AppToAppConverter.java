@@ -65,7 +65,7 @@ public class AppToAppConverter implements Converter<App,net.media.openrtb25.requ
     if(source.getStoreid() != null) {
       if(target.getExt() == null)
         target.setExt(new HashMap<>());
-      target.getExt().put("amp", source.getStoreid());
+      target.getExt().put("storeid", source.getStoreid());
     }
   }
 }
