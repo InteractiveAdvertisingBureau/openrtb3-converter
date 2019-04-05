@@ -48,7 +48,7 @@ public class Native30ToNative10Converter implements Converter<Native,NativeRespo
         assetResponseList.add(assetAssetResponseConverter.map(asset,config, converterProvider));
       }
     }
-    nativeResponseBody.setAssets(assetResponseList);
+    nativeResponseBody.setAsset(assetResponseList);
     nativeResponseBody.setLink(linkAssetLinkConverter.map(source.getLink(),config, converterProvider));
     nativeResponseBody.setExt(source.getExt());
     try {

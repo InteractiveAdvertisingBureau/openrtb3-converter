@@ -1,7 +1,6 @@
 package net.media.openrtb25.response.nativeresponse;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,7 +13,7 @@ public class NativeResponseBody {
 
   private String ver;
 
-  private Collection<AssetResponse> assets;
+  private Collection<AssetResponse> asset;
 
   private Link link;
 
@@ -31,8 +30,8 @@ public class NativeResponseBody {
     return this.ver;
   }
 
-  public Collection<AssetResponse> getAssets() {
-    return this.assets;
+  public Collection<AssetResponse> getAsset() {
+    return this.asset;
   }
 
   public Link getLink() {
@@ -55,8 +54,8 @@ public class NativeResponseBody {
     this.ver = ver;
   }
 
-  public void setAssets(Collection<AssetResponse> assets) {
-    this.assets = assets;
+  public void setAsset(Collection<AssetResponse> asset) {
+    this.asset = asset;
   }
 
   public void setLink(Link link) {
@@ -83,8 +82,8 @@ public class NativeResponseBody {
     final Object this$ver = this.getVer();
     final Object other$ver = other.getVer();
     if (this$ver == null ? other$ver != null : !this$ver.equals(other$ver)) return false;
-    final Object this$assets = this.getAssets();
-    final Object other$assets = other.getAssets();
+    final Object this$assets = this.getAsset();
+    final Object other$assets = other.getAsset();
     if (this$assets == null ? other$assets != null : !this$assets.equals(other$assets))
       return false;
     final Object this$link = this.getLink();
@@ -109,7 +108,7 @@ public class NativeResponseBody {
     int result = 1;
     final Object $ver = this.getVer();
     result = result * PRIME + ($ver == null ? 43 : $ver.hashCode());
-    final Object $assets = this.getAssets();
+    final Object $assets = this.getAsset();
     result = result * PRIME + ($assets == null ? 43 : $assets.hashCode());
     final Object $link = this.getLink();
     result = result * PRIME + ($link == null ? 43 : $link.hashCode());
@@ -127,6 +126,6 @@ public class NativeResponseBody {
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.nativeresponse.NativeResponseBody(ver=" + this.getVer() + ", assets=" + this.getAssets() + ", link=" + this.getLink() + ", imptrackers=" + this.getImptrackers() + ", jstracker=" + this.getJstracker() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.response.nativeresponse.NativeResponseBody(ver=" + this.getVer() + ", asset=" + this.getAsset() + ", link=" + this.getLink() + ", imptrackers=" + this.getImptrackers() + ", jstracker=" + this.getJstracker() + ", ext=" + this.getExt() + ")";
   }
 }
