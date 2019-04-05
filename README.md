@@ -5,8 +5,8 @@ Programmatic advertising has seen consistent growth over the last few years. How
 OpenRTB 3.0 thus introduced a layered approach where the commerce transaction (e.g., auction parameters, deals, bids, etc.) was differentiated from the object specifications (e.g ads, placements, users, devices, sites, publishers, etc). The commerce transaction is supposed to be the focus of oRTB while the objects being transacted was added to AdCOM (Advertising Common Object Model).
 
 This has two benefits:
-The AdCOM layer can be reused in other specifications such as OpenDirect, AdManagementAPI and custom specifications 
-The object layer can be revised independent of the oRTB spec.
+ - The AdCOM layer can be reused in other specifications such as OpenDirect, AdManagementAPI and custom specifications 
+ - The object layer can be revised independent of the oRTB spec.
 
 ## Problem:
 
@@ -35,8 +35,8 @@ Default values allow information to be interchanged between two neighbouring par
 However, the above works only when the partners are on the same standard with similar fields and default values being present. For cases where the partners are on different oRTB standards, a conversion is necessary. 
 
 When converting a request or response from oRTB version A to version B:
-if the field has a default value in A, but does not have a default value in B, the mapped field is sent with the default value in A.
-If the field has a default value in B but not in A, no field is sent.
+ - if the field has a default value in A, but does not have a default value in B, the mapped field is sent with the default value in A.
+ - if the field has a default value in B but not in A, no field is sent.
 
 
 ## Category Taxonomy 
@@ -50,11 +50,11 @@ When converting from 2.x to 3.0, since only taxonomy 1.0 is supported, cattax wo
 OpenRTB Dynamic Native Ads API Specification Version 1.1 is used for converting native objects from 2.x to 3.0 and back.
 
 ### Key points
-Support for both JSON encoded and native object tree is provided. The user can choose the input and output format.
-For request: In 2.x, native object is present in bidreqeust.item.native.request.native in either string or json object format. The JSON encoded string is parsed and the sub objects extracted. They are then mapped to appropriate fields in ortb 3.0 native object tree.
-For request: Converting from 3.0 to 2.x works in a similar way. The native object tree of 3.0 is parsed and based on user input can be converted into object tree inside bidreqeust.item.native.request.native or a JSON encoded string.
-For response: For converting from 2.x to 3.0, the native object is extracted from seatbid.bid.adm available either in JSON encoded format or as object tree. They are then mapped to appropriate fields in oRTB 3.0 native object tree.
-For response: For converting, from 3.0 to 2.x, the native object tree in 3.0 is parsed and based on user input can be either converted to a JSON encoded string or a native object tree and sent inside seatbid.bid.adm.
+ - Support for both JSON encoded and native object tree is provided. The user can choose the input and output format.
+ - For request: In 2.x, native object is present in bidreqeust.item.native.request.native in either string or json object format. The JSON encoded string is parsed and the sub objects extracted. They are then mapped to appropriate fields in ortb 3.0 native object tree.
+ - For request: Converting from 3.0 to 2.x works in a similar way. The native object tree of 3.0 is parsed and based on user input can be converted into object tree inside bidreqeust.item.native.request.native or a JSON encoded string.
+ - For response: For converting from 2.x to 3.0, the native object is extracted from seatbid.bid.adm available either in JSON encoded format or as object tree. They are then mapped to appropriate fields in oRTB 3.0 native object tree.
+ - For response: For converting, from 3.0 to 2.x, the native object tree in 3.0 is parsed and based on user input can be either converted to a JSON encoded string or a native object tree and sent inside seatbid.bid.adm.
 
 ## Handling banner in Response
 
