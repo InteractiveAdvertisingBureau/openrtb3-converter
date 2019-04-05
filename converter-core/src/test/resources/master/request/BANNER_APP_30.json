@@ -79,7 +79,8 @@
             "h": 250,
             "unit": 1,
             "priv": 0,
-            "displayfmt": [{
+            "displayfmt": [
+              {
               "w": 200,
               "h": 20,
               "wratio":200,

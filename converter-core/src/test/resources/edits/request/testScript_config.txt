@@ -1,0 +1,41 @@
+cases:
+ - inputFile: NATIVE_APP_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     request.at: 2
+   outputFile: NATIVE_APP_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: nativerequestasstringcorrectvalue
+   params:
+     adType: m
+     yaar: e
+     nativeRequestAsString: true
+
+ - inputFile: NATIVE_APP_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     request.at: 2
+   outputFile: NATIVE_APP_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     status: ERROR
+   purpose: nativerequestasstringincorrectvalue
+   params:
+     adType: m
+     yaar: e
+     nativeRequestAsString: false
+
+ - inputFile: NATIVE_APP_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     request.at: 2
+   outputFile: NATIVE_APP_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: nativerequestasstringincorrectvalue
+   params:
+     adType: m
+     yaar: e
