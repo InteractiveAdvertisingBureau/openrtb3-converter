@@ -35,15 +35,14 @@ public class PublisherToPublisherConverter implements Converter<Publisher, net.m
     target.setName( source.getName() );
     target.setCat( Utils.copyCollection(source.getCat(), config) );
     target.setDomain( source.getDomain() );
-    if (nonNull(source.getCattax())) {
-      if(target.getExt() == null)
-        target.setExt(new HashMap<>());
-
-    }
-    target.getExt().put("cattax", source.getCattax());
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
       target.setExt( Utils.copyMap( map, config ) );
+    }
+    if (nonNull(source.getCattax())) {
+      if(target.getExt() == null)
+        target.setExt(new HashMap<>());
+      target.getExt().put("cattax", source.getCattax());
     }
   }
 }

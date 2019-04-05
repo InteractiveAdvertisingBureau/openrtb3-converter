@@ -86,6 +86,7 @@
               "hratio" : 30,
               "expdir" : [ 3, 9 ],
               "ext" : {
+                "dummy": "ffaa",
                 "wmin" : 3
               }
             }, {
@@ -95,6 +96,7 @@
               "hratio" : 30,
               "expdir" : [ 3, 9 ],
               "ext" : {
+                "dummy": "ffaa",
                 "wmin" : 3
               }
             } ],

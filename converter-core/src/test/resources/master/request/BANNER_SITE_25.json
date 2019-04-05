@@ -29,7 +29,6 @@
     "cattax" : 2,
     "dummy" : "ff",
     "restrictions": {
-      "cattax" : 2,
       "ext": {
         "dummy": "ff"
       }

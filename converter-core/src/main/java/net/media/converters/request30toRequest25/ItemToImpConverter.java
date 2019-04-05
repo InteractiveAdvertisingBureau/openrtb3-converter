@@ -158,6 +158,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
           if(pmp1.containsKey("ext")) {
             pmp.setExt((Map<String, Object>) pmp1.get("ext"));
           }
+          item.getExt().remove("pmp");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException("Error in converting pmp ext ", e);
         }
@@ -322,10 +323,6 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
       }
       if (nonNull(item.getSpec().getPlacement().getDisplay())) {
         imp.getExt().put("ampren", item.getSpec().getPlacement().getDisplay().getAmpren());
-        if (nonNull(item.getSpec().getPlacement().getDisplay().getCtype())) {
-          imp.getExt().put("ctype", Utils.copyCollection(item.getSpec().getPlacement().getDisplay()
-            .getCtype(), config));
-        }
         imp.getExt().put("event", item.getSpec().getPlacement().getDisplay().getEvent());
       }
     }
