@@ -31,7 +31,7 @@ public class DisplayPlacement {
   @Valid
   private NativeFormat nativefmt;
   @Valid
-  private EventSpec event;
+  private Collection<EventSpec> event;
   private Map<String, Object> ext;
 
   public Integer getPos() {
@@ -102,7 +102,7 @@ public class DisplayPlacement {
     return this.nativefmt;
   }
 
-  public @Valid EventSpec getEvent() {
+  public @Valid Collection<EventSpec> getEvent() {
     return this.event;
   }
 
@@ -178,7 +178,7 @@ public class DisplayPlacement {
     this.nativefmt = nativefmt;
   }
 
-  public void setEvent(@Valid EventSpec event) {
+  public void setEvent(@Valid Collection<EventSpec> event) {
     this.event = event;
   }
 

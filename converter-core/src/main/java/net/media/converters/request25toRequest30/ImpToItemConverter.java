@@ -96,6 +96,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
         item.setMetric(metrics1);
       }
       item.setQty(getQuantity(imp));
+      item.getExt().remove("qty");
       impToItemAfterMapping(imp, item);
 
   }
@@ -140,7 +141,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
           displayPlacement.setAmpren((Integer) imp.getExt().get("ampren"));
         }
         if (imp.getExt().containsKey("event")) {
-          displayPlacement.setEvent((EventSpec) imp.getExt().get("event"));
+          displayPlacement.setEvent((Collection<EventSpec>) imp.getExt().get("event"));
         }
       }
     } catch (ClassCastException e) {
@@ -288,6 +289,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     if (nonNull(item.getExt())) {
       item.getExt().remove("ampren");
       item.getExt().remove("ctype");
+      item.getExt().remove("event");
     }
   }
 }

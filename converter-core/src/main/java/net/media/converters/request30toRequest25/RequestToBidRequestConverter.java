@@ -109,6 +109,7 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
           if (target.getExt() == null)
             target.setExt(new HashMap<>());
           Restrictions restrictions = new Restrictions();
+          restrictions.setCattax(null);
           restrictions.setExt(source.getContext().getRestrictions().getExt());
           target.getExt().put("restrictions", restrictions);
         }

@@ -141,7 +141,8 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     displayFormat.setWratio( format.getWratio() );
     displayFormat.setHratio( format.getHratio() );
     if (nonNull(format.getWmin())) {
-      displayFormat.setExt(new HashMap<>());
+      if(displayFormat.getExt() == null)
+        displayFormat.setExt(new HashMap<>());
       displayFormat.getExt().put("wmin", format.getWmin());
     }
 

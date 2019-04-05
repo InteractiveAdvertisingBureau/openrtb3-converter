@@ -50,12 +50,12 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
     try {
       target.setTs((Integer) source.getExt().get("ts"));
       target.setDs((String) source.getExt().get("ds"));
-      target.setDsmap((String) source.getExt().get("dsMap"));
+      target.setDsmap((String) source.getExt().get("dsmap"));
       target.setCert((String) source.getExt().get("cert"));
       target.setDigest((String) source.getExt().get("digest"));
       target.getExt().remove("ts");
       target.getExt().remove("ds");
-      target.getExt().remove("dsMap");
+      target.getExt().remove("dsmap");
       target.getExt().remove("cert");
       target.getExt().remove("digest");
     } catch (ClassCastException e) {
