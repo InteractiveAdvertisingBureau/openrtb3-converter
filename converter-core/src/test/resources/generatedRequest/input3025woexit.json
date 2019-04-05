@@ -1,5 +1,5 @@
 {
-  "inputFile" : "RESPONSE_BANNER_SITE_30.json",
+  "inputFile" : "RESPONSE_BANNER_SITE_30_wo_EXT.json",
   "inputType" : "RESPONSE30",
   "inputEdits" : {
     "response.id" : "\"1\""
@@ -12,9 +12,6 @@
       "nbr" : 2,
       "cur" : "USD",
       "cdata" : "cdata",
-      "ext" : {
-        "bidresponseEXT" : "bidresponseEXT"
-      },
       "seatbid" : [ {
         "seat" : "xyzseat",
         "bid" : [ {
@@ -70,9 +67,6 @@
                     "ext" : {
                       "link" : "link"
                     }
-                  },
-                  "ext" : {
-                    "mediaAdDisplayBannerext" : "mediaAdDisplayBannerext"
                   }
                 },
                 "event" : [ {
@@ -82,33 +76,20 @@
                   "api" : [ 1, 2 ],
                   "cdata" : {
                     "acct" : "123"
-                  },
-                  "ext" : {
-                    "mediaAdDisplayEventExt" : "mediaAdDisplayEventExt"
                   }
-                } ],
-                "ext" : {
-                  "mediaAdDisplayExt" : "mediaAdDisplayExt"
-                }
-              },
-              "ext" : {
-                "mediaAdExt" : "mediaAdExt"
+                } ]
               }
             }
           },
           "ext" : {
-            "protocol" : 123,
-            "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt"
+            "protocol" : 123
           }
         } ],
-        "package" : 1,
-        "ext" : {
-          "bidresponseSeatbidExt" : "bidresponseSeatbidExt"
-        }
+        "package" : 1
       } ]
     }
   },
-  "outputFile" : "RESPONSE_BANNER_SITE_25.json",
+  "outputFile" : "RESPONSE_BANNER_SITE_25_wo_EXT.json",
   "outputType" : "RESPONSE25",
   "outputEdits" : {
     "id" : "\"1\""
@@ -146,9 +127,6 @@
         "wratio" : 90,
         "hratio" : 55,
         "ext" : {
-          "mediaAdDisplayExt" : "mediaAdDisplayExt",
-          "mediaAdExt" : "mediaAdExt",
-          "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt",
           "macro" : [ {
             "key" : "test",
             "value" : "test2",
@@ -173,9 +151,6 @@
               "ext" : {
                 "link" : "link"
               }
-            },
-            "ext" : {
-              "mediaAdDisplayBannerext" : "mediaAdDisplayBannerext"
             }
           },
           "event" : [ {
@@ -185,22 +160,13 @@
             "api" : [ 1, 2 ],
             "cdata" : {
               "acct" : "123"
-            },
-            "ext" : {
-              "mediaAdDisplayEventExt" : "mediaAdDisplayEventExt"
             }
           } ]
         }
       } ],
-      "ext" : {
-        "bidresponseSeatbidExt" : "bidresponseSeatbidExt"
-      },
       "seat" : "xyzseat",
       "group" : 1
     } ],
-    "ext" : {
-      "bidresponseEXT" : "bidresponseEXT"
-    },
     "bidid" : "7phb82pzl",
     "nbr" : 2
   },
