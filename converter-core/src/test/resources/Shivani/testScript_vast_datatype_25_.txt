@@ -15,84 +15,100 @@ cases:
      imp[0].video.sequence: 1
      imp[0].video.maxextended: 2
      imp[0].video.minbitrate: 3
-     imp[0].video.maxbitrate: 1
+     imp[0].video.maxbitrate: 11
      imp[0].video.boxingallowed: 0
      imp[0].video.playbackend: 1
      imp[0].video.pos: 2
    outputFile: VAST_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     request.item[0].spec.placement.video.mindur: 20
+     request.item[0].spec.placement.video.maxdur: 30
+     request.item[0].spec.placement.video.w: 200
+     request.item[0].spec.placement.video.h: 300
+     request.item[0].spec.placement.video.delay: 5
+     request.item[0].spec.placement.video.ptype: 0
+     request.item[0].spec.placement.video.linear: 1
+     request.item[0].spec.placement.video.skip: 1
+     request.item[0].spec.placement.video.skipmin: 1
+     request.item[0].spec.placement.video.skipafter: 1
+     request.item[0].seq: 1
+     request.item[0].spec.placement.video.maxext: 2
+     request.item[0].spec.placement.video.minbitr: 3
+     request.item[0].spec.placement.video.maxbitr: 11
+     request.item[0].spec.placement.video.boxing: 0
+     request.item[0].spec.placement.video.playend: 1
+     request.item[0].spec.placement.video.pos: 2
    purpose: TC2001
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.minduration: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2002
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.maxduration: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2003
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.w: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2004
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.h: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2005
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.startdelay: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2006
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.placement: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2007
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.linearity: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2008
 
 
@@ -100,10 +116,10 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.skip: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2009
 
 
@@ -111,10 +127,10 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.skipmin: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2010
 
 
@@ -122,10 +138,10 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.skipafter: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2011
 
 
@@ -133,70 +149,70 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.sequence: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2012
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.maxextended: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2013
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.minbitrate: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2014
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.maxbitrate: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2015
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.boxingallowed: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2016
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.playbackend: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2017
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.pos: "\"ab\""
-   outputFile: VAST_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2018
 
  - inputFile: NATIVE_SITE_25.json
@@ -207,7 +223,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     request.item[0].spec.placement.video.ctype[*]: null
+     request.item[0].spec.placement.video.ctype[0]: 1
    purpose: TC2019
 
  - inputFile: NATIVE_SITE_25.json
@@ -219,7 +236,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     request.item[0].spec.placement.video.ctype[*]: null
+     request.item[0].spec.placement.video.ctype[0]: 1
+     request.item[0].spec.placement.video.ctype[1]: 2
    purpose: TC2020
 
  - inputFile: NATIVE_SITE_25.json
@@ -230,7 +249,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     request.item[0].spec.placement.video.mime[*]: null
+     request.item[0].spec.placement.video.mime[0]: "\"video/mp4\""
    purpose: TC2021
 
  - inputFile: NATIVE_SITE_25.json
@@ -242,7 +262,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     request.item[0].spec.placement.video.mime[*]: null
+     request.item[0].spec.placement.video.mime[0]: "\"video/mp4\""
+     request.item[0].spec.placement.video.mime[1]: "\"video/mp4\""
    purpose: TC2022
 
  - inputFile: NATIVE_SITE_25.json
@@ -253,7 +275,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     request.context.restrictions.battr[*]: null
+     request.context.restrictions.battr[0]: 1
    purpose: TC2023
 
  - inputFile: NATIVE_SITE_25.json
@@ -265,7 +288,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+      request.context.restrictions.battr[*]: null
+      request.context.restrictions.battr[0]: 1
+      request.context.restrictions.battr[1]: 2
    purpose: TC2024
 
  - inputFile: NATIVE_SITE_25.json
@@ -276,19 +301,19 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     request.item[0].spec.placement.video.playmethod: 1
    purpose: TC2025
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.playbackmethod[*]: null
-     imp[0].video.playbackmethod[0]: 1
+     imp[0].video.playbackmethod[0]: 5
      imp[0].video.playbackmethod[1]: 2
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     request.item[0].spec.placement.video.playmethod: 5
    purpose: TC2026
 
  - inputFile: NATIVE_SITE_25.json
@@ -299,7 +324,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     request.item[0].spec.placement.video.delivery[*]: null
+     request.item[0].spec.placement.video.delivery[0]: 1
    purpose: TC2027
 
  - inputFile: NATIVE_SITE_25.json
@@ -311,7 +337,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     request.item[0].spec.placement.video.delivery[*]: null
+     request.item[0].spec.placement.video.delivery[0]: 1
+     request.item[0].spec.placement.video.delivery[1]: 2
    purpose: TC2028
 
  - inputFile: NATIVE_SITE_25.json
@@ -322,7 +350,8 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     request.item[0].spec.placement.video.comptype[*]: null
+     request.item[0].spec.placement.video.comptype[0]: 1
    purpose: TC2029
 
  - inputFile: NATIVE_SITE_25.json
@@ -334,7 +363,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     request.item[0].spec.placement.video.comptype[*]: null
+     request.item[0].spec.placement.video.comptype[0]: 1
+     request.item[0].spec.placement.video.comptype[1]: 2
    purpose: TC2030
 
  - inputFile: NATIVE_SITE_25.json
@@ -370,80 +401,80 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.companionad[0].w: "\"ab\""
-   outputFile: BANNER_APP_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2033
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.companionad[0].wmax: "\"ab\""
-   outputFile: BANNER_APP_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2034
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.companionad[0].hmax: "\"ab\""
-   outputFile: BANNER_APP_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2035
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.companionad[0].wmin: "\"ab\""
-   outputFile: BANNER_APP_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2036
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.companionad[0].hmin: "\"ab\""
-   outputFile: BANNER_APP_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2037
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.companionad[0].topframe: "\"ab\""
-   outputFile: BANNER_APP_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2038
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.companionad[0].vcm: "\"ab\""
-   outputFile: BANNER_APP_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2039
 
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.companionad[0].pos: "\"ab\""
-   outputFile: BANNER_APP_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].id: 2
+     status: "\"ERROR\""
    purpose: TC2040
 
  - inputFile: NATIVE_SITE_25.json

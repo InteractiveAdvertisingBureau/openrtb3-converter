@@ -13,40 +13,40 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      at: "\"ab\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: invalidData2
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      test: "\"a\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: invalidData3
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      tmax: "\"as\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: invalidData4
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      allimps: "\"dd\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: invalidData5
 
  - inputFile: BANNER_SITE_25.json
@@ -104,10 +104,10 @@ cases:
    inputEdits:
      wseat[*]: null
      wseat: 1
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat4
 
  - inputFile: BANNER_SITE_25.json
@@ -243,10 +243,10 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      source.fd: "\"dd\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat16
 
  - inputFile: BANNER_SITE_25.json
@@ -335,20 +335,20 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.dnt: "\"eew\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat25
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      device.lmt: "\"eew\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat26
 
  - inputFile: BANNER_SITE_25.json
@@ -365,10 +365,10 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.devicetype: "\"ee\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat28
 
  - inputFile: BANNER_SITE_25.json
@@ -425,60 +425,60 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.h: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat34
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      device.w: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat35
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      device.ppi: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat36
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      device.pxratio: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat37
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      device.js: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat38
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      device.geofetch: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat39
 
  - inputFile: BANNER_SITE_25.json
@@ -525,10 +525,10 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      device.connectiontype: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat43
 
  - inputFile: BANNER_SITE_25.json
@@ -639,10 +639,10 @@ cases:
      device.geo.city: 1
      device.geo.zip: 1
      device.geo.utcoffset: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat47
 
  - inputFile: BANNER_SITE_25.json
@@ -689,10 +689,10 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.yob: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat51
 
  - inputFile: BANNER_SITE_25.json
@@ -728,77 +728,77 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     user.data.id: 1
+     user.data[0].id: 1
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.user.data.id:  "\"1\""
+     request.context.user.data[0].id:  "\"1\""
    purpose: idStringFormat55
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     user.data.name: 1
+     user.data[0].name: 1
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.user.data.name:  "\"1\""
+     request.context.user.data[0].name:  "\"1\""
    purpose: idStringFormat56
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     user.data.id: "\"ff\""
-     user.data.name: "\"ff\""
+     user.data[0].id: "\"ff\""
+     user.data[0].name: "\"ff\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.user.data.id:  "\"ff\""
-     request.user.data.name:  "\"ff\""
+     request.context.user.data[0].id:  "\"ff\""
+     request.context.user.data[0].name:  "\"ff\""
    purpose: idStringFormat57
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     user.data.segment[0].id: 1
+     user.data[0].segment[0].id: 1
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.context.user.data.segment[0].id:  "\"1\""
+     request.context.user.data[0].segment[0].id:  "\"1\""
    purpose: idStringFormat58
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     user.data.segment[0].name: 1
+     user.data[0].segment[0].name: 1
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.context.user.data.segment[0].name:  "\"1\""
+     request.context.user.data[0].segment[0].name:  "\"1\""
    purpose: idStringFormat59
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     user.data.segment[0].value: 1
+     user.data[0].segment[0].value: 1
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.context.user.data.segment[0].value:  "\"1\""
+     request.context.user.data[0].segment[0].value:  "\"1\""
    purpose: idStringFormat60
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     user.data.segment[0].id: "\"ff\""
-     user.data.segment[0].name: "\"ff\""
-     user.data.segment[0].value: "\"ff\""
+     user.data[0].segment[0].id: "\"ff\""
+     user.data[0].segment[0].name: "\"ff\""
+     user.data[0].segment[0].value: "\"ff\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.context.user.data.segment[0].id:  "\"ff\""
-     request.context.user.data.segment[0].name:  "\"ff\""
-     request.context.user.data.segment[0].value:  "\"ff\""
+     request.context.user.data[0].segment[0].id:  "\"ff\""
+     request.context.user.data[0].segment[0].name:  "\"ff\""
+     request.context.user.data[0][0].segment[0].value:  "\"ff\""
    purpose: idStringFormat61
 
  - inputFile: BANNER_SITE_25.json
@@ -840,70 +840,70 @@ cases:
    inputType: "REQUEST25"
    inputEdits:
      user.geo.lat: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat63
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      user.geo.lon: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat64
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      user.geo.type: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat65
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      user.geo.accuracy: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat66
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      user.geo.lastfix: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat67
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      user.geo.ipservice: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat68
 
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      user.geo.utcoffset: "\"ff\""
-   outputFile: BANNER_SITE_30.json
+   outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "ERROR"
+     status: "\"ERROR\""
    purpose: idStringFormat69
 
  - inputFile: BANNER_SITE_25.json
