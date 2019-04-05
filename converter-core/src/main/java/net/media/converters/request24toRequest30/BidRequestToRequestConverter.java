@@ -11,6 +11,7 @@ import net.media.openrtb3.Context;
 import net.media.openrtb3.Item;
 import net.media.openrtb3.Request;
 import net.media.utils.Provider;
+import net.media.utils.Utils;
 
 import java.util.Collection;
 
@@ -48,9 +49,11 @@ public class BidRequestToRequestConverter extends net.media.converters
       }
       if (source.getExt().containsKey("source")) {
         try {
-          source.setSource((Source) source.getExt().get("source"));
+          Source source1 = Utils.getMapper().convertValue(source.getExt().get("source"), Source
+            .class);
+          source.setSource(source1);
         } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting wlang from bidRequest.ext.wlang",
+          throw new OpenRtbConverterException("Error in setting source from bidRequest.ext.source",
             e);
         }
         source.getExt().remove("source");

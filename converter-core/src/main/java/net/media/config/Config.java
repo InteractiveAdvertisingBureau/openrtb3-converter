@@ -18,11 +18,10 @@ import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 /**
- * ORTB converter configuration
+ * Provides a handle to read configuration from several data formats.
  *
  * @author shiva.b
  */
-
 public class Config {
 
   private static final boolean DEFAULT_NATIVE_REQUEST_AS_STRING = true;
@@ -38,26 +37,57 @@ public class Config {
   private static final OpenRtbVersion DEFAULT_OPENRTB_2_X_VERSION = OpenRtbVersion.TWO_DOT_FIVE;
 
   /**
-   * This config determines the type of native request from 3.x to 2.x,
-   * as native request can be an object as well as a string in 2.x
+   * Determines the type of native request in 2.x while converting from 3.x to 2.x.
+   * Note: Native request can be an object as well as a string in 2.x.
    */
   private Boolean nativeRequestAsString;
 
+  /**
+   * Determines the type of native response in 2.x while converting from 3.x to 2.x.
+   * Note: Native response ADM can be an object as well as a string in 2.x.
+   */
   private Boolean nativeResponseAsString;
 
   /**
-   * {@link AdType} provides the adType for response conversion
+   * Used for converting 2.x response to 3.0 response, and vice versa.
+   * Stores the {@link AdType} against impression ids which will aid in conversion.
+   * Example: Say, the map has the following mapping:
+   * <pre>
+   *   {imp1, BANNER}
+   *   {imp2, VIDEO}
+   *   {imp3, NATIVE}
+   * </pre>
+   * If in 2.x response, bidResponse.seatBid.bid.impId = imp1, then when converting
+   * to 3.0, this impression will be converted to {@link net.media.openrtb3.Banner}
+   * object. Aditionally, if in 3.0 response, openrtb.response.seatbid.bid.media.ad.display.banner
+   * is not null, then an appropriate bidResponse.seatBid.bid will be created with impId = imp1.
+   * Note that, support for multiple ad types for a single impression is not supported.
    */
   private Map<String, AdType> adTypeMapping;
 
-  private Boolean disableCloning;
   /**
-   * This config determines whether the input request or response needs to be validated
+   * Whether to clone object references or not while conversion.
+   * Only used for collections.
+   */
+  private Boolean disableCloning;
+
+  /**
+   * Determines whether the input request or response needs to be v
+   * alidated or not.
    */
   private Boolean validate;
 
+  /**
+   * Determines the minor version in 2.x spec. By default, it is set to {@link OpenRtbVersion#TWO_DOT_FIVE},
+   * but can be overridden
+   */
   private OpenRtbVersion openRtbVersion2_XVersion;
 
+  /**
+   * For internal use when no overriding config to drive the conversion is found.
+   *
+   * @param oldConfig the last set / updated config
+   */
   public Config(Config oldConfig) {
     if (nonNull(oldConfig)) {
       this.nativeRequestAsString = oldConfig.nativeRequestAsString;
@@ -72,9 +102,9 @@ public class Config {
   }
 
   /**
-   * fills the fields that are not present in the conversion request
+   * Sets the fields that are not present in the conversion request.
    *
-   * @param config
+   * @param config see {@link Config}
    */
   public void updateEmptyFields(Config config) {
     if (nonNull(config)) {
@@ -113,11 +143,13 @@ public class Config {
   }
 
   /**
-   * Read config object stored in JSON format from <code>String</code>
+   * Creates config object from JSON string.
    *
    * @param content of config
-   * @return config
-   * @throws IOException error
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromJSON(String content) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -125,11 +157,14 @@ public class Config {
   }
 
   /**
-   * Read config object stored in JSON format from <code>InputStream</code>
+   * Creates config object from input stream.
+   * The input stream must be drawn from JSON String.
    *
-   * @param inputStream object
-   * @return config
-   * @throws IOException error
+   * @param inputStream see appropriate implementation of {@link InputStream}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromJSON(InputStream inputStream) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -137,12 +172,14 @@ public class Config {
   }
 
   /**
-   * Read config object stored in JSON format from <code>File</code>
+   * Creates config object from JSON string stored in the file using the input {@link ClassLoader}.
    *
-   * @param file object
-   * @param classLoader class loader
-   * @return config
-   * @throws IOException error
+   * @param file object see {@link File}
+   * @param classLoader see {@link ClassLoader}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromJSON(File file, ClassLoader classLoader) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -150,22 +187,26 @@ public class Config {
   }
 
   /**
-   * Read config object stored in JSON format from <code>File</code>
+   * Creates config object from JSON string stored in the file.
    *
-   * @param file object
-   * @return config
-   * @throws IOException error
+   * @param file object see {@link File}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromJSON(File file) throws IOException {
     return fromJSON(file, null);
   }
 
   /**
-   * Read config object stored in JSON format from <code>URL</code>
+   * Creates config object from JSON string that will be fetched from the {@link URL}.
    *
-   * @param url object
-   * @return config
-   * @throws IOException error
+   * @param url object see {@link URL}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromJSON(URL url) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -173,11 +214,13 @@ public class Config {
   }
 
   /**
-   * Read config object stored in JSON format from <code>Reader</code>
+   * Creates config object from JSON String via {@link Reader}.
    *
-   * @param reader object
-   * @return config
-   * @throws IOException error
+   * @param reader see appropriate implementation of {@link Reader}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromJSON(Reader reader) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -185,22 +228,26 @@ public class Config {
   }
 
   /**
-   * Convert current configuration to JSON format
+   * Converts current configuration to JSON format
    *
    * @return config in json format
-   * @throws IOException error
+   *
+   * @throws IOException when conversion fails
    */
   public String toJSON() throws IOException {
     ConfigSupport support = new ConfigSupport();
     return support.toJSON(this);
   }
 
+
   /**
-   * Read config object stored in YAML format from <code>String</code>
+   * Creates config object from YAML string.
    *
-   * @param content of config
-   * @return config
-   * @throws IOException error
+   * @param content YAML string
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromYAML(String content) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -208,11 +255,14 @@ public class Config {
   }
 
   /**
-   * Read config object stored in YAML format from <code>InputStream</code>
+   * Creates config object from input stream.
+   * The input stream must be drawn from YAML String.
    *
-   * @param inputStream object
-   * @return config
-   * @throws IOException error
+   * @param inputStream see appropriate implementation of {@link InputStream}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromYAML(InputStream inputStream) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -220,27 +270,41 @@ public class Config {
   }
 
   /**
-   * Read config object stored in YAML format from <code>File</code>
+   * Creates config object from YAML string stored in the file.
    *
-   * @param file object
-   * @return config
-   * @throws IOException error
+   * @param file object see {@link File}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromYAML(File file) throws IOException {
     return fromYAML(file, null);
   }
 
+  /**
+   * Creates config object from YAML string stored in the file using the input {@link ClassLoader}.
+   *
+   * @param file object see {@link File}
+   * @param classLoader see {@link ClassLoader}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
+   */
   public static Config fromYAML(File file, ClassLoader classLoader) throws IOException {
     ConfigSupport support = new ConfigSupport();
     return support.fromYAML(file, Config.class, classLoader);
   }
 
   /**
-   * Read config object stored in YAML format from <code>URL</code>
+   * Creates config object from YAML string that will be fetched from the {@link URL}.
    *
-   * @param url object
-   * @return config
-   * @throws IOException error
+   * @param url object see {@link URL}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromYAML(URL url) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -248,11 +312,13 @@ public class Config {
   }
 
   /**
-   * Read config object stored in YAML format from <code>Reader</code>
+   * Creates config object from YAML String via {@link Reader}.
    *
-   * @param reader object
-   * @return config
-   * @throws IOException error
+   * @param reader see appropriate implementation of {@link Reader}
+   *
+   * @return config see {@link Config}
+   *
+   * @throws IOException when reading fails
    */
   public static Config fromYAML(Reader reader) throws IOException {
     ConfigSupport support = new ConfigSupport();
@@ -260,17 +326,18 @@ public class Config {
   }
 
   /**
-   * Convert current configuration to YAML format
+   * Converts current configuration to YAML format
    *
-   * @return config in yaml format
-   * @throws IOException error
+   * @return config in YAML format
+   *
+   * @throws IOException when conversion fails
    */
   public String toYAML() throws IOException {
     ConfigSupport support = new ConfigSupport();
     return support.toYAML(this);
   }
 
-  public AdType  getAdType(String impressionId) {
+  public AdType getAdType(String impressionId) {
     if (isNull(adTypeMapping) || !adTypeMapping.containsKey(impressionId)) {
       return DEFAULT_AD_TYPE;
     }
