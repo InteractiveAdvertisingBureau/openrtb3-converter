@@ -1,6 +1,6 @@
 package net.media.converters.response30toresponse25;
 
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.response.Bid;
@@ -32,7 +32,7 @@ public class AudioToBidConverter implements Converter<Audio,Bid> {
 
     target.setAdm(source.getAdm());
     if(nonNull(source.getApi()) && source.getApi().size()>0)
-      target.setApi(source.getApi().get(0));
+      target.setApi(source.getApi().iterator().next());
     if(isNull(target.getExt())){
       target.setExt(new HashMap<>());
     }

@@ -1,14 +1,18 @@
 package net.media.converters.response30toresponse25;
 
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.enums.AdType;
 import net.media.openrtb25.response.Bid;
-import net.media.openrtb3.*;
+import net.media.openrtb3.Ad;
+import net.media.openrtb3.Audio;
+import net.media.openrtb3.Audit;
+import net.media.openrtb3.Display;
+import net.media.openrtb3.Video;
 import net.media.utils.Utils;
 
-import java.util.*;
+import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -41,12 +45,12 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
 
     target.setCrid(source.getId());
 
-    target.setAdomain(Utils.copyList(source.getAdomain(),config));
+    target.setAdomain(Utils.copyCollection(source.getAdomain(),config));
     if(nonNull(source.getBundle()) && source.getBundle().size()>0)
-      target.setBundle(source.getBundle().get(0));
+      target.setBundle(source.getBundle().iterator().next());
     target.setIurl( source.getIurl() );
-    target.setCat(Utils.copySet(source.getCat(),config));
-    target.setAttr(Utils.copyList(source.getAttr(),config));
+    target.setCat(Utils.copyCollection(source.getCat(),config));
+    target.setAttr(Utils.copyCollection(source.getAttr(),config));
     target.setLanguage(source.getLang());
 
     if(isNull(target.getExt()))
@@ -63,14 +67,11 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
     if (nonNull(source.getLastmod())) {
       target.getExt().put("lastMod", source.getLastmod());
     }
-    if (nonNull(source.getMrating())) {
-      target.getExt().put("mrating", source.getMrating());
-    }
     if (nonNull(source.getCattax())) {
       target.getExt().put("cattax", source.getCattax());
     }
     target.setQagmediarating(source.getMrating());
-    AdType adType = config.getAdType();
+    AdType adType = config.getAdType(target.getId());
     switch (adType) {
       case BANNER:
       case NATIVE:

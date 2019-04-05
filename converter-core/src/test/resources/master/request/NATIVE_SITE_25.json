@@ -96,16 +96,92 @@
     "tagid": "re",
     "exp": 1,
     "native": {
-      "request": "req",
-      "ver": "2.x",
-      "api": 1,
-      "battr": 2,
+      "ver": "1.1",
+      "api": [
+        1,
+        2,
+        3
+      ],
+      "battr": [
+        2,
+        5,
+        8
+      ],
       "ext": {
-        "dummy": "dw"
+        "dummy": "entry"
+      },
+      "request": {
+        "native" : {
+          "ver": "1.1",
+          "layout": 0,
+          "adunit": 1,
+          "context": 1,
+          "contextsubtype": 2,
+          "plcmttype": 3,
+          "plcmtcnt": 4,
+          "seq": 5,
+          "ext": {
+            "dummy": "object"
+          },
+          "asset": [
+            {
+              "id": 1,
+              "required": 0,
+              "title": {
+                "len": 20,
+                "ext": {
+                  "dummy": "entry"
+                }
+              },
+              "img": {
+                "type": 1,
+                "mimes": [
+                  "abc",
+                  "def"
+                ],
+                "w": 20,
+                "h": 20,
+                "wmin": 20,
+                "hmin": 20,
+                "ext": {
+                  "wratio": 20,
+                  "hratio": 20
+                }
+              },
+              "video": {
+                "mimes": [
+                  "a",
+                  "bc",
+                  "def"
+                ],
+                "minduration": 1,
+                "maxduration": 2,
+                "protocols": [
+                  2,
+                  3,
+                  4
+                ],
+                "ext": {
+                  "dummy": "entry"
+                }
+              },
+              "data": {
+                "type": 1,
+                "len": 2,
+                "ext": {
+                  "dummy": "entry"
+                }
+              },
+              "ext": {
+                "dummy": "entry"
+              }
+            }
+          ]
+        }
       }
     },
     "ext": {
-      "dummy": "ff"
+      "dummy": "entry"
     }
   }],
   "site": {

@@ -23,30 +23,618 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastValidDatatype
+   purpose: TC2001
 
  - inputFile: VAST_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
      imp[0].video.minduration: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2002
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.maxduration: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2003
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.w: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2004
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.h: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2005
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.startdelay: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2006
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.placement: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2007
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.linearity: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2008
+
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.skip: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2009
+
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.skipmin: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2010
+
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.skipafter: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2011
+
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.sequence: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2012
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.maxextended: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2013
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.minbitrate: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2014
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.maxbitrate: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2015
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.boxingallowed: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2016
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.playbackend: "\"ab\""
+   outputFile: VAST_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2017
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
      imp[0].video.pos: "\"ab\""
    outputFile: VAST_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
      request.item[0].id: 2
-   purpose: vastInvalidDatatype
+   purpose: TC2018
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.protocols[*]: null
+     imp[0].video.protocols[0]: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2019
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.protocols[*]: null
+     imp[0].video.protocols[0]: 1
+     imp[0].video.protocols[1]: 2
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2020
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.mimes[*]: null
+     imp[0].video.mimes[0]: "\"video/mp4\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2021
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.mimes[*]: null
+     imp[0].video.mimes[0]: "\"video/mp4\""
+     imp[0].video.mimes[1]: "\"video/mp4\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2022
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.battr[*]: null
+     imp[0].video.battr[0]: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2023
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.battr[*]: null
+     imp[0].video.battr[0]: 1
+     imp[0].video.battr[1]: 2
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2024
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.playbackmethod[*]: null
+     imp[0].video.playbackmethod[0]: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2025
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.playbackmethod[*]: null
+     imp[0].video.playbackmethod[0]: 1
+     imp[0].video.playbackmethod[1]: 2
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2026
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.delivery[*]: null
+     imp[0].video.delivery[0]: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2027
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.delivery[*]: null
+     imp[0].video.delivery[0]: 1
+     imp[0].video.delivery[1]: 2
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2028
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companiontype[*]: null
+     imp[0].video.companiontype[0]: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2029
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companiontype[*]: null
+     imp[0].video.companiontype[0]: 1
+     imp[0].video.companiontype[1]: 2
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2030
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].id: "\"ab\""
+     imp[0].video.companionad[0].h: 250
+     imp[0].video.companionad[0].w: 350
+     imp[0].video.companionad[0].wmax: 20
+     imp[0].video.companionad[0].hmax: 30
+     imp[0].video.companionad[0].wmin: 20
+     imp[0].video.companionad[0].hmin: 40
+     imp[0].video.companionad[0].topframe: 20
+     imp[0].video.companionad[0].vcm: 20
+     imp[0].video.companionad[0].pos: 0
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2031
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].h: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2032
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].w: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2033
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].wmax: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2034
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].hmax: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2035
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].wmin: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2036
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].hmin: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2037
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].topframe: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2038
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].vcm: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2039
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].pos: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2040
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].h: "\"ab\""
+     imp[0].video.companionad[0].w: "\"ab\""
+     imp[0].video.companionad[0].wmax: "\"ab\""
+     imp[0].video.companionad[0].hmax: "\"ab\""
+     imp[0].video.companionad[0].wmin: "\"ab\""
+     imp[0].video.companionad[0].hmin: "\"ab\""
+     imp[0].video.companionad[0].topframe: "\"ab\""
+     imp[0].video.companionad[0].vcm: "\"ab\""
+     imp[0].video.companionad[0].pos: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2041
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].btype[*]: null
+     imp[0].video.companionad[0].btype[0]: 2
+     imp[0].video.companionad[0].btype[1]: 4
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2042
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].btype[*]: null
+     imp[0].video.companionad[0].btype[0]: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2043
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].battr[*]: null
+     imp[0].video.companionad[0].battr[0]: 2
+     imp[0].video.companionad[0].battr[1]: 4
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2044
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].battr[*]: null
+     imp[0].video.companionad[0].battr[0]: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2045
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].expdir[*]: null
+     imp[0].video.companionad[0].expdir[0]: 2
+     imp[0].video.companionad[0].expdir[1]: 4
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2046
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].expdir[*]: null
+     imp[0].video.companionad[0].expdir[0]: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2047
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].api[*]: null
+     imp[0].video.companionad[0].api[0]: 2
+     imp[0].video.companionad[0].api[1]: 4
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2048
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].api[*]: null
+     imp[0].video.companionad[0].api[0]: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2049
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].mimes[*]: null
+     imp[0].video.companionad[0].mimes[0]: "\"application/x-shockwave-flash\""
+     imp[0].video.companionad[0].mimes[1]: "\"image/jpg\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2050
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].format[*]: null
+     imp[0].video.companionad[0].format[0].w: 200
+     imp[0].video.companionad[0].format[0].h: 20
+     imp[0].video.companionad[0].format[0].wratio: 200
+     imp[0].video.companionad[0].format[0].hratio: 30
+     imp[0].video.companionad[0].format[0].wmin: 30
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2051
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].format[*]: null
+     imp[0].video.companionad[0].format[0].w: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2052
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].format[*]: null
+     imp[0].video.companionad[0].format[0].h: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2053
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].format[*]: null
+     imp[0].video.companionad[0].format[0].wratio: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2054
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].format[*]: null
+     imp[0].video.companionad[0].format[0].hratio: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2055
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.companionad[0].format[*]: null
+     imp[0].video.companionad[0].format[0].wmin: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id: 2
+   purpose: TC2056
+

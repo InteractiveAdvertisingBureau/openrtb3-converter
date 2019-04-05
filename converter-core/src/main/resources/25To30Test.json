@@ -415,7 +415,7 @@
               }
             }
           ],
-          "_package": 2,
+          "package": 2,
           "ext": {
             "aloo": "pyaz",
             "sourav": {

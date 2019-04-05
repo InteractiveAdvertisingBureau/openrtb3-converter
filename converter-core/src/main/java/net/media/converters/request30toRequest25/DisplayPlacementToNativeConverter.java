@@ -2,7 +2,7 @@ package net.media.converters.request30toRequest25;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.Native;
@@ -15,15 +15,17 @@ import net.media.utils.Utils;
 
 import java.util.HashMap;
 
-import lombok.AllArgsConstructor;
-
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-@AllArgsConstructor
 public class DisplayPlacementToNativeConverter implements Converter<DisplayPlacement, Native> {
 
   private Converter<NativeFormat, NativeRequestBody> nativeFormatNativeRequestBodyConverter;
+
+  @java.beans.ConstructorProperties({"nativeFormatNativeRequestBodyConverter"})
+  public DisplayPlacementToNativeConverter(Converter<NativeFormat, NativeRequestBody> nativeFormatNativeRequestBodyConverter) {
+    this.nativeFormatNativeRequestBodyConverter = nativeFormatNativeRequestBodyConverter;
+  }
 
   @Override
   public Native map(DisplayPlacement displayPlacement, Config config) throws OpenRtbConverterException {
@@ -53,19 +55,21 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     if (nonNull(nativeRequest.getNativeRequestBody())) {
       nativeRequest.getNativeRequestBody().setContext(displayPlacement.getContext());
       nativeRequest.getNativeRequestBody().setPlcmttype(displayPlacement.getPtype());
-      if (nonNull(displayPlacement.getExt())) {
-        nativeRequest.getNativeRequestBody().setContextsubtype((Integer) displayPlacement.getExt
-          ().get("contextsubtype"));
-      }
     }
-    nat.setApi(Utils.copyList(displayPlacement.getApi(), config));
+    nat.setApi(Utils.copyCollection(displayPlacement.getApi(), config));
     if (nonNull(displayPlacement.getExt())) {
       if (isNull(nat.getExt())) {
         nat.setExt(new HashMap<>());
       }
       nat.getExt().putAll(displayPlacement.getExt());
-      nat.setVer((String) displayPlacement.getExt().get("nativeversion"));
-      nat.getExt().remove("nativeversion");
+      try {
+        if(displayPlacement.getNativefmt().getExt() != null && displayPlacement.getNativefmt().getExt().containsKey("ver")) {
+          nat.setVer((String) displayPlacement.getNativefmt().getExt().get("ver"));
+          displayPlacement.getNativefmt().getExt().remove("ver");
+        }
+      } catch (ClassCastException e) {
+        throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+      }
     }
     if (config.getNativeRequestAsString()) {
       try {
@@ -75,6 +79,20 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       }
     } else {
       nat.setRequest(nativeRequest);
+    }
+    try {
+      if (displayPlacement.getPriv() != null) {
+        if (nat.getExt() == null)
+          nat.setExt(new HashMap<>());
+        nat.getExt().put("priv", displayPlacement.getPriv());
+      }
+      if (displayPlacement.getCtype() != null) {
+        if (nat.getExt() == null)
+          nat.setExt(new HashMap<>());
+        nat.getExt().put("ctype", displayPlacement.getCtype());
+      }
+    } catch(ClassCastException e) {
+      throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
     }
     nat.setExt(Utils.copyMap(displayPlacement.getExt(), config));
   }

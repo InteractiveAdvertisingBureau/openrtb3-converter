@@ -1,23 +1,27 @@
 package net.media.converters.request30toRequest25;
 
-import lombok.AllArgsConstructor;
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Content;
 import net.media.openrtb3.Data;
 import net.media.openrtb3.Producer;
-import net.media.utils.ListToListConverter;
+import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@AllArgsConstructor
 public class ContentToContentConverter implements Converter<Content, net.media.openrtb25.request.Content> {
 
   private Converter<Producer, net.media.openrtb25.request.Producer> producerProducerConverter;
   private Converter<Data, net.media.openrtb25.request.Data> dataDataConverter;
+
+  @java.beans.ConstructorProperties({"producerProducerConverter", "dataDataConverter"})
+  public ContentToContentConverter(Converter<Producer, net.media.openrtb25.request.Producer> producerProducerConverter, Converter<Data, net.media.openrtb25.request.Data> dataDataConverter) {
+    this.producerProducerConverter = producerProducerConverter;
+    this.dataDataConverter = dataDataConverter;
+  }
 
   @Override
   public net.media.openrtb25.request.Content map(Content source, Config config) throws OpenRtbConverterException {
@@ -55,15 +59,15 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     target.setIsrc( source.getIsrc() );
     target.setProducer( producerProducerConverter.map( source.getProducer(), config ) );
     target.setUrl( source.getUrl() );
-    target.setCat( Utils.copyList(source.getCat(), config) );
+    target.setCat( Utils.copyCollection(source.getCat(), config) );
     target.setProdq( source.getProdq() );
     target.setContext( source.getContext() );
     target.setKeywords( source.getKeywords() );
     target.setLen( source.getLen() );
-    target.setData( ListToListConverter.convert( source.getData(), dataDataConverter, config ) );
+    target.setData( CollectionToCollectionConverter.convert( source.getData(), dataDataConverter, config ) );
     Map<String, Object> map = source.getExt();
     if ( map != null ) {
-      target.setExt( new HashMap<String, Object>( map ) );
+      target.setExt( Utils.copyMap(map, config) );
     }
     if(source.getCattax() != null) {
       if(target.getExt() == null)
@@ -72,8 +76,12 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     }
     if(source.getExt() != null) {
       if (source.getExt().containsKey("videoquality")) {
-        target.setVideoquality((Integer) source.getExt().get("videoquality"));
-        target.getExt().remove("videoquality");
+        try {
+          target.setVideoquality((Integer) source.getExt().get("videoquality"));
+          target.getExt().remove("videoquality");
+        } catch (ClassCastException e) {
+          throw new OpenRtbConverterException("error while typecasting ext for Content", e);
+        }
       }
     }
   }

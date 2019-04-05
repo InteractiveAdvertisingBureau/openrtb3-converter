@@ -2,6 +2,7 @@ package net.media.converters.request30toRequest25;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayFormat;
@@ -10,6 +11,7 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +21,7 @@ import static java.util.Objects.nonNull;
 
 public class DisplayPlacementToBannerConverter implements Converter<DisplayPlacement, Banner> {
   @Override
-  public Banner map(DisplayPlacement displayPlacement, Config config) {
+  public Banner map(DisplayPlacement displayPlacement, Config config) throws OpenRtbConverterException {
     if ( displayPlacement == null ) {
       return null;
     }
@@ -32,11 +34,11 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
   }
 
   @Override
-  public void enhance(DisplayPlacement displayPlacement, Banner banner, Config config) {
+  public void enhance(DisplayPlacement displayPlacement, Banner banner, Config config) throws OpenRtbConverterException {
     if (isNull(displayPlacement) || isNull(banner)) {
       return;
     }
-    banner.setMimes(Utils.copyList(displayPlacement.getMime(), config));
+    banner.setMimes(Utils.copyCollection(displayPlacement.getMime(), config));
     banner.setFormat( displayFormatListToFormatList( displayPlacement.getDisplayfmt(), config ) );
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
@@ -45,8 +47,12 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
           if (isNull(banner.getExpdir())) {
             banner.setExpdir(formatExpdir);
           } else {
-            banner.setExpdir((List<Integer>) org.apache.commons.collections.CollectionUtils.union
-              (banner.getExpdir(), formatExpdir));
+            try {
+              banner.setExpdir((List<Integer>) org.apache.commons.collections.CollectionUtils.union
+                (banner.getExpdir(), formatExpdir));
+            } catch (ClassCastException e) {
+              throw new OpenRtbConverterException("error while typecasting expdir for DisplayPlacement", e);
+            }
           }
         }
       }
@@ -55,13 +61,17 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     banner.setH( displayPlacement.getH() );
     banner.setPos( displayPlacement.getPos() );
     banner.setTopframe( displayPlacement.getTopframe() );
-    banner.setApi(Utils.copyList(displayPlacement.getApi(), config));
+    banner.setApi(Utils.copyCollection(displayPlacement.getApi(), config));
     Map<String, Object> map = displayPlacement.getExt();
     if ( map != null ) {
       banner.setExt(Utils.copyMap(map, config));
       if (map.containsKey("btype")) {
-        banner.setBtype(Utils.copyList((List<Integer>) map.get("btype"), config));
-        banner.getExt().remove("btype");
+        try {
+          banner.setBtype(Utils.copyCollection((List<Integer>) map.get("btype"), config));
+          banner.getExt().remove("btype");
+        } catch (ClassCastException e) {
+          throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+        }
       }
     }
     if (nonNull(displayPlacement.getUnit())) {
@@ -70,14 +80,39 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       }
       banner.getExt().put("unit", displayPlacement.getUnit());
     }
+    if(nonNull(displayPlacement.getPtype())) {
+      if (isNull(banner.getExt())) {
+        banner.setExt(new HashMap<>());
+      }
+      banner.getExt().put("ptype", displayPlacement.getPtype());
+    }
+    if(nonNull(displayPlacement.getContext())) {
+      if (isNull(banner.getExt())) {
+        banner.setExt(new HashMap<>());
+      }
+      banner.getExt().put("context", displayPlacement.getContext());
+    }
+    if(nonNull(displayPlacement.getCtype())) {
+      if (isNull(banner.getExt())) {
+        banner.setExt(new HashMap<>());
+      }
+      banner.getExt().put("ctype", displayPlacement.getCtype());
+    }
+    if(nonNull(displayPlacement.getPriv())) {
+      if (isNull(banner.getExt())) {
+        banner.setExt(new HashMap<>());
+      }
+      banner.getExt().put("priv", displayPlacement.getPriv());
+    }
   }
 
-  private List<Format> displayFormatListToFormatList(List<DisplayFormat> list, Config config) {
+  private Collection<Format> displayFormatListToFormatList(Collection<DisplayFormat> list, Config
+    config) throws OpenRtbConverterException {
     if ( list == null ) {
       return null;
     }
 
-    List<Format> list1 = new ArrayList<Format>( list.size() );
+    Collection<Format> list1 = new ArrayList<Format>( list.size() );
     for ( DisplayFormat displayFormat : list ) {
       list1.add( displayFormatToFormat( displayFormat, config ) );
     }
@@ -85,7 +120,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     return list1;
   }
 
-  private Format displayFormatToFormat(DisplayFormat displayFormat, Config config) {
+  private Format displayFormatToFormat(DisplayFormat displayFormat, Config config) throws OpenRtbConverterException {
     if ( displayFormat == null ) {
       return null;
     }
@@ -99,7 +134,11 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     Map<String, Object> map = displayFormat.getExt();
     if ( map != null ) {
       format.setExt(Utils.copyMap(map, config));
-      format.setWmin((Integer) map.get("wmin"));
+      try {
+        format.setWmin((Integer) map.get("wmin"));
+      } catch (ClassCastException e) {
+        throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+      }
     }
 
     return format;

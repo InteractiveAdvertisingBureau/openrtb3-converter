@@ -1,6 +1,6 @@
 package net.media.converters.response30toresponse25;
 
-import net.media.OpenRtbConverterException;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.response.Bid;
@@ -30,7 +30,9 @@ public class AuditToBidConverter implements Converter<Audit,Bid> {
     }
     target.getExt().put("status",source.getStatus());
     target.getExt().put("feedback",source.getFeedback());
-    target.getExt().put("init",source.getInit());
+    Audit audit = new Audit();
+    audit.setInit(source.getInit());
+    target.getExt().put("audit", audit);
     target.getExt().put("lastmod",source.getLastmod());
     target.getExt().put("corr",source.getCorr());
     target.getExt().putAll(source.getExt());
