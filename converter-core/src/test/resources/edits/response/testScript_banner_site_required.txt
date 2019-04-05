@@ -7,7 +7,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: requiredFieldBidResponseId
+   purpose: TC5001_requiredFieldBidResponseId
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -18,7 +18,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseId
+   purpose: TC5002_invalidFieldBidResponseId
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -29,7 +29,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"helloworld\""
-   purpose: requiredFieldBidResponseIdValid
+   purpose: TC5003_requiredFieldBidResponseIdValid
    status: SUCCESS
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -40,7 +40,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: requiredFieldBidResponseSeatBid
+   purpose: TC5004_requiredFieldBidResponseSeatBid
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -51,7 +51,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseSeatBid
+   purpose: TC5005_invalidFieldBidResponseSeatBid
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -62,7 +62,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseSeatBid
+   purpose: TC5006_invalidFieldBidResponseSeatBid
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -73,7 +73,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseSeatBid
+   purpose: TC5007_invalidFieldBidResponseSeatBid
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -84,7 +84,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: requiredFieldBidResponseSeatBidBid
+   purpose: TC5008_requiredFieldBidResponseSeatBidBid
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -95,7 +95,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseSeatBidBid
+   purpose: TC5009_invalidFieldBidResponseSeatBidBid
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -106,7 +106,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseSeatBidBid
+   purpose: TC5010_invalidFieldBidResponseSeatBidBid
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -117,7 +117,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseSeatBidBid
+   purpose: TC5011_invalidFieldBidResponseSeatBidBid
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -128,7 +128,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: requiredFieldBidResponseSeatBidBidId
+   purpose: TC5012_requiredFieldBidResponseSeatBidBidId
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -139,7 +139,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseSeatBidBidId
+   purpose: TC5013_invalidFieldBidResponseSeatBidBidId
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -150,7 +150,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseSeatBidBidId
+   purpose: TC5014_invalidFieldBidResponseSeatBidBidId
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -161,7 +161,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.seatbid[0].bid[0].id: "\"helloworld\""
-   purpose: validFieldBidResponseSeatBidBidId
+   purpose: TC5015_validFieldBidResponseSeatBidBidId
    status: SUCCESS
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -172,7 +172,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: requiredFieldBidResponseSeatBidBidImpId
+   purpose: TC5016_requiredFieldBidResponseSeatBidBidImpId
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -183,7 +183,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseSeatBidBidImpId
+   purpose: TC5017_invalidFieldBidResponseSeatBidBidImpId
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -194,7 +194,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.seatbid[0].bid[0].impid: "\"helloworld\""
-   purpose: validFieldBidResponseSeatBidBidImpId
+   purpose: TC5018_validFieldBidResponseSeatBidBidImpId
    status: SUCCESS
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -205,7 +205,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: requiredFieldBidResponseSeatBidBidPrice
+   purpose: TC5019_requiredFieldBidResponseSeatBidBidPrice
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -216,7 +216,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseSeatBidBidPrice
+   purpose: TC5020_invalidFieldBidResponseSeatBidBidPrice
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -227,7 +227,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseSeatBidBidPrice
+   purpose: TC5021_invalidFieldBidResponseSeatBidBidPrice
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -238,7 +238,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.seatbid[0].bid[0].price: 20.5
-   purpose: validFieldBidResponseSeatBidBidPrice
+   purpose: TC5022_validFieldBidResponseSeatBidBidPrice
    status: SUCCESS
 
 
@@ -254,7 +254,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseSeatBidGroup
+   purpose: TC5023_invalidFieldBidResponseSeatBidGroup
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -265,7 +265,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseSeatBidGroup
+   purpose: TC5024_invalidFieldBidResponseSeatBidGroup
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -276,7 +276,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.id: "\"FAILURE\""
-   purpose: invalidFieldBidResponseSeatBidGroup
+   purpose: TC5025_invalidFieldBidResponseSeatBidGroup
    status: FAILED
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -287,7 +287,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.seatbid[0].package: 2
-   purpose: validFieldBidResponseSeatBidBidGroup
+   purpose: TC5026_validFieldBidResponseSeatBidBidGroup
    status: SUCCESS
 
  - inputFile: RESPONSE_BANNER_SITE_25.json
@@ -298,7 +298,7 @@ cases:
    outputType: "RESPONSE30"
    outputEdits:
      response.seatbid[0].package: 200
-   purpose: validFieldBidResponseSeatBidBidGroup
+   purpose: TC5027_validFieldBidResponseSeatBidBidGroup
    status: SUCCESS
 
 
