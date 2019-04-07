@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="195ac48c-0969-4999-a4e7-33186ce5ff19" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/MAPPINGS.md" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-    </list>
+    <list default="true" id="195ac48c-0969-4999-a4e7-33186ce5ff19" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/converter-core/target/" />
     <ignored path="$PROJECT_DIR$/converter-api/target/" />

@@ -1,7 +1,7 @@
-/Users/anupam.v/Desktop/Workspace/openrtb-converter/converter-api/src/main/java/net/media/api/models/Response2xPayload.java
-/Users/anupam.v/Desktop/Workspace/openrtb-converter/converter-api/src/main/java/net/media/api/ConverterApplication.java
-/Users/anupam.v/Desktop/Workspace/openrtb-converter/converter-api/src/main/java/net/media/api/ConverterModule.java
-/Users/anupam.v/Desktop/Workspace/openrtb-converter/converter-api/src/main/java/net/media/api/servlets/ConverterServlet.java
-/Users/anupam.v/Desktop/Workspace/openrtb-converter/converter-api/src/main/java/net/media/api/models/Request2xPayload.java
-/Users/anupam.v/Desktop/Workspace/openrtb-converter/converter-api/src/main/java/net/media/api/ConverterListener.java
-/Users/anupam.v/Desktop/Workspace/openrtb-converter/converter-api/src/main/java/net/media/api/models/RequestResponse3xPayload.java
+/Users/anupam.v/Desktop/Workspace/openrtb3-converter/converter-api/src/main/java/net/media/api/ConverterModule.java
+/Users/anupam.v/Desktop/Workspace/openrtb3-converter/converter-api/src/main/java/net/media/api/models/RequestResponse3xPayload.java
+/Users/anupam.v/Desktop/Workspace/openrtb3-converter/converter-api/src/main/java/net/media/api/models/Response2xPayload.java
+/Users/anupam.v/Desktop/Workspace/openrtb3-converter/converter-api/src/main/java/net/media/api/models/Request2xPayload.java
+/Users/anupam.v/Desktop/Workspace/openrtb3-converter/converter-api/src/main/java/net/media/api/ConverterApplication.java
+/Users/anupam.v/Desktop/Workspace/openrtb3-converter/converter-api/src/main/java/net/media/api/ConverterListener.java
+/Users/anupam.v/Desktop/Workspace/openrtb3-converter/converter-api/src/main/java/net/media/api/servlets/ConverterServlet.java
