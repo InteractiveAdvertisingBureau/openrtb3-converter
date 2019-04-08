@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, Bid> {
 
@@ -59,6 +60,11 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
       target.getExt().put("macro",source.getMacro());
       mediaBidConverter.enhance(source.getMedia(),target,config, converterProvider);
       MacroMapper.macroReplaceTwoX(target);
+      if (nonNull(source.getExt())) {
+        if (source.getExt().containsKey("protocol")) {
+          target.setProtocol((Integer) source.getExt().get("protocol"));
+        }
+      }
     }
   }
 }
