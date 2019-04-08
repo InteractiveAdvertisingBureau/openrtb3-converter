@@ -69,7 +69,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
           displayPlacement.getExt().remove("unit");
         }
         if (bannerExt.containsKey("ctype")) {
-          displayPlacement.setCtype(Utils.copyCollection((List<Integer>) bannerExt.get
+          displayPlacement.setCtype(Utils.copyCollection((Collection<Integer>) bannerExt.get
             ("ctype"), config));
           displayPlacement.getExt().remove("ctype");
         }

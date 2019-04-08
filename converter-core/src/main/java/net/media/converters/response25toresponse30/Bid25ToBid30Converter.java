@@ -1,6 +1,8 @@
 package net.media.converters.response25toresponse30;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.JsonNode;
 
 import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
@@ -15,6 +17,7 @@ import net.media.utils.Utils;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -23,6 +26,9 @@ import static java.util.Objects.nonNull;
  * @author shiva.b
  */
 public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.Bid> {
+
+  private static final JavaType javaTypeForMacroCollection = Utils.getMapper().getTypeFactory()
+    .constructCollectionType(Collection.class, Macro.class);
 
   @Override
   public net.media.openrtb3.Bid map(Bid source, Config config, Provider converterProvider)throws OpenRtbConverterException {
@@ -59,8 +65,7 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       if (source.getExt().containsKey("macro")) {
         try {
           Collection<Macro> macros = Utils.getMapper().convertValue(source.getExt().get("macro"),
-            new TypeReference<Collection<Macro>>() {
-            });
+            javaTypeForMacroCollection);
           target.setMacro(macros);
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting bid.macro from bid.ext.macro", e);

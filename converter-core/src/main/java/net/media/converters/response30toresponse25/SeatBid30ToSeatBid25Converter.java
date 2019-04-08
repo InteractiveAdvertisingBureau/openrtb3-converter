@@ -33,7 +33,7 @@ public class SeatBid30ToSeatBid25Converter implements Converter<Seatbid,SeatBid>
   public void enhance(Seatbid source, SeatBid target, Config config, Provider converterProvider)  throws OpenRtbConverterException {
 
     Converter<net.media.openrtb3.Bid, Bid> bidBidConverter = converterProvider.fetch(new
-      Conversion(net.media.openrtb3.Bid.class, Bid.class));
+      Conversion<>(net.media.openrtb3.Bid.class, Bid.class));
     if(isNull(source) || isNull(target) || isNull(config))
       return;
 

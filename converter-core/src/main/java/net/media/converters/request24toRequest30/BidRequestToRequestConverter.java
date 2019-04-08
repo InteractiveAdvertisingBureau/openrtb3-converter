@@ -1,5 +1,7 @@
 package net.media.converters.request24toRequest30;
 
+import com.fasterxml.jackson.databind.JavaType;
+
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -22,6 +24,9 @@ import static java.util.Objects.nonNull;
  */
 public class BidRequestToRequestConverter extends net.media.converters
   .request25toRequest30.BidRequestToRequestConverter {
+
+  private static final JavaType javaTypeForSourceCollection = Utils.getMapper().getTypeFactory()
+    .constructCollectionType(Collection.class, Source.class);
 
   public void enhance(BidRequest source, Request target, Config config, Provider
     converterProvider) throws OpenRtbConverterException {
@@ -49,9 +54,8 @@ public class BidRequestToRequestConverter extends net.media.converters
       }
       if (source.getExt().containsKey("source")) {
         try {
-          Source source1 = Utils.getMapper().convertValue(source.getExt().get("source"), Source
-            .class);
-          source.setSource(source1);
+          source.setSource(Utils.getMapper().convertValue(source.getExt().get("source"),
+            javaTypeForSourceCollection));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting source from bidRequest.ext.source",
             e);

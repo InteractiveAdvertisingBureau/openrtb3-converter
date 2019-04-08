@@ -14,6 +14,7 @@ import net.media.openrtb3.Native;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static java.util.Objects.isNull;
@@ -34,7 +35,7 @@ public class Native30ToNative10Converter implements Converter<Native,NativeRespo
   public void enhance(Native source, NativeResponse target, Config config, Provider converterProvider) throws OpenRtbConverterException  {
 
     Converter<Asset, AssetResponse> assetAssetResponseConverter = converterProvider.fetch(new
-      Conversion(Asset.class, AssetResponse.class));
+      Conversion<>(Asset.class, AssetResponse.class));
     Converter<LinkAsset, Link> linkAssetLinkConverter = converterProvider.fetch(new Conversion<>
       (LinkAsset.class, Link.class));
 
@@ -54,7 +55,7 @@ public class Native30ToNative10Converter implements Converter<Native,NativeRespo
     try {
       if (nonNull(source.getExt())) {
         nativeResponseBody.setJstracker((String) source.getExt().get("jsTracker"));
-        nativeResponseBody.setImptrackers((List<String>) source.getExt().get("impTrackers"));
+        nativeResponseBody.setImptrackers((Collection<String>) source.getExt().get("impTrackers"));
       }
     }
     catch (Exception e) {

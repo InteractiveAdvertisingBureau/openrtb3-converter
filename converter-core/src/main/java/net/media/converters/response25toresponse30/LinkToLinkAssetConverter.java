@@ -24,7 +24,8 @@ public class LinkToLinkAssetConverter implements Converter<Link, LinkAsset> {
   }
 
   @Override
-  public void enhance(Link source, LinkAsset target, Config config, Provider converterProvider)throws OpenRtbConverterException {
+  public void enhance(Link source, LinkAsset target, Config config, Provider converterProvider)
+    throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }

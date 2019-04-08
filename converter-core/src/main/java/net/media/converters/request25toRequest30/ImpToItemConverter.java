@@ -1,5 +1,7 @@
 package net.media.converters.request25toRequest30;
 
+import com.fasterxml.jackson.databind.JavaType;
+
 import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
@@ -36,6 +38,9 @@ import static java.util.Objects.nonNull;
  */
 
 public class ImpToItemConverter implements Converter<Imp, Item> {
+
+  private static final JavaType javaTypeForEventSpecCollection = Utils.getMapper().getTypeFactory()
+    .constructCollectionType(Collection.class, EventSpec.class);
 
   @Override
   public Item map(Imp imp, Config config, Provider converterProvider) throws OpenRtbConverterException {
@@ -141,7 +146,8 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
           displayPlacement.setAmpren((Integer) imp.getExt().get("ampren"));
         }
         if (imp.getExt().containsKey("event")) {
-          displayPlacement.setEvent((Collection<EventSpec>) imp.getExt().get("event"));
+          displayPlacement.setEvent(Utils.getMapper().convertValue(imp.getExt().get("event"),
+            javaTypeForEventSpecCollection));
         }
       }
     } catch (ClassCastException e) {

@@ -10,6 +10,7 @@ import net.media.openrtb3.Video;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,7 +57,7 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
       try {
         target.setCtype((Integer) ext.get("ctype"));
         target.setDur((Integer) ext.get("dur"));
-        target.setMime((List<String>) ext.get("mime"));
+        target.setMime((Collection<String>) ext.get("mime"));
       }
       catch (Exception e) {
         throw new OpenRtbConverterException("error while type casting bid.ext content", e);

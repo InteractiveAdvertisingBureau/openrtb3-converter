@@ -1,6 +1,9 @@
 package net.media.openrtb3;
 
+import com.fasterxml.jackson.databind.JavaType;
+
 import net.media.exceptions.OpenRtbConverterException;
+import net.media.utils.Utils;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,12 +22,20 @@ public class LinkAsset {
   public LinkAsset() {
   }
 
+  private static final JavaType javaTypeForStringCollection = Utils.getMapper().getTypeFactory()
+    .constructCollectionType(Collection.class, String.class);
+
   public static LinkAsset HashMaptoLinkAsset(Map<String,Object> map) throws OpenRtbConverterException {
     LinkAsset linkAsset = new LinkAsset();
     try {
       linkAsset.setUrl((String) map.get("url"));
       linkAsset.setUrlfb((String) map.get("urlfb"));
-      linkAsset.setTrkr((Collection<String>) map.get("trkr"));
+      try {
+        linkAsset.setTrkr(Utils.getMapper().convertValue(map.get("trkr"),
+          javaTypeForStringCollection));
+      } catch (IllegalArgumentException e) {
+        throw new OpenRtbConverterException("Error in setting linkasset.trkr ", e);
+      }
       linkAsset.setExt((Map<String, Object>) map.get("ext"));
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting map values to linkAsset fields", e);

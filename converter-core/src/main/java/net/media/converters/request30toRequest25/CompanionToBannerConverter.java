@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 public class CompanionToBannerConverter implements Converter<Companion, Banner> {
 
@@ -42,7 +43,10 @@ public class CompanionToBannerConverter implements Converter<Companion, Banner> 
         banner.setExt(Utils.copyMap(map, config));
       else
         try {
-          banner.getExt().putAll(Utils.copyMap(map, config));
+          Map<String, Object> copyMap = Utils.copyMap(map, config);
+          if (nonNull(copyMap)) {
+            banner.getExt().putAll(copyMap);
+          }
         } catch (Exception e) {
           throw new OpenRtbConverterException("companion to banner conversion failed ", e);
         }

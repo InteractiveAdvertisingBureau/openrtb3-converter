@@ -33,7 +33,7 @@ public class OpenRtbResponseToBidResponseConverter implements Converter<OpenRTB,
   public void enhance(OpenRTB source, BidResponse target, Config config, Provider converterProvider) throws OpenRtbConverterException  {
 
     Converter<Seatbid, SeatBid> seatBid30ToSeatBid25Converter = converterProvider.fetch(new
-      Conversion(Seatbid.class, SeatBid.class));
+      Conversion<>(Seatbid.class, SeatBid.class));
     if(isNull(source) || isNull(target) || isNull(config))
       return ;
     Response response = source.getResponse();

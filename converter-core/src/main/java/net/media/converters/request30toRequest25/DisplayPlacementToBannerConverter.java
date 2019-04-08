@@ -47,13 +47,14 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
         if (!CollectionUtils.isEmpty(displayFormat.getExpdir())) {
-          List<Integer> formatExpdir = new ArrayList<>(displayFormat.getExpdir());
+          Collection<Integer> formatExpdir = Utils.copyCollection(displayFormat.getExpdir(),
+            config);
           if (isNull(banner.getExpdir())) {
             banner.setExpdir(formatExpdir);
           } else {
             try {
-              banner.setExpdir((List<Integer>) org.apache.commons.collections.CollectionUtils.union
-                (banner.getExpdir(), formatExpdir));
+              banner.setExpdir((Collection<Integer>) org.apache.commons.collections
+                .CollectionUtils.union(banner.getExpdir(), formatExpdir));
             } catch (ClassCastException e) {
               throw new OpenRtbConverterException("error while typecasting expdir for DisplayPlacement", e);
             }
@@ -71,7 +72,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       banner.setExt(Utils.copyMap(map, config));
       if (map.containsKey("btype")) {
         try {
-          banner.setBtype(Utils.copyCollection((List<Integer>) map.get("btype"), config));
+          banner.setBtype(Utils.copyCollection((Collection<Integer>) map.get("btype"), config));
           banner.getExt().remove("btype");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);

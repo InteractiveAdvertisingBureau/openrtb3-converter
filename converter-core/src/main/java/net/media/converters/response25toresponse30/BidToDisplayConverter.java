@@ -1,5 +1,7 @@
 package net.media.converters.response25toresponse30;
 
+import com.fasterxml.jackson.databind.JavaType;
+
 import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
@@ -17,6 +19,7 @@ import net.media.utils.Utils;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +29,9 @@ import static java.util.Objects.nonNull;
  * @author shiva.b
  */
 public class BidToDisplayConverter implements Converter<Bid, Display> {
+
+  private static final JavaType javaTypeForEventCollection = Utils.getMapper().getTypeFactory()
+    .constructCollectionType(Collection.class, Event.class);
 
   @Override
   public Display map(Bid source, Config config, Provider converterProvider)throws OpenRtbConverterException {
@@ -101,7 +107,13 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
             }
           }
         }
-        target.setEvent((List<Event>) ext.get("event"));
+        try {
+          target.setEvent(Utils.getMapper().convertValue(ext.get("event"),
+            javaTypeForEventCollection));
+        } catch (IllegalArgumentException e) {
+          throw new OpenRtbConverterException("error while setting display.event from bid.ext" +
+            ".event", e);
+        }
       }
       catch (Exception e) {
         throw new OpenRtbConverterException("error while casting contents of bid.ext", e);

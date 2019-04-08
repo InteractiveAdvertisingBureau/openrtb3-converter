@@ -10,6 +10,7 @@ import net.media.openrtb3.Corr;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +27,7 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
       return null;
     }
     Audit audit = new Audit();
+    enhance(source, audit, config, converterProvider);
     return audit;
   }
 
@@ -51,7 +53,7 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
           target.setLastmod((Integer) map.get("lastmode"));
         }
         if (map.containsKey("feedback")) {
-          target.setFeedback((List<String>) map.get("feedback"));
+          target.setFeedback((Collection<String>) map.get("feedback"));
         }
       }
       catch (Exception e) {
