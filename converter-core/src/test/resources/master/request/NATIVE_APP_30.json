@@ -260,7 +260,8 @@
               "wpx": 1,
               "ext": {
                 "dummy": "ffaa"
-              }}],
+              }
+            }],
             "ext": {
               "dummy": "ffaa",
               "btype": [3, 4]

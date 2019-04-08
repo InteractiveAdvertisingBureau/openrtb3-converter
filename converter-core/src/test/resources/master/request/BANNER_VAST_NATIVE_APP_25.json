@@ -95,76 +95,45 @@
     "instl": 0,
     "tagid": "re",
     "exp": 1,
-    "video": {
-      "mimes": [
-        "video/abc",
-        "video/mp4"
-      ],
-      "minduration": 20,
-      "maxduration": 30,
-      "protocols": [
-        2,
-        4,
-        5
-      ],
-      "w": 200,
-      "h": 300,
-      "startdelay": 5,
-      "placement": 0,
-      "linearity": 1,
-      "skip": 1,
-      "skipmin": 1,
-      "skipafter": 1,
-      "sequence": 1,
-      "battr": [
-        2,
-        5,
-        8
-      ],
-      "maxextended": 2,
-      "minbitrate": 3,
-      "maxbitrate": 1,
-      "boxingallowed": 0,
-      "playbackmethod": [
-        1,
-        4,
-        9
-      ],
-      "playbackend": 1,
-      "delivery": [
-        2
-      ],
-      "pos": 2,
-      "companionad": [{
-        "id": "dd",
-        "h": 250,
-        "w": 300,
-        "wmax": 22,
-        "hmax": 11,
-        "wmin": 1,
-        "hmin": 9,
-        "btype": [3, 4],
-        "battr": [1, 2],
-        "topframe": 22,
-        "expdir": [3, 9],
-        "api": [3, 2],
-        "mimes": ["application/x-shockwave-flash",
-          "image/jpg"
-        ],
-        "pos": 0,
+    "banner": {
+      "id": "dd",
+      "format": [{
+        "w": 200,
+        "h": 20,
+        "wratio": 1,
+        "hratio": 2,
+        "wmin":3,
+        "ext": {
+          "dummy": "ff"
+        }
+      }, {
+        "w": 33,
+        "h": 11,
+        "wratio": 1,
+        "hratio": 2,
+        "wmin":3,
         "ext": {
           "dummy": "ff"
         }
       }],
-      "api": [
-        1,
-        3
+      "h": 250,
+      "w": 300,
+      "wmax": 22,
+      "hmax": 11,
+      "wmin": 1,
+      "hmin": 9,
+      "btype": [3, 4],
+      "battr": [1, 2],
+      "topframe": 22,
+      "expdir": [3, 9],
+      "api": [3, 2],
+      "vcm": 22,
+      "mimes": ["application/x-shockwave-flash",
+        "image/jpg"
       ],
-      "companiontype": [
-        1
-      ],
+      "pos": 0,
       "ext": {
-        "dummy": "drf"
+        "dummy": "ff"
       }
     },
     "ext": {
@@ -458,3 +427,17 @@
 
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -63,67 +63,110 @@
           "secure": 1,
           "admx": 1,
           "curlx": 0,
-          "display": {
-            "pos": 0,
-            "instl": 0,
-            "topframe": 22,
-            "ifrbust": ["abc", "def"],
-            "clktype": 1,
-            "ampren": 1,
-            "ptype": 1,
-            "context": 2,
-            "mime": ["application/x-shockwave-flash", "image/jpg"],
-            "api": [3, 2],
-            "ctype": 1,
-            "w": 300,
-            "h": 250,
-            "unit": 1,
-            "priv": 0,
-            "displayfmt": [
-              {
-              "w": 200,
-              "h": 20,
-              "wratio":200,
-              "hratio":30,
-              "expdir": [3, 9],
+          "audio": {
+            "delay": 1,
+            "skip": 1,
+            "skipmin": 1,
+            "skipafter": 1,
+            "playend": 1,
+            "feed": 1,
+            "nvol": 1,
+            "mime": [
+              "1",
+              "2"
+            ],
+            "api": [
+              1,
+              2
+            ],
+            "ctype": [
+              1,
+              2
+            ],
+            "mindur": 1,
+            "maxdur": 1,
+            "maxext": 1,
+            "minbitr": 1,
+            "maxbitr": 1,
+            "delivery": [
+              2,
+              1
+            ],
+            "maxseq": 1,
+            "comp": {
+              "id": "3.0",
+              "vcm": 1,
+              "display": {
+                "pos": 0,
+                "instl": 0,
+                "topframe": 22,
+                "ifrbust": ["abc", "def"],
+                "clktype": 1,
+                "ampren": 1,
+                "ptype": 1,
+                "context": 2,
+                "mime": ["application/x-shockwave-flash", "image/jpg"],
+                "api": [3, 2],
+                "ctype": 1,
+                "w": 300,
+                "h": 250,
+                "unit": 1,
+                "priv": 0,
+                "displayfmt": [{
+                  "w": 200,
+                  "h": 20,
+                  "wratio":200,
+                  "hratio":30,
+                  "expdir": [3, 9],
+                  "ext": {
+                    "dummy": "ffaa"
+                  }
+                }, {
+                  "w": 33,
+                  "h": 11,
+                  "wratio":200,
+                  "hratio":30,
+                  "expdir": [3, 9],
+                  "ext": {
+                    "dummy": "ffaa"
+                  }
+                }],
+                "event": [{
+                  "type": 1,
+                  "method": [1],
+                  "api": [1,2],
+                  "jstrk": ["abc", "Def"],
+                  "wjs": 1,
+                  "pxtrk": ["abc", "def"],
+                  "wpx": 1,
+                  "ext": {
+                    "dummy": "ffaa"
+                  }
+                },{
+                  "type": 1,
+                  "method": [1],
+                  "api": [1,2],
+                  "jstrk": ["abc", "Def"],
+                  "wjs": 1,
+                  "pxtrk": ["abc", "def"],
+                  "wpx": 1,
+                  "ext": {
+                    "dummy": "ffaa"
+                  }}],
+                "ext": {
+                  "dummy": "ffaa",
+                  "btype": [3, 4]
+                }
+              },
               "ext": {
-                "dummy": "ffaa"
+                "dummy": "entry"
               }
-            }, {
-              "w": 33,
-              "h": 11,
-              "wratio":200,
-              "hratio":30,
-              "expdir": [3, 9],
-              "ext": {
-                "dummy": "ffaa"
-              }
-            }],
-            "event": [{
-              "type": 1,
-              "method": [1],
-              "api": [1,2],
-              "jstrk": ["abc", "Def"],
-              "wjs": 1,
-              "pxtrk": ["abc", "def"],
-              "wpx": 1,
-              "ext": {
-                "dummy": "ffaa"
-              }
-            },{
-              "type": 1,
-              "method": [1],
-              "api": [1,2],
-              "jstrk": ["abc", "Def"],
-              "wjs": 1,
-              "pxtrk": ["abc", "def"],
-              "wpx": 1,
-              "ext": {
-                "dummy": "ffaa"
-              }}],
+            },
+            "comptype": [
+              1
+            ],
             "ext": {
-              "dummy": "ffaa",
-              "btype": [3, 4]
+              "stitched": 1
             }
           }
         }
@@ -135,9 +178,9 @@
       "private": 1
     }],
     "context": {
-      "app": {
-        "id": "abcde2345",
-        "name": "android app",
+      "site": {
+        "id": "102855",
+        "name": "abdk",
         "pub": {
           "id": "8953",
           "name": "foobar.com",
@@ -209,11 +252,11 @@
         "cattax": 2,
         "privpolicy": 1,
         "keywords": "ewew",
-        "bundle": "com.media.net",
-        "storeid": "abc1234",
-        "storeurl": "axcdabc.com/test123",
-        "ver": "123",
-        "paid": 0,
+        "page": "http://www.foobar.com/1234.html ",
+        "ref": "sdfe",
+        "search": "eded",
+        "mobile": 1,
+        "amp": 2,
         "ext": {
           "dummy": "ff"
         }

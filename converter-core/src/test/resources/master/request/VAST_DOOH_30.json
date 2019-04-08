@@ -63,67 +63,115 @@
           "secure": 1,
           "admx": 1,
           "curlx": 0,
-          "display": {
-            "pos": 0,
-            "instl": 0,
-            "topframe": 22,
-            "ifrbust": ["abc", "def"],
-            "clktype": 1,
-            "ampren": 1,
+          "video": {
             "ptype": 1,
-            "context": 2,
-            "mime": ["application/x-shockwave-flash", "image/jpg"],
-            "api": [3, 2],
-            "ctype": 1,
-            "w": 300,
-            "h": 250,
+            "pos": 1,
+            "delay": 1,
+            "skip": 1,
+            "skipmin": 1,
+            "skipafter": 1,
+            "playmethod": 1,
+            "playend": 1,
+            "clktype": 1,
+            "mime": [
+              "abc",
+              "def"
+            ],
+            "api": [
+              2,
+              3
+            ],
+            "ctype": [
+              2,
+              3
+            ],
+            "w": 1,
+            "h": 1,
             "unit": 1,
-            "priv": 0,
-            "displayfmt": [
-              {
-              "w": 200,
-              "h": 20,
-              "wratio":200,
-              "hratio":30,
-              "expdir": [3, 9],
+            "mindur": 1,
+            "maxdur": 1,
+            "maxext": 1,
+            "minbitr": 2,
+            "maxbitr": 2,
+            "delivery": [
+              1,
+              2
+            ],
+            "maxseq": 1,
+            "linear": 1,
+            "boxing": 1,
+            "comp": {
+              "id": "3.0",
+              "vcm": 1,
+              "display": {
+                "pos": 0,
+                "instl": 0,
+                "topframe": 22,
+                "ifrbust": ["abc", "def"],
+                "clktype": 1,
+                "ampren": 1,
+                "ptype": 1,
+                "context": 2,
+                "mime": ["application/x-shockwave-flash", "image/jpg"],
+                "api": [3, 2],
+                "ctype": 1,
+                "w": 300,
+                "h": 250,
+                "unit": 1,
+                "priv": 0,
+                "displayfmt": [{
+                  "w": 200,
+                  "h": 20,
+                  "wratio":200,
+                  "hratio":30,
+                  "expdir": [3, 9],
+                  "ext": {
+                    "dummy": "ffaa"
+                  }
+                }, {
+                  "w": 33,
+                  "h": 11,
+                  "wratio":200,
+                  "hratio":30,
+                  "expdir": [3, 9],
+                  "ext": {
+                    "dummy": "ffaa"
+                  }
+                }],
+                "event": [{
+                  "type": 1,
+                  "method": [1],
+                  "api": [1,2],
+                  "jstrk": ["abc", "Def"],
+                  "wjs": 1,
+                  "pxtrk": ["abc", "def"],
+                  "wpx": 1,
+                  "ext": {
+                    "dummy": "ffaa"
+                  }
+                },{
+                  "type": 1,
+                  "method": [1],
+                  "api": [1,2],
+                  "jstrk": ["abc", "Def"],
+                  "wjs": 1,
+                  "pxtrk": ["abc", "def"],
+                  "wpx": 1,
+                  "ext": {
+                    "dummy": "ffaa"
+                  }}],
+                "ext": {
+                  "dummy": "ffaa",
+                  "btype": [3, 4]
+                }
+              },
               "ext": {
-                "dummy": "ffaa"
-              }
-            }, {
-              "w": 33,
-              "h": 11,
-              "wratio":200,
-              "hratio":30,
-              "expdir": [3, 9],
-              "ext": {
-                "dummy": "ffaa"
-              }
-            }],
-            "event": [{
-              "type": 1,
-              "method": [1],
-              "api": [1,2],
-              "jstrk": ["abc", "Def"],
-              "wjs": 1,
-              "pxtrk": ["abc", "def"],
-              "wpx": 1,
-              "ext": {
-                "dummy": "ffaa"
-              }
-            },{
-              "type": 1,
-              "method": [1],
-              "api": [1,2],
-              "jstrk": ["abc", "Def"],
-              "wjs": 1,
-              "pxtrk": ["abc", "def"],
-              "wpx": 1,
-              "ext": {
-                "dummy": "ffaa"
-              }}],
-            "ext": {
-              "dummy": "ffaa",
-              "btype": [3, 4]
+                "dummy": "entry"
+              },
+              "comptype": [
+                1,
+                2
+              ]
             }
           }
         }
@@ -135,87 +183,20 @@
       "private": 1
     }],
     "context": {
-      "app": {
-        "id": "abcde2345",
-        "name": "android app",
+      "dooh": {
+        "venue": 1,
+        "venuefixed": 1,
+        "venuefixedetime": 2,
+        "venuefixedetimedpi": {
+          "dummy": "entry"
+        },
+        "venuefixedetimedpiext": {
+          "dummy": "entry"
+        },
+        "id": "3.0",
+        "name": "dummyname",
         "pub": {
-          "id": "8953",
-          "name": "foobar.com",
-          "domain": "foobar.com",
-          "cat": ["IAB3-1", "IAB3-2"],
-          "cattax": 2,
-          "ext": {
-            "dummy": "ff"
-          }
-        },
-        "content": {
-          "id": "rfewa",
-          "episode": 1,
-          "title": "sf",
-          "series": "rf",
-          "season": "wed",
-          "artist": "we",
-          "genre": "sefw",
-          "album": "edwe",
-          "isrc": "ewde",
-          "url": "ewfe.com",
-          "cat": ["IAB3-1", "IAB3-2"],
-          "cattax": 2,
-          "prodq": 1,
-          "context": 1,
-          "rating": "wqewq",
-          "urating": "ewew",
-          "mrating": 1,
-          "keywords": "efea",
-          "live": 1,
-          "srcrel": 1,
-          "len": 2,
-          "lang": "en",
-          "embed": 1,
-          "producer": {
-            "id": "eew",
-            "name": "edew",
-            "domain": "abc.com",
-            "cat": ["IAB3-1", "IAB3-2"],
-            "cattax": 2,
-            "ext": {
-              "dummy": "ff"
-            }
-          },
-          "data": [{
-            "id": "1",
-            "name": "Abcdef",
-            "segment": [{
-              "id": "bcdef",
-              "name":"name123",
-              "value": "acde",
-              "ext": {
-                "dummy": "ff"
-              }
-            }],
-            "ext": {
-              "dummy": "ff"
-            }
-          }],
-          "ext": {
-            "dummy": "ff",
-            "videoquality": 2
-          }
-        },
-        "domain": "www.foobar.com",
-        "cat": ["IAB3-1", "IAB3-2"],
-        "sectcat": ["zz", "dd"],
-        "pagecat": ["ss", "as"],
-        "cattax": 2,
-        "privpolicy": 1,
-        "keywords": "ewew",
-        "bundle": "com.media.net",
-        "storeid": "abc1234",
-        "storeurl": "axcdabc.com/test123",
-        "ver": "123",
-        "paid": 0,
-        "ext": {
-          "dummy": "ff"
+          "dummy": "entry"
         }
       },
       "user": {
