@@ -38,11 +38,11 @@ public class ConverterTester {
         byte[] jsonData = Files.readAllBytes(file.toPath());
         TestPojo testPojo = null;
         try {
-           testPojo = JacksonObjectMapper.getMapper().readValue(jsonData, TestPojo.class);
+          testPojo = JacksonObjectMapper.getMapper().readValue(jsonData, TestPojo.class);
         } catch (Exception e) {
         }
         if (isNull(testPojo) || isNull(testPojo.getInputType()) || isNull(testPojo.getOutputType
-          ())) {
+                ())) {
           OutputTestPojo outputTestPojo = new OutputTestPojo();
           outputTestPojo.setInputFile(file.getName());
           outputTestPojo.setStatus("FAILURE");
@@ -50,21 +50,21 @@ public class ConverterTester {
           testOutput.getFailedTestList().add(outputTestPojo);
         }
         else if (testPojo.getInputType().equalsIgnoreCase("REQUEST25") && testPojo.getOutputType()
-          .equalsIgnoreCase("REQUEST30")) {
+                .equalsIgnoreCase("REQUEST30")) {
           ortbTester.test(testPojo.getInputJson(), BidRequest.class, testPojo.getOutputJson(),
-            OpenRTB.class, testPojo.getParams(), testPojo, testOutput, file.getName());
+                  OpenRTB.class, testPojo.getParams(), testPojo, testOutput, file.getName());
         } else if (testPojo.getInputType().equalsIgnoreCase("REQUEST30") && testPojo.getOutputType()
-          .equalsIgnoreCase("REQUEST25")) {
+                .equalsIgnoreCase("REQUEST25")) {
           ortbTester.test(testPojo.getInputJson(), BidRequest.class, testPojo.getOutputJson(),
-            OpenRTB.class, testPojo.getParams(), testPojo, testOutput, file.getName());
+                  OpenRTB.class, testPojo.getParams(), testPojo, testOutput, file.getName());
         } else if (testPojo.getInputType().equalsIgnoreCase("RESPONSE25") && testPojo
-          .getOutputType().equalsIgnoreCase("RESPONSE30")) {
+                .getOutputType().equalsIgnoreCase("RESPONSE30")) {
           ortbTester.test(testPojo.getInputJson(), BidResponse.class, testPojo.getOutputJson(),
-            OpenRTB.class, testPojo.getParams(), testPojo, testOutput, file.getName());
+                  OpenRTB.class, testPojo.getParams(), testPojo, testOutput, file.getName());
         } else if (testPojo.getInputType().equalsIgnoreCase("RESPONSE30") && testPojo
-          .getOutputType().equalsIgnoreCase("RESPONSE25")) {
+                .getOutputType().equalsIgnoreCase("RESPONSE25")) {
           ortbTester.test(testPojo.getInputJson(), OpenRTB.class, testPojo.getOutputJson(),
-            BidResponse.class, testPojo.getParams(), testPojo, testOutput, file.getName());
+                  BidResponse.class, testPojo.getParams(), testPojo, testOutput, file.getName());
         } else {
           OutputTestPojo outputTestPojo = new OutputTestPojo();
           outputTestPojo.setInputFile(file.getName());

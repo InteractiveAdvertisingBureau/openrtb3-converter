@@ -64,7 +64,7 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
       target.getExt().put("init", source.getInit());
     }
     if (nonNull(source.getLastmod())) {
-      target.getExt().put("lastMod", source.getLastmod());
+      target.getExt().put("lastmod", source.getLastmod());
     }
     if (nonNull(source.getCattax())) {
       target.getExt().put("cattax", source.getCattax());

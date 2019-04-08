@@ -28,7 +28,7 @@ public class ORTBTester<U, V> {
       V converted = openRtbConverter.convert(config, bidRequest, sourceClass, targetClass);
 
       JSONAssert.assertEquals(JacksonObjectMapper.getMapper().writeValueAsString(target),
-                JacksonObjectMapper.getMapper().writeValueAsString(converted), true);
+              JacksonObjectMapper.getMapper().writeValueAsString(converted), true);
 
     } catch(Exception | AssertionError e) {
       OutputTestPojo outputTestPojo = new OutputTestPojo();
