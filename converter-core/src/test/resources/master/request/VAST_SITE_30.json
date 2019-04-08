@@ -68,6 +68,10 @@
             "pos": 1,
             "delay": 1,
             "skip": 1,
+            "comptype": [
+              1,
+              2
+            ],
             "skipmin": 1,
             "skipafter": 1,
             "playmethod": 1,
@@ -99,7 +103,52 @@
             ],
             "maxseq": 1,
             "linear": 1,
-            "boxing": 1
+            "boxing": 1,
+            "comp": [{
+              "id": "3.0",
+              "vcm": 1,
+              "display": {
+                "pos": 0,
+                "topframe": 22,
+                "ptype": 1,
+                "context": 2,
+                "mime": ["application/x-shockwave-flash", "image/jpg"],
+                "api": [3, 2],
+                "ctype": [1],
+                "w": 300,
+                "h": 250,
+                "unit": 1,
+                "priv": 0,
+                "displayfmt": [{
+                  "w": 200,
+                  "h": 20,
+                  "wratio":200,
+                  "hratio":30,
+                  "expdir": [3, 9],
+                  "ext": {
+                    "wmin": 3,
+                    "dummy": "ffaa"
+                  }
+                }, {
+                  "w": 33,
+                  "h": 11,
+                  "wratio":200,
+                  "hratio":30,
+                  "expdir": [3, 9],
+                  "ext": {
+                    "wmin": 3,
+                    "dummy": "ffaa"
+                  }
+                }],
+                "ext": {
+                  "dummy": "ffaa",
+                  "btype": [3, 4]
+                }
+              },
+              "ext": {
+                "dummy": "entry"
+              }
+            }]
           }
         }
       },

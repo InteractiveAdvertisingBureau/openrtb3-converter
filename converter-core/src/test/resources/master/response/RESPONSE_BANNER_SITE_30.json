@@ -1,5 +1,6 @@
 {
   "domainSpec": "3.0",
+  "domainVer": "1.0",
   "response": {
     "id": "0123456789ABCDEF",
     "bidid": "0011223344AABBCC",
@@ -35,7 +36,7 @@
         },
         "media": {
           "ad": {
-            "id": "d0bcb39723af87c2bb00942afee5710e",
+            "id": "123",
             "adomain": [
               "ford.com"
             ],
@@ -116,7 +117,7 @@
           }
         }
       }],
-      "_package": 2,
+      "package": 2,
       "ext": {
         "aloo3": "pyaz",
         "test4": {
