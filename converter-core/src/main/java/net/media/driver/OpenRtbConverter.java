@@ -3,6 +3,7 @@ package net.media.driver;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.HashMap;
@@ -78,9 +79,10 @@ public class OpenRtbConverter {
     if (shouldValidate(overridingConfig)) {
       Utils.validate(source);
     }
-    Converter<U, V> converter = converterManager.getConverter(sourceClass, targetClass);
-    return converter.map(source, overridingConfig, converterManager.getConverterProvider
-      (overridenMap, overridingConfig));
+    Provider converterProvider = converterManager.getConverterProvider
+      (overridenMap, overridingConfig);
+    Converter<U, V> converter = converterProvider.fetch(new Conversion<>(sourceClass, targetClass));
+    return converter.map(source, overridingConfig, converterProvider);
   }
 
   public  <U, V> V convert(U source, Class<U> sourceClass, Class<V>

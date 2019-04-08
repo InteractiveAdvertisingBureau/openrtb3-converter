@@ -24,7 +24,6 @@ public class Bid {
   private Integer exp;
   private String mid;
   //Todo code change  for  this  field
-  @NotNull
   @Valid
   private Collection<Macro> macro = null;
   @NotNull
@@ -79,7 +78,7 @@ public class Bid {
     return this.mid;
   }
 
-  public @NotNull @Valid Collection<Macro> getMacro() {
+  public @Valid Collection<Macro> getMacro() {
     return this.macro;
   }
 
@@ -135,7 +134,7 @@ public class Bid {
     this.mid = mid;
   }
 
-  public void setMacro(@NotNull @Valid Collection<Macro> macro) {
+  public void setMacro(@Valid Collection<Macro> macro) {
     this.macro = macro;
   }
 

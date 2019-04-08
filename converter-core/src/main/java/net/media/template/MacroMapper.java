@@ -135,7 +135,7 @@ public class MacroMapper {
     if(isNull(nativeResponse))
       return;
     NativeResponseBody nativeResponseBody =  nativeResponse.getNativeResponseBody();
-    nativeResponseBody.getAssets().forEach(assetResponse -> {
+    nativeResponseBody.getAsset().forEach(assetResponse -> {
       MacroProcessor.getOpenRtbMacroProcessor(assetResponse.getLink().getUrl()).replace(MacroProcessor.getThreeXToken());
       MacroProcessor.getOpenRtbMacroProcessor(assetResponse.getLink().getFallback()).replace(MacroProcessor.getThreeXToken());
     });

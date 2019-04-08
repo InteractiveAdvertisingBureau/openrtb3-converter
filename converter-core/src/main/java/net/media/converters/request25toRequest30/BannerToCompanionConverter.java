@@ -40,5 +40,10 @@ public class BannerToCompanionConverter implements Converter<Banner, Companion> 
     companion.setVcm( banner.getVcm() );
     companion.setDisplay( bannerDisplayPlacementConverter.map( banner, config, converterProvider) );
     companion.setId( banner.getId() );
+    if(companion.getDisplay() != null) {
+      companion.getDisplay().setClktype(null); //remove clktype for companion
+      if (companion.getDisplay().getExt() != null)
+        companion.getDisplay().getExt().remove("id");
+    }
   }
 }

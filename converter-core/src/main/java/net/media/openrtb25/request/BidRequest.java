@@ -50,7 +50,6 @@ public class BidRequest {
 
   public Integer tmax;
 
-  @NotNull
   @Valid
   public Source source;
 
@@ -147,7 +146,7 @@ public class BidRequest {
     return this.tmax;
   }
 
-  public @NotNull @Valid Source getSource() {
+  public @Valid Source getSource() {
     return this.source;
   }
 
@@ -243,7 +242,7 @@ public class BidRequest {
     this.tmax = tmax;
   }
 
-  public void setSource(@NotNull @Valid Source source) {
+  public void setSource(@Valid Source source) {
     this.source = source;
   }
 

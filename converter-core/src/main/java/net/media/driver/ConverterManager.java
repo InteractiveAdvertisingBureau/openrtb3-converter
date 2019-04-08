@@ -10,6 +10,8 @@ import java.util.Map;
 import static java.util.Objects.nonNull;
 
 /**
+ * Stores and manages {@link Converter} implementations that can be used for various transformation operations.
+ *
  * @author shiva.b
  */
 @SuppressWarnings("unchecked")
@@ -33,12 +35,25 @@ public class ConverterManager {
 
   private void add2_XConverters(Provider converterProvider, Config config) {
     if (nonNull(config)) {
-      if (OpenRtbVersion.TWO_DOT_FOUR.equals(config.getOpenRtbVersion2_XVersion())) {
+      if (OpenRtbVersion.TWO_DOT_FIVE.equals(config.getOpenRtbVersion2_XVersion())) {
+        new Convert25To30RequestManager(converterProvider);
+        new Convert30To25RequestManager(converterProvider);
+        new Convert25To30ResponseManager(converterProvider);
+        new Convert30To25ResponseManager(converterProvider);
+      } else if (OpenRtbVersion.TWO_DOT_FOUR.equals(config.getOpenRtbVersion2_XVersion())) {
+        new Convert25To30RequestManager(converterProvider);
+        new Convert30To25RequestManager(converterProvider);
+        new Convert25To30ResponseManager(converterProvider);
+        new Convert30To25ResponseManager(converterProvider);
         new Convert24To30RequestManager(converterProvider);
         new Convert30To24RequestManager(converterProvider);
         new Convert24To30ResponseManager(converterProvider);
         new Convert30To24ResponseManager(converterProvider);
       } else if (OpenRtbVersion.TWO_DOT_THREE.equals(config.getOpenRtbVersion2_XVersion())) {
+        new Convert25To30RequestManager(converterProvider);
+        new Convert30To25RequestManager(converterProvider);
+        new Convert25To30ResponseManager(converterProvider);
+        new Convert30To25ResponseManager(converterProvider);
         new Convert23To30RequestManager(converterProvider);
         new Convert30To23RequestManager(converterProvider);
         new Convert23To30ResponseManager(converterProvider);
@@ -53,10 +68,10 @@ public class ConverterManager {
 
   public Provider getConverterProvider(Map<Conversion, Converter> overrideMap, Config config) {
     Provider provider = new Provider(converterProvider);
-    add2_XConverters(converterProvider, config);
+    add2_XConverters(provider, config);
     if (nonNull(overrideMap)) {
       overrideMap.forEach((conversion, converter) -> {
-        converterProvider.register(conversion, converter);
+        provider.register(conversion, converter);
       });
     }
     return provider;

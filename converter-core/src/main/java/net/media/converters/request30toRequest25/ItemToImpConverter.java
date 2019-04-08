@@ -61,6 +61,9 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     if ( video != null ) {
       imp.setVideo( videoPlacementVideoConverter.map(video, config, converterProvider) );
     }
+    if (nonNull(video) && nonNull(video.getClktype())) {
+      imp.setClickbrowser(video.getClktype());
+    }
     if (nonNull(imp.getVideo())) {
       imp.getVideo().setSequence(item.getSeq());
       if (nonNull(item.getQty())) {

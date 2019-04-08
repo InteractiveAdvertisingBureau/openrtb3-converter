@@ -29,6 +29,14 @@ public class Banner {
 
   private Integer topframe;
 
+  private Integer wmax;
+
+  private Integer wmin;
+
+  private Integer hmax;
+
+  private Integer hmin;
+
   private Collection<Integer> expdir;
 
   private Collection<Integer> api;
@@ -85,6 +93,39 @@ public class Banner {
 
   public Collection<String> getMimes() {
     return this.mimes;
+  }
+
+
+  public Integer getWmax() {
+    return wmax;
+  }
+
+  public void setWmax(Integer wmax) {
+    this.wmax = wmax;
+  }
+
+  public Integer getWmin() {
+    return wmin;
+  }
+
+  public void setWmin(Integer wmin) {
+    this.wmin = wmin;
+  }
+
+  public Integer getHmax() {
+    return hmax;
+  }
+
+  public void setHmax(Integer hmax) {
+    this.hmax = hmax;
+  }
+
+  public Integer getHmin() {
+    return hmin;
+  }
+
+  public void setHmin(Integer hmin) {
+    this.hmin = hmin;
   }
 
   public Integer getTopframe() {
@@ -193,6 +234,22 @@ public class Banner {
     final Object other$topframe = other.getTopframe();
     if (this$topframe == null ? other$topframe != null : !this$topframe.equals(other$topframe))
       return false;
+    final Object this$hmax = this.getHmax();
+    final Object other$hmax = other.getHmax();
+    if (this$hmax == null ? other$hmax != null : !this$hmax.equals(other$hmax))
+      return false;
+    final Object this$hmin = this.getHmin();
+    final Object other$hmin = other.getHmin();
+    if (this$hmin == null ? other$hmin != null : !this$hmin.equals(other$hmin))
+      return false;
+    final Object this$wmax = this.getWmax();
+    final Object other$wmax = other.getWmax();
+    if (this$wmax == null ? other$wmax != null : !this$wmax.equals(other$wmax))
+      return false;
+    final Object this$wmin = this.getWmin();
+    final Object other$wmin = other.getWmin();
+    if (this$wmin == null ? other$wmin != null : !this$wmin.equals(other$wmin))
+      return false;
     final Object this$expdir = this.getExpdir();
     final Object other$expdir = other.getExpdir();
     if (this$expdir == null ? other$expdir != null : !this$expdir.equals(other$expdir))
@@ -228,6 +285,14 @@ public class Banner {
     result = result * PRIME + ($pos == null ? 43 : $pos.hashCode());
     final Object $mimes = this.getMimes();
     result = result * PRIME + ($mimes == null ? 43 : $mimes.hashCode());
+    final Object $hmax = this.getHmax();
+    result = result * PRIME + ($hmax == null ? 43 : $hmax.hashCode());
+    final Object $hmin = this.getHmin();
+    result = result * PRIME + ($hmin == null ? 43 : $hmin.hashCode());
+    final Object $wmax = this.getWmax();
+    result = result * PRIME + ($wmax == null ? 43 : $wmax.hashCode());
+    final Object $wmin = this.getWmin();
+    result = result * PRIME + ($wmin == null ? 43 : $wmin.hashCode());
     final Object $topframe = this.getTopframe();
     result = result * PRIME + ($topframe == null ? 43 : $topframe.hashCode());
     final Object $expdir = this.getExpdir();

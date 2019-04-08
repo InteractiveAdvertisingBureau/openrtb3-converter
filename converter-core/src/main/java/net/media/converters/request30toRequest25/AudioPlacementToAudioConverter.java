@@ -44,6 +44,15 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     audio.setMaxseq( audioPlacement.getMaxseq() );
     audio.setFeed( audioPlacement.getFeed() );
     audio.setNvol( audioPlacement.getNvol() );
+    audio.setCompaniontype(audioPlacement.getComptype());
+    audio.setMaxbitrate(audioPlacement.getMaxbitr());
+    audio.setMaxduration(audioPlacement.getMaxdur());
+    audio.setMaxextended(audioPlacement.getMaxext());
+    audio.setMimes(audioPlacement.getMime());
+    audio.setMinbitrate(audioPlacement.getMinbitr());
+    audio.setMinduration(audioPlacement.getMindur());
+    audio.setStartdelay(audioPlacement.getDelay());
+    audio.setProtocols(audioPlacement.getCtype());
     Map<String, Object> map = audioPlacement.getExt();
     if ( map != null ) {
       audio.setExt(Utils.copyMap(map, config));
