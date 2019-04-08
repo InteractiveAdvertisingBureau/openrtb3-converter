@@ -54,6 +54,7 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     audio.setStartdelay(audioPlacement.getDelay());
     audio.setProtocols(audioPlacement.getCtype());
     Map<String, Object> map = audioPlacement.getExt();
+
     if ( map != null ) {
       audio.setExt(Utils.copyMap(map, config));
       try {
@@ -78,6 +79,7 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
       audio.getExt().put("skipafter", audioPlacement.getSkipafter());
       audio.getExt().put("playmethod", audioPlacement.getPlaymethod());
       audio.getExt().put("playend", audioPlacement.getPlayend());
+      audio.getExt().put("delay",audioPlacement.getSkip());
     }
   }
 

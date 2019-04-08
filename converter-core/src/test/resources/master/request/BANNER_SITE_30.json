@@ -87,6 +87,7 @@
               "hratio" : 30,
               "expdir" : [ 3, 9 ],
               "ext" : {
+                "dummy": "ffaa",
                 "wmin" : 3
               }
             }, {
@@ -96,6 +97,7 @@
               "hratio" : 30,
               "expdir" : [ 3, 9 ],
               "ext" : {
+                "dummy": "ffaa",
                 "wmin" : 3
               }
             } ],
@@ -170,7 +172,7 @@
           "cat" : [ "IAB3-1", "IAB3-2" ],
           "cattax" : 2,
           "prodq" : 1,
-          "context" : 1,
+          "context" : 2,
           "rating" : "wqewq",
           "urating" : "ewew",
           "mrating" : 1,
