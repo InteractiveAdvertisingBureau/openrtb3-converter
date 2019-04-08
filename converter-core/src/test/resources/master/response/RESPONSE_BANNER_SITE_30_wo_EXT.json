@@ -1,15 +1,11 @@
 {
   "domainSpec": "3.0",
-  "domainVer": "1.0",
   "response": {
     "id": "0123456789ABCDEF",
     "bidid": "7phb82pzl",
     "nbr": 2,
     "cur": "USD",
     "cdata": "cdata",
-    "ext": {
-      "bidresponseEXT": "bidresponseEXT"
-    },
     "seatbid": [{
       "seat": "xyzseat",
       "bid": [{
@@ -76,8 +72,7 @@
                     "2113",
                     "21312"
                   ]
-                },
-                "ext" : {"mediaAdDisplayBannerext" :  "mediaAdDisplayBannerext"}
+                }
               },
               "event": [{
                 "type": 1,
@@ -89,27 +84,16 @@
                 ],
                 "cdata": {
                   "acct": "123"
-                },
-                "ext" : {"mediaAdDisplayEventExt" :  "mediaAdDisplayEventExt"}
-              }],
-              "ext": {
-                "mediaAdDisplayExt": "mediaAdDisplayExt"
-              }
-            },
-            "ext": {
-              "mediaAdExt": "mediaAdExt"
+                }
+              }]
             }
           }
         },
         "ext": {
-          "protocol": 123,
-          "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt"
+          "protocol": 123
         }
       }],
-      "package": 1,
-      "ext": {
-        "bidresponseSeatbidExt": "bidresponseSeatbidExt"
-      }
+      "package": 1
     }]
 
   }

@@ -1,16 +1,13 @@
 {
-  "inputFile" : "RESPONSE_BANNER_SITE_25.json",
+  "inputFile" : "RESPONSE_NATIVE_SITE_25.json",
   "inputType" : "RESPONSE25",
   "inputEdits" : {
-    "id" : "\"ab\"",
-    "cur" : "\"ab\"",
-    "customdata" : "\"ab\"",
-    "bidid" : "\"ab\""
+    "id" : "1"
   },
   "inputJson" : {
-    "id" : "ab",
-    "cur" : "ab",
-    "customdata" : "ab",
+    "id" : 1,
+    "cur" : "USD",
+    "customdata" : "pyaz",
     "seatbid" : [ {
       "bid" : [ {
         "id" : "4c4uqld",
@@ -21,7 +18,7 @@
         "burl" : "test/burl",
         "lurl" : "test/lurl",
         "adid" : "98765432134567",
-        "adm" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?><VAST version=\"2.0\"><Ad id=\"602833\"><Wrapper><AdSystem>Acudeo Compatible</AdSystem><VASTAdTagURI>http://demo.tremormedia.com/proddev/vast/vast_inline_linear.xml</VASTAdTagURI><Error>http://myErrorURL/wrapper/error</Error><Impression>http://myTrackingURL/wrapper/impression</Impression><Creatives><Creative AdID=\"602833\"><Linear><TrackingEvents><Tracking event=\"creativeView\">http://myTrackingURL/wrapper/creativeView</Tracking><Tracking event=\"start\">http://myTrackingURL/wrapper/start</Tracking><Tracking event=\"midpoint\">http://myTrackingURL/wrapper/midpoint</Tracking><Tracking event=\"firstQuartile\">http://myTrackingURL/wrapper/firstQuartile</Tracking><Tracking event=\"thirdQuartile\">http://myTrackingURL/wrapper/thirdQuartile</Tracking><Tracking event=\"complete\">http://myTrackingURL/wrapper/complete</Tracking><Tracking event=\"mute\">http://myTrackingURL/wrapper/mute</Tracking><Tracking event=\"unmute\">http://myTrackingURL/wrapper/unmute</Tracking><Tracking event=\"pause\">http://myTrackingURL/wrapper/pause</Tracking><Tracking event=\"resume\">http://myTrackingURL/wrapper/resume</Tracking><Tracking event=\"fullscreen\">http://myTrackingURL/wrapper/fullscreen</Tracking></TrackingEvents></Linear></Creative><Creative><Linear><VideoClicks><ClickTracking>http://myTrackingURL/wrapper/click</ClickTracking></VideoClicks></Linear></Creative><Creative AdID=\"602833-NonLinearTracking\"><NonLinearAds><TrackingEvents/></NonLinearAds></Creative></Creatives></Wrapper></Ad></VAST>",
+        "adm" : "{\"native\":{\"assets\":[{\"id\":211,\"required\":0,\"img\":{\"url\":\"http://vcdn.adnxs.com/p/creative-image/b8/bc/03/96/b8bc0396-dd60-4040-a17a-e09f455ed102.jpg\",\"w\":300,\"h\":300,\"ext\":{\"appnexus\":{\"prevent_crop\":0}}}},{\"id\":122,\"required\":0,\"title\":{\"text\":\"Media.net Test Creative for Native Ads Demo - First version\"}},{\"id\":115,\"required\":0,\"data\":{\"value\":\"Media.net Test\"}}],\"link\":{\"url\":\"http://lax1-ib.adnxs.com/click?AAAAAAAAHEAAAAAAAAAcQAAAAAAAAPA_AAAAAAAAHEAAAAAAAAAcQCE7mfSyyzIPD6KK53qTOlp_cRZaAAAAAMgBuwBIDAAASAwAAAIAAAAyDsYEnX8VAAAAAABVU0QAVVNEAAEAAQDzywAAAAABAgMCAAAAAJ4AERQ3IgAAAAA./pp=${AUCTION_PRICE}//cnd=%21cQn3qQi34_AIELKcmCYYnf9VIAQoADoJTEFYMTozODcw/bn=76099/referrer=http%3A%2F%2Fwww3.forbes.com%2Fbusiness%2Fcountry-cash-kings-2015%2F%3Fa%3D20010172%26force_incontent%3D1/clickenc=https%3A%2F%2Fwww.media.net%2F\"},\"imptrackers\":[\"http://lax1-ib.adnxs.com/openrtb_win?e=wqT_3QLwBsBwAwAAAwDWAAUBCP_i2dAFEKH25KSv9rKZDxiPxKq8ru-knVoqLQkBAAAAAAAcQBEAAQgMABxAGQUIDADwPyEJCQgcQCkRCagwyIPsBTjIGEDIGEgCULKcmCZYnf9VYABo85c_eMPSBIABAYoBA1VTRJIBAQbwUJgBAaABAagBAbABALgBAsABA8gBAtABCdgBAOABAPABAIoCV3VmKCdhJywgMjEzNTQ1MSwgMTUxMTQyMDI4Nyk7dWYoJ3InLCA4MDA4ODYyNkYeACRpJywgNjM4MzQyNhwA8JCSAv0BIUpUclNWQWkzNF9BSUVMS2NtQ1lZQUNDZF8xVXdBRGdBUUFSSXlCaFF5SVBzQlZnQVlMY0dhQUJ3QkhqdTJRU0FBUVNJQWU3WkJKQUJBWmdCQWFBQkFhZ0JBN0FCQUxrQmlQTXU1Z0FBSEVEQkFZanpMdVlBQUJ4QXlRRU53S1U3M0pQNFA5a0JBQUFBAQMsOERfZ0FZYjdKdlVCARAsQUpnQ0FLQUNBTFVDBRAETDAJCLhNQUNBTWdDQU5BQ0JOZ0M3dGtFNEFJQTZBSUEtQUlBZ0FNQmtBTUFtQU1CcUFPMwHgZHVnTUpURUZZTVRvek9EY3eaAi0hY1FuM3FRNgABKG5mOVZJQVFvQURvMjAA9CwB2AKAJeACoOQi6gJVaHR0cDovL3d3dzMuZm9yYmVzLmNvbS9idXNpbmVzcy9jb3VudHJ5LWNhc2gta2luZ3MtMjAxNS8_YT0yMDAxMDE3MiZmb3JjZV9pbmNvbnRlbnQ9MYADAIgDAZADAJgDFKADAaoDAMADkBzIAwDYA-CqAeADAOgDAPgDA4AEAJIECS9vcGVucnRiMpgEAKIEDjExNS4xMTQuMTcuMTQ2qATPug-yBAwIABAAGAAgADAAOAC4BADABADIBADSBAlMQVgxOjM4NzDaBAIIAOAEAPAEspyYJogFAZgFAKAF____________AaoFIjE1MTE0MjAyODU5MTRfMTM4NDgyMjg3NV84MzY4MzI3NDjABQDJBQAAAAAAAPA_0gUJCQAAAGUQPNgFAeAFAfAFAfoFBAgAEAA.&s=3d376b2c9f781a2dc52f4f5aab70817cc4fc9eb3&referrer=http%3A%2F%2Fwww3.forbes.com%2Fbusiness%2Fcountry-cash-kings-2015%2F%3Fa%3D20010172%26force_incontent%3D1&pp=${AUCTION_PRICE}&\"]}}",
         "adomain" : [ "www.livelife.best" ],
         "iurl" : "googleusercontent.com/1.jpg",
         "cid" : "298",
@@ -68,21 +65,18 @@
       },
       "admwrapped" : false
     },
-    "bidid" : "ab",
+    "bidid" : "7phb82pzl",
     "nbr" : 2
   },
-  "outputFile" : "RESPONSE_BANNER_SITE_30.json",
+  "outputFile" : "RESPONSE_NATIVE_SITE_30.json",
   "outputType" : "RESPONSE30",
   "outputEdits" : {
-    "id" : "\"ab\"",
-    "cur" : "\"ab\"",
-    "cdata" : "\"ab\"",
-    "bidid" : "\"ab\""
+    "response.id" : "\"1\""
   },
   "outputJson" : {
     "domainSpec" : "3.0",
     "response" : {
-      "id" : "0123456789ABCDEF",
+      "id" : "1",
       "bidid" : "0011223344AABBCC",
       "nbr" : 1,
       "cur" : "USD",
@@ -186,13 +180,8 @@
           }
         }
       } ]
-    },
-    "id" : "ab",
-    "cur" : "ab",
-    "cdata" : "ab",
-    "bidid" : "ab"
+    }
   },
-  "purpose" : "fieldsSupportingStringFormat",
-  "params" : null,
-  "status" : null
+  "purpose" : "TC5001_native",
+  "params" : null
 }

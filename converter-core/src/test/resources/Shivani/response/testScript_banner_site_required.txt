@@ -1,0 +1,306 @@
+cases:
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     id: null
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5001_requiredFieldBidResponseId
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     id: 9999
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5002_invalidFieldBidResponseId
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     id: "\"helloworld\""
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"helloworld\""
+   purpose: TC5003_requiredFieldBidResponseIdValid
+   status: SUCCESS
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid: null
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5004_requiredFieldBidResponseSeatBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid: 9999
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5005_invalidFieldBidResponseSeatBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid: "this is a string"
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5006_invalidFieldBidResponseSeatBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid: []
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5007_invalidFieldBidResponseSeatBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid: null
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5008_requiredFieldBidResponseSeatBidBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid: 9999
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5009_invalidFieldBidResponseSeatBidBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid: "this is a string"
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5010_invalidFieldBidResponseSeatBidBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid: []
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5011_invalidFieldBidResponseSeatBidBid
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].id: null
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5012_requiredFieldBidResponseSeatBidBidId
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].id: 9999
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5013_invalidFieldBidResponseSeatBidBidId
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].id: []
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5014_invalidFieldBidResponseSeatBidBidId
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].id: "\"helloworld\""
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.seatbid[0].bid[0].id: "\"helloworld\""
+   purpose: TC5015_validFieldBidResponseSeatBidBidId
+   status: SUCCESS
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].impid: null
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5016_requiredFieldBidResponseSeatBidBidImpId
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].impid: 9999
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5017_invalidFieldBidResponseSeatBidBidImpId
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].impid: "\"helloworld\""
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.seatbid[0].bid[0].impid: "\"helloworld\""
+   purpose: TC5018_validFieldBidResponseSeatBidBidImpId
+   status: SUCCESS
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].price: null
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5019_requiredFieldBidResponseSeatBidBidPrice
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].price: "this is a string"
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5020_invalidFieldBidResponseSeatBidBidPrice
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].price: []
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5021_invalidFieldBidResponseSeatBidBidPrice
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].bid[0].price: 20.5
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.seatbid[0].bid[0].price: 20.5
+   purpose: TC5022_validFieldBidResponseSeatBidBidPrice
+   status: SUCCESS
+
+
+
+
+
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].group: "this is a string"
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5023_invalidFieldBidResponseSeatBidGroup
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].group: []
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5024_invalidFieldBidResponseSeatBidGroup
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].group: 20.5
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"FAILURE\""
+   purpose: TC5025_invalidFieldBidResponseSeatBidGroup
+   status: FAILED
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].group: 2
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.seatbid[0].package: 2
+   purpose: TC5026_validFieldBidResponseSeatBidBidGroup
+   status: SUCCESS
+
+ - inputFile: RESPONSE_BANNER_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     seatbid[0].group: 200
+   outputFile: RESPONSE_BANNER_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.seatbid[0].package: 200
+   purpose: TC5027_validFieldBidResponseSeatBidBidGroup
+   status: SUCCESS
+
+
+
+

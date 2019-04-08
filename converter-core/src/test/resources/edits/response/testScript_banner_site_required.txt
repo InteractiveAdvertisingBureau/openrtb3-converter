@@ -1,0 +1,21 @@
+cases:
+ - inputFile: RESPONSE_BANNER_SITE_25_wo_EXT.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     id: 1
+   outputFile: RESPONSE_BANNER_SITE_30_wo_EXT.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"1\""
+   purpose: TC5001_banner
+
+ - inputFile: RESPONSE_NATIVE_SITE_25.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     id: 1
+   outputFile: RESPONSE_NATIVE_SITE_30.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     response.id: "\"1\""
+   purpose: TC5001_native
+
