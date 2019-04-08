@@ -1,0 +1,187 @@
+{
+  "inputFile" : "RESPONSE_NATIVE_SITE_25.json",
+  "inputType" : "RESPONSE25",
+  "inputEdits" : {
+    "id" : "1"
+  },
+  "inputJson" : {
+    "id" : 1,
+    "cur" : "USD",
+    "customdata" : "pyaz",
+    "seatbid" : [ {
+      "bid" : [ {
+        "id" : "4c4uqld",
+        "impid" : "1",
+        "price" : 4.5,
+        "bundle" : "testbundle",
+        "nurl" : "http://www.example.com/",
+        "burl" : "test/burl",
+        "lurl" : "test/lurl",
+        "adid" : "98765432134567",
+        "adm" : "{\"native\":{\"assets\":[{\"id\":211,\"required\":0,\"img\":{\"url\":\"http://vcdn.adnxs.com/p/creative-image/b8/bc/03/96/b8bc0396-dd60-4040-a17a-e09f455ed102.jpg\",\"w\":300,\"h\":300,\"ext\":{\"appnexus\":{\"prevent_crop\":0}}}},{\"id\":122,\"required\":0,\"title\":{\"text\":\"Media.net Test Creative for Native Ads Demo - First version\"}},{\"id\":115,\"required\":0,\"data\":{\"value\":\"Media.net Test\"}}],\"link\":{\"url\":\"http://lax1-ib.adnxs.com/click?AAAAAAAAHEAAAAAAAAAcQAAAAAAAAPA_AAAAAAAAHEAAAAAAAAAcQCE7mfSyyzIPD6KK53qTOlp_cRZaAAAAAMgBuwBIDAAASAwAAAIAAAAyDsYEnX8VAAAAAABVU0QAVVNEAAEAAQDzywAAAAABAgMCAAAAAJ4AERQ3IgAAAAA./pp=${AUCTION_PRICE}//cnd=%21cQn3qQi34_AIELKcmCYYnf9VIAQoADoJTEFYMTozODcw/bn=76099/referrer=http%3A%2F%2Fwww3.forbes.com%2Fbusiness%2Fcountry-cash-kings-2015%2F%3Fa%3D20010172%26force_incontent%3D1/clickenc=https%3A%2F%2Fwww.media.net%2F\"},\"imptrackers\":[\"http://lax1-ib.adnxs.com/openrtb_win?e=wqT_3QLwBsBwAwAAAwDWAAUBCP_i2dAFEKH25KSv9rKZDxiPxKq8ru-knVoqLQkBAAAAAAAcQBEAAQgMABxAGQUIDADwPyEJCQgcQCkRCagwyIPsBTjIGEDIGEgCULKcmCZYnf9VYABo85c_eMPSBIABAYoBA1VTRJIBAQbwUJgBAaABAagBAbABALgBAsABA8gBAtABCdgBAOABAPABAIoCV3VmKCdhJywgMjEzNTQ1MSwgMTUxMTQyMDI4Nyk7dWYoJ3InLCA4MDA4ODYyNkYeACRpJywgNjM4MzQyNhwA8JCSAv0BIUpUclNWQWkzNF9BSUVMS2NtQ1lZQUNDZF8xVXdBRGdBUUFSSXlCaFF5SVBzQlZnQVlMY0dhQUJ3QkhqdTJRU0FBUVNJQWU3WkJKQUJBWmdCQWFBQkFhZ0JBN0FCQUxrQmlQTXU1Z0FBSEVEQkFZanpMdVlBQUJ4QXlRRU53S1U3M0pQNFA5a0JBQUFBAQMsOERfZ0FZYjdKdlVCARAsQUpnQ0FLQUNBTFVDBRAETDAJCLhNQUNBTWdDQU5BQ0JOZ0M3dGtFNEFJQTZBSUEtQUlBZ0FNQmtBTUFtQU1CcUFPMwHgZHVnTUpURUZZTVRvek9EY3eaAi0hY1FuM3FRNgABKG5mOVZJQVFvQURvMjAA9CwB2AKAJeACoOQi6gJVaHR0cDovL3d3dzMuZm9yYmVzLmNvbS9idXNpbmVzcy9jb3VudHJ5LWNhc2gta2luZ3MtMjAxNS8_YT0yMDAxMDE3MiZmb3JjZV9pbmNvbnRlbnQ9MYADAIgDAZADAJgDFKADAaoDAMADkBzIAwDYA-CqAeADAOgDAPgDA4AEAJIECS9vcGVucnRiMpgEAKIEDjExNS4xMTQuMTcuMTQ2qATPug-yBAwIABAAGAAgADAAOAC4BADABADIBADSBAlMQVgxOjM4NzDaBAIIAOAEAPAEspyYJogFAZgFAKAF____________AaoFIjE1MTE0MjAyODU5MTRfMTM4NDgyMjg3NV84MzY4MzI3NDjABQDJBQAAAAAAAPA_0gUJCQAAAGUQPNgFAeAFAfAFAfoFBAgAEAA.&s=3d376b2c9f781a2dc52f4f5aab70817cc4fc9eb3&referrer=http%3A%2F%2Fwww3.forbes.com%2Fbusiness%2Fcountry-cash-kings-2015%2F%3Fa%3D20010172%26force_incontent%3D1&pp=${AUCTION_PRICE}&\"]}}",
+        "adomain" : [ "www.livelife.best" ],
+        "iurl" : "googleusercontent.com/1.jpg",
+        "cid" : "298",
+        "crid" : "7993593187821",
+        "tactic" : "testtactic",
+        "cat" : [ "IAB14" ],
+        "attr" : [ 6, 7 ],
+        "api" : "testapi",
+        "protocol" : 123,
+        "qagmediarating" : 5,
+        "language" : "EN",
+        "exp" : 1,
+        "dealid" : "667fdf7",
+        "h" : 90,
+        "w" : 728,
+        "wratio" : 90,
+        "hrataio" : 55,
+        "ext" : {
+          "buyermemberid" : 298,
+          "landingpageurl" : "www.livelife.best",
+          "brandid" : [ null ]
+        }
+      } ],
+      "ext" : {
+        "buyermemberid" : 298,
+        "landingpageurl" : "www.livelife.best",
+        "brandid" : [ null ],
+        "originalSize" : {
+          "width" : 728,
+          "height" : 90
+        },
+        "admwrapped" : false
+      },
+      "seat" : "xyzseat",
+      "group" : 1
+    } ],
+    "ext" : {
+      "buyermemberid" : 298,
+      "landingpageurl" : "www.livelife.best",
+      "brandid" : [ null ],
+      "originalSize" : {
+        "width" : 728,
+        "height" : 90
+      },
+      "admwrapped" : false
+    },
+    "bidid" : "7phb82pzl",
+    "nbr" : 2
+  },
+  "outputFile" : "RESPONSE_NATIVE_SITE_30.json",
+  "outputType" : "RESPONSE30",
+  "outputEdits" : {
+    "response.id" : "\"1\""
+  },
+  "outputJson" : {
+    "domainSpec" : "3.0",
+    "response" : {
+      "id" : "1",
+      "bidid" : "0011223344AABBCC",
+      "nbr" : 1,
+      "cur" : "USD",
+      "cdata" : "cdata",
+      "ext" : {
+        "customdata" : "pyaz",
+        "ankit" : {
+          "cho" : "lul"
+        }
+      },
+      "seatbid" : [ {
+        "seat" : "XYZ",
+        "bid" : [ {
+          "id" : "yaddayadda",
+          "item" : "1",
+          "deal" : "1234",
+          "price" : 1.5,
+          "tactic" : "...",
+          "purl" : "http://www.example.com/",
+          "burl" : "http://www.example1.com/",
+          "lurl" : "http://www.example2.com/",
+          "mid" : "123",
+          "cid" : "campaign-xyz.123",
+          "exp" : 1,
+          "macro" : {
+            "key" : "macro1",
+            "value" : "duck",
+            "ext" : {
+              "customdata" : "pyaz"
+            }
+          },
+          "media" : {
+            "ad" : {
+              "id" : "d0bcb39723af87c2bb00942afee5710e",
+              "adomain" : [ "ford.com" ],
+              "bundle" : [ "chocho" ],
+              "iurl" : "Abcd.com",
+              "cat" : [ "cat", "dog" ],
+              "cattax" : 1,
+              "lang" : "english",
+              "attr" : [ 6, 1 ],
+              "secure" : 1,
+              "mrating" : 1,
+              "init" : 1,
+              "lastmod" : 1,
+              "display" : {
+                "mime" : "image/jpeg",
+                "api" : [ 1, 2 ],
+                "ctype" : 3,
+                "w" : 320,
+                "h" : 50,
+                "wratio" : 1,
+                "hratio" : 2,
+                "priv" : "232",
+                "adm" : "asvsdd",
+                "curl" : "http://www.example3.com/",
+                "banner" : {
+                  "img" : "https://somebuyer.com/creative",
+                  "link" : {
+                    "url" : "https://somebuyer.com/click",
+                    "urlfb" : "https://somebuyer.com",
+                    "trkr" : [ "2113", "21312" ],
+                    "ext" : {
+                      "link" : "link"
+                    }
+                  },
+                  "ext" : {
+                    "xyz" : "111"
+                  }
+                },
+                "event" : [ {
+                  "type" : 1,
+                  "method" : 1,
+                  "url" : "https://somebuyer.com/pixel",
+                  "api" : [ 1, 2 ],
+                  "cdata" : {
+                    "acct" : "123"
+                  }
+                } ],
+                "ext" : {
+                  "aloo1" : "pyaz",
+                  "test" : {
+                    "test1" : "test1"
+                  }
+                }
+              },
+              "ext" : {
+                "aloo2" : "pyaz",
+                "test2" : {
+                  "test3" : "test3"
+                }
+              }
+            }
+          }
+        } ],
+        "_package" : 2,
+        "ext" : {
+          "aloo3" : "pyaz",
+          "test4" : {
+            "test5" : "test5"
+          }
+        }
+      } ]
+    }
+  },
+  "purpose" : "TC5001_native",
+  "params" : null
+}
