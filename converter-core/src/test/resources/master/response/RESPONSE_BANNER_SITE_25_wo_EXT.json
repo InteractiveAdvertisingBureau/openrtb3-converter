@@ -33,11 +33,8 @@
       "h": 90,
       "w": 728,
       "wratio": 90,
-      "hrataio": 55,
+      "hratio": 55,
       "ext": {
-        "mediaAdDisplayExt": "mediaAdDisplayExt",
-        "mediaAdExt": "mediaAdExt",
-        "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt",
         "macro": [{
           "key" : "test",
           "value" : "test2",
@@ -58,11 +55,8 @@
           "link" : {
             "url": "https://somebuyer.com/click",
             "urlfb": "https://somebuyer.com",
-            "trkr": ["2113", "21312"],
-            "ext": {"link": "link"}
-          },
-          "ext" : {
-            "mediaAdDisplayBannerext" :  "mediaAdDisplayBannerext"}
+            "trkr": ["2113", "21312"]
+          }
         },
         "event": [{
           "type": 1,
@@ -74,22 +68,13 @@
           ],
           "cdata": {
             "acct": "123"
-          },
-          "ext" : {
-            "mediaAdDisplayEventExt" :  "mediaAdDisplayEventExt"
           }
         }]
       }
     }],
-    "ext": {
-        "bidresponseSeatbidExt" : "bidresponseSeatbidExt"
-    },
     "seat": "xyzseat",
     "group": 1
   }],
-  "ext": {
-    "bidresponseEXT": "bidresponseEXT"
-  },
   "bidid": "7phb82pzl",
   "nbr": 2
 }
