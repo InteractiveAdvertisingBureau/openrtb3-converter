@@ -29,7 +29,7 @@ Object: OpenRTB
 | openrtb.ver                                | \-                      |
 | openrtb.domainspec                         | \-                      |
 | openrtb.domainver                          | \-                      |
-| openrtb.request | \-                      |
+| openrtb.request | (Mappings for individual object fields noted below)                      |
 
 Object: OpenRTB \> Request
 --------------------------
@@ -48,9 +48,9 @@ Object: OpenRTB \> Request
 | wseat                                      | NA (0 to activate bseat 1 to activate wseat)                                                              |
 | cdata                                      | bidRequest.user.customdata                                                                                |
 | ext                                        | bidRequest.ext                                                                                            |
-| source   |-                                                                                                           |
-| item       |    -                                                                                                       |
-| context |   -                                                                                                        |
+| source   |(Mappings for individual object fields noted below)                                                                                                           |
+| item       |    (Mappings for individual object fields noted below)                                                                                                       |
+| context |   (Mappings for individual object fields noted below)                                                                                                        |
 
 ### Object: OpenRTB \> Request \> Source
 
@@ -92,8 +92,8 @@ Object: OpenRTB \> Request
 | ext                                       | bidrequest.imp.ext                                                                                                                      |
 | private                                   | bidRequest.imp.pmp.private_auction                                                                                                      |
 | metric           | bidRequest.imp.metric *bidRequest.imp.ext.metric (for ORTB v2.4 and v2.3)*                                                              |
-| deal |                                 -                                                                                                        |
-| spec             |                                                                                     -                                                  |
+| deal |                                 (Mappings for individual object fields noted below)                     |
+| spec             | (Mappings for individual object fields noted below)                                                    |
 
 #### Object: OpenRTB \> Request \> Item \> Metric
 
@@ -135,10 +135,10 @@ Object: OpenRTB \> Request
 | secure                             | bidRequest.imp.secure                                            |
 | admx                               | bidRequest.imp.ext.admx                                          |
 | curlx                              | bidRequest.imp.ext.curlx                                         |
-| **ext**                            |      -                                                            |
-| display |-                                                                  |
-| video     | -                                                                 |
-| audio     |-                                                                  |
+| **ext**                            |      bidRequest.imp.ext                                                            |
+| display |(Mappings for individual object fields noted below) |
+| video     | (Mappings for individual object fields noted below)|
+| audio     |(Mappings for individual object fields noted below)|
 
 *Object: OpenRTB \> Request \> Item \> Spec \> Placement \> Display*
 
@@ -160,10 +160,10 @@ Object: OpenRTB \> Request
 | w                                      | bidRequest.imp.banner.w                                                       |
 | h                                      | bidRequest.imp.banner.h                                                       |
 | unit                                   | bidRequest.imp.banner.ext.unit                                                |
-| Priv                                   | bidRequest.imp.banner/native.ext.priv                                         |
-| displayfmt |                                                                               |
-| nativefmt  |                                                                               |
-| event     |                                                                               |
+| priv                                   | bidRequest.imp.banner/native.ext.priv                                         |
+| displayfmt | (Mappings for individual object fields noted below)                                                                              |
+| nativefmt  | (Mappings for individual object fields noted below)                                                                              |
+| event     | (Mappings for individual object fields noted below)                                                                              |
 | ext         | bidRequest.imp.banner.ext, bidrequest.imp.native.ext                          |
 
 *Object: OpenRTB \> Request \> Item \> Spec \> Placement \> Display \> DisplayFMT*
@@ -175,8 +175,8 @@ openrtb.request.item.spec.placement.display.displayfmt.\<parameter_name\>*
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | w               | bidRequest.imp.banner.format.w *(bidRequest.imp.banner.ext.format.w for ORTB v2.3)*                                                                    |
 | h               | bidRequest.imp.banner.format.h *(bidRequest.imp.banner.ext.format.h for ORTB v2.3)*                                                                    |
-| wratio          | bidRequest.imp.banner.format.wratio (bidRequest.imp.banner.format.ext.wratio *for ORTB v2.4*  bidRequest.imp.banner.ext.format.wratio *for ORTB v2.3)* |
-| hratio          | bidRequest.imp.banner.format.hratio (bidRequest.imp.banner.format.ext.hratio *for ORTB v2.4*  bidRequest.imp.banner.ext.format.hratio *for ORTB v2.3)* |
+| wratio          | bidRequest.imp.banner.format.wratio (bidRequest.imp.banner.ext.format.wratio *for ORTB v2.4*  bidRequest.imp.banner.ext.format.wratio *for ORTB v2.3)* |
+| hratio          | bidRequest.imp.banner.format.hratio (bidRequest.imp.banner.ext.format.hratio *for ORTB v2.4*  bidRequest.imp.banner.ext.format.hratio *for ORTB v2.3)* |
 | expdir          | bidRequest.imp.banner.expdir                                                                                                                           |
 | ext             | bidRequest.imp.banner.format.ext *(bidRequest.imp.banner.ext.format.ext for ORTB v2.3)*                                                                |
 
@@ -187,8 +187,8 @@ openrtb.request.item.spec.placement.display.nativefmt.\<parameter_name\>*
 
 | **OpenRTB 3.0**                         | **OpenRTB 2.5/2.4/2.3** |
 |-----------------------------------------|-------------------------|
-| ext     |    -                     |
-| asset |   -                      |
+| ext     |(Mappings for individual object fields noted below) |
+| asset |(Mappings for individual object fields noted below) |
 
 *Object: OpenRTB \> Request \> Item \> Spec \> Placement \> Display \> NativeFMT \> Ext*
 
@@ -213,9 +213,9 @@ openrtb.request.item.spec.placement.display.nativefmt.asset.\<parameter_name\>*
 | req                                           | bidRequest.imp.native.request.native.asset.required |
 | title | bidRequest.imp.native.request.native.asset.title    |
 | img     | bidRequest.Imp.native.request.native.asset.img      |
-| video |                                                     |
+| video | (Mappings for individual object fields noted below)                                                    |
 | data   | bidRequest.imp.native.request.native.asset.data     |
-| ext                                           | \-                                                  |
+| ext                                           | bidRequest.imp.native.request.native.asset.ext                                                  |
 
 *Object: OpenRTB \> Request \> Item \> Spec \> Placement \> Display \> NativeFMT \> Asset \> Title*
 
@@ -266,7 +266,7 @@ openrtb.request.item.spec.placement.display.nativefmt.asset.\<parameter_name\>*
 | maxseq                                            | bidRequest.imp.native.request.native.asset.video.ext.ext.maxseq        |
 | linear                                            | bidRequest.imp.native.request.native.asset.video.ext.linearity         |
 | boxing                                            | bidRequest.imp.native.request.native.asset.video.ext.boxingallowed     |
-| comp |                                                                        |
+| comp |(Mappings for individual object fields noted below)                                                                        |
 | ext                                               | bidRequest.imp.native.request.native.asset.video.ext                   |
 
 *Object: OpenRTB \> Request \> Item \> Spec \> Placement \> Display \> NativeFMT \> Asset \> Video \> Comp*
@@ -347,7 +347,7 @@ openrtb.request.item.spec.placement.display.ext.\<parameter_name\>*
 | maxseq                             | bidRequest.imp.video.ext.maxseq                                                                  |
 | linear                             | bidRequest.imp.video.linearity                                                                   |
 | boxing                             | bidRequest.imp.video.boxingallowed                                                               |
-| comp |   -                                                                                               |
+| comp | (Mappings for individual object fields noted below)                                                                                               |
 
 *Object: OpenRTB \> Request \> Item \> Spec \> Placement \> Video \> Comp*
 
@@ -388,7 +388,7 @@ openrtb.request.item.spec.placement.video.comp.\<parameter_name\>*
 | maxseq                             | bidRequest.imp.audio.maxseq         |
 | comptype                           | bidRequest.imp.audio.companiontype  |
 | ext                                | bidRequest.imp.audio.ext            |
-| comp | -                                    |
+| comp |(Mappings for individual object fields noted below)                                    |
 
 *Object: OpenRTB \> Request \> Item \> Spec \> Placement \> Audio \> Comp*
 
@@ -423,8 +423,8 @@ The Context object include the following sub objects:
 |----------------------------------|-------------------------------|
 | id                               | bidRequest.site.id            |
 | name                             | bidRequest.site.name          |
-| pub         |                               |
-| content |                               |
+| pub         |(Mappings for individual object fields noted below)                               |
+| content |(Mappings for individual object fields noted below)                               |
 | domain                           | bidRequest.site.domain        |
 | cat                              | bidRequest.site.cat           |
 | sectcat                          | bidRequest.site.pagecat       |
@@ -437,7 +437,7 @@ The Context object include the following sub objects:
 | search                           | bidRequest.site.search        |
 | mobile                           | bidRequest.site.mobile        |
 | amp                              | bidRequest.site.ext.amp       |
-| ext                              | -                              |
+| ext                              | bidRequest.sit.ext            |
 
 *Object: OpenRTB \> Request \> Context \> Site \> Pub*
 
@@ -481,9 +481,9 @@ The Context object include the following sub objects:
 | len                                        | bidRequest.site.content.len                                                         |
 | lang                                       | bidRequest.site.content.language                                                    |
 | Embed                                      | bidRequest.site.content.embeddable                                                  |
-| producer |                                                                                     |
+| producer | (Mappings for individual object fields noted below)                                                                                     |
 | data         | bidrequest.site.content.data *(bidrequest.site.content.ext.data for ORTB v2.3)*     |
-| ext           |     -                                                                                |
+| ext           | (Mappings for individual object fields noted below)                                                                                |
 
 *Object: OpenRTB \> Request \> Context \> Site \> Content \> Producer*
 
@@ -585,7 +585,7 @@ The Context object include the following sub objects:
 | contype                    | bidRequest.device.connectiontype                                                 |
 | geofetch                   | bidRequest.device.geofetch *(bidRequest.device.ext.geofetch for ORTB v2.3)*      |
 | geo | bidRequest.device.geo                                                            |
-| ext                        |    -                                                                              |
+| ext                        |    bidRequest,device.ext                                                                              |
 
 *Object: OpenRTB \> Request \> Context \> Device \> Geo*
 
@@ -680,7 +680,7 @@ Object: OpenRTB
 | openrtb.ver                                  | \-                      |
 | openrtb.domainspec                           | \-                      |
 | openrtb.domainver                            | \-                      |
-| openrtb.response | \-                      |
+| openrtb.response | (Mappings for individual object fields noted below)                      |
 
 Object: OpenRTB \> Response
 ---------------------------
@@ -694,7 +694,7 @@ Object: OpenRTB \> Response
 | nbr                               | bidResponse.nbr         |
 | cur                               | bidResponse.cur         |
 | cdata                             | bidResponse.customdata  |
-| seatbid |                         |
+| seatbid                           | (Mappings for individual object fields noted below)                         |
 | ext                               | bidresponse.ext         |
 
 ### Object: OpenRTB \> Response \> SeatBid
@@ -705,7 +705,7 @@ Object: OpenRTB \> Response
 |------------------------------|---------------------------------|
 | seat                         | bidResponse.seatbid.seat        |
 | package                      | bidResponse.seatbid.group       |
-| bid |                                 |
+| bid                          | (Mappings for individual object fields noted below)                                |
 | ext                          | bidresponse.seatbid.ext         |
 
 *Object: OpenRTB \> Response \> SeatBid \> Bid*
@@ -726,7 +726,7 @@ Object: OpenRTB \> Response
 | exp                                  | bidResponse.seatbid.bid.exp                                                                |
 | mid                                  | bidResponse.seatBid.bid.adid (bidResponse.seatBid.bid.ext.adid for ORTB v2.3)              |
 | macro | bidResponse.seatbid.bid.ext.macro                                                          |
-| media |                                                                                            |
+| media | (Mappings for individual object fields noted below)                                                                                            |
 | ext     | bidresponse.seatbid.bid.ext                                                                |
 
 *Object: OpenRTB \> Response \> SeatBid \> Bid \> Macro*
@@ -745,7 +745,7 @@ Object: OpenRTB \> Response
 
 | **OpenRTB 3.0**                      | **OpenRTB 2.5/2.4/2.3/2.4/2.3** |
 |--------------------------------------|---------------------------------|
-| ad |   -                              |
+| ad |   (Mappings for individual object fields noted below)                              |
 
 *Object: OpenRTB \> Response \> SeatBid \> Bid \> Ext*
 
@@ -768,13 +768,13 @@ Object: OpenRTB \> Response
 | lang                                              | bidResponse.seatbid.bid.language (bidResponse.seatbid.bid.ext.language for ORTB v2.4 and v2.3) |
 | attr                                              | bidResponse.seatbid.bid.attr                                                                   |
 | secure                                            | bidResponse.seatbid.bid.ext.secure                                                             |
-| mrating                                           | bidResponse.seatbid.bid.qagmediarating (bidResponse.seatbid.bid.qagmediarating for ORTB v2.3)  |
+| mrating                                           | bidResponse.seatbid.bid.qagmediarating (bidResponse.seatbid.bid.ext.qagmediarating for ORTB v2.3)  |
 | init                                              | bidResponse.seatbid.bid.ext.init                                                               |
 | lastmod                                           | bidResponse.seatbid.bid.ext.lastmod                                                            |
-| display |                                                                                                |
-| video     |                                                                                                |
-| audio     |                                                                                                |
-| audit     |                                                                                                |
+| display |(Mappings for individual object fields noted below)                                                                                                |
+| video     |(Mappings for individual object fields noted below)                                                                                                |
+| audio     |(Mappings for individual object fields noted below)                                                                                                |
+| audit     |(Mappings for individual object fields noted below)                                                                                                |
 | ext                                               | bidresponse.seatbid.bid.ext                                                                    |
 
 *Object: OpenRTB \> Response \> SeatBid \> Bid \> Media \> Ad \> Display*
@@ -791,7 +791,7 @@ Object: OpenRTB \> Response
 | priv                                                | bidResponse.seatbid.bid.ext.priv                                                           |
 | adm                                                 | bidResponse.seatbid.bid.adm                                                                |
 | curl                                                | bidResponse.seatbid.bid.ext.curl                                                           |
-| banner |                                                                                            |
+| banner | (Mappings for individual object fields noted below)                                                                                           |
 | native | bidResponse.seatbid.bid.adm                                                                |
 | event                                               | bidResponse.seatbid.bid.ext.event.                                                         |
 | ext                                                 | bidResponse.seatbid.bid.ext                                                                |
@@ -809,8 +809,8 @@ Object: OpenRTB \> Response
 | **OpenRTB 3.0**                              | **OpenRTB 2.5/2.4/2.3**                |
 |----------------------------------------------|----------------------------------------|
 | ext     | bidresponse.seatbid.bid.adm.native.ext |
-| link   |-                                        |
-| asset |   -                                     |
+| link   |(Mappings for individual object fields noted below)                                        |
+| asset |   (Mappings for individual object fields noted below)                                     |
 
 *Object: OpenRTB \> Response \> SeatBid \> Bid \> Media \> Ad \> Display \> Native \> Ext*
 
@@ -834,11 +834,11 @@ Object: OpenRTB \> Response
 |--------------------------------------------------|---------------------------------------------------|
 | id                                               | bidresponse.seatbid.bid.adm.native.asset.id       |
 | req                                              | bidresponse.seatbid.bid.adm.native.asset.required |
-| title |                                                   |
-| image |                                                   |
-| video |                                                   |
-| data |                                                   |
-| link |                                                   |
+| title |(Mappings for individual object fields noted below)                                                   |
+| image |(Mappings for individual object fields noted below)                                                   |
+| video | (Mappings for individual object fields noted below)                                                  |
+| data | (Mappings for individual object fields noted below)                                                  |
+| link |  (Mappings for individual object fields noted below)                                                 |
 | ext                                              | bidresponse.seatbid.bid.adm.native.asset.ext      |
 
 *Object: OpenRTB \> Response \> SeatBid \> Bid \> Media \> Ad \> Display \> Native \> Asset \> Title*
