@@ -47,7 +47,7 @@ public class Utils {
     }
   }
 
-  public static <U> String convertToJson(U object) throws OpenRtbConverterException {
+  public static String convertToJson(Object object) throws OpenRtbConverterException {
     try {
       return getMapper().writeValueAsString(object);
     } catch (JsonProcessingException e) {
