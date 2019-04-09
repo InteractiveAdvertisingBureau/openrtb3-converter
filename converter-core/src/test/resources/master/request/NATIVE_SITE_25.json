@@ -14,23 +14,22 @@
       "dsmap" : "abcdefghij",
       "cert" : "abc.com/xyz/efg",
       "digest" : "digest:digest, abcde:efg",
-      "dummy" : "ff"
-
+      "dummy" : "source.ext"
     }
   },
   "regs": {
     "coppa": 1,
     "ext": {
       "gdpr" : 1,
-      "dummy" :"ff"
+      "dummy" : "regs.ext"
     }
   },
   "ext": {
     "cattax" : 2,
-    "dummy" : "ff",
+    "dummy" : "request.ext",
     "restrictions": {
       "ext": {
-        "dummy": "ff"
+        "dummy": "rest.ext"
       }
     }
   },
@@ -50,7 +49,7 @@
       "value": 1.0,
       "vendor": "dssf",
       "ext": {
-        "dummy": "ff"
+        "dummy": "metric.ext"
       }
     }],
     "bidfloor": 0.03,
@@ -62,14 +61,14 @@
         "bidfloor": 0.0,
         "bidfloorcur": "USD",
         "at": 1,
-        "wseat": ["dd", "as"],
+        "wseat": ["dd", "ss"],
         "wadomain": ["ss.com", "abc.com"],
         "ext": {
-          "dummy": "ff"
+          "dummy": "deal.ext"
         }
       }],
       "ext": {
-        "dummy": "ff"
+        "dummy": "pmp.ext"
       }
     },
     "displaymanager": "dd",
@@ -89,147 +88,161 @@
       ],
       "ext": {
         "dummy": "entry",
-        "priv":0
+        "priv": 0,
+        "ctype": [1]
       },
       "request": {
-    "native" : {
-      "ver": "1.1",
-      "layout": 0,
-      "battr" : [1,2],
-      "adunit": 1,
-      "context": 2,
-      "contextsubtype": 2,
-      "plcmttype": 1,
-      "plcmtcnt": 4,
-      "seq": 5,
-      "ext": {
-        "dummy": "object"
-      },
-      "asset":
-        {
-          "clickbrowser":1,
-          "id": 1,
-          "required": 0,
-          "title": {
-            "len": 1,
-            "ext": {
-              "dummy": "entry"
-            }
+        "native" : {
+          "ver": "1.2",
+          "layout": 1,
+          "battr" : [1,2],
+          "adunit": 1,
+          "context": 2,
+          "contextsubtype": 2,
+          "plcmttype": 1,
+          "plcmtcnt": 1,
+          "seq": 1,
+          "ext": {
+            "dummy": "object"
           },
-          "img": {
-            "type": 1,
-            "mimes": [
-              "a",
-              "bc",
-              "def"
-            ],
-            "w": 1,
-            "h": 2,
-            "wmin": 2,
-            "hmin": 3,
-            "ext": {
-              "wratio": 4,
-              "hratio": 5,
-              "dummy" : "entry"
-            }
-          },
-          "video": {
-            "mimes": [
-              "abc",
-              "def"
-            ],
-            "companionad": [{
-              "id": "3.0",
-              "vcm": 1,
-              "pos": 0,
-              "topframe": 22,
-              "expdir": [3, 9],
-              "mimes": ["application/x-shockwave-flash", "image/jpg"],
-              "api": [3, 2],
-              "w": 300,
-              "h": 250,
-              "btype": [3, 4],
-              "format": [{
-                "ext": {
-                  "dummy": "ffaa"
-                },
-                "h": 20,
-                "hratio": 30,
-                "w": 200,
-                "wmin": 3,
-                "wratio": 200
-              },
-                {
-                  "ext": {
-                    "dummy": "ffaa"
-                  },
-                  "h": 11,
-                  "hratio": 30,
-                  "w": 33,
-                  "wmin": 3,
-                  "wratio": 200
-                }],
+          "assets": [{
+            "id": 1,
+            "required": 0,
+            "title": {
+              "len": 1,
               "ext": {
-                "ptype": 1,
-                "context": 2,
-                "ctype": [1],
-                "unit": 1,
-                "priv": 0,
-                "dummy": "entry"
+                "dummy": "title.ext"
               }
-            }],
-            "companiontype": [1,2],
-            "minduration": 1,
-            "maxduration": 1,
-            "ptype":1,
-            "pos":1,
-            "startdelay":1,
-            "skip":1,
-            "w":1,
-            "h":1,
-            "skipmin":1,
-            "skipafter":1,
-            "linearity":1,
-            "boxingallowed":1,
-            "api":[2,3],
-            "maxentended":1,
-            "minbitrate":2,
-            "maxbitrate":2,
-            "delivery" :[1,2],
-            "playmethod" : [1],
+            },
+            "img": {
+              "type": 1,
+              "mimes": [
+                "a",
+                "bc",
+                "def"
+              ],
+              "w": 1,
+              "h": 2,
+              "wmin": 2,
+              "hmin": 3,
+              "ext": {
+                "wratio": 4,
+                "hratio": 5,
+                "dummy" : "img.ext"
+              }
+            },
             "protocols": [
               2,
               3
             ],
+            "video": {
+              "mimes": [
+                "abc",
+                "def"
+              ],
+
+              "minduration": 1,
+              "maxduration": 1,
+              "ext": {
+                "companionad": [{
+                  "id": "3.0",
+                  "vcm": 1,
+                  "pos": 0,
+                  "topframe": 22,
+                  "expdir": [3, 9],
+                  "mimes": ["application/x-shockwave-flash", "image/jpg"],
+                  "api": [3, 2],
+                  "w": 300,
+                  "h": 250,
+                  "btype": [3, 4],
+                  "hmin": 1,
+                  "wmin": 1,
+                  "hmax": 1,
+                  "wmax": 1,
+                  "format": [
+                    {
+                      "ext": {
+                        "dummy": "f1.ext"
+                      },
+                      "h": 20,
+                      "hratio": 30,
+                      "w": 200,
+                      "wratio": 200
+
+                    },
+                    {
+                      "ext": {
+                        "dummy": "f2.ext"
+                      },
+                      "h": 11,
+                      "hratio": 30,
+                      "w": 33,
+                      "wratio": 200
+
+                    }
+                  ],
+                  "ext": {
+                    "ptype": 1,
+                    "context": 2,
+                    "unit": 1,
+                    "priv": 0,
+                    "dummy": "innerdisplay.ext",
+                    "ctype": [1]
+                  }
+                }],
+                "unit":1,
+                "maxseq":1,
+                "dummy": "video.ext",
+                "ptype":1,
+                "pos":1,
+                "startdelay":1,
+                "skip":1,
+                "skipmin":1,
+                "skipafter":1,
+                "playbackmethod" : [1],
+                "playbackend": 1,
+                "maxentended":1,
+                "minbitrate":2,
+                "maxbitrate":2,
+                "linearity":1,
+                "boxingallowed":1,
+                "companiontype": [1,2],
+                "w":1,
+                "h":1,
+                "api":[2,3],
+                "delivery" :[1,2],
+                "banner": {
+                  "id": "3.0",
+                  "vcm": 1,
+                  "ext": {
+                    "dummy": "fwd.ext"
+                  }
+                }
+              }
+            },
+            "data": {
+              "type": 1,
+              "len": 1,
+              "ext": {
+                "dummy": "data.ext"
+              }
+            },
             "ext": {
-              "unit":1,
-              "maxseq":1,
-              "dummy": "entry"
+              "dummy": "asset.ext",
+              "clickbrowser": 1
             }
-          },
-          "data": {
-            "type": 1,
-            "len": 1,
-            "ext": {
-              "dummy": "entry"
-            }
-          },
-          "ext": {
-            "dummy": "entry"
-          }
+          }]
         }
-    }}},
+      }
+    },
     "ext": {
       "ssai": 1,
       "reward" : 1,
       "admx" :  1,
       "dt" : 1,
       "dlvy": 1,
-      "sequence" :1,
       "curlx" : 0,
-      "dummy": "ff",
-      "ampren":1,
-      "ctype" :[1]
+      "dummy": "item.ext"
     }
   }],
   "site": {
@@ -252,8 +265,7 @@
       "domain": "foobar.com",
       "ext": {
         "cattax" : 2,
-        "dummy" : "ff"
-
+        "dummy" : "pub.ext"
       }
     },
     "content": {
@@ -272,15 +284,15 @@
         "cat": ["IAB3-1", "IAB3-2"],
         "domain": "abc.com",
         "ext": {
-          "cattax" :2,
-          "dummy" : "ff"
+          "cattax" : 2,
+          "dummy" : "producer.ext"
         }
       },
       "url": "ewfe.com",
       "cat": ["IAB3-1", "IAB3-2"],
       "prodq": 1,
       "videoquality": 2,
-      "context": 2,
+      "context": 1,
       "contentrating": "wqewq",
       "userrating": "ewew",
       "qagmediarating": 1,
@@ -298,21 +310,21 @@
           "name": "name123",
           "value": "acde",
           "ext": {
-            "dummy" : "ff"
+            "dummy" : "segment.ext"
           }      }],
         "ext": {
-          "dummy" :"ff"
+          "dummy" :"data.ext"
         }
       }],
       "ext": {
-        "cattax" :2,
-        "dummy" :"ff"
+        "cattax" : 2,
+        "dummy" :"content.ext"
       }
     },
     "ext": {
-      "cattax" :2,
-      "dummy" :"ff",
-      "amp" :2
+      "cattax" : 2,
+      "dummy" : "site.ext",
+      "amp" : 2
     }
   },
   "device": {
@@ -333,11 +345,12 @@
       "zip": "ewe",
       "utcoffset": 1,
       "ext": {
-        "dummy" : "ff"
+        "dummy" : "geo.ext"
       }
     },
     "dnt": 1,
     "lmt": 1,
+    "ifa": "ifa",
     "ipv6": "123.145.167.1.3.2",
     "devicetype": 2,
     "make": "weew",
@@ -359,7 +372,7 @@
     "ext": {
       "xff" : "1.2.3.4",
       "iptr" : 1,
-      "dummy" : "ff"
+      "dummy" : "device.ext"
     }
   },
   "user": {
@@ -384,7 +397,7 @@
       "zip": "ewe",
       "utcoffset": 1,
       "ext": {
-        "dummy" :"ff"
+        "dummy" :"geo1.ext"
       }
     },
     "data": [{
@@ -395,15 +408,15 @@
         "name": "rewfe",
         "value": "ew",
         "ext": {
-          "dummy" : "ff"
+          "dummy" : "segment12.ext"
         }      }],
       "ext": {
-        "dummy" : "ff"
+        "dummy" : "data12.ext"
       }
     }],
     "ext": {
-      "consent" : "abcdef"
+      "consent" : "abcdef",
+      "dummy": "user.ext"
     }
-
   }
 }

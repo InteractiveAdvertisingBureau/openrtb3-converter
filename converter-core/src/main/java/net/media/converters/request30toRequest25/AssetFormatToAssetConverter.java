@@ -4,19 +4,15 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
+import net.media.openrtb25.request.*;
 import net.media.openrtb25.request.Asset;
-import net.media.openrtb25.request.NativeData;
-import net.media.openrtb25.request.NativeImage;
-import net.media.openrtb25.request.NativeTitle;
-import net.media.openrtb25.request.NativeVideo;
-import net.media.openrtb3.AssetFormat;
-import net.media.openrtb3.DataAssetFormat;
-import net.media.openrtb3.ImageAssetFormat;
-import net.media.openrtb3.TitleAssetFormat;
-import net.media.openrtb3.VideoPlacement;
+import net.media.openrtb25.request.Banner;
+import net.media.openrtb3.*;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,13 +39,34 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     if (isNull(assetFormat) || isNull(asset)) {
       return;
     }
-    asset.setRequired( assetFormat.getReq() );
-    asset.setId( assetFormat.getId() );
-    asset.setTitle( titleAssetFormatToNativeTitle( assetFormat.getTitle(), config ) );
-    asset.setImg( imageAssetFormatToNativeImage( assetFormat.getImg(), config ) );
-    asset.setVideo( videoAssetFormatToVideoImage( assetFormat.getVideo(), config ) );
-    asset.setData( dataAssetFormatToNativeData( assetFormat.getData(), config ) );
+    asset.setRequired(assetFormat.getReq());
+    asset.setId(assetFormat.getId());
+    asset.setTitle(titleAssetFormatToNativeTitle(assetFormat.getTitle(), config));
+    asset.setImg(imageAssetFormatToNativeImage(assetFormat.getImg(), config));
+    asset.setVideo(videoAssetFormatToVideoImage(assetFormat.getVideo(), config));
+    asset.setData(dataAssetFormatToNativeData(assetFormat.getData(), config));
     asset.setExt(Utils.copyMap(assetFormat.getExt(), config));
+
+    if (assetFormat.getVideo().getComp() != null)
+    {
+      try {
+        Collection<Banner> banners = new ArrayList<>();
+        Converter<Companion, Banner> companionToBannerConverter = converterProvider.fetch(new Conversion<>
+          (Companion.class, Banner.class));
+        for (Companion companion : assetFormat.getVideo().getComp()) {
+          banners.add(companionToBannerConverter.map(companion, config, converterProvider));
+        }
+        if(asset.getVideo().getExt() == null) {
+          asset.getVideo().setExt(new HashMap<>());
+        }
+        asset.getVideo().getExt().put("companionad",banners);
+      } catch (Exception e) {
+        throw new OpenRtbConverterException("Error in setting creating companion", e);
+      }
+  }
+
+
+
   }
 
   private NativeTitle titleAssetFormatToNativeTitle(TitleAssetFormat titleAssetFormat, Config
