@@ -1,7 +1,0 @@
-net/media/api/models/Response2xPayload.class
-net/media/api/models/Request2xPayload.class
-net/media/api/ConverterModule.class
-net/media/api/ConverterApplication.class
-net/media/api/models/RequestResponse3xPayload.class
-net/media/api/servlets/ConverterServlet.class
-net/media/api/ConverterListener.class
