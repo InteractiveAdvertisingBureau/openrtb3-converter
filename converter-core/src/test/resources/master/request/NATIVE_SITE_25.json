@@ -95,7 +95,6 @@
         "native" : {
           "ver": "1.2",
           "layout": 1,
-          "battr" : [1,2],
           "adunit": 1,
           "context": 2,
           "contextsubtype": 2,
@@ -131,11 +130,11 @@
                 "dummy" : "img.ext"
               }
             },
-            "protocols": [
-              2,
-              3
-            ],
             "video": {
+              "protocols": [
+                2,
+                3
+              ],
               "mimes": [
                 "abc",
                 "def"
@@ -145,7 +144,7 @@
               "maxduration": 1,
               "ext": {
                 "companionad": [{
-                  "id": "3.0",
+                  "id": "4.0",
                   "vcm": 1,
                   "pos": 0,
                   "topframe": 22,
@@ -190,7 +189,7 @@
                     "ctype": [1]
                   }
                 }],
-                "unit":1,
+                "unit":2,
                 "maxseq":1,
                 "dummy": "video.ext",
                 "ptype":1,
@@ -201,7 +200,7 @@
                 "skipafter":1,
                 "playbackmethod" : [1],
                 "playbackend": 1,
-                "maxentended":1,
+                "maxextended":1,
                 "minbitrate":2,
                 "maxbitrate":2,
                 "linearity":1,
@@ -210,14 +209,7 @@
                 "w":1,
                 "h":1,
                 "api":[2,3],
-                "delivery" :[1,2],
-                "banner": {
-                  "id": "3.0",
-                  "vcm": 1,
-                  "ext": {
-                    "dummy": "fwd.ext"
-                  }
-                }
+                "delivery" :[1,2]
               }
             },
             "data": {
