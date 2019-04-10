@@ -48,7 +48,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2002
 
  - inputFile: VAST_SITE_25.json
@@ -58,7 +58,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2003
 
  - inputFile: VAST_SITE_25.json
@@ -68,7 +68,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2004
 
  - inputFile: VAST_SITE_25.json
@@ -78,7 +78,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2005
 
  - inputFile: VAST_SITE_25.json
@@ -88,7 +88,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2006
 
  - inputFile: VAST_SITE_25.json
@@ -98,7 +98,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2007
 
  - inputFile: VAST_SITE_25.json
@@ -108,7 +108,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2008
 
 
@@ -119,7 +119,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2009
 
 
@@ -130,7 +130,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2010
 
 
@@ -141,7 +141,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2011
 
 
@@ -152,7 +152,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2012
 
  - inputFile: VAST_SITE_25.json
@@ -162,7 +162,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2013
 
  - inputFile: VAST_SITE_25.json
@@ -172,7 +172,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2014
 
  - inputFile: VAST_SITE_25.json
@@ -182,7 +182,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2015
 
  - inputFile: VAST_SITE_25.json
@@ -192,7 +192,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2016
 
  - inputFile: VAST_SITE_25.json
@@ -202,7 +202,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2017
 
  - inputFile: VAST_SITE_25.json
@@ -212,7 +212,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2018
 
  - inputFile: NATIVE_SITE_25.json
@@ -404,7 +404,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2033
 
  - inputFile: NATIVE_SITE_25.json
@@ -414,7 +414,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2034
 
  - inputFile: NATIVE_SITE_25.json
@@ -424,7 +424,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2035
 
  - inputFile: NATIVE_SITE_25.json
@@ -434,7 +434,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2036
 
  - inputFile: NATIVE_SITE_25.json
@@ -444,7 +444,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2037
 
  - inputFile: NATIVE_SITE_25.json
@@ -454,7 +454,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2038
 
  - inputFile: NATIVE_SITE_25.json
@@ -464,7 +464,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2039
 
  - inputFile: NATIVE_SITE_25.json
@@ -474,7 +474,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC2040
 
  - inputFile: NATIVE_SITE_25.json

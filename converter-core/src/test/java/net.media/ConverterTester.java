@@ -28,7 +28,7 @@ public class ConverterTester {
     ORTBTester ortbTester = new ORTBTester(openRtbConverter);
     TestOutput testOutput = new TestOutput();
 
-    File folder = new File(classLoader.getResource("generatedRequest").getFile());
+    File folder = new File(classLoader.getResource("generated/request").getFile());
     File[] files = folder.listFiles();
     File outputFile = new File(classLoader.getResource("generatedOutput").getPath()+"/Output.json");
     if (nonNull(files)) {
