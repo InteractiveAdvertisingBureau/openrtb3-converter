@@ -1,5 +1,5 @@
 {
-  "inputFile" : "RESPONSE_BANNER_SITE_30_wo_EXT.json",
+  "inputFile" : "RESPONSE_BANNER_SITE_30.json",
   "inputType" : "RESPONSE30",
   "inputEdits" : {
     "response.id" : "\"1\""
@@ -86,7 +86,7 @@
       } ]
     }
   },
-  "outputFile" : "RESPONSE_BANNER_SITE_25_wo_EXT.json",
+  "outputFile" : "RESPONSE_BANNER_SITE_25.json",
   "outputType" : "RESPONSE25",
   "outputEdits" : {
     "id" : "\"1\""

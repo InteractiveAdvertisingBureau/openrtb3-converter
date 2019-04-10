@@ -7,7 +7,7 @@ cases:
    outputType: "REQUEST25"
    outputEdits:
      at: 2
-   purpose: nativerequestasstringcorrectvalue
+   purpose: nativerequestasstringcorrectvalue1
    params:
      adType: m
      yaar: e
@@ -21,7 +21,7 @@ cases:
    outputType: "REQUEST25"
    outputEdits:
      status: "ERROR"
-   purpose: nativerequestasstringincorrectvalue
+   purpose: nativerequestasstringincorrectvalue2
    params:
      adType: m
      yaar: e
@@ -35,7 +35,7 @@ cases:
    outputType: "REQUEST25"
    outputEdits:
      at: 2
-   purpose: nativerequestasstringincorrectvalue
+   purpose: nativerequestasstringincorrectvalue3
    params:
      adType: m
      yaar: e

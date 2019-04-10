@@ -591,9 +591,9 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.context.app.content.id: "\"ab\""
-     request.context.app.content.name: "\"ab\""
-     request.context.app.content.domain: "\"abc.com\""
+     request.context.app.content.producer.id: "\"ab\""
+     request.context.app.content.producer.name: "\"ab\""
+     request.context.app.content.producer.domain: "\"abc.com\""
    purpose: TC50
 
  - inputFile: BANNER_APP_25.json

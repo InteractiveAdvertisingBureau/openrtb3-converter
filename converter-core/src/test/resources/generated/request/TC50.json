@@ -338,9 +338,9 @@
   "outputFile" : "BANNER_APP_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
-    "request.context.app.content.id" : "\"ab\"",
-    "request.context.app.content.name" : "\"ab\"",
-    "request.context.app.content.domain" : "\"abc.com\""
+    "request.context.app.content.producer.id" : "\"ab\"",
+    "request.context.app.content.producer.name" : "\"ab\"",
+    "request.context.app.content.producer.domain" : "\"abc.com\""
   },
   "outputJson" : {
     "ver" : "3.0",
@@ -502,7 +502,7 @@
             }
           },
           "content" : {
-            "id" : "ab",
+            "id" : "rfewa",
             "episode" : 1,
             "title" : "sf",
             "series" : "rf",
@@ -526,8 +526,8 @@
             "lang" : "en",
             "embed" : 1,
             "producer" : {
-              "id" : "eew",
-              "name" : "edew",
+              "id" : "ab",
+              "name" : "ab",
               "domain" : "abc.com",
               "cat" : [ "IAB3-1", "IAB3-2" ],
               "cattax" : 2,
@@ -553,9 +553,7 @@
             "ext" : {
               "dummy" : "ff",
               "videoquality" : 2
-            },
-            "name" : "ab",
-            "domain" : "abc.com"
+            }
           },
           "domain" : "www.foobar.com",
           "cat" : [ "IAB3-1", "IAB3-2" ],
