@@ -38,7 +38,7 @@ public class ConverterTester {
       for (File files : innerFolder) {
         totalFiles += files.listFiles().length;
         for (File file : files.listFiles()) {
-          System.out.println("Running test file = " + file.getName());
+//          System.out.println("Running test file = " + file.getName());
 
           byte[] jsonData = Files.readAllBytes(file.toPath());
           TestPojo testPojo = null;
@@ -78,13 +78,14 @@ public class ConverterTester {
             outputTestPojo.setException("Test file is incorrect");
             testOutput.getFailedTestList().add(outputTestPojo);
           }
-          System.out.println("Completed execution of test file = " + file.getName());
+//          System.out.println("Completed execution of test file = " + file.getName());
         }
     }
       testOutput.setTotalTestCases(totalFiles);
       testOutput.setFailedTestCases(testOutput.getFailedTestList().size());
-      System.out.println(JacksonObjectMapper.getMapper().writeValueAsString(testOutput));
+//      System.out.println(JacksonObjectMapper.getMapper().writeValueAsString(testOutput));
       JacksonObjectMapper.getMapper().writerWithDefaultPrettyPrinter().writeValue(outputFile, testOutput);
+      Assert.assertEquals("Failing test cases. For more info check generatedOutput/Output.json",0, testOutput.getFailedTestList().size());
     }
   }
 
