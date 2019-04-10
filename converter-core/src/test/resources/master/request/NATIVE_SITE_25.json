@@ -4,53 +4,35 @@
   "test": 1,
   "tmax": 100,
   "wseat": ["a"],
-  "bseat": ["b"],
   "source": {
     "fd": 1,
     "tid": "dd",
     "pchain": "dd",
     "ext": {
-      "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
-        }
-      },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "Key": "value"
+      "ts" : 1,
+      "ds" : "ds",
+      "dsmap" : "abcdefghij",
+      "cert" : "abc.com/xyz/efg",
+      "digest" : "digest:digest, abcde:efg",
+      "dummy" : "ff"
+
     }
   },
   "regs": {
     "coppa": 1,
     "ext": {
-      "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
-        }
-      },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "Key": "value"
+      "gdpr" : 1,
+      "dummy" :"ff"
     }
   },
   "ext": {
-    "object": {
-      "a" : "dsd",
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "obj" : {
-        "a" : 1
+    "cattax" : 2,
+    "dummy" : "ff",
+    "restrictions": {
+      "ext": {
+        "dummy": "ff"
       }
-    },
-    "arraySample": ["a"],
-    "jsonArraySample": [{"id": 1}],
-    "Key": "value"
+    }
   },
   "cur": ["USD"],
   "allimps": 0,
@@ -60,6 +42,9 @@
   "bapp": ["nn"],
   "imp": [{
     "id": "1",
+    "instl" :0,
+    "iframebuster":["abc","def"],
+    "clickbrowser": 1,
     "metric": [{
       "type": "dd",
       "value": 1.0,
@@ -71,10 +56,10 @@
     "bidfloor": 0.03,
     "bidfloorcur": "USD",
     "pmp": {
-      "private_auction": 0,
+      "private_auction": 1,
       "deals": [{
         "id": "ww",
-        "bidfloor": 0.1,
+        "bidfloor": 0.0,
         "bidfloorcur": "USD",
         "at": 1,
         "wseat": ["dd", "as"],
@@ -89,18 +74,13 @@
     },
     "displaymanager": "dd",
     "displaymanagerver": "22",
-    "clickbrowser": 1,
     "secure": 1,
-    "iframebuster": ["ss", "abc"],
-    "instl": 0,
     "tagid": "re",
     "exp": 1,
     "native": {
       "ver": "1.1",
       "api": [
-        1,
-        2,
-        3
+        3,2
       ],
       "battr": [
         2,
@@ -108,25 +88,30 @@
         8
       ],
       "ext": {
-        "dummy": "entry"
+        "dummy": "entry",
+        "priv":0
       },
       "request": {
-        "ver": "1.1",
-        "layout": 0,
-        "adunit": 1,
-        "context": 1,
-        "contextsubtype": 2,
-        "plcmttype": 3,
-        "plcmtcnt": 4,
-        "seq": 5,
-        "ext": {
-          "dummy": "object"
-        },
-        "asset": [{
+    "native" : {
+      "ver": "1.1",
+      "layout": 0,
+      "battr" : [1,2],
+      "adunit": 1,
+      "context": 2,
+      "contextsubtype": 2,
+      "plcmttype": 1,
+      "plcmtcnt": 4,
+      "seq": 5,
+      "ext": {
+        "dummy": "object"
+      },
+      "asset":
+        {
+          "clickbrowser":1,
           "id": 1,
           "required": 0,
           "title": {
-            "len": 20,
+            "len": 1,
             "ext": {
               "dummy": "entry"
             }
@@ -134,38 +119,97 @@
           "img": {
             "type": 1,
             "mimes": [
-              "abc",
-              "def"
-            ],
-            "w": 20,
-            "h": 20,
-            "wmin": 20,
-            "hmin": 20,
-            "ext": {
-              "wratio": 20,
-              "hratio": 20
-            }
-          },
-          "video":{
-            "mimes": [
               "a",
               "bc",
               "def"
             ],
+            "w": 1,
+            "h": 2,
+            "wmin": 2,
+            "hmin": 3,
+            "ext": {
+              "wratio": 4,
+              "hratio": 5,
+              "dummy" : "entry"
+            }
+          },
+          "video": {
+            "mimes": [
+              "abc",
+              "def"
+            ],
+            "companionad": [{
+              "id": "3.0",
+              "vcm": 1,
+              "pos": 0,
+              "topframe": 22,
+              "expdir": [3, 9],
+              "mimes": ["application/x-shockwave-flash", "image/jpg"],
+              "api": [3, 2],
+              "w": 300,
+              "h": 250,
+              "btype": [3, 4],
+              "format": [{
+                "ext": {
+                  "dummy": "ffaa"
+                },
+                "h": 20,
+                "hratio": 30,
+                "w": 200,
+                "wmin": 3,
+                "wratio": 200
+              },
+                {
+                  "ext": {
+                    "dummy": "ffaa"
+                  },
+                  "h": 11,
+                  "hratio": 30,
+                  "w": 33,
+                  "wmin": 3,
+                  "wratio": 200
+                }],
+              "ext": {
+                "ptype": 1,
+                "context": 2,
+                "ctype": [1],
+                "unit": 1,
+                "priv": 0,
+                "dummy": "entry"
+              }
+            }],
+            "companiontype": [1,2],
             "minduration": 1,
-            "maxduration": 2,
+            "maxduration": 1,
+            "ptype":1,
+            "pos":1,
+            "startdelay":1,
+            "skip":1,
+            "w":1,
+            "h":1,
+            "skipmin":1,
+            "skipafter":1,
+            "linearity":1,
+            "boxingallowed":1,
+            "api":[2,3],
+            "maxentended":1,
+            "minbitrate":2,
+            "maxbitrate":2,
+            "delivery" :[1,2],
+            "playmethod" : [1],
             "protocols": [
               2,
-              3,
-              4
+              3
             ],
             "ext": {
+              "unit":1,
+              "maxseq":1,
               "dummy": "entry"
             }
           },
           "data": {
             "type": 1,
-            "len": 2,
+            "len": 1,
             "ext": {
               "dummy": "entry"
             }
@@ -173,18 +217,26 @@
           "ext": {
             "dummy": "entry"
           }
-        }]
-      }
-    },
+        }
+    }}},
     "ext": {
-      "dummy": "entry"
+      "ssai": 1,
+      "reward" : 1,
+      "admx" :  1,
+      "dt" : 1,
+      "dlvy": 1,
+      "sequence" :1,
+      "curlx" : 0,
+      "dummy": "ff",
+      "ampren":1,
+      "ctype" :[1]
     }
   }],
   "site": {
     "id": "102855",
     "name": "abdk",
     "sectioncat": ["zz", "dd"],
-    "pagecat": ["as", "ss"],
+    "pagecat": ["ss", "as"],
     "cat": ["IAB3-1", "IAB3-2"],
     "ref": "sdfe",
     "search": "eded",
@@ -199,17 +251,9 @@
       "cat": ["IAB3-1", "IAB3-2"],
       "domain": "foobar.com",
       "ext": {
-        "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
-          }
-        },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "Key": "value"
+        "cattax" : 2,
+        "dummy" : "ff"
+
       }
     },
     "content": {
@@ -228,24 +272,15 @@
         "cat": ["IAB3-1", "IAB3-2"],
         "domain": "abc.com",
         "ext": {
-          "object": {
-            "a" : "dsd",
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "obj" : {
-              "a" : 1
-            }
-          },
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "Key": "value"
+          "cattax" :2,
+          "dummy" : "ff"
         }
       },
       "url": "ewfe.com",
       "cat": ["IAB3-1", "IAB3-2"],
       "prodq": 1,
       "videoquality": 2,
-      "context": 1,
+      "context": 2,
       "contentrating": "wqewq",
       "userrating": "ewew",
       "qagmediarating": 1,
@@ -256,65 +291,28 @@
       "language": "en",
       "embeddable": 1,
       "data": [{
-        "id": "wwe",
-        "name": "ee",
+        "id": "1",
+        "name": "Abcdef",
         "segment": [{
-          "id": "ew",
-          "name": "rewfe",
-          "value": "ew",
+          "id": "bcdef",
+          "name": "name123",
+          "value": "acde",
           "ext": {
-            "object": {
-              "a" : "dsd",
-              "arraySample": ["a"],
-              "jsonArraySample": [{"id": 1}],
-              "obj" : {
-                "a" : 1
-              }
-            },
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "Key": "value"
+            "dummy" : "ff"
           }      }],
         "ext": {
-          "object": {
-            "a" : "dsd",
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "obj" : {
-              "a" : 1
-            }
-          },
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "Key": "value"
+          "dummy" :"ff"
         }
       }],
       "ext": {
-        "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
-          }
-        },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "Key": "value"
+        "cattax" :2,
+        "dummy" :"ff"
       }
     },
     "ext": {
-      "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
-        }
-      },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "Key": "value"
+      "cattax" :2,
+      "dummy" :"ff",
+      "amp" :2
     }
   },
   "device": {
@@ -335,17 +333,7 @@
       "zip": "ewe",
       "utcoffset": 1,
       "ext": {
-        "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
-          }
-        },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "Key": "value"
+        "dummy" : "ff"
       }
     },
     "dnt": 1,
@@ -354,7 +342,7 @@
     "devicetype": 2,
     "make": "weew",
     "model": "edew",
-    "os": "ede",
+    "os": "android",
     "osv": "hwv",
     "hwv": "ww",
     "h": 2,
@@ -369,17 +357,9 @@
     "mccmnc": "ewew",
     "connectiontype": 2,
     "ext": {
-      "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
-        }
-      },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "Key": "value"
+      "xff" : "1.2.3.4",
+      "iptr" : 1,
+      "dummy" : "ff"
     }
   },
   "user": {
@@ -404,17 +384,7 @@
       "zip": "ewe",
       "utcoffset": 1,
       "ext": {
-        "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
-          }
-        },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "Key": "value"
+        "dummy" :"ff"
       }
     },
     "data": [{
@@ -425,44 +395,14 @@
         "name": "rewfe",
         "value": "ew",
         "ext": {
-          "object": {
-            "a" : "dsd",
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "obj" : {
-              "a" : 1
-            }
-          },
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "Key": "value"
+          "dummy" : "ff"
         }      }],
       "ext": {
-        "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
-          }
-        },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "Key": "value"
+        "dummy" : "ff"
       }
     }],
     "ext": {
-      "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
-        }
-      },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "Key": "value"
+      "consent" : "abcdef"
     }
 
   }

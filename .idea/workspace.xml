@@ -1,0 +1,1508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9ce24c19-3d72-44fb-8e44-f74ecd788224" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/Shivani/response/testScript_banner_site_required.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/Shivani/response/testScript_banner_site_required_30_to_25.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_25_wo_EXT.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_30_wo_EXT.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/edits/request/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/Shivani/request/sample.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript1_defaultValues.txt" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/Shivani/request/testScript1_defaultValues.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_App_datatype_25_.txt" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/Shivani/request/testScript_App_datatype_25_.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_banner_site_datatype_25_.txt" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/Shivani/request/testScript_banner_site_datatype_25_.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/Shivani/request/testScript_config.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/edits/response/testScript_banner_site_required.txt" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/edits/response/testScript_banner_site_required.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/edits/response/testScript_banner_site_required_30_to_25.txt" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/edits/response/testScript_banner_site_required_30_to_25.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/edits/response/testScript_config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/Shivani/response/testScript_config.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_25.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_25.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_30.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_30.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_NATIVE_SITE_30.json" beforeDir="false" afterPath="$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_NATIVE_SITE_30.json" afterDir="false" />
+    </list>
+    <ignored path="open-rtb-converter.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <ignored path="$PROJECT_DIR$/converter-core/target/" />
+    <ignored path="$PROJECT_DIR$/converter-api/target/" />
+    <ignored path="$PROJECT_DIR$/converter-bechmark/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="open-rtb-converter" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/response/TC5001_banner.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/response/TC6000_banner.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/response/TC5001_native.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/response/testScript_banner_site_required.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_25_wo_EXT.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_30_wo_EXT.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1005">
+              <caret line="67" column="21" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="AnnotationType" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>&quot;ERROR&quot;</find>
+      <find>&quot;\&quot;ERROR\&quot;&quot;</find>
+      <find>ab</find>
+      <find>request.item[0].it</find>
+      <find>request.item.spec.pl</find>
+      <find>request.item.ex</find>
+      <find>request.imp.spec</find>
+      <find>request.item[0].spec.placement.displa</find>
+      <find>request.item[0].spec.placement.display.displayfmt.ext</find>
+      <find>request.item[0].spec.placement.display.displayfmt.expdir</find>
+      <find>ERROR</find>
+      <find>request.item[0].spec.placement.display.displayplacement</find>
+      <find>seat</find>
+      <find>ext</find>
+      <find>group</find>
+      <find>cdata</find>
+      <find>nativ</find>
+      <find>na</find>
+      <find>bidresponseSeatbidExt</find>
+      <find>mediaAdDisplayExt</find>
+      <find>mediaAdExt</find>
+      <find>bidresponseSeatbidBidExt</find>
+      <find>hrat</find>
+      <find>mediaAdDisplayEventExt</find>
+      <find>lastmod</find>
+      <find>hr</find>
+      <find>link</find>
+      <find>mediaAdDisplayBannerext</find>
+      <find>bidresponseEXT</find>
+      <find>hrataio</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>request.context.user</replace>
+      <replace>user.data[0]</replace>
+      <replace>app.content.producer</replace>
+      <replace>ERROR</replace>
+      <replace>request.item[0].spec</replace>
+      <replace>request.item[0].spec.pl</replace>
+      <replace>request.item[0].exp</replace>
+      <replace>request.item[0].spe</replace>
+      <replace>request.item[0].spec.placement.display.displayfmt[0].ext</replace>
+      <replace>&quot;\&quot;ERROR\&quot;&quot;</replace>
+      <replace>request.item[0].spec.placement.display.displayfmt[0].expdir</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master_request/VAST_SITE_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_23.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_23.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_23.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_APP_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_APP_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_APP_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_23.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_23.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_SITE_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/DOOH_APP_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/DOOH_SITE_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/AUDIO_DOOH_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_DOOH_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_DOOH_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_24.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_SITE_23.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_DOOH_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_native_datatype_25_.txt" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_vast_datatype_25_.txt" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_SITE_25_mandatory_.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/Shivani/testScript_banner_site_datatype_25_.txt" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/empty.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript1_defaultValues.txt" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/Shivani/testScript_vast_datatype_25_.txt" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_App_datatype_25_.txt" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_APP_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_SITE_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_banner_site_datatype_25_.txt" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_NATIVE_SITE_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_25.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_30.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/edits/response/testScript_banner_site_required.txt" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/edits/response/testScript_banner_site_required_30_to_25.txt" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_30_wo_EXT.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/generated/response/TC6000_banner.json" />
+        <option value="$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_25_wo_EXT.json" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="709" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+      <autoscrollToSource ProjectPane="true" />
+      <autoscrollFromSource ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="converter-core" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="net.media" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="edits" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="edits" type="462c0819:PsiDirectoryNode" />
+              <item name="request" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="master" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="master" type="462c0819:PsiDirectoryNode" />
+              <item name="request" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-rtb-converter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="openrtb-converter" type="462c0819:PsiDirectoryNode" />
+              <item name="converter-core" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="LombokPluginEnabledInProject" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="VideoPl&#9;PSI&#9;JAVA://net.media.openrtb3.VideoPlacement&#10;Display&#9;FILE&#9;file:///Users/varun.b/cookie_manager/ortb/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/DisplayPlacement.java&#10;VideoAss&#9;PSI&#9;JAVA://net.media.openrtb3.VideoAsset&#10;native&#9;PSI&#9;JAVA://net.media.openrtb25.request.Native&#10;imp&#9;PSI&#9;JAVA://net.media.openrtb25.request.Imp&#10;itemtoim&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request30toRequest25/ItemToImpConverter.java&#10;pmp&#9;PSI&#9;JAVA://net.media.openrtb25.request.Pmp&#10;nativetod&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request25toRequest30/NativeToDisplayPlacementConverter.java&#10;displatona&#9;PSI&#9;JAVA://net.media.converters.request30toRequest25.DisplayPlacementToNativeConverter&#10;bannerto&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java&#10;displayplacementto&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request30toRequest25/DisplayPlacementToBannerConverter.java&#10;displ&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/DisplayPlacement.java&#10;display&#9;PSI&#9;JAVA://net.media.openrtb3.Display&#10;displa&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Display.java&#10;place&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Placement.java&#10;item&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Item.java&#10;restri&#9;PSI&#9;JAVA://net.media.openrtb3.Restrictions&#10;user&#9;PSI&#9;JAVA://net.media.openrtb25.request.User&#10;bidre&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb25/request/BidRequest.java&#10;request&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Request.java&#10;audio&#9;PSI&#9;JAVA://net.media.openrtb25.request.Audio&#10;audip&#9;PSI&#9;JAVA://net.media.openrtb3.AudioPlacement&#10;videopl&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/VideoPlacement.java&#10;video&#9;PSI&#9;JAVA://net.media.openrtb3.Video&#10;banner&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb25/request/Banner.java&#10;displayf&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/DisplayFormat.java&#10;placement&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Placement.java&#10;source&#9;PSI&#9;JAVA://net.media.openrtb25.request.Source&#10;bidreq&#9;PSI&#9;JAVA://net.media.openrtb25.request.BidRequest&#10;reque&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Request.java&#10;openr&#9;PSI&#9;JAVA://net.media.openrtb3.OpenRTB&#10;list&#9;PSI&#9;JAVA://net.media.utils.ListToListConverter&#10;bannertocom&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToCompanionConverter.java&#10;displaytobi&#9;PSI&#9;JAVA://net.media.converters.response30toresponse25.DisplayToBidConverter&#10;config&#9;PSI&#9;JAVA://net.media.config.Config&#10;videopla&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/VideoPlacement.java&#10;bannertodis&#9;FILE&#9;file:///Users/ankit.cho/openrtb-converter/converter-core/src/main/java/net/media/converters/request25toRequest30/BannerToDisplayPlacementConverter.java&#10;companio&#9;PSI&#9;JAVA://net.media.openrtb3.Companion&#10;bidtoad&#9;PSI&#9;JAVA://net.media.converters.response25toresponse30.BidToAdConverter&#10;utils&#9;PSI&#9;JAVA://net.media.utils.Utils&#10;Video&#9;FILE&#9;file:///Users/shiva.b/Documents/openrtb-converter/converter-core/src/main/java/net/media/openrtb25/request/Video.java&#10;BidRes&#9;PSI&#9;JAVA://net.media.openrtb25.response.BidResponse&#10;SeatBi&#9;FILE&#9;file:///Users/shiva.b/Documents/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Seatbid.java&#10;HashMa&#9;PSI&#9;JAVA://java.util.HashMap&#10;Disp&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/openrtb3/Display.java&#10;Ad&#9;PSI&#9;JAVA://net.media.openrtb3.Ad&#10;bid&#9;PSI&#9;JAVA://net.media.openrtb3.Bid&#10;Bid&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToAdConverter.java&#10;Ope&#9;FILE&#9;file:///Users/samya.p/openrtb-converter/converter-core/src/main/java/net/media/mapper/OpenRtb24To3Mapper.java&#10;ope&#9;PSI&#9;JAVA://net.media.mapper.OpenRtb24To3Mapper" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554473647784" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/converter-core/src/test/resources/master/response" />
+      <recent name="$PROJECT_DIR$/converter-core/src/test/resources/Shivani" />
+      <recent name="$PROJECT_DIR$/converter-core/src/test/resources/edits/request" />
+      <recent name="$PROJECT_DIR$/converter-core/src/test/resources/edits/response" />
+      <recent name="$PROJECT_DIR$/converter-core/src/test/resources/master/request" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/converter-core/src/main/java/net/media/removeMe" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.TestCaseGenerator">
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="converter-core" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    </configuration>
+    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="converter-core" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="converter-core" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="converter-core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="converter-core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="converter-core" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="converter-core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <module name="converter-core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="converter-core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <module name="converter-core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenRtb24To3Mapper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="net.media.removeMe.OpenRtb24To3Mapper" />
+      <module name="converter-core" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.media.removeMe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenRtbMapperTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="net.media.removeMe.OpenRtbMapperTest" />
+      <module name="converter-core" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.media.removeMe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCaseGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="net.media.TestCaseGenerator" />
+      <module name="converter-core" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.media.driver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <module name="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.OpenRtb24To3Mapper" />
+      <item itemvalue="Application.OpenRtbMapperTest" />
+      <item itemvalue="Application.TestCaseGenerator" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestCaseGenerator" />
+        <item itemvalue="Application.OpenRtb24To3Mapper" />
+        <item itemvalue="Application.OpenRtbMapperTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9ce24c19-3d72-44fb-8e44-f74ecd788224" name="Default" comment="" />
+      <created>1547019396051</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1547019396051</updated>
+      <workItem from="1547019397410" duration="3821000" />
+      <workItem from="1547410622308" duration="746000" />
+      <workItem from="1547547173371" duration="556000" />
+      <workItem from="1553785595566" duration="4448000" />
+      <workItem from="1553856826763" duration="4037000" />
+      <workItem from="1554192709061" duration="1613000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="61446000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1280" height="709" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26171243" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="DB Browser" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Project Explorer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Job Explorer" order="8" />
+      <window_info id="Learn" order="9" />
+      <window_info id="Palette&#9;" order="10" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.21875" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.58082193" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.51369864" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Console" order="7" />
+      <window_info anchor="bottom" id="DB Execution Console" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.61102104" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32954547" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="JProfiler" order="13" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24959612" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Designer" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" weight="0.40145397" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="CodotaView" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+      <window_info anchor="right" id="Data View" order="11" />
+      <window_info anchor="right" id="Maven" order="12" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/SeatBid30ToSeatBid25Converter.java</url>
+          <line>32</line>
+          <properties />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid25Converter.java</url>
+          <line>59</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid25Converter.java</url>
+          <line>60</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/Bid30ToBid25Converter.java</url>
+          <line>62</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response30toresponse25/AdToBidConverter.java</url>
+          <line>60</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/converters/response25toresponse30/BidToVideoConverter.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/main/java/net/media/openrtb25/request/Video.java</url>
+          <line>284</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/converter-core/src/test/java/net.media/TestCaseGenerator.java</url>
+          <line>85</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/NATIVE_APP_25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="177" column="8" selection-start-line="177" selection-start-column="8" selection-end-line="177" selection-end-column="8" />
+          <folding>
+            <element signature="e#1343#1668#0" />
+            <element signature="e#1902#1943#0" />
+            <element signature="e#1960#2001#0" />
+            <element signature="e#2016#2050#0" />
+            <element signature="e#3397#3424#0" />
+            <element signature="n#!!block;n#app#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generatedRequest/testing.json" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_VAST_SITE_30.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="91" column="19" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="19" />
+          <folding>
+            <element signature="n#!!block;n#source#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="e#691#821#0" />
+            <element signature="e#839#1055#0" />
+            <element signature="e#1577#1633#0" />
+            <element signature="e#1654#1702#0" />
+            <element signature="e#1725#1773#0" />
+            <element signature="n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#site#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#user#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#device#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#regs#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/VAST_SITE_25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="142" column="19" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
+          <folding>
+            <element signature="n#!!block;n#source#0;n#!!top" />
+            <element signature="n#!!block;n#regs#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!top" />
+            <element signature="e#1165#1281#0" />
+            <element signature="e#1343#1669#0" />
+            <element signature="e#1884#1934#0" />
+            <element signature="e#2005#2046#0" />
+            <element signature="e#2242#2283#0" />
+            <element signature="e#2405#2446#0" />
+            <element signature="e#2490#2509#0" />
+            <element signature="n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#user#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_vast_datatype_25_.txt" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/response/testScript_banner_datatype.txt" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_native_datatype_25_.txt" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/Shivani/sample.txt" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/request/idIntFormat.json" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/request/idStringFormat3.json" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/request/idStringFormat2.json" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/request/idStringFormat4.json" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/empty.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/request/idStringFormat1.json" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/request/idStringFormat.json" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/request/invalidData2.json" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/Shivani/testScript_banner_site_datatype_25_.txt" />
+    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.8.0/jackson-databind-2.8.0.jar!/com/fasterxml/jackson/databind/exc/UnrecognizedPropertyException.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/Shivani/testScript_App_datatype_25_.txt" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_SITE_25_mandatory_.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="184" selection-start-line="184" selection-end-line="184" />
+          <folding>
+            <element signature="n#!!block;n#publisher#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#producer#0;n#!!block;n#content#0;n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#geo#0;n#!!block;n#device#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/Shivani/testScript1_defaultValues.txt" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/Shivani/testScript_vast_datatype_25_.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1191">
+          <caret line="448" selection-start-line="448" selection-end-line="448" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript1_defaultValues.txt" />
+    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.8.0/jackson-databind-2.8.0.jar!/com/fasterxml/jackson/databind/node/IntNode.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#943#944#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/java/net.media/TestCaseGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_APP_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="81" column="26" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!block;n#source#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="e#691#821#0" />
+            <element signature="e#839#1055#0" />
+            <element signature="e#1780#2223#0" />
+            <element signature="e#2159#2208#0" />
+            <element signature="e#2247#2541#0" />
+            <element signature="e#2966#3020#0" />
+            <element signature="n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#pub#0;n#!!block;n#app#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#app#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#user#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#device#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#regs#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#restrictions#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_App_datatype_25_.txt" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_SITE_25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="91" column="19" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="19" />
+          <folding>
+            <element signature="n#!!block;n#source#0;n#!!top" />
+            <element signature="n#!!block;n#regs#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!top" />
+            <element signature="e#1165#1281#0" />
+            <element signature="e#1343#1668#0" />
+            <element signature="e#1903#2231#0" />
+            <element signature="n#!!block;n#site#0;n#!!top" />
+            <element signature="n#!!block;n#device#0;n#!!top" />
+            <element signature="n#!!block;n#geo#0;n#!!block;n#user#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/response/testScript_native_datatype_25_.txt" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_banner_site_datatype_25_.txt" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/request/sample.txt" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/request/testScript_config.txt" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/response/testScript_config.txt" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/Shivani/response/testScript_config.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/Shivani/request/sample.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/request/BANNER_SITE_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="81" column="27" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
+          <folding>
+            <element signature="n#!!block;n#source#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="e#730#865#0" />
+            <element signature="e#886#1114#0" />
+            <element signature="e#1880#2335#0" />
+            <element signature="n#!!block;n#site#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#user#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#geo#0;n#!!block;n#user#0;n#!!block;n#context#0;n#!!block;n#request#0;n#!!top" />
+            <element signature="n#!!block;n#ext#0;n#!!block;n#request#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/response/TC5001_requiredFieldBidResponseId.json" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/response/TC6000_requiredFieldBidResponseId.json" />
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_NATIVE_SITE_25.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_NATIVE_SITE_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="128" column="1" selection-start-line="128" selection-start-column="1" selection-end-line="128" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/java/net.media/ConverterTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-57">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_25.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+          <folding>
+            <element signature="e#119#3395#0" />
+            <element signature="e#1918#1955#0" />
+            <element signature="e#2095#2120#0" />
+            <element signature="e#2383#2419#0" />
+            <element signature="e#2799#3028#0" />
+            <element signature="e#3192#3252#0" />
+            <element signature="e#3279#3330#0" />
+            <element signature="e#3368#3425#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/response/testScript_banner_site_required_30_to_25.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_30.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="62" column="22" lean-forward="true" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+          <folding>
+            <element signature="e#626#752#0" />
+            <element signature="e#896#936#0" />
+            <element signature="e#960#998#0" />
+            <element signature="e#1051#1107#0" />
+            <element signature="e#1153#1201#0" />
+            <element signature="e#1417#1471#0" />
+            <element signature="e#1734#2222#0" />
+            <element signature="e#1953#2030#0" />
+            <element signature="e#2248#2537#0" />
+            <element signature="e#2383#2443#0" />
+            <element signature="e#2470#2521#0" />
+            <element signature="e#4035#4109#0" />
+            <element signature="e#4199#4255#0" />
+            <element signature="e#4367#4406#0" />
+            <element signature="e#4441#4507#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_25_wo_EXT.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/master/response/RESPONSE_BANNER_SITE_30_wo_EXT.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="67" column="21" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/response/TC6000_banner.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/response/TC5001_native.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/generated/response/TC5001_banner.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter-core/src/test/resources/edits/response/testScript_banner_site_required.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>converter-api</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
