@@ -1,11 +1,14 @@
 package net.media.utils;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.media.config.Config;
+import net.media.exceptions.OpenRtbConverterException;
 
 import org.apache.commons.collections.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -33,6 +36,23 @@ public class Utils {
 
   public static ObjectMapper getMapper() {
     return mapper;
+  }
+
+  public static <U> U convertToObject(Class<U> klass, String json) throws OpenRtbConverterException {
+    try {
+      return getMapper().readValue(json, klass);
+    }
+    catch (IOException e) {
+      throw new OpenRtbConverterException("error while converting json to object", e);
+    }
+  }
+
+  public static String convertToJson(Object object) throws OpenRtbConverterException {
+    try {
+      return getMapper().writeValueAsString(object);
+    } catch (JsonProcessingException e) {
+      throw new OpenRtbConverterException("error while converting object to json", e);
+    }
   }
 
   public static <U,V> Map<U,V> copyMap(Map<U,V> input, Config config){

@@ -1,10 +1,8 @@
 {
-  "inputFile" : "BANNER_APP_25.json",
+  "inputFile" : "BANNER_SITE_25.json",
   "inputType" : "REQUEST25",
   "inputEdits" : {
-    "app.content.data[0].segment[0].id" : "1",
-    "app.content.data[0].segment[0].name" : "1",
-    "app.content.data[0].segment[0].value" : "1"
+    "device.flashver" : "1"
   },
   "inputJson" : {
     "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
@@ -160,18 +158,19 @@
         "dummy" : "ff"
       }
     } ],
-    "app" : {
-      "id" : "abcde2345",
-      "name" : "android app",
-      "bundle" : "com.media.net",
-      "domain" : "www.foobar.com",
-      "storeurl" : "axcdabc.com/test123",
-      "cat" : [ "IAB3-1", "IAB3-2" ],
+    "site" : {
+      "id" : "102855",
+      "name" : "abdk",
       "sectioncat" : [ "zz", "dd" ],
       "pagecat" : [ "ss", "as" ],
-      "ver" : "123",
+      "cat" : [ "IAB3-1", "IAB3-2" ],
+      "ref" : "sdfe",
+      "search" : "eded",
+      "mobile" : 1,
       "privacypolicy" : 1,
-      "paid" : 0,
+      "keywords" : "ewew",
+      "domain" : "www.foobar.com",
+      "page" : "http://www.foobar.com/1234.html ",
       "publisher" : {
         "id" : "8953",
         "name" : "foobar.com",
@@ -206,7 +205,7 @@
         "cat" : [ "IAB3-1", "IAB3-2" ],
         "prodq" : 1,
         "videoquality" : 2,
-        "context" : 1,
+        "context" : 2,
         "contentrating" : "wqewq",
         "userrating" : "ewew",
         "qagmediarating" : 1,
@@ -220,9 +219,9 @@
           "id" : "1",
           "name" : "Abcdef",
           "segment" : [ {
-            "id" : 1,
-            "name" : 1,
-            "value" : 1,
+            "id" : "bcdef",
+            "name" : "name123",
+            "value" : "acde",
             "ext" : {
               "dummy" : "ff"
             }
@@ -236,11 +235,10 @@
           "dummy" : "ff"
         }
       },
-      "keywords" : "ewew",
       "ext" : {
-        "dummy" : "ff",
         "cattax" : 2,
-        "storeid" : "abc1234"
+        "dummy" : "ff",
+        "amp" : 2
       }
     },
     "device" : {
@@ -279,7 +277,7 @@
       "pxratio" : 1.2,
       "js" : 1,
       "geofetch" : 2,
-      "flashver" : "ewe",
+      "flashver" : 1,
       "language" : "weew",
       "carrier" : "weew",
       "mccmnc" : "ewew",
@@ -335,10 +333,10 @@
       }
     }
   },
-  "outputFile" : "BANNER_APP_30.json",
+  "outputFile" : "BANNER_SITE_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
-    "request.item[0].id" : "2"
+    "request.context.device.ext.flashver" : "\"1\""
   },
   "outputJson" : {
     "ver" : "3.0",
@@ -367,7 +365,7 @@
         }
       },
       "item" : [ {
-        "id" : 2,
+        "id" : "1",
         "qty" : 1,
         "seq" : 1,
         "flr" : 0.03,
@@ -486,9 +484,9 @@
         "private" : 1
       } ],
       "context" : {
-        "app" : {
-          "id" : "abcde2345",
-          "name" : "android app",
+        "site" : {
+          "id" : "102855",
+          "name" : "abdk",
           "pub" : {
             "id" : "8953",
             "name" : "foobar.com",
@@ -513,7 +511,7 @@
             "cat" : [ "IAB3-1", "IAB3-2" ],
             "cattax" : 2,
             "prodq" : 1,
-            "context" : 1,
+            "context" : 2,
             "rating" : "wqewq",
             "urating" : "ewew",
             "mrating" : 1,
@@ -560,11 +558,11 @@
           "cattax" : 2,
           "privpolicy" : 1,
           "keywords" : "ewew",
-          "bundle" : "com.media.net",
-          "storeid" : "abc1234",
-          "storeurl" : "axcdabc.com/test123",
-          "ver" : "123",
-          "paid" : 0,
+          "page" : "http://www.foobar.com/1234.html ",
+          "ref" : "sdfe",
+          "search" : "eded",
+          "mobile" : 1,
+          "amp" : 2,
           "ext" : {
             "dummy" : "ff"
           }
@@ -654,7 +652,7 @@
           },
           "ext" : {
             "dummy" : "ff",
-            "flashver" : "ewe"
+            "flashver" : "1"
           }
         },
         "regs" : {

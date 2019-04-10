@@ -38,7 +38,6 @@ public class ORTBTester<U, V> {
       outputTestPojo.setOutputType(inputPojo.getOutputType());
       outputTestPojo.setException(e.getMessage());
 
-      System.out.println(e.getMessage());
       if(!inputPojo.getOutputEdits().containsKey("status") || !inputPojo.getOutputEdits().get("status").equals("ERROR")) {
         testOutput.getFailedTestList().add(outputTestPojo);
       }

@@ -16,7 +16,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: invalidData2
 
  - inputFile: BANNER_SITE_25.json
@@ -26,7 +26,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: invalidData3
 
  - inputFile: BANNER_SITE_25.json
@@ -36,7 +36,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: invalidData4
 
  - inputFile: BANNER_SITE_25.json
@@ -46,7 +46,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: invalidData5
 
  - inputFile: BANNER_SITE_25.json
@@ -107,7 +107,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat4
 
  - inputFile: BANNER_SITE_25.json
@@ -246,7 +246,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat16
 
  - inputFile: BANNER_SITE_25.json
@@ -338,7 +338,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat25
 
  - inputFile: BANNER_SITE_25.json
@@ -348,7 +348,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat26
 
  - inputFile: BANNER_SITE_25.json
@@ -368,7 +368,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat28
 
  - inputFile: BANNER_SITE_25.json
@@ -428,7 +428,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat34
 
  - inputFile: BANNER_SITE_25.json
@@ -438,7 +438,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat35
 
  - inputFile: BANNER_SITE_25.json
@@ -448,7 +448,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat36
 
  - inputFile: BANNER_SITE_25.json
@@ -458,7 +458,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat37
 
  - inputFile: BANNER_SITE_25.json
@@ -468,7 +468,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat38
 
  - inputFile: BANNER_SITE_25.json
@@ -478,7 +478,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat39
 
  - inputFile: BANNER_SITE_25.json
@@ -528,7 +528,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat43
 
  - inputFile: BANNER_SITE_25.json
@@ -642,7 +642,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat47
 
  - inputFile: BANNER_SITE_25.json
@@ -692,7 +692,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat51
 
  - inputFile: BANNER_SITE_25.json
@@ -843,7 +843,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat63
 
  - inputFile: BANNER_SITE_25.json
@@ -853,7 +853,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat64
 
  - inputFile: BANNER_SITE_25.json
@@ -863,7 +863,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat65
 
  - inputFile: BANNER_SITE_25.json
@@ -873,7 +873,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat66
 
  - inputFile: BANNER_SITE_25.json
@@ -883,7 +883,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat67
 
  - inputFile: BANNER_SITE_25.json
@@ -893,7 +893,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat68
 
  - inputFile: BANNER_SITE_25.json
@@ -903,7 +903,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat69
 
  - inputFile: BANNER_SITE_25.json
@@ -943,7 +943,7 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat73
 
  - inputFile: BANNER_SITE_25.json
@@ -1044,7 +1044,7 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat81
 
  - inputFile: BANNER_SITE_25.json
@@ -1134,7 +1134,7 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat87
 
  - inputFile: BANNER_SITE_25.json
@@ -1144,7 +1144,7 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat88
 
  - inputFile: BANNER_SITE_25.json
@@ -1154,7 +1154,7 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: idStringFormat89
 
  - inputFile: BANNER_SITE_25.json
