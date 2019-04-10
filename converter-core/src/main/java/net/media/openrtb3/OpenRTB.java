@@ -9,9 +9,9 @@ import javax.validation.constraints.NotNull;
 public class OpenRTB {
 
   private String ver = "3.0";
-  private String domainSpec = "adcom";
+  private String domainspec = "adcom";
   @NotNull
-  private String domainVer = "1.0";
+  private String domainver = "1.0";
   @Valid
   private Request request;
   @Valid
@@ -21,12 +21,12 @@ public class OpenRTB {
     return this.ver;
   }
 
-  public String getDomainSpec() {
-    return this.domainSpec;
+  public String getDomainspec() {
+    return this.domainspec;
   }
 
-  public @NotNull String getDomainVer() {
-    return this.domainVer;
+  public @NotNull String getDomainver() {
+    return this.domainver;
   }
 
   public @Valid Request getRequest() {
@@ -41,12 +41,12 @@ public class OpenRTB {
     this.ver = ver;
   }
 
-  public void setDomainSpec(String domainSpec) {
-    this.domainSpec = domainSpec;
+  public void setDomainspec(String domainspec) {
+    this.domainspec = domainspec;
   }
 
-  public void setDomainVer(@NotNull String domainVer) {
-    this.domainVer = domainVer;
+  public void setDomainver(@NotNull String domainver) {
+    this.domainver = domainver;
   }
 
   public void setRequest(@Valid Request request) {
