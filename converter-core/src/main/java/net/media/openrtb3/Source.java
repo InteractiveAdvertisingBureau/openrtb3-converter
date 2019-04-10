@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Source {
   private String tid;
-  private Integer ts;
+  private Long ts;
   private String ds;
   private String dsmap;
   private String cert;
@@ -16,7 +16,7 @@ public class Source {
     return this.tid;
   }
 
-  public Integer getTs() {
+  public Long getTs() {
     return this.ts;
   }
 
@@ -48,7 +48,7 @@ public class Source {
     this.tid = tid;
   }
 
-  public void setTs(Integer ts) {
+  public void setTs(Long ts) {
     this.ts = ts;
   }
 
