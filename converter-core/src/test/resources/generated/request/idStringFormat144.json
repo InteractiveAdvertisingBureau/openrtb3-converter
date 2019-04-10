@@ -2,7 +2,7 @@
   "inputFile" : "BANNER_SITE_25.json",
   "inputType" : "REQUEST25",
   "inputEdits" : {
-    "imp[0].banner.battr[0]" : "3"
+    "imp[0].banner.battr[0]" : "0"
   },
   "inputJson" : {
     "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
@@ -106,7 +106,7 @@
         "h" : 250,
         "w" : 300,
         "btype" : [ 3, 4 ],
-        "battr" : [ 3, 2 ],
+        "battr" : [ 0, 2 ],
         "topframe" : 22,
         "expdir" : [ 3, 9 ],
         "api" : [ 3, 2 ],
@@ -336,7 +336,7 @@
   "outputFile" : "BANNER_SITE_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
-    "request.context.restrictions.battr[0]" : "3"
+    "request.context.restrictions.battr[0]" : "0"
   },
   "outputJson" : {
     "ver" : "3.0",
@@ -667,7 +667,7 @@
           "cattax" : 2,
           "badv" : [ "cc" ],
           "bapp" : [ "nn" ],
-          "battr" : [ 3, 2 ],
+          "battr" : [ 0, 2 ],
           "ext" : {
             "dummy" : "ff"
           }

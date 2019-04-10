@@ -394,7 +394,7 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     device.os: 1
+     device.os: "\"3ds system software\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
@@ -970,7 +970,7 @@ cases:
      request.context.site.ref: "\"ff\""
      request.context.site.search: "\"ff\""
      request.context.site.mobile: 1
-     request.context.site.privacypolicy: 1
+     request.context.site.privpolicy: 1
      request.context.site.keywords: "\"ff\""
      request.context.site.domain: "\"www.foobar.com\""
      request.context.site.page: "\"http://www.foobar.com/1234.html\""
@@ -1232,7 +1232,7 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     status : "ERROR"
+     status: "ERROR"
    purpose: idStringFormat96
 
  - inputFile: BANNER_SITE_25.json
@@ -1728,11 +1728,11 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     imp[0].banner.battr[0]: 3
+     imp[0].banner.battr[0]: 0
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.context.restrictions.battr[0]: 3
+     request.context.restrictions.battr[0]: 0
    purpose: idStringFormat144
 
  - inputFile: BANNER_SITE_25.json

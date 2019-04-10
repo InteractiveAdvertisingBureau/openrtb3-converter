@@ -112,7 +112,7 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.context.keywords: "\"1\""
+     request.context.app.keywords: "\"1\""
    purpose: TC10
 
  - inputFile: BANNER_APP_25.json
@@ -134,7 +134,7 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.context.app.cat[*]: null
+     request.context.app.cat[*]:  null
      request.context.app.cat[0]:  "\"1\""
    purpose: TC12
 
@@ -197,7 +197,7 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.context.app.pagecat[0] : null
+     request.context.app.pagecat[*]: null
      request.context.app.pagecat[0]:  "\"a1\""
    purpose: TC17
 
@@ -483,7 +483,7 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.context.app.content.urating: 1
+     request.context.app.content.urating: "\"1\""
    purpose: TC40
 
  - inputFile: BANNER_APP_25.json
