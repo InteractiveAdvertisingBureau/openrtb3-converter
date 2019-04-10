@@ -2,15 +2,16 @@ package net.media.api.models;
 
 import net.media.config.Config;
 import net.media.openrtb3.OpenRTB3_X;
+import net.media.openrtb3.OpenRTBWrapper3_X;
 
 public class RequestResponse3xPayload {
-  private OpenRTB3_X openRTB;
+  private OpenRTBWrapper3_X openRTB;
   private Config config;
 
   public RequestResponse3xPayload() {
   }
 
-  public OpenRTB3_X getOpenRTB() {
+  public OpenRTBWrapper3_X getOpenRTB() {
     return this.openRTB;
   }
 
@@ -18,7 +19,7 @@ public class RequestResponse3xPayload {
     return this.config;
   }
 
-  public void setOpenRTB(OpenRTB3_X openRTB) {
+  public void setOpenRTB(OpenRTBWrapper3_X openRTB) {
     this.openRTB = openRTB;
   }
 
