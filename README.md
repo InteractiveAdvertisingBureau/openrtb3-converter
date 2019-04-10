@@ -17,6 +17,8 @@ However, structural changes also mean that oRTB 3.0 is not backward compatible. 
 
 This is the problem which media.net wants to solve with the open source library which can be used to convert requests and responses from OpenRTB 3.0 to OpenRTB 2.x and vice-versa.
 
+![alt text](https://github.com/media-net/openrtb3-converter/blob/master/convert.png)
+
 
 ## How is the conversion done?
 
@@ -29,4 +31,10 @@ The library allows conversion from OpenRTB v 2.3, 2.4, 2.5 to OpenRTB v3.0 and v
 AdCOM 1.0 is supported as the Layer 4 object.
 
 OpenRTB Dynamic Native Ads API Specification Version 1.1  is used for transacting native ad objects for OpenRTB 2.x.
+
+## Documentation	
+
+ Details about how to use the library are available [here](https://github.com/media-net/openrtb3-converter/wiki/OpenRTB-3.0-Converter---Usage-Guidelines).	
+
+ The mappings which serve as the standard for conversion between OpenRTB 3.0 and OpenRTB 2.5 are available [here](MAPPINGS.md) and here [PDF](https://github.com/media-net/openrtb3-converter/raw/master/openrtb-3-converter-mappings.pdf).
 
