@@ -1,0 +1,1811 @@
+cases:
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.id: "\"2\""
+   purpose: invalidData1
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: "\"ab\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: invalidData2
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     test: "\"a\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: invalidData3
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     tmax: "\"as\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: invalidData4
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     allimps: "\"dd\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: invalidData5
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"ab\""
+     at: 1
+     test: 1
+     tmax: 1
+     allimps: 0
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.id: "\"ab\""
+     request.at: 1
+     request.test: 1
+     request.tmax: 1
+     request.package: 0
+   purpose: validData1
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     wseat[*]: null
+     wseat[0]: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.seat[0]:  "\"1\""
+   purpose: idStringFormat1
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     wseat[*]: null
+     wseat[0]: "\"aa\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.seat[0]:  "\"aa\""
+   purpose: idStringFormat2
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     wseat[*]: null
+     wseat[0]: "\"aa\""
+     wseat[1]: "\"bb\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.seat[0]:  "\"aa\""
+     request.seat[1]:  "\"bb\""
+   purpose: idStringFormat3
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     wseat[*]: null
+     wseat: 1
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat4
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     bseat[*]: null
+     bseat[0]: "\"string\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.seat[0]:  "\"string\""
+   purpose: idStringFormat5
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     bseat[*]: null
+     bseat[0]: "\"string\""
+     bseat[1]: "\"string2\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.seat[0]:  "\"string\""
+     request.seat[1]:  "\"string2\""
+   purpose: idStringFormat6
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     wlang[*]: null
+     wlang[0]: "\"en\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.wlang[0]:  "\"en\""
+   purpose: idStringFormat7
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     wlang[*]: null
+     wlang[0]: "\"en\""
+     wlang[1]: "\"fr\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.wlang[0]:  "\"en\""
+     request.item[0].spec.placement.wlang[1]:  "\"fr\""
+   purpose: idStringFormat8
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     bcat[*]: null
+     bcat[0]: "\"as\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.restrictions.bcat[0]:  "\"as\""
+   purpose: idStringFormat9
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     bcat[*]: null
+     bcat[0]: "\"as\""
+     bcat[1]: "\"bc\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.restrictions.bcat[0]:  "\"as\""
+     request.context.restrictions.bcat[1]:  "\"bc\""
+   purpose: idStringFormat10
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     badv[*]: null
+     badv[0]: "\"as\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.restrictions.badv[0]:  "\"as\""
+   purpose: idStringFormat11
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     badv[*]: null
+     badv[0]: "\"as\""
+     badv[1]: "\"bc\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.restrictions.badv[0]:  "\"as\""
+     request.context.restrictions.badv[1]:  "\"bc\""
+   purpose: idStringFormat12
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     bapp[*]: null
+     bapp[0]: "\"as\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.restrictions.bapp[0]:  "\"as\""
+   purpose: idStringFormat13
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     bapp[*]: null
+     bapp[0]: "\"as\""
+     bapp[1]: "\"bs\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.restrictions.bapp[0]:  "\"as\""
+     request.context.restrictions.bapp[1]:  "\"bs\""
+   purpose: idStringFormat14
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     source.fd: 1
+     source.tid: "\"ff\""
+     source.pchain: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.source.ext.fd:  1
+     request.source.tid:  "\"ff\""
+     request.source.pchain:  "\"ff\""
+   purpose: idStringFormat15
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     source.fd: "\"dd\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat16
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     source.tid: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.source.tid:  "\"1\""
+   purpose: idStringFormat17
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     source.pchain: 22
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.source.pchain:  "\"22\""
+   purpose: idStringFormat18
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     regs.coppa: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.regs.coppa:  1
+   purpose: idStringFormat19
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     regs.coppa: "\"1\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.regs.coppa:  "\"1\""
+   purpose: idStringFormat20
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     cur[*]: null
+     cur[0]: "\"USD\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.cur[0]:  "\"USD\""
+   purpose: idStringFormat21
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     cur[*]: null
+     cur[0]: "\"USD\""
+     cur[1]: "\"EUR\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.cur[0]:  "\"USD\""
+     request.cur[1]:  "\"EUR\""
+   purpose: idStringFormat22
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.ua: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.ua:  "\"1\""
+   purpose: idStringFormat23
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.ip: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.ip:  "\"1\""
+   purpose: idStringFormat24
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.dnt: "\"eew\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat25
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.lmt: "\"eew\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat26
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.ipv6: 11
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.ipv6:  "\"11\""
+   purpose: idStringFormat27
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.devicetype: "\"ee\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat28
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.make: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.make:  "\"1\""
+   purpose: idStringFormat29
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.model: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.model:  "\"1\""
+   purpose: idStringFormat30
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.os: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.os:  "\"1\""
+   purpose: idStringFormat31
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.osv: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.osv:  "\"1\""
+   purpose: idStringFormat32
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.hwv: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.hwv:  "\"1\""
+   purpose: idStringFormat33
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.h: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat34
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.w: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat35
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.ppi: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat36
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.pxratio: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat37
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.js: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat38
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.geofetch: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat39
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.flashver: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.ext.flashver:  "\"1\""
+   purpose: idStringFormat
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.language: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.lang:  "\"1\""
+   purpose: idStringFormat40
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.carrier: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.carrier:  "\"1\""
+   purpose: idStringFormat41
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.mccmnc: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.mccmnc:  "\"1\""
+   purpose: idStringFormat42
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.connectiontype: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat43
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.ua: "\"eew\""
+     device.ip: "\"123.145.167.10\""
+     device.dnt: 1
+     device.lmt: 1
+     device.ipv6: "\"123.145.167.1.3.2\""
+     device.devicetype: 1
+     device.make: "\"ee\""
+     device.model: "\"ff\""
+     device.os: "\"android\""
+     device.osv: "\"ff\""
+     device.hwv: "\"ff\""
+     device.h: 1
+     device.w: 1
+     device.ppi: 1
+     device.pxratio: 1.2
+     device.js: 1
+     device.geofetch: 1
+     device.flashver: "\"ff\""
+     device.language: "\"ff\""
+     device.carrier: "\"ff\""
+     device.mccmnc: "\"ff\""
+     device.connectiontype: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.ua:  "\"eew\""
+     request.context.device.ip:  "\"123.145.167.10\""
+     request.context.device.dnt:  1
+     request.context.device.lmt:  1
+     request.context.device.ipv6:  "\"123.145.167.1.3.2\""
+     request.context.device.type:  1
+     request.context.device.make:  "\"ee\""
+     request.context.device.model:  "\"ff\""
+     request.context.device.os:  2
+     request.context.device.osv:  "\"ff\""
+     request.context.device.hwv:  "\"ff\""
+     request.context.device.h:  1
+     request.context.device.w:  1
+     request.context.device.ppi:  1
+     request.context.device.pxratio:  1.2
+     request.context.device.js:  1
+     request.context.device.geofetch:  1
+     request.context.device.ext.flashver:  "\"ff\""
+   purpose: idStringFormat44
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.os: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.os: 0
+   purpose: idStringFormat45
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.geo.lat: 22.22
+     device.geo.lon: 22.22
+     device.geo.type: 1
+     device.geo.accuracy: 1
+     device.geo.lastfix: 1
+     device.geo.ipservice: 1
+     device.geo.country: "\"ff\""
+     device.geo.region: "\"ff\""
+     device.geo.regionfips104: "\"ff\""
+     device.geo.metro: "\"ff\""
+     device.geo.city: "\"ff\""
+     device.geo.zip: "\"ff\""
+     device.geo.utcoffset: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.device.geo.lat:  22.22
+     request.context.device.geo.lon:  22.22
+     request.context.device.geo.type:  1
+     request.context.device.geo.accur:  1
+     request.context.device.geo.lastfix:  1
+     request.context.device.geo.ipserv:  1
+     request.context.device.geo.country:  "\"ff\""
+     request.context.device.geo.region:  "\"ff\""
+     request.context.device.geo.ext.regionfips104:  "\"ff\""
+     request.context.device.geo.metro:  "\"ff\""
+     request.context.device.geo.city:  "\"ff\""
+     request.context.device.geo.zip:  "\"ff\""
+     request.context.device.geo.utcoffset:  1
+   purpose: idStringFormat46
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     device.geo.lat: "\"ff\""
+     device.geo.lon: "\"ff\""
+     device.geo.type: "\"ff\""
+     device.geo.accuracy: "\"ff\""
+     device.geo.lastfix: "\"ff\""
+     device.geo.ipservice: "\"ff\""
+     device.geo.country: 1
+     device.geo.region: 1
+     device.geo.regionfips104: 1
+     device.geo.metro: 1
+     device.geo.city: 1
+     device.geo.zip: 1
+     device.geo.utcoffset: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat47
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.id: "\"ff\""
+     user.buyeruid: "\"ff\""
+     user.yob: 1
+     user.gender: "\"ff\""
+     user.keywords: "\"ff\""
+     user.customdata: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.user.id:  "\"ff\""
+     request.context.user.buyeruid:  "\"ff\""
+     request.context.user.yob:  1
+     request.context.user.gender:  "\"ff\""
+     request.context.user.keywords:  "\"ff\""
+     request.cdata:  "\"ff\""
+   purpose: idStringFormat48
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.id: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.user.id:  "\"1\""
+   purpose: idStringFormat49
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.buyeruid: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.user.buyeruid:  "\"1\""
+   purpose: idStringFormat50
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.yob: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat51
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.gender: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.user.gender:  "\"1\""
+   purpose: idStringFormat52
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.keywords: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.user.keywords:  "\"1\""
+   purpose: idStringFormat53
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.customdata: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.cdata:  "\"1\""
+   purpose: idStringFormat54
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.data[0].id: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.user.data[0].id:  "\"1\""
+   purpose: idStringFormat55
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.data[0].name: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.user.data[0].name:  "\"1\""
+   purpose: idStringFormat56
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.data[0].id: "\"ff\""
+     user.data[0].name: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.user.data[0].id:  "\"ff\""
+     request.context.user.data[0].name:  "\"ff\""
+   purpose: idStringFormat57
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.data[0].segment[0].id: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.user.data[0].segment[0].id:  "\"1\""
+   purpose: idStringFormat58
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.data[0].segment[0].name: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.user.data[0].segment[0].name:  "\"1\""
+   purpose: idStringFormat59
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.data[0].segment[0].value: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.user.data[0].segment[0].value:  "\"1\""
+   purpose: idStringFormat60
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.data[0].segment[0].id: "\"ff\""
+     user.data[0].segment[0].name: "\"ff\""
+     user.data[0].segment[0].value: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.user.data[0].segment[0].id:  "\"ff\""
+     request.context.user.data[0].segment[0].name:  "\"ff\""
+     request.context.user.data[0][0].segment[0].value:  "\"ff\""
+   purpose: idStringFormat61
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.geo.lat: 22.22
+     user.geo.lon: 22.22
+     user.geo.type: 1
+     user.geo.accuracy: 1
+     user.geo.lastfix: 1
+     user.geo.ipservice: 1
+     user.geo.country: "\"ff\""
+     user.geo.region: "\"ff\""
+     user.geo.regionfips104: "\"ff\""
+     user.geo.metro: "\"ff\""
+     user.geo.city: "\"ff\""
+     user.geo.zip: "\"ff\""
+     user.geo.utcoffset: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.user.geo.lat: 22.22
+     request.context.user.geo.lon: 22.22
+     request.context.user.geo.type: 1
+     request.context.user.geo.accur: 1
+     request.context.user.geo.lastfix: 1
+     request.context.user.geo.ipserv: 1
+     request.context.user.geo.country: "\"ff\""
+     request.context.user.geo.region: "\"ff\""
+     request.context.user.geo.ext.regionfips104: "\"ff\""
+     request.context.user.geo.metro: "\"ff\""
+     request.context.user.geo.city: "\"ff\""
+     request.context.user.geo.zip: "\"ff\""
+     request.context.user.geo.utcoffset: 1
+
+   purpose: idStringFormat62
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.geo.lat: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat63
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.geo.lon: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat64
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.geo.type: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat65
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.geo.accuracy: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat66
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.geo.lastfix: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat67
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.geo.ipservice: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat68
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     user.geo.utcoffset: "\"ff\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat69
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.id: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.id:  "\"1\""
+   purpose: idStringFormat70
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.ref: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.ref:  "\"1\""
+   purpose: idStringFormat71
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.search: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.search:  "\"1\""
+   purpose: idStringFormat72
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.mobile: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat73
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.id: "\"ff\""
+     site.name: "\"ff\""
+     site.ref: "\"ff\""
+     site.search: "\"ff\""
+     site.mobile: 1
+     site.privacypolicy: 1
+     site.keywords: "\"ff\""
+     site.domain: "\"www.foobar.com\""
+     site.page: "\"http://www.foobar.com/1234.html\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.id: "\"ff\""
+     request.context.site.name: "\"ff\""
+     request.context.site.ref: "\"ff\""
+     request.context.site.search: "\"ff\""
+     request.context.site.mobile: 1
+     request.context.site.privacypolicy: 1
+     request.context.site.keywords: "\"ff\""
+     request.context.site.domain: "\"www.foobar.com\""
+     request.context.site.page: "\"http://www.foobar.com/1234.html\""
+   purpose: idStringFormat74
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.sectioncat[0]: "\"a1\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.sectcat[0]:  "\"a1\""
+   purpose: idStringFormat75
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.sectioncat[0]: "\"a1\""
+     site.sectioncat[1]: "\"b1\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.sectcat[0]:  "\"a1\""
+     request.context.site.sectcat[1]:  "\"b1\""
+   purpose: idStringFormat76
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.cat[0]: "\"IAB3-1\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.cat[0]: "\"IAB3-1\""
+   purpose: idStringFormat77
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.cat[0]: "\"IAB3-1\""
+     site.cat[1]: "\"IAB3-3\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.cat[0]: "\"IAB3-1\""
+     request.context.site.cat[1]: "\"IAB3-3\""
+   purpose: idStringFormat78
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.pagecat[0]: "\"IAB3-1\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.pagecat[0]: "\"IAB3-1\""
+   purpose: idStringFormat79
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.pagecat[0]: "\"IAB3-1\""
+     site.pagecat[1]: "\"IAB3-1\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.pagecat[0]: "\"IAB3-1\""
+     request.context.site.pagecat[1]: "\"IAB3-1\""
+   purpose: idStringFormat80
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.privacypolicy: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat81
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.keywords: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.keywords:  "\"1\""
+   purpose: idStringFormat82
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.publisher.id: "\"ff\""
+     site.publisher.name: "\"ff\""
+     site.publisher.domain: "\"www.foobar.com\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.pub.id:  "\"ff\""
+     request.context.site.pub.name:  "\"ff\""
+     request.context.site.pub.domain:  "\"www.foobar.com\""
+   purpose: idStringFormat83
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.publisher.cat[0]: "\"IAB3-1\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.pub.cat[0]:  "\"IAB3-1\""
+   purpose: idStringFormat84
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.publisher.cat[0]: "\"IAB3-1\""
+     site.publisher.cat[1]: "\"IAB3-3\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.pub.cat[0]:  "\"IAB3-1\""
+     request.context.site.pub.cat[1]:  "\"IAB3-3\""
+   purpose: idStringFormat85
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.id: "\"ff\""
+     site.content.episode: 1
+     site.content.title: "\"ff\""
+     site.content.series: "\"ff\""
+     site.content.season: "\"ff\""
+     site.content.genre: "\"ff\""
+     site.content.album: "\"ff\""
+     site.content.artist: "\"ff\""
+     site.content.isrc: "\"ff\""
+     site.content.url: "\"https://www.foobar.com\""
+     site.content.prodq: 1
+     site.content.videoquality: 1
+     site.content.userrating: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.id: "\"ff\""
+     request.context.site.content.episode: 1
+     request.context.site.content.title: "\"ff\""
+     request.context.site.content.series: "\"ff\""
+     request.context.site.content.season: "\"ff\""
+     request.context.site.content.genre: "\"ff\""
+     request.context.site.content.album: "\"ff\""
+     request.context.site.content.artist: "\"ff\""
+     request.context.site.content.isrc: "\"ff\""
+     request.context.site.content.url: "\"https://www.foobar.com\""
+     request.context.site.content.prodq: 1
+     request.context.site.content.ext.videoquality: 1
+     request.context.site.content.urating: "\"ff\""
+   purpose: idStringFormat86
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.episode: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat87
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.prodq: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat88
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.videoquality: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: idStringFormat89
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.cat[*]: null
+     site.content.cat[0]: "\"IAB3-1\""
+     site.content.cat[1]: "\"IAB3-3\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.cat[*]: null
+     request.context.site.content.cat[0]: "\"IAB3-1\""
+     request.context.site.content.cat[1]: "\"IAB3-3\""
+   purpose: idStringFormat90
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.contentrating: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.rating:  "\"ff\""
+   purpose: idStringFormat91
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.userrating: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.urating:  "\"1\""
+   purpose: idStringFormat92
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.qagmediarating: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.mrating: 1
+   purpose: idStringFormat93
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.keywords: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.keywords:  "\"ff\""
+   purpose: idStringFormat94
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.livestream: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.live:  "\"ff\""
+   purpose: idStringFormat95
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.sourcerelationship: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.srcrel:  "\"ff\""
+   purpose: idStringFormat96
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.len: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.len:  1
+   purpose: idStringFormat97
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.language: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.lang:  "\"ff\""
+   purpose: idStringFormat98
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.embeddable: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.embed:  1
+   purpose: idStringFormat99
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.producer.id: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.producer.id:  "\"ff\""
+   purpose: idStringFormat100
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.producer.name: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.producer.name:  "\"ff\""
+   purpose: idStringFormat101
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.producer.cat[0]: "\"ab\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.producer.cat[0]:  "\"ab\""
+   purpose: idStringFormat102
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.producer.cat[0]: "\"IAB3-1\""
+     site.content.producer.cat[1]: "\"IAB3-3\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.producer.cat[0]:  "\"IAB3-1\""
+     request.context.site.content.producer.cat[1]:  "\"IAB3-3\""
+   purpose: idStringFormat103
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.producer.domain: "\"https://www.foobar.com\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.producer.domain:  "\"https://www.foobar.com\""
+   purpose: idStringFormat104
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.data[0].id: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.data[0].id:  "\"ff\""
+   purpose: idStringFormat105
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.data[0].name: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.data[0].name:  "\"ff\""
+   purpose: idStringFormat106
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.data[0].segment[0].id: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.data[0].segment[0].id:  "\"ff\""
+   purpose: idStringFormat107
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.data[0].segment[0].name: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.data[0].segment[0].name:  "\"ff\""
+   purpose: idStringFormat108
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site.content.data[0].segment[0].value: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.site.content.data[0].segment[0].value:  "\"ff\""
+   purpose: idStringFormat109
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].id: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].id:  "\"ff\""
+   purpose: idStringFormat110
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].bidfloor: 0.03
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].flr:  0.03
+   purpose: idStringFormat111
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].bidfloorcur: "\"USD\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].flrcur:  "\"USD\""
+   purpose: idStringFormat112
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].displaymanager: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.sdk:  "\"ff\""
+   purpose: idStringFormat113
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].displaymanagerver: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.sdkver:  "\"ff\""
+   purpose: idStringFormat114
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].clickbrowser: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.clktype: 1
+   purpose: idStringFormat115
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].secure: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.secure:  1
+   purpose: idStringFormat116
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].instl: 0
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.instl:  0
+   purpose: idStringFormat117
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].tagid: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.tagid:  "\"ff\""
+   purpose: idStringFormat118
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].exp: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].exp: 1
+   purpose: idStringFormat119
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].iframebuster[0]: "\"IAB3-1\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.ifrbust[0]:  "\"IAB3-1\""
+   purpose: idStringFormat120
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].iframebuster[0]: "\"IAB3-1\""
+     imp[0].iframebuster[1]: "\"IAB3-2\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.ifrbust[0]:  "\"IAB3-1\""
+     request.item[0].spec.placement.display.ifrbust[1]:  "\"IAB3-2\""
+   purpose: idStringFormat121
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].metric[0].type: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].metric[0].type:  "\"ff\""
+   purpose: idStringFormat122
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].metric[0].value: 1.0
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].metric[0].value:  1.0
+   purpose: idStringFormat123
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].metric[0].vendor: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].metric[0].vendor:  "\"ff\""
+   purpose: idStringFormat124
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].pmp.private_auction: 0
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].private:  0
+   purpose: idStringFormat125
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].pmp.deals[0].id: "\"ff\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].deal[0].id:  "\"ff\""
+   purpose: idStringFormat126
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].pmp.deals[0].bidfloor: 0.1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].deal[0].flr:  0.1
+   purpose: idStringFormat126
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].pmp.deals[0].bidfloorcur: "\"USD\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].deal[0].flrcur:  "\"USD\""
+   purpose: idStringFormat127
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].pmp.deals[0].at: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].deal[0].at: 1
+   purpose: idStringFormat128
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].pmp.deals[0].wseat[0]: "\"IAB3-1\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].deal[0].wseat[0]:  "\"IAB3-1\""
+   purpose: idStringFormat129
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].pmp.deals[0].wseat[0]: "\"IAB3-1\""
+     imp[0].pmp.deals[0].wseat[1]: "\"IAB3-2\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].deal[0].wseat[0]:  "\"IAB3-1\""
+     request.item[0].deal[0].wseat[0]:  "\"IAB3-2\""
+   purpose: idStringFormat130
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].pmp.deals[0].wadomain[0]: "\"abc.com\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].deal[0].wadomain[0]:  "\"abc.com\""
+   purpose: idStringFormat131
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].pmp.deals[0].wadomain[0]: "\"abc.com\""
+     imp[0].pmp.deals[0].wadomain[1]: "\"ac.com\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].deal[0].wadomain[0]:  "\"abc.com\""
+     request.item[0].deal[0].wadomain[1]:  "\"ac.com\""
+   purpose: idStringFormat132
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.id: "\"ab\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.ext.id: "\"ab\""
+   purpose: idIntFormat133
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.h: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.h: 1
+   purpose: idIntFormat134
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.w: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.w: 1
+   purpose: idIntFormat135
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.wmax: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.displayfmt[0].ext.wmax: 1
+   purpose: idIntFormat136
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.hmax: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.displayfmt[0].ext.hmax: 1
+   purpose: idIntFormat137
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.wmin: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.displayfmt[0].ext.wmin: 1
+   purpose: idIntFormat138
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.hmin: 1
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.displayfmt[0].ext.hmin: 1
+   purpose: idIntFormat139
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.topframe: 22
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.topframe: 22
+   purpose: idIntFormat140
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.pos: 0
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.pos: 0
+   purpose: idIntFormat141
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.btype[0]: 3
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.ext.btype[0]:  3
+   purpose: idStringFormat142
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.btype[0]: 3
+     imp[0].banner.btype[1]: 4
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.ext.btype[0]:  3
+     request.item[0].spec.placement.display.ext.btype[1]:  4
+   purpose: idStringFormat143
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.battr[0]: 3
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.restrictions.battr[0]: 3
+   purpose: idStringFormat144
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.battr[0]: 1
+     imp[0].banner.battr[1]: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.restrictions.battr[0]: 1
+     request.context.restrictions.battr[1]: 2
+   purpose: idStringFormat145
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.expdir[0]: 3
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.displayfmt[0].expdir[0]:  3
+   purpose: idStringFormat146
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.expdir[0]: 3
+     imp[0].banner.expdir[1]: 4
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.displayfmt[0].expdir[0]:  3
+     request.item[0].spec.placement.display.displayfmt[0].expdir[1]:  4
+   purpose: idStringFormat147
+
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.mimes[0]: "\"application/x-shockwave-flash\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.mime[0]: "\"application/x-shockwave-flash\""
+   purpose: idStringFormat150
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.mimes[0]: "\"application/x-shockwave-flash\""
+     imp[0].banner.mimes[1]: "\"image/jpg\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.mime[0]: "\"application/x-shockwave-flash\""
+     request.item[0].spec.placement.display.mime[1]: "\"image/jpg\""
+   purpose: idStringFormat151
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.api[0]: 3
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.api[0]:  3
+   purpose: idStringFormat148
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner.api[0]: 3
+     imp[0].banner.api[1]: 4
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.item[0].spec.placement.display.api[0]:  3
+     request.item[0].spec.placement.display.api[1]:  4
+   purpose: idStringFormat149

@@ -80,6 +80,7 @@
         "dummy": "entry"
       },
       "request": {
+        "native" : {
         "ver": "1.1",
         "layout": 0,
         "adunit": 1,
@@ -143,7 +144,7 @@
             "dummy": "entry"
           }
         }]
-      }
+      }}
     },
     "ext": {
       "dummy": "ff"

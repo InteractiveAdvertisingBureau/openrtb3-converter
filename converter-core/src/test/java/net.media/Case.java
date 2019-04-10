@@ -15,7 +15,6 @@ public class Case {
   private JsonNode outputJson;
   private String purpose;
   private Map<String, String> params;
-  private String status;
 
   public Case() {
 

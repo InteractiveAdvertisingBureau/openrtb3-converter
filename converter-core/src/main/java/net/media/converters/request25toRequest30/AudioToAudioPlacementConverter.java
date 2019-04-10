@@ -64,6 +64,8 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     audioPlacement.setApi(Utils.copyCollection(audio.getApi(), config));
     audioPlacement.setDelivery(Utils.copyCollection(audio.getDelivery(), config));
     audioPlacement.setMaxseq( audio.getMaxseq() );
+
+
     audioToAudioPlacementAfterMapping( audio, audioPlacement );
   }
 
@@ -104,6 +106,10 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
         if (audio.getExt().containsKey("playend")) {
           audioPlacement.setPlayend((Integer) audio.getExt().get("playend"));
           audioPlacement.getExt().remove("playend");
+        }
+        if (audio.getExt().containsKey("delay")) {
+          audioPlacement.setSkip((Integer) audio.getExt().get("delay"));
+          audioPlacement.getExt().remove("delay");
         }
       }
     } catch (ClassCastException e) {

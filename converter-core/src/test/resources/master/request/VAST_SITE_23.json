@@ -106,25 +106,6 @@
       "pos": 2,
       "companionad": [{
         "id": "dd",
-        "format": [{
-          "w": 200,
-          "h": 20,
-          "wratio": 1,
-          "hratio": 2,
-          "wmin":3,
-          "ext": {
-            "dummy": "ff"
-          }
-        }, {
-          "w": 33,
-          "h": 11,
-          "wratio": 1,
-          "hratio": 2,
-          "wmin":3,
-          "ext": {
-            "dummy": "ff"
-          }
-        }],
         "h": 250,
         "w": 300,
         "wmax": 22,
@@ -136,7 +117,6 @@
         "topframe": 22,
         "expdir": [3, 9],
         "api": [3, 2],
-        "vcm": 22,
         "mimes": ["application/x-shockwave-flash",
           "image/jpg"
         ],
