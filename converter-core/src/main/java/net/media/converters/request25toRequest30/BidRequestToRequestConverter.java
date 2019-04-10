@@ -1,7 +1,5 @@
 package net.media.converters.request25toRequest30;
 
-import com.fasterxml.jackson.databind.JavaType;
-
 import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
@@ -21,19 +19,13 @@ import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
  * Created by rajat.go on 03/01/19.
  */
 public class BidRequestToRequestConverter implements Converter<BidRequest, Request> {
-
-  private static final JavaType javaTypeForDooh = Utils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Dooh.class);
 
   private String bidRequestUserCustomdata(BidRequest bidRequest) {
     if ( bidRequest == null ) {
@@ -119,7 +111,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
         target.setContext(new Context());
       try {
         target.getContext().setDooh(Utils.getMapper().convertValue(source.getExt().get("dooh"),
-          javaTypeForDooh));
+          Dooh.class));
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for BidRequest", e);
       }
