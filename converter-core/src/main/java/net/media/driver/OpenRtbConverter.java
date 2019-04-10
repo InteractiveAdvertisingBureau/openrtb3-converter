@@ -1,8 +1,8 @@
 package net.media.driver;
 
-import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
@@ -72,6 +72,13 @@ public class OpenRtbConverter {
     return convert(overridingConfig, source, sourceClass, targetClass, null);
   }
 
+  public <U, V> String convert(Config overridingConfig, String source, Class<U> sourceClass,
+                               Class<V> targetClass) throws ConfigurationException, OpenRtbConverterException {
+    U sourceObject = Utils.convertToObject(sourceClass, source);
+    V targetObject = convert(overridingConfig, sourceObject, sourceClass, targetClass, null);
+    return Utils.convertToJson(targetObject);
+  }
+
   public  <U, V> V convert(Config overridingConfig, U source, Class<U> sourceClass, Class<V>
     targetClass, Map<Conversion, Converter> overridenMap) throws ConfigurationException,
     OpenRtbConverterException {
@@ -85,12 +92,27 @@ public class OpenRtbConverter {
     return converter.map(source, overridingConfig, converterProvider);
   }
 
+  public <U, V> String convert(Config overridingConfig, String source, Class<U> sourceClass,
+                               Class<V> targetClass, Map<Conversion, Converter> overridenMap) throws ConfigurationException,
+    OpenRtbConverterException{
+    U sourceObject = Utils.convertToObject(sourceClass, source);
+    V targetObject = convert(overridingConfig, sourceObject, sourceClass, targetClass, overridenMap);
+    return Utils.convertToJson(targetObject);
+  }
+
   public  <U, V> V convert(U source, Class<U> sourceClass, Class<V>
     targetClass, Map<Conversion, Converter> overridenMap) throws ConfigurationException,
     OpenRtbConverterException {
     return convert(null, source, sourceClass, targetClass, overridenMap);
   }
 
+  public  <U, V> String convert(String source, Class<U> sourceClass, Class<V>
+    targetClass, Map<Conversion, Converter> overridenMap) throws ConfigurationException,
+    OpenRtbConverterException {
+    U sourceObject = Utils.convertToObject(sourceClass, source);
+    V targetObject = convert(null, sourceObject, sourceClass, targetClass, overridenMap);
+    return Utils.convertToJson(targetObject);
+  }
 
   /**
    *
@@ -104,6 +126,13 @@ public class OpenRtbConverter {
   public <U, V> V convert(U source, Class<U> sourceClass, Class<V> targetClass) throws
     ConfigurationException, OpenRtbConverterException {
     return convert(null, source, sourceClass, targetClass, null);
+  }
+
+  public <U, V> String convert(String source, Class<U> sourceClass, Class<V> targetClass) throws
+    ConfigurationException, OpenRtbConverterException {
+    U sourceObject = Utils.convertToObject(sourceClass, source);
+    V targetObject = convert(null, sourceObject, sourceClass, targetClass, null);
+    return Utils.convertToJson(targetObject);
   }
 
   /**

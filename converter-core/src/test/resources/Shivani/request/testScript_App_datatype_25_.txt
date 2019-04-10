@@ -1,0 +1,723 @@
+cases:
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.id: "\"ab\""
+     app.name: "\"ab\""
+     app.bundle: "\"ab\""
+     app.domain: "\"ab\""
+     app.storeurl: "\"ab\""
+     app.ver: "\"ab\""
+     app.privacypolicy: 1
+     app.paid: 0
+     app.keywords: "\"ab,fe\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+      request.context.app.id: "\"ab\""
+      request.context.app.name: "\"ab\""
+      request.context.app.bundle: "\"ab\""
+      request.context.app.domain: "\"ab\""
+      request.context.app.storeurl: "\"ab\""
+      request.context.app.ver: "\"ab\""
+      request.context.privacypolicy: 1
+      request.context.app.paid: 0
+      request.context.app.keywords: "\"ab,fe\""
+   purpose: TC1
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.id: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+      request.context.app.id: "\"1\""
+   purpose: TC2
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.name: 2
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.name: "\"2\""
+   purpose: TC3
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.bundle: 3
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.bundle: "\"3\""
+   purpose: TC4
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.domain: 4
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.domain: "\"4\""
+   purpose: TC5
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.storeurl: 5
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.storeurl: "\"5\""
+   purpose: TC6
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.ver: 6
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.ver: "\"6\""
+   purpose: TC7
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.privacypolicy: "\"ab\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: TC8
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.paid: "\"ab\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: TC9
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.keywords: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.keywords: "\"1\""
+   purpose: TC10
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.cat[*]: null
+     app.cat: 1
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: TC11
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.cat[*]: null
+     app.cat[0]: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.cat[0]:  "\"1\""
+   purpose: TC12
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.cat[*]: null
+     app.cat[0]: "\"a1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.cat[0]:  "\"a1\""
+   purpose: TC13
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.cat[*]: null
+     app.cat[0]: "\"a1\""
+     app.cat[1]: "\"b1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.cat[0]:  "\"a1\""
+     request.context.app.cat[1]:  "\"b1\""
+   purpose: TC14
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.sectioncat[*]: null
+     app.sectioncat[0]: "\"a1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.sectcat[*]: null
+     request.context.app.sectcat[0]: "\"a1\""
+   purpose: TC15
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.sectioncat[*]: null
+     app.sectioncat[0]: "\"a1\""
+     app.sectioncat[1]: "\"b1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.sectcat[*]: null
+     request.context.app.sectcat[0]:  "\"a1\""
+     request.context.app.sectcat[1]:  "\"b1\""
+   purpose: TC16
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.pagecat[*]: null
+     app.pagecat[0]: "\"a1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.pagecat[*]:  null
+     request.context.app.pagecat[0]:  "\"a1\""
+   purpose: TC17
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.pagecat[*]: null
+     app.pagecat[0]: "\"a1\""
+     app.pagecat[1]: "\"b1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.pagecat[0]:  "\"a1\""
+     request.context.app.pagecat[1]:  "\"b1\""
+   purpose: TC18
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.publisher.id: "\"ab\""
+     app.publisher.name: "\"ab\""
+     app.publisher.domain: "\"com.xyz.abc\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.pub.id: "\"ab\""
+     request.context.app.pub.name: "\"ab\""
+     request.context.app.pub.domain: "\"ab\""
+   purpose: TC19
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.publisher.id: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.pub.id: "\"1\""
+   purpose: TC20
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.publisher.name: 2
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.pub.name: "\"2\""
+   purpose: TC21
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.publisher.domain: 3
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.pub.domain: "\"3\""
+   purpose: TC22
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.publisher.cat[*]: null
+     app.publisher.cat[0]: "\"a1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.pub.cat[0]:  "\"a1\""
+   purpose: TC23
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.publisher.cat[*]: null
+     app.publisher.cat[0]: "\"a1\""
+     app.publisher.cat[1]: "\"b1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.pub.cat[0]:  "\"a1\""
+     request.context.app.pub.cat[1]:  "\"b1\""
+   purpose: TC24
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.id: "\"ab\""
+     app.content.episode: 1
+     app.content.title: "\"ab\""
+     app.content.series: "\"ab\""
+     app.content.season: "\"ab\""
+     app.content.genre: "\"ab\""
+     app.content.album: "\"ab\""
+     app.content.artist: "\"ab\""
+     app.content.isrc: "\"ab\""
+     app.content.url: "\"ab\""
+     app.content.prodq: 1
+     app.content.videoquality: 2
+     app.content.context: 1
+     app.content.contentrating: "\"ab\""
+     app.content.userrating: "\"ab\""
+     app.content.qagmediarating: 1
+     app.content.keywords: "\"ab\""
+     app.content.livestream: 1
+     app.content.sourcerelationship: 1
+     app.content.len: 2
+     app.content.language: "\"en\""
+     app.content.embeddable: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.id :  "\"ab\""
+     request.context.app.content.episode:  1
+     request.context.app.content.title :  "\"ab\""
+     request.context.app.content.series :  "\"ab\""
+     request.context.app.content.season :  "\"ab\""
+     request.context.app.content.genre :  "\"ab\""
+     request.context.app.content.album :  "\"ab\""
+     request.context.app.content.artist :  "\"ab\""
+     request.context.app.content.isrc :  "\"ab\""
+     request.context.app.content.url :  "\"ab\""
+     request.context.app.content.prodq :  1
+     request.context.app.content.ext.videoquality :  2
+     request.context.app.content.context :  1
+     request.context.app.content.rating :  "\"ab\""
+     request.context.app.content.urating :  "\"ab\""
+     request.context.app.content.mrating :  1
+     request.context.app.content.keywords :  "\"ab\""
+     request.context.app.content.live :  1
+     request.context.app.content.srcrel:  1
+     request.context.app.content.len :  2
+     request.context.app.content.lang :  "\"en\""
+     request.context.app.content.embed: 1
+
+   purpose: TC25
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.id: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.id: "\"1\""
+   purpose: TC26
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.episode: "\"ab\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: TC27
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.title: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.title: "\"1\""
+   purpose: TC28
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.series: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.series: "\"1\""
+   purpose: TC29
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.season: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.season: "\"1\""
+   purpose: TC30
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.genre: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.genre: "\"1\""
+   purpose: TC31
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.album: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.album: "\"1\""
+   purpose: TC32
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.artist: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.artist: "\"1\""
+   purpose: TC33
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.isrc: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.isrc: "\"1\""
+   purpose: TC34
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.url: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.url: "\"1\""
+   purpose: TC35
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.prodq: "\"ab\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: TC36
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.videoquality: "\"ab\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: TC37
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.context: "\"ab\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: TC38
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.contentrating: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.rating: "\"1\""
+   purpose: TC39
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.userrating: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.urating: 1
+   purpose: TC40
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.qagmediarating: "\"ab\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: TC41
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.keywords: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.keywords: "\"1\""
+   purpose: TC42
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.livestream: "\"ab\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: TC43
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.sourcerelationship: "\"ab\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: TC44
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.len: "\"ab\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: TC45
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.language: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.lang: "\"1\""
+   purpose: TC46
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.embeddable: "\"ab\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status: "ERROR"
+   purpose: TC47
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.cat[*]: null
+     app.content.cat[0]: "\"a1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.cat[0]:  "\"a1\""
+   purpose: TC48
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.cat[*]: null
+     app.content.cat[0]: "\"a1\""
+     app.content.cat[1]: "\"b1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.cat[*]: null
+     request.context.app.content.cat[0]: "\"a1\""
+     request.context.app.content.cat[1]: "\"b1\""
+   purpose: TC49
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.producer.id: "\"ab\""
+     app.content.producer.name: "\"ab\""
+     app.content.producer.domain: "\"abc.com\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.id: "\"ab\""
+     request.context.app.content.name: "\"ab\""
+     request.context.app.content.domain: "\"abc.com\""
+   purpose: TC50
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.producer.id: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.producer.id: "\"1\""
+   purpose: TC51
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.producer.name: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.producer.name: "\"1\""
+   purpose: TC52
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.producer.domain: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.producer.domain: "\"1\""
+   purpose: TC53
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.producer.cat[*]: null
+     app.content.producer.cat[0]: "\"a1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.producer.cat[0]: "\"a1\""
+   purpose: TC54
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.producer.cat[*]: null
+     app.content.producer.cat[0]: "\"IAB3-1\""
+     app.content.producer.cat[1]: "\"IAB3-1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.producer.cat[0]:  "\"IAB3-1\""
+     request.context.app.content.producer.cat[1]:  "\"IAB3-1\""
+   purpose: TC55
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.data[0].id: "\"ab\""
+     app.content.data[0].name: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.data[0].id: "\"ab\""
+     request.context.app.content.data[0].name: "\"ab\""
+   purpose: TC56
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.data[0].id: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.data[0].id: "\"1\""
+   purpose: TC57
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.data[0].name: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.data[0].name: "\"1\""
+   purpose: TC58
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.data[0].segment[0].id: "\"ab\""
+     app.content.data[0].segment[0].name: "\"ab\""
+     app.content.data[0].segment[0].value: "\"ab\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.data[0].segment[0].id: "\"ab\""
+     request.context.app.content.data[0].segment[0].name: "\"ab\""
+     request.context.app.content.data[0].segment[0].value: "\"ab\""
+   purpose: TC59
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.data[0].segment[0].id: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.data[0].segment[0].id: "\"1\""
+   purpose: TC60
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.data[0].segment[0].name: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.data[0].segment[0].name: "\"1\""
+   purpose: TC61
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app.content.data[0].segment[0].value: 1
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.context.app.content.data[0].segment[0].value: "\"1\""
+   purpose: TC62

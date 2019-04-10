@@ -8,7 +8,7 @@ import java.util.List;
  * Created by sourav.p on .
  */
 public class TestOutput {
-    private Integer totalTestCases;
+    private Long totalTestCases;
     private Integer failedTestCases;
     private List<OutputTestPojo> failedTestList = new ArrayList<>();
 
@@ -16,7 +16,7 @@ public class TestOutput {
         return failedTestList;
     }
 
-    public void setTotalTestCases(Integer totalTestCases) {
+    public void setTotalTestCases(Long totalTestCases) {
         this.totalTestCases = totalTestCases;
     }
 

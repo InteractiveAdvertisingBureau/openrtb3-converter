@@ -73,6 +73,7 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
   private void videoToVideoPlacementAfterMapping(Video video, VideoPlacement videoPlacement) throws OpenRtbConverterException {
     try {
       if (nonNull(video) && nonNull(video.getExt()) && nonNull(videoPlacement)) {
+        videoPlacement.setExt(video.getExt());
         if (video.getExt().containsKey("unit")) {
           videoPlacement.setUnit((Integer) video.getExt().get("unit"));
           videoPlacement.getExt().remove("unit");

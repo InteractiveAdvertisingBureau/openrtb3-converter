@@ -57,7 +57,8 @@ public class Native {
         return null;
       }
     } else {
-      nativeRequestBody = JacksonObjectMapper.getMapper().convertValue(request,
+      NativeRequest nativeRequest = JacksonObjectMapper.getMapper().convertValue(request,NativeRequest.class);
+      nativeRequestBody = JacksonObjectMapper.getMapper().convertValue(nativeRequest.getNativeRequestBody(),
         NativeRequestBody.class);
     }
     return nativeRequestBody;
