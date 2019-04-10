@@ -6,7 +6,8 @@ target
 .idea/workspace.xml
 .idea*
 *.iml
-.DS_STORE
+*.DS_STORE
 ### Java template
 *.class
 *.pyc
+
