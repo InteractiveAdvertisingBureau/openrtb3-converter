@@ -148,7 +148,7 @@
                   "vcm": 1,
                   "pos": 0,
                   "topframe": 22,
-                  "expdir": [3, 9],
+                  "expdir": [3, 4],
                   "mimes": ["application/x-shockwave-flash", "image/jpg"],
                   "api": [3, 2],
                   "w": 300,

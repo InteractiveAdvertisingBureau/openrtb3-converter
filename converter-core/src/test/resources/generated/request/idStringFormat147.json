@@ -340,7 +340,9 @@
   "outputEdits" : {
     "request.item[0].spec.placement.display.displayfmt[0].expdir[*]" : null,
     "request.item[0].spec.placement.display.displayfmt[0].expdir[0]" : "3",
-    "request.item[0].spec.placement.display.displayfmt[0].expdir[1]" : "4"
+    "request.item[0].spec.placement.display.displayfmt[0].expdir[1]" : "4",
+    "request.item[0].spec.placement.display.displayfmt[1].expdir[0]" : "3",
+    "request.item[0].spec.placement.display.displayfmt[1].expdir[1]" : "4"
   },
   "outputJson" : {
     "ver" : "3.0",
@@ -438,7 +440,7 @@
                 "h" : 11,
                 "wratio" : 200,
                 "hratio" : 30,
-                "expdir" : [ 3, 9 ],
+                "expdir" : [ 3, 4 ],
                 "ext" : {
                   "dummy" : "ffaa",
                   "wmin" : 3
