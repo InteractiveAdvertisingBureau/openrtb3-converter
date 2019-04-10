@@ -339,7 +339,7 @@
     "status" : "ERROR"
   },
   "outputJson" : {
-    "status" : "ERROR"
+    "status" : "RRO"
   },
   "purpose" : "invalidData3",
   "params" : null

@@ -195,6 +195,7 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
+     request.context.app.pagecat[0] : null
      request.context.app.pagecat[0]:  "\"a1\""
    purpose: TC17
 
