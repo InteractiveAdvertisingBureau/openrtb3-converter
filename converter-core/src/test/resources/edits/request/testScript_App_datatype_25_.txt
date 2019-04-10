@@ -20,7 +20,7 @@ cases:
       request.context.app.domain: "\"ab\""
       request.context.app.storeurl: "\"ab\""
       request.context.app.ver: "\"ab\""
-      request.context.privacypolicy: 1
+      request.context.app.privpolicy: 1
       request.context.app.paid: 0
       request.context.app.keywords: "\"ab,fe\""
    purpose: TC1
@@ -134,6 +134,7 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
+     request.context.app.cat[*]: null
      request.context.app.cat[0]:  "\"1\""
    purpose: TC12
 
@@ -145,6 +146,7 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
+     request.context.app.cat[*]: null
      request.context.app.cat[0]:  "\"a1\""
    purpose: TC13
 
@@ -223,7 +225,7 @@ cases:
    outputEdits:
      request.context.app.pub.id: "\"ab\""
      request.context.app.pub.name: "\"ab\""
-     request.context.app.pub.domain: "\"ab\""
+     request.context.app.pub.domain: "\"com.xyz.abc\""
    purpose: TC19
 
  - inputFile: BANNER_APP_25.json
@@ -264,6 +266,7 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
+     request.context.app.pub.cat[*] : null
      request.context.app.pub.cat[0]:  "\"a1\""
    purpose: TC23
 
@@ -561,6 +564,7 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
+     request.context.app.content.cat[*] : null
      request.context.app.content.cat[0]:  "\"a1\""
    purpose: TC48
 
@@ -630,6 +634,7 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
+     request.context.app.content.producer.cat[*]: null
      request.context.app.content.producer.cat[0]: "\"a1\""
    purpose: TC54
 

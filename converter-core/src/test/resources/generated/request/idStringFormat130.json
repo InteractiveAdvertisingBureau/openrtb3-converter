@@ -337,7 +337,8 @@
   "outputFile" : "BANNER_SITE_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
-    "request.item[0].deal[0].wseat[0]" : "\"IAB3-2\""
+    "request.item[0].deal[0].wseat[0]" : "\"IAB3-1\"",
+    "request.item[0].deal[0].wseat[1]" : "\"IAB3-2\""
   },
   "outputJson" : {
     "ver" : "3.0",
@@ -387,7 +388,7 @@
           "flr" : 0.0,
           "flrcur" : "USD",
           "at" : 1,
-          "wseat" : [ "IAB3-2", "as" ],
+          "wseat" : [ "IAB3-1", "IAB3-2" ],
           "wadomain" : [ "ss.com", "abc.com" ],
           "ext" : {
             "dummy" : "ff"

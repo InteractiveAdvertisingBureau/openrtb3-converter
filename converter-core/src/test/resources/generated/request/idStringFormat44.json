@@ -374,7 +374,11 @@
     "request.context.device.pxratio" : "1.2",
     "request.context.device.js" : "1",
     "request.context.device.geofetch" : "1",
-    "request.context.device.ext.flashver" : "\"ff\""
+    "request.context.device.ext.flashver" : "\"ff\"",
+    "request.context.device.lang" : "\"ff\"",
+    "request.context.device.carrier" : "\"ff\"",
+    "request.context.mccmnc" : "\"ff\"",
+    "request.context.device.contype" : "1"
   },
   "outputJson" : {
     "ver" : "3.0",
@@ -661,14 +665,14 @@
           "ppi" : 1,
           "pxratio" : 1.2,
           "js" : 1,
-          "lang" : "weew",
+          "lang" : "ff",
           "ip" : "123.145.167.10",
           "ipv6" : "123.145.167.1.3.2",
           "xff" : "1.2.3.4",
           "iptr" : 1,
-          "carrier" : "weew",
+          "carrier" : "ff",
           "mccmnc" : "ewew",
-          "contype" : 2,
+          "contype" : 1,
           "geofetch" : 1,
           "geo" : {
             "type" : 1,
@@ -709,7 +713,8 @@
           "ext" : {
             "dummy" : "ff"
           }
-        }
+        },
+        "mccmnc" : "ff"
       },
       "ext" : {
         "dummy" : "ff"

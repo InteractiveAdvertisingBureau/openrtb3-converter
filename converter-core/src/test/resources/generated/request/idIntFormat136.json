@@ -337,7 +337,7 @@
   "outputFile" : "BANNER_SITE_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
-    "request.item[0].spec.placement.display.displayfmt[0].ext.wmax" : "1"
+    "request.item[0].spec.placement.display.ext.wmax" : "1"
   },
   "outputJson" : {
     "ver" : "3.0",
@@ -428,8 +428,7 @@
                 "expdir" : [ 3, 9 ],
                 "ext" : {
                   "dummy" : "ffaa",
-                  "wmin" : 3,
-                  "wmax" : 1
+                  "wmin" : 3
                 }
               }, {
                 "w" : 33,
@@ -469,7 +468,8 @@
                 "dummy" : "ffaa",
                 "qty" : 1,
                 "btype" : [ 3, 4 ],
-                "id" : "dd"
+                "id" : "dd",
+                "wmax" : 1
               }
             }
           }

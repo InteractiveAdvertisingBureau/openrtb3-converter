@@ -340,7 +340,7 @@
   "outputEdits" : {
     "request.context.app.pub.id" : "\"ab\"",
     "request.context.app.pub.name" : "\"ab\"",
-    "request.context.app.pub.domain" : "\"ab\""
+    "request.context.app.pub.domain" : "\"com.xyz.abc\""
   },
   "outputJson" : {
     "ver" : "3.0",
@@ -494,7 +494,7 @@
           "pub" : {
             "id" : "ab",
             "name" : "ab",
-            "domain" : "ab",
+            "domain" : "com.xyz.abc",
             "cat" : [ "IAB3-1", "IAB3-2" ],
             "cattax" : 2,
             "ext" : {

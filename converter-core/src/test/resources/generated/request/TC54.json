@@ -337,6 +337,7 @@
   "outputFile" : "BANNER_APP_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
+    "request.context.app.content.producer.cat[*]" : null,
     "request.context.app.content.producer.cat[0]" : "\"a1\""
   },
   "outputJson" : {
@@ -526,7 +527,7 @@
               "id" : "eew",
               "name" : "edew",
               "domain" : "abc.com",
-              "cat" : [ "a1", "IAB3-2" ],
+              "cat" : [ "a1", null ],
               "cattax" : 2,
               "ext" : {
                 "dummy" : "ff"
