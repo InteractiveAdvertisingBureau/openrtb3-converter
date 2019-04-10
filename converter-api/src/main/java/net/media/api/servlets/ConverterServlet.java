@@ -14,6 +14,7 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTB3_X;
+import net.media.openrtb3.OpenRTBWrapper3_X;
 import net.media.utils.JacksonObjectMapper;
 
 import org.slf4j.Logger;
@@ -83,7 +84,7 @@ public class ConverterServlet extends HttpServlet {
   private BiConsumer<HttpServletRequest, HttpServletResponse> get2xto3xRequest = (request, response) -> {
     try {
       Request2xPayload request2xPayload = JacksonObjectMapper.getMapper().readValue(request.getInputStream(), Request2xPayload.class);
-      JacksonObjectMapper.getMapper().writerWithDefaultPrettyPrinter().writeValue(response.getWriter(), openRtbConverter.convert(request2xPayload.getConfig(), request2xPayload.getBidRequest(), BidRequest2_X.class, OpenRTB3_X.class));
+      JacksonObjectMapper.getMapper().writerWithDefaultPrettyPrinter().writeValue(response.getWriter(), openRtbConverter.convert(request2xPayload.getConfig(), request2xPayload.getBidRequest(), BidRequest2_X.class, OpenRTBWrapper3_X.class));
     } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
       log.error("Error while sending 2xto3x request ", e);
       response.setStatus(500);
@@ -93,7 +94,9 @@ public class ConverterServlet extends HttpServlet {
   private BiConsumer<HttpServletRequest, HttpServletResponse> get3xto2xRequest = (request, response) -> {
     try {
       RequestResponse3xPayload requestResponse3xPayload = JacksonObjectMapper.getMapper().readValue(request.getInputStream(), RequestResponse3xPayload.class);
-      JacksonObjectMapper.getMapper().writerWithDefaultPrettyPrinter().writeValue(response.getWriter(), openRtbConverter.convert(requestResponse3xPayload.getConfig(), requestResponse3xPayload.getOpenRTB(), OpenRTB3_X.class, BidRequest2_X.class));
+      JacksonObjectMapper.getMapper().writerWithDefaultPrettyPrinter().writeValue(response
+        .getWriter(), openRtbConverter.convert(requestResponse3xPayload.getConfig(),
+        requestResponse3xPayload.getOpenRTB(), OpenRTBWrapper3_X.class, BidRequest2_X.class));
     } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
       log.error("Error while sending 2xto3x request ", e);
       response.setStatus(500);
@@ -103,7 +106,9 @@ public class ConverterServlet extends HttpServlet {
   private BiConsumer<HttpServletRequest, HttpServletResponse> get2xto3xResponse = (request, response) -> {
     try {
       Response2xPayload response2xPayload = JacksonObjectMapper.getMapper().readValue(request.getInputStream(), Response2xPayload.class);
-      JacksonObjectMapper.getMapper().writerWithDefaultPrettyPrinter().writeValue(response.getWriter(), openRtbConverter.convert(response2xPayload.getConfig(), response2xPayload.getResponse(), BidResponse2_X.class, OpenRTB3_X.class));
+      JacksonObjectMapper.getMapper().writerWithDefaultPrettyPrinter().writeValue(response
+        .getWriter(), openRtbConverter.convert(response2xPayload.getConfig(), response2xPayload
+        .getResponse(), BidResponse2_X.class, OpenRTBWrapper3_X.class));
     } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
       log.error("Error while sending 2xto3x request ", e);
       response.setStatus(500);
@@ -113,7 +118,9 @@ public class ConverterServlet extends HttpServlet {
   private BiConsumer<HttpServletRequest, HttpServletResponse> get3xto2xResponse = (request, response) -> {
     try {
       RequestResponse3xPayload requestResponse3xPayload = JacksonObjectMapper.getMapper().readValue(request.getInputStream(), RequestResponse3xPayload.class);
-      JacksonObjectMapper.getMapper().writerWithDefaultPrettyPrinter().writeValue(response.getWriter(), openRtbConverter.convert(requestResponse3xPayload.getConfig(), requestResponse3xPayload.getOpenRTB(), OpenRTB3_X.class, BidResponse2_X.class));
+      JacksonObjectMapper.getMapper().writerWithDefaultPrettyPrinter().writeValue(response
+        .getWriter(), openRtbConverter.convert(requestResponse3xPayload.getConfig(),
+        requestResponse3xPayload.getOpenRTB(), OpenRTBWrapper3_X.class, BidResponse2_X.class));
     } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
       log.error("Error while sending 2xto3x request ", e);
       response.setStatus(500);
