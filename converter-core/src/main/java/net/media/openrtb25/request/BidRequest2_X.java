@@ -5,19 +5,16 @@ import net.media.utils.validator.CheckAtLeastOneNotNull;
 import net.media.utils.validator.CheckAtMostOneNotNull;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @CheckAtLeastOneNotNull(fieldNames = {"site", "app"})
 @CheckAtMostOneNotNull(fieldNames = {"wseat", "bseat"})
-public class BidRequest {
+public class BidRequest2_X {
 
-  //BidRequest parameters
+  //BidRequest2_X parameters
   public static final Integer DEFAULT_ALL_IMPS = 0;
 
   @NotEmpty
@@ -75,7 +72,7 @@ public class BidRequest {
 
   private transient String googleConsents;
 
-  public BidRequest(BidRequest bidRequest) {
+  public BidRequest2_X(BidRequest2_X bidRequest) {
     this.id = bidRequest.id;
     this.imp = null;
     this.site = bidRequest.site;
@@ -95,7 +92,7 @@ public class BidRequest {
     this.ext = bidRequest.ext;
   }
 
-  public BidRequest() {
+  public BidRequest2_X() {
   }
 
   public @NotEmpty String getId() {
@@ -292,8 +289,8 @@ public class BidRequest {
 
   public boolean equals(Object o) {
     if (o == this) return true;
-    if (!(o instanceof BidRequest)) return false;
-    final BidRequest other = (BidRequest) o;
+    if (!(o instanceof BidRequest2_X)) return false;
+    final BidRequest2_X other = (BidRequest2_X) o;
     if (!other.canEqual((Object) this)) return false;
     final Object this$id = this.getId();
     final Object other$id = other.getId();
@@ -408,10 +405,10 @@ public class BidRequest {
   }
 
   protected boolean canEqual(Object other) {
-    return other instanceof BidRequest;
+    return other instanceof BidRequest2_X;
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.BidRequest(id=" + this.getId() + ", imp=" + this.getImp() + ", site=" + this.getSite() + ", app=" + this.getApp() + ", device=" + this.getDevice() + ", user=" + this.getUser() + ", badv=" + this.getBadv() + ", at=" + this.getAt() + ", test=" + this.getTest() + ", wseat=" + this.getWseat() + ", bseat=" + this.getBseat() + ", tmax=" + this.getTmax() + ", source=" + this.getSource() + ", bcat=" + this.getBcat() + ", allimps=" + this.getAllimps() + ", cur=" + this.getCur() + ", wlang=" + this.getWlang() + ", bapp=" + this.getBapp() + ", regs=" + this.getRegs() + ", ext=" + this.getExt() + ", gdpr=" + this.getGdpr() + ", gdprconsent=" + this.getGdprconsent() + ", gdprstring=" + this.getGdprstring() + ", googleConsents=" + this.getGoogleConsents() + ")";
+    return "net.media.openrtb25.request.BidRequest2_X(id=" + this.getId() + ", imp=" + this.getImp() + ", site=" + this.getSite() + ", app=" + this.getApp() + ", device=" + this.getDevice() + ", user=" + this.getUser() + ", badv=" + this.getBadv() + ", at=" + this.getAt() + ", test=" + this.getTest() + ", wseat=" + this.getWseat() + ", bseat=" + this.getBseat() + ", tmax=" + this.getTmax() + ", source=" + this.getSource() + ", bcat=" + this.getBcat() + ", allimps=" + this.getAllimps() + ", cur=" + this.getCur() + ", wlang=" + this.getWlang() + ", bapp=" + this.getBapp() + ", regs=" + this.getRegs() + ", ext=" + this.getExt() + ", gdpr=" + this.getGdpr() + ", gdprconsent=" + this.getGdprconsent() + ", gdprstring=" + this.getGdprstring() + ", googleConsents=" + this.getGoogleConsents() + ")";
   }
 }

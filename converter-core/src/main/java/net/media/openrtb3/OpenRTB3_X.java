@@ -6,7 +6,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @CheckExactlyOneNotNull(fieldNames = {"request", "response"})
-public class OpenRTB {
+public class OpenRTB3_X {
 
   private String ver = "3.0";
   private String domainSpec = "adcom";

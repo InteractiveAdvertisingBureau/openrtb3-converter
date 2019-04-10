@@ -1,19 +1,9 @@
 package net.media.converters.request30toRequest24;
 
 import net.media.config.Config;
-import net.media.converters.Converter;
-import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
-import net.media.openrtb25.request.BidRequest;
-import net.media.openrtb25.request.Imp;
-import net.media.openrtb3.App;
-import net.media.openrtb3.Device;
-import net.media.openrtb3.Item;
-import net.media.openrtb3.Regs;
+import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb3.Request;
-import net.media.openrtb3.Site;
-import net.media.openrtb3.Source;
-import net.media.openrtb3.User;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -27,7 +17,7 @@ import static java.util.Objects.nonNull;
 public class RequestToBidRequestConverter extends net.media.converters
   .request30toRequest25.RequestToBidRequestConverter {
 
-  public void enhance(Request source, BidRequest target, Config config, Provider
+  public void enhance(Request source, BidRequest2_X target, Config config, Provider
     converterProvider) throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;

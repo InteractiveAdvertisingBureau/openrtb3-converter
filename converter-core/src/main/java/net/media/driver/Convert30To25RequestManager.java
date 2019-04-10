@@ -1,7 +1,5 @@
 package net.media.driver;
 
-import net.media.converters.Converter;
-import net.media.converters.request25toRequest30.MetricToMetricConverter;
 import net.media.converters.request30toRequest25.AppToAppConverter;
 import net.media.converters.request30toRequest25.AssetFormatToAssetConverter;
 import net.media.converters.request30toRequest25.AudioPlacementToAudioConverter;
@@ -26,14 +24,12 @@ import net.media.converters.request30toRequest25.SiteToSiteConverter;
 import net.media.converters.request30toRequest25.SourceToSourceConverter;
 import net.media.converters.request30toRequest25.UserToUserConverter;
 import net.media.converters.request30toRequest25.VideoPlacementToVideoConverter;
-import net.media.driver.Conversion;
 import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.Audio;
 import net.media.openrtb25.request.Banner;
-import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.Native;
-import net.media.openrtb25.request.NativeRequest;
 import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.App;
@@ -49,7 +45,7 @@ import net.media.openrtb3.Geo;
 import net.media.openrtb3.Item;
 import net.media.openrtb3.Metric;
 import net.media.openrtb3.NativeFormat;
-import net.media.openrtb3.OpenRTB;
+import net.media.openrtb3.OpenRTB3_X;
 import net.media.openrtb3.Producer;
 import net.media.openrtb3.Publisher;
 import net.media.openrtb3.Regs;
@@ -106,9 +102,9 @@ public class Convert30To25RequestManager {
       , new RegsToRegsConverter());
     converterProvider.register(new Conversion<>(Source.class, net.media.openrtb25.request.Source
       .class), new SourceToSourceConverter());
-    converterProvider.register(new Conversion<>(Request.class, BidRequest.class), new
+    converterProvider.register(new Conversion<>(Request.class, BidRequest2_X.class), new
       RequestToBidRequestConverter());
-    converterProvider.register(new Conversion<>(OpenRTB.class, BidRequest.class), new
+    converterProvider.register(new Conversion<>(OpenRTB3_X.class, BidRequest2_X.class), new
       OpenRtbToBidRequestConverter());
   }
 }

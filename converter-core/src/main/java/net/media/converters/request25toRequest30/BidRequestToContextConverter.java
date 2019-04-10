@@ -5,7 +5,7 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.App;
-import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Device;
 import net.media.openrtb25.request.Regs;
 import net.media.openrtb25.request.Site;
@@ -14,10 +14,10 @@ import net.media.openrtb3.Context;
 import net.media.openrtb3.Restrictions;
 import net.media.utils.Provider;
 
-public class BidRequestToContextConverter implements Converter<BidRequest, Context> {
+public class BidRequestToContextConverter implements Converter<BidRequest2_X, Context> {
 
   @Override
-  public Context map(BidRequest source, Config config, Provider converterProvider) throws OpenRtbConverterException {
+  public Context map(BidRequest2_X source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -30,7 +30,7 @@ public class BidRequestToContextConverter implements Converter<BidRequest, Conte
   }
 
   @Override
-  public void enhance(BidRequest source, Context target, Config config, Provider converterProvider) throws OpenRtbConverterException {
+  public void enhance(BidRequest2_X source, Context target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(source == null || target == null)
       return;
     Converter<Regs, net.media.openrtb3.Regs> regsRegsConverter = converterProvider.fetch(new Conversion<>
@@ -39,8 +39,8 @@ public class BidRequestToContextConverter implements Converter<BidRequest, Conte
             (Site.class, net.media.openrtb3.Site.class));
     Converter<User, net.media.openrtb3.User> userUserConverter = converterProvider.fetch(new Conversion<>
             (User.class, net.media.openrtb3.User.class));
-    Converter<BidRequest, Restrictions> bidRequestRestrictionsConverter = converterProvider.fetch(new Conversion<>
-            (BidRequest.class, Restrictions.class));
+    Converter<BidRequest2_X, Restrictions> bidRequestRestrictionsConverter = converterProvider.fetch(new Conversion<>
+            (BidRequest2_X.class, Restrictions.class));
     Converter<App, net.media.openrtb3.App> appAppConverter = converterProvider.fetch(new Conversion<>
             (App.class, net.media.openrtb3.App.class));
     Converter<Device, net.media.openrtb3.Device> deviceDeviceConverter = converterProvider.fetch(new Conversion<>

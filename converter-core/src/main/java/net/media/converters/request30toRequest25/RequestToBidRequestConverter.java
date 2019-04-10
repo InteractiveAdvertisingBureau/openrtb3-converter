@@ -4,7 +4,7 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.User;
 import net.media.openrtb3.*;
@@ -13,25 +13,22 @@ import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import static java.util.Objects.nonNull;
 
-public class RequestToBidRequestConverter implements Converter<Request, BidRequest> {
+public class RequestToBidRequestConverter implements Converter<Request, BidRequest2_X> {
 
   @Override
-  public BidRequest map(Request source, Config config, Provider converterProvider) throws OpenRtbConverterException {
+  public BidRequest2_X map(Request source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
 
-    BidRequest bidRequest = new BidRequest();
+    BidRequest2_X bidRequest = new BidRequest2_X();
 
     enhance( source, bidRequest, config, converterProvider );
 
@@ -39,7 +36,7 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
   }
 
   @Override
-  public void enhance(Request source, BidRequest target, Config config, Provider converterProvider) throws OpenRtbConverterException {
+  public void enhance(Request source, BidRequest2_X target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(source == null || target == null)
       return;
 

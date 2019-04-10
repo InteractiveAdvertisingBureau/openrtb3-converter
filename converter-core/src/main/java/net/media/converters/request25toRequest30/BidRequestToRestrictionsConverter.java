@@ -2,9 +2,8 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
-import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb3.Restrictions;
 import net.media.utils.Provider;
@@ -13,13 +12,12 @@ import net.media.utils.Utils;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
-public class BidRequestToRestrictionsConverter implements Converter<BidRequest, Restrictions> {
+public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_X, Restrictions> {
   @Override
-  public Restrictions map(BidRequest source, Config config, Provider converterProvider) throws
+  public Restrictions map(BidRequest2_X source, Config config, Provider converterProvider) throws
     OpenRtbConverterException{
     if ( source == null ) {
       return null;
@@ -33,7 +31,7 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
   }
 
   @Override
-  public void enhance(BidRequest source, Restrictions target, Config config, Provider
+  public void enhance(BidRequest2_X source, Restrictions target, Config config, Provider
     converterProvider) throws OpenRtbConverterException {
     if(source == null || target == null)
       return;
@@ -80,7 +78,7 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest, 
         source.getExt().remove("restrictions");
       }
     } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for BidRequest", e);
+      throw new OpenRtbConverterException("error while typecasting ext for BidRequest2_X", e);
     }
   }
 }

@@ -1,16 +1,16 @@
 package net.media.api.models;
 
 import net.media.config.Config;
-import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.BidRequest2_X;
 
 public class Request2xPayload {
-  private BidRequest bidRequest;
+  private BidRequest2_X bidRequest;
   private Config config;
 
   public Request2xPayload() {
   }
 
-  public BidRequest getBidRequest() {
+  public BidRequest2_X getBidRequest() {
     return this.bidRequest;
   }
 
@@ -18,7 +18,7 @@ public class Request2xPayload {
     return this.config;
   }
 
-  public void setBidRequest(BidRequest bidRequest) {
+  public void setBidRequest(BidRequest2_X bidRequest) {
     this.bidRequest = bidRequest;
   }
 

@@ -5,5 +5,5 @@ package net.media.openrtb3;
  */
 public class Root {
 
-  private OpenRTB openrtb;
+  private OpenRTB3_X openrtb;
 }

@@ -1,15 +1,13 @@
 package net.media.driver;
 
-import net.media.converters.Converter;
 import net.media.converters.response30toresponse25.*;
-import net.media.openrtb25.response.BidResponse;
+import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb25.response.SeatBid;
 import net.media.openrtb25.response.nativeresponse.AssetResponse;
 import net.media.openrtb25.response.nativeresponse.Link;
 import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb3.Ad;
 import net.media.openrtb3.Asset;
-import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.Audio;
 import net.media.openrtb3.Audit;
 import net.media.openrtb3.Bid;
@@ -17,7 +15,7 @@ import net.media.openrtb3.Display;
 import net.media.openrtb3.LinkAsset;
 import net.media.openrtb3.Media;
 import net.media.openrtb3.Native;
-import net.media.openrtb3.OpenRTB;
+import net.media.openrtb3.OpenRTB3_X;
 import net.media.openrtb3.Seatbid;
 import net.media.openrtb3.Video;
 import net.media.utils.Provider;
@@ -47,7 +45,7 @@ public class Convert30To25ResponseManager {
     converterProvider.register(new Conversion<>(Bid.class, net.media.openrtb25.response.Bid.class),
       new Bid30ToBid25Converter());
     converterProvider.register(new Conversion<>(Seatbid.class, SeatBid.class), new SeatBid30ToSeatBid25Converter());
-    converterProvider.register(new Conversion<>(OpenRTB.class, BidResponse.class), new OpenRtbResponseToBidResponseConverter());
+    converterProvider.register(new Conversion<>(OpenRTB3_X.class, BidResponse2_X.class), new OpenRtbResponseToBidResponseConverter());
   }
 
 }

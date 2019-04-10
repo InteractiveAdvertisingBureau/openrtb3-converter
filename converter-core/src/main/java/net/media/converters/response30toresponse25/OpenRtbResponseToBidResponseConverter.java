@@ -4,9 +4,9 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb25.response.BidResponse;
+import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb25.response.SeatBid;
-import net.media.openrtb3.OpenRTB;
+import net.media.openrtb3.OpenRTB3_X;
 import net.media.openrtb3.Response;
 import net.media.openrtb3.Seatbid;
 import net.media.utils.Provider;
@@ -18,19 +18,19 @@ import java.util.List;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-public class OpenRtbResponseToBidResponseConverter implements Converter<OpenRTB,BidResponse> {
+public class OpenRtbResponseToBidResponseConverter implements Converter<OpenRTB3_X,BidResponse2_X> {
 
   @Override
-  public BidResponse map(OpenRTB source, Config config, Provider converterProvider) throws OpenRtbConverterException {
+  public BidResponse2_X map(OpenRTB3_X source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(isNull(source) || isNull(config))
       return  null;
-    BidResponse  bidResponse = new BidResponse();
+    BidResponse2_X bidResponse = new BidResponse2_X();
     enhance(source,bidResponse,config, converterProvider);
     return bidResponse;
   }
 
   @Override
-  public void enhance(OpenRTB source, BidResponse target, Config config, Provider converterProvider) throws OpenRtbConverterException  {
+  public void enhance(OpenRTB3_X source, BidResponse2_X target, Config config, Provider converterProvider) throws OpenRtbConverterException  {
 
     Converter<Seatbid, SeatBid> seatBid30ToSeatBid25Converter = converterProvider.fetch(new
       Conversion(Seatbid.class, SeatBid.class));

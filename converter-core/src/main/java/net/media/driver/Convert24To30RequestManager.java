@@ -1,13 +1,12 @@
 package net.media.driver;
 
-import net.media.converters.Converter;
 import net.media.converters.request24toRequest30.BannerToDisplayPlacementConverter;
 import net.media.converters.request24toRequest30.BidRequestToRequestConverter;
 import net.media.converters.request24toRequest30.DeviceToDeviceConverter;
 import net.media.converters.request24toRequest30.ImpToItemConverter;
 import net.media.converters.request24toRequest30.VideoToVideoPlacementConverter;
 import net.media.openrtb25.request.Banner;
-import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Device;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.Video;
@@ -27,7 +26,7 @@ public class Convert24To30RequestManager {
   public Convert24To30RequestManager(Provider converterProvider) {
     converterProvider.register(new Conversion<>(Banner.class, DisplayPlacement.class), new
       BannerToDisplayPlacementConverter());
-    converterProvider.register(new Conversion<>(BidRequest.class, Request.class), new
+    converterProvider.register(new Conversion<>(BidRequest2_X.class, Request.class), new
       BidRequestToRequestConverter());
     converterProvider.register(new Conversion<>(Device.class, net.media.openrtb3.Device.class), new
       DeviceToDeviceConverter());

@@ -4,7 +4,7 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb25.response.BidResponse;
+import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb25.response.SeatBid;
 import net.media.openrtb3.Response;
 import net.media.openrtb3.Seatbid;
@@ -16,12 +16,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.util.Objects.nonNull;
-
 /**
  * @author shiva.b
  */
-public class BidResponseToResponseConverter implements Converter<BidResponse, Response> {
+public class BidResponseToResponseConverter implements Converter<BidResponse2_X, Response> {
 
   /**
    * @param bidResponse
@@ -29,7 +27,7 @@ public class BidResponseToResponseConverter implements Converter<BidResponse, Re
    * @return
    */
   @Override
-  public Response map(BidResponse bidResponse, Config config, Provider converterProvider)throws OpenRtbConverterException {
+  public Response map(BidResponse2_X bidResponse, Config config, Provider converterProvider)throws OpenRtbConverterException {
     if ( bidResponse == null ) {
       return null;
     }
@@ -44,7 +42,7 @@ public class BidResponseToResponseConverter implements Converter<BidResponse, Re
    * @param response
    */
   @Override
-  public void enhance(BidResponse bidResponse, Response response, Config config, Provider converterProvider)throws OpenRtbConverterException {
+  public void enhance(BidResponse2_X bidResponse, Response response, Config config, Provider converterProvider)throws OpenRtbConverterException {
     response.setId( bidResponse.getId() );
     response.setBidid( bidResponse.getBidid() );
     response.setNbr( bidResponse.getNbr() );

@@ -1,6 +1,5 @@
 package net.media.driver;
 
-import net.media.converters.Converter;
 import net.media.converters.response25toresponse30.Asset25ToAsset30Converter;
 import net.media.converters.response25toresponse30.Bid25ToBid30Converter;
 import net.media.converters.response25toresponse30.Bid25ToMediaConverter;
@@ -14,7 +13,7 @@ import net.media.converters.response25toresponse30.BidToVideoConverter;
 import net.media.converters.response25toresponse30.LinkToLinkAssetConverter;
 import net.media.converters.response25toresponse30.Native25ToNative30Converter;
 import net.media.converters.response25toresponse30.SeatBid25ToSeatBid30Converter;
-import net.media.openrtb25.response.BidResponse;
+import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb25.response.SeatBid;
 import net.media.openrtb25.response.nativeresponse.AssetResponse;
 import net.media.openrtb25.response.nativeresponse.Link;
@@ -28,7 +27,7 @@ import net.media.openrtb3.Display;
 import net.media.openrtb3.LinkAsset;
 import net.media.openrtb3.Media;
 import net.media.openrtb3.Native;
-import net.media.openrtb3.OpenRTB;
+import net.media.openrtb3.OpenRTB3_X;
 import net.media.openrtb3.Response;
 import net.media.openrtb3.Seatbid;
 import net.media.openrtb3.Video;
@@ -60,8 +59,8 @@ public class Convert25To30ResponseManager {
     converterProvider.register(new Conversion<>(net.media.openrtb25.response.Bid.class, Bid.class),
       new Bid25ToBid30Converter());
     converterProvider.register(new Conversion<>(SeatBid.class, Seatbid.class), new SeatBid25ToSeatBid30Converter());
-    converterProvider.register(new Conversion<>(BidResponse.class, Response.class), new BidResponseToResponseConverter());
-    converterProvider.register(new Conversion<>(BidResponse.class, OpenRTB.class), new BidResponseToOpenRtbConverter());
+    converterProvider.register(new Conversion<>(BidResponse2_X.class, Response.class), new BidResponseToResponseConverter());
+    converterProvider.register(new Conversion<>(BidResponse2_X.class, OpenRTB3_X.class), new BidResponseToOpenRtbConverter());
   }
 
 }

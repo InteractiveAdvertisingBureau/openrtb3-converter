@@ -1,16 +1,16 @@
 package net.media.api.models;
 
 import net.media.config.Config;
-import net.media.openrtb25.response.BidResponse;
+import net.media.openrtb25.response.BidResponse2_X;
 
 public class Response2xPayload {
-  private BidResponse response;
+  private BidResponse2_X response;
   private Config config;
 
   public Response2xPayload() {
   }
 
-  public BidResponse getResponse() {
+  public BidResponse2_X getResponse() {
     return this.response;
   }
 
@@ -18,7 +18,7 @@ public class Response2xPayload {
     return this.config;
   }
 
-  public void setResponse(BidResponse response) {
+  public void setResponse(BidResponse2_X response) {
     this.response = response;
   }
 

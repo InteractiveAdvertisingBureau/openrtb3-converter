@@ -4,7 +4,7 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.openrtb25.request.BidRequest;
+import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.Source;
 import net.media.openrtb25.request.User;
@@ -19,18 +19,15 @@ import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
  * Created by rajat.go on 03/01/19.
  */
-public class BidRequestToRequestConverter implements Converter<BidRequest, Request> {
+public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Request> {
 
-  private String bidRequestUserCustomdata(BidRequest bidRequest) {
+  private String bidRequestUserCustomdata(BidRequest2_X bidRequest) {
     if ( bidRequest == null ) {
       return null;
     }
@@ -46,7 +43,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
   }
 
   @Override
-  public Request map(BidRequest source, Config config, Provider converterProvider) throws OpenRtbConverterException {
+  public Request map(BidRequest2_X source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if ( source == null ) {
       return null;
     }
@@ -59,12 +56,12 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
   }
 
   @Override
-  public void enhance(BidRequest source, Request target, Config config, Provider converterProvider) throws OpenRtbConverterException {
+  public void enhance(BidRequest2_X source, Request target, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if(source == null || target == null) {
       return;
     }
-    Converter<BidRequest, Context> bidRequestContextConverter = converterProvider.fetch(new Conversion<>
-            (BidRequest.class, Context.class));
+    Converter<BidRequest2_X, Context> bidRequestContextConverter = converterProvider.fetch(new Conversion<>
+            (BidRequest2_X.class, Context.class));
     Converter<Imp, Item> impItemConverter = converterProvider.fetch(new Conversion<>
             (Imp.class, Item.class));
     target.setContext( bidRequestContextConverter.map( source, config, converterProvider ) );
@@ -116,12 +113,12 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
         Dooh dooh = (Dooh) source.getExt().get("dooh");
         target.getContext().setDooh(dooh);
       } catch (ClassCastException e) {
-        throw new OpenRtbConverterException("error while typecasting ext for BidRequest", e);
+        throw new OpenRtbConverterException("error while typecasting ext for BidRequest2_X", e);
       }
     }
   }
 
-  private void bidRequestToSpec(BidRequest bidRequest, Spec mappingTarget, Config config) {
+  private void bidRequestToSpec(BidRequest2_X bidRequest, Spec mappingTarget, Config config) {
     if ( bidRequest == null ) {
       return;
     }
@@ -132,7 +129,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest, Reque
     bidRequestToPlacement( bidRequest, mappingTarget.getPlacement(), config );
   }
 
-  private void bidRequestToPlacement(BidRequest bidRequest, Placement mappingTarget, Config config) {
+  private void bidRequestToPlacement(BidRequest2_X bidRequest, Placement mappingTarget, Config config) {
     if ( bidRequest == null ) {
       return;
     }

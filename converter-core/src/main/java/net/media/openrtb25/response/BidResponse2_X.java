@@ -1,8 +1,6 @@
 package net.media.openrtb25.response;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -11,7 +9,7 @@ import javax.validation.constraints.NotNull;
 /**
  * Created by vishnu on 30/5/16.
  */
-public class BidResponse {
+public class BidResponse2_X {
 
   @NotNull
   private String id;
@@ -23,7 +21,7 @@ public class BidResponse {
   private Integer nbr;
   private Map<String, Object> ext;
 
-  public BidResponse() {
+  public BidResponse2_X() {
   }
 
   public @NotNull String getId() {
@@ -84,8 +82,8 @@ public class BidResponse {
 
   public boolean equals(Object o) {
     if (o == this) return true;
-    if (!(o instanceof BidResponse)) return false;
-    final BidResponse other = (BidResponse) o;
+    if (!(o instanceof BidResponse2_X)) return false;
+    final BidResponse2_X other = (BidResponse2_X) o;
     if (!other.canEqual((Object) this)) return false;
     final Object this$id = this.getId();
     final Object other$id = other.getId();
@@ -134,10 +132,10 @@ public class BidResponse {
   }
 
   protected boolean canEqual(Object other) {
-    return other instanceof BidResponse;
+    return other instanceof BidResponse2_X;
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.BidResponse(id=" + this.getId() + ", seatbid=" + this.getSeatbid() + ", bidid=" + this.getBidid() + ", cur=" + this.getCur() + ", customdata=" + this.getCustomdata() + ", nbr=" + this.getNbr() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.response.BidResponse2_X(id=" + this.getId() + ", seatbid=" + this.getSeatbid() + ", bidid=" + this.getBidid() + ", cur=" + this.getCur() + ", customdata=" + this.getCustomdata() + ", nbr=" + this.getNbr() + ", ext=" + this.getExt() + ")";
   }
 }
