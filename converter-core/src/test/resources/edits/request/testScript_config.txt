@@ -20,7 +20,7 @@ cases:
    outputFile: NATIVE_APP_25.json
    outputType: "REQUEST25"
    outputEdits:
-     status: ERROR
+     status: "ERROR"
    purpose: nativerequestasstringincorrectvalue
    params:
      adType: m

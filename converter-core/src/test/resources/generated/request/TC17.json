@@ -337,6 +337,7 @@
   "outputFile" : "BANNER_APP_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
+    "request.context.app.pagecat[*]" : null,
     "request.context.app.pagecat[0]" : "\"a1\""
   },
   "outputJson" : {
@@ -555,7 +556,7 @@
           "domain" : "www.foobar.com",
           "cat" : [ "IAB3-1", "IAB3-2" ],
           "sectcat" : [ "zz", "dd" ],
-          "pagecat" : [ "a1", "as" ],
+          "pagecat" : [ "a1", null ],
           "cattax" : 2,
           "privpolicy" : 1,
           "keywords" : "ewew",

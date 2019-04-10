@@ -336,7 +336,7 @@
   "outputFile" : "BANNER_SITE_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
-    "request.context.site.content.live" : "\"ff\""
+    "status" : "ERROR"
   },
   "outputJson" : {
     "ver" : "3.0",
@@ -516,7 +516,7 @@
             "urating" : "ewew",
             "mrating" : 1,
             "keywords" : "efea",
-            "live" : "ff",
+            "live" : 1,
             "srcrel" : 1,
             "len" : 2,
             "lang" : "en",
@@ -677,7 +677,8 @@
         "dummy" : "ff"
       },
       "package" : 0
-    }
+    },
+    "status" : "RRO"
   },
   "purpose" : "idStringFormat95",
   "params" : null

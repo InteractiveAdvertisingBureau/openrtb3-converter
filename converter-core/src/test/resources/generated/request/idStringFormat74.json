@@ -349,7 +349,7 @@
     "request.context.site.ref" : "\"ff\"",
     "request.context.site.search" : "\"ff\"",
     "request.context.site.mobile" : "1",
-    "request.context.site.privacypolicy" : "1",
+    "request.context.site.privpolicy" : "1",
     "request.context.site.keywords" : "\"ff\"",
     "request.context.site.domain" : "\"www.foobar.com\"",
     "request.context.site.page" : "\"http://www.foobar.com/1234.html\""
@@ -581,8 +581,7 @@
           "amp" : 2,
           "ext" : {
             "dummy" : "ff"
-          },
-          "privacypolicy" : 1
+          }
         },
         "user" : {
           "id" : "55816b39711f9b5acf3b90e313ed29e51665623f",

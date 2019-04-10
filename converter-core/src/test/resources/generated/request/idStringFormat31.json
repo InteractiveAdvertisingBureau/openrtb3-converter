@@ -2,7 +2,7 @@
   "inputFile" : "BANNER_SITE_25.json",
   "inputType" : "REQUEST25",
   "inputEdits" : {
-    "device.os" : "1"
+    "device.os" : "\"3ds system software\""
   },
   "inputJson" : {
     "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
@@ -268,7 +268,7 @@
       "devicetype" : 2,
       "make" : "weew",
       "model" : "edew",
-      "os" : 1,
+      "os" : "3ds system software",
       "osv" : "hwv",
       "hwv" : "ww",
       "h" : 2,

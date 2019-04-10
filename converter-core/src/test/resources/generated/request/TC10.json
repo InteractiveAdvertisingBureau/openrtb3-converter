@@ -336,7 +336,7 @@
   "outputFile" : "BANNER_APP_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
-    "request.context.keywords" : "\"1\""
+    "request.context.app.keywords" : "\"1\""
   },
   "outputJson" : {
     "ver" : "3.0",
@@ -557,7 +557,7 @@
           "pagecat" : [ "ss", "as" ],
           "cattax" : 2,
           "privpolicy" : 1,
-          "keywords" : "ewew",
+          "keywords" : "1",
           "bundle" : "com.media.net",
           "storeid" : "abc1234",
           "storeurl" : "axcdabc.com/test123",
@@ -671,8 +671,7 @@
           "ext" : {
             "dummy" : "ff"
           }
-        },
-        "keywords" : "1"
+        }
       },
       "ext" : {
         "dummy" : "ff"

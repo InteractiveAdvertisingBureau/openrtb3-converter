@@ -337,6 +337,7 @@
   "outputFile" : "BANNER_APP_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
+    "request.context.app.cat[*]" : null,
     "request.context.app.cat[0]" : "\"a1\""
   },
   "outputJson" : {
@@ -553,7 +554,7 @@
             }
           },
           "domain" : "www.foobar.com",
-          "cat" : [ "a1", "IAB3-2" ],
+          "cat" : [ "a1", null ],
           "sectcat" : [ "zz", "dd" ],
           "pagecat" : [ "ss", "as" ],
           "cattax" : 2,
