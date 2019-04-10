@@ -4,7 +4,7 @@ import net.media.config.Config;
 import net.media.driver.OpenRtbConverter;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.response.BidResponse2_X;
-import net.media.openrtb3.OpenRTB3_X;
+import net.media.openrtb3.OpenRTBWrapper3_X;
 import net.media.utils.JacksonObjectMapper;
 
 import org.junit.Assert;
@@ -38,7 +38,6 @@ public class ConverterTest {
       for (File files : innerFolder) {
         totalFiles += files.listFiles().length;
         for (File file : files.listFiles()) {
-//          System.out.println("Running test file = " + file.getName());
 
           byte[] jsonData = Files.readAllBytes(file.toPath());
           TestPojo testPojo = null;
@@ -56,18 +55,18 @@ public class ConverterTest {
           } else if (testPojo.getInputType().equalsIgnoreCase("REQUEST25") && testPojo.getOutputType()
                   .equalsIgnoreCase("REQUEST30")) {
             ortbTester.test(testPojo.getInputJson(), BidRequest2_X.class, testPojo.getOutputJson(),
-                    OpenRTB3_X.class, testPojo.getParams(), testPojo, testOutput, file.getName());
+                    OpenRTBWrapper3_X.class, testPojo.getParams(), testPojo, testOutput, file.getName());
           } else if (testPojo.getInputType().equalsIgnoreCase("REQUEST30") && testPojo.getOutputType()
                   .equalsIgnoreCase("REQUEST25")) {
-            ortbTester.test(testPojo.getInputJson(), BidRequest2_X.class, testPojo.getOutputJson(),
-                    OpenRTB3_X.class, testPojo.getParams(), testPojo, testOutput, file.getName());
+            ortbTester.test(testPojo.getInputJson(), OpenRTBWrapper3_X.class, testPojo.getOutputJson(),
+                    BidRequest2_X.class, testPojo.getParams(), testPojo, testOutput, file.getName());
           } else if (testPojo.getInputType().equalsIgnoreCase("RESPONSE25") && testPojo
                   .getOutputType().equalsIgnoreCase("RESPONSE30")) {
             ortbTester.test(testPojo.getInputJson(), BidResponse2_X.class, testPojo.getOutputJson(),
-                    OpenRTB3_X.class, testPojo.getParams(), testPojo, testOutput, file.getName());
+                    OpenRTBWrapper3_X.class, testPojo.getParams(), testPojo, testOutput, file.getName());
           } else if (testPojo.getInputType().equalsIgnoreCase("RESPONSE30") && testPojo
                   .getOutputType().equalsIgnoreCase("RESPONSE25")) {
-            ortbTester.test(testPojo.getInputJson(), OpenRTB3_X.class, testPojo.getOutputJson(),
+            ortbTester.test(testPojo.getInputJson(), OpenRTBWrapper3_X.class, testPojo.getOutputJson(),
                     BidResponse2_X.class, testPojo.getParams(), testPojo, testOutput, file.getName());
           } else {
             OutputTestPojo outputTestPojo = new OutputTestPojo();
@@ -78,12 +77,10 @@ public class ConverterTest {
             outputTestPojo.setException("Test file is incorrect");
             testOutput.getFailedTestList().add(outputTestPojo);
           }
-//          System.out.println("Completed execution of test file = " + file.getName());
         }
-    }
+      }
       testOutput.setTotalTestCases(totalFiles);
       testOutput.setFailedTestCases(testOutput.getFailedTestList().size());
-//      System.out.println(JacksonObjectMapper.getMapper().writeValueAsString(testOutput));
       JacksonObjectMapper.getMapper().writerWithDefaultPrettyPrinter().writeValue(outputFile, testOutput);
       Assert.assertEquals("Failing test cases. For more info check generatedOutput/Output.json",0, testOutput.getFailedTestList().size());
     }
