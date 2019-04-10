@@ -4,53 +4,35 @@
   "test": 1,
   "tmax": 100,
   "wseat": ["a"],
-  "bseat": ["b"],
   "source": {
     "fd": 1,
     "tid": "dd",
     "pchain": "dd",
     "ext": {
-      "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
-        }
-      },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "Key": "value"
+      "ts" : 1,
+      "ds" : "ds",
+      "dsmap" : "abcdefghij",
+      "cert" : "abc.com/xyz/efg",
+      "digest" : "digest:digest, abcde:efg",
+      "dummy" : "ff"
+
     }
   },
   "regs": {
     "coppa": 1,
     "ext": {
-      "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
-        }
-      },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "Key": "value"
+      "gdpr" : 1,
+      "dummy" :"ff"
     }
   },
   "ext": {
-    "object": {
-      "a" : "dsd",
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "obj" : {
-        "a" : 1
+    "cattax" : 2,
+    "dummy" : "ff",
+    "restrictions": {
+      "ext": {
+        "dummy": "ff"
       }
-    },
-    "arraySample": ["a"],
-    "jsonArraySample": [{"id": 1}],
-    "Key": "value"
+    }
   },
   "cur": ["USD"],
   "allimps": 0,
@@ -71,10 +53,10 @@
     "bidfloor": 0.03,
     "bidfloorcur": "USD",
     "pmp": {
-      "private_auction": 0,
+      "private_auction": 1,
       "deals": [{
         "id": "ww",
-        "bidfloor": 0.1,
+        "bidfloor": 0.0,
         "bidfloorcur": "USD",
         "at": 1,
         "wseat": ["dd", "as"],
@@ -89,21 +71,18 @@
     },
     "displaymanager": "dd",
     "displaymanagerver": "22",
-    "clickbrowser": 1,
     "secure": 1,
-    "iframebuster": ["ss", "abc"],
-    "instl": 0,
     "tagid": "re",
     "exp": 1,
     "audio": {
       "mimes": [
-        "abc",
-        "def"
+        "1",
+        "2"
       ],
-      "minduration": 3,
-      "maxduration": 6,
+      "minduration": 1,
+      "maxduration": 1,
       "protocols": [
-        1
+        1,2
       ],
       "startdelay": 1,
       "sequence": 1,
@@ -115,50 +94,9 @@
       "minbitrate": 1,
       "maxbitrate": 1,
       "delivery": [
-        1,
-        2
+        2,
+        1
       ],
-      "companionad": [{
-        "id": "dd",
-        "format": [{
-          "w": 200,
-          "h": 20,
-          "wratio": 1,
-          "hratio": 2,
-          "wmin":3,
-          "ext": {
-            "dummy": "ff"
-          }
-        }, {
-          "w": 33,
-          "h": 11,
-          "wratio": 1,
-          "hratio": 2,
-          "wmin":3,
-          "ext": {
-            "dummy": "ff"
-          }
-        }],
-        "h": 250,
-        "w": 300,
-        "wmax": 22,
-        "hmax": 11,
-        "wmin": 1,
-        "hmin": 9,
-        "btype": [3, 4],
-        "battr": [1, 2],
-        "topframe": 22,
-        "expdir": [3, 9],
-        "api": [3, 2],
-        "vcm": 22,
-        "mimes": ["application/x-shockwave-flash",
-          "image/jpg"
-        ],
-        "pos": 0,
-        "ext": {
-          "dummy": "ff"
-        }
-      }],
       "api": [
         1,
         2
@@ -170,29 +108,78 @@
       "maxseq": 1,
       "feed": 1,
       "stitched": 1,
-      "nvol": 5,
+      "nvol": 1,
+      "companionad": [{
+        "id": "3.0",
+        "vcm": 1,
+        "pos": 0,
+        "topframe": 22,
+        "expdir": [3, 9],
+        "mimes": ["application/x-shockwave-flash", "image/jpg"],
+        "api": [3, 2],
+        "w": 300,
+        "h": 250,
+        "btype": [3, 4],
+        "format": [{
+          "ext": {
+            "dummy": "ffaa"
+          },
+          "h": 20,
+          "hratio": 30,
+          "w": 200,
+          "wmin": 3,
+          "wratio": 200
+        },
+          {
+            "ext": {
+              "dummy": "ffaa"
+            },
+            "h": 11,
+            "hratio": 30,
+            "w": 33,
+            "wmin": 3,
+            "wratio": 200
+          }],
+        "ext": {
+          "ptype": 1,
+          "context": 2,
+          "ctype": [1],
+          "unit": 1,
+          "priv": 0,
+          "dummy": "entry"
+        }
+      }],
       "ext":{
         "delay": 1,
         "skipmin": 1,
+        "skip":1,
         "skipafter": 1,
         "playmethod": 1,
-        "playend": 1
+        "playend": 1,
+        "qty":1
       }
     },
     "ext": {
+      "ssai": 1,
+      "reward" : 1,
+      "admx" :  1,
+      "dt" : 1,
+      "dlvy": 1,
+      "sequence" :1,
+      "curlx" : 0,
       "dummy": "ff"
     }
   }],
   "app": {
-    "id": "123456",
-    "name": "xyztesting",
-    "bundle": "com.xyz.abc",
-    "domain": "google.com",
-    "storeurl": "package.com.xyz",
-    "cat": ["abc", "xyz"],
-    "sectioncat": ["axx", "cde"],
-    "pagecat": ["aaa", "bbb"],
-    "ver": "1.2",
+    "id": "abcde2345",
+    "name": "android app",
+    "bundle": "com.media.net",
+    "domain": "www.foobar.com",
+    "storeurl": "axcdabc.com/test123",
+    "cat": ["IAB3-1", "IAB3-2"],
+    "sectioncat": ["zz", "dd"],
+    "pagecat": ["ss", "as"],
+    "ver": "123",
     "privacypolicy": 1,
     "paid": 0,
     "publisher": {
@@ -201,17 +188,8 @@
       "cat": ["IAB3-1", "IAB3-2"],
       "domain": "foobar.com",
       "ext": {
-        "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
-          }
-        },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "Key": "value"
+        "cattax": 2,
+        "dummy": "ff"
       }
     },
     "content": {
@@ -230,17 +208,8 @@
         "cat": ["IAB3-1", "IAB3-2"],
         "domain": "abc.com",
         "ext": {
-          "object": {
-            "a" : "dsd",
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "obj" : {
-              "a" : 1
-            }
-          },
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "Key": "value"
+          "cattax": 2,
+          "dummy": "ff"
         }
       },
       "url": "ewfe.com",
@@ -258,66 +227,30 @@
       "language": "en",
       "embeddable": 1,
       "data": [{
-        "id": "wwe",
-        "name": "ee",
+        "id": "1",
+        "name": "Abcdef",
         "segment": [{
-          "id": "ew",
-          "name": "rewfe",
-          "value": "ew",
+          "id": "bcdef",
+          "name": "name123",
+          "value": "acde",
           "ext": {
-            "object": {
-              "a" : "dsd",
-              "arraySample": ["a"],
-              "jsonArraySample": [{"id": 1}],
-              "obj" : {
-                "a" : 1
-              }
-            },
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "Key": "value"
-          }      }],
+            "dummy": "ff"
+          }
+        }],
         "ext": {
-          "object": {
-            "a" : "dsd",
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "obj" : {
-              "a" : 1
-            }
-          },
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "Key": "value"
+          "dummy": "ff"
         }
       }],
       "ext": {
-        "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
-          }
-        },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "Key": "value"
+        "cattax": 2,
+        "dummy": "ff"
       }
     },
-    "keywords": "abcd,def",
+    "keywords": "ewew",
     "ext": {
-      "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
-        }
-      },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "Key": "value"
+      "dummy": "ff",
+      "cattax": 2,
+      "storeid": "abc1234"
     }
   },
   "device": {
@@ -338,17 +271,7 @@
       "zip": "ewe",
       "utcoffset": 1,
       "ext": {
-        "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
-          }
-        },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "Key": "value"
+        "dummy" : "ff"
       }
     },
     "dnt": 1,
@@ -357,7 +280,7 @@
     "devicetype": 2,
     "make": "weew",
     "model": "edew",
-    "os": "ede",
+    "os": "android",
     "osv": "hwv",
     "hwv": "ww",
     "h": 2,
@@ -372,17 +295,9 @@
     "mccmnc": "ewew",
     "connectiontype": 2,
     "ext": {
-      "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
-        }
-      },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "Key": "value"
+      "xff" : "1.2.3.4",
+      "iptr" : 1,
+      "dummy" : "ff"
     }
   },
   "user": {
@@ -407,17 +322,7 @@
       "zip": "ewe",
       "utcoffset": 1,
       "ext": {
-        "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
-          }
-        },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "Key": "value"
+        "dummy" :"ff"
       }
     },
     "data": [{
@@ -428,44 +333,14 @@
         "name": "rewfe",
         "value": "ew",
         "ext": {
-          "object": {
-            "a" : "dsd",
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "obj" : {
-              "a" : 1
-            }
-          },
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "Key": "value"
+          "dummy" : "ff"
         }      }],
       "ext": {
-        "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
-          }
-        },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "Key": "value"
+        "dummy" : "ff"
       }
     }],
     "ext": {
-      "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
-        }
-      },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "Key": "value"
+      "consent" : "abcdef"
     }
 
   }
