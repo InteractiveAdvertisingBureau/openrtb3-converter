@@ -14,6 +14,7 @@ import net.media.converters.request30toRequest25.GeoToGeoConverter;
 import net.media.converters.request30toRequest25.ItemToImpConverter;
 import net.media.converters.request30toRequest25.NativeFormatToNativeRequestBodyConverter;
 import net.media.converters.request30toRequest25.OpenRtbToBidRequestConverter;
+import net.media.converters.request30toRequest25.OpenRtbWrapperToBidRequestConverter;
 import net.media.converters.request30toRequest25.ProducerToProducerConverter;
 import net.media.converters.request30toRequest25.PublisherToPublisherConverter;
 import net.media.converters.request30toRequest25.RegsToRegsConverter;
@@ -46,6 +47,7 @@ import net.media.openrtb3.Item;
 import net.media.openrtb3.Metric;
 import net.media.openrtb3.NativeFormat;
 import net.media.openrtb3.OpenRTB3_X;
+import net.media.openrtb3.OpenRTBWrapper3_X;
 import net.media.openrtb3.Producer;
 import net.media.openrtb3.Publisher;
 import net.media.openrtb3.Regs;
@@ -106,5 +108,7 @@ public class Convert30To25RequestManager {
       RequestToBidRequestConverter());
     converterProvider.register(new Conversion<>(OpenRTB3_X.class, BidRequest2_X.class), new
       OpenRtbToBidRequestConverter());
+    converterProvider.register(new Conversion<>(OpenRTBWrapper3_X.class, BidRequest2_X.class),
+      new OpenRtbWrapperToBidRequestConverter());
   }
 }

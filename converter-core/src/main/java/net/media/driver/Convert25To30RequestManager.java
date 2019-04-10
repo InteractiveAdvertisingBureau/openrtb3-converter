@@ -7,6 +7,7 @@ import net.media.converters.request25toRequest30.BannerToCompanionConverter;
 import net.media.converters.request25toRequest30.BannerToDisplayPlacementConverter;
 import net.media.converters.request25toRequest30.BidRequestToContextConverter;
 import net.media.converters.request25toRequest30.BidRequestToOpenRtbConverter;
+import net.media.converters.request25toRequest30.BidRequestToOpenRtbWrapperConverter;
 import net.media.converters.request25toRequest30.BidRequestToRequestConverter;
 import net.media.converters.request25toRequest30.BidRequestToRestrictionsConverter;
 import net.media.converters.request25toRequest30.ContentToContentConverter;
@@ -52,6 +53,7 @@ import net.media.openrtb3.Geo;
 import net.media.openrtb3.Item;
 import net.media.openrtb3.NativeFormat;
 import net.media.openrtb3.OpenRTB3_X;
+import net.media.openrtb3.OpenRTBWrapper3_X;
 import net.media.openrtb3.Regs;
 import net.media.openrtb3.Request;
 import net.media.openrtb3.Restrictions;
@@ -108,6 +110,8 @@ public class Convert25To30RequestManager {
     converterProvider.register(new Conversion<>(BidRequest2_X.class, Request.class), new
       BidRequestToRequestConverter());
     converterProvider.register(new Conversion<>(BidRequest2_X.class, OpenRTB3_X.class), new BidRequestToOpenRtbConverter());
+    converterProvider.register(new Conversion<>(BidRequest2_X.class, OpenRTBWrapper3_X.class),
+      new BidRequestToOpenRtbWrapperConverter());
   }
 
 }
