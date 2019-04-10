@@ -113,8 +113,8 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     bseat[*]: null
-     bseat[0]: "\"string\""
+     wseat[*]: null
+     wseat[0]: "\"string\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
@@ -123,9 +123,9 @@ cases:
  - inputFile: BANNER_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
-     bseat[*]: null
-     bseat[0]: "\"string\""
-     bseat[1]: "\"string2\""
+     wseat[*]: null
+     wseat[0]: "\"string\""
+     wseat[1]: "\"string2\""
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
@@ -1228,7 +1228,7 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.context.site.content.srcrel:  "\"ff\""
+     status : "ERROR"
    purpose: idStringFormat96
 
  - inputFile: BANNER_SITE_25.json
@@ -1676,7 +1676,7 @@ cases:
    outputFile: BANNER_SITE_30.json
    outputType: "REQUEST30"
    outputEdits:
-     request.item[0].spec.placement.display.displayfmt[0].ext.hmin: 1
+     request.item[0].spec.placement.display.ext.hmin: 1
    purpose: idIntFormat139
 
  - inputFile: BANNER_SITE_25.json

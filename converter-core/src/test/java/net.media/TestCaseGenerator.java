@@ -37,6 +37,8 @@ public class TestCaseGenerator {
     for(Path rootPath: Files.list(Paths.get(basePath + "edits")).collect(Collectors.toList())) {
       for(Path path: Files.list(rootPath).collect(Collectors.toList())) {
         try {
+//          if(path.getFileName().toString().equals("testScript_banner_site_datatype_25_.txt")==false)
+//            continue;
           String json2 = new String(Files.readAllBytes(path));
           final Test test = mapper.readValue(json2, Test.class);
 
@@ -87,7 +89,7 @@ public class TestCaseGenerator {
       return NullNode.getInstance();
     }
     final String trimmedText = text.trim();
-    if (!trimmedText.startsWith("\"")) {
+    if (!trimmedText.startsWith("\"") && !trimmedText.equals("ERROR")) {
       if(trimmedText.equals("true") || trimmedText.equals("false")) {
         return BooleanNode.valueOf(Boolean.parseBoolean(trimmedText));
       }
