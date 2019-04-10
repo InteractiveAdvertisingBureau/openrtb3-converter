@@ -1,40 +1,79 @@
 {
-  "id": "edb8cd70-592e-4a4c-bcb5-3ba0c68d7552",
+  "id": "0123456789ABCDEF",
   "cur": "USD",
-  "customdata": "pyaz",
+  "customdata": "cdata",
   "seatbid": [{
     "bid": [{
-      "id": "4c4uqld",
+      "adm":"video ka adm",
+      "id": "yaddayadda",
       "impid": "1",
-      "price": 4.5,
-      "bundle": "testbundle",
+      "price": 1.50,
+      "bundle": "chocho",
       "nurl": "http://www.example.com/",
-      "burl":"test/burl",
-      "lurl": "test/lurl",
-      "adid": "98765432134567",
-      "adm": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><VAST version=\"2.0\"><Ad id=\"602833\"><Wrapper><AdSystem>Acudeo Compatible</AdSystem><VASTAdTagURI>http://demo.tremormedia.com/proddev/vast/vast_inline_linear.xml</VASTAdTagURI><Error>http://myErrorURL/wrapper/error</Error><Impression>http://myTrackingURL/wrapper/impression</Impression><Creatives><Creative AdID=\"602833\"><Linear><TrackingEvents><Tracking event=\"creativeView\">http://myTrackingURL/wrapper/creativeView</Tracking><Tracking event=\"start\">http://myTrackingURL/wrapper/start</Tracking><Tracking event=\"midpoint\">http://myTrackingURL/wrapper/midpoint</Tracking><Tracking event=\"firstQuartile\">http://myTrackingURL/wrapper/firstQuartile</Tracking><Tracking event=\"thirdQuartile\">http://myTrackingURL/wrapper/thirdQuartile</Tracking><Tracking event=\"complete\">http://myTrackingURL/wrapper/complete</Tracking><Tracking event=\"mute\">http://myTrackingURL/wrapper/mute</Tracking><Tracking event=\"unmute\">http://myTrackingURL/wrapper/unmute</Tracking><Tracking event=\"pause\">http://myTrackingURL/wrapper/pause</Tracking><Tracking event=\"resume\">http://myTrackingURL/wrapper/resume</Tracking><Tracking event=\"fullscreen\">http://myTrackingURL/wrapper/fullscreen</Tracking></TrackingEvents></Linear></Creative><Creative><Linear><VideoClicks><ClickTracking>http://myTrackingURL/wrapper/click</ClickTracking></VideoClicks></Linear></Creative><Creative AdID=\"602833-NonLinearTracking\"><NonLinearAds><TrackingEvents/></NonLinearAds></Creative></Creatives></Wrapper></Ad></VAST>",
+      "burl":"http://www.example1.com/",
+      "lurl": "http://www.example2.com/",
+      "adid": "123",
       "adomain": [
-        "www.livelife.best"
+        "ford.com"
       ],
-      "iurl": "googleusercontent.com/1.jpg",
-      "cid": "298",
-      "crid": "7993593187821",
-      "tactic":"testtactic",
+      "api" : 3,
+      "iurl": "Abcd.com",
+      "cid": "campaign-xyz.123",
+      "crid": "d0bcb39723af87c2bb00942afee5710e",
+      "tactic":"...",
       "cat": [
-        "IAB14"
+        "cat", "dog"
       ],
-      "attr": [6, 7],
-      "api" : "testapi",
+      "attr": [6, 1],
       "protocol": 123,
-      "qagmediarating": 5,
-      "language": "EN",
+      "qagmediarating":5,
+      "language": "english",
       "exp": 1,
-      "dealid": "667fdf7",
-      "h": 90,
-      "w": 728,
-      "wratio": 90,
-      "hrataio": 55,
+      "dealid": "1234",
       "ext": {
+        "bidkaext" : "bid.ext",
+        "aloo2": "pyaz",
+        "test2": {
+          "test3": "test3"
+        },
+        "auditkaext" : "audit.txt",
+        "audit" : {
+          "status": 4,
+          "corr" : {
+            "a" : {
+              "b" : {
+                "c" : [1,2,3]
+              }
+            }
+          },
+          "feedback": [
+            "feedback1",
+            "feedback2"
+          ],
+          "init" : 56,
+          "lastmod" : 45
+
+        },
+        "mime" : ["mime1","mime2"],
+        "ctype" : 5,
+        "dur":120,
+        "key":"video.ext",
+        "curl":"video.curl",
+        "aloo1": "pyaz",
+        "test": {
+          "test1": "test1"
+        },
+        "init" :1,
+        "lastmod" : 1,
+        "secure": 1,
+        "cattax" : 1,
+        "macro" : {
+          "key" :"macro1",
+          "value":"duck",
+          "ext": {
+            "customdata":"pyaz"
+          }
+        },
         "buyermemberid": 298,
         "landingpageurl": "www.livelife.best",
         "brandid": [
@@ -43,19 +82,13 @@
       }
     }],
     "ext": {
-      "buyermemberid": 298,
-      "landingpageurl": "www.livelife.best",
-      "brandid": [
-        null
-      ],
-      "originalSize": {
-        "width": 728,
-        "height": 90
-      },
-      "admwrapped": false
+      "aloo3": "pyaz",
+      "test4": {
+        "test5": "seatbid.ext"
+      }
     },
-    "seat": "xyzseat",
-    "group": 1
+    "seat": "XYZ",
+    "group": 2
   }],
   "ext": {
     "buyermemberid": 298,
@@ -69,6 +102,6 @@
     },
     "admwrapped": false
   },
-  "bidid": "7phb82pzl",
-  "nbr": 2
+  "bidid": "0011223344AABBCC",
+  "nbr": 1
 }

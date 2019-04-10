@@ -1,5 +1,5 @@
 {
-  "inputFile" : "RESPONSE_BANNER_SITE_30_wo_EXT.json",
+  "inputFile" : "RESPONSE_BANNER_SITE_30.json",
   "inputType" : "RESPONSE30",
   "inputEdits" : {
     "response.id" : "\"1\""
@@ -12,6 +12,9 @@
       "nbr" : 2,
       "cur" : "USD",
       "cdata" : "cdata",
+      "ext" : {
+        "bidresponseEXT" : "bidresponseEXT"
+      },
       "seatbid" : [ {
         "seat" : "xyzseat",
         "bid" : [ {
@@ -63,7 +66,13 @@
                   "link" : {
                     "url" : "https://somebuyer.com/click",
                     "urlfb" : "https://somebuyer.com",
-                    "trkr" : [ "2113", "21312" ]
+                    "trkr" : [ "2113", "21312" ],
+                    "ext" : {
+                      "link" : "link"
+                    }
+                  },
+                  "ext" : {
+                    "mediaAdDisplayBannerext" : "mediaAdDisplayBannerext"
                   }
                 },
                 "event" : [ {
@@ -73,20 +82,33 @@
                   "api" : [ 1, 2 ],
                   "cdata" : {
                     "acct" : "123"
+                  },
+                  "ext" : {
+                    "mediaAdDisplayEventExt" : "mediaAdDisplayEventExt"
                   }
-                } ]
+                } ],
+                "ext" : {
+                  "mediaAdDisplayExt" : "mediaAdDisplayExt"
+                }
+              },
+              "ext" : {
+                "mediaAdExt" : "mediaAdExt"
               }
             }
           },
           "ext" : {
-            "protocol" : 123
+            "protocol" : 123,
+            "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt"
           }
         } ],
-        "package" : 1
+        "package" : 1,
+        "ext" : {
+          "bidresponseSeatbidExt" : "bidresponseSeatbidExt"
+        }
       } ]
     }
   },
-  "outputFile" : "RESPONSE_BANNER_SITE_25_wo_EXT.json",
+  "outputFile" : "RESPONSE_BANNER_SITE_25.json",
   "outputType" : "RESPONSE25",
   "outputEdits" : {
     "id" : "\"1\""
@@ -124,6 +146,9 @@
         "wratio" : 90,
         "hratio" : 55,
         "ext" : {
+          "mediaAdDisplayExt" : "mediaAdDisplayExt",
+          "mediaAdExt" : "mediaAdExt",
+          "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt",
           "macro" : [ {
             "key" : "test",
             "value" : "test2",
@@ -144,7 +169,13 @@
             "link" : {
               "url" : "https://somebuyer.com/click",
               "urlfb" : "https://somebuyer.com",
-              "trkr" : [ "2113", "21312" ]
+              "trkr" : [ "2113", "21312" ],
+              "ext" : {
+                "link" : "link"
+              }
+            },
+            "ext" : {
+              "mediaAdDisplayBannerext" : "mediaAdDisplayBannerext"
             }
           },
           "event" : [ {
@@ -154,18 +185,25 @@
             "api" : [ 1, 2 ],
             "cdata" : {
               "acct" : "123"
+            },
+            "ext" : {
+              "mediaAdDisplayEventExt" : "mediaAdDisplayEventExt"
             }
           } ]
         }
       } ],
+      "ext" : {
+        "bidresponseSeatbidExt" : "bidresponseSeatbidExt"
+      },
       "seat" : "xyzseat",
       "group" : 1
     } ],
+    "ext" : {
+      "bidresponseEXT" : "bidresponseEXT"
+    },
     "bidid" : "7phb82pzl",
     "nbr" : 2
   },
   "purpose" : "TC6000_banner",
-  "params" : {
-    "validate": false
-  }
+  "params" : {"validate" : false}
 }

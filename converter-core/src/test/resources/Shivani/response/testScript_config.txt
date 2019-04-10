@@ -1,0 +1,84 @@
+cases:
+  - inputFile: RESPONSE_NATIVE_SITE_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      cur: "USD"
+    outputFile: RESPONSE_NATIVE_SITE_25.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "USD"
+    purpose: nativeResponseAsStringcorrectvalue
+    params:
+      adType: m
+      yaar: e
+      nativeResponseAsString: true
+
+  - inputFile: RESPONSE_NATIVE_SITE_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      cur: "USD"
+    outputFile: RESPONSE_NATIVE_SITE_25.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      status: ERROR
+    purpose: nativeResponseAsStringincorrectvalue
+    params:
+      adType: m
+      yaar: e
+      nativeResponseAsString: false
+
+  - inputFile: RESPONSE_NATIVE_SITE_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      cur: "USD"
+    outputFile: RESPONSE_NATIVE_SITE_25.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      status: ERROR
+    purpose: nativeResponseAsStringdefaultvalue
+    params:
+      adType: m
+      yaar: e
+
+  - inputFile: RESPONSE_NATIVE_SITE_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      seatbid.bid.item: 1
+    outputFile: RESPONSE_NATIVE_SITE_25.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      seatbid.bid.impid: 1
+    purpose: adtypemappingcorrectvalue
+    params:
+      adType: m
+      yaar: e
+      adTypeMapping:
+        1: 3
+
+  - inputFile: RESPONSE_NATIVE_SITE_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      seatbid.bid.item: 1
+    outputFile: RESPONSE_NATIVE_SITE_25.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      status: ERROR
+    purpose: adtypemappingincorrectvalue
+    params:
+      adType: m
+      yaar: e
+      adTypeMapping:
+        1: 2
+
+  - inputFile: RESPONSE_NATIVE_SITE_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      seatbid.bid.item: 1
+    outputFile: RESPONSE_NATIVE_SITE_25.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      seatbid.bid.impid: 1
+    purpose: adtypemappingdefaultvalue
+    params:
+      adType: m
+      yaar: e
