@@ -19,7 +19,7 @@ import static java.util.Objects.nonNull;
 /**
  * Created by rajat.go on 09/01/19.
  */
-public class ConverterTester {
+public class ConverterTest {
 
   @Test
   public void run() throws Exception {
