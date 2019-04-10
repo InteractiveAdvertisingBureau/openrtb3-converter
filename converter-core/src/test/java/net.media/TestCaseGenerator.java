@@ -87,7 +87,7 @@ public class TestCaseGenerator {
       return NullNode.getInstance();
     }
     final String trimmedText = text.trim();
-    if (!trimmedText.startsWith("\"")) {
+    if (!trimmedText.startsWith("\"") && !trimmedText.equals("ERROR")) {
       if(trimmedText.equals("true") || trimmedText.equals("false")) {
         return BooleanNode.valueOf(Boolean.parseBoolean(trimmedText));
       }

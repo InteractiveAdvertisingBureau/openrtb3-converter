@@ -336,7 +336,7 @@
   "outputFile" : "BANNER_APP_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
-    "request.context.app.content.urating" : "1"
+    "request.context.app.content.urating" : "\"1\""
   },
   "outputJson" : {
     "ver" : "3.0",
@@ -513,7 +513,7 @@
             "prodq" : 1,
             "context" : 1,
             "rating" : "wqewq",
-            "urating" : 1,
+            "urating" : "1",
             "mrating" : 1,
             "keywords" : "efea",
             "live" : 1,

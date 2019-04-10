@@ -340,7 +340,7 @@
     "status" : "ERROR"
   },
   "outputJson" : {
-    "status" : "ERROR"
+    "status" : "RRO"
   },
   "purpose" : "idStringFormat4",
   "params" : null

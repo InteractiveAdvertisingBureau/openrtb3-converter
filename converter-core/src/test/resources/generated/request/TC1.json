@@ -350,7 +350,7 @@
     "request.context.app.domain" : "\"ab\"",
     "request.context.app.storeurl" : "\"ab\"",
     "request.context.app.ver" : "\"ab\"",
-    "request.context.privacypolicy" : "1",
+    "request.context.app.privpolicy" : "1",
     "request.context.app.paid" : "0",
     "request.context.app.keywords" : "\"ab,fe\""
   },
@@ -687,8 +687,7 @@
           "ext" : {
             "dummy" : "ff"
           }
-        },
-        "privacypolicy" : 1
+        }
       },
       "ext" : {
         "dummy" : "ff"
