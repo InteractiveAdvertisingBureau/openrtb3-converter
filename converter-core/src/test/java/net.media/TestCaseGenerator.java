@@ -36,28 +36,29 @@ public class TestCaseGenerator {
     mapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
     for(Path rootPath: Files.list(Paths.get(basePath + "edits")).collect(Collectors.toList())) {
       for(Path path: Files.list(rootPath).collect(Collectors.toList())) {
-        try {
-//          if(path.getFileName().toString().equals("testScript_banner_site_datatype_25_.txt")==false)
-//            continue;
+
           String json2 = new String(Files.readAllBytes(path));
           final Test test = mapper.readValue(json2, Test.class);
 
           for (Case aCase : test.getCases()) {
-            generateJsons(aCase, rootPath.getFileName().toString());
-            objectMapper.writerWithDefaultPrettyPrinter()
+            try {
+              generateJsons(aCase, rootPath.getFileName().toString());
+              objectMapper.writerWithDefaultPrettyPrinter()
                     .writeValue(new File(basePath + "generated/" + rootPath.getFileName().toString() + "/" + aCase.getPurpose() + ".json"), aCase);
       /*try (FileWriter writer = new FileWriter(new File(basePath + "request/" + aCase.getPurpose() + ".yaml"))) {
         new Yaml().dump(map, writer);
       }*/
+          } catch (Exception e) {
+            StringWriter writer = new StringWriter();
+            PrintWriter writer1 = new PrintWriter(writer);
+            e.printStackTrace(writer1);
+            System.out.println(path.toAbsolutePath().toString());
+            System.out.println(writer.toString());
+            System.out.println("----------------------------------");
           }
-        } catch (Exception e) {
-          StringWriter writer = new StringWriter();
-          PrintWriter writer1 = new PrintWriter(writer);
-          e.printStackTrace(writer1);
-          System.out.println(path.toAbsolutePath().toString());
-          System.out.println(writer.toString());
-          System.out.println("----------------------------------");
-        }
+
+          }
+
       }
 
     }
