@@ -16,6 +16,7 @@ import net.media.openrtb3.LinkAsset;
 import net.media.openrtb3.Media;
 import net.media.openrtb3.Native;
 import net.media.openrtb3.OpenRTB3_X;
+import net.media.openrtb3.OpenRTBWrapper3_X;
 import net.media.openrtb3.Seatbid;
 import net.media.openrtb3.Video;
 import net.media.utils.Provider;
@@ -46,6 +47,8 @@ public class Convert30To25ResponseManager {
       new Bid30ToBid25Converter());
     converterProvider.register(new Conversion<>(Seatbid.class, SeatBid.class), new SeatBid30ToSeatBid25Converter());
     converterProvider.register(new Conversion<>(OpenRTB3_X.class, BidResponse2_X.class), new OpenRtbResponseToBidResponseConverter());
+    converterProvider.register(new Conversion<>(OpenRTBWrapper3_X.class, BidResponse2_X.class),
+      new OpenRtbWrapperToBidResponseConverter());
   }
 
 }

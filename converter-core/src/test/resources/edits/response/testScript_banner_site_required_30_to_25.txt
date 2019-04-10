@@ -2,7 +2,7 @@ cases:
  - inputFile: RESPONSE_BANNER_SITE_30.json
    inputType: "RESPONSE30"
    inputEdits:
-     response.id: "\"1\""
+     openrtb.response.id: "\"1\""
    outputFile: RESPONSE_BANNER_SITE_25.json
    outputType: "RESPONSE25"
    outputEdits:
