@@ -92,7 +92,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC8
 
  - inputFile: BANNER_APP_25.json
@@ -102,7 +102,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC9
 
  - inputFile: BANNER_APP_25.json
@@ -123,7 +123,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC11
 
  - inputFile: BANNER_APP_25.json
@@ -195,6 +195,7 @@ cases:
    outputFile: BANNER_APP_30.json
    outputType: "REQUEST30"
    outputEdits:
+     request.context.app.pagecat[*]:  null
      request.context.app.pagecat[0]:  "\"a1\""
    purpose: TC17
 
@@ -349,7 +350,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC27
 
  - inputFile: BANNER_APP_25.json
@@ -439,7 +440,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC36
 
  - inputFile: BANNER_APP_25.json
@@ -449,7 +450,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC37
 
  - inputFile: BANNER_APP_25.json
@@ -459,7 +460,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC38
 
  - inputFile: BANNER_APP_25.json
@@ -489,7 +490,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC41
 
  - inputFile: BANNER_APP_25.json
@@ -509,7 +510,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC43
 
  - inputFile: BANNER_APP_25.json
@@ -519,7 +520,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC44
 
  - inputFile: BANNER_APP_25.json
@@ -529,7 +530,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC45
 
  - inputFile: BANNER_APP_25.json
@@ -549,7 +550,7 @@ cases:
    outputFile: empty.json
    outputType: "REQUEST30"
    outputEdits:
-     status: "\"ERROR\""
+     status: "ERROR"
    purpose: TC47
 
  - inputFile: BANNER_APP_25.json

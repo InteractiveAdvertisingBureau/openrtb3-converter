@@ -1,5 +1,7 @@
 {
-  "domainSpec": "3.0",
+  "domainSpec": "adcom",
+  "ver":"3.0",
+  "domainver" :  "1.0",
   "response": {
     "id": "0123456789ABCDEF",
     "bidid": "0011223344AABBCC",
@@ -7,10 +9,16 @@
     "cur": "USD",
     "cdata": "cdata",
     "ext": {
-      "customdata": "pyaz",
-      "ankit": {
-        "cho": "lul"
-      }
+      "buyermemberid": 298,
+      "landingpageurl": "www.livelife.best",
+      "brandid": [
+        null
+      ],
+      "originalSize": {
+        "width": 728,
+        "height": 90
+      },
+      "admwrapped": false
     },
     "seatbid": [{
       "seat": "XYZ",
@@ -57,54 +65,31 @@
             "mrating": 1,
             "init": 1,
             "lastmod": 1,
-            "display": {
-              "mime": "image/jpeg",
-              "api": [
-                1,
-                2
-              ],
-              "ctype": 3,
-              "w": 320,
-              "h": 50,
-              "wratio": 1,
-              "hratio": 2,
-              "priv": "232",
-              "adm": "asvsdd",
-              "curl": "http://www.example3.com/",
-              "banner": {
-                "img": "https://somebuyer.com/creative",
-                "link": {
-                  "url": "https://somebuyer.com/click",
-                  "urlfb": "https://somebuyer.com",
-                  "trkr": [
-                    "2113",
-                    "21312"
-                  ],
-                  "ext": {
-                    "link": "link"
+            "video" : {
+              "mime" : ["mime1","mime2"],
+              "api" : [3],
+              "ctype" : 5,
+              "dur":120,
+              "adm":"video ka adm",
+              "curl":"video.curl",
+              "ext":  {
+                "key" : "video.ext"
+              }
+            },
+            "audit" : {
+              "status" : 4,
+              "feedback" : ["feedback1","feedback2"],
+              "init": 56,
+              "lastmod":45,
+              "corr" : {
+                "a" : {
+                  "b" : {
+                    "c" : [1,2,3]
                   }
-                },
-                "ext": {
-                  "xyz": "111"
                 }
               },
-              "event": [{
-                "type": 1,
-                "method": 1,
-                "url": "https://somebuyer.com/pixel",
-                "api": [
-                  1,
-                  2
-                ],
-                "cdata": {
-                  "acct": "123"
-                }
-              }],
-              "ext": {
-                "aloo1": "pyaz",
-                "test": {
-                  "test1": "test1"
-                }
+              "ext" : {
+                "auditkaext" : "audit.txt"
               }
             },
             "ext": {
@@ -114,13 +99,17 @@
               }
             }
           }
+        },
+        "ext" : {
+          "bidkaext" : "bid.ext",
+          "protocol" : 98
         }
       }],
-      "_package": 2,
+      "package": 2,
       "ext": {
         "aloo3": "pyaz",
         "test4": {
-          "test5": "test5"
+          "test5": "seatbid.ext"
         }
       }
     }]

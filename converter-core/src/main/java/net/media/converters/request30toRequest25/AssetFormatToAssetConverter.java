@@ -4,21 +4,14 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
+import net.media.openrtb25.request.*;
 import net.media.openrtb25.request.Asset;
-import net.media.openrtb25.request.NativeData;
-import net.media.openrtb25.request.NativeImage;
-import net.media.openrtb25.request.NativeTitle;
-import net.media.openrtb25.request.NativeVideo;
-import net.media.openrtb3.AssetFormat;
-import net.media.openrtb3.DataAssetFormat;
-import net.media.openrtb3.ImageAssetFormat;
-import net.media.openrtb3.TitleAssetFormat;
-import net.media.openrtb3.VideoPlacement;
+import net.media.openrtb25.request.Banner;
+import net.media.openrtb3.*;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.isNull;
 
@@ -43,13 +36,41 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     if (isNull(assetFormat) || isNull(asset)) {
       return;
     }
-    asset.setRequired( assetFormat.getReq() );
-    asset.setId( assetFormat.getId() );
-    asset.setTitle( titleAssetFormatToNativeTitle( assetFormat.getTitle(), config ) );
-    asset.setImg( imageAssetFormatToNativeImage( assetFormat.getImg(), config ) );
-    asset.setVideo( videoAssetFormatToVideoImage( assetFormat.getVideo(), config ) );
-    asset.setData( dataAssetFormatToNativeData( assetFormat.getData(), config ) );
+    asset.setRequired(assetFormat.getReq());
+    asset.setId(assetFormat.getId());
+    asset.setTitle(titleAssetFormatToNativeTitle(assetFormat.getTitle(), config));
+    asset.setImg(imageAssetFormatToNativeImage(assetFormat.getImg(), config));
+    asset.setVideo(videoAssetFormatToVideoImage(assetFormat.getVideo(), config));
+    asset.setData(dataAssetFormatToNativeData(assetFormat.getData(), config));
     asset.setExt(Utils.copyMap(assetFormat.getExt(), config));
+
+
+    if(asset.getExt() == null) {
+      asset.setExt(new HashMap<>());
+    }
+    asset.getExt().put("clickbrowser",assetFormat.getVideo().getClktype());
+
+    if (assetFormat.getVideo().getComp() != null)
+    {
+      try {
+        Collection<Banner> banners = new ArrayList<>();
+        Converter<Companion, Banner> companionToBannerConverter = converterProvider.fetch(new Conversion<>
+          (Companion.class, Banner.class));
+        for (Companion companion : assetFormat.getVideo().getComp()) {
+          banners.add(companionToBannerConverter.map(companion, config, converterProvider));
+        }
+        if(asset.getVideo().getExt() == null) {
+          asset.getVideo().setExt(new HashMap<>());
+        }
+        asset.getVideo().getExt().put("companionad",banners);
+      } catch (Exception e) {
+        throw new OpenRtbConverterException("Error in setting creating companion", e);
+      }
+  }
+
+
+
+
   }
 
   private NativeTitle titleAssetFormatToNativeTitle(TitleAssetFormat titleAssetFormat, Config
@@ -88,12 +109,12 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
       if (imageAssetFormat.getHratio() != null) {
         if (nativeImage.getExt() == null)
           nativeImage.setExt(new HashMap<>());
-        imageAssetFormat.getExt().put("hratio", imageAssetFormat.getHratio());
+        nativeImage.getExt().put("hratio", imageAssetFormat.getHratio());
       }
       if (imageAssetFormat.getWratio() != null) {
         if (nativeImage.getExt() == null)
           nativeImage.setExt(new HashMap<>());
-        imageAssetFormat.getExt().put("wratio", imageAssetFormat.getWratio());
+        nativeImage.getExt().put("wratio", imageAssetFormat.getWratio());
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException(e);
@@ -113,8 +134,30 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     nativeVideo.setMinduration( videoPlacement.getMindur() );
     nativeVideo.setMaxduration( videoPlacement.getMaxdur() );
     nativeVideo.setMimes(Utils.copyCollection(videoPlacement.getMime(), config));
-    nativeVideo.setMimes(Utils.copyCollection(videoPlacement.getMime(), config));
     nativeVideo.setExt(Utils.copyMap(videoPlacement.getExt(), config));
+    nativeVideo.getExt().put("boxingallowed", videoPlacement.getBoxing());
+    nativeVideo.getExt().put("ptype",videoPlacement.getPtype());
+    nativeVideo.getExt().put("pos",videoPlacement.getPos());
+    nativeVideo.getExt().put("startdelay",videoPlacement.getDelay());
+    nativeVideo.getExt().put("skip",videoPlacement.getSkip());
+    nativeVideo.getExt().put("skipmin",videoPlacement.getSkipmin());
+    nativeVideo.getExt().put("skipafter",videoPlacement.getSkipafter());
+    nativeVideo.getExt().put("playbackmethod", Collections.singletonList(videoPlacement.getPlaymethod()));
+    nativeVideo.getExt().put("playbackend",videoPlacement.getPlayend());
+    nativeVideo.getExt().put("api",videoPlacement.getApi());
+    nativeVideo.getExt().put("w",videoPlacement.getW());
+    nativeVideo.getExt().put("h",videoPlacement.getH());
+    nativeVideo.getExt().put("unit",videoPlacement.getUnit());
+    nativeVideo.getExt().put("maxextended",videoPlacement.getMaxext());
+    nativeVideo.getExt().put("minbitrate",videoPlacement.getMinbitr());
+    nativeVideo.getExt().put("maxbitrate",videoPlacement.getMaxbitr());
+    nativeVideo.getExt().put("delivery",videoPlacement.getDelivery());
+    nativeVideo.getExt().put("maxseq",videoPlacement.getMaxseq());
+    nativeVideo.getExt().put("linearity",videoPlacement.getLinear());
+    nativeVideo.getExt().put("companiontype",videoPlacement.getComptype());
+
+
+
 
     return nativeVideo;
   }

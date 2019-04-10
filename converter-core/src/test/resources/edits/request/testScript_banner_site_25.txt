@@ -1,0 +1,20 @@
+cases:
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.at: 2
+   purpose: requestTC1
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     tmax: 200
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     request.tmax: 200
+   purpose: requestTC2

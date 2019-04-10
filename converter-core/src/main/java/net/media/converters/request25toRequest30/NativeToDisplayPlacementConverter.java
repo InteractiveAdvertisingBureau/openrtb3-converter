@@ -85,7 +85,7 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
             }
             if (nonNull(displayPlacement.getNativefmt()) && nonNull(displayPlacement.getNativefmt()
               .getExt())) {
-              displayPlacement.getNativefmt().getExt().remove("ctype");
+              displayPlacement.getExt().remove("ctype");
             }
           }
         }
@@ -94,7 +94,7 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
             displayPlacement.setPriv((Integer) nat.getExt().get("priv"));
             if (nonNull(displayPlacement.getNativefmt()) && nonNull(displayPlacement.getNativefmt()
               .getExt())) {
-              displayPlacement.getNativefmt().getExt().remove("priv");
+              displayPlacement.getExt().remove("priv");
             }
           }
         }
