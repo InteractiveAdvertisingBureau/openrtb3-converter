@@ -36,7 +36,7 @@ OpenRTB Dynamic Native Ads API Specification Version 1.1  is used for transactin
 
 ## Documentation	
 
- Details about how to use the library are available [here](https://github.com/media-net/openrtb3-converter/wiki).	
+ Details about how to use the library are available [here](https://github.com/media-net/openrtb3-converter/wiki/1.-Home).	
 
  The mappings which serve as the standard for conversion between OpenRTB 3.0 and OpenRTB 2.5 are available [here](MAPPINGS.md) and here [PDF](https://github.com/media-net/openrtb3-converter/raw/master/openrtb-3-converter-mappings.pdf).
 
