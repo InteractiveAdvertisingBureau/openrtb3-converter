@@ -86,7 +86,7 @@
               "wratio": 1,
               "hratio": 2,
               "priv": "232",
-              "curl": "http://www.example3.com/",
+              "curl": "purl",
               "native": {
                 "ext": {
                   "dummy": "native.ext",
