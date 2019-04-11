@@ -38,8 +38,6 @@ public class Convert30To25ResponseManager {
       .class), new VideoToBidConverter());
     converterProvider.register(new Conversion<>(Audio.class, net.media.openrtb25.response.Bid
       .class), new AudioToBidConverter());
-    converterProvider.register(new Conversion<>(Audit.class, net.media.openrtb25.response.Bid
-      .class), new AuditToBidConverter());
     converterProvider.register(new Conversion<>(Ad.class, net.media.openrtb25.response.Bid.class),
       new AdToBidConverter());
     converterProvider.register(new Conversion<>(Media.class, net.media.openrtb25.response.Bid

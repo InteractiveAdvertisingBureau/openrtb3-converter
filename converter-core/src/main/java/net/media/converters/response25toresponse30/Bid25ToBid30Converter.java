@@ -15,6 +15,7 @@ import net.media.utils.Utils;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -39,39 +40,52 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
     if (source == null || target == null) {
       return;
     }
-    target.setExt(Utils.copyMap(source.getExt(),config));
-    target.setItem( source.getImpid() );
-    target.setDeal( source.getDealid() );
-    target.setPurl( source.getNurl() );
-    Converter<Bid, Media> converter = converterProvider.fetch(new Conversion<>(Bid.class, Media
-      .class));
-    target.setMedia(converter.map(source, config, converterProvider));
-    target.setId( source.getId() );
-    target.setPrice( source.getPrice() );
-    target.setCid( source.getCid() );
-    target.setTactic( source.getTactic() );
-    target.setBurl( source.getBurl() );
-    target.setLurl( source.getLurl() );
-    target.setExp( source.getExp() );
-    target.setMid(source.getAdid());
-    MacroMapper.macroReplaceThreeX(target);
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("macro")) {
-        try {
-          Collection<Macro> macros = Utils.getMapper().convertValue(source.getExt().get("macro"),
-            new TypeReference<Collection<Macro>>() {
-            });
-          target.setMacro(macros);
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting bid.macro from bid.ext.macro", e);
+    Map<String, Object> tempExt = new HashMap<>(source.getExt());
+
+    try {
+      target.setItem(source.getImpid());
+      target.setDeal(source.getDealid());
+      target.setPurl(source.getNurl());
+      Converter<Bid, Media> converter = converterProvider.fetch(new Conversion<>(Bid.class, Media
+          .class));
+      target.setId(source.getId());
+      target.setPrice(source.getPrice());
+      target.setCid(source.getCid());
+      target.setTactic(source.getTactic());
+      target.setBurl(source.getBurl());
+      target.setLurl(source.getLurl());
+      target.setExp(source.getExp());
+      target.setMid(source.getAdid());
+      MacroMapper.macroReplaceThreeX(target);
+      if (nonNull(source.getExt())) {
+        if (source.getExt().containsKey("macro")) {
+          try {
+            Collection<Macro> macros = Utils.getMapper().convertValue(source.getExt().get("macro"),
+                new TypeReference<Collection<Macro>>() {
+                });
+            target.setMacro(macros);
+          } catch (Exception e) {
+            throw new OpenRtbConverterException("Error in setting bid.macro from bid.ext.macro", e);
+          }
+          source.getExt().remove("macro");
         }
       }
-    }
-    if (nonNull(source.getProtocol())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
+      if (nonNull(source.getProtocol())) {
+        if (isNull(target.getExt())) {
+          target.setExt(new HashMap<>());
+        }
+        target.getExt().put("protocol", source.getProtocol());
+        source.getExt().remove("protocol");
       }
-      target.getExt().put("protocol", source.getProtocol());
+      target.setMedia(converter.map(source, config, converterProvider));
+      Map<String, Object> extCopy = Utils.copyMap(source.getExt(), config);
+      if (nonNull(extCopy)) {
+        target.getExt().putAll(extCopy);
+      }
+    } catch (Exception e) {
+      throw new OpenRtbConverterException(e);
+    } finally {
+      source.setExt(tempExt);
     }
   }
 }
