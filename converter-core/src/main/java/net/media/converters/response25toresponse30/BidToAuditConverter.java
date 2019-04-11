@@ -39,7 +39,7 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
       try {
         target.setExt(Utils.copyMap(map, config));
         if (map.containsKey("corr")) {
-          target.setCorr((Corr) map.get("corr"));
+          target.setCorr((Map<String, Object>) map.get("corr"));
         }
         if (map.containsKey("status")) {
           target.setStatus((Integer) map.get("status"));
