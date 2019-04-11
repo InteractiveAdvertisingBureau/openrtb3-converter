@@ -91,7 +91,7 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
 
         if (config.getAdType(source.getId()) == AdType.BANNER) {
           if (ext.containsKey("banner")) {
-            target.setBanner(Banner.HashMapToBanner((Map<String, Object>) ext.get("banner")));
+            target.setBanner(Utils.getMapper().convertValue(ext.get("banner"), Banner.class));
             source.getExt().remove("banner");
           }
         } else if (config.getAdType(source.getId()) == AdType.NATIVE) {

@@ -19,19 +19,6 @@ public class Banner {
   public Banner() {
   }
 
-
-  public static Banner HashMapToBanner (Map<String,Object> map) throws OpenRtbConverterException{
-    Banner banner =  new Banner();
-    try {
-      banner.setImg((String) map.get("img"));
-      banner.setLink(LinkAsset.HashMaptoLinkAsset((Map<String, Object>) map.get("link")));
-      banner.setExt((Map<String, Object>) map.get("ext"));
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting map values to Banner fields", e);
-    }
-    return banner;
-  }
-
   public @NotNull String getImg() {
     return this.img;
   }
