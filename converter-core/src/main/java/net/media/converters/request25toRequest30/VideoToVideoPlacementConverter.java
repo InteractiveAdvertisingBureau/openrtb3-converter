@@ -67,13 +67,13 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     videoPlacement.setH( video.getH() );
     videoPlacement.setDelivery(Utils.copyCollection(video.getDelivery(), config));
     videoPlacement.setExt(Utils.copyMap(video.getExt(), config));
-    videoToVideoPlacementAfterMapping(video, videoPlacement);
+    videoToVideoPlacementAfterMapping(video, config, videoPlacement);
   }
 
-  private void videoToVideoPlacementAfterMapping(Video video, VideoPlacement videoPlacement) throws OpenRtbConverterException {
+  private void videoToVideoPlacementAfterMapping(Video video, Config config, VideoPlacement videoPlacement) throws OpenRtbConverterException {
     try {
       if (nonNull(video) && nonNull(video.getExt()) && nonNull(videoPlacement)) {
-        videoPlacement.setExt(video.getExt());
+        videoPlacement.setExt((Utils.copyMap(video.getExt(), config)));
         if (video.getExt().containsKey("unit")) {
           videoPlacement.setUnit((Integer) video.getExt().get("unit"));
           videoPlacement.getExt().remove("unit");
@@ -82,6 +82,7 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
           videoPlacement.setMaxseq((Integer) video.getExt().get("maxseq"));
           videoPlacement.getExt().remove("maxseq");
         }
+        videoPlacement.getExt().remove("qty");
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Video", e);
