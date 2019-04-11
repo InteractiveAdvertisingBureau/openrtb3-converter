@@ -63,6 +63,8 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
       if (nonNull(source.getExt())) {
         if (source.getExt().containsKey("protocol")) {
           target.setProtocol((Integer) source.getExt().get("protocol"));
+          target.getExt().remove("protocol");
+
         }
       }
     }

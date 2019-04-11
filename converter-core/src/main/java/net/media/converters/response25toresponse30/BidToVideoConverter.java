@@ -36,13 +36,6 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
     if (source == null || target == null) {
       return;
     }
-    Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      target.setExt(new HashMap<>(map) );
-    }
-    else {
-      target.setExt( null );
-    }
     target.setAdm( source.getAdm() );
     if(nonNull(source.getApi())) {
       List<Integer> api = new ArrayList<>();
@@ -55,8 +48,13 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
       Map<String, Object> ext = source.getExt();
       try {
         target.setCtype((Integer) ext.get("ctype"));
+        ext.remove("ctype");
         target.setDur((Integer) ext.get("dur"));
+        ext.remove("dur");
         target.setMime((List<String>) ext.get("mime"));
+        ext.remove("mime");
+
+
       }
       catch (Exception e) {
         throw new OpenRtbConverterException("error while type casting bid.ext content", e);

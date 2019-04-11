@@ -29,7 +29,7 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
     }
     Audio audio = new Audio();
     enhance(source, audio, config, converterProvider);
-    return null;
+    return audio;
   }
 
   @Override
@@ -40,12 +40,6 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
     }
 
     Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      target.setExt(new HashMap<>(map) );
-    }
-    else {
-      target.setExt( null );
-    }
     target.setAdm( source.getAdm() );
 
     if(nonNull(source.getApi())) { target.setApi(new ArrayList<>(Arrays.asList(source.getApi()))); }
@@ -55,8 +49,11 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
       try {
         Map<String, Object> ext = source.getExt();
         target.setCtype((Integer) ext.get("ctype"));
+        ext.remove("ctype");
         target.setDur((Integer) ext.get("dur"));
+        ext.remove("dur");
         target.setMime((List<String>) ext.get("mime"));
+        ext.remove("mime");
       }
       catch (Exception e) {
         throw new OpenRtbConverterException("error while type casting in bid.ext", e);
