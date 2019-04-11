@@ -1,4 +1,5 @@
-{"openrtb": {
+{
+  "openrtb": {
     "domainSpec": "adcom",
     "ver": "3.0",
     "domainVer": "1.0",
@@ -78,10 +79,7 @@
                     "ctype": 5,
                     "dur": 120,
                     "adm": "video ka adm",
-                    "curl": "http://www.example.com/",
-                    "ext" : {
-                      "videokey" : "video.ext"
-                    }
+                    "curl": "http://www.example.com/"
                   },
                   "audit": {
                     "status": 4,
@@ -95,9 +93,6 @@
                     "ext": {
                       "auditkaext": "audit.txt"
                     }
-                  },
-                  "ext" : {
-                    "adkey" : "ad.ext"
                   }
                 }
               },

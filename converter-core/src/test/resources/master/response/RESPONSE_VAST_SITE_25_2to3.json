@@ -58,10 +58,7 @@
           "ext": {
             "customdata":"pyaz"
           }
-        }],
-        "curl": "http://www.example.com/",
-        "adkey" : "ad.ext",
-        "videokey" : "video.ext"
+        }]
       }
     }],
     "ext": {

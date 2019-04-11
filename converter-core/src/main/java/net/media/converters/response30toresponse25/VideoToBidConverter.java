@@ -30,7 +30,7 @@ public class VideoToBidConverter implements Converter<Video,Bid> {
 
     target.setAdm(source.getAdm());
     if(nonNull(source.getApi()) && source.getApi().size()>0)
-      target.setApi(source.getApi().size());
+      target.setApi(source.getApi().iterator().next());
     if(isNull(target.getExt())){
       target.setExt(new HashMap<>());
     }

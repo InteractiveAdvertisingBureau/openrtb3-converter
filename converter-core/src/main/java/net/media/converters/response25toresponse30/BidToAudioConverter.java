@@ -1,6 +1,5 @@
 package net.media.converters.response25toresponse30;
 
-import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -10,7 +9,6 @@ import net.media.utils.Provider;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +27,7 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
     }
     Audio audio = new Audio();
     enhance(source, audio, config, converterProvider);
-    return null;
+    return audio;
   }
 
   @Override
