@@ -45,7 +45,7 @@ public class Request2xPayload {
     if (o == this) return true;
     if (!(o instanceof Request2xPayload)) return false;
     final Request2xPayload other = (Request2xPayload) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$bidRequest = this.getBidRequest();
     final Object other$bidRequest = other.getBidRequest();
     if (this$bidRequest == null

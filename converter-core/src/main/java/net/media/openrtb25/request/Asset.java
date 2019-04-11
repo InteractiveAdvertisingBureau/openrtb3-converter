@@ -101,7 +101,7 @@ public class Asset {
     if (o == this) return true;
     if (!(o instanceof Asset)) return false;
     final Asset other = (Asset) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$id = this.getId();
     final Object other$id = other.getId();
     if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;

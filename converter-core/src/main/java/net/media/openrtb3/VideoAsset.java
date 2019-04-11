@@ -57,7 +57,7 @@ public class VideoAsset {
     if (o == this) return true;
     if (!(o instanceof VideoAsset)) return false;
     final VideoAsset other = (VideoAsset) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$adm = this.getAdm();
     final Object other$adm = other.getAdm();
     if (this$adm == null ? other$adm != null : !this$adm.equals(other$adm)) return false;

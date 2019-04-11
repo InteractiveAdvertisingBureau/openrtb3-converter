@@ -213,7 +213,7 @@ public class Banner {
     if (o == this) return true;
     if (!(o instanceof Banner)) return false;
     final Banner other = (Banner) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$w = this.getW();
     final Object other$w = other.getW();
     if (this$w == null ? other$w != null : !this$w.equals(other$w)) return false;

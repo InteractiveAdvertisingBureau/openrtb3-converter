@@ -66,7 +66,7 @@ public class Source {
     if (o == this) return true;
     if (!(o instanceof Source)) return false;
     final Source other = (Source) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$fd = this.getFd();
     final Object other$fd = other.getFd();
     if (this$fd == null ? other$fd != null : !this$fd.equals(other$fd)) return false;

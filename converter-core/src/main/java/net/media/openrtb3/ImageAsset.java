@@ -74,7 +74,7 @@ public class ImageAsset {
     if (o == this) return true;
     if (!(o instanceof ImageAsset)) return false;
     final ImageAsset other = (ImageAsset) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$url = this.getUrl();
     final Object other$url = other.getUrl();
     if (this$url == null ? other$url != null : !this$url.equals(other$url)) return false;

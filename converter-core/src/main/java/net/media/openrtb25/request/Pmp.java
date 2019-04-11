@@ -58,7 +58,7 @@ public class Pmp {
     if (o == this) return true;
     if (!(o instanceof Pmp)) return false;
     final Pmp other = (Pmp) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$private_auction = this.getPrivate_auction();
     final Object other$private_auction = other.getPrivate_auction();
     if (this$private_auction == null

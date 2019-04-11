@@ -38,7 +38,7 @@ public @interface CheckExactlyOneNotNull {
 
   String[] fieldNames();
 
-  public class CheckExactlyOneNotNullValidator
+  class CheckExactlyOneNotNullValidator
       implements ConstraintValidator<CheckExactlyOneNotNull, Object> {
     private String[] fieldNames;
 

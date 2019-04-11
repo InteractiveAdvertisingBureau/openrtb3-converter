@@ -82,7 +82,7 @@ public class LinkAsset {
     if (o == this) return true;
     if (!(o instanceof LinkAsset)) return false;
     final LinkAsset other = (LinkAsset) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$url = this.getUrl();
     final Object other$url = other.getUrl();
     if (this$url == null ? other$url != null : !this$url.equals(other$url)) return false;

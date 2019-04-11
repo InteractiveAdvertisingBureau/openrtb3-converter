@@ -90,7 +90,7 @@ public class NativeResponseBody {
     if (o == this) return true;
     if (!(o instanceof NativeResponseBody)) return false;
     final NativeResponseBody other = (NativeResponseBody) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$ver = this.getVer();
     final Object other$ver = other.getVer();
     if (this$ver == null ? other$ver != null : !this$ver.equals(other$ver)) return false;

@@ -335,7 +335,7 @@ public class Device {
     if (o == this) return true;
     if (!(o instanceof Device)) return false;
     final Device other = (Device) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$ua = this.getUa();
     final Object other$ua = other.getUa();
     if (this$ua == null ? other$ua != null : !this$ua.equals(other$ua)) return false;

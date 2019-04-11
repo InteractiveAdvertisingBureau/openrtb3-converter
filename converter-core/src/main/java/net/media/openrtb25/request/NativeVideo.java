@@ -79,7 +79,7 @@ public class NativeVideo {
     if (o == this) return true;
     if (!(o instanceof NativeVideo)) return false;
     final NativeVideo other = (NativeVideo) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$mimes = this.getMimes();
     final Object other$mimes = other.getMimes();
     if (this$mimes == null ? other$mimes != null : !this$mimes.equals(other$mimes)) return false;

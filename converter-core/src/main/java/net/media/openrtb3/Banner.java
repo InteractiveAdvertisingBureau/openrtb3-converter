@@ -70,7 +70,7 @@ public class Banner {
     if (o == this) return true;
     if (!(o instanceof Banner)) return false;
     final Banner other = (Banner) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$img = this.getImg();
     final Object other$img = other.getImg();
     if (this$img == null ? other$img != null : !this$img.equals(other$img)) return false;

@@ -47,7 +47,7 @@ public class Regs {
     if (o == this) return true;
     if (!(o instanceof Regs)) return false;
     final Regs other = (Regs) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$coppa = this.getCoppa();
     final Object other$coppa = other.getCoppa();
     if (this$coppa == null ? other$coppa != null : !this$coppa.equals(other$coppa)) return false;

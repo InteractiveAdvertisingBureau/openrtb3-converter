@@ -49,7 +49,7 @@ public class Conversion<U, V> {
     if (o == this) return true;
     if (!(o instanceof Conversion)) return false;
     final Conversion other = (Conversion) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$source = this.getSource();
     final Object other$source = other.getSource();
     if (this$source == null ? other$source != null : !this$source.equals(other$source))

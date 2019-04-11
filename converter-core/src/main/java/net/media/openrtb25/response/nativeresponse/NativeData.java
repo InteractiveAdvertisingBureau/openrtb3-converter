@@ -55,7 +55,7 @@ public class NativeData {
     if (o == this) return true;
     if (!(o instanceof NativeData)) return false;
     final NativeData other = (NativeData) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$label = this.getLabel();
     final Object other$label = other.getLabel();
     if (this$label == null ? other$label != null : !this$label.equals(other$label)) return false;

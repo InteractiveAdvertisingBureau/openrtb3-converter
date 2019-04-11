@@ -47,7 +47,7 @@ public class NativeTitle {
     if (o == this) return true;
     if (!(o instanceof NativeTitle)) return false;
     final NativeTitle other = (NativeTitle) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$len = this.getLen();
     final Object other$len = other.getLen();
     if (this$len == null ? other$len != null : !this$len.equals(other$len)) return false;

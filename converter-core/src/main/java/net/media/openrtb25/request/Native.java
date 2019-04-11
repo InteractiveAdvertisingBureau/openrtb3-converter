@@ -133,7 +133,7 @@ public class Native {
     if (o == this) return true;
     if (!(o instanceof Native)) return false;
     final Native other = (Native) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$request = this.getRequest();
     final Object other$request = other.getRequest();
     if (this$request == null ? other$request != null : !this$request.equals(other$request))

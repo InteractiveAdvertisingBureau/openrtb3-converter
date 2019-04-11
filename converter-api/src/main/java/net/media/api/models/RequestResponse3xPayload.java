@@ -45,7 +45,7 @@ public class RequestResponse3xPayload {
     if (o == this) return true;
     if (!(o instanceof RequestResponse3xPayload)) return false;
     final RequestResponse3xPayload other = (RequestResponse3xPayload) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$openRTB = this.getOpenRTB();
     final Object other$openRTB = other.getOpenRTB();
     if (this$openRTB == null ? other$openRTB != null : !this$openRTB.equals(other$openRTB))

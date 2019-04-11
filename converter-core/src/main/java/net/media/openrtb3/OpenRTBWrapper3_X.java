@@ -35,7 +35,7 @@ public class OpenRTBWrapper3_X {
     if (o == this) return true;
     if (!(o instanceof OpenRTBWrapper3_X)) return false;
     final OpenRTBWrapper3_X other = (OpenRTBWrapper3_X) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$openrtb = this.getOpenrtb();
     final Object other$openrtb = other.getOpenrtb();
     if (this$openrtb == null ? other$openrtb != null : !this$openrtb.equals(other$openrtb))

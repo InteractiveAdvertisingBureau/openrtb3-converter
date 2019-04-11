@@ -297,7 +297,7 @@ public class BidRequest2_X {
     if (o == this) return true;
     if (!(o instanceof BidRequest2_X)) return false;
     final BidRequest2_X other = (BidRequest2_X) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$id = this.getId();
     final Object other$id = other.getId();
     if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;

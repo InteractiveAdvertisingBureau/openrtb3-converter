@@ -178,7 +178,7 @@ public class App {
     if (o == this) return true;
     if (!(o instanceof App)) return false;
     final App other = (App) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$id = this.getId();
     final Object other$id = other.getId();
     if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;

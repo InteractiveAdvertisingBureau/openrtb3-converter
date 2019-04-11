@@ -70,7 +70,7 @@ public class SeatBid {
     if (o == this) return true;
     if (!(o instanceof SeatBid)) return false;
     final SeatBid other = (SeatBid) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$bid = this.getBid();
     final Object other$bid = other.getBid();
     if (this$bid == null ? other$bid != null : !this$bid.equals(other$bid)) return false;

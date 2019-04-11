@@ -83,7 +83,7 @@ public class Event {
     if (o == this) return true;
     if (!(o instanceof Event)) return false;
     final Event other = (Event) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$type = this.getType();
     final Object other$type = other.getType();
     if (this$type == null ? other$type != null : !this$type.equals(other$type)) return false;

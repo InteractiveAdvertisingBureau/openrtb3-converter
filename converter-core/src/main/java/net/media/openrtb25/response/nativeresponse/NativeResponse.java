@@ -37,7 +37,7 @@ public class NativeResponse {
     if (o == this) return true;
     if (!(o instanceof NativeResponse)) return false;
     final NativeResponse other = (NativeResponse) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$nativeResponseBody = this.getNativeResponseBody();
     final Object other$nativeResponseBody = other.getNativeResponseBody();
     if (this$nativeResponseBody == null

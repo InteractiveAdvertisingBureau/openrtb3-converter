@@ -163,7 +163,7 @@ public class Display {
     if (o == this) return true;
     if (!(o instanceof Display)) return false;
     final Display other = (Display) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$mime = this.getMime();
     final Object other$mime = other.getMime();
     if (this$mime == null ? other$mime != null : !this$mime.equals(other$mime)) return false;

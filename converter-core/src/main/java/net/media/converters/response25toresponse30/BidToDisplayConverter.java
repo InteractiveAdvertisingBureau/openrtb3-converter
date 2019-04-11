@@ -31,10 +31,7 @@ import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.nonNull;
 
@@ -62,7 +59,7 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     target.setWratio(source.getWratio());
     target.setW(source.getW());
     target.setHratio(source.getHratio());
-    if (nonNull(source.getApi())) target.setApi(new ArrayList<>(Arrays.asList(source.getApi())));
+    if (nonNull(source.getApi())) target.setApi(new ArrayList<>(Collections.singletonList(source.getApi())));
     if (nonNull(source.getExt())) {
       if (source.getExt().containsKey("curl")) {
         target.setCurl((String) source.getExt().get("curl"));

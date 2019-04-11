@@ -45,7 +45,7 @@ public class Response2xPayload {
     if (o == this) return true;
     if (!(o instanceof Response2xPayload)) return false;
     final Response2xPayload other = (Response2xPayload) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$response = this.getResponse();
     final Object other$response = other.getResponse();
     if (this$response == null ? other$response != null : !this$response.equals(other$response))

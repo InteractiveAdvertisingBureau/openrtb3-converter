@@ -37,7 +37,7 @@ public class NativeRequest {
     if (o == this) return true;
     if (!(o instanceof NativeRequest)) return false;
     final NativeRequest other = (NativeRequest) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$nativeRequestBody = this.getNativeRequestBody();
     final Object other$nativeRequestBody = other.getNativeRequestBody();
     if (this$nativeRequestBody == null

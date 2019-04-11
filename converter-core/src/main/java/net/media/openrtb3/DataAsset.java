@@ -65,7 +65,7 @@ public class DataAsset {
     if (o == this) return true;
     if (!(o instanceof DataAsset)) return false;
     final DataAsset other = (DataAsset) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$value = this.getValue();
     final Object other$value = other.getValue();
     if (this$value == null ? other$value != null : !this$value.equals(other$value)) return false;

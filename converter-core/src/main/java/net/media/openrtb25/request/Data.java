@@ -67,7 +67,7 @@ public class Data {
     if (o == this) return true;
     if (!(o instanceof Data)) return false;
     final Data other = (Data) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$id = this.getId();
     final Object other$id = other.getId();
     if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;

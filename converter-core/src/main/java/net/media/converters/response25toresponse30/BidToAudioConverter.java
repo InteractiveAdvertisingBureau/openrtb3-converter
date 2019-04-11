@@ -59,7 +59,7 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
     target.setAdm(source.getAdm());
 
     if (nonNull(source.getApi())) {
-      target.setApi(new ArrayList<>(Arrays.asList(source.getApi())));
+      target.setApi(new ArrayList<>(Collections.singletonList(source.getApi())));
     }
     target.setCurl(source.getNurl());
 

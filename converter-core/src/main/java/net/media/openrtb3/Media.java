@@ -37,7 +37,7 @@ public class Media {
     if (o == this) return true;
     if (!(o instanceof Media)) return false;
     final Media other = (Media) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$ad = this.getAd();
     final Object other$ad = other.getAd();
     if (this$ad == null ? other$ad != null : !this$ad.equals(other$ad)) return false;

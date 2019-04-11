@@ -38,7 +38,7 @@ public @interface CheckAtMostOneNotNull {
 
   String[] fieldNames();
 
-  public class CheckAtMostOneNotNullValidator
+  class CheckAtMostOneNotNullValidator
       implements ConstraintValidator<CheckAtMostOneNotNull, Object> {
     private String[] fieldNames;
 

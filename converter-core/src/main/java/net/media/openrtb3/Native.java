@@ -56,7 +56,7 @@ public class Native {
     if (o == this) return true;
     if (!(o instanceof Native)) return false;
     final Native other = (Native) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$link = this.getLink();
     final Object other$link = other.getLink();
     if (this$link == null ? other$link != null : !this$link.equals(other$link)) return false;

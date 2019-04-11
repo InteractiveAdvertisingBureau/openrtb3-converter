@@ -79,7 +79,7 @@ public class Producer {
     if (o == this) return true;
     if (!(o instanceof Producer)) return false;
     final Producer other = (Producer) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$id = this.getId();
     final Object other$id = other.getId();
     if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;

@@ -44,7 +44,7 @@ public class NativeVideo {
     if (o == this) return true;
     if (!(o instanceof NativeVideo)) return false;
     final NativeVideo other = (NativeVideo) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$vasttag = this.getVasttag();
     final Object other$vasttag = other.getVasttag();
     if (this$vasttag == null ? other$vasttag != null : !this$vasttag.equals(other$vasttag))

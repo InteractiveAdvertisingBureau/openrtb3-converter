@@ -130,7 +130,7 @@ public class User {
     if (o == this) return true;
     if (!(o instanceof User)) return false;
     final User other = (User) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$id = this.getId();
     final Object other$id = other.getId();
     if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;

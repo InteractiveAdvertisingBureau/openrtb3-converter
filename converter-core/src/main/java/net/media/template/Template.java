@@ -24,7 +24,7 @@ import java.util.regex.Matcher;
 
 /** Created by shiva.b on 02/01/19. */
 public interface Template {
-  public static Template.TokenProvider getTokenProviderByGroupNames(List<String> groupNames) {
+  static Template.TokenProvider getTokenProviderByGroupNames(List<String> groupNames) {
     return matcher -> {
       Map<String, String> groups = new HashMap<>(groupNames.size());
       for (String groupName : groupNames) {
@@ -87,7 +87,7 @@ public interface Template {
       if (o == this) return true;
       if (!(o instanceof Token)) return false;
       final Token other = (Token) o;
-      if (!other.canEqual((Object) this)) return false;
+      if (!other.canEqual(this)) return false;
       final Object this$textValue = this.getTextValue();
       final Object other$textValue = other.getTextValue();
       if (this$textValue == null

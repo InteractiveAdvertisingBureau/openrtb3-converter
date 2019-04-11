@@ -82,7 +82,7 @@ public class Audit {
     if (o == this) return true;
     if (!(o instanceof Audit)) return false;
     final Audit other = (Audit) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$status = this.getStatus();
     final Object other$status = other.getStatus();
     if (this$status == null ? other$status != null : !this$status.equals(other$status))

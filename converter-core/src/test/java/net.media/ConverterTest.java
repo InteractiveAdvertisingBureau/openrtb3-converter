@@ -48,7 +48,7 @@ public class ConverterTest {
     File outputFile =
         new File(classLoader.getResource("generatedOutput").getPath() + "/Output.json");
     if (nonNull(innerFolder)) {
-      Long totalFiles = 0l;
+      Long totalFiles = 0L;
       for (File files : innerFolder) {
         totalFiles += files.listFiles().length;
         for (File file : files.listFiles()) {
