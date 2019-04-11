@@ -23,20 +23,17 @@ import java.net.URLEncoder;
 import java.util.Base64;
 import java.util.function.Function;
 
-/**
- * Created by shiva.b on 02/01/19.
- */
+/** Created by shiva.b on 02/01/19. */
 public enum StaticEncoder implements Function<String, String> {
-
-
   B64(source -> Base64.getEncoder().encodeToString(source.getBytes())),
-  UTF8(source -> {
-    try {
-      return URLEncoder.encode(source, Charsets.UTF_8.displayName());
-    } catch (UnsupportedEncodingException e) {
-      return source;
-    }
-  }),
+  UTF8(
+      source -> {
+        try {
+          return URLEncoder.encode(source, Charsets.UTF_8.displayName());
+        } catch (UnsupportedEncodingException e) {
+          return source;
+        }
+      }),
   NO_ENCODE(data -> data);
 
   private Function<String, String> encoder;

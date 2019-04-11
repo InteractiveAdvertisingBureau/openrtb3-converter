@@ -17,7 +17,6 @@
 package net.media.openrtb3;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 public class Audit {
@@ -27,53 +26,52 @@ public class Audit {
   private Integer init;
   private Integer lastmod;
   private Corr corr;
-  private Map<String,Object> ext;
+  private Map<String, Object> ext;
 
-  public Audit() {
-  }
+  public Audit() {}
 
   public Integer getStatus() {
     return this.status;
-  }
-
-  public Collection<String> getFeedback() {
-    return this.feedback;
-  }
-
-  public Integer getInit() {
-    return this.init;
-  }
-
-  public Integer getLastmod() {
-    return this.lastmod;
-  }
-
-  public Corr getCorr() {
-    return this.corr;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setStatus(Integer status) {
     this.status = status;
   }
 
+  public Collection<String> getFeedback() {
+    return this.feedback;
+  }
+
   public void setFeedback(Collection<String> feedback) {
     this.feedback = feedback;
+  }
+
+  public Integer getInit() {
+    return this.init;
   }
 
   public void setInit(Integer init) {
     this.init = init;
   }
 
+  public Integer getLastmod() {
+    return this.lastmod;
+  }
+
   public void setLastmod(Integer lastmod) {
     this.lastmod = lastmod;
   }
 
+  public Corr getCorr() {
+    return this.corr;
+  }
+
   public void setCorr(Corr corr) {
     this.corr = corr;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -132,6 +130,18 @@ public class Audit {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Audit(status=" + this.getStatus() + ", feedback=" + this.getFeedback() + ", init=" + this.getInit() + ", lastmod=" + this.getLastmod() + ", corr=" + this.getCorr() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.Audit(status="
+        + this.getStatus()
+        + ", feedback="
+        + this.getFeedback()
+        + ", init="
+        + this.getInit()
+        + ", lastmod="
+        + this.getLastmod()
+        + ", corr="
+        + this.getCorr()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

@@ -16,79 +16,73 @@
 
 package net.media.openrtb3;
 
-
 import net.media.utils.validator.CheckExactlyOneNotNull;
 
 import javax.validation.Valid;
+
 @CheckExactlyOneNotNull(fieldNames = {"title", "image", "video", "data", "link"})
 public class Asset {
 
   private Integer id;
   private Integer req;
-  @Valid
-  private TitleAsset title;
-  @Valid
-  private ImageAsset image;
-  @Valid
-  private VideoAsset video;
-  @Valid
-  private DataAsset data;
-  @Valid
-  private LinkAsset link;
+  @Valid private TitleAsset title;
+  @Valid private ImageAsset image;
+  @Valid private VideoAsset video;
+  @Valid private DataAsset data;
+  @Valid private LinkAsset link;
 
-  public Asset() {
-  }
+  public Asset() {}
 
   public Integer getId() {
     return this.id;
-  }
-
-  public Integer getReq() {
-    return this.req;
-  }
-
-  public @Valid TitleAsset getTitle() {
-    return this.title;
-  }
-
-  public @Valid ImageAsset getImage() {
-    return this.image;
-  }
-
-  public @Valid VideoAsset getVideo() {
-    return this.video;
-  }
-
-  public @Valid DataAsset getData() {
-    return this.data;
-  }
-
-  public @Valid LinkAsset getLink() {
-    return this.link;
   }
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+  public Integer getReq() {
+    return this.req;
+  }
+
   public void setReq(Integer req) {
     this.req = req;
+  }
+
+  public @Valid TitleAsset getTitle() {
+    return this.title;
   }
 
   public void setTitle(@Valid TitleAsset title) {
     this.title = title;
   }
 
+  public @Valid ImageAsset getImage() {
+    return this.image;
+  }
+
   public void setImage(@Valid ImageAsset image) {
     this.image = image;
+  }
+
+  public @Valid VideoAsset getVideo() {
+    return this.video;
   }
 
   public void setVideo(@Valid VideoAsset video) {
     this.video = video;
   }
 
+  public @Valid DataAsset getData() {
+    return this.data;
+  }
+
   public void setData(@Valid DataAsset data) {
     this.data = data;
+  }
+
+  public @Valid LinkAsset getLink() {
+    return this.link;
   }
 
   public void setLink(@Valid LinkAsset link) {
@@ -149,6 +143,20 @@ public class Asset {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Asset(id=" + this.getId() + ", req=" + this.getReq() + ", title=" + this.getTitle() + ", image=" + this.getImage() + ", video=" + this.getVideo() + ", data=" + this.getData() + ", link=" + this.getLink() + ")";
+    return "net.media.openrtb3.Asset(id="
+        + this.getId()
+        + ", req="
+        + this.getReq()
+        + ", title="
+        + this.getTitle()
+        + ", image="
+        + this.getImage()
+        + ", video="
+        + this.getVideo()
+        + ", data="
+        + this.getData()
+        + ", link="
+        + this.getLink()
+        + ")";
   }
 }

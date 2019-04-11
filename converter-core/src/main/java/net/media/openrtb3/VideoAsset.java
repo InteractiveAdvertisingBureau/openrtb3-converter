@@ -25,29 +25,28 @@ public class VideoAsset {
 
   private String adm;
   private String curl;
-  private Map<String,Object> ext;
+  private Map<String, Object> ext;
 
-  public VideoAsset() {
-  }
+  public VideoAsset() {}
 
   public String getAdm() {
     return this.adm;
-  }
-
-  public String getCurl() {
-    return this.curl;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setAdm(String adm) {
     this.adm = adm;
   }
 
+  public String getCurl() {
+    return this.curl;
+  }
+
   public void setCurl(String curl) {
     this.curl = curl;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -88,6 +87,12 @@ public class VideoAsset {
   }
 
   public String toString() {
-    return "net.media.openrtb3.VideoAsset(adm=" + this.getAdm() + ", curl=" + this.getCurl() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.VideoAsset(adm="
+        + this.getAdm()
+        + ", curl="
+        + this.getCurl()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

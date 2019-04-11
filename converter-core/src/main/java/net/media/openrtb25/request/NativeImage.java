@@ -17,7 +17,6 @@
 package net.media.openrtb25.request;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 public class NativeImage {
@@ -36,59 +35,58 @@ public class NativeImage {
 
   private Map<String, Object> ext;
 
-  public NativeImage() {
-  }
+  public NativeImage() {}
 
   public Integer getType() {
     return this.type;
-  }
-
-  public Integer getW() {
-    return this.w;
-  }
-
-  public Integer getWmin() {
-    return this.wmin;
-  }
-
-  public Integer getH() {
-    return this.h;
-  }
-
-  public Integer getHmin() {
-    return this.hmin;
-  }
-
-  public Collection<String> getMimes() {
-    return this.mimes;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setType(Integer type) {
     this.type = type;
   }
 
+  public Integer getW() {
+    return this.w;
+  }
+
   public void setW(Integer w) {
     this.w = w;
+  }
+
+  public Integer getWmin() {
+    return this.wmin;
   }
 
   public void setWmin(Integer wmin) {
     this.wmin = wmin;
   }
 
+  public Integer getH() {
+    return this.h;
+  }
+
   public void setH(Integer h) {
     this.h = h;
+  }
+
+  public Integer getHmin() {
+    return this.hmin;
   }
 
   public void setHmin(Integer hmin) {
     this.hmin = hmin;
   }
 
+  public Collection<String> getMimes() {
+    return this.mimes;
+  }
+
   public void setMimes(Collection<String> mimes) {
     this.mimes = mimes;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -149,6 +147,20 @@ public class NativeImage {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.NativeImage(type=" + this.getType() + ", w=" + this.getW() + ", wmin=" + this.getWmin() + ", h=" + this.getH() + ", hmin=" + this.getHmin() + ", mimes=" + this.getMimes() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.NativeImage(type="
+        + this.getType()
+        + ", w="
+        + this.getW()
+        + ", wmin="
+        + this.getWmin()
+        + ", h="
+        + this.getH()
+        + ", hmin="
+        + this.getHmin()
+        + ", mimes="
+        + this.getMimes()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

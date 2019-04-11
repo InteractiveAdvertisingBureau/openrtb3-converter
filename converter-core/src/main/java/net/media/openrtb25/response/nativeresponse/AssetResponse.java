@@ -38,67 +38,66 @@ public class AssetResponse {
 
   private Map<String, Object> ext;
 
-  public AssetResponse() {
-  }
+  public AssetResponse() {}
 
   public Integer getId() {
     return this.id;
-  }
-
-  public Integer getRequired() {
-    return this.required;
-  }
-
-  public NativeTitle getTitle() {
-    return this.title;
-  }
-
-  public NativeImage getImg() {
-    return this.img;
-  }
-
-  public NativeVideo getVideo() {
-    return this.video;
-  }
-
-  public NativeData getData() {
-    return this.data;
-  }
-
-  public Link getLink() {
-    return this.link;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+  public Integer getRequired() {
+    return this.required;
+  }
+
   public void setRequired(Integer required) {
     this.required = required;
+  }
+
+  public NativeTitle getTitle() {
+    return this.title;
   }
 
   public void setTitle(NativeTitle title) {
     this.title = title;
   }
 
+  public NativeImage getImg() {
+    return this.img;
+  }
+
   public void setImg(NativeImage img) {
     this.img = img;
+  }
+
+  public NativeVideo getVideo() {
+    return this.video;
   }
 
   public void setVideo(NativeVideo video) {
     this.video = video;
   }
 
+  public NativeData getData() {
+    return this.data;
+  }
+
   public void setData(NativeData data) {
     this.data = data;
   }
 
+  public Link getLink() {
+    return this.link;
+  }
+
   public void setLink(Link link) {
     this.link = link;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -165,6 +164,22 @@ public class AssetResponse {
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.nativeresponse.AssetResponse(id=" + this.getId() + ", required=" + this.getRequired() + ", title=" + this.getTitle() + ", img=" + this.getImg() + ", video=" + this.getVideo() + ", data=" + this.getData() + ", link=" + this.getLink() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.response.nativeresponse.AssetResponse(id="
+        + this.getId()
+        + ", required="
+        + this.getRequired()
+        + ", title="
+        + this.getTitle()
+        + ", img="
+        + this.getImg()
+        + ", video="
+        + this.getVideo()
+        + ", data="
+        + this.getData()
+        + ", link="
+        + this.getLink()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

@@ -16,28 +16,22 @@
 
 package net.media.openrtb3;
 
-
 import net.media.exceptions.OpenRtbConverterException;
-
-import java.util.Map;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Map;
 
 public class Banner {
 
-  @NotNull
-  private String img;
-  @Valid
-  private LinkAsset link;
-  private Map<String,Object> ext;
+  @NotNull private String img;
+  @Valid private LinkAsset link;
+  private Map<String, Object> ext;
 
-  public Banner() {
-  }
+  public Banner() {}
 
-
-  public static Banner HashMapToBanner (Map<String,Object> map) throws OpenRtbConverterException{
-    Banner banner =  new Banner();
+  public static Banner HashMapToBanner(Map<String, Object> map) throws OpenRtbConverterException {
+    Banner banner = new Banner();
     try {
       banner.setImg((String) map.get("img"));
       banner.setLink(LinkAsset.HashMaptoLinkAsset((Map<String, Object>) map.get("link")));
@@ -52,20 +46,20 @@ public class Banner {
     return this.img;
   }
 
-  public @Valid LinkAsset getLink() {
-    return this.link;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setImg(@NotNull String img) {
     this.img = img;
   }
 
+  public @Valid LinkAsset getLink() {
+    return this.link;
+  }
+
   public void setLink(@Valid LinkAsset link) {
     this.link = link;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -106,6 +100,12 @@ public class Banner {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Banner(img=" + this.getImg() + ", link=" + this.getLink() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.Banner(img="
+        + this.getImg()
+        + ", link="
+        + this.getLink()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

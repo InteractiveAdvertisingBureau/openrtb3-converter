@@ -17,12 +17,8 @@
 package net.media.converters.request30toRequest23;
 
 import net.media.config.Config;
-import net.media.converters.Converter;
-import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Content;
-import net.media.openrtb3.Data;
-import net.media.openrtb3.Producer;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -30,14 +26,16 @@ import java.util.HashMap;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-/**
- * Created by rajat.go on 03/04/19.
- */
-public class ContentToContentConverter extends net.media.converters.request30toRequest25.ContentToContentConverter {
+/** Created by rajat.go on 03/04/19. */
+public class ContentToContentConverter
+    extends net.media.converters.request30toRequest25.ContentToContentConverter {
 
-  public void enhance(Content source, net.media.openrtb25.request.Content target, Config config,
-                      Provider converterProvider)
-  throws OpenRtbConverterException {
+  public void enhance(
+      Content source,
+      net.media.openrtb25.request.Content target,
+      Config config,
+      Provider converterProvider)
+      throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }
@@ -85,5 +83,4 @@ public class ContentToContentConverter extends net.media.converters.request30toR
       target.setData(null);
     }
   }
-
 }

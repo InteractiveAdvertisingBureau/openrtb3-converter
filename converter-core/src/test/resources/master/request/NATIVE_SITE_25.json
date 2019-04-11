@@ -3,246 +3,311 @@
   "at": 1,
   "test": 1,
   "tmax": 100,
-  "wseat": ["a"],
+  "wseat": [
+    "a"
+  ],
   "source": {
     "fd": 1,
     "tid": "dd",
     "pchain": "dd",
     "ext": {
-      "ts" : 1,
-      "ds" : "ds",
-      "dsmap" : "abcdefghij",
-      "cert" : "abc.com/xyz/efg",
-      "digest" : "digest:digest, abcde:efg",
-      "dummy" : "source.ext"
+      "ts": 1,
+      "ds": "ds",
+      "dsmap": "abcdefghij",
+      "cert": "abc.com/xyz/efg",
+      "digest": "digest:digest, abcde:efg",
+      "dummy": "source.ext"
     }
   },
   "regs": {
     "coppa": 1,
     "ext": {
-      "gdpr" : 1,
-      "dummy" : "regs.ext"
+      "gdpr": 1,
+      "dummy": "regs.ext"
     }
   },
   "ext": {
-    "cattax" : 2,
-    "dummy" : "request.ext",
+    "cattax": 2,
+    "dummy": "request.ext",
     "restrictions": {
       "ext": {
         "dummy": "rest.ext"
       }
     }
   },
-  "cur": ["USD"],
+  "cur": [
+    "USD"
+  ],
   "allimps": 0,
-  "wlang": ["en"],
-  "bcat": ["bb"],
-  "badv": ["cc"],
-  "bapp": ["nn"],
-  "imp": [{
-    "id": "1",
-    "instl" :0,
-    "iframebuster":["abc","def"],
-    "clickbrowser": 1,
-    "metric": [{
-      "type": "dd",
-      "value": 1.0,
-      "vendor": "dssf",
-      "ext": {
-        "dummy": "metric.ext"
-      }
-    }],
-    "bidfloor": 0.03,
-    "bidfloorcur": "USD",
-    "pmp": {
-      "private_auction": 1,
-      "deals": [{
-        "id": "ww",
-        "bidfloor": 0.0,
-        "bidfloorcur": "USD",
-        "at": 1,
-        "wseat": ["dd", "ss"],
-        "wadomain": ["ss.com", "abc.com"],
-        "ext": {
-          "dummy": "deal.ext"
-        }
-      }],
-      "ext": {
-        "dummy": "pmp.ext"
-      }
-    },
-    "displaymanager": "dd",
-    "displaymanagerver": "22",
-    "secure": 1,
-    "tagid": "re",
-    "exp": 1,
-    "native": {
-      "ver": "1.1",
-      "api": [
-        3,2
+  "wlang": [
+    "en"
+  ],
+  "bcat": [
+    "bb"
+  ],
+  "badv": [
+    "cc"
+  ],
+  "bapp": [
+    "nn"
+  ],
+  "imp": [
+    {
+      "id": "1",
+      "instl": 0,
+      "iframebuster": [
+        "abc",
+        "def"
       ],
-      "battr": [
-        2,
-        5,
-        8
-      ],
-      "ext": {
-        "dummy": "entry",
-        "priv": 0,
-        "ctype": [1]
-      },
-      "request": {
-        "native" : {
-          "ver": "1.2",
-          "layout": 1,
-          "adunit": 1,
-          "context": 2,
-          "contextsubtype": 2,
-          "plcmttype": 1,
-          "plcmtcnt": 1,
-          "seq": 1,
+      "clickbrowser": 1,
+      "metric": [
+        {
+          "type": "dd",
+          "value": 1.0,
+          "vendor": "dssf",
           "ext": {
-            "dummy": "object"
-          },
-          "assets": [{
-            "id": 1,
-            "required": 0,
-            "title": {
-              "len": 1,
-              "ext": {
-                "dummy": "title.ext"
-              }
-            },
-            "img": {
-              "type": 1,
-              "mimes": [
-                "a",
-                "bc",
-                "def"
-              ],
-              "w": 1,
-              "h": 2,
-              "wmin": 2,
-              "hmin": 3,
-              "ext": {
-                "wratio": 4,
-                "hratio": 5,
-                "dummy" : "img.ext"
-              }
-            },
-            "video": {
-              "protocols": [
-                2,
-                3
-              ],
-              "mimes": [
-                "abc",
-                "def"
-              ],
-
-              "minduration": 1,
-              "maxduration": 1,
-              "ext": {
-                "companionad": [{
-                  "id": "4.0",
-                  "vcm": 1,
-                  "pos": 0,
-                  "topframe": 22,
-                  "expdir": [3, 4],
-                  "mimes": ["application/x-shockwave-flash", "image/jpg"],
-                  "api": [3, 2],
-                  "w": 300,
-                  "h": 250,
-                  "btype": [3, 4],
-                  "hmin": 1,
-                  "wmin": 1,
-                  "hmax": 1,
-                  "wmax": 1,
-                  "format": [
-                    {
-                      "ext": {
-                        "dummy": "f1.ext"
-                      },
-                      "h": 20,
-                      "hratio": 30,
-                      "w": 200,
-                      "wratio": 200
-
-                    },
-                    {
-                      "ext": {
-                        "dummy": "f2.ext"
-                      },
-                      "h": 11,
-                      "hratio": 30,
-                      "w": 33,
-                      "wratio": 200
-
-                    }
-                  ],
-                  "ext": {
-                    "ptype": 1,
-                    "context": 2,
-                    "unit": 1,
-                    "priv": 0,
-                    "dummy": "innerdisplay.ext",
-                    "ctype": [1]
-                  }
-                }],
-                "unit":2,
-                "maxseq":1,
-                "dummy": "video.ext",
-                "ptype":1,
-                "pos":1,
-                "startdelay":1,
-                "skip":1,
-                "skipmin":1,
-                "skipafter":1,
-                "playbackmethod" : [1],
-                "playbackend": 1,
-                "maxextended":1,
-                "minbitrate":2,
-                "maxbitrate":2,
-                "linearity":1,
-                "boxingallowed":1,
-                "companiontype": [1,2],
-                "w":1,
-                "h":1,
-                "api":[2,3],
-                "delivery" :[1,2]
-              }
-            },
-            "data": {
-              "type": 1,
-              "len": 1,
-              "ext": {
-                "dummy": "data.ext"
-              }
-            },
-            "ext": {
-              "dummy": "asset.ext",
-              "clickbrowser": 1
-            }
-          }]
+            "dummy": "metric.ext"
+          }
         }
+      ],
+      "bidfloor": 0.03,
+      "bidfloorcur": "USD",
+      "pmp": {
+        "private_auction": 1,
+        "deals": [
+          {
+            "id": "ww",
+            "bidfloor": 0.0,
+            "bidfloorcur": "USD",
+            "at": 1,
+            "wseat": [
+              "dd",
+              "ss"
+            ],
+            "wadomain": [
+              "ss.com",
+              "abc.com"
+            ],
+            "ext": {
+              "dummy": "deal.ext"
+            }
+          }
+        ],
+        "ext": {
+          "dummy": "pmp.ext"
+        }
+      },
+      "displaymanager": "dd",
+      "displaymanagerver": "22",
+      "secure": 1,
+      "tagid": "re",
+      "exp": 1,
+      "native": {
+        "ver": "1.1",
+        "api": [
+          3,
+          2
+        ],
+        "battr": [
+          2,
+          5,
+          8
+        ],
+        "ext": {
+          "dummy": "entry",
+          "priv": 0,
+          "ctype": [
+            1
+          ]
+        },
+        "request": {
+          "native": {
+            "ver": "1.2",
+            "layout": 1,
+            "adunit": 1,
+            "context": 2,
+            "contextsubtype": 2,
+            "plcmttype": 1,
+            "plcmtcnt": 1,
+            "seq": 1,
+            "ext": {
+              "dummy": "object"
+            },
+            "assets": [
+              {
+                "id": 1,
+                "required": 0,
+                "title": {
+                  "len": 1,
+                  "ext": {
+                    "dummy": "title.ext"
+                  }
+                },
+                "img": {
+                  "type": 1,
+                  "mimes": [
+                    "a",
+                    "bc",
+                    "def"
+                  ],
+                  "w": 1,
+                  "h": 2,
+                  "wmin": 2,
+                  "hmin": 3,
+                  "ext": {
+                    "wratio": 4,
+                    "hratio": 5,
+                    "dummy": "img.ext"
+                  }
+                },
+                "video": {
+                  "protocols": [
+                    2,
+                    3
+                  ],
+                  "mimes": [
+                    "abc",
+                    "def"
+                  ],
+                  "minduration": 1,
+                  "maxduration": 1,
+                  "ext": {
+                    "companionad": [
+                      {
+                        "id": "4.0",
+                        "vcm": 1,
+                        "pos": 0,
+                        "topframe": 22,
+                        "expdir": [
+                          3,
+                          4
+                        ],
+                        "mimes": [
+                          "application/x-shockwave-flash",
+                          "image/jpg"
+                        ],
+                        "api": [
+                          3,
+                          2
+                        ],
+                        "w": 300,
+                        "h": 250,
+                        "btype": [
+                          3,
+                          4
+                        ],
+                        "hmin": 1,
+                        "wmin": 1,
+                        "hmax": 1,
+                        "wmax": 1,
+                        "format": [
+                          {
+                            "ext": {
+                              "dummy": "f1.ext"
+                            },
+                            "h": 20,
+                            "hratio": 30,
+                            "w": 200,
+                            "wratio": 200
+                          },
+                          {
+                            "ext": {
+                              "dummy": "f2.ext"
+                            },
+                            "h": 11,
+                            "hratio": 30,
+                            "w": 33,
+                            "wratio": 200
+                          }
+                        ],
+                        "ext": {
+                          "ptype": 1,
+                          "context": 2,
+                          "unit": 1,
+                          "priv": 0,
+                          "dummy": "innerdisplay.ext",
+                          "ctype": [
+                            1
+                          ]
+                        }
+                      }
+                    ],
+                    "unit": 2,
+                    "maxseq": 1,
+                    "dummy": "video.ext",
+                    "ptype": 1,
+                    "pos": 1,
+                    "startdelay": 1,
+                    "skip": 1,
+                    "skipmin": 1,
+                    "skipafter": 1,
+                    "playbackmethod": [
+                      1
+                    ],
+                    "playbackend": 1,
+                    "maxextended": 1,
+                    "minbitrate": 2,
+                    "maxbitrate": 2,
+                    "linearity": 1,
+                    "boxingallowed": 1,
+                    "companiontype": [
+                      1,
+                      2
+                    ],
+                    "w": 1,
+                    "h": 1,
+                    "api": [
+                      2,
+                      3
+                    ],
+                    "delivery": [
+                      1,
+                      2
+                    ]
+                  }
+                },
+                "data": {
+                  "type": 1,
+                  "len": 1,
+                  "ext": {
+                    "dummy": "data.ext"
+                  }
+                },
+                "ext": {
+                  "dummy": "asset.ext",
+                  "clickbrowser": 1
+                }
+              }
+            ]
+          }
+        }
+      },
+      "ext": {
+        "ssai": 1,
+        "reward": 1,
+        "admx": 1,
+        "dt": 1,
+        "dlvy": 1,
+        "curlx": 0,
+        "dummy": "item.ext"
       }
-    },
-    "ext": {
-      "ssai": 1,
-      "reward" : 1,
-      "admx" :  1,
-      "dt" : 1,
-      "dlvy": 1,
-      "curlx" : 0,
-      "dummy": "item.ext"
     }
-  }],
+  ],
   "site": {
     "id": "102855",
     "name": "abdk",
-    "sectioncat": ["zz", "dd"],
-    "pagecat": ["ss", "as"],
-    "cat": ["IAB3-1", "IAB3-2"],
+    "sectioncat": [
+      "zz",
+      "dd"
+    ],
+    "pagecat": [
+      "ss",
+      "as"
+    ],
+    "cat": [
+      "IAB3-1",
+      "IAB3-2"
+    ],
     "ref": "sdfe",
     "search": "eded",
     "mobile": 1,
@@ -253,11 +318,14 @@
     "publisher": {
       "id": "8953",
       "name": "foobar.com",
-      "cat": ["IAB3-1", "IAB3-2"],
+      "cat": [
+        "IAB3-1",
+        "IAB3-2"
+      ],
       "domain": "foobar.com",
       "ext": {
-        "cattax" : 2,
-        "dummy" : "pub.ext"
+        "cattax": 2,
+        "dummy": "pub.ext"
       }
     },
     "content": {
@@ -273,15 +341,21 @@
       "producer": {
         "id": "eew",
         "name": "edew",
-        "cat": ["IAB3-1", "IAB3-2"],
+        "cat": [
+          "IAB3-1",
+          "IAB3-2"
+        ],
         "domain": "abc.com",
         "ext": {
-          "cattax" : 2,
-          "dummy" : "producer.ext"
+          "cattax": 2,
+          "dummy": "producer.ext"
         }
       },
       "url": "ewfe.com",
-      "cat": ["IAB3-1", "IAB3-2"],
+      "cat": [
+        "IAB3-1",
+        "IAB3-2"
+      ],
       "prodq": 1,
       "videoquality": 2,
       "context": 1,
@@ -294,29 +368,34 @@
       "len": 2,
       "language": "en",
       "embeddable": 1,
-      "data": [{
-        "id": "1",
-        "name": "Abcdef",
-        "segment": [{
-          "id": "bcdef",
-          "name": "name123",
-          "value": "acde",
+      "data": [
+        {
+          "id": "1",
+          "name": "Abcdef",
+          "segment": [
+            {
+              "id": "bcdef",
+              "name": "name123",
+              "value": "acde",
+              "ext": {
+                "dummy": "segment.ext"
+              }
+            }
+          ],
           "ext": {
-            "dummy" : "segment.ext"
-          }      }],
-        "ext": {
-          "dummy" :"data.ext"
+            "dummy": "data.ext"
+          }
         }
-      }],
+      ],
       "ext": {
-        "cattax" : 2,
-        "dummy" :"content.ext"
+        "cattax": 2,
+        "dummy": "content.ext"
       }
     },
     "ext": {
-      "cattax" : 2,
-      "dummy" : "site.ext",
-      "amp" : 2
+      "cattax": 2,
+      "dummy": "site.ext",
+      "amp": 2
     }
   },
   "device": {
@@ -337,7 +416,7 @@
       "zip": "ewe",
       "utcoffset": 1,
       "ext": {
-        "dummy" : "geo.ext"
+        "dummy": "geo.ext"
       }
     },
     "dnt": 1,
@@ -362,9 +441,9 @@
     "mccmnc": "ewew",
     "connectiontype": 2,
     "ext": {
-      "xff" : "1.2.3.4",
-      "iptr" : 1,
-      "dummy" : "device.ext"
+      "xff": "1.2.3.4",
+      "iptr": 1,
+      "dummy": "device.ext"
     }
   },
   "user": {
@@ -389,25 +468,30 @@
       "zip": "ewe",
       "utcoffset": 1,
       "ext": {
-        "dummy" :"geo1.ext"
+        "dummy": "geo1.ext"
       }
     },
-    "data": [{
-      "id": "wwe",
-      "name": "ee",
-      "segment": [{
-        "id": "ew",
-        "name": "rewfe",
-        "value": "ew",
+    "data": [
+      {
+        "id": "wwe",
+        "name": "ee",
+        "segment": [
+          {
+            "id": "ew",
+            "name": "rewfe",
+            "value": "ew",
+            "ext": {
+              "dummy": "segment12.ext"
+            }
+          }
+        ],
         "ext": {
-          "dummy" : "segment12.ext"
-        }      }],
-      "ext": {
-        "dummy" : "data12.ext"
+          "dummy": "data12.ext"
+        }
       }
-    }],
+    ],
     "ext": {
-      "consent" : "abcdef",
+      "consent": "abcdef",
       "dummy": "user.ext"
     }
   }

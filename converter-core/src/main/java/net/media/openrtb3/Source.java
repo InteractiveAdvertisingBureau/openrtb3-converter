@@ -32,60 +32,60 @@ public class Source {
     return this.tid;
   }
 
-  public Integer getTs() {
-    return this.ts;
-  }
-
-  public String getDs() {
-    return this.ds;
-  }
-
-  public String getDsmap() {
-    return this.dsmap;
-  }
-
-  public String getCert() {
-    return this.cert;
-  }
-
-  public String getDigest() {
-    return this.digest;
-  }
-
-  public String getPchain() {
-    return this.pchain;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setTid(String tid) {
     this.tid = tid;
+  }
+
+  public Integer getTs() {
+    return this.ts;
   }
 
   public void setTs(Integer ts) {
     this.ts = ts;
   }
 
+  public String getDs() {
+    return this.ds;
+  }
+
   public void setDs(String ds) {
     this.ds = ds;
+  }
+
+  public String getDsmap() {
+    return this.dsmap;
   }
 
   public void setDsmap(String dsmap) {
     this.dsmap = dsmap;
   }
 
+  public String getCert() {
+    return this.cert;
+  }
+
   public void setCert(String cert) {
     this.cert = cert;
+  }
+
+  public String getDigest() {
+    return this.digest;
   }
 
   public void setDigest(String digest) {
     this.digest = digest;
   }
 
+  public String getPchain() {
+    return this.pchain;
+  }
+
   public void setPchain(String pchain) {
     this.pchain = pchain;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {

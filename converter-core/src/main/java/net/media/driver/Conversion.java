@@ -16,9 +16,7 @@
 
 package net.media.driver;
 
-/**
- * @author shiva.b
- */
+/** @author shiva.b */
 public class Conversion<U, V> {
 
   private Class<U> source;
@@ -35,12 +33,12 @@ public class Conversion<U, V> {
     return this.source;
   }
 
-  public Class getTarget() {
-    return this.target;
-  }
-
   public void setSource(Class<U> source) {
     this.source = source;
+  }
+
+  public Class getTarget() {
+    return this.target;
   }
 
   public void setTarget(Class<V> target) {
@@ -78,6 +76,10 @@ public class Conversion<U, V> {
   }
 
   public String toString() {
-    return "net.media.driver.Conversion(source=" + this.getSource() + ", target=" + this.getTarget() + ")";
+    return "net.media.driver.Conversion(source="
+        + this.getSource()
+        + ", target="
+        + this.getTarget()
+        + ")";
   }
 }

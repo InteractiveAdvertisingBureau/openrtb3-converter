@@ -16,23 +16,19 @@
 
 package net.media.api;
 
-
 import net.media.api.servlets.ConverterServlet;
-
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
 
-import java.io.File;
-
 import javax.servlet.ServletException;
+import java.io.File;
 
 public class ConverterApplication {
 
   private static void registerServletAndMapping(Context ctx) {
     Tomcat.addServlet(ctx, "converter", new ConverterServlet()).setLoadOnStartup(1);
     ctx.addServletMapping("/*", "converter");
-
   }
 
   public static void main(String[] args) throws LifecycleException, ServletException {

@@ -25,27 +25,26 @@ public class NativeData {
 
   private Map<String, Object> ext;
 
-  public NativeData() {
-  }
+  public NativeData() {}
 
   public String getLabel() {
     return this.label;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setLabel(String label) {
     this.label = label;
   }
 
+  public String getValue() {
+    return this.value;
+  }
+
   public void setValue(String value) {
     this.value = value;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -86,6 +85,12 @@ public class NativeData {
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.nativeresponse.NativeData(label=" + this.getLabel() + ", value=" + this.getValue() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.response.nativeresponse.NativeData(label="
+        + this.getLabel()
+        + ", value="
+        + this.getValue()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

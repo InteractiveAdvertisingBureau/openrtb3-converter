@@ -18,53 +18,49 @@ package net.media.openrtb3;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Map;
 
 public class Seatbid {
 
-  private String seat;//
+  private String seat; //
 
   @JsonProperty("package")
   private Integer _package;
-  @NotNull
-  @Valid
-  private Collection<Bid> bid = null;
-  private Map<String,Object> ext;
 
-  public Seatbid() {
-  }
+  @NotNull @Valid private Collection<Bid> bid = null;
+  private Map<String, Object> ext;
+
+  public Seatbid() {}
 
   public String getSeat() {
     return this.seat;
-  }
-
-  public Integer get_package() {
-    return this._package;
-  }
-
-  public @NotNull @Valid Collection<Bid> getBid() {
-    return this.bid;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setSeat(String seat) {
     this.seat = seat;
   }
 
+  public Integer get_package() {
+    return this._package;
+  }
+
   public void set_package(Integer _package) {
     this._package = _package;
   }
 
+  public @NotNull @Valid Collection<Bid> getBid() {
+    return this.bid;
+  }
+
   public void setBid(@NotNull @Valid Collection<Bid> bid) {
     this.bid = bid;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -111,6 +107,14 @@ public class Seatbid {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Seatbid(seat=" + this.getSeat() + ", _package=" + this.get_package() + ", bid=" + this.getBid() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.Seatbid(seat="
+        + this.getSeat()
+        + ", _package="
+        + this.get_package()
+        + ", bid="
+        + this.getBid()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

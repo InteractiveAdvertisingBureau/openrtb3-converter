@@ -16,40 +16,32 @@
 
 package net.media.openrtb25.request;
 
-
 import net.media.utils.validator.CheckAtLeastOneNotNull;
 import net.media.utils.validator.CheckAtMostOneNotNull;
 
-import java.util.Collection;
-import java.util.Map;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import java.util.Collection;
+import java.util.Map;
 
 @CheckAtLeastOneNotNull(fieldNames = {"site", "app"})
 @CheckAtMostOneNotNull(fieldNames = {"wseat", "bseat"})
 public class BidRequest2_X {
 
-  //BidRequest2_X parameters
+  // BidRequest2_X parameters
   public static final Integer DEFAULT_ALL_IMPS = 0;
 
-  @NotEmpty
-  public String id;
+  @NotEmpty public String id;
 
-  @NotEmpty
-  @Valid
-  public Collection<Imp> imp;
+  @NotEmpty @Valid public Collection<Imp> imp;
 
-  @Valid
-  public Site site;
+  @Valid public Site site;
 
-  @Valid
-  public App app;
+  @Valid public App app;
 
   public Device device;
 
-  @Valid
-  public User user;
+  @Valid public User user;
 
   public Collection<String> badv;
 
@@ -63,8 +55,7 @@ public class BidRequest2_X {
 
   public Integer tmax;
 
-  @Valid
-  public Source source;
+  @Valid public Source source;
 
   public Collection<String> bcat;
 
@@ -108,195 +99,194 @@ public class BidRequest2_X {
     this.ext = bidRequest.ext;
   }
 
-  public BidRequest2_X() {
-  }
+  public BidRequest2_X() {}
 
   public @NotEmpty String getId() {
     return this.id;
-  }
-
-  public @NotEmpty @Valid Collection<Imp> getImp() {
-    return this.imp;
-  }
-
-  public @Valid Site getSite() {
-    return this.site;
-  }
-
-  public @Valid App getApp() {
-    return this.app;
-  }
-
-  public Device getDevice() {
-    return this.device;
-  }
-
-  public @Valid User getUser() {
-    return this.user;
-  }
-
-  public Collection<String> getBadv() {
-    return this.badv;
-  }
-
-  public Integer getAt() {
-    return this.at;
-  }
-
-  public Integer getTest() {
-    return this.test;
-  }
-
-  public Collection<String> getWseat() {
-    return this.wseat;
-  }
-
-  public Collection<String> getBseat() {
-    return this.bseat;
-  }
-
-  public Integer getTmax() {
-    return this.tmax;
-  }
-
-  public @Valid Source getSource() {
-    return this.source;
-  }
-
-  public Collection<String> getBcat() {
-    return this.bcat;
-  }
-
-  public Integer getAllimps() {
-    return this.allimps;
-  }
-
-  public Collection<String> getCur() {
-    return this.cur;
-  }
-
-  public Collection<String> getWlang() {
-    return this.wlang;
-  }
-
-  public Collection<String> getBapp() {
-    return this.bapp;
-  }
-
-  public Regs getRegs() {
-    return this.regs;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
-  public Integer getGdpr() {
-    return this.gdpr;
-  }
-
-  public Integer getGdprconsent() {
-    return this.gdprconsent;
-  }
-
-  public String getGdprstring() {
-    return this.gdprstring;
-  }
-
-  public String getGoogleConsents() {
-    return this.googleConsents;
   }
 
   public void setId(@NotEmpty String id) {
     this.id = id;
   }
 
+  public @NotEmpty @Valid Collection<Imp> getImp() {
+    return this.imp;
+  }
+
   public void setImp(@NotEmpty @Valid Collection<Imp> imp) {
     this.imp = imp;
+  }
+
+  public @Valid Site getSite() {
+    return this.site;
   }
 
   public void setSite(@Valid Site site) {
     this.site = site;
   }
 
+  public @Valid App getApp() {
+    return this.app;
+  }
+
   public void setApp(@Valid App app) {
     this.app = app;
+  }
+
+  public Device getDevice() {
+    return this.device;
   }
 
   public void setDevice(Device device) {
     this.device = device;
   }
 
+  public @Valid User getUser() {
+    return this.user;
+  }
+
   public void setUser(@Valid User user) {
     this.user = user;
+  }
+
+  public Collection<String> getBadv() {
+    return this.badv;
   }
 
   public void setBadv(Collection<String> badv) {
     this.badv = badv;
   }
 
+  public Integer getAt() {
+    return this.at;
+  }
+
   public void setAt(Integer at) {
     this.at = at;
+  }
+
+  public Integer getTest() {
+    return this.test;
   }
 
   public void setTest(Integer test) {
     this.test = test;
   }
 
+  public Collection<String> getWseat() {
+    return this.wseat;
+  }
+
   public void setWseat(Collection<String> wseat) {
     this.wseat = wseat;
+  }
+
+  public Collection<String> getBseat() {
+    return this.bseat;
   }
 
   public void setBseat(Collection<String> bseat) {
     this.bseat = bseat;
   }
 
+  public Integer getTmax() {
+    return this.tmax;
+  }
+
   public void setTmax(Integer tmax) {
     this.tmax = tmax;
+  }
+
+  public @Valid Source getSource() {
+    return this.source;
   }
 
   public void setSource(@Valid Source source) {
     this.source = source;
   }
 
+  public Collection<String> getBcat() {
+    return this.bcat;
+  }
+
   public void setBcat(Collection<String> bcat) {
     this.bcat = bcat;
+  }
+
+  public Integer getAllimps() {
+    return this.allimps;
   }
 
   public void setAllimps(Integer allimps) {
     this.allimps = allimps;
   }
 
+  public Collection<String> getCur() {
+    return this.cur;
+  }
+
   public void setCur(Collection<String> cur) {
     this.cur = cur;
+  }
+
+  public Collection<String> getWlang() {
+    return this.wlang;
   }
 
   public void setWlang(Collection<String> wlang) {
     this.wlang = wlang;
   }
 
+  public Collection<String> getBapp() {
+    return this.bapp;
+  }
+
   public void setBapp(Collection<String> bapp) {
     this.bapp = bapp;
+  }
+
+  public Regs getRegs() {
+    return this.regs;
   }
 
   public void setRegs(Regs regs) {
     this.regs = regs;
   }
 
+  public Map<String, Object> getExt() {
+    return this.ext;
+  }
+
   public void setExt(Map<String, Object> ext) {
     this.ext = ext;
+  }
+
+  public Integer getGdpr() {
+    return this.gdpr;
   }
 
   public void setGdpr(Integer gdpr) {
     this.gdpr = gdpr;
   }
 
+  public Integer getGdprconsent() {
+    return this.gdprconsent;
+  }
+
   public void setGdprconsent(Integer gdprconsent) {
     this.gdprconsent = gdprconsent;
   }
 
+  public String getGdprstring() {
+    return this.gdprstring;
+  }
+
   public void setGdprstring(String gdprstring) {
     this.gdprstring = gdprstring;
+  }
+
+  public String getGoogleConsents() {
+    return this.googleConsents;
   }
 
   public void setGoogleConsents(String googleConsents) {
@@ -425,6 +415,54 @@ public class BidRequest2_X {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.BidRequest2_X(id=" + this.getId() + ", imp=" + this.getImp() + ", site=" + this.getSite() + ", app=" + this.getApp() + ", device=" + this.getDevice() + ", user=" + this.getUser() + ", badv=" + this.getBadv() + ", at=" + this.getAt() + ", test=" + this.getTest() + ", wseat=" + this.getWseat() + ", bseat=" + this.getBseat() + ", tmax=" + this.getTmax() + ", source=" + this.getSource() + ", bcat=" + this.getBcat() + ", allimps=" + this.getAllimps() + ", cur=" + this.getCur() + ", wlang=" + this.getWlang() + ", bapp=" + this.getBapp() + ", regs=" + this.getRegs() + ", ext=" + this.getExt() + ", gdpr=" + this.getGdpr() + ", gdprconsent=" + this.getGdprconsent() + ", gdprstring=" + this.getGdprstring() + ", googleConsents=" + this.getGoogleConsents() + ")";
+    return "net.media.openrtb25.request.BidRequest2_X(id="
+        + this.getId()
+        + ", imp="
+        + this.getImp()
+        + ", site="
+        + this.getSite()
+        + ", app="
+        + this.getApp()
+        + ", device="
+        + this.getDevice()
+        + ", user="
+        + this.getUser()
+        + ", badv="
+        + this.getBadv()
+        + ", at="
+        + this.getAt()
+        + ", test="
+        + this.getTest()
+        + ", wseat="
+        + this.getWseat()
+        + ", bseat="
+        + this.getBseat()
+        + ", tmax="
+        + this.getTmax()
+        + ", source="
+        + this.getSource()
+        + ", bcat="
+        + this.getBcat()
+        + ", allimps="
+        + this.getAllimps()
+        + ", cur="
+        + this.getCur()
+        + ", wlang="
+        + this.getWlang()
+        + ", bapp="
+        + this.getBapp()
+        + ", regs="
+        + this.getRegs()
+        + ", ext="
+        + this.getExt()
+        + ", gdpr="
+        + this.getGdpr()
+        + ", gdprconsent="
+        + this.getGdprconsent()
+        + ", gdprstring="
+        + this.getGdprstring()
+        + ", googleConsents="
+        + this.getGoogleConsents()
+        + ")";
   }
 }

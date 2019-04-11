@@ -18,21 +18,18 @@ package net.media.openrtb3;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Map;
 
 public class Item {
 
   private static final Integer DEFAULT_QUANTITY = 1;
   private static final Integer DEFAULT_DELIVERY_METHOD = 0;
 
-  @NotBlank
-  private String id;
+  @NotBlank private String id;
   private Integer qty = DEFAULT_QUANTITY;
   private Integer seq;
   private double flr;
@@ -42,111 +39,111 @@ public class Item {
   private Integer dlvy = DEFAULT_DELIVERY_METHOD;
   private Collection<Metric> metric;
   private Collection<Deal> deal;
+
   @JsonProperty("private")
   private Integer priv;
-  @NotNull
-  @Valid
-  private Spec spec;
+
+  @NotNull @Valid private Spec spec;
   private Map<String, Object> ext;
 
   public @NotBlank String getId() {
     return this.id;
   }
 
-  public Integer getQty() {
-    return this.qty;
-  }
-
-  public Integer getSeq() {
-    return this.seq;
-  }
-
-  public double getFlr() {
-    return this.flr;
-  }
-
-  public String getFlrcur() {
-    return this.flrcur;
-  }
-
-  public Integer getExp() {
-    return this.exp;
-  }
-
-  public Integer getDt() {
-    return this.dt;
-  }
-
-  public Integer getDlvy() {
-    return this.dlvy;
-  }
-
-  public Collection<Metric> getMetric() {
-    return this.metric;
-  }
-
-  public Collection<Deal> getDeal() {
-    return this.deal;
-  }
-
-  public Integer getPriv() {
-    return this.priv;
-  }
-
-  public @NotNull @Valid Spec getSpec() {
-    return this.spec;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setId(@NotBlank String id) {
     this.id = id;
+  }
+
+  public Integer getQty() {
+    return this.qty;
   }
 
   public void setQty(Integer qty) {
     this.qty = qty;
   }
 
+  public Integer getSeq() {
+    return this.seq;
+  }
+
   public void setSeq(Integer seq) {
     this.seq = seq;
+  }
+
+  public double getFlr() {
+    return this.flr;
   }
 
   public void setFlr(double flr) {
     this.flr = flr;
   }
 
+  public String getFlrcur() {
+    return this.flrcur;
+  }
+
   public void setFlrcur(String flrcur) {
     this.flrcur = flrcur;
+  }
+
+  public Integer getExp() {
+    return this.exp;
   }
 
   public void setExp(Integer exp) {
     this.exp = exp;
   }
 
+  public Integer getDt() {
+    return this.dt;
+  }
+
   public void setDt(Integer dt) {
     this.dt = dt;
+  }
+
+  public Integer getDlvy() {
+    return this.dlvy;
   }
 
   public void setDlvy(Integer dlvy) {
     this.dlvy = dlvy;
   }
 
+  public Collection<Metric> getMetric() {
+    return this.metric;
+  }
+
   public void setMetric(Collection<Metric> metric) {
     this.metric = metric;
+  }
+
+  public Collection<Deal> getDeal() {
+    return this.deal;
   }
 
   public void setDeal(Collection<Deal> deal) {
     this.deal = deal;
   }
 
+  public Integer getPriv() {
+    return this.priv;
+  }
+
   public void setPriv(Integer priv) {
     this.priv = priv;
   }
 
+  public @NotNull @Valid Spec getSpec() {
+    return this.spec;
+  }
+
   public void setSpec(@NotNull @Valid Spec spec) {
     this.spec = spec;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {

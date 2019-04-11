@@ -27,13 +27,12 @@ import java.util.HashMap;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-/**
- * Created by rajat.go on 03/04/19.
- */
-public class ItemToImpConverter extends net.media.converters.request30toRequest25.ItemToImpConverter {
+/** Created by rajat.go on 03/04/19. */
+public class ItemToImpConverter
+    extends net.media.converters.request30toRequest25.ItemToImpConverter {
 
-  public void enhance(Item item, Imp imp, Config config, Provider
-    converterProvider) throws OpenRtbConverterException {
+  public void enhance(Item item, Imp imp, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
     if (item == null || imp == null) {
       return;
     }

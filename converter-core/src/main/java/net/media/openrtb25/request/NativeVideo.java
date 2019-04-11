@@ -16,66 +16,59 @@
 
 package net.media.openrtb25.request;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
-
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Map;
 
 public class NativeVideo {
 
-  @NotEmpty
-  private Collection<String> mimes;
+  @NotEmpty private Collection<String> mimes;
 
-  @NotNull
-  private Integer minduration;
+  @NotNull private Integer minduration;
 
-  @NotNull
-  private Integer maxduration;
+  @NotNull private Integer maxduration;
 
-  @NotEmpty
-  private Collection<Integer> protocols;
+  @NotEmpty private Collection<Integer> protocols;
 
   private Map<String, Object> ext;
 
-  public NativeVideo() {
-  }
+  public NativeVideo() {}
 
   public @NotEmpty Collection<String> getMimes() {
     return this.mimes;
-  }
-
-  public @NotNull Integer getMinduration() {
-    return this.minduration;
-  }
-
-  public @NotNull Integer getMaxduration() {
-    return this.maxduration;
-  }
-
-  public @NotEmpty Collection<Integer> getProtocols() {
-    return this.protocols;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setMimes(@NotEmpty Collection<String> mimes) {
     this.mimes = mimes;
   }
 
+  public @NotNull Integer getMinduration() {
+    return this.minduration;
+  }
+
   public void setMinduration(@NotNull Integer minduration) {
     this.minduration = minduration;
+  }
+
+  public @NotNull Integer getMaxduration() {
+    return this.maxduration;
   }
 
   public void setMaxduration(@NotNull Integer maxduration) {
     this.maxduration = maxduration;
   }
 
+  public @NotEmpty Collection<Integer> getProtocols() {
+    return this.protocols;
+  }
+
   public void setProtocols(@NotEmpty Collection<Integer> protocols) {
     this.protocols = protocols;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -92,12 +85,14 @@ public class NativeVideo {
     if (this$mimes == null ? other$mimes != null : !this$mimes.equals(other$mimes)) return false;
     final Object this$minduration = this.getMinduration();
     final Object other$minduration = other.getMinduration();
-    if (this$minduration == null ? other$minduration != null : !this$minduration.equals(other$minduration))
-      return false;
+    if (this$minduration == null
+        ? other$minduration != null
+        : !this$minduration.equals(other$minduration)) return false;
     final Object this$maxduration = this.getMaxduration();
     final Object other$maxduration = other.getMaxduration();
-    if (this$maxduration == null ? other$maxduration != null : !this$maxduration.equals(other$maxduration))
-      return false;
+    if (this$maxduration == null
+        ? other$maxduration != null
+        : !this$maxduration.equals(other$maxduration)) return false;
     final Object this$protocols = this.getProtocols();
     final Object other$protocols = other.getProtocols();
     if (this$protocols == null ? other$protocols != null : !this$protocols.equals(other$protocols))
@@ -129,6 +124,16 @@ public class NativeVideo {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.NativeVideo(mimes=" + this.getMimes() + ", minduration=" + this.getMinduration() + ", maxduration=" + this.getMaxduration() + ", protocols=" + this.getProtocols() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.NativeVideo(mimes="
+        + this.getMimes()
+        + ", minduration="
+        + this.getMinduration()
+        + ", maxduration="
+        + this.getMaxduration()
+        + ", protocols="
+        + this.getProtocols()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

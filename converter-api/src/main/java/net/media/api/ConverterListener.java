@@ -18,7 +18,6 @@ package net.media.api;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-
 import org.slf4j.Logger;
 
 import javax.servlet.ServletContextEvent;
@@ -33,7 +32,7 @@ public class ConverterListener implements ServletContextListener {
       Injector injector = Guice.createInjector(new ConverterModule());
       sce.getServletContext().setAttribute("INJECTOR", injector);
     } catch (Exception e) {
-      log.error("" ,e);
+      log.error("", e);
     }
   }
 }

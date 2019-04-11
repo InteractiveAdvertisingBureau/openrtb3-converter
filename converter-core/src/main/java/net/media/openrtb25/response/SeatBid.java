@@ -16,22 +16,15 @@
 
 package net.media.openrtb25.response;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Map;
 
-/**
- * Created by vishnu on 30/5/16.
- */
+/** Created by vishnu on 30/5/16. */
 public class SeatBid {
 
-  @NotNull
-  @Valid
-  private Collection<Bid> bid;
+  @NotNull @Valid private Collection<Bid> bid;
 
   private String seat;
 
@@ -39,35 +32,34 @@ public class SeatBid {
 
   private Map<String, Object> ext;
 
-  public SeatBid() {
-  }
+  public SeatBid() {}
 
   public @NotNull @Valid Collection<Bid> getBid() {
     return this.bid;
-  }
-
-  public String getSeat() {
-    return this.seat;
-  }
-
-  public Integer getGroup() {
-    return this.group;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setBid(@NotNull @Valid Collection<Bid> bid) {
     this.bid = bid;
   }
 
+  public String getSeat() {
+    return this.seat;
+  }
+
   public void setSeat(String seat) {
     this.seat = seat;
   }
 
+  public Integer getGroup() {
+    return this.group;
+  }
+
   public void setGroup(Integer group) {
     this.group = group;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -113,6 +105,14 @@ public class SeatBid {
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.SeatBid(bid=" + this.getBid() + ", seat=" + this.getSeat() + ", group=" + this.getGroup() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.response.SeatBid(bid="
+        + this.getBid()
+        + ", seat="
+        + this.getSeat()
+        + ", group="
+        + this.getGroup()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

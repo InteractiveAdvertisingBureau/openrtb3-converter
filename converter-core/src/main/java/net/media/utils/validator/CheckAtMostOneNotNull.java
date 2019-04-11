@@ -38,8 +38,10 @@ public @interface CheckAtMostOneNotNull {
 
   String[] fieldNames();
 
-  public class CheckAtMostOneNotNullValidator implements ConstraintValidator<CheckAtMostOneNotNull, Object> {
+  public class CheckAtMostOneNotNullValidator
+      implements ConstraintValidator<CheckAtMostOneNotNull, Object> {
     private String[] fieldNames;
+
     public void initialize(CheckAtMostOneNotNull constraint) {
       this.fieldNames = constraint.fieldNames();
     }
@@ -50,11 +52,13 @@ public @interface CheckAtMostOneNotNull {
       }
       boolean firstField = false;
       try {
-        for (String fieldName:fieldNames){
+        for (String fieldName : fieldNames) {
           Object property = PropertyUtils.getProperty(object, fieldName);
-          if(property!=null) {
-            if(firstField) {
-              ValidatorErrorHandler.setErrorMessage(context, "At most one of the following should be present: " + Arrays.toString(fieldNames));
+          if (property != null) {
+            if (firstField) {
+              ValidatorErrorHandler.setErrorMessage(
+                  context,
+                  "At most one of the following should be present: " + Arrays.toString(fieldNames));
               return false;
             }
             firstField = true;
@@ -62,7 +66,8 @@ public @interface CheckAtMostOneNotNull {
         }
         return true;
       } catch (Exception e) {
-        ValidatorErrorHandler.setErrorMessage(context, "At most one of the following should be present: " + fieldNames);
+        ValidatorErrorHandler.setErrorMessage(
+            context, "At most one of the following should be present: " + fieldNames);
         return false;
       }
     }

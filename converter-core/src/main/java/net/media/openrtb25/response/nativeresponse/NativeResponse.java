@@ -16,7 +16,6 @@
 
 package net.media.openrtb25.response.nativeresponse;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class NativeResponse {
@@ -24,8 +23,7 @@ public class NativeResponse {
   @JsonProperty("native")
   private NativeResponseBody nativeResponseBody;
 
-  public NativeResponse() {
-  }
+  public NativeResponse() {}
 
   public NativeResponseBody getNativeResponseBody() {
     return this.nativeResponseBody;
@@ -42,8 +40,9 @@ public class NativeResponse {
     if (!other.canEqual((Object) this)) return false;
     final Object this$nativeResponseBody = this.getNativeResponseBody();
     final Object other$nativeResponseBody = other.getNativeResponseBody();
-    if (this$nativeResponseBody == null ? other$nativeResponseBody != null : !this$nativeResponseBody.equals(other$nativeResponseBody))
-      return false;
+    if (this$nativeResponseBody == null
+        ? other$nativeResponseBody != null
+        : !this$nativeResponseBody.equals(other$nativeResponseBody)) return false;
     return true;
   }
 
@@ -60,6 +59,8 @@ public class NativeResponse {
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.nativeresponse.NativeResponse(nativeResponseBody=" + this.getNativeResponseBody() + ")";
+    return "net.media.openrtb25.response.nativeresponse.NativeResponse(nativeResponseBody="
+        + this.getNativeResponseBody()
+        + ")";
   }
 }

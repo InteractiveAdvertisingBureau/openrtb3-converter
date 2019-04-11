@@ -16,23 +16,23 @@
 
 package net.media.openrtb3;
 
-
-import java.util.Map;
-
 import javax.validation.constraints.NotNull;
+import java.util.Map;
 
 public class Macro {
 
-  @NotNull
-  private String key;
+  @NotNull private String key;
   private String value;
   private Map<String, Object> ext;
 
-  public Macro() {
-  }
+  public Macro() {}
 
   public @NotNull String getKey() {
     return this.key;
+  }
+
+  public void setKey(@NotNull String key) {
+    this.key = key;
   }
 
   public Map<String, Object> getExt() {
@@ -47,8 +47,8 @@ public class Macro {
     return this.value;
   }
 
-  public void setKey(@NotNull String key) {
-    this.key = key;
+  public void setValue(String value) {
+    this.value = value;
   }
 
   @Override
@@ -62,7 +62,6 @@ public class Macro {
     if (getValue() != null ? !getValue().equals(macro.getValue()) : macro.getValue() != null)
       return false;
     return getExt() != null ? getExt().equals(macro.getExt()) : macro.getExt() == null;
-
   }
 
   @Override
@@ -73,18 +72,9 @@ public class Macro {
     return result;
   }
 
-  public void setValue(String value) {
-    this.value = value;
-
-  }
-
   @Override
   public String toString() {
-    return "Macro{" +
-      "key='" + key + '\'' +
-      ", value='" + value + '\'' +
-      ", ext=" + ext +
-      '}';
+    return "Macro{" + "key='" + key + '\'' + ", value='" + value + '\'' + ", ext=" + ext + '}';
   }
 
   protected boolean canEqual(Object other) {

@@ -16,15 +16,12 @@
 
 package net.media.openrtb3;
 
-/**
- * Created by shiva.b on 10/04/19.
- */
+/** Created by shiva.b on 10/04/19. */
 public class OpenRTBWrapper3_X {
 
   private OpenRTB3_X openrtb;
 
-  public OpenRTBWrapper3_X() {
-  }
+  public OpenRTBWrapper3_X() {}
 
   public OpenRTB3_X getOpenrtb() {
     return this.openrtb;

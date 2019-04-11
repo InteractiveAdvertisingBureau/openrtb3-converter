@@ -22,24 +22,32 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 
-/**
- * Created by shiva.b on 02/01/19.
- */
+/** Created by shiva.b on 02/01/19. */
 public interface Template {
+  public static Template.TokenProvider getTokenProviderByGroupNames(List<String> groupNames) {
+    return matcher -> {
+      Map<String, String> groups = new HashMap<>(groupNames.size());
+      for (String groupName : groupNames) {
+        groups.put(groupName, matcher.group(groupName));
+      }
+      return new Template.Token(matcher.group(), groups);
+    };
+  }
+
   String replace(Template.TokenValue tokenValue);
 
-  default String replace(Template.TokenValue tokenValue, Function<Exception,Exception>
-    exceptionFunction) throws Exception {
-    try{
+  default String replace(
+      Template.TokenValue tokenValue, Function<Exception, Exception> exceptionFunction)
+      throws Exception {
+    try {
       return replace(tokenValue);
-    } catch (Exception e){
+    } catch (Exception e) {
       throw exceptionFunction.apply(e);
     }
   }
 
-
   @FunctionalInterface
-  interface TokenValue  {
+  interface TokenValue {
     String get(Token token);
   }
 
@@ -82,8 +90,9 @@ public interface Template {
       if (!other.canEqual((Object) this)) return false;
       final Object this$textValue = this.getTextValue();
       final Object other$textValue = other.getTextValue();
-      if (this$textValue == null ? other$textValue != null : !this$textValue.equals(other$textValue))
-        return false;
+      if (this$textValue == null
+          ? other$textValue != null
+          : !this$textValue.equals(other$textValue)) return false;
       final Object this$groups = this.getGroups();
       final Object other$groups = other.getGroups();
       if (this$groups == null ? other$groups != null : !this$groups.equals(other$groups))
@@ -106,17 +115,11 @@ public interface Template {
     }
 
     public String toString() {
-      return "net.media.template.Template.Token(textValue=" + this.getTextValue() + ", groups=" + this.getGroups() + ")";
+      return "net.media.template.Template.Token(textValue="
+          + this.getTextValue()
+          + ", groups="
+          + this.getGroups()
+          + ")";
     }
-  }
-
-  public static Template.TokenProvider getTokenProviderByGroupNames(List<String> groupNames) {
-    return matcher -> {
-      Map<String, String> groups = new HashMap<>(groupNames.size());
-      for (String groupName : groupNames) {
-        groups.put(groupName, matcher.group(groupName));
-      }
-      return new Template.Token(matcher.group(), groups);
-    };
   }
 }

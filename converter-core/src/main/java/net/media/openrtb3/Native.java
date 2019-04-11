@@ -16,42 +16,36 @@
 
 package net.media.openrtb3;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import javax.validation.Valid;
+import java.util.Collection;
+import java.util.Map;
 
 public class Native {
 
+  @Valid private LinkAsset link;
+  @Valid private Collection<Asset> asset = null;
+  private Map<String, Object> ext;
 
-  @Valid
-  private LinkAsset link;
-  @Valid
-  private Collection<Asset> asset = null;
-  private Map<String,Object> ext;
-
-  public Native() {
-  }
+  public Native() {}
 
   public @Valid LinkAsset getLink() {
     return this.link;
-  }
-
-  public @Valid Collection<Asset> getAsset() {
-    return this.asset;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setLink(@Valid LinkAsset link) {
     this.link = link;
   }
 
+  public @Valid Collection<Asset> getAsset() {
+    return this.asset;
+  }
+
   public void setAsset(@Valid Collection<Asset> asset) {
     this.asset = asset;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -92,6 +86,12 @@ public class Native {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Native(link=" + this.getLink() + ", asset=" + this.getAsset() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.Native(link="
+        + this.getLink()
+        + ", asset="
+        + this.getAsset()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

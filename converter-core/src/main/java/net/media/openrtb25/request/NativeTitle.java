@@ -16,30 +16,27 @@
 
 package net.media.openrtb25.request;
 
-import java.util.Map;
-
 import javax.validation.constraints.NotNull;
+import java.util.Map;
 
 public class NativeTitle {
 
-  @NotNull
-  private Integer len;
+  @NotNull private Integer len;
 
   private Map<String, Object> ext;
 
-  public NativeTitle() {
-  }
+  public NativeTitle() {}
 
   public @NotNull Integer getLen() {
     return this.len;
   }
 
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setLen(@NotNull Integer len) {
     this.len = len;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -75,6 +72,10 @@ public class NativeTitle {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.NativeTitle(len=" + this.getLen() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.NativeTitle(len="
+        + this.getLen()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

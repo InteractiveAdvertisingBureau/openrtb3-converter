@@ -1,119 +1,124 @@
 {
-    "id": "0123456789ABCDEF",
-    "bidid": "0011223344AABBCC",
-    "nbr": 1,
-    "cur": "USD",
-    "cdata": "cdata",
-    "ext": {
-      "customdata": "pyaz",
-      "ankit": {
-        "cho": "lul"
-      }
-    },
-    "seatbid": [{
+  "id": "0123456789ABCDEF",
+  "bidid": "0011223344AABBCC",
+  "nbr": 1,
+  "cur": "USD",
+  "cdata": "cdata",
+  "ext": {
+    "customdata": "pyaz",
+    "ankit": {
+      "cho": "lul"
+    }
+  },
+  "seatbid": [
+    {
       "seat": "XYZ",
-      "bid": [{
-        "id": "yaddayadda",
-        "item": "1",
-        "deal": "1234",
-        "price": 1.50,
-        "tactic": "...",
-        "purl": "http://www.example.com/",
-        "burl": "http://www.example1.com/",
-        "lurl": "http://www.example2.com/",
-        "mid": "123",
-        "cid": "campaign-xyz.123",
-        "exp": 1,
-        "macro": {
-          "key": "macro1",
-          "value": "duck",
-          "ext": {
-            "customdata": "pyaz"
-          }
-        },
-        "media": {
-          "ad": {
-            "id": "d0bcb39723af87c2bb00942afee5710e",
-            "adomain": [
-              "ford.com"
-            ],
-            "bundle": [
-              "chocho"
-            ],
-            "iurl": "Abcd.com",
-            "cat": [
-              "cat",
-              "dog"
-            ],
-            "cattax": 1,
-            "lang": "english",
-            "attr": [
-              6,
-              1
-            ],
-            "secure": 1,
-            "mrating": 1,
-            "init": 1,
-            "lastmod": 1,
-            "display": {
-              "mime": "image/jpeg",
-              "api": [
-                1,
-                2
+      "bid": [
+        {
+          "id": "yaddayadda",
+          "item": "1",
+          "deal": "1234",
+          "price": 1.50,
+          "tactic": "...",
+          "purl": "http://www.example.com/",
+          "burl": "http://www.example1.com/",
+          "lurl": "http://www.example2.com/",
+          "mid": "123",
+          "cid": "campaign-xyz.123",
+          "exp": 1,
+          "macro": {
+            "key": "macro1",
+            "value": "duck",
+            "ext": {
+              "customdata": "pyaz"
+            }
+          },
+          "media": {
+            "ad": {
+              "id": "d0bcb39723af87c2bb00942afee5710e",
+              "adomain": [
+                "ford.com"
               ],
-              "ctype": 3,
-              "w": 320,
-              "h": 50,
-              "wratio": 1,
-              "hratio": 2,
-              "priv": "232",
-              "adm": "asvsdd",
-              "curl": "http://www.example3.com/",
-              "banner": {
-                "img": "https://somebuyer.com/creative",
-                "link": {
-                  "url": "https://somebuyer.com/click",
-                  "urlfb": "https://somebuyer.com",
-                  "trkr": [
-                    "2113",
-                    "21312"
-                  ],
-                  "ext": {
-                    "link": "link"
-                  }
-                },
-                "ext": {
-                  "xyz": "111"
-                }
-              },
-              "event": [{
-                "type": 1,
-                "method": 1,
-                "url": "https://somebuyer.com/pixel",
+              "bundle": [
+                "chocho"
+              ],
+              "iurl": "Abcd.com",
+              "cat": [
+                "cat",
+                "dog"
+              ],
+              "cattax": 1,
+              "lang": "english",
+              "attr": [
+                6,
+                1
+              ],
+              "secure": 1,
+              "mrating": 1,
+              "init": 1,
+              "lastmod": 1,
+              "display": {
+                "mime": "image/jpeg",
                 "api": [
                   1,
                   2
                 ],
-                "cdata": {
-                  "acct": "123"
+                "ctype": 3,
+                "w": 320,
+                "h": 50,
+                "wratio": 1,
+                "hratio": 2,
+                "priv": "232",
+                "adm": "asvsdd",
+                "curl": "http://www.example3.com/",
+                "banner": {
+                  "img": "https://somebuyer.com/creative",
+                  "link": {
+                    "url": "https://somebuyer.com/click",
+                    "urlfb": "https://somebuyer.com",
+                    "trkr": [
+                      "2113",
+                      "21312"
+                    ],
+                    "ext": {
+                      "link": "link"
+                    }
+                  },
+                  "ext": {
+                    "xyz": "111"
+                  }
+                },
+                "event": [
+                  {
+                    "type": 1,
+                    "method": 1,
+                    "url": "https://somebuyer.com/pixel",
+                    "api": [
+                      1,
+                      2
+                    ],
+                    "cdata": {
+                      "acct": "123"
+                    }
+                  }
+                ],
+                "ext": {
+                  "aloo1": "pyaz",
+                  "test": {
+                    "test1": "test1"
+                  }
                 }
-              }],
+              },
               "ext": {
-                "aloo1": "pyaz",
-                "test": {
-                  "test1": "test1"
+                "aloo2": "pyaz",
+                "test2": {
+                  "test3": "test3"
                 }
-              }
-            },
-            "ext": {
-              "aloo2": "pyaz",
-              "test2": {
-                "test3": "test3"
               }
             }
           }
         }
-      }],
+      ],
       "_package": 2,
       "ext": {
         "aloo3": "pyaz",
@@ -121,6 +126,6 @@
           "test5": "test5"
         }
       }
-    }]
-
-  }
+    }
+  ]
+}

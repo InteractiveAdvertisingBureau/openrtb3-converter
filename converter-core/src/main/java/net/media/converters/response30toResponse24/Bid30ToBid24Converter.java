@@ -17,9 +17,7 @@
 package net.media.converters.response30toResponse24;
 
 import net.media.config.Config;
-import net.media.converters.Converter;
 import net.media.converters.response30toresponse25.Bid30ToBid25Converter;
-import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.utils.Provider;
@@ -29,14 +27,12 @@ import java.util.HashMap;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-/**
- * Created by rajat.go on 03/04/19.
- */
+/** Created by rajat.go on 03/04/19. */
 public class Bid30ToBid24Converter extends Bid30ToBid25Converter {
 
-  public void enhance(net.media.openrtb3.Bid source, Bid target, Config config,
-                      Provider converterProvider) throws
-    OpenRtbConverterException {
+  public void enhance(
+      net.media.openrtb3.Bid source, Bid target, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }
@@ -84,5 +80,4 @@ public class Bid30ToBid24Converter extends Bid30ToBid25Converter {
       target.setHratio(null);
     }
   }
-
 }

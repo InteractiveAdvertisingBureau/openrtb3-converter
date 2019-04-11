@@ -27,7 +27,7 @@ import static java.util.Objects.isNull;
 /**
  * Generic Provider maintains a one to one mapping of a key to a value.
  *
- * This class is thread safe. Allows concurrent access for both reads and writes.
+ * <p>This class is thread safe. Allows concurrent access for both reads and writes.
  *
  * @author shiva.b
  * @since 1.0
@@ -53,7 +53,6 @@ public class Provider {
   }
 
   /**
-   *
    * @param key
    * @return
    * @throws IllegalArgumentException
@@ -78,11 +77,8 @@ public class Provider {
     return true;
   }
 
-  /**
-   * clears the entire map
-   */
+  /** clears the entire map */
   public void clear() {
     providerMap.clear();
   }
-
 }

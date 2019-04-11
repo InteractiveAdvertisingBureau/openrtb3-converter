@@ -25,10 +25,11 @@ import net.media.utils.Utils;
 
 import static java.util.Objects.isNull;
 
-public class MetricToMetricConverter implements Converter<Metric, net.media.openrtb25.request.Metric> {
+public class MetricToMetricConverter
+    implements Converter<Metric, net.media.openrtb25.request.Metric> {
   @Override
-  public net.media.openrtb25.request.Metric map(Metric metric, Config config, Provider
-    converterProvider) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.Metric map(
+      Metric metric, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(metric)) {
       return null;
     }
@@ -38,9 +39,12 @@ public class MetricToMetricConverter implements Converter<Metric, net.media.open
   }
 
   @Override
-  public void enhance(Metric metric, net.media.openrtb25.request.Metric metric1, Config config,
-                      Provider converterProvider)
-    throws OpenRtbConverterException {
+  public void enhance(
+      Metric metric,
+      net.media.openrtb25.request.Metric metric1,
+      Config config,
+      Provider converterProvider)
+      throws OpenRtbConverterException {
     if (metric != null) {
       metric1.setType(metric.getType());
       metric1.setVendor(metric.getVendor());

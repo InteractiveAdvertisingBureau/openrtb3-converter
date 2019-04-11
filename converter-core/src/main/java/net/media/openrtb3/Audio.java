@@ -17,7 +17,6 @@
 package net.media.openrtb3;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 public class Audio {
@@ -28,61 +27,60 @@ public class Audio {
   private Integer dur;
   private Object adm;
   private String curl;
-  private Map<String,Object> ext;
+  private Map<String, Object> ext;
 
-  public Audio() {
-  }
+  public Audio() {}
 
   public Collection<String> getMime() {
     return this.mime;
-  }
-
-  public Collection<Integer> getApi() {
-    return this.api;
-  }
-
-  public Integer getCtype() {
-    return this.ctype;
-  }
-
-  public Integer getDur() {
-    return this.dur;
-  }
-
-  public Object getAdm() {
-    return this.adm;
-  }
-
-  public String getCurl() {
-    return this.curl;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setMime(Collection<String> mime) {
     this.mime = mime;
   }
 
+  public Collection<Integer> getApi() {
+    return this.api;
+  }
+
   public void setApi(Collection<Integer> api) {
     this.api = api;
+  }
+
+  public Integer getCtype() {
+    return this.ctype;
   }
 
   public void setCtype(Integer ctype) {
     this.ctype = ctype;
   }
 
+  public Integer getDur() {
+    return this.dur;
+  }
+
   public void setDur(Integer dur) {
     this.dur = dur;
+  }
+
+  public Object getAdm() {
+    return this.adm;
   }
 
   public void setAdm(Object adm) {
     this.adm = adm;
   }
 
+  public String getCurl() {
+    return this.curl;
+  }
+
   public void setCurl(String curl) {
     this.curl = curl;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -143,6 +141,20 @@ public class Audio {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Audio(mime=" + this.getMime() + ", api=" + this.getApi() + ", ctype=" + this.getCtype() + ", dur=" + this.getDur() + ", adm=" + this.getAdm() + ", curl=" + this.getCurl() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.Audio(mime="
+        + this.getMime()
+        + ", api="
+        + this.getApi()
+        + ", ctype="
+        + this.getCtype()
+        + ", dur="
+        + this.getDur()
+        + ", adm="
+        + this.getAdm()
+        + ", curl="
+        + this.getCurl()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

@@ -18,24 +18,21 @@ package net.media.openrtb3;
 
 import net.media.exceptions.OpenRtbConverterException;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Map;
 
 public class LinkAsset {
 
-  @NotNull
-  private String url;
+  @NotNull private String url;
   private String urlfb;
   private Collection<String> trkr = null;
-  private Map<String,Object> ext;
+  private Map<String, Object> ext;
 
-  public LinkAsset() {
-  }
+  public LinkAsset() {}
 
-  public static LinkAsset HashMaptoLinkAsset(Map<String,Object> map) throws OpenRtbConverterException {
+  public static LinkAsset HashMaptoLinkAsset(Map<String, Object> map)
+      throws OpenRtbConverterException {
     LinkAsset linkAsset = new LinkAsset();
     try {
       linkAsset.setUrl((String) map.get("url"));
@@ -43,7 +40,8 @@ public class LinkAsset {
       linkAsset.setTrkr((Collection<String>) map.get("trkr"));
       linkAsset.setExt((Map<String, Object>) map.get("ext"));
     } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting map values to linkAsset fields", e);
+      throw new OpenRtbConverterException(
+          "error while typecasting map values to linkAsset fields", e);
     }
     return linkAsset;
   }
@@ -52,28 +50,28 @@ public class LinkAsset {
     return this.url;
   }
 
-  public String getUrlfb() {
-    return this.urlfb;
-  }
-
-  public Collection<String> getTrkr() {
-    return this.trkr;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setUrl(@NotNull String url) {
     this.url = url;
+  }
+
+  public String getUrlfb() {
+    return this.urlfb;
   }
 
   public void setUrlfb(String urlfb) {
     this.urlfb = urlfb;
   }
 
+  public Collection<String> getTrkr() {
+    return this.trkr;
+  }
+
   public void setTrkr(Collection<String> trkr) {
     this.trkr = trkr;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -119,6 +117,14 @@ public class LinkAsset {
   }
 
   public String toString() {
-    return "net.media.openrtb3.LinkAsset(url=" + this.getUrl() + ", urlfb=" + this.getUrlfb() + ", trkr=" + this.getTrkr() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.LinkAsset(url="
+        + this.getUrl()
+        + ", urlfb="
+        + this.getUrlfb()
+        + ", trkr="
+        + this.getTrkr()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

@@ -16,22 +16,17 @@
 
 package net.media.openrtb3;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Map;
 
 public class Bid {
 
-  @NotNull
-  private String id;
-  @NotNull
-  private String item;
+  @NotNull private String id;
+  @NotNull private String item;
   private String deal;
-  @NotNull
-  private Double price;
+  @NotNull private Double price;
   private String cid;
   private String tactic;
   private String purl;
@@ -39,123 +34,119 @@ public class Bid {
   private String lurl;
   private Integer exp;
   private String mid;
-  //Todo code change  for  this  field
-  @Valid
-  private Collection<Macro> macro = null;
-  @NotNull
-  @Valid
-  private Media media;
-  private Map<String,Object> ext;
+  // Todo code change  for  this  field
+  @Valid private Collection<Macro> macro = null;
+  @NotNull @Valid private Media media;
+  private Map<String, Object> ext;
 
-  public Bid() {
-  }
+  public Bid() {}
 
   public @NotNull String getId() {
     return this.id;
-  }
-
-  public @NotNull String getItem() {
-    return this.item;
-  }
-
-  public String getDeal() {
-    return this.deal;
-  }
-
-  public @NotNull Double getPrice() {
-    return this.price;
-  }
-
-  public String getCid() {
-    return this.cid;
-  }
-
-  public String getTactic() {
-    return this.tactic;
-  }
-
-  public String getPurl() {
-    return this.purl;
-  }
-
-  public String getBurl() {
-    return this.burl;
-  }
-
-  public String getLurl() {
-    return this.lurl;
-  }
-
-  public Integer getExp() {
-    return this.exp;
-  }
-
-  public String getMid() {
-    return this.mid;
-  }
-
-  public @Valid Collection<Macro> getMacro() {
-    return this.macro;
-  }
-
-  public @NotNull @Valid Media getMedia() {
-    return this.media;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setId(@NotNull String id) {
     this.id = id;
   }
 
+  public @NotNull String getItem() {
+    return this.item;
+  }
+
   public void setItem(@NotNull String item) {
     this.item = item;
+  }
+
+  public String getDeal() {
+    return this.deal;
   }
 
   public void setDeal(String deal) {
     this.deal = deal;
   }
 
+  public @NotNull Double getPrice() {
+    return this.price;
+  }
+
   public void setPrice(@NotNull Double price) {
     this.price = price;
+  }
+
+  public String getCid() {
+    return this.cid;
   }
 
   public void setCid(String cid) {
     this.cid = cid;
   }
 
+  public String getTactic() {
+    return this.tactic;
+  }
+
   public void setTactic(String tactic) {
     this.tactic = tactic;
+  }
+
+  public String getPurl() {
+    return this.purl;
   }
 
   public void setPurl(String purl) {
     this.purl = purl;
   }
 
+  public String getBurl() {
+    return this.burl;
+  }
+
   public void setBurl(String burl) {
     this.burl = burl;
+  }
+
+  public String getLurl() {
+    return this.lurl;
   }
 
   public void setLurl(String lurl) {
     this.lurl = lurl;
   }
 
+  public Integer getExp() {
+    return this.exp;
+  }
+
   public void setExp(Integer exp) {
     this.exp = exp;
+  }
+
+  public String getMid() {
+    return this.mid;
   }
 
   public void setMid(String mid) {
     this.mid = mid;
   }
 
+  public @Valid Collection<Macro> getMacro() {
+    return this.macro;
+  }
+
   public void setMacro(@Valid Collection<Macro> macro) {
     this.macro = macro;
   }
 
+  public @NotNull @Valid Media getMedia() {
+    return this.media;
+  }
+
   public void setMedia(@NotNull @Valid Media media) {
     this.media = media;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -252,6 +243,34 @@ public class Bid {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Bid(id=" + this.getId() + ", item=" + this.getItem() + ", deal=" + this.getDeal() + ", price=" + this.getPrice() + ", cid=" + this.getCid() + ", tactic=" + this.getTactic() + ", purl=" + this.getPurl() + ", burl=" + this.getBurl() + ", lurl=" + this.getLurl() + ", exp=" + this.getExp() + ", mid=" + this.getMid() + ", macro=" + this.getMacro() + ", media=" + this.getMedia() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.Bid(id="
+        + this.getId()
+        + ", item="
+        + this.getItem()
+        + ", deal="
+        + this.getDeal()
+        + ", price="
+        + this.getPrice()
+        + ", cid="
+        + this.getCid()
+        + ", tactic="
+        + this.getTactic()
+        + ", purl="
+        + this.getPurl()
+        + ", burl="
+        + this.getBurl()
+        + ", lurl="
+        + this.getLurl()
+        + ", exp="
+        + this.getExp()
+        + ", mid="
+        + this.getMid()
+        + ", macro="
+        + this.getMacro()
+        + ", media="
+        + this.getMedia()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

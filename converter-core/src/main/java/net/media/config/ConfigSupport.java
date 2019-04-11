@@ -33,27 +33,13 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.net.URL;
 
-/**
- * @author shiva.b
- */
+/** @author shiva.b */
 public class ConfigSupport {
 
   private ObjectMapper jsonMapper = createMapper(null, null);
   private ObjectMapper yamlMapper = createMapper(new YAMLFactory(), null);
 
-  @JsonFilter("classFilter")
-  public static class ClassMixIn {
-
-  }
-
-  public static class ConfigMixIn {
-
-    @JsonProperty
-    String bannerTemplate;
-  }
-
   /**
-   *
    * @param content
    * @param configType
    * @param <T>
@@ -65,7 +51,6 @@ public class ConfigSupport {
   }
 
   /**
-   *
    * @param file
    * @param configType
    * @param <T>
@@ -77,7 +62,6 @@ public class ConfigSupport {
   }
 
   /**
-   *
    * @param file
    * @param configType
    * @param classLoader
@@ -85,13 +69,13 @@ public class ConfigSupport {
    * @return
    * @throws IOException
    */
-  public <T> T fromJSON(File file, Class<T> configType, java.lang.ClassLoader classLoader) throws IOException {
+  public <T> T fromJSON(File file, Class<T> configType, java.lang.ClassLoader classLoader)
+      throws IOException {
     jsonMapper = createMapper(null, classLoader);
     return jsonMapper.readValue(file, configType);
   }
 
   /**
-   *
    * @param url
    * @param configType
    * @param <T>
@@ -103,7 +87,6 @@ public class ConfigSupport {
   }
 
   /**
-   *
    * @param reader
    * @param configType
    * @param <T>
@@ -115,7 +98,6 @@ public class ConfigSupport {
   }
 
   /**
-   *
    * @param inputStream
    * @param configType
    * @param <T>
@@ -127,7 +109,6 @@ public class ConfigSupport {
   }
 
   /**
-   *
    * @param config
    * @return
    * @throws IOException
@@ -137,7 +118,6 @@ public class ConfigSupport {
   }
 
   /**
-   *
    * @param content
    * @param configType
    * @param <T>
@@ -149,7 +129,6 @@ public class ConfigSupport {
   }
 
   /**
-   *
    * @param file
    * @param configType
    * @param <T>
@@ -161,7 +140,6 @@ public class ConfigSupport {
   }
 
   /**
-   *
    * @param file
    * @param configType
    * @param classLoader
@@ -169,13 +147,13 @@ public class ConfigSupport {
    * @return
    * @throws IOException
    */
-  public <T> T fromYAML(File file, Class<T> configType, ClassLoader classLoader) throws IOException {
+  public <T> T fromYAML(File file, Class<T> configType, ClassLoader classLoader)
+      throws IOException {
     yamlMapper = createMapper(new YAMLFactory(), classLoader);
     return yamlMapper.readValue(file, configType);
   }
 
   /**
-   *
    * @param url
    * @param configType
    * @param <T>
@@ -187,7 +165,6 @@ public class ConfigSupport {
   }
 
   /**
-   *
    * @param reader
    * @param configType
    * @param <T>
@@ -199,7 +176,6 @@ public class ConfigSupport {
   }
 
   /**
-   *
    * @param inputStream
    * @param configType
    * @param <T>
@@ -211,7 +187,6 @@ public class ConfigSupport {
   }
 
   /**
-   *
    * @param config
    * @return
    * @throws IOException
@@ -224,15 +199,23 @@ public class ConfigSupport {
     ObjectMapper mapper = new ObjectMapper(mapping);
     mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
     mapper.addMixIn(Config.class, ConfigMixIn.class);
-    FilterProvider filterProvider = new SimpleFilterProvider()
-      .addFilter("classFilter", SimpleBeanPropertyFilter.filterOutAllExcept());
+    FilterProvider filterProvider =
+        new SimpleFilterProvider()
+            .addFilter("classFilter", SimpleBeanPropertyFilter.filterOutAllExcept());
     mapper.setFilterProvider(filterProvider);
     if (classLoader != null) {
-      TypeFactory tf = TypeFactory.defaultInstance()
-        .withClassLoader(classLoader);
+      TypeFactory tf = TypeFactory.defaultInstance().withClassLoader(classLoader);
       mapper.setTypeFactory(tf);
     }
 
     return mapper;
+  }
+
+  @JsonFilter("classFilter")
+  public static class ClassMixIn {}
+
+  public static class ConfigMixIn {
+
+    @JsonProperty String bannerTemplate;
   }
 }

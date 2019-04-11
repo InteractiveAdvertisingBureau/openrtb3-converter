@@ -28,35 +28,34 @@ public class Source {
 
   private Map<String, Object> ext;
 
-  public Source() {
-  }
+  public Source() {}
 
   public Integer getFd() {
     return this.fd;
-  }
-
-  public String getTid() {
-    return this.tid;
-  }
-
-  public String getPchain() {
-    return this.pchain;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setFd(Integer fd) {
     this.fd = fd;
   }
 
+  public String getTid() {
+    return this.tid;
+  }
+
   public void setTid(String tid) {
     this.tid = tid;
   }
 
+  public String getPchain() {
+    return this.pchain;
+  }
+
   public void setPchain(String pchain) {
     this.pchain = pchain;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -103,6 +102,14 @@ public class Source {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.Source(fd=" + this.getFd() + ", tid=" + this.getTid() + ", pchain=" + this.getPchain() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.Source(fd="
+        + this.getFd()
+        + ", tid="
+        + this.getTid()
+        + ", pchain="
+        + this.getPchain()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

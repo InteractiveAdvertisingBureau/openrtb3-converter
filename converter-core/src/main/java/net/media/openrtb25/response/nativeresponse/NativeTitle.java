@@ -24,19 +24,18 @@ public class NativeTitle {
 
   private Map<String, Object> ext;
 
-  public NativeTitle() {
-  }
+  public NativeTitle() {}
 
   public String getText() {
     return this.text;
   }
 
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setText(String text) {
     this.text = text;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -72,6 +71,10 @@ public class NativeTitle {
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.nativeresponse.NativeTitle(text=" + this.getText() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.response.nativeresponse.NativeTitle(text="
+        + this.getText()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

@@ -7,8 +7,12 @@
     "test": 1,
     "tmax": 100,
     "at": 1,
-    "cur": ["USD"],
-    "seat": ["a"],
+    "cur": [
+      "USD"
+    ],
+    "seat": [
+      "a"
+    ],
     "wseat": 1,
     "cdata": "ewew",
     "source": {
@@ -24,208 +28,252 @@
         "fd": 1
       }
     },
-    "item": [{
-      "id": "1",
-      "qty": 1,
-      "seq": 1,
-      "flr": 0.03,
-      "flrcur": "USD",
-      "exp": 1,
-      "dt": 1,
-      "dlvy": 1,
-      "metric": [{
-        "type": "dd",
-        "value": 1.0,
-        "vendor": "dssf",
-        "ext": {
-          "dummy": "metric.ext"
-        }
-      }],
-      "deal": [{
-        "id": "ww",
-        "flr": 0.0,
+    "item": [
+      {
+        "id": "1",
+        "qty": 1,
+        "seq": 1,
+        "flr": 0.03,
         "flrcur": "USD",
-        "at": 1,
-        "wseat": ["dd", "ss"],
-        "wadomain": ["ss.com", "abc.com"],
-        "ext": {
-          "dummy": "deal.ext"
-        }
-      }],
-      "spec": {
-        "placement": {
-          "tagid": "re",
-          "ssai": 1,
-          "sdk": "dd",
-          "sdkver": "22",
-          "reward": 1,
-          "wlang": ["en"],
-          "secure": 1,
-          "admx": 1,
-          "curlx": 0,
-          "display": {
-            "unit" :1,
-            "instl": 0,
-            "ifrbust": ["abc", "def"],
-            "clktype": 1,
-            "ptype": 1,
-            "context": 2,
-            "api": [3, 2],
-            "ctype": [1],
-            "priv": 0,
-            "nativefmt":
-              {
+        "exp": 1,
+        "dt": 1,
+        "dlvy": 1,
+        "metric": [
+          {
+            "type": "dd",
+            "value": 1.0,
+            "vendor": "dssf",
+            "ext": {
+              "dummy": "metric.ext"
+            }
+          }
+        ],
+        "deal": [
+          {
+            "id": "ww",
+            "flr": 0.0,
+            "flrcur": "USD",
+            "at": 1,
+            "wseat": [
+              "dd",
+              "ss"
+            ],
+            "wadomain": [
+              "ss.com",
+              "abc.com"
+            ],
+            "ext": {
+              "dummy": "deal.ext"
+            }
+          }
+        ],
+        "spec": {
+          "placement": {
+            "tagid": "re",
+            "ssai": 1,
+            "sdk": "dd",
+            "sdkver": "22",
+            "reward": 1,
+            "wlang": [
+              "en"
+            ],
+            "secure": 1,
+            "admx": 1,
+            "curlx": 0,
+            "display": {
+              "unit": 1,
+              "instl": 0,
+              "ifrbust": [
+                "abc",
+                "def"
+              ],
+              "clktype": 1,
+              "ptype": 1,
+              "context": 2,
+              "api": [
+                3,
+                2
+              ],
+              "ctype": [
+                1
+              ],
+              "priv": 0,
+              "nativefmt": {
                 "ext": {
                   "adunit": 1,
                   "contextsubtype": 2,
-                  "dummy" : "object",
+                  "dummy": "object",
                   "layout": 1,
                   "ver": "1.2"
                 },
-                "asset": [{
-                  "id": 1,
-                  "req": 0,
-                  "title": {
-                    "len": 1,
-                    "ext": {
-                      "dummy": "title.ext"
-                    }
-                  },
-                  "img": {
-                    "type": 1,
-                    "mime": [
-                      "a",
-                      "bc",
-                      "def"
-                    ],
-                    "w": 1,
-                    "h": 2,
-                    "wmin": 2,
-                    "hmin": 3,
-                    "wratio": 4,
-                    "hratio": 5,
-                    "ext": {
-                      "dummy": "img.ext"
-                    }
-                  },
-                  "video": {
-                    "comptype": [
-                      1,
-                      2
-                    ],
-                    "ptype": 1,
-                    "pos": 1,
-                    "delay": 1,
-                    "skip": 1,
-                    "skipmin": 1,
-                    "skipafter": 1,
-                    "playmethod": 1,
-                    "playend": 1,
-                    "clktype": 1,
-                    "mime": [
-                      "abc",
-                      "def"
-                    ],
-                    "api": [
-                      2,
-                      3
-                    ],
-                    "ctype": [
-                      2,
-                      3
-                    ],
-                    "w": 1,
-                    "h": 1,
-                    "unit": 2,
-                    "mindur": 1,
-                    "maxdur": 1,
-                    "maxext": 1,
-                    "minbitr": 2,
-                    "maxbitr": 2,
-                    "delivery": [
-                      1,
-                      2
-                    ],
-                    "maxseq": 1,
-                    "linear": 1,
-                    "boxing": 1,
-                    "ext": {
-                      "dummy": "video.ext"
-                    },
-                    "comp": [{
-                      "id": "4.0",
-                      "vcm": 1,
-                      "display": {
-                        "pos": 0,
-                        "topframe": 22,
-                        "ptype": 1,
-                        "context": 2,
-                        "mime": ["application/x-shockwave-flash", "image/jpg"],
-                        "api": [3, 2],
-                        "ctype": [1],
-                        "w": 300,
-                        "h": 250,
-                        "unit": 1,
-                        "priv": 0,
-                        "displayfmt": [{
-                          "w": 200,
-                          "h": 20,
-                          "wratio":200,
-                          "hratio":30,
-                          "expdir": [3, 4],
-                          "ext": {
-                            "dummy": "f1.ext"
-                          }
-                        },
-                          {
-                          "w": 33,
-                          "h": 11,
-                          "wratio":200,
-                          "hratio":30,
-                          "expdir": [3, 4],
-                          "ext": {
-                            "dummy": "f2.ext"
-                          }
-                        }],
-                        "ext": {
-                          "dummy": "innerdisplay.ext",
-                          "btype": [3, 4],
-                          "hmin": 1,
-                          "wmin" :1,
-                          "hmax" : 1,
-                          "wmax" : 1
-                        }
+                "asset": [
+                  {
+                    "id": 1,
+                    "req": 0,
+                    "title": {
+                      "len": 1,
+                      "ext": {
+                        "dummy": "title.ext"
                       }
-                    }]
-                  },
-                  "data": {
-                    "type": 1,
-                    "len": 1,
+                    },
+                    "img": {
+                      "type": 1,
+                      "mime": [
+                        "a",
+                        "bc",
+                        "def"
+                      ],
+                      "w": 1,
+                      "h": 2,
+                      "wmin": 2,
+                      "hmin": 3,
+                      "wratio": 4,
+                      "hratio": 5,
+                      "ext": {
+                        "dummy": "img.ext"
+                      }
+                    },
+                    "video": {
+                      "comptype": [
+                        1,
+                        2
+                      ],
+                      "ptype": 1,
+                      "pos": 1,
+                      "delay": 1,
+                      "skip": 1,
+                      "skipmin": 1,
+                      "skipafter": 1,
+                      "playmethod": 1,
+                      "playend": 1,
+                      "clktype": 1,
+                      "mime": [
+                        "abc",
+                        "def"
+                      ],
+                      "api": [
+                        2,
+                        3
+                      ],
+                      "ctype": [
+                        2,
+                        3
+                      ],
+                      "w": 1,
+                      "h": 1,
+                      "unit": 2,
+                      "mindur": 1,
+                      "maxdur": 1,
+                      "maxext": 1,
+                      "minbitr": 2,
+                      "maxbitr": 2,
+                      "delivery": [
+                        1,
+                        2
+                      ],
+                      "maxseq": 1,
+                      "linear": 1,
+                      "boxing": 1,
+                      "ext": {
+                        "dummy": "video.ext"
+                      },
+                      "comp": [
+                        {
+                          "id": "4.0",
+                          "vcm": 1,
+                          "display": {
+                            "pos": 0,
+                            "topframe": 22,
+                            "ptype": 1,
+                            "context": 2,
+                            "mime": [
+                              "application/x-shockwave-flash",
+                              "image/jpg"
+                            ],
+                            "api": [
+                              3,
+                              2
+                            ],
+                            "ctype": [
+                              1
+                            ],
+                            "w": 300,
+                            "h": 250,
+                            "unit": 1,
+                            "priv": 0,
+                            "displayfmt": [
+                              {
+                                "w": 200,
+                                "h": 20,
+                                "wratio": 200,
+                                "hratio": 30,
+                                "expdir": [
+                                  3,
+                                  4
+                                ],
+                                "ext": {
+                                  "dummy": "f1.ext"
+                                }
+                              },
+                              {
+                                "w": 33,
+                                "h": 11,
+                                "wratio": 200,
+                                "hratio": 30,
+                                "expdir": [
+                                  3,
+                                  4
+                                ],
+                                "ext": {
+                                  "dummy": "f2.ext"
+                                }
+                              }
+                            ],
+                            "ext": {
+                              "dummy": "innerdisplay.ext",
+                              "btype": [
+                                3,
+                                4
+                              ],
+                              "hmin": 1,
+                              "wmin": 1,
+                              "hmax": 1,
+                              "wmax": 1
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "data": {
+                      "type": 1,
+                      "len": 1,
+                      "ext": {
+                        "dummy": "data.ext"
+                      }
+                    },
                     "ext": {
-                      "dummy": "data.ext"
+                      "dummy": "asset.ext"
                     }
-                  },
-                  "ext": {
-                    "dummy": "asset.ext"
                   }
-                }]
+                ]
               },
-            "ext": {
-              "dummy" : "entry"
+              "ext": {
+                "dummy": "entry"
+              }
             }
           }
-        }
-      },
-      "ext": {
-        "dummy": "item.ext",
-        "pmp" : {
-          "ext" : {
-            "dummy" : "pmp.ext"
+        },
+        "ext": {
+          "dummy": "item.ext",
+          "pmp": {
+            "ext": {
+              "dummy": "pmp.ext"
+            }
           }
-        }
-      },
-      "private": 1
-    }],
+        },
+        "private": 1
+      }
+    ],
     "context": {
       "site": {
         "id": "102855",
@@ -234,7 +282,10 @@
           "id": "8953",
           "name": "foobar.com",
           "domain": "foobar.com",
-          "cat": ["IAB3-1", "IAB3-2"],
+          "cat": [
+            "IAB3-1",
+            "IAB3-2"
+          ],
           "cattax": 2,
           "ext": {
             "dummy": "pub.ext"
@@ -251,7 +302,10 @@
           "album": "edwe",
           "isrc": "ewde",
           "url": "ewfe.com",
-          "cat": ["IAB3-1", "IAB3-2"],
+          "cat": [
+            "IAB3-1",
+            "IAB3-2"
+          ],
           "cattax": 2,
           "prodq": 1,
           "context": 1,
@@ -268,36 +322,52 @@
             "id": "eew",
             "name": "edew",
             "domain": "abc.com",
-            "cat": ["IAB3-1", "IAB3-2"],
+            "cat": [
+              "IAB3-1",
+              "IAB3-2"
+            ],
             "cattax": 2,
             "ext": {
               "dummy": "producer.ext"
             }
           },
-          "data": [{
-            "id": "1",
-            "name": "Abcdef",
-            "segment": [{
-              "id": "bcdef",
-              "name":"name123",
-              "value": "acde",
+          "data": [
+            {
+              "id": "1",
+              "name": "Abcdef",
+              "segment": [
+                {
+                  "id": "bcdef",
+                  "name": "name123",
+                  "value": "acde",
+                  "ext": {
+                    "dummy": "segment.ext"
+                  }
+                }
+              ],
               "ext": {
-                "dummy": "segment.ext"
+                "dummy": "data.ext"
               }
-            }],
-            "ext": {
-              "dummy": "data.ext"
             }
-          }],
+          ],
           "ext": {
             "dummy": "content.ext",
             "videoquality": 2
           }
         },
         "domain": "www.foobar.com",
-        "cat": ["IAB3-1", "IAB3-2"],
-        "sectcat": ["zz", "dd"],
-        "pagecat": ["ss", "as"],
+        "cat": [
+          "IAB3-1",
+          "IAB3-2"
+        ],
+        "sectcat": [
+          "zz",
+          "dd"
+        ],
+        "pagecat": [
+          "ss",
+          "as"
+        ],
         "cattax": 2,
         "privpolicy": 1,
         "keywords": "ewew",
@@ -335,23 +405,27 @@
             "regionfips104": "eew"
           }
         },
-        "data": [{
-          "id": "wwe",
-          "name": "ee",
-          "segment": [{
-            "id": "ew",
-            "name": "rewfe",
-            "value": "ew",
+        "data": [
+          {
+            "id": "wwe",
+            "name": "ee",
+            "segment": [
+              {
+                "id": "ew",
+                "name": "rewfe",
+                "value": "ew",
+                "ext": {
+                  "dummy": "segment12.ext"
+                }
+              }
+            ],
             "ext": {
-              "dummy": "segment12.ext"
+              "dummy": "data12.ext"
             }
-          }],
-          "ext": {
-            "dummy": "data12.ext"
           }
-        }],
-        "ext" : {
-          "dummy" : "user.ext"
+        ],
+        "ext": {
+          "dummy": "user.ext"
         }
       },
       "device": {
@@ -359,7 +433,7 @@
         "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2",
         "dnt": "1",
         "lmt": 1,
-        "ifa" : "ifa",
+        "ifa": "ifa",
         "make": "weew",
         "model": "edew",
         "os": 2,
@@ -410,11 +484,21 @@
         }
       },
       "restrictions": {
-        "bcat": ["bb"],
+        "bcat": [
+          "bb"
+        ],
         "cattax": 2,
-        "badv": ["cc"],
-        "bapp": ["nn"],
-        "battr": [2,5,8],
+        "badv": [
+          "cc"
+        ],
+        "bapp": [
+          "nn"
+        ],
+        "battr": [
+          2,
+          5,
+          8
+        ],
         "ext": {
           "dummy": "rest.ext"
         }

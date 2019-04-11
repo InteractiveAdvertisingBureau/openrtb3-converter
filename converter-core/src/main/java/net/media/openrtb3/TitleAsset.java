@@ -1,4 +1,3 @@
-
 /*
  * Copyright © 2019 - present. MEDIA NET SOFTWARE SERVICES PVT. LTD.
  *
@@ -17,14 +16,12 @@
 
 package net.media.openrtb3;
 
-import java.util.Map;
-
 import javax.validation.constraints.NotNull;
+import java.util.Map;
 
 public class TitleAsset {
 
-  @NotNull
-  private String text;
+  @NotNull private String text;
   private Integer len;
   private Map<String, Object> ext;
 
@@ -32,20 +29,20 @@ public class TitleAsset {
     return this.text;
   }
 
-  public Integer getLen() {
-    return this.len;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setText(@NotNull String text) {
     this.text = text;
   }
 
+  public Integer getLen() {
+    return this.len;
+  }
+
   public void setLen(Integer len) {
     this.len = len;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {

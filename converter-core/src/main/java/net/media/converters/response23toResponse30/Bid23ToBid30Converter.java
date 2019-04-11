@@ -17,24 +17,19 @@
 package net.media.converters.response23toResponse30;
 
 import net.media.config.Config;
-import net.media.converters.Converter;
 import net.media.converters.response25toresponse30.Bid25ToBid30Converter;
-import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
-import net.media.openrtb3.Media;
 import net.media.utils.Provider;
 
 import static java.util.Objects.nonNull;
 
-/**
- * Created by rajat.go on 03/04/19.
- */
+/** Created by rajat.go on 03/04/19. */
 public class Bid23ToBid30Converter extends Bid25ToBid30Converter {
 
-  public void enhance(Bid source, net.media.openrtb3.Bid target, Config config,
-                      Provider converterProvider) throws
-    OpenRtbConverterException {
+  public void enhance(
+      Bid source, net.media.openrtb3.Bid target, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }

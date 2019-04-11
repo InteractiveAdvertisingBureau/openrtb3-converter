@@ -16,78 +16,73 @@
 
 package net.media.openrtb3;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Map;
 
 public class Response {
 
-  @NotNull
-  private String id;
+  @NotNull private String id;
   private String bidid;
   private Integer nbr;
   private String cur;
   private String cdata;
-  @Valid
-  private Collection<Seatbid> seatbid = null;
-  private Map<String,Object> ext;
+  @Valid private Collection<Seatbid> seatbid = null;
+  private Map<String, Object> ext;
 
-  public Response() {
-  }
+  public Response() {}
 
   public @NotNull String getId() {
     return this.id;
-  }
-
-  public String getBidid() {
-    return this.bidid;
-  }
-
-  public Integer getNbr() {
-    return this.nbr;
-  }
-
-  public String getCur() {
-    return this.cur;
-  }
-
-  public String getCdata() {
-    return this.cdata;
-  }
-
-  public @Valid Collection<Seatbid> getSeatbid() {
-    return this.seatbid;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setId(@NotNull String id) {
     this.id = id;
   }
 
+  public String getBidid() {
+    return this.bidid;
+  }
+
   public void setBidid(String bidid) {
     this.bidid = bidid;
+  }
+
+  public Integer getNbr() {
+    return this.nbr;
   }
 
   public void setNbr(Integer nbr) {
     this.nbr = nbr;
   }
 
+  public String getCur() {
+    return this.cur;
+  }
+
   public void setCur(String cur) {
     this.cur = cur;
+  }
+
+  public String getCdata() {
+    return this.cdata;
   }
 
   public void setCdata(String cdata) {
     this.cdata = cdata;
   }
 
+  public @Valid Collection<Seatbid> getSeatbid() {
+    return this.seatbid;
+  }
+
   public void setSeatbid(@Valid Collection<Seatbid> seatbid) {
     this.seatbid = seatbid;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -149,6 +144,20 @@ public class Response {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Response(id=" + this.getId() + ", bidid=" + this.getBidid() + ", nbr=" + this.getNbr() + ", cur=" + this.getCur() + ", cdata=" + this.getCdata() + ", seatbid=" + this.getSeatbid() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.Response(id="
+        + this.getId()
+        + ", bidid="
+        + this.getBidid()
+        + ", nbr="
+        + this.getNbr()
+        + ", cur="
+        + this.getCur()
+        + ", cdata="
+        + this.getCdata()
+        + ", seatbid="
+        + this.getSeatbid()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

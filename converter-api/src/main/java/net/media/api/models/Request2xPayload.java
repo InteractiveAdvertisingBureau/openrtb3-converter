@@ -23,19 +23,18 @@ public class Request2xPayload {
   private BidRequest2_X bidRequest;
   private Config config;
 
-  public Request2xPayload() {
-  }
+  public Request2xPayload() {}
 
   public BidRequest2_X getBidRequest() {
     return this.bidRequest;
   }
 
-  public Config getConfig() {
-    return this.config;
-  }
-
   public void setBidRequest(BidRequest2_X bidRequest) {
     this.bidRequest = bidRequest;
+  }
+
+  public Config getConfig() {
+    return this.config;
   }
 
   public void setConfig(Config config) {
@@ -49,8 +48,9 @@ public class Request2xPayload {
     if (!other.canEqual((Object) this)) return false;
     final Object this$bidRequest = this.getBidRequest();
     final Object other$bidRequest = other.getBidRequest();
-    if (this$bidRequest == null ? other$bidRequest != null : !this$bidRequest.equals(other$bidRequest))
-      return false;
+    if (this$bidRequest == null
+        ? other$bidRequest != null
+        : !this$bidRequest.equals(other$bidRequest)) return false;
     final Object this$config = this.getConfig();
     final Object other$config = other.getConfig();
     if (this$config == null ? other$config != null : !this$config.equals(other$config))
@@ -73,6 +73,10 @@ public class Request2xPayload {
   }
 
   public String toString() {
-    return "net.media.api.models.Request2xPayload(bidRequest=" + this.getBidRequest() + ", config=" + this.getConfig() + ")";
+    return "net.media.api.models.Request2xPayload(bidRequest="
+        + this.getBidRequest()
+        + ", config="
+        + this.getConfig()
+        + ")";
   }
 }

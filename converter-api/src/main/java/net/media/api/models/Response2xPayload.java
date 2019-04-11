@@ -23,19 +23,18 @@ public class Response2xPayload {
   private BidResponse2_X response;
   private Config config;
 
-  public Response2xPayload() {
-  }
+  public Response2xPayload() {}
 
   public BidResponse2_X getResponse() {
     return this.response;
   }
 
-  public Config getConfig() {
-    return this.config;
-  }
-
   public void setResponse(BidResponse2_X response) {
     this.response = response;
+  }
+
+  public Config getConfig() {
+    return this.config;
   }
 
   public void setConfig(Config config) {
@@ -73,6 +72,10 @@ public class Response2xPayload {
   }
 
   public String toString() {
-    return "net.media.api.models.Response2xPayload(response=" + this.getResponse() + ", config=" + this.getConfig() + ")";
+    return "net.media.api.models.Response2xPayload(response="
+        + this.getResponse()
+        + ", config="
+        + this.getConfig()
+        + ")";
   }
 }

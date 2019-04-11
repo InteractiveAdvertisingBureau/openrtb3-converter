@@ -27,35 +27,34 @@ public class NativeImage {
 
   private Map<String, Object> ext;
 
-  public NativeImage() {
-  }
+  public NativeImage() {}
 
   public String getUrl() {
     return this.url;
-  }
-
-  public Integer getW() {
-    return this.w;
-  }
-
-  public Integer getH() {
-    return this.h;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setUrl(String url) {
     this.url = url;
   }
 
+  public Integer getW() {
+    return this.w;
+  }
+
   public void setW(Integer w) {
     this.w = w;
   }
 
+  public Integer getH() {
+    return this.h;
+  }
+
   public void setH(Integer h) {
     this.h = h;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -101,6 +100,14 @@ public class NativeImage {
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.nativeresponse.NativeImage(url=" + this.getUrl() + ", w=" + this.getW() + ", h=" + this.getH() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.response.nativeresponse.NativeImage(url="
+        + this.getUrl()
+        + ", w="
+        + this.getW()
+        + ", h="
+        + this.getH()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

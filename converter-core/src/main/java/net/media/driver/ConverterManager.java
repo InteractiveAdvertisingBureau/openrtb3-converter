@@ -26,7 +26,8 @@ import java.util.Map;
 import static java.util.Objects.nonNull;
 
 /**
- * Stores and manages {@link Converter} implementations that can be used for various transformation operations.
+ * Stores and manages {@link Converter} implementations that can be used for various transformation
+ * operations.
  *
  * @author shiva.b
  */
@@ -43,9 +44,10 @@ public class ConverterManager {
     new Convert30To25ResponseManager(converterProvider);
     add2_XConverters(converterProvider, config);
     if (nonNull(overrideMap)) {
-      overrideMap.forEach((conversion, converter) -> {
-        converterProvider.register(conversion, converter);
-      });
+      overrideMap.forEach(
+          (conversion, converter) -> {
+            converterProvider.register(conversion, converter);
+          });
     }
   }
 
@@ -86,11 +88,11 @@ public class ConverterManager {
     Provider provider = new Provider(converterProvider);
     add2_XConverters(provider, config);
     if (nonNull(overrideMap)) {
-      overrideMap.forEach((conversion, converter) -> {
-        provider.register(conversion, converter);
-      });
+      overrideMap.forEach(
+          (conversion, converter) -> {
+            provider.register(conversion, converter);
+          });
     }
     return provider;
   }
-
 }

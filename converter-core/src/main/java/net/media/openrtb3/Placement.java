@@ -18,16 +18,11 @@ package net.media.openrtb3;
 
 import net.media.utils.validator.CheckAtLeastOneNotNull;
 
-import java.util.Collection;
-import java.util.List;
-
 import javax.validation.Valid;
+import java.util.Collection;
 
-/**
- * Created by shiva.b on 14/12/18.
- */
-
-@CheckAtLeastOneNotNull(fieldNames={"display", "video", "audio"})
+/** Created by shiva.b on 14/12/18. */
+@CheckAtLeastOneNotNull(fieldNames = {"display", "video", "audio"})
 public class Placement {
 
   private static final Integer DEFAULT_SERVER_SIDE_AD_INSERTION = 0;
@@ -42,112 +37,109 @@ public class Placement {
   private Integer secure;
   private Integer admx;
   private Integer curlx;
-  @Valid
-  private DisplayPlacement display;
-  @Valid
-  private VideoPlacement video;
-  @Valid
-  private AudioPlacement audio;
+  @Valid private DisplayPlacement display;
+  @Valid private VideoPlacement video;
+  @Valid private AudioPlacement audio;
   private Object ext;
 
   public String getTagid() {
     return this.tagid;
   }
 
-  public Integer getSsai() {
-    return this.ssai;
-  }
-
-  public String getSdk() {
-    return this.sdk;
-  }
-
-  public String getSdkver() {
-    return this.sdkver;
-  }
-
-  public Integer getReward() {
-    return this.reward;
-  }
-
-  public Collection<String> getWlang() {
-    return this.wlang;
-  }
-
-  public Integer getSecure() {
-    return this.secure;
-  }
-
-  public Integer getAdmx() {
-    return this.admx;
-  }
-
-  public Integer getCurlx() {
-    return this.curlx;
-  }
-
-  public @Valid DisplayPlacement getDisplay() {
-    return this.display;
-  }
-
-  public @Valid VideoPlacement getVideo() {
-    return this.video;
-  }
-
-  public @Valid AudioPlacement getAudio() {
-    return this.audio;
-  }
-
-  public Object getExt() {
-    return this.ext;
-  }
-
   public void setTagid(String tagid) {
     this.tagid = tagid;
+  }
+
+  public Integer getSsai() {
+    return this.ssai;
   }
 
   public void setSsai(Integer ssai) {
     this.ssai = ssai;
   }
 
+  public String getSdk() {
+    return this.sdk;
+  }
+
   public void setSdk(String sdk) {
     this.sdk = sdk;
+  }
+
+  public String getSdkver() {
+    return this.sdkver;
   }
 
   public void setSdkver(String sdkver) {
     this.sdkver = sdkver;
   }
 
+  public Integer getReward() {
+    return this.reward;
+  }
+
   public void setReward(Integer reward) {
     this.reward = reward;
+  }
+
+  public Collection<String> getWlang() {
+    return this.wlang;
   }
 
   public void setWlang(Collection<String> wlang) {
     this.wlang = wlang;
   }
 
+  public Integer getSecure() {
+    return this.secure;
+  }
+
   public void setSecure(Integer secure) {
     this.secure = secure;
+  }
+
+  public Integer getAdmx() {
+    return this.admx;
   }
 
   public void setAdmx(Integer admx) {
     this.admx = admx;
   }
 
+  public Integer getCurlx() {
+    return this.curlx;
+  }
+
   public void setCurlx(Integer curlx) {
     this.curlx = curlx;
+  }
+
+  public @Valid DisplayPlacement getDisplay() {
+    return this.display;
   }
 
   public void setDisplay(@Valid DisplayPlacement display) {
     this.display = display;
   }
 
+  public @Valid VideoPlacement getVideo() {
+    return this.video;
+  }
+
   public void setVideo(@Valid VideoPlacement video) {
     this.video = video;
   }
 
+  public @Valid AudioPlacement getAudio() {
+    return this.audio;
+  }
+
   public void setAudio(@Valid AudioPlacement audio) {
     this.audio = audio;
+  }
+
+  public Object getExt() {
+    return this.ext;
   }
 
   public void setExt(Object ext) {

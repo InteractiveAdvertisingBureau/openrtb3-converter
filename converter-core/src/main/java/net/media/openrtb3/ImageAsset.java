@@ -16,59 +16,54 @@
 
 package net.media.openrtb3;
 
+import javax.validation.constraints.NotNull;
 import java.util.Map;
 
-import javax.validation.constraints.NotNull;
-
-/**
- * Created by shiva.b on 17/12/18.
- */
+/** Created by shiva.b on 17/12/18. */
 public class ImageAsset {
 
-  @NotNull
-  private String url;
+  @NotNull private String url;
   private Integer w;
   private Integer h;
   private Integer type;
-  private Map<String,Object> ext;
+  private Map<String, Object> ext;
 
-  public ImageAsset() {
-  }
+  public ImageAsset() {}
 
   public @NotNull String getUrl() {
     return this.url;
-  }
-
-  public Integer getW() {
-    return this.w;
-  }
-
-  public Integer getH() {
-    return this.h;
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setUrl(@NotNull String url) {
     this.url = url;
   }
 
+  public Integer getW() {
+    return this.w;
+  }
+
   public void setW(Integer w) {
     this.w = w;
+  }
+
+  public Integer getH() {
+    return this.h;
   }
 
   public void setH(Integer h) {
     this.h = h;
   }
 
+  public Integer getType() {
+    return this.type;
+  }
+
   public void setType(Integer type) {
     this.type = type;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -119,6 +114,16 @@ public class ImageAsset {
   }
 
   public String toString() {
-    return "net.media.openrtb3.ImageAsset(url=" + this.getUrl() + ", w=" + this.getW() + ", h=" + this.getH() + ", type=" + this.getType() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.ImageAsset(url="
+        + this.getUrl()
+        + ", w="
+        + this.getW()
+        + ", h="
+        + this.getH()
+        + ", type="
+        + this.getType()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

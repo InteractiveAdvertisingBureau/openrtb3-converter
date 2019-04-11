@@ -43,100 +43,100 @@ public class App extends DistributionChannel {
     return this.domain;
   }
 
-  public Collection<String> getCat() {
-    return this.cat;
-  }
-
-  public Collection<String> getSectcat() {
-    return this.sectcat;
-  }
-
-  public Collection<String> getPagecat() {
-    return this.pagecat;
-  }
-
-  public Integer getCattax() {
-    return this.cattax;
-  }
-
-  public Integer getPrivpolicy() {
-    return this.privpolicy;
-  }
-
-  public String getKeywords() {
-    return this.keywords;
-  }
-
-  public String getBundle() {
-    return this.bundle;
-  }
-
-  public String getStoreid() {
-    return this.storeid;
-  }
-
-  public String getStoreurl() {
-    return this.storeurl;
-  }
-
-  public String getVer() {
-    return this.ver;
-  }
-
-  public Integer getPaid() {
-    return this.paid;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setDomain(String domain) {
     this.domain = domain;
+  }
+
+  public Collection<String> getCat() {
+    return this.cat;
   }
 
   public void setCat(Collection<String> cat) {
     this.cat = cat;
   }
 
+  public Collection<String> getSectcat() {
+    return this.sectcat;
+  }
+
   public void setSectcat(Collection<String> sectcat) {
     this.sectcat = sectcat;
+  }
+
+  public Collection<String> getPagecat() {
+    return this.pagecat;
   }
 
   public void setPagecat(Collection<String> pagecat) {
     this.pagecat = pagecat;
   }
 
+  public Integer getCattax() {
+    return this.cattax;
+  }
+
   public void setCattax(Integer cattax) {
     this.cattax = cattax;
+  }
+
+  public Integer getPrivpolicy() {
+    return this.privpolicy;
   }
 
   public void setPrivpolicy(Integer privpolicy) {
     this.privpolicy = privpolicy;
   }
 
+  public String getKeywords() {
+    return this.keywords;
+  }
+
   public void setKeywords(String keywords) {
     this.keywords = keywords;
+  }
+
+  public String getBundle() {
+    return this.bundle;
   }
 
   public void setBundle(String bundle) {
     this.bundle = bundle;
   }
 
+  public String getStoreid() {
+    return this.storeid;
+  }
+
   public void setStoreid(String storeid) {
     this.storeid = storeid;
+  }
+
+  public String getStoreurl() {
+    return this.storeurl;
   }
 
   public void setStoreurl(String storeurl) {
     this.storeurl = storeurl;
   }
 
+  public String getVer() {
+    return this.ver;
+  }
+
   public void setVer(String ver) {
     this.ver = ver;
   }
 
+  public Integer getPaid() {
+    return this.paid;
+  }
+
   public void setPaid(Integer paid) {
     this.paid = paid;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {

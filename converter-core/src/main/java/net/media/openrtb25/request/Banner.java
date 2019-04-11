@@ -16,15 +16,10 @@
 
 package net.media.openrtb25.request;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-/**
- * Created by vishnu on 6/5/16.
- */
+/** Created by vishnu on 6/5/16. */
 public class Banner {
 
   private Integer w;
@@ -76,41 +71,71 @@ public class Banner {
     this.ext = banner.ext;
   }
 
-  public Banner() {
-  }
+  public Banner() {}
 
   public Integer getW() {
     return this.w;
+  }
+
+  public void setW(Integer w) {
+    this.w = w;
   }
 
   public Integer getH() {
     return this.h;
   }
 
+  public void setH(Integer h) {
+    this.h = h;
+  }
+
   public Collection<Format> getFormat() {
     return this.format;
+  }
+
+  public void setFormat(Collection<Format> format) {
+    this.format = format;
   }
 
   public String getId() {
     return this.id;
   }
 
+  public void setId(String id) {
+    this.id = id;
+  }
+
   public Collection<Integer> getBtype() {
     return this.btype;
+  }
+
+  public void setBtype(Collection<Integer> btype) {
+    this.btype = btype;
   }
 
   public Collection<Integer> getBattr() {
     return this.battr;
   }
 
+  public void setBattr(Collection<Integer> battr) {
+    this.battr = battr;
+  }
+
   public Integer getPos() {
     return this.pos;
+  }
+
+  public void setPos(Integer pos) {
+    this.pos = pos;
   }
 
   public Collection<String> getMimes() {
     return this.mimes;
   }
 
+  public void setMimes(Collection<String> mimes) {
+    this.mimes = mimes;
+  }
 
   public Integer getWmax() {
     return wmax;
@@ -148,68 +173,36 @@ public class Banner {
     return this.topframe;
   }
 
-  public Collection<Integer> getExpdir() {
-    return this.expdir;
-  }
-
-  public Collection<Integer> getApi() {
-    return this.api;
-  }
-
-  public Integer getVcm() {
-    return this.vcm;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
-  public void setW(Integer w) {
-    this.w = w;
-  }
-
-  public void setH(Integer h) {
-    this.h = h;
-  }
-
-  public void setFormat(Collection<Format> format) {
-    this.format = format;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public void setBtype(Collection<Integer> btype) {
-    this.btype = btype;
-  }
-
-  public void setBattr(Collection<Integer> battr) {
-    this.battr = battr;
-  }
-
-  public void setPos(Integer pos) {
-    this.pos = pos;
-  }
-
-  public void setMimes(Collection<String> mimes) {
-    this.mimes = mimes;
-  }
-
   public void setTopframe(Integer topframe) {
     this.topframe = topframe;
+  }
+
+  public Collection<Integer> getExpdir() {
+    return this.expdir;
   }
 
   public void setExpdir(Collection<Integer> expdir) {
     this.expdir = expdir;
   }
 
+  public Collection<Integer> getApi() {
+    return this.api;
+  }
+
   public void setApi(Collection<Integer> api) {
     this.api = api;
   }
 
+  public Integer getVcm() {
+    return this.vcm;
+  }
+
   public void setVcm(Integer vcm) {
     this.vcm = vcm;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -252,20 +245,16 @@ public class Banner {
       return false;
     final Object this$hmax = this.getHmax();
     final Object other$hmax = other.getHmax();
-    if (this$hmax == null ? other$hmax != null : !this$hmax.equals(other$hmax))
-      return false;
+    if (this$hmax == null ? other$hmax != null : !this$hmax.equals(other$hmax)) return false;
     final Object this$hmin = this.getHmin();
     final Object other$hmin = other.getHmin();
-    if (this$hmin == null ? other$hmin != null : !this$hmin.equals(other$hmin))
-      return false;
+    if (this$hmin == null ? other$hmin != null : !this$hmin.equals(other$hmin)) return false;
     final Object this$wmax = this.getWmax();
     final Object other$wmax = other.getWmax();
-    if (this$wmax == null ? other$wmax != null : !this$wmax.equals(other$wmax))
-      return false;
+    if (this$wmax == null ? other$wmax != null : !this$wmax.equals(other$wmax)) return false;
     final Object this$wmin = this.getWmin();
     final Object other$wmin = other.getWmin();
-    if (this$wmin == null ? other$wmin != null : !this$wmin.equals(other$wmin))
-      return false;
+    if (this$wmin == null ? other$wmin != null : !this$wmin.equals(other$wmin)) return false;
     final Object this$expdir = this.getExpdir();
     final Object other$expdir = other.getExpdir();
     if (this$expdir == null ? other$expdir != null : !this$expdir.equals(other$expdir))
@@ -327,6 +316,32 @@ public class Banner {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.Banner(w=" + this.getW() + ", h=" + this.getH() + ", format=" + this.getFormat() + ", id=" + this.getId() + ", btype=" + this.getBtype() + ", battr=" + this.getBattr() + ", pos=" + this.getPos() + ", mimes=" + this.getMimes() + ", topframe=" + this.getTopframe() + ", expdir=" + this.getExpdir() + ", api=" + this.getApi() + ", vcm=" + this.getVcm() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.Banner(w="
+        + this.getW()
+        + ", h="
+        + this.getH()
+        + ", format="
+        + this.getFormat()
+        + ", id="
+        + this.getId()
+        + ", btype="
+        + this.getBtype()
+        + ", battr="
+        + this.getBattr()
+        + ", pos="
+        + this.getPos()
+        + ", mimes="
+        + this.getMimes()
+        + ", topframe="
+        + this.getTopframe()
+        + ", expdir="
+        + this.getExpdir()
+        + ", api="
+        + this.getApi()
+        + ", vcm="
+        + this.getVcm()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

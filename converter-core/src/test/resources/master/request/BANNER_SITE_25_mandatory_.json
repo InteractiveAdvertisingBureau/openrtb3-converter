@@ -1,38 +1,56 @@
 {
   "id": "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
-
-  "cur": ["USD"],
+  "cur": [
+    "USD"
+  ],
   "allimps": 0,
-  "wlang": ["en"],
-  "bcat": ["bb"],
-  "badv": ["cc"],
-  "bapp": ["nn"],
-  "imp": [{
-    "id": "1",
-    "metric": [{
-      "type": "dd",
-      "value": 1.0
-    }],
-    "banner": {
-      "id": "dd",
-      "format": [
+  "wlang": [
+    "en"
+  ],
+  "bcat": [
+    "bb"
+  ],
+  "badv": [
+    "cc"
+  ],
+  "bapp": [
+    "nn"
+  ],
+  "imp": [
+    {
+      "id": "1",
+      "metric": [
         {
-        "w": 200,
-        "h": 20
-      }],
-      "h": 250,
-      "w": 300,
+          "type": "dd",
+          "value": 1.0
+        }
+      ],
+      "banner": {
+        "id": "dd",
+        "format": [
+          {
+            "w": 200,
+            "h": 20
+          }
+        ],
+        "h": 250,
+        "w": 300
+      }
     }
-  }],
+  ],
   "site": {
     "id": "102855",
-    "name": "abdk", ,
+    "name": "abdk",
+    ,
     "domain": "www.foobar.com",
     "page": "http://www.foobar.com/1234.html ",
     "publisher": {
       "id": "8953",
       "name": "foobar.com",
-      "cat": ["IAB3-1", "IAB3-2"],
+      "cat": [
+        "IAB3-1",
+        "IAB3-2"
+      ],
       "domain": "foobar.com"
     },
     "content": {
@@ -48,24 +66,42 @@
       "producer": {
         "id": "eew",
         "name": "edew",
-        "cat": ["IAB3-1", "IAB3-2"],
+        "cat": [
+          "IAB3-1",
+          "IAB3-2"
+        ],
         "domain": "abc.com",
         "ext": {
           "object": {
-            "a" : "dsd",
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "obj" : {
-              "a" : 1
+            "a": "dsd",
+            "arraySample": [
+              "a"
+            ],
+            "jsonArraySample": [
+              {
+                "id": 1
+              }
+            ],
+            "obj": {
+              "a": 1
             }
           },
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
+          "arraySample": [
+            "a"
+          ],
+          "jsonArraySample": [
+            {
+              "id": 1
+            }
+          ],
           "Key": "value"
         }
       },
       "url": "ewfe.com",
-      "cat": ["IAB3-1", "IAB3-2"],
+      "cat": [
+        "IAB3-1",
+        "IAB3-2"
+      ],
       "prodq": 1,
       "videoquality": 2,
       "context": 1,
@@ -78,51 +114,92 @@
       "len": 2,
       "language": "en",
       "embeddable": 1,
-      "data": [{
-        "id": "wwe",
-        "name": "ee",
-        "segment": [{
-          "id": "ew",
-          "name": "rewfe",
-          "value": "ew",
+      "data": [
+        {
+          "id": "wwe",
+          "name": "ee",
+          "segment": [
+            {
+              "id": "ew",
+              "name": "rewfe",
+              "value": "ew",
+              "ext": {
+                "object": {
+                  "a": "dsd",
+                  "arraySample": [
+                    "a"
+                  ],
+                  "jsonArraySample": [
+                    {
+                      "id": 1
+                    }
+                  ],
+                  "obj": {
+                    "a": 1
+                  }
+                },
+                "arraySample": [
+                  "a"
+                ],
+                "jsonArraySample": [
+                  {
+                    "id": 1
+                  }
+                ],
+                "Key": "value"
+              }
+            }
+          ],
           "ext": {
             "object": {
-              "a" : "dsd",
-              "arraySample": ["a"],
-              "jsonArraySample": [{"id": 1}],
-              "obj" : {
-                "a" : 1
+              "a": "dsd",
+              "arraySample": [
+                "a"
+              ],
+              "jsonArraySample": [
+                {
+                  "id": 1
+                }
+              ],
+              "obj": {
+                "a": 1
               }
             },
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
+            "arraySample": [
+              "a"
+            ],
+            "jsonArraySample": [
+              {
+                "id": 1
+              }
+            ],
             "Key": "value"
-          }      }],
-        "ext": {
-          "object": {
-            "a" : "dsd",
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "obj" : {
-              "a" : 1
-            }
-          },
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "Key": "value"
+          }
         }
-      }],
+      ],
       "ext": {
         "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
+          "a": "dsd",
+          "arraySample": [
+            "a"
+          ],
+          "jsonArraySample": [
+            {
+              "id": 1
+            }
+          ],
+          "obj": {
+            "a": 1
           }
         },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
+        "arraySample": [
+          "a"
+        ],
+        "jsonArraySample": [
+          {
+            "id": 1
+          }
+        ],
         "Key": "value"
       }
     }
@@ -146,15 +223,27 @@
       "utcoffset": 1,
       "ext": {
         "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
+          "a": "dsd",
+          "arraySample": [
+            "a"
+          ],
+          "jsonArraySample": [
+            {
+              "id": 1
+            }
+          ],
+          "obj": {
+            "a": 1
           }
         },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
+        "arraySample": [
+          "a"
+        ],
+        "jsonArraySample": [
+          {
+            "id": 1
+          }
+        ],
         "Key": "value"
       }
     },
@@ -181,7 +270,7 @@
   },
   "user": {
     "id": "55816b39711f9b5acf3b90e313ed29e51665623f",
-    "buyeruid": "eewew",
+    "buyeruid": "eewew"
   }
 }
 

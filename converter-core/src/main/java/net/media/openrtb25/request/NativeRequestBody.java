@@ -16,11 +16,9 @@
 
 package net.media.openrtb25.request;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import javax.validation.constraints.NotEmpty;
+import java.util.Collection;
+import java.util.Map;
 
 public class NativeRequestBody {
 
@@ -40,88 +38,86 @@ public class NativeRequestBody {
 
   private Integer seq;
 
-  @NotEmpty
-  private Collection<Asset> assets;
+  @NotEmpty private Collection<Asset> assets;
 
   private Map<String, Object> ext;
 
-  public NativeRequestBody() {
-  }
+  public NativeRequestBody() {}
 
   public String getVer() {
     return this.ver;
-  }
-
-  public Integer getLayout() {
-    return this.layout;
-  }
-
-  public Integer getAdunit() {
-    return this.adunit;
-  }
-
-  public Integer getContext() {
-    return this.context;
-  }
-
-  public Integer getContextsubtype() {
-    return this.contextsubtype;
-  }
-
-  public Integer getPlcmttype() {
-    return this.plcmttype;
-  }
-
-  public Integer getPlcmtcnt() {
-    return this.plcmtcnt;
-  }
-
-  public Integer getSeq() {
-    return this.seq;
-  }
-
-  public @NotEmpty Collection<Asset> getAssets() {
-    return this.assets;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setVer(String ver) {
     this.ver = ver;
   }
 
+  public Integer getLayout() {
+    return this.layout;
+  }
+
   public void setLayout(Integer layout) {
     this.layout = layout;
+  }
+
+  public Integer getAdunit() {
+    return this.adunit;
   }
 
   public void setAdunit(Integer adunit) {
     this.adunit = adunit;
   }
 
+  public Integer getContext() {
+    return this.context;
+  }
+
   public void setContext(Integer context) {
     this.context = context;
+  }
+
+  public Integer getContextsubtype() {
+    return this.contextsubtype;
   }
 
   public void setContextsubtype(Integer contextsubtype) {
     this.contextsubtype = contextsubtype;
   }
 
+  public Integer getPlcmttype() {
+    return this.plcmttype;
+  }
+
   public void setPlcmttype(Integer plcmttype) {
     this.plcmttype = plcmttype;
+  }
+
+  public Integer getPlcmtcnt() {
+    return this.plcmtcnt;
   }
 
   public void setPlcmtcnt(Integer plcmtcnt) {
     this.plcmtcnt = plcmtcnt;
   }
 
+  public Integer getSeq() {
+    return this.seq;
+  }
+
   public void setSeq(Integer seq) {
     this.seq = seq;
   }
 
+  public @NotEmpty Collection<Asset> getAssets() {
+    return this.assets;
+  }
+
   public void setAssets(@NotEmpty Collection<Asset> assets) {
     this.assets = assets;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -150,8 +146,9 @@ public class NativeRequestBody {
       return false;
     final Object this$contextsubtype = this.getContextsubtype();
     final Object other$contextsubtype = other.getContextsubtype();
-    if (this$contextsubtype == null ? other$contextsubtype != null : !this$contextsubtype.equals(other$contextsubtype))
-      return false;
+    if (this$contextsubtype == null
+        ? other$contextsubtype != null
+        : !this$contextsubtype.equals(other$contextsubtype)) return false;
     final Object this$plcmttype = this.getPlcmttype();
     final Object other$plcmttype = other.getPlcmttype();
     if (this$plcmttype == null ? other$plcmttype != null : !this$plcmttype.equals(other$plcmttype))
@@ -204,6 +201,26 @@ public class NativeRequestBody {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.NativeRequestBody(ver=" + this.getVer() + ", layout=" + this.getLayout() + ", adunit=" + this.getAdunit() + ", context=" + this.getContext() + ", contextsubtype=" + this.getContextsubtype() + ", plcmttype=" + this.getPlcmttype() + ", plcmtcnt=" + this.getPlcmtcnt() + ", seq=" + this.getSeq() + ", assets=" + this.getAssets() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.NativeRequestBody(ver="
+        + this.getVer()
+        + ", layout="
+        + this.getLayout()
+        + ", adunit="
+        + this.getAdunit()
+        + ", context="
+        + this.getContext()
+        + ", contextsubtype="
+        + this.getContextsubtype()
+        + ", plcmttype="
+        + this.getPlcmttype()
+        + ", plcmtcnt="
+        + this.getPlcmtcnt()
+        + ", seq="
+        + this.getSeq()
+        + ", assets="
+        + this.getAssets()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

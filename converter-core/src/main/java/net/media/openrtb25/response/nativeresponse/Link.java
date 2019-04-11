@@ -17,7 +17,6 @@
 package net.media.openrtb25.response.nativeresponse;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 public class Link {
@@ -29,35 +28,34 @@ public class Link {
 
   private Map<String, Object> ext;
 
-  public Link() {
-  }
+  public Link() {}
 
   public String getUrl() {
     return this.url;
-  }
-
-  public Collection<String> getClicktrackers() {
-    return this.clicktrackers;
-  }
-
-  public String getFallback() {
-    return this.fallback;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setUrl(String url) {
     this.url = url;
   }
 
+  public Collection<String> getClicktrackers() {
+    return this.clicktrackers;
+  }
+
   public void setClicktrackers(Collection<String> clicktrackers) {
     this.clicktrackers = clicktrackers;
   }
 
+  public String getFallback() {
+    return this.fallback;
+  }
+
   public void setFallback(String fallback) {
     this.fallback = fallback;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -74,8 +72,9 @@ public class Link {
     if (this$url == null ? other$url != null : !this$url.equals(other$url)) return false;
     final Object this$clicktrackers = this.getClicktrackers();
     final Object other$clicktrackers = other.getClicktrackers();
-    if (this$clicktrackers == null ? other$clicktrackers != null : !this$clicktrackers.equals(other$clicktrackers))
-      return false;
+    if (this$clicktrackers == null
+        ? other$clicktrackers != null
+        : !this$clicktrackers.equals(other$clicktrackers)) return false;
     final Object this$fallback = this.getFallback();
     final Object other$fallback = other.getFallback();
     if (this$fallback == null ? other$fallback != null : !this$fallback.equals(other$fallback))
@@ -105,6 +104,14 @@ public class Link {
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.nativeresponse.Link(url=" + this.getUrl() + ", clicktrackers=" + this.getClicktrackers() + ", fallback=" + this.getFallback() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.response.nativeresponse.Link(url="
+        + this.getUrl()
+        + ", clicktrackers="
+        + this.getClicktrackers()
+        + ", fallback="
+        + this.getFallback()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

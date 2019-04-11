@@ -18,29 +18,25 @@ package net.media.openrtb25.request;
 
 import java.util.Map;
 
-/**
- * Created by rajat.go on 14/10/16.
- */
-
+/** Created by rajat.go on 14/10/16. */
 public class Regs {
 
   private Integer coppa;
 
   private Map<String, Object> ext;
 
-  public Regs() {
-  }
+  public Regs() {}
 
   public Integer getCoppa() {
     return this.coppa;
   }
 
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setCoppa(Integer coppa) {
     this.coppa = coppa;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -76,6 +72,10 @@ public class Regs {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.Regs(coppa=" + this.getCoppa() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.Regs(coppa="
+        + this.getCoppa()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

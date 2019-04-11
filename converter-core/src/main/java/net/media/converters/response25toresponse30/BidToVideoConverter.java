@@ -16,11 +16,9 @@
 
 package net.media.converters.response25toresponse30;
 
-
-import net.media.driver.Conversion;
-import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Video;
 import net.media.utils.Provider;
@@ -32,13 +30,12 @@ import java.util.Map;
 
 import static java.util.Objects.nonNull;
 
-/**
- * @author shiva.b
- */
+/** @author shiva.b */
 public class BidToVideoConverter implements Converter<Bid, Video> {
 
   @Override
-  public Video map(Bid source, Config config, Provider converterProvider) throws OpenRtbConverterException {
+  public Video map(Bid source, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
     if (source == null) {
       return null;
     }
@@ -48,19 +45,19 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
   }
 
   @Override
-  public void enhance(Bid source, Video target, Config config, Provider converterProvider) throws OpenRtbConverterException{
+  public void enhance(Bid source, Video target, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }
     Map<String, Object> map = source.getExt();
-    if ( map != null ) {
-      target.setExt(new HashMap<>(map) );
+    if (map != null) {
+      target.setExt(new HashMap<>(map));
+    } else {
+      target.setExt(null);
     }
-    else {
-      target.setExt( null );
-    }
-    target.setAdm( source.getAdm() );
-    if(nonNull(source.getApi())) {
+    target.setAdm(source.getAdm());
+    if (nonNull(source.getApi())) {
       List<Integer> api = new ArrayList<>();
       api.add(source.getApi());
       target.setApi(api);
@@ -73,12 +70,9 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
         target.setCtype((Integer) ext.get("ctype"));
         target.setDur((Integer) ext.get("dur"));
         target.setMime((List<String>) ext.get("mime"));
-      }
-      catch (Exception e) {
+      } catch (Exception e) {
         throw new OpenRtbConverterException("error while type casting bid.ext content", e);
       }
     }
   }
-
-
 }

@@ -16,19 +16,13 @@
 
 package net.media.openrtb25.request;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Map;
 
 public class Site {
 
-  @NotNull
-  private String id;
+  @NotNull private String id;
 
   private String name;
 
@@ -58,123 +52,122 @@ public class Site {
 
   private Map<String, Object> ext;
 
-  public Site() {
-  }
+  public Site() {}
 
   public @NotNull String getId() {
     return this.id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public String getDomain() {
-    return this.domain;
-  }
-
-  public Collection<String> getCat() {
-    return this.cat;
-  }
-
-  public Collection<String> getSectioncat() {
-    return this.sectioncat;
-  }
-
-  public Collection<String> getPagecat() {
-    return this.pagecat;
-  }
-
-  public String getPage() {
-    return this.page;
-  }
-
-  public String getRef() {
-    return this.ref;
-  }
-
-  public String getSearch() {
-    return this.search;
-  }
-
-  public Integer getMobile() {
-    return this.mobile;
-  }
-
-  public Integer getPrivacypolicy() {
-    return this.privacypolicy;
-  }
-
-  public Publisher getPublisher() {
-    return this.publisher;
-  }
-
-  public Content getContent() {
-    return this.content;
-  }
-
-  public String getKeywords() {
-    return this.keywords;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setId(@NotNull String id) {
     this.id = id;
   }
 
+  public String getName() {
+    return this.name;
+  }
+
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getDomain() {
+    return this.domain;
   }
 
   public void setDomain(String domain) {
     this.domain = domain;
   }
 
+  public Collection<String> getCat() {
+    return this.cat;
+  }
+
   public void setCat(Collection<String> cat) {
     this.cat = cat;
+  }
+
+  public Collection<String> getSectioncat() {
+    return this.sectioncat;
   }
 
   public void setSectioncat(Collection<String> sectioncat) {
     this.sectioncat = sectioncat;
   }
 
+  public Collection<String> getPagecat() {
+    return this.pagecat;
+  }
+
   public void setPagecat(Collection<String> pagecat) {
     this.pagecat = pagecat;
+  }
+
+  public String getPage() {
+    return this.page;
   }
 
   public void setPage(String page) {
     this.page = page;
   }
 
+  public String getRef() {
+    return this.ref;
+  }
+
   public void setRef(String ref) {
     this.ref = ref;
+  }
+
+  public String getSearch() {
+    return this.search;
   }
 
   public void setSearch(String search) {
     this.search = search;
   }
 
+  public Integer getMobile() {
+    return this.mobile;
+  }
+
   public void setMobile(Integer mobile) {
     this.mobile = mobile;
+  }
+
+  public Integer getPrivacypolicy() {
+    return this.privacypolicy;
   }
 
   public void setPrivacypolicy(Integer privacypolicy) {
     this.privacypolicy = privacypolicy;
   }
 
+  public Publisher getPublisher() {
+    return this.publisher;
+  }
+
   public void setPublisher(Publisher publisher) {
     this.publisher = publisher;
+  }
+
+  public Content getContent() {
+    return this.content;
   }
 
   public void setContent(Content content) {
     this.content = content;
   }
 
+  public String getKeywords() {
+    return this.keywords;
+  }
+
   public void setKeywords(String keywords) {
     this.keywords = keywords;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -201,8 +194,9 @@ public class Site {
     if (this$cat == null ? other$cat != null : !this$cat.equals(other$cat)) return false;
     final Object this$sectioncat = this.getSectioncat();
     final Object other$sectioncat = other.getSectioncat();
-    if (this$sectioncat == null ? other$sectioncat != null : !this$sectioncat.equals(other$sectioncat))
-      return false;
+    if (this$sectioncat == null
+        ? other$sectioncat != null
+        : !this$sectioncat.equals(other$sectioncat)) return false;
     final Object this$pagecat = this.getPagecat();
     final Object other$pagecat = other.getPagecat();
     if (this$pagecat == null ? other$pagecat != null : !this$pagecat.equals(other$pagecat))
@@ -223,8 +217,9 @@ public class Site {
       return false;
     final Object this$privacypolicy = this.getPrivacypolicy();
     final Object other$privacypolicy = other.getPrivacypolicy();
-    if (this$privacypolicy == null ? other$privacypolicy != null : !this$privacypolicy.equals(other$privacypolicy))
-      return false;
+    if (this$privacypolicy == null
+        ? other$privacypolicy != null
+        : !this$privacypolicy.equals(other$privacypolicy)) return false;
     final Object this$publisher = this.getPublisher();
     final Object other$publisher = other.getPublisher();
     if (this$publisher == null ? other$publisher != null : !this$publisher.equals(other$publisher))
@@ -284,6 +279,36 @@ public class Site {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.Site(id=" + this.getId() + ", name=" + this.getName() + ", domain=" + this.getDomain() + ", cat=" + this.getCat() + ", sectioncat=" + this.getSectioncat() + ", pagecat=" + this.getPagecat() + ", page=" + this.getPage() + ", ref=" + this.getRef() + ", search=" + this.getSearch() + ", mobile=" + this.getMobile() + ", privacypolicy=" + this.getPrivacypolicy() + ", publisher=" + this.getPublisher() + ", content=" + this.getContent() + ", keywords=" + this.getKeywords() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.Site(id="
+        + this.getId()
+        + ", name="
+        + this.getName()
+        + ", domain="
+        + this.getDomain()
+        + ", cat="
+        + this.getCat()
+        + ", sectioncat="
+        + this.getSectioncat()
+        + ", pagecat="
+        + this.getPagecat()
+        + ", page="
+        + this.getPage()
+        + ", ref="
+        + this.getRef()
+        + ", search="
+        + this.getSearch()
+        + ", mobile="
+        + this.getMobile()
+        + ", privacypolicy="
+        + this.getPrivacypolicy()
+        + ", publisher="
+        + this.getPublisher()
+        + ", content="
+        + this.getContent()
+        + ", keywords="
+        + this.getKeywords()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

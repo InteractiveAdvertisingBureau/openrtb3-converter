@@ -34,44 +34,44 @@ public class Restrictions {
     return this.bcat;
   }
 
-  public Integer getCattax() {
-    return this.cattax;
-  }
-
-  public Collection<String> getBadv() {
-    return this.badv;
-  }
-
-  public Collection<String> getBapp() {
-    return this.bapp;
-  }
-
-  public Collection<Integer> getBattr() {
-    return this.battr;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setBcat(Collection<String> bcat) {
     this.bcat = bcat;
+  }
+
+  public Integer getCattax() {
+    return this.cattax;
   }
 
   public void setCattax(Integer cattax) {
     this.cattax = cattax;
   }
 
+  public Collection<String> getBadv() {
+    return this.badv;
+  }
+
   public void setBadv(Collection<String> badv) {
     this.badv = badv;
+  }
+
+  public Collection<String> getBapp() {
+    return this.bapp;
   }
 
   public void setBapp(Collection<String> bapp) {
     this.bapp = bapp;
   }
 
+  public Collection<Integer> getBattr() {
+    return this.battr;
+  }
+
   public void setBattr(Collection<Integer> battr) {
     this.battr = battr;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {

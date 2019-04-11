@@ -19,9 +19,7 @@ package net.media.openrtb25.request;
 import net.media.utils.validator.CheckAtLeastOneNotNull;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
-
 
 @CheckAtLeastOneNotNull(fieldNames = {"id", "buyeruid"})
 public class User {
@@ -46,83 +44,82 @@ public class User {
 
   private Integer age;
 
-  public User() {
-  }
+  public User() {}
 
   public String getId() {
     return this.id;
-  }
-
-  public String getBuyeruid() {
-    return this.buyeruid;
-  }
-
-  public Integer getYob() {
-    return this.yob;
-  }
-
-  public String getGender() {
-    return this.gender;
-  }
-
-  public Geo getGeo() {
-    return this.geo;
-  }
-
-  public String getKeywords() {
-    return this.keywords;
-  }
-
-  public String getCustomdata() {
-    return this.customdata;
-  }
-
-  public Collection<net.media.openrtb25.request.Data> getData() {
-    return this.data;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
-  public Integer getAge() {
-    return this.age;
   }
 
   public void setId(String id) {
     this.id = id;
   }
 
+  public String getBuyeruid() {
+    return this.buyeruid;
+  }
+
   public void setBuyeruid(String buyeruid) {
     this.buyeruid = buyeruid;
+  }
+
+  public Integer getYob() {
+    return this.yob;
   }
 
   public void setYob(Integer yob) {
     this.yob = yob;
   }
 
+  public String getGender() {
+    return this.gender;
+  }
+
   public void setGender(String gender) {
     this.gender = gender;
+  }
+
+  public Geo getGeo() {
+    return this.geo;
   }
 
   public void setGeo(Geo geo) {
     this.geo = geo;
   }
 
+  public String getKeywords() {
+    return this.keywords;
+  }
+
   public void setKeywords(String keywords) {
     this.keywords = keywords;
+  }
+
+  public String getCustomdata() {
+    return this.customdata;
   }
 
   public void setCustomdata(String customdata) {
     this.customdata = customdata;
   }
 
+  public Collection<net.media.openrtb25.request.Data> getData() {
+    return this.data;
+  }
+
   public void setData(Collection<net.media.openrtb25.request.Data> data) {
     this.data = data;
   }
 
+  public Map<String, Object> getExt() {
+    return this.ext;
+  }
+
   public void setExt(Map<String, Object> ext) {
     this.ext = ext;
+  }
+
+  public Integer getAge() {
+    return this.age;
   }
 
   public void setAge(Integer age) {
@@ -157,8 +154,9 @@ public class User {
       return false;
     final Object this$customdata = this.getCustomdata();
     final Object other$customdata = other.getCustomdata();
-    if (this$customdata == null ? other$customdata != null : !this$customdata.equals(other$customdata))
-      return false;
+    if (this$customdata == null
+        ? other$customdata != null
+        : !this$customdata.equals(other$customdata)) return false;
     final Object this$data = this.getData();
     final Object other$data = other.getData();
     if (this$data == null ? other$data != null : !this$data.equals(other$data)) return false;
@@ -202,6 +200,26 @@ public class User {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.User(id=" + this.getId() + ", buyeruid=" + this.getBuyeruid() + ", yob=" + this.getYob() + ", gender=" + this.getGender() + ", geo=" + this.getGeo() + ", keywords=" + this.getKeywords() + ", customdata=" + this.getCustomdata() + ", data=" + this.getData() + ", ext=" + this.getExt() + ", age=" + this.getAge() + ")";
+    return "net.media.openrtb25.request.User(id="
+        + this.getId()
+        + ", buyeruid="
+        + this.getBuyeruid()
+        + ", yob="
+        + this.getYob()
+        + ", gender="
+        + this.getGender()
+        + ", geo="
+        + this.getGeo()
+        + ", keywords="
+        + this.getKeywords()
+        + ", customdata="
+        + this.getCustomdata()
+        + ", data="
+        + this.getData()
+        + ", ext="
+        + this.getExt()
+        + ", age="
+        + this.getAge()
+        + ")";
   }
 }

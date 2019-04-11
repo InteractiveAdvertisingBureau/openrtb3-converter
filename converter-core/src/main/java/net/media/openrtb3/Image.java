@@ -16,7 +16,6 @@
 
 package net.media.openrtb3;
 
-
 public class Image {
 
   private String url;
@@ -24,5 +23,4 @@ public class Image {
   private Integer h;
   private Integer type;
   private String ext;
-
 }

@@ -20,21 +20,20 @@ import java.util.Map;
 
 public class NativeVideo {
   private String vasttag;
-  private Map<String,Object> ext;
+  private Map<String, Object> ext;
 
-  public NativeVideo() {
-  }
+  public NativeVideo() {}
 
   public String getVasttag() {
     return this.vasttag;
   }
 
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setVasttag(String vasttag) {
     this.vasttag = vasttag;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -71,6 +70,10 @@ public class NativeVideo {
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.nativeresponse.NativeVideo(vasttag=" + this.getVasttag() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.response.nativeresponse.NativeVideo(vasttag="
+        + this.getVasttag()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

@@ -30,36 +30,36 @@ public class Dooh extends DistributionChannel {
     return this.venue;
   }
 
-  public Integer getFixed() {
-    return this.fixed;
-  }
-
-  public Integer getEtime() {
-    return this.etime;
-  }
-
-  public Integer getDpi() {
-    return this.dpi;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setVenue(Integer venue) {
     this.venue = venue;
+  }
+
+  public Integer getFixed() {
+    return this.fixed;
   }
 
   public void setFixed(Integer fixed) {
     this.fixed = fixed;
   }
 
+  public Integer getEtime() {
+    return this.etime;
+  }
+
   public void setEtime(Integer etime) {
     this.etime = etime;
   }
 
+  public Integer getDpi() {
+    return this.dpi;
+  }
+
   public void setDpi(Integer dpi) {
     this.dpi = dpi;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {

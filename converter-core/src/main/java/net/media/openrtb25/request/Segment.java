@@ -18,10 +18,7 @@ package net.media.openrtb25.request;
 
 import java.util.Map;
 
-/**
- * Created by vishnu on 6/5/16.
- */
-
+/** Created by vishnu on 6/5/16. */
 public class Segment {
 
   private String id;
@@ -32,35 +29,34 @@ public class Segment {
 
   private Map<String, Object> ext;
 
-  public Segment() {
-  }
+  public Segment() {}
 
   public String getId() {
     return this.id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setId(String id) {
     this.id = id;
   }
 
+  public String getName() {
+    return this.name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
 
+  public String getValue() {
+    return this.value;
+  }
+
   public void setValue(String value) {
     this.value = value;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -106,6 +102,14 @@ public class Segment {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.Segment(id=" + this.getId() + ", name=" + this.getName() + ", value=" + this.getValue() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.Segment(id="
+        + this.getId()
+        + ", name="
+        + this.getName()
+        + ", value="
+        + this.getValue()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

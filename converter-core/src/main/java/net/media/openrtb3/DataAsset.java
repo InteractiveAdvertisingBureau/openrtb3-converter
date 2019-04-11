@@ -16,51 +16,45 @@
 
 package net.media.openrtb3;
 
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
-import javax.validation.constraints.NotNull;
-
-/**
- * Created by rajat.go on 14/12/18.
- */
+/** Created by rajat.go on 14/12/18. */
 public class DataAsset {
-    @NotNull
-    private Collection<String> value = null;
-    private Integer len;
-    private Integer type;
-    private Map<String,Object> ext;
+  @NotNull private Collection<String> value = null;
+  private Integer len;
+  private Integer type;
+  private Map<String, Object> ext;
 
-  public DataAsset() {
-  }
+  public DataAsset() {}
 
   public @NotNull Collection<String> getValue() {
     return this.value;
-  }
-
-  public Integer getLen() {
-    return this.len;
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setValue(@NotNull Collection<String> value) {
     this.value = value;
   }
 
+  public Integer getLen() {
+    return this.len;
+  }
+
   public void setLen(Integer len) {
     this.len = len;
   }
 
+  public Integer getType() {
+    return this.type;
+  }
+
   public void setType(Integer type) {
     this.type = type;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -106,6 +100,14 @@ public class DataAsset {
   }
 
   public String toString() {
-    return "net.media.openrtb3.DataAsset(value=" + this.getValue() + ", len=" + this.getLen() + ", type=" + this.getType() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.DataAsset(value="
+        + this.getValue()
+        + ", len="
+        + this.getLen()
+        + ", type="
+        + this.getType()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

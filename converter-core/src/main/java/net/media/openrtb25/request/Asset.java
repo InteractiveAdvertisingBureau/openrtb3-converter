@@ -18,86 +18,79 @@ package net.media.openrtb25.request;
 
 import net.media.utils.validator.CheckAtLeastOneNotNull;
 
-import java.util.Map;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Map;
 
 @CheckAtLeastOneNotNull(fieldNames = {"title", "img", "video", "data"})
 public class Asset {
 
-  @NotNull
-  private Integer id;
+  @NotNull private Integer id;
 
   private Integer required;
 
-  @Valid
-  private NativeTitle title;
+  @Valid private NativeTitle title;
 
-  @Valid
-  private NativeImage img;
+  @Valid private NativeImage img;
 
-  @Valid
-  private NativeVideo video;
+  @Valid private NativeVideo video;
 
-  @Valid
-  private NativeData data;
+  @Valid private NativeData data;
 
   private Map<String, Object> ext;
 
-  public Asset() {
-  }
+  public Asset() {}
 
   public @NotNull Integer getId() {
     return this.id;
-  }
-
-  public Integer getRequired() {
-    return this.required;
-  }
-
-  public @Valid NativeTitle getTitle() {
-    return this.title;
-  }
-
-  public @Valid NativeImage getImg() {
-    return this.img;
-  }
-
-  public @Valid NativeVideo getVideo() {
-    return this.video;
-  }
-
-  public @Valid NativeData getData() {
-    return this.data;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setId(@NotNull Integer id) {
     this.id = id;
   }
 
+  public Integer getRequired() {
+    return this.required;
+  }
+
   public void setRequired(Integer required) {
     this.required = required;
+  }
+
+  public @Valid NativeTitle getTitle() {
+    return this.title;
   }
 
   public void setTitle(@Valid NativeTitle title) {
     this.title = title;
   }
 
+  public @Valid NativeImage getImg() {
+    return this.img;
+  }
+
   public void setImg(@Valid NativeImage img) {
     this.img = img;
+  }
+
+  public @Valid NativeVideo getVideo() {
+    return this.video;
   }
 
   public void setVideo(@Valid NativeVideo video) {
     this.video = video;
   }
 
+  public @Valid NativeData getData() {
+    return this.data;
+  }
+
   public void setData(@Valid NativeData data) {
     this.data = data;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -159,6 +152,20 @@ public class Asset {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.Asset(id=" + this.getId() + ", required=" + this.getRequired() + ", title=" + this.getTitle() + ", img=" + this.getImg() + ", video=" + this.getVideo() + ", data=" + this.getData() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.Asset(id="
+        + this.getId()
+        + ", required="
+        + this.getRequired()
+        + ", title="
+        + this.getTitle()
+        + ", img="
+        + this.getImg()
+        + ", video="
+        + this.getVideo()
+        + ", data="
+        + this.getData()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

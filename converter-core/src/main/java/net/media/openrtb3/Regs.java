@@ -28,20 +28,20 @@ public class Regs {
     return this.coppa;
   }
 
-  public Integer getGdpr() {
-    return this.gdpr;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setCoppa(Integer coppa) {
     this.coppa = coppa;
   }
 
+  public Integer getGdpr() {
+    return this.gdpr;
+  }
+
   public void setGdpr(Integer gdpr) {
     this.gdpr = gdpr;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {

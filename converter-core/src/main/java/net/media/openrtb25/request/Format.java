@@ -18,10 +18,7 @@ package net.media.openrtb25.request;
 
 import java.util.Map;
 
-/**
- * Created by rajat.go on 13/10/16.
- */
-
+/** Created by rajat.go on 13/10/16. */
 public class Format {
 
   private Integer w;
@@ -36,51 +33,50 @@ public class Format {
 
   private Map<String, Object> ext;
 
-  public Format() {
-  }
+  public Format() {}
 
   public Integer getW() {
     return this.w;
-  }
-
-  public Integer getH() {
-    return this.h;
-  }
-
-  public Integer getWratio() {
-    return this.wratio;
-  }
-
-  public Integer getHratio() {
-    return this.hratio;
-  }
-
-  public Integer getWmin() {
-    return this.wmin;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setW(Integer w) {
     this.w = w;
   }
 
+  public Integer getH() {
+    return this.h;
+  }
+
   public void setH(Integer h) {
     this.h = h;
+  }
+
+  public Integer getWratio() {
+    return this.wratio;
   }
 
   public void setWratio(Integer wratio) {
     this.wratio = wratio;
   }
 
+  public Integer getHratio() {
+    return this.hratio;
+  }
+
   public void setHratio(Integer hratio) {
     this.hratio = hratio;
   }
 
+  public Integer getWmin() {
+    return this.wmin;
+  }
+
   public void setWmin(Integer wmin) {
     this.wmin = wmin;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -138,6 +134,18 @@ public class Format {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.Format(w=" + this.getW() + ", h=" + this.getH() + ", wratio=" + this.getWratio() + ", hratio=" + this.getHratio() + ", wmin=" + this.getWmin() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.Format(w="
+        + this.getW()
+        + ", h="
+        + this.getH()
+        + ", wratio="
+        + this.getWratio()
+        + ", hratio="
+        + this.getHratio()
+        + ", wmin="
+        + this.getWmin()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

@@ -19,8 +19,7 @@ package net.media.openrtb3;
 import javax.validation.constraints.NotNull;
 
 public abstract class DistributionChannel {
-  @NotNull
-  private String id;
+  @NotNull private String id;
   private String name;
   private Publisher pub;
   private Content content;
@@ -29,28 +28,28 @@ public abstract class DistributionChannel {
     return this.id;
   }
 
-  public String getName() {
-    return this.name;
-  }
-
-  public Publisher getPub() {
-    return this.pub;
-  }
-
-  public Content getContent() {
-    return this.content;
-  }
-
   public void setId(@NotNull String id) {
     this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
   }
 
   public void setName(String name) {
     this.name = name;
   }
 
+  public Publisher getPub() {
+    return this.pub;
+  }
+
   public void setPub(Publisher pub) {
     this.pub = pub;
+  }
+
+  public Content getContent() {
+    return this.content;
   }
 
   public void setContent(Content content) {

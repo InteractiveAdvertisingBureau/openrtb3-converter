@@ -19,7 +19,6 @@ package net.media.exceptions;
 /**
  * Exception Wrapper for OpenRtb converter.
  *
- *
  * @author shiva.b
  * @see java.lang.Exception
  * @since 1.0
@@ -27,8 +26,6 @@ package net.media.exceptions;
 public class OpenRtbConverterException extends Exception {
 
   /**
-   *
-   *
    * @param message - error message
    * @param e - wrapped exception
    */

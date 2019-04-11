@@ -23,8 +23,7 @@ public class NativeRequest {
   @JsonProperty("native")
   private NativeRequestBody nativeRequestBody;
 
-  public NativeRequest() {
-  }
+  public NativeRequest() {}
 
   public NativeRequestBody getNativeRequestBody() {
     return this.nativeRequestBody;
@@ -41,8 +40,9 @@ public class NativeRequest {
     if (!other.canEqual((Object) this)) return false;
     final Object this$nativeRequestBody = this.getNativeRequestBody();
     final Object other$nativeRequestBody = other.getNativeRequestBody();
-    if (this$nativeRequestBody == null ? other$nativeRequestBody != null : !this$nativeRequestBody.equals(other$nativeRequestBody))
-      return false;
+    if (this$nativeRequestBody == null
+        ? other$nativeRequestBody != null
+        : !this$nativeRequestBody.equals(other$nativeRequestBody)) return false;
     return true;
   }
 
@@ -59,6 +59,8 @@ public class NativeRequest {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.NativeRequest(nativeRequestBody=" + this.getNativeRequestBody() + ")";
+    return "net.media.openrtb25.request.NativeRequest(nativeRequestBody="
+        + this.getNativeRequestBody()
+        + ")";
   }
 }

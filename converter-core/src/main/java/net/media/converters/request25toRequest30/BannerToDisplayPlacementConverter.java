@@ -18,7 +18,6 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
@@ -28,23 +27,17 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-/**
- * Created by rajat.go on 03/01/19.
- */
+/** Created by rajat.go on 03/01/19. */
 public class BannerToDisplayPlacementConverter implements Converter<Banner, DisplayPlacement> {
 
   @Override
-  public DisplayPlacement map(Banner banner, Config config, Provider
-    converterProvider) throws OpenRtbConverterException {
+  public DisplayPlacement map(Banner banner, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
     if (isNull(banner)) {
       return null;
     }
@@ -54,9 +47,9 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
   }
 
   @Override
-  public void enhance(Banner banner, DisplayPlacement displayPlacement, Config config,
-                      Provider converterProvider) throws
-    OpenRtbConverterException {
+  public void enhance(
+      Banner banner, DisplayPlacement displayPlacement, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
     if (isNull(banner) || isNull(displayPlacement)) {
       return;
     }
@@ -85,8 +78,8 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
           displayPlacement.getExt().remove("unit");
         }
         if (bannerExt.containsKey("ctype")) {
-          displayPlacement.setCtype(Utils.copyCollection((List<Integer>) bannerExt.get
-            ("ctype"), config));
+          displayPlacement.setCtype(
+              Utils.copyCollection((List<Integer>) bannerExt.get("ctype"), config));
           displayPlacement.getExt().remove("ctype");
         }
         if (bannerExt.containsKey("ptype")) {
@@ -148,41 +141,40 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
 
   private Collection<Integer> impBannerExpdir(Banner banner) {
     Collection<Integer> expdir = banner.getExpdir();
-    if ( expdir == null ) {
+    if (expdir == null) {
       return null;
     }
     return expdir;
   }
 
-  private Collection<DisplayFormat> formatListToDisplayFormatList(Collection<Format> list, Config
-    config) {
-    if ( list == null ) {
+  private Collection<DisplayFormat> formatListToDisplayFormatList(
+      Collection<Format> list, Config config) {
+    if (list == null) {
       return null;
     }
 
-    List<DisplayFormat> list1 = new ArrayList<DisplayFormat>( list.size() );
-    for ( Format format : list ) {
-      list1.add( map( format, config ) );
+    List<DisplayFormat> list1 = new ArrayList<DisplayFormat>(list.size());
+    for (Format format : list) {
+      list1.add(map(format, config));
     }
 
     return list1;
   }
 
   private DisplayFormat map(Format format, Config config) {
-    if ( format == null ) {
+    if (format == null) {
       return null;
     }
 
     DisplayFormat displayFormat = new DisplayFormat();
 
     displayFormat.setExt(Utils.copyMap(format.getExt(), config));
-    displayFormat.setW( format.getW() );
-    displayFormat.setH( format.getH() );
-    displayFormat.setWratio( format.getWratio() );
-    displayFormat.setHratio( format.getHratio() );
+    displayFormat.setW(format.getW());
+    displayFormat.setH(format.getH());
+    displayFormat.setWratio(format.getWratio());
+    displayFormat.setHratio(format.getHratio());
     if (nonNull(format.getWmin())) {
-      if(displayFormat.getExt() == null)
-        displayFormat.setExt(new HashMap<>());
+      if (displayFormat.getExt() == null) displayFormat.setExt(new HashMap<>());
       displayFormat.getExt().put("wmin", format.getWmin());
     }
 

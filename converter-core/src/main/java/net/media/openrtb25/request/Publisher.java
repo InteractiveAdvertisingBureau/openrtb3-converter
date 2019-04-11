@@ -16,20 +16,14 @@
 
 package net.media.openrtb25.request;
 
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
-import javax.validation.constraints.NotNull;
+/** Created by vishnu on 6/5/16. */
+public class Publisher {
 
-
-/**
- * Created by vishnu on 6/5/16.
- */
-public class Publisher  {
-
-  @NotNull
-  private String id;
+  @NotNull private String id;
 
   private String name;
 
@@ -43,43 +37,42 @@ public class Publisher  {
     this.id = id;
   }
 
-  public Publisher() {
-  }
+  public Publisher() {}
 
   public @NotNull String getId() {
     return this.id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public Collection<String> getCat() {
-    return this.cat;
-  }
-
-  public String getDomain() {
-    return this.domain;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setId(@NotNull String id) {
     this.id = id;
   }
 
+  public String getName() {
+    return this.name;
+  }
+
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Collection<String> getCat() {
+    return this.cat;
   }
 
   public void setCat(Collection<String> cat) {
     this.cat = cat;
   }
 
+  public String getDomain() {
+    return this.domain;
+  }
+
   public void setDomain(String domain) {
     this.domain = domain;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -131,6 +124,16 @@ public class Publisher  {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.Publisher(id=" + this.getId() + ", name=" + this.getName() + ", cat=" + this.getCat() + ", domain=" + this.getDomain() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.Publisher(id="
+        + this.getId()
+        + ", name="
+        + this.getName()
+        + ", cat="
+        + this.getCat()
+        + ", domain="
+        + this.getDomain()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

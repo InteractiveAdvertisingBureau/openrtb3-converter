@@ -27,13 +27,13 @@ import java.util.HashMap;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-/**
- * Created by rajat.go on 03/04/19.
- */
-public class RequestToBidRequestConverter extends net.media.converters.request30toRequest25.RequestToBidRequestConverter {
+/** Created by rajat.go on 03/04/19. */
+public class RequestToBidRequestConverter
+    extends net.media.converters.request30toRequest25.RequestToBidRequestConverter {
 
-  public void enhance(Request source, BidRequest2_X target, Config config, Provider
-    converterProvider) throws OpenRtbConverterException {
+  public void enhance(
+      Request source, BidRequest2_X target, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }

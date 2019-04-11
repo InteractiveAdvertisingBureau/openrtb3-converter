@@ -21,12 +21,9 @@ import javax.validation.constraints.NotNull;
 
 public class Media {
 
-  @NotNull
-  @Valid
-  private Ad ad;
+  @NotNull @Valid private Ad ad;
 
-  public Media() {
-  }
+  public Media() {}
 
   public @NotNull @Valid Ad getAd() {
     return this.ad;

@@ -17,7 +17,6 @@
 package net.media.openrtb3;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 public class Data {
@@ -31,28 +30,28 @@ public class Data {
     return this.id;
   }
 
-  public String getName() {
-    return this.name;
-  }
-
-  public Collection<Segment> getSegment() {
-    return this.segment;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setId(String id) {
     this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
   }
 
   public void setName(String name) {
     this.name = name;
   }
 
+  public Collection<Segment> getSegment() {
+    return this.segment;
+  }
+
   public void setSegment(Collection<Segment> segment) {
     this.segment = segment;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {

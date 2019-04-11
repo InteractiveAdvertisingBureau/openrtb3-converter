@@ -17,8 +17,6 @@
 package net.media.converters.request30toRequest23;
 
 import net.media.config.Config;
-import net.media.converters.Converter;
-import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.VideoPlacement;
@@ -29,14 +27,13 @@ import java.util.HashMap;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-/**
- * Created by rajat.go on 03/04/19.
- */
-public class VideoPlacementToVideoConverter extends net.media.converters.request30toRequest25.VideoPlacementToVideoConverter {
+/** Created by rajat.go on 03/04/19. */
+public class VideoPlacementToVideoConverter
+    extends net.media.converters.request30toRequest25.VideoPlacementToVideoConverter {
 
-  public void enhance(VideoPlacement videoPlacement, Video video, Config config,
-                      Provider converterProvider) throws
-    OpenRtbConverterException {
+  public void enhance(
+      VideoPlacement videoPlacement, Video video, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
     if (videoPlacement == null || video == null) {
       return;
     }

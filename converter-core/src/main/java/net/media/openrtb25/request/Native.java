@@ -18,27 +18,20 @@ package net.media.openrtb25.request;
 
 import net.media.utils.JacksonObjectMapper;
 
+import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
-import javax.validation.constraints.NotNull;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-/**
- * Created by vishnu on 6/5/16.
- */
-
+/** Created by vishnu on 6/5/16. */
 public class Native {
 
   public static final String DEFAULT_NATIVE_VERSION = "1.1";
 
-  @NotNull
-  private Object request;
+  @NotNull private Object request;
 
   private String ver = DEFAULT_NATIVE_VERSION;
 
@@ -52,8 +45,7 @@ public class Native {
 
   private transient String requestAsString;
 
-  public Native() {
-  }
+  public Native() {}
 
   public NativeRequestBody getNativeRequestBody() {
     if (nonNull(nativeRequestBody)) {
@@ -67,17 +59,23 @@ public class Native {
       String nativeRequestString = (String) request;
       requestAsString = nativeRequestString;
       try {
-        nativeRequestBody = JacksonObjectMapper.getMapper().readValue(nativeRequestString,
-          NativeRequestBody.class);
+        nativeRequestBody =
+            JacksonObjectMapper.getMapper().readValue(nativeRequestString, NativeRequestBody.class);
       } catch (IOException e) {
         return null;
       }
     } else {
-      NativeRequest nativeRequest = JacksonObjectMapper.getMapper().convertValue(request,NativeRequest.class);
-      nativeRequestBody = JacksonObjectMapper.getMapper().convertValue(nativeRequest.getNativeRequestBody(),
-        NativeRequestBody.class);
+      NativeRequest nativeRequest =
+          JacksonObjectMapper.getMapper().convertValue(request, NativeRequest.class);
+      nativeRequestBody =
+          JacksonObjectMapper.getMapper()
+              .convertValue(nativeRequest.getNativeRequestBody(), NativeRequestBody.class);
     }
     return nativeRequestBody;
+  }
+
+  public void setNativeRequestBody(NativeRequestBody nativeRequestBody) {
+    this.nativeRequestBody = nativeRequestBody;
   }
 
   public String getRequestAsString() {
@@ -87,52 +85,48 @@ public class Native {
     return requestAsString;
   }
 
+  public void setRequestAsString(String requestAsString) {
+    this.requestAsString = requestAsString;
+  }
+
   public @NotNull Object getRequest() {
     return this.request;
-  }
-
-  public String getVer() {
-    return this.ver;
-  }
-
-  public Collection<Integer> getApi() {
-    return this.api;
-  }
-
-  public Collection<Integer> getBattr() {
-    return this.battr;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setRequest(@NotNull Object request) {
     this.request = request;
   }
 
+  public String getVer() {
+    return this.ver;
+  }
+
   public void setVer(String ver) {
     this.ver = ver;
+  }
+
+  public Collection<Integer> getApi() {
+    return this.api;
   }
 
   public void setApi(Collection<Integer> api) {
     this.api = api;
   }
 
+  public Collection<Integer> getBattr() {
+    return this.battr;
+  }
+
   public void setBattr(Collection<Integer> battr) {
     this.battr = battr;
   }
 
+  public Map<String, Object> getExt() {
+    return this.ext;
+  }
+
   public void setExt(Map<String, Object> ext) {
     this.ext = ext;
-  }
-
-  public void setNativeRequestBody(NativeRequestBody nativeRequestBody) {
-    this.nativeRequestBody = nativeRequestBody;
-  }
-
-  public void setRequestAsString(String requestAsString) {
-    this.requestAsString = requestAsString;
   }
 
   public boolean equals(Object o) {
@@ -180,6 +174,20 @@ public class Native {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.Native(request=" + this.getRequest() + ", ver=" + this.getVer() + ", api=" + this.getApi() + ", battr=" + this.getBattr() + ", ext=" + this.getExt() + ", nativeRequestBody=" + this.getNativeRequestBody() + ", requestAsString=" + this.getRequestAsString() + ")";
+    return "net.media.openrtb25.request.Native(request="
+        + this.getRequest()
+        + ", ver="
+        + this.getVer()
+        + ", api="
+        + this.getApi()
+        + ", battr="
+        + this.getBattr()
+        + ", ext="
+        + this.getExt()
+        + ", nativeRequestBody="
+        + this.getNativeRequestBody()
+        + ", requestAsString="
+        + this.getRequestAsString()
+        + ")";
   }
 }
