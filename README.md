@@ -17,7 +17,9 @@ However, structural changes also mean that oRTB 3.0 is not backward compatible. 
 
 This is the problem which media.net wants to solve with the open source library which can be used to convert requests and responses from OpenRTB 3.0 to OpenRTB 2.x and vice-versa.
 
-![alt text](https://github.com/media-net/openrtb3-converter/blob/master/convert.png)
+How the convertor fits in when an exchange and a DSP/EXchange are on different versions on OpenRTB:
+
+![Supply chain](https://github.com/media-net/openrtb3-converter/blob/master/convert.png)
 
 
 ## How is the conversion done?
