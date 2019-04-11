@@ -172,7 +172,7 @@
                           "h": 20,
                           "wratio":200,
                           "hratio":30,
-                          "expdir": [3, 9],
+                          "expdir": [3, 4],
                           "ext": {
                             "dummy": "f1.ext"
                           }
@@ -182,7 +182,7 @@
                           "h": 11,
                           "wratio":200,
                           "hratio":30,
-                          "expdir": [3, 9],
+                          "expdir": [3, 4],
                           "ext": {
                             "dummy": "f2.ext"
                           }

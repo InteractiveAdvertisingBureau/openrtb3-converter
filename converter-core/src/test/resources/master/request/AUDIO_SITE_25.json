@@ -79,10 +79,6 @@
         "1",
         "2"
       ],
-      "battr": [
-        1,
-        2
-      ],
       "minduration": 1,
       "maxduration": 1,
       "protocols": [
@@ -101,47 +97,6 @@
         2,
         1
       ],
-      "companionad": [{
-        "id": "dd",
-        "format": [{
-          "w": 200,
-          "h": 20,
-          "wratio": 1,
-          "hratio": 2,
-          "wmin":3,
-          "ext": {
-            "dummy": "ff"
-          }
-        }, {
-          "w": 33,
-          "h": 11,
-          "wratio": 1,
-          "hratio": 2,
-          "wmin":3,
-          "ext": {
-            "dummy": "ff"
-          }
-        }],
-        "h": 250,
-        "w": 300,
-        "wmax": 22,
-        "hmax": 11,
-        "wmin": 1,
-        "hmin": 9,
-        "btype": [3, 4],
-        "battr": [1, 2],
-        "topframe": 22,
-        "expdir": [3, 9],
-        "api": [3, 2],
-        "vcm": 22,
-        "mimes": ["application/x-shockwave-flash",
-          "image/jpg"
-        ],
-        "pos": 0,
-        "ext": {
-          "dummy": "ff"
-        }
-      }],
       "api": [
         1,
         2
@@ -197,9 +152,11 @@
       "ext":{
         "delay": 1,
         "skipmin": 1,
+        "skip":1,
         "skipafter": 1,
         "playmethod": 1,
-        "playend": 1
+        "playend": 1,
+        "qty":1
       }
     },
     "ext": {
