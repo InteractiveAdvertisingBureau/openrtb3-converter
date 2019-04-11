@@ -1,0 +1,33 @@
+cases:
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: BANNER_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: bannerSite30TC1
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: "\"abc\""
+   outputFile: empty.json
+   outputType: "REQUEST25"
+   outputEdits:
+     status: "ERROR"
+   purpose: bannerSite30TC2
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.context.site.content.cat[*]: null
+     openrtb.request.context.site.content.cat[0]: "\"IAB3-1\""
+     openrtb.request.context.site.content.cat[1]: "\"IAB3-2\""
+   outputFile: BANNER_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     site.content.cat[*]: null
+     site.content.cat[0]: "\"IAB3-1\""
+     site.content.cat[1]: "\"IAB3-2\""
+   purpose: bannerSite30TC3
