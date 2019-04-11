@@ -47,7 +47,6 @@
         "mediaAdDisplayExt": "mediaAdDisplayExt",
         "mediaAdExt": "mediaAdExt",
         "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt",
-        "protocol" : 123,
         "macro": [{
           "key" : "test",
           "value" : "test2",
