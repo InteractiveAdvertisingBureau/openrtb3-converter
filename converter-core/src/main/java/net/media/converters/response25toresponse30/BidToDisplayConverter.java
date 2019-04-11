@@ -61,15 +61,21 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
           NativeResponse nativeResponse = Utils.getMapper().readValue((String) source.getAdm(),
             NativeResponse.class);
           Native _native = converter.map(nativeResponse, config, converterProvider);
-          target.setAdm(_native);
+          if(config.getNativeResponseAsString())
+            target.setAdm(_native);
+          else
+            target.set_native(_native);
         } catch (IOException e) {
           throw new OpenRtbConverterException("error while deserializing native response object", e);
         }
       } else {
         try {
-          NativeResponse nativeResponse = Utils.getMapper().convertValue(source.getAdm(),NativeResponse.class);
-          Native _native = converter.map((NativeResponse) source.getAdm(), config, converterProvider);
-          target.setAdm(_native);
+          Native _native = converter.map(Utils.getMapper().convertValue(source.getAdm(), NativeResponse.class), config, converterProvider);
+          //Native _native = converter.map((NativeResponse) source.getAdm(), config, converterProvider);
+          if(config.getNativeResponseAsString())
+            target.setAdm(_native);
+          else
+            target.set_native(_native);
         }
         catch (Exception e) {
           throw new OpenRtbConverterException("error while casting adm to native response", e);

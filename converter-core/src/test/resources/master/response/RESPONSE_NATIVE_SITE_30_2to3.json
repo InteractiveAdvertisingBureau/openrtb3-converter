@@ -8,18 +8,15 @@
     "nbr": 1,
     "cur": "USD",
     "cdata": "cdata",
-    "ext": {
-      "customdata": "pyaz",
-      "ankit": {
-        "cho": "lul"
-      }
-    },
     "seatbid": [{
       "package": 2,
       "seat": "XYZ",
       "bid": [{
         "ext": {
-          "protocol": 123
+          "protocol": 123,
+          "buyermemberid": 298,
+          "display": "ext",
+          "dummy": "bid.ext"
         },
         "id": "yaddayadda",
         "item": "1",
@@ -41,6 +38,21 @@
         }],
         "media": {
           "ad": {
+            "audit": {
+              "status": 1,
+              "feedback": [
+                "a",
+                "bg"
+              ],
+              "init": 1,
+              "lastmod": 1,
+              "corr": {
+                "ab": "cd"
+              },
+              "ext": {
+                "dummy": "audit.ext"
+              }
+            },
             "id": "d0bcb39723af87c2bb00942afee5710e",
             "adomain": [
               "ford.com"
@@ -66,8 +78,7 @@
             "display": {
               "mime": "image/jpeg",
               "api": [
-                1,
-                2
+                1
               ],
               "ctype": 3,
               "w": 320,
@@ -79,12 +90,12 @@
               "native": {
                 "ext": {
                   "dummy": "native.ext",
-                  "imptrackers": [
+                  "impTrackers": [
                     "a", "b"
                   ],
-                  "jstrackers": "ran"
+                  "jsTracker": "ran"
                 },
-                "asset": {
+                "asset": [{
                   "id": 1,
                   "req": 1,
                   "title": {
@@ -104,14 +115,14 @@
                     }
                   },
                   "video": {
-                    "vasttag": "adm",
+                    "adm": "adm",
                     "curl": "curl.com",
                     "ext": {
                       "dummy": "video.ext"
                     }
                   },
                   "data": {
-                    "value": "value",
+                    "value": ["value"],
                     "len": 5,
                     "type": 1,
                     "ext": {
@@ -133,6 +144,17 @@
                   "ext": {
                     "dummy": "asset.ext"
                   }
+                }],
+                "link": {
+                  "trkr": [
+                    "a",
+                    "bc"
+                  ],
+                  "ext": {
+                    "dummy": "link.ext"
+                  },
+                  "urlfb": "abc.com",
+                  "url": "ab.com"
                 }
               },
               "event": [{
@@ -149,10 +171,7 @@
                 "ext": {
                   "dummy": "event.ext"
                 }
-              }],
-              "ext": {
-                "display": "ext"
-              }
+              }]
             }
           }
         }

@@ -54,7 +54,9 @@ public class Native30ToNative10Converter implements Converter<Native,NativeRespo
     try {
       if (nonNull(source.getExt())) {
         nativeResponseBody.setJstracker((String) source.getExt().get("jsTracker"));
+        nativeResponseBody.getExt().remove("jsTracker");
         nativeResponseBody.setImptrackers((List<String>) source.getExt().get("impTrackers"));
+        nativeResponseBody.getExt().remove("impTrackers");
       }
     }
     catch (Exception e) {

@@ -1,7 +1,6 @@
 package net.media.openrtb3;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 public class Audit {
@@ -10,7 +9,7 @@ public class Audit {
   private Collection<String> feedback = null;
   private Integer init;
   private Integer lastmod;
-  private Corr corr;
+  private Map<String, Object> corr;
   private Map<String,Object> ext;
 
   public Audit() {
@@ -32,7 +31,7 @@ public class Audit {
     return this.lastmod;
   }
 
-  public Corr getCorr() {
+  public Map<String, Object> getCorr() {
     return this.corr;
   }
 
@@ -56,7 +55,7 @@ public class Audit {
     this.lastmod = lastmod;
   }
 
-  public void setCorr(Corr corr) {
+  public void setCorr(Map<String, Object> corr) {
     this.corr = corr;
   }
 

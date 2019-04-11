@@ -13,7 +13,7 @@
       "cid": "campaign-xyz.123",
       "crid": "d0bcb39723af87c2bb00942afee5710e",
       "tactic":"...",
-      "bundle": 1,
+      "bundle": "1",
       "nurl": "purl",
       "burl":"burl",
       "lurl": "lurl",
@@ -23,7 +23,7 @@
           "imptrackers": [
             "a", "b"
           ],
-          "jstrackers": "ran",
+          "jstracker": "ran",
           "link": {
             "url": "ab.com",
             "fallback": "abc.com",
@@ -35,7 +35,7 @@
               "dummy": "link.ext"
             }
           },
-          "asset": {
+          "asset": [{
             "id": 1,
             "required": 1,
             "title": {
@@ -84,7 +84,7 @@
             "ext": {
               "dummy": "asset.ext"
             }
-          },
+          }],
           "ext": {
             "dummy": "native.ext"
           }
@@ -107,7 +107,7 @@
       "h": 50,
       "w": 320,
       "wratio": 1,
-      "hrataio": 2,
+      "hratio": 2,
       "ext": {
         "display": "ext",
         "buyermemberid": 298,
@@ -120,9 +120,6 @@
         "lastmod": 1,
         "priv": "232",
         "dummy": "bid.ext",
-        "brandid": [
-          null
-        ],
         "audit": {
           "status": 1,
           "feedback": [
@@ -132,12 +129,12 @@
           "init": 1,
           "lastmod": 1,
           "corr": {
-            "a": "corr"
+            "ab": "cd"
           },
           "ext": {
-            "dummy": "corr.ext"
+            "dummy": "audit.ext"
           }
-        }
+        },
         "macro": [{
           "key": "key",
           "value": "duck",
