@@ -15,10 +15,7 @@ import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.nonNull;
 
@@ -42,18 +39,20 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     if (source == null || target == null) {
       return;
     }
-    target.setH( source.getH() );
-    target.setWratio( source.getWratio() );
-    target.setW( source.getW() );
-    target.setHratio( source.getHratio() );
-    if(nonNull(source.getApi()))
-      target.setApi(new ArrayList<>(Arrays.asList(source.getApi())));
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("curl")) {
-        target.setCurl((String) source.getExt().get("curl"));
-        source.getExt().remove("curl");
-      }
+    target.setH(source.getH());
+    target.setWratio(source.getWratio());
+    target.setW(source.getW());
+    target.setHratio(source.getHratio());
+    target.setCurl(source.getNurl());
+    if(nonNull(source.getApi())) {
+      target.setApi(new ArrayList<>(Collections.singletonList(source.getApi())));
     }
+//    if (nonNull(source.getExt())) {
+//      if (source.getExt().containsKey("curl")) {
+//        target.setCurl((String) source.getExt().get("curl"));
+//        source.getExt().remove("curl");
+//      }
+//    }
     Converter<NativeResponse, Native> converter = converterProvider.fetch(new Conversion<>(NativeResponse.class, Native.class));
     if (config.getAdType(source.getId()) == AdType.NATIVE) {
       if (source.getAdm() instanceof String) {
