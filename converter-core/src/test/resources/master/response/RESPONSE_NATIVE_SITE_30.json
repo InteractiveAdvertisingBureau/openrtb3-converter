@@ -1,5 +1,7 @@
 {
-  "domainSpec": "3.0",
+  "domainSpec": "adcom",
+  "domainVer": "1.0",
+  "ver": "3.0",
   "response": {
     "id": "0123456789ABCDEF",
     "bidid": "0011223344AABBCC",
@@ -13,26 +15,30 @@
       }
     },
     "seatbid": [{
+      "package": 2,
       "seat": "XYZ",
       "bid": [{
+        "ext": {
+          "protocol": 123
+        },
         "id": "yaddayadda",
         "item": "1",
         "deal": "1234",
-        "price": 1.50,
+        "price": 4.5,
         "tactic": "...",
-        "purl": "http://www.example.com/",
-        "burl": "http://www.example1.com/",
-        "lurl": "http://www.example2.com/",
+        "purl": "purl",
+        "burl": "burl",
+        "lurl": "lurl",
         "mid": "123",
         "cid": "campaign-xyz.123",
         "exp": 1,
-        "macro": {
-          "key": "macro1",
+        "macro": [{
+          "key": "key",
           "value": "duck",
           "ext": {
-            "customdata": "pyaz"
+            "customdata": "macro.ext"
           }
-        },
+        }],
         "media": {
           "ad": {
             "id": "d0bcb39723af87c2bb00942afee5710e",
@@ -40,7 +46,7 @@
               "ford.com"
             ],
             "bundle": [
-              "chocho"
+              "1"
             ],
             "iurl": "Abcd.com",
             "cat": [
@@ -54,7 +60,7 @@
               1
             ],
             "secure": 1,
-            "mrating": 1,
+            "mrating": 5,
             "init": 1,
             "lastmod": 1,
             "display": {
@@ -69,23 +75,64 @@
               "wratio": 1,
               "hratio": 2,
               "priv": "232",
-              "adm": "asvsdd",
               "curl": "http://www.example3.com/",
-              "banner": {
-                "img": "https://somebuyer.com/creative",
-                "link": {
-                  "url": "https://somebuyer.com/click",
-                  "urlfb": "https://somebuyer.com",
-                  "trkr": [
-                    "2113",
-                    "21312"
-                  ],
-                  "ext": {
-                    "link": "link"
-                  }
-                },
+              "native": {
                 "ext": {
-                  "xyz": "111"
+                  "dummy": "native.ext",
+                  "imptrackers": [
+                    "a", "b"
+                  ],
+                  "jstrackers": "ran"
+                },
+                "asset": {
+                  "id": 1,
+                  "req": 1,
+                  "title": {
+                    "text": "text",
+                    "len": 3,
+                    "ext": {
+                      "dummy": "title.ext"
+                    }
+                  },
+                  "image": {
+                    "url": "abcd.com",
+                    "w": 300,
+                    "h": 200,
+                    "type": 1,
+                    "ext": {
+                      "dummy": "image.ext"
+                    }
+                  },
+                  "video": {
+                    "vasttag": "adm",
+                    "curl": "curl.com",
+                    "ext": {
+                      "dummy": "video.ext"
+                    }
+                  },
+                  "data": {
+                    "value": "value",
+                    "len": 5,
+                    "type": 1,
+                    "ext": {
+                      "label": "label",
+                      "dummy": "data.ext"
+                    }
+                  },
+                  "link": {
+                    "url": "ur.com",
+                    "urlfb": "urlfb.com",
+                    "trkr": [
+                      "a",
+                      "bcdf"
+                    ],
+                    "ext": {
+                      "dummy": "link.ext"
+                    }
+                  },
+                  "ext": {
+                    "dummy": "asset.ext"
+                  }
                 }
               },
               "event": [{
@@ -98,32 +145,24 @@
                 ],
                 "cdata": {
                   "acct": "123"
+                },
+                "ext": {
+                  "dummy": "event.ext"
                 }
               }],
               "ext": {
-                "aloo1": "pyaz",
-                "test": {
-                  "test1": "test1"
-                }
-              }
-            },
-            "ext": {
-              "aloo2": "pyaz",
-              "test2": {
-                "test3": "test3"
+                "display": "ext"
               }
             }
           }
         }
       }],
-      "_package": 2,
       "ext": {
-        "aloo3": "pyaz",
-        "test4": {
-          "test5": "test5"
-        }
+        "seatbid": "ext"
       }
-    }]
-
+    }],
+    "ext": {
+      "resp": "ext"
+    }
   }
 }
