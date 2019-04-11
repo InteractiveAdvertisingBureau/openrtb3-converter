@@ -39,8 +39,6 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
       Bid.class));
     Converter<Audio, Bid> audioBidConverter = converterProvider.fetch(new Conversion<>(Audio.class,
       Bid.class));
-    Converter<Audit, Bid> auditBidConverter = converterProvider.fetch(new Conversion<>(Audit.class,
-      Bid.class));
 
     target.setCrid(source.getId());
 
@@ -69,6 +67,9 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
     if (nonNull(source.getCattax())) {
       target.getExt().put("cattax", source.getCattax());
     }
+    if (nonNull(source.getAudit())) {
+      target.getExt().put("audit", source.getAudit());
+    }
     target.setQagmediarating(source.getMrating());
     AdType adType = config.getAdType(target.getId());
     switch (adType) {
@@ -81,9 +82,6 @@ public class AdToBidConverter implements Converter<Ad,Bid>{
         break;
       case AUDIO:
         audioBidConverter.enhance(source.getAudio(),target,config, converterProvider);
-        break;
-      case AUDIT:
-        auditBidConverter.enhance(source.getAudit(),target,config, converterProvider);
         break;
     }
 
