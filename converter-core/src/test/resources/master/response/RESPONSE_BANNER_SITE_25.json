@@ -1,5 +1,5 @@
 {
-  "id": "edb8cd70-592e-4a4c-bcb5-3ba0c68d7552",
+  "id": "0123456789ABCDEF",
   "cur": "USD",
   "customdata": "cdata",
   "seatbid": [{
@@ -33,11 +33,21 @@
       "h": 90,
       "w": 728,
       "wratio": 90,
-      "hrataio": 55,
+      "hratio": 55,
       "ext": {
+        "audit": {
+          "status": 1,
+          "feedback": ["testfeedback"],
+          "init": 1,
+          "lastmod": 1,
+          "ext": {
+            "auditExt": "auditExt"
+          }
+        },
         "mediaAdDisplayExt": "mediaAdDisplayExt",
         "mediaAdExt": "mediaAdExt",
         "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt",
+        "protocol" : 123,
         "macro": [{
           "key" : "test",
           "value" : "test2",
@@ -82,7 +92,7 @@
       }
     }],
     "ext": {
-        "bidresponseSeatbidExt" : "bidresponseSeatbidExt"
+      "bidresponseSeatbidExt" : "bidresponseSeatbidExt"
     },
     "seat": "xyzseat",
     "group": 1
