@@ -814,6 +814,6 @@
   },
   "purpose" : "nativeSiteRequest_3to2",
   "params" : {
-    "nativeRequestAsString" : "false"
+    "nativeRequestAsString" : false
   }
 }

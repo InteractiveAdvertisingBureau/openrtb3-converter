@@ -47,7 +47,8 @@ public class TestCaseGenerator {
     mapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
     for (Path rootPath : Files.list(Paths.get(basePath + "edits")).collect(Collectors.toList())) {
       for (Path path : Files.list(rootPath).collect(Collectors.toList())) {
-
+//        if(path.getFileName().toString().equals("testScript_Response_MasterTester_2to3.txt")==false)
+//          continue;
         String json2 = new String(Files.readAllBytes(path));
         final Test test = mapper.readValue(json2, Test.class);
 
