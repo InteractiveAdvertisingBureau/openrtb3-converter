@@ -98,8 +98,7 @@
     "ext" : {
       "bidresponseEXT" : "bidresponseEXT"
     },
-    "bidid" : "7phb82pzl",
-    "nbr" : 2
+    "bidid" : "7phb82pzl"
   },
   "outputFile" : "RESPONSE_BANNER_SITE_30_2to3.json",
   "outputType" : "RESPONSE30",
@@ -114,7 +113,6 @@
       "response" : {
         "id" : "1",
         "bidid" : "7phb82pzl",
-        "nbr" : 2,
         "cur" : "USD",
         "cdata" : "cdata",
         "ext" : {

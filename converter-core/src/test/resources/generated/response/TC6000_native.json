@@ -12,7 +12,6 @@
       "response" : {
         "id" : "1",
         "bidid" : "7phb82pzl",
-        "nbr" : 2,
         "cur" : "USD",
         "cdata" : "cdata",
         "ext" : {
@@ -223,8 +222,7 @@
     "ext" : {
       "bidresponseEXT" : "bidresponseEXT"
     },
-    "bidid" : "7phb82pzl",
-    "nbr" : 2
+    "bidid" : "7phb82pzl"
   },
   "purpose" : "TC6000_native",
   "params" : null
