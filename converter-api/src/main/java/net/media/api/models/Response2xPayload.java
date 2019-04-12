@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,9 +52,7 @@ public class Response2xPayload {
       return false;
     final Object this$config = this.getConfig();
     final Object other$config = other.getConfig();
-    if (this$config == null ? other$config != null : !this$config.equals(other$config))
-      return false;
-    return true;
+    return this$config == null ? other$config == null : this$config.equals(other$config);
   }
 
   public int hashCode() {

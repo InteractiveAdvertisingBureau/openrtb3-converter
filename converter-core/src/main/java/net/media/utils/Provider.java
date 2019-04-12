@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -71,10 +71,7 @@ public class Provider {
   }
 
   public <X, Y> boolean contains(Conversion<X, Y> key) {
-    if (isNull(key) || !providerMap.containsKey(key)) {
-      return false;
-    }
-    return true;
+    return !(isNull(key) || !providerMap.containsKey(key));
   }
 
   /** clears the entire map */

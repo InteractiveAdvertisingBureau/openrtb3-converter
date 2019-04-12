@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,12 +40,6 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
 
   private static final JavaType javaTypeForBannerCollection =
       Utils.getMapper().getTypeFactory().constructCollectionType(Collection.class, Banner.class);
-
-  public static void main(String[] args) throws Exception {
-    String s = "{\"a\": [1,2,3]}";
-    Object object = Utils.getMapper().readValue(s, Object.class);
-    System.out.println("a");
-  }
 
   @Override
   public AssetFormat map(Asset asset, Config config, Provider converterProvider)
