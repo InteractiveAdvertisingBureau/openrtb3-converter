@@ -10,7 +10,7 @@
           "id": "yaddayadda",
           "impid": "1",
           "price": 1.50,
-          "bundle": "chocho",
+          "bundle": "abcdeabcde",
           "nurl": "http://www.example.com/",
           "burl": "http://www.example1.com/",
           "lurl": "http://www.example2.com/",
@@ -116,6 +116,5 @@
     },
     "admwrapped": false
   },
-  "bidid": "0011223344AABBCC",
-  "nbr": 1
+  "bidid": "0011223344AABBCC"
 }
