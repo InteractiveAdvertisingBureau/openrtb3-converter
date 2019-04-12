@@ -339,14 +339,20 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         if (isNull(imp.getExt())) {
           imp.setExt(new HashMap<>());
         }
-        imp.getExt().put("ssai", item.getSpec().getPlacement().getSsai());
-        imp.getExt().put("reward", item.getSpec().getPlacement().getReward());
-        imp.getExt().put("admx", item.getSpec().getPlacement().getAdmx());
-        imp.getExt().put("curlx", item.getSpec().getPlacement().getCurlx());
+        if(item.getSpec().getPlacement().getSsai() != null)
+          imp.getExt().put("ssai", item.getSpec().getPlacement().getSsai());
+        if(item.getSpec().getPlacement().getReward() != null)
+          imp.getExt().put("reward", item.getSpec().getPlacement().getReward());
+        if(item.getSpec().getPlacement().getAdmx() != null)
+          imp.getExt().put("admx", item.getSpec().getPlacement().getAdmx());
+        if(item.getSpec().getPlacement().getCurlx() != null)
+          imp.getExt().put("curlx", item.getSpec().getPlacement().getCurlx());
       }
       if (nonNull(item.getSpec().getPlacement().getDisplay())) {
-        imp.getExt().put("ampren", item.getSpec().getPlacement().getDisplay().getAmpren());
-        imp.getExt().put("event", item.getSpec().getPlacement().getDisplay().getEvent());
+        if(item.getSpec().getPlacement().getDisplay().getAmpren() != null)
+          imp.getExt().put("ampren", item.getSpec().getPlacement().getDisplay().getAmpren());
+        if(item.getSpec().getPlacement().getDisplay().getEvent() != null)
+          imp.getExt().put("event", item.getSpec().getPlacement().getDisplay().getEvent());
       }
     }
   }

@@ -398,7 +398,7 @@
       }
     }
   },
-  "outputFile" : "NATIVE_SITE_30.json",
+  "outputFile" : "NATIVE_SITE_30_2to3.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
     "openrtb.request.id" : "\"1\""
