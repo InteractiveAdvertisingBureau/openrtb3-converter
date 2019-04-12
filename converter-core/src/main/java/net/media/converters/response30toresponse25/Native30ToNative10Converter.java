@@ -30,6 +30,7 @@ import net.media.openrtb3.Native;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static java.util.Objects.isNull;
@@ -52,7 +53,7 @@ public class Native30ToNative10Converter implements Converter<Native, NativeResp
       throws OpenRtbConverterException {
 
     Converter<Asset, AssetResponse> assetAssetResponseConverter =
-        converterProvider.fetch(new Conversion(Asset.class, AssetResponse.class));
+        converterProvider.fetch(new Conversion<>(Asset.class, AssetResponse.class));
     Converter<LinkAsset, Link> linkAssetLinkConverter =
         converterProvider.fetch(new Conversion<>(LinkAsset.class, Link.class));
 
@@ -72,7 +73,9 @@ public class Native30ToNative10Converter implements Converter<Native, NativeResp
     try {
       if (nonNull(source.getExt())) {
         nativeResponseBody.setJstracker((String) source.getExt().get("jsTracker"));
-        nativeResponseBody.setImptrackers((List<String>) source.getExt().get("impTrackers"));
+        nativeResponseBody.getExt().remove("jsTracker");
+        nativeResponseBody.setImptrackers((Collection<String>) source.getExt().get("impTrackers"));
+        nativeResponseBody.getExt().remove("impTrackers");
       }
     } catch (Exception e) {
       throw new OpenRtbConverterException("error while type casting ext objects in native", e);

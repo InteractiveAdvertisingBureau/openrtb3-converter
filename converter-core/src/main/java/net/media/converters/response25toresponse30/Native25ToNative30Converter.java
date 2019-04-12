@@ -27,6 +27,7 @@ import net.media.openrtb3.Asset;
 import net.media.openrtb3.LinkAsset;
 import net.media.openrtb3.Native;
 import net.media.utils.Provider;
+import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -57,6 +58,7 @@ public class Native25ToNative30Converter implements Converter<NativeResponse, Na
     if (source == null || target == null || source.getNativeResponseBody() == null) {
       return;
     }
+    target.setExt(Utils.copyMap(source.getNativeResponseBody().getExt(), config));
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
@@ -66,7 +68,8 @@ public class Native25ToNative30Converter implements Converter<NativeResponse, Na
         converterProvider.fetch(new Conversion<>(Link.class, LinkAsset.class));
     Converter<AssetResponse, Asset> assetResponseAssetConverter =
         converterProvider.fetch(new Conversion<>(AssetResponse.class, Asset.class));
-    linkLinkAssetConverter.map(source.getNativeResponseBody().getLink(), config, converterProvider);
+    LinkAsset linkAsset = linkLinkAssetConverter.map(source.getNativeResponseBody().getLink(), config, converterProvider);
+    target.setLink(linkAsset);
     if (!isEmpty(source.getNativeResponseBody().getAsset())) {
       List<Asset> assetList = new ArrayList<>();
       for (AssetResponse assetResponse : source.getNativeResponseBody().getAsset()) {

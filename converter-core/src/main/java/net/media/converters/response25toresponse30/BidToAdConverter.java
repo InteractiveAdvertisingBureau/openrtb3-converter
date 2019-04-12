@@ -65,25 +65,26 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
     target.setLang(source.getLanguage());
     target.setAttr(Utils.copyCollection(source.getAttr(), config));
     target.setMrating(source.getQagmediarating());
-    Map<String, Object> map = source.getExt();
-    if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
-    }
     try {
       if (nonNull(source.getExt())) {
         Map<String, Object> ext = source.getExt();
         target.setSecure((Integer) ext.get("secure"));
-        target.getExt().remove("secure");
+        source.getExt().remove("secure");
         target.setInit((Integer) ext.get("init"));
-        target.getExt().remove("init");
+        source.getExt().remove("init");
         target.setLastmod((Integer) ext.get("lastmod"));
-        target.getExt().remove("lastmod");
+        source.getExt().remove("lastmod");
         if (ext.containsKey("cattax")) {
           target.setCattax((Integer) ext.get("cattax"));
         } else {
           target.setCattax(DEFAULT_CATTAX_TWODOTX);
         }
-        target.getExt().remove("cattax");
+        source.getExt().remove("cattax");
+
+        if (source.getExt().containsKey("audit")) {
+          target.setAudit(Utils.getMapper().convertValue(source.getExt().get("audit"), Audit.class));
+          source.getExt().remove("audit");
+        }
       }
     } catch (Exception e) {
       throw new OpenRtbConverterException("error while type casting ext in bid", e);
@@ -105,11 +106,6 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
         Converter<Bid, Audio> bidAudioConverter =
             converterProvider.fetch(new Conversion<>(Bid.class, Audio.class));
         target.setAudio(bidAudioConverter.map(source, config, converterProvider));
-        break;
-      case AUDIT:
-        Converter<Bid, Audit> bidAuditConverter =
-            converterProvider.fetch(new Conversion<>(Bid.class, Audit.class));
-        target.setAudit(bidAuditConverter.map(source, config, converterProvider));
         break;
     }
   }

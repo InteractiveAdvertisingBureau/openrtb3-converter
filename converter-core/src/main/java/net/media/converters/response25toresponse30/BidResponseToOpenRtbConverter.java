@@ -49,7 +49,6 @@ public class BidResponseToOpenRtbConverter implements Converter<BidResponse2_X, 
   public void enhance(
       BidResponse2_X source, OpenRTB3_X target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    target.setDomainSpec("3.0");
     Converter<BidResponse2_X, Response> converter =
         converterProvider.fetch(new Conversion<>(BidResponse2_X.class, Response.class));
     target.setResponse(converter.map(source, config, converterProvider));

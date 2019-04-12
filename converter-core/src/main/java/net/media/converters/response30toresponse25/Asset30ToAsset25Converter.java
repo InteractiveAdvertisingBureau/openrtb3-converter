@@ -55,6 +55,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     target.setVideo(videoAssetToNativeVideo(source.getVideo(), config));
     target.setTitle(tittleAssetToNativeTittle(source.getTitle(), config));
     target.setLink(linkAssetLinkConverter.map(source.getLink(), config, converterProvider));
+    target.setExt(Utils.copyMap(source.getExt(), config));
   }
 
   private NativeData dataTonativeData(DataAsset data, Config config) {
@@ -63,13 +64,14 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     nativeData.setExt(Utils.copyMap(data.getExt(), config));
     if (nonNull(data.getExt())) {
       nativeData.setLabel((String) data.getExt().get("label"));
+      nativeData.getExt().remove("label");
     }
     if (isNull(nativeData.getExt())) nativeData.setExt(new HashMap<>());
     nativeData.getExt().put("type", data.getType());
     nativeData.getExt().put("len", data.getLen());
     if (nonNull(data.getValue()) && data.getValue().size() > 0)
       nativeData.setValue(data.getValue().iterator().next());
-    return new NativeData();
+    return nativeData;
   }
 
   private NativeImage imageAssetToNativeImage(ImageAsset imageAsset, Config config) {
@@ -81,7 +83,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     nativeImage.setUrl(imageAsset.getUrl());
     if (isNull(nativeImage.getExt())) nativeImage.setExt(new HashMap<>());
     nativeImage.getExt().put("type", imageAsset.getType());
-    return new NativeImage();
+    return nativeImage;
   }
 
   private NativeVideo videoAssetToNativeVideo(VideoAsset videoAsset, Config config) {
@@ -93,7 +95,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
       nativeVideo.setExt(new HashMap<>());
     }
     nativeVideo.getExt().put("curl", videoAsset.getCurl());
-    return new NativeVideo();
+    return nativeVideo;
   }
 
   private NativeTitle tittleAssetToNativeTittle(TitleAsset titleAsset, Config config) {
@@ -105,6 +107,6 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
       nativeTitle.setExt(new HashMap<>());
     }
     nativeTitle.getExt().put("len", titleAsset.getLen());
-    return new NativeTitle();
+    return nativeTitle;
   }
 }

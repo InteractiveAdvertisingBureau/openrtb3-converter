@@ -49,7 +49,7 @@ public class SeatBid30ToSeatBid25Converter implements Converter<Seatbid, SeatBid
       throws OpenRtbConverterException {
 
     Converter<net.media.openrtb3.Bid, Bid> bidBidConverter =
-        converterProvider.fetch(new Conversion(net.media.openrtb3.Bid.class, Bid.class));
+        converterProvider.fetch(new Conversion<>(net.media.openrtb3.Bid.class, Bid.class));
     if (isNull(source) || isNull(target) || isNull(config)) return;
 
     Map<String, Object> map = source.getExt();

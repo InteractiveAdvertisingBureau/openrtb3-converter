@@ -27,7 +27,11 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -79,7 +83,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
         }
         if (bannerExt.containsKey("ctype")) {
           displayPlacement.setCtype(
-              Utils.copyCollection((List<Integer>) bannerExt.get("ctype"), config));
+              Utils.copyCollection((Collection<Integer>) bannerExt.get("ctype"), config));
           displayPlacement.getExt().remove("ctype");
         }
         if (bannerExt.containsKey("ptype")) {

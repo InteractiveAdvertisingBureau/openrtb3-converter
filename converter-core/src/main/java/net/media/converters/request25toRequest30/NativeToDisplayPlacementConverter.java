@@ -31,6 +31,7 @@ import net.media.utils.Utils;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -96,7 +97,8 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
         if (nonNull(nat.getExt())) {
           if (nat.getExt().containsKey("ctype")) {
             try {
-              displayPlacement.setCtype(new ArrayList<>((List<Integer>) nat.getExt().get("ctype")));
+              displayPlacement.setCtype(Utils.copyCollection((Collection<Integer>) nat.getExt().get
+                ("ctype"), config));
             } catch (ClassCastException e) {
               throw new OpenRtbConverterException("error while typecasting ext for Native", e);
             }

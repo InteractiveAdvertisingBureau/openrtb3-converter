@@ -19,6 +19,7 @@ package net.media.openrtb3;
 import net.media.utils.validator.CheckExactlyOneNotNull;
 
 import javax.validation.Valid;
+import java.util.Map;
 
 @CheckExactlyOneNotNull(fieldNames = {"title", "image", "video", "data", "link"})
 public class Asset {
@@ -30,8 +31,10 @@ public class Asset {
   @Valid private VideoAsset video;
   @Valid private DataAsset data;
   @Valid private LinkAsset link;
+  private Map<String, Object> ext;
 
   public Asset() {}
+
 
   public Integer getId() {
     return this.id;
@@ -87,6 +90,14 @@ public class Asset {
 
   public void setLink(@Valid LinkAsset link) {
     this.link = link;
+  }
+
+	public Map<String, Object> getExt() {
+  	return ext;
+  }
+
+  public void setExt(Map<String, Object> ext) {
+  	this.ext = ext;
   }
 
   public boolean equals(Object o) {

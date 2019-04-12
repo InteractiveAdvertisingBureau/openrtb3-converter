@@ -2,108 +2,94 @@
   "id": "0123456789ABCDEF",
   "cur": "USD",
   "customdata": "cdata",
-  "seatbid": [
-    {
-      "bid": [
-        {
-          "adm": "video ka adm",
-          "id": "yaddayadda",
-          "impid": "1",
-          "price": 1.50,
-          "bundle": "abcdeabcde",
-          "nurl": "http://www.example.com/",
-          "burl": "http://www.example1.com/",
-          "lurl": "http://www.example2.com/",
-          "adid": "123",
-          "adomain": [
-            "ford.com"
-          ],
-          "api": 3,
-          "iurl": "Abcd.com",
-          "cid": "campaign-xyz.123",
-          "crid": "d0bcb39723af87c2bb00942afee5710e",
-          "tactic": "...",
-          "cat": [
-            "cat",
-            "dog"
-          ],
-          "attr": [
-            6,
-            1
-          ],
-          "protocol": 123,
-          "qagmediarating": 5,
-          "language": "english",
-          "exp": 1,
-          "dealid": "1234",
-          "ext": {
-            "bidkaext": "bid.ext",
-            "aloo2": "pyaz",
-            "test2": {
-              "test3": "test3"
-            },
-            "auditkaext": "audit.txt",
-            "audit": {
-              "status": 4,
-              "corr": {
-                "a": {
-                  "b": {
-                    "c": [
-                      1,
-                      2,
-                      3
-                    ]
-                  }
-                }
-              },
-              "feedback": [
-                "feedback1",
-                "feedback2"
-              ],
-              "init": 56,
-              "lastmod": 45
-            },
-            "mime": [
-              "mime1",
-              "mime2"
-            ],
-            "ctype": 5,
-            "dur": 120,
-            "key": "video.ext",
-            "curl": "video.curl",
-            "aloo1": "pyaz",
-            "test": {
-              "test1": "test1"
-            },
-            "init": 1,
-            "lastmod": 1,
-            "secure": 1,
-            "cattax": 1,
-            "macro": {
-              "key": "macro1",
-              "value": "duck",
-              "ext": {
-                "customdata": "pyaz"
-              }
-            },
-            "buyermemberid": 298,
-            "landingpageurl": "www.livelife.best",
-            "brandid": [
-              null
-            ]
-          }
-        }
+  "seatbid": [{
+    "bid": [{
+      "adm":"adm",
+      "id": "yaddayadda",
+      "impid": "1",
+      "price": 1.50,
+      "bundle": "chocho",
+      "nurl": "http://www.example.com/",
+      "burl":"http://www.example1.com/",
+      "lurl": "http://www.example2.com/",
+      "adid": "123",
+      "adomain": [
+        "ford.com"
       ],
+      "api" : 3,
+      "iurl": "Abcd.com",
+      "cid": "campaign-xyz.123",
+      "crid": "d0bcb39723af87c2bb00942afee5710e",
+      "tactic":"...",
+      "cat": [
+        "cat", "dog"
+      ],
+      "attr": [6, 1],
+      "protocol": 123,
+      "qagmediarating":5,
+      "language": "english",
+      "exp": 1,
+      "dealid": "1234",
       "ext": {
-        "aloo3": "pyaz",
-        "test4": {
-          "test5": "seatbid.ext"
-        }
-      },
-      "seat": "XYZ",
-      "group": 2
-    }
-  ],
+        "bidkaext" : "bid.ext",
+        "aloo2": "pyaz",
+        "test2": {
+          "test3": "test3"
+        },
+        "auditkaext" : "audit.txt",
+        "audit" : {
+          "status": 4,
+          "corr" : {
+            "a" : {
+              "b" : {
+                "c" : [1,2,3]
+              }
+            }
+          },
+          "feedback": [
+            "feedback1",
+            "feedback2"
+          ],
+          "init" : 56,
+          "lastmod" : 45
+
+        },
+        "mime" : ["mime1","mime2"],
+        "ctype" : 5,
+        "dur":120,
+        "key":"video.ext",
+        "curl":"video.curl",
+        "aloo1": "pyaz",
+        "test": {
+          "test1": "test1"
+        },
+        "init" :1,
+        "lastmod" : 1,
+        "secure": 1,
+        "cattax" : 1,
+        "macro" : {
+          "key" :"macro1",
+          "value":"duck",
+          "ext": {
+            "customdata":"pyaz"
+          }
+        },
+        "buyermemberid": 298,
+        "landingpageurl": "www.livelife.best",
+        "brandid": [
+          null
+        ]
+      }
+    }],
+    "ext": {
+      "aloo3": "pyaz",
+      "test4": {
+        "test5": "seatbid.ext"
+      }
+    },
+    "seat": "XYZ",
+    "group": 2
+  }],
   "ext": {
     "buyermemberid": 298,
     "landingpageurl": "www.livelife.best",
