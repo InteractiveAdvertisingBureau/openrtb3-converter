@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,10 +40,7 @@ public class NativeRequest {
     if (!other.canEqual(this)) return false;
     final Object this$nativeRequestBody = this.getNativeRequestBody();
     final Object other$nativeRequestBody = other.getNativeRequestBody();
-    if (this$nativeRequestBody == null
-        ? other$nativeRequestBody != null
-        : !this$nativeRequestBody.equals(other$nativeRequestBody)) return false;
-    return true;
+    return this$nativeRequestBody == null ? other$nativeRequestBody == null : this$nativeRequestBody.equals(other$nativeRequestBody);
   }
 
   public int hashCode() {

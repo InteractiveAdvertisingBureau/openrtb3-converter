@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,8 @@
  */
 
 package net.media.converters.request25toRequest30;
+
+import com.fasterxml.jackson.databind.JavaType;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
@@ -42,6 +44,9 @@ import static java.util.Objects.nonNull;
 
 /** Created by rajat.go on 03/01/19. */
 public class ImpToItemConverter implements Converter<Imp, Item> {
+
+  private static final JavaType javaTypeForEventSpecCollection = Utils.getMapper().getTypeFactory()
+    .constructCollectionType(Collection.class, EventSpec.class);
 
   @Override
   public Item map(Imp imp, Config config, Provider converterProvider)
@@ -105,7 +110,9 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       item.setMetric(metrics1);
     }
     item.setQty(getQuantity(imp));
-    item.getExt().remove("qty");
+    if (nonNull(item.getExt()) && imp.getExt().containsKey("qty")) {
+      item.getExt().remove("qty");
+    }
     impToItemAfterMapping(imp, item);
   }
 
@@ -154,7 +161,8 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
           displayPlacement.setAmpren((Integer) imp.getExt().get("ampren"));
         }
         if (imp.getExt().containsKey("event")) {
-          displayPlacement.setEvent((Collection<EventSpec>) imp.getExt().get("event"));
+          displayPlacement.setEvent(Utils.getMapper().convertValue(imp.getExt().get("event"),
+            javaTypeForEventSpecCollection));
         }
       }
     } catch (ClassCastException e) {

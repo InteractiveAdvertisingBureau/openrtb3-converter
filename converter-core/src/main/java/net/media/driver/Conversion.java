@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,9 +56,7 @@ public class Conversion<U, V> {
       return false;
     final Object this$target = this.getTarget();
     final Object other$target = other.getTarget();
-    if (this$target == null ? other$target != null : !this$target.equals(other$target))
-      return false;
-    return true;
+    return this$target == null ? other$target == null : this$target.equals(other$target);
   }
 
   public int hashCode() {
