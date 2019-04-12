@@ -1,28 +1,41 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.converters.request30toRequest25;
 
-import net.media.driver.Conversion;
-import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Audio;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Deal;
-import net.media.openrtb25.request.Imp;
+import net.media.openrtb25.request.*;
 import net.media.openrtb25.request.Metric;
 import net.media.openrtb25.request.Native;
-import net.media.openrtb25.request.Pmp;
 import net.media.openrtb25.request.Video;
-import net.media.openrtb3.AudioPlacement;
-import net.media.openrtb3.DisplayPlacement;
-import net.media.openrtb3.Item;
-import net.media.openrtb3.Placement;
-import net.media.openrtb3.Spec;
-import net.media.openrtb3.VideoPlacement;
+import net.media.openrtb3.*;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -30,8 +43,9 @@ import static java.util.Objects.nonNull;
 public class ItemToImpConverter implements Converter<Item, Imp> {
 
   @Override
-  public Imp map(Item item, Config config, Provider converterProvider) throws OpenRtbConverterException {
-    if ( item == null ) {
+  public Imp map(Item item, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
+    if (item == null) {
       return null;
     }
 
@@ -42,24 +56,28 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
   }
 
   @Override
-  public void enhance(Item item, Imp imp, Config config, Provider converterProvider) throws OpenRtbConverterException {
+  public void enhance(Item item, Imp imp, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
     if (isNull(imp) || isNull(item)) {
       return;
     }
-    Converter<DisplayPlacement, Banner> displayPlacementBannerConverter = converterProvider.fetch(new Conversion<>(DisplayPlacement.class, Banner.class));
-    Converter<DisplayPlacement, Native> displayPlacementNativeConverter = converterProvider.fetch(new Conversion<>(DisplayPlacement.class, Native.class));
-    Converter<VideoPlacement, Video> videoPlacementVideoConverter = converterProvider.fetch(new
-      Conversion<>(VideoPlacement.class, Video.class));
-    Converter<AudioPlacement, Audio> audioPlacementAudioConverter = converterProvider.fetch(new Conversion<>(AudioPlacement.class, Audio.class));
+    Converter<DisplayPlacement, Banner> displayPlacementBannerConverter =
+        converterProvider.fetch(new Conversion<>(DisplayPlacement.class, Banner.class));
+    Converter<DisplayPlacement, Native> displayPlacementNativeConverter =
+        converterProvider.fetch(new Conversion<>(DisplayPlacement.class, Native.class));
+    Converter<VideoPlacement, Video> videoPlacementVideoConverter =
+        converterProvider.fetch(new Conversion<>(VideoPlacement.class, Video.class));
+    Converter<AudioPlacement, Audio> audioPlacementAudioConverter =
+        converterProvider.fetch(new Conversion<>(AudioPlacement.class, Audio.class));
     Converter<net.media.openrtb3.Metric, Metric> metricMetricConverter =
-      converterProvider.fetch(new Conversion<>(net.media.openrtb3.Metric.class, Metric.class));
-    imp.setPmp( itemToPmp( item, config, converterProvider ) );
+        converterProvider.fetch(new Conversion<>(net.media.openrtb3.Metric.class, Metric.class));
+    imp.setPmp(itemToPmp(item, config, converterProvider));
     imp.setExt(Utils.copyMap(item.getExt(), config));
     fillExtMap(item, imp, config);
-    imp.setBidfloor( item.getFlr() );
-    VideoPlacement video = itemSpecPlacementVideo( item );
-    if ( video != null ) {
-      imp.setVideo( videoPlacementVideoConverter.map(video, config, converterProvider) );
+    imp.setBidfloor(item.getFlr());
+    VideoPlacement video = itemSpecPlacementVideo(item);
+    if (video != null) {
+      imp.setVideo(videoPlacementVideoConverter.map(video, config, converterProvider));
     }
     if (nonNull(video) && nonNull(video.getClktype())) {
       imp.setClickbrowser(video.getClktype());
@@ -73,13 +91,13 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         imp.getVideo().getExt().put("qty", item.getQty());
       }
     }
-    String sdkver = itemSpecPlacementSdkver( item );
-    if ( sdkver != null ) {
-      imp.setDisplaymanagerver( sdkver );
+    String sdkver = itemSpecPlacementSdkver(item);
+    if (sdkver != null) {
+      imp.setDisplaymanagerver(sdkver);
     }
-    DisplayPlacement display = itemSpecPlacementDisplay( item );
-    if ( display != null ) {
-      imp.setBanner( displayPlacementBannerConverter.map( display, config, converterProvider ) );
+    DisplayPlacement display = itemSpecPlacementDisplay(item);
+    if (display != null) {
+      imp.setBanner(displayPlacementBannerConverter.map(display, config, converterProvider));
       if (nonNull(imp.getBanner())) {
         if (nonNull(item.getSeq())) {
           if (isNull(imp.getBanner().getExt())) {
@@ -103,18 +121,18 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
       imp.setIframebuster(Utils.copyCollection(display.getIfrbust(), config));
       imp.setClickbrowser(display.getClktype());
     }
-    imp.setBidfloorcur( item.getFlrcur() );
-    String tagid = itemSpecPlacementTagid( item );
-    if ( tagid != null ) {
-      imp.setTagId( tagid );
+    imp.setBidfloorcur(item.getFlrcur());
+    String tagid = itemSpecPlacementTagid(item);
+    if (tagid != null) {
+      imp.setTagId(tagid);
     }
-    String sdk = itemSpecPlacementSdk( item );
-    if ( sdk != null ) {
-      imp.setDisplaymanager( sdk );
+    String sdk = itemSpecPlacementSdk(item);
+    if (sdk != null) {
+      imp.setDisplaymanager(sdk);
     }
-    AudioPlacement audio = itemSpecPlacementAudio( item );
-    if ( audio != null ) {
-      imp.setAudio( audioPlacementAudioConverter.map(audio, config, converterProvider));
+    AudioPlacement audio = itemSpecPlacementAudio(item);
+    if (audio != null) {
+      imp.setAudio(audioPlacementAudioConverter.map(audio, config, converterProvider));
     }
     if (nonNull(imp.getAudio())) {
       imp.getAudio().setSequence(item.getSeq());
@@ -125,11 +143,11 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         imp.getAudio().getExt().put("qty", item.getQty());
       }
     }
-    imp.setId( item.getId() );
-    imp.setExp( item.getExp() );
-    Integer secure = itemSpecPlacementSecure( item );
-    if ( secure != null ) {
-      imp.setSecure( secure );
+    imp.setId(item.getId());
+    imp.setExp(item.getExp());
+    Integer secure = itemSpecPlacementSecure(item);
+    if (secure != null) {
+      imp.setSecure(secure);
     }
     Collection<net.media.openrtb3.Metric> metrics = item.getMetric();
     if (metrics != null) {
@@ -141,24 +159,26 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     }
   }
 
-  private Pmp itemToPmp(Item item, Config config, Provider converterProvider) throws OpenRtbConverterException {
-    if ( item == null ) {
+  private Pmp itemToPmp(Item item, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
+    if (item == null) {
       return null;
     }
 
     Converter<net.media.openrtb3.Deal, Deal> dealDealConverter =
-      converterProvider.fetch(new Conversion<>(net.media.openrtb3.Deal.class, Deal.class));
+        converterProvider.fetch(new Conversion<>(net.media.openrtb3.Deal.class, Deal.class));
 
     Pmp pmp = new Pmp();
 
-    pmp.setDeals( CollectionToCollectionConverter.convert( item.getDeal(), dealDealConverter,
-      config, converterProvider ) );
-    pmp.setPrivate_auction( item.getPriv() );
-    if(item.getExt() != null) {
-      if(item.getExt().containsKey("pmp")) {
+    pmp.setDeals(
+        CollectionToCollectionConverter.convert(
+            item.getDeal(), dealDealConverter, config, converterProvider));
+    pmp.setPrivate_auction(item.getPriv());
+    if (item.getExt() != null) {
+      if (item.getExt().containsKey("pmp")) {
         try {
           Map<String, Object> pmp1 = (Map<String, Object>) item.getExt().get("pmp");
-          if(pmp1.containsKey("ext")) {
+          if (pmp1.containsKey("ext")) {
             pmp.setExt((Map<String, Object>) pmp1.get("ext"));
           }
           item.getExt().remove("pmp");
@@ -172,133 +192,133 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
   }
 
   private VideoPlacement itemSpecPlacementVideo(Item item) {
-    if ( item == null ) {
+    if (item == null) {
       return null;
     }
     Spec spec = item.getSpec();
-    if ( spec == null ) {
+    if (spec == null) {
       return null;
     }
     Placement placement = spec.getPlacement();
-    if ( placement == null ) {
+    if (placement == null) {
       return null;
     }
     VideoPlacement video = placement.getVideo();
-    if ( video == null ) {
+    if (video == null) {
       return null;
     }
     return video;
   }
 
   private String itemSpecPlacementSdkver(Item item) {
-    if ( item == null ) {
+    if (item == null) {
       return null;
     }
     Spec spec = item.getSpec();
-    if ( spec == null ) {
+    if (spec == null) {
       return null;
     }
     Placement placement = spec.getPlacement();
-    if ( placement == null ) {
+    if (placement == null) {
       return null;
     }
     String sdkver = placement.getSdkver();
-    if ( sdkver == null ) {
+    if (sdkver == null) {
       return null;
     }
     return sdkver;
   }
 
   private DisplayPlacement itemSpecPlacementDisplay(Item item) {
-    if ( item == null ) {
+    if (item == null) {
       return null;
     }
     Spec spec = item.getSpec();
-    if ( spec == null ) {
+    if (spec == null) {
       return null;
     }
     Placement placement = spec.getPlacement();
-    if ( placement == null ) {
+    if (placement == null) {
       return null;
     }
     DisplayPlacement display = placement.getDisplay();
-    if ( display == null ) {
+    if (display == null) {
       return null;
     }
     return display;
   }
 
   private String itemSpecPlacementTagid(Item item) {
-    if ( item == null ) {
+    if (item == null) {
       return null;
     }
     Spec spec = item.getSpec();
-    if ( spec == null ) {
+    if (spec == null) {
       return null;
     }
     Placement placement = spec.getPlacement();
-    if ( placement == null ) {
+    if (placement == null) {
       return null;
     }
     String tagid = placement.getTagid();
-    if ( tagid == null ) {
+    if (tagid == null) {
       return null;
     }
     return tagid;
   }
 
   private String itemSpecPlacementSdk(Item item) {
-    if ( item == null ) {
+    if (item == null) {
       return null;
     }
     Spec spec = item.getSpec();
-    if ( spec == null ) {
+    if (spec == null) {
       return null;
     }
     Placement placement = spec.getPlacement();
-    if ( placement == null ) {
+    if (placement == null) {
       return null;
     }
     String sdk = placement.getSdk();
-    if ( sdk == null ) {
+    if (sdk == null) {
       return null;
     }
     return sdk;
   }
 
   private AudioPlacement itemSpecPlacementAudio(Item item) {
-    if ( item == null ) {
+    if (item == null) {
       return null;
     }
     Spec spec = item.getSpec();
-    if ( spec == null ) {
+    if (spec == null) {
       return null;
     }
     Placement placement = spec.getPlacement();
-    if ( placement == null ) {
+    if (placement == null) {
       return null;
     }
     AudioPlacement audio = placement.getAudio();
-    if ( audio == null ) {
+    if (audio == null) {
       return null;
     }
     return audio;
   }
 
   private Integer itemSpecPlacementSecure(Item item) {
-    if ( item == null ) {
+    if (item == null) {
       return null;
     }
     Spec spec = item.getSpec();
-    if ( spec == null ) {
+    if (spec == null) {
       return null;
     }
     Placement placement = spec.getPlacement();
-    if ( placement == null ) {
+    if (placement == null) {
       return null;
     }
     Integer secure = placement.getSecure();
-    if ( secure == null ) {
+    if (secure == null) {
       return null;
     }
     return secure;

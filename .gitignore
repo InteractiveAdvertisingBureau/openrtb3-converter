@@ -10,4 +10,5 @@ target*
 ### Java template
 *.class
 *.pyc
-
+*.releaseBackup
+*dependency-reduced-pom.xml*

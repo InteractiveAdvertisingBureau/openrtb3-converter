@@ -1,54 +1,66 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb3;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Map;
 
 public class Seatbid {
 
-  private String seat;//
+  private String seat; //
 
   @JsonProperty("package")
   private Integer _package;
-  @NotNull
-  @Valid
-  private Collection<Bid> bid = null;
-  private Map<String,Object> ext;
 
-  public Seatbid() {
-  }
+  @NotNull @Valid private Collection<Bid> bid = null;
+  private Map<String, Object> ext;
+
+  public Seatbid() {}
 
   public String getSeat() {
     return this.seat;
-  }
-
-  public Integer get_package() {
-    return this._package;
-  }
-
-  public @NotNull @Valid Collection<Bid> getBid() {
-    return this.bid;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setSeat(String seat) {
     this.seat = seat;
   }
 
+  public Integer get_package() {
+    return this._package;
+  }
+
   public void set_package(Integer _package) {
     this._package = _package;
   }
 
+  public @NotNull @Valid Collection<Bid> getBid() {
+    return this.bid;
+  }
+
   public void setBid(@NotNull @Valid Collection<Bid> bid) {
     this.bid = bid;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -59,7 +71,7 @@ public class Seatbid {
     if (o == this) return true;
     if (!(o instanceof Seatbid)) return false;
     final Seatbid other = (Seatbid) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$seat = this.getSeat();
     final Object other$seat = other.getSeat();
     if (this$seat == null ? other$seat != null : !this$seat.equals(other$seat)) return false;
@@ -95,6 +107,14 @@ public class Seatbid {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Seatbid(seat=" + this.getSeat() + ", _package=" + this.get_package() + ", bid=" + this.getBid() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.Seatbid(seat="
+        + this.getSeat()
+        + ", _package="
+        + this.get_package()
+        + ", bid="
+        + this.getBid()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

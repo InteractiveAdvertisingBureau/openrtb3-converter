@@ -1,77 +1,88 @@
-package net.media.openrtb3;
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+package net.media.openrtb3;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Map;
 
 public class Response {
 
-  @NotNull
-  private String id;
+  @NotNull private String id;
   private String bidid;
   private Integer nbr;
   private String cur;
   private String cdata;
-  @Valid
-  private Collection<Seatbid> seatbid = null;
-  private Map<String,Object> ext;
+  @Valid private Collection<Seatbid> seatbid = null;
+  private Map<String, Object> ext;
 
-  public Response() {
-  }
+  public Response() {}
 
   public @NotNull String getId() {
     return this.id;
-  }
-
-  public String getBidid() {
-    return this.bidid;
-  }
-
-  public Integer getNbr() {
-    return this.nbr;
-  }
-
-  public String getCur() {
-    return this.cur;
-  }
-
-  public String getCdata() {
-    return this.cdata;
-  }
-
-  public @Valid Collection<Seatbid> getSeatbid() {
-    return this.seatbid;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setId(@NotNull String id) {
     this.id = id;
   }
 
+  public String getBidid() {
+    return this.bidid;
+  }
+
   public void setBidid(String bidid) {
     this.bidid = bidid;
+  }
+
+  public Integer getNbr() {
+    return this.nbr;
   }
 
   public void setNbr(Integer nbr) {
     this.nbr = nbr;
   }
 
+  public String getCur() {
+    return this.cur;
+  }
+
   public void setCur(String cur) {
     this.cur = cur;
+  }
+
+  public String getCdata() {
+    return this.cdata;
   }
 
   public void setCdata(String cdata) {
     this.cdata = cdata;
   }
 
+  public @Valid Collection<Seatbid> getSeatbid() {
+    return this.seatbid;
+  }
+
   public void setSeatbid(@Valid Collection<Seatbid> seatbid) {
     this.seatbid = seatbid;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -82,7 +93,7 @@ public class Response {
     if (o == this) return true;
     if (!(o instanceof Response)) return false;
     final Response other = (Response) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$id = this.getId();
     final Object other$id = other.getId();
     if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;
@@ -133,6 +144,20 @@ public class Response {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Response(id=" + this.getId() + ", bidid=" + this.getBidid() + ", nbr=" + this.getNbr() + ", cur=" + this.getCur() + ", cdata=" + this.getCdata() + ", seatbid=" + this.getSeatbid() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.Response(id="
+        + this.getId()
+        + ", bidid="
+        + this.getBidid()
+        + ", nbr="
+        + this.getNbr()
+        + ", cur="
+        + this.getCur()
+        + ", cdata="
+        + this.getCdata()
+        + ", seatbid="
+        + this.getSeatbid()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

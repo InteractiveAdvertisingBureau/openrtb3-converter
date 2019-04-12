@@ -3,120 +3,202 @@
   "at": 1,
   "test": 1,
   "tmax": 100,
-  "wseat": ["a"],
+  "wseat": [
+    "a"
+  ],
   "regs": {
     "coppa": 1,
     "ext": {
       "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
+        "a": "dsd",
+        "arraySample": [
+          "a"
+        ],
+        "jsonArraySample": [
+          {
+            "id": 1
+          }
+        ],
+        "obj": {
+          "a": 1
         }
       },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
+      "arraySample": [
+        "a"
+      ],
+      "jsonArraySample": [
+        {
+          "id": 1
+        }
+      ],
       "Key": "value"
     }
   },
   "ext": {
     "object": {
-      "a" : "dsd",
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
-      "obj" : {
-        "a" : 1
+      "a": "dsd",
+      "arraySample": [
+        "a"
+      ],
+      "jsonArraySample": [
+        {
+          "id": 1
+        }
+      ],
+      "obj": {
+        "a": 1
       }
     },
-    "arraySample": ["a"],
-    "jsonArraySample": [{"id": 1}],
+    "arraySample": [
+      "a"
+    ],
+    "jsonArraySample": [
+      {
+        "id": 1
+      }
+    ],
     "Key": "value"
   },
-  "cur": ["USD"],
+  "cur": [
+    "USD"
+  ],
   "allimps": 0,
-  "bcat": ["bb"],
-  "badv": ["cc"],
-  "imp": [{
-    "id": "1",
-    "bidfloor": 0.03,
-    "bidfloorcur": "USD",
-    "pmp": {
-      "private_auction": 0,
-      "deals": [{
-        "id": "ww",
-        "bidfloor": 0.1,
-        "bidfloorcur": "USD",
-        "at": 1,
-        "wseat": ["dd", "as"],
-        "wadomain": ["ss.com", "abc.com"],
+  "bcat": [
+    "bb"
+  ],
+  "badv": [
+    "cc"
+  ],
+  "imp": [
+    {
+      "id": "1",
+      "bidfloor": 0.03,
+      "bidfloorcur": "USD",
+      "pmp": {
+        "private_auction": 0,
+        "deals": [
+          {
+            "id": "ww",
+            "bidfloor": 0.1,
+            "bidfloorcur": "USD",
+            "at": 1,
+            "wseat": [
+              "dd",
+              "as"
+            ],
+            "wadomain": [
+              "ss.com",
+              "abc.com"
+            ],
+            "ext": {
+              "dummy": "ff"
+            }
+          }
+        ],
         "ext": {
           "dummy": "ff"
         }
-      }],
-      "ext": {
-        "dummy": "ff"
-      }
-    },
-    "displaymanager": "dd",
-    "displaymanagerver": "22",
-    "secure": 1,
-    "iframebuster": ["ss", "abc"],
-    "instl": 0,
-    "tagid": "re",
-    "banner": {
-      "id": "dd",
-      "h": 250,
-      "w": 300,
-      "wmax": 22,
-      "hmax": 11,
-      "wmin": 1,
-      "hmin": 9,
-      "btype": [3, 4],
-      "battr": [1, 2],
-      "topframe": 22,
-      "expdir": [3, 9],
-      "api": [3, 2],
-      "mimes": ["application/x-shockwave-flash",
-        "image/jpg"
+      },
+      "displaymanager": "dd",
+      "displaymanagerver": "22",
+      "secure": 1,
+      "iframebuster": [
+        "ss",
+        "abc"
       ],
-      "pos": 0,
+      "instl": 0,
+      "tagid": "re",
+      "banner": {
+        "id": "dd",
+        "h": 250,
+        "w": 300,
+        "wmax": 22,
+        "hmax": 11,
+        "wmin": 1,
+        "hmin": 9,
+        "btype": [
+          3,
+          4
+        ],
+        "battr": [
+          1,
+          2
+        ],
+        "topframe": 22,
+        "expdir": [
+          3,
+          9
+        ],
+        "api": [
+          3,
+          2
+        ],
+        "mimes": [
+          "application/x-shockwave-flash",
+          "image/jpg"
+        ],
+        "pos": 0,
+        "ext": {
+          "dummy": "ff"
+        }
+      },
       "ext": {
         "dummy": "ff"
       }
-    },
-    "ext": {
-      "dummy": "ff"
     }
-  }],
+  ],
   "app": {
     "id": "123456",
     "name": "xyztesting",
     "bundle": "com.xyz.abc",
     "domain": "google.com",
     "storeurl": "package.com.xyz",
-    "cat": ["abc", "xyz"],
-    "sectioncat": ["axx", "cde"],
-    "pagecat": ["aaa", "bbb"],
+    "cat": [
+      "abc",
+      "xyz"
+    ],
+    "sectioncat": [
+      "axx",
+      "cde"
+    ],
+    "pagecat": [
+      "aaa",
+      "bbb"
+    ],
     "ver": "1.2",
     "privacypolicy": 1,
     "paid": 0,
     "publisher": {
       "id": "8953",
       "name": "foobar.com",
-      "cat": ["IAB3-1", "IAB3-2"],
+      "cat": [
+        "IAB3-1",
+        "IAB3-2"
+      ],
       "domain": "foobar.com",
       "ext": {
         "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
+          "a": "dsd",
+          "arraySample": [
+            "a"
+          ],
+          "jsonArraySample": [
+            {
+              "id": 1
+            }
+          ],
+          "obj": {
+            "a": 1
           }
         },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
+        "arraySample": [
+          "a"
+        ],
+        "jsonArraySample": [
+          {
+            "id": 1
+          }
+        ],
         "Key": "value"
       }
     },
@@ -133,24 +215,42 @@
       "producer": {
         "id": "eew",
         "name": "edew",
-        "cat": ["IAB3-1", "IAB3-2"],
+        "cat": [
+          "IAB3-1",
+          "IAB3-2"
+        ],
         "domain": "abc.com",
         "ext": {
           "object": {
-            "a" : "dsd",
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "obj" : {
-              "a" : 1
+            "a": "dsd",
+            "arraySample": [
+              "a"
+            ],
+            "jsonArraySample": [
+              {
+                "id": 1
+              }
+            ],
+            "obj": {
+              "a": 1
             }
           },
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
+          "arraySample": [
+            "a"
+          ],
+          "jsonArraySample": [
+            {
+              "id": 1
+            }
+          ],
           "Key": "value"
         }
       },
       "url": "ewfe.com",
-      "cat": ["IAB3-1", "IAB3-2"],
+      "cat": [
+        "IAB3-1",
+        "IAB3-2"
+      ],
       "prodq": 1,
       "videoquality": 2,
       "context": 1,
@@ -163,66 +263,119 @@
       "len": 2,
       "language": "en",
       "embeddable": 1,
-      "data": [{
-        "id": "wwe",
-        "name": "ee",
-        "segment": [{
-          "id": "ew",
-          "name": "rewfe",
-          "value": "ew",
+      "data": [
+        {
+          "id": "wwe",
+          "name": "ee",
+          "segment": [
+            {
+              "id": "ew",
+              "name": "rewfe",
+              "value": "ew",
+              "ext": {
+                "object": {
+                  "a": "dsd",
+                  "arraySample": [
+                    "a"
+                  ],
+                  "jsonArraySample": [
+                    {
+                      "id": 1
+                    }
+                  ],
+                  "obj": {
+                    "a": 1
+                  }
+                },
+                "arraySample": [
+                  "a"
+                ],
+                "jsonArraySample": [
+                  {
+                    "id": 1
+                  }
+                ],
+                "Key": "value"
+              }
+            }
+          ],
           "ext": {
             "object": {
-              "a" : "dsd",
-              "arraySample": ["a"],
-              "jsonArraySample": [{"id": 1}],
-              "obj" : {
-                "a" : 1
+              "a": "dsd",
+              "arraySample": [
+                "a"
+              ],
+              "jsonArraySample": [
+                {
+                  "id": 1
+                }
+              ],
+              "obj": {
+                "a": 1
               }
             },
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
+            "arraySample": [
+              "a"
+            ],
+            "jsonArraySample": [
+              {
+                "id": 1
+              }
+            ],
             "Key": "value"
-          }      }],
-        "ext": {
-          "object": {
-            "a" : "dsd",
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "obj" : {
-              "a" : 1
-            }
-          },
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "Key": "value"
+          }
         }
-      }],
+      ],
       "ext": {
         "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
+          "a": "dsd",
+          "arraySample": [
+            "a"
+          ],
+          "jsonArraySample": [
+            {
+              "id": 1
+            }
+          ],
+          "obj": {
+            "a": 1
           }
         },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
+        "arraySample": [
+          "a"
+        ],
+        "jsonArraySample": [
+          {
+            "id": 1
+          }
+        ],
         "Key": "value"
       }
     },
     "keywords": "abcd,def",
     "ext": {
       "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
+        "a": "dsd",
+        "arraySample": [
+          "a"
+        ],
+        "jsonArraySample": [
+          {
+            "id": 1
+          }
+        ],
+        "obj": {
+          "a": 1
         }
       },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
+      "arraySample": [
+        "a"
+      ],
+      "jsonArraySample": [
+        {
+          "id": 1
+        }
+      ],
       "Key": "value"
     }
   },
@@ -242,15 +395,27 @@
       "utcoffset": 1,
       "ext": {
         "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
+          "a": "dsd",
+          "arraySample": [
+            "a"
+          ],
+          "jsonArraySample": [
+            {
+              "id": 1
+            }
+          ],
+          "obj": {
+            "a": 1
           }
         },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
+        "arraySample": [
+          "a"
+        ],
+        "jsonArraySample": [
+          {
+            "id": 1
+          }
+        ],
         "Key": "value"
       }
     },
@@ -274,15 +439,27 @@
     "connectiontype": 2,
     "ext": {
       "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
+        "a": "dsd",
+        "arraySample": [
+          "a"
+        ],
+        "jsonArraySample": [
+          {
+            "id": 1
+          }
+        ],
+        "obj": {
+          "a": 1
         }
       },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
+      "arraySample": [
+        "a"
+      ],
+      "jsonArraySample": [
+        {
+          "id": 1
+        }
+      ],
       "Key": "value"
     }
   },
@@ -309,65 +486,117 @@
       "utcoffset": 1,
       "ext": {
         "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
+          "a": "dsd",
+          "arraySample": [
+            "a"
+          ],
+          "jsonArraySample": [
+            {
+              "id": 1
+            }
+          ],
+          "obj": {
+            "a": 1
           }
         },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
+        "arraySample": [
+          "a"
+        ],
+        "jsonArraySample": [
+          {
+            "id": 1
+          }
+        ],
         "Key": "value"
       }
     },
-    "data": [{
-      "id": "wwe",
-      "name": "ee",
-      "segment": [{
-        "id": "ew",
-        "name": "rewfe",
-        "value": "ew",
+    "data": [
+      {
+        "id": "wwe",
+        "name": "ee",
+        "segment": [
+          {
+            "id": "ew",
+            "name": "rewfe",
+            "value": "ew",
+            "ext": {
+              "object": {
+                "a": "dsd",
+                "arraySample": [
+                  "a"
+                ],
+                "jsonArraySample": [
+                  {
+                    "id": 1
+                  }
+                ],
+                "obj": {
+                  "a": 1
+                }
+              },
+              "arraySample": [
+                "a"
+              ],
+              "jsonArraySample": [
+                {
+                  "id": 1
+                }
+              ],
+              "Key": "value"
+            }
+          }
+        ],
         "ext": {
           "object": {
-            "a" : "dsd",
-            "arraySample": ["a"],
-            "jsonArraySample": [{"id": 1}],
-            "obj" : {
-              "a" : 1
+            "a": "dsd",
+            "arraySample": [
+              "a"
+            ],
+            "jsonArraySample": [
+              {
+                "id": 1
+              }
+            ],
+            "obj": {
+              "a": 1
             }
           },
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
+          "arraySample": [
+            "a"
+          ],
+          "jsonArraySample": [
+            {
+              "id": 1
+            }
+          ],
           "Key": "value"
-        }      }],
-      "ext": {
-        "object": {
-          "a" : "dsd",
-          "arraySample": ["a"],
-          "jsonArraySample": [{"id": 1}],
-          "obj" : {
-            "a" : 1
-          }
-        },
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "Key": "value"
+        }
       }
-    }],
+    ],
     "ext": {
       "object": {
-        "a" : "dsd",
-        "arraySample": ["a"],
-        "jsonArraySample": [{"id": 1}],
-        "obj" : {
-          "a" : 1
+        "a": "dsd",
+        "arraySample": [
+          "a"
+        ],
+        "jsonArraySample": [
+          {
+            "id": 1
+          }
+        ],
+        "obj": {
+          "a": 1
         }
       },
-      "arraySample": ["a"],
-      "jsonArraySample": [{"id": 1}],
+      "arraySample": [
+        "a"
+      ],
+      "jsonArraySample": [
+        {
+          "id": 1
+        }
+      ],
       "Key": "value"
     }
-
   }
 }

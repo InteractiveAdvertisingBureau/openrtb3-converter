@@ -1,39 +1,52 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb25.request;
 
-import java.util.Map;
-
 import javax.validation.constraints.NotNull;
+import java.util.Map;
 
 public class NativeData {
 
-  @NotNull
-  private Integer type;
+  @NotNull private Integer type;
 
   private Integer len;
 
   private Map<String, Object> ext;
 
-  public NativeData() {
-  }
+  public NativeData() {}
 
   public @NotNull Integer getType() {
     return this.type;
-  }
-
-  public Integer getLen() {
-    return this.len;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setType(@NotNull Integer type) {
     this.type = type;
   }
 
+  public Integer getLen() {
+    return this.len;
+  }
+
   public void setLen(Integer len) {
     this.len = len;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -44,7 +57,7 @@ public class NativeData {
     if (o == this) return true;
     if (!(o instanceof NativeData)) return false;
     final NativeData other = (NativeData) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$type = this.getType();
     final Object other$type = other.getType();
     if (this$type == null ? other$type != null : !this$type.equals(other$type)) return false;
@@ -74,6 +87,12 @@ public class NativeData {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.NativeData(type=" + this.getType() + ", len=" + this.getLen() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.NativeData(type="
+        + this.getType()
+        + ", len="
+        + this.getLen()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

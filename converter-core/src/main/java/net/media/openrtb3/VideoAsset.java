@@ -1,3 +1,19 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb3;
 
 import net.media.utils.validator.CheckExactlyOneNotNull;
@@ -9,29 +25,28 @@ public class VideoAsset {
 
   private String adm;
   private String curl;
-  private Map<String,Object> ext;
+  private Map<String, Object> ext;
 
-  public VideoAsset() {
-  }
+  public VideoAsset() {}
 
   public String getAdm() {
     return this.adm;
-  }
-
-  public String getCurl() {
-    return this.curl;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setAdm(String adm) {
     this.adm = adm;
   }
 
+  public String getCurl() {
+    return this.curl;
+  }
+
   public void setCurl(String curl) {
     this.curl = curl;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -42,7 +57,7 @@ public class VideoAsset {
     if (o == this) return true;
     if (!(o instanceof VideoAsset)) return false;
     final VideoAsset other = (VideoAsset) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$adm = this.getAdm();
     final Object other$adm = other.getAdm();
     if (this$adm == null ? other$adm != null : !this$adm.equals(other$adm)) return false;
@@ -72,6 +87,12 @@ public class VideoAsset {
   }
 
   public String toString() {
-    return "net.media.openrtb3.VideoAsset(adm=" + this.getAdm() + ", curl=" + this.getCurl() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.VideoAsset(adm="
+        + this.getAdm()
+        + ", curl="
+        + this.getCurl()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

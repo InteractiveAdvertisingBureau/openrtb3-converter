@@ -1,11 +1,22 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb25.request;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.Map;
-
-import static java.util.Objects.isNull;
-
 
 public class Geo {
   private Integer type;
@@ -23,115 +34,114 @@ public class Geo {
   private Integer ipservice;
   private Map<String, Object> ext;
 
-  public Geo() {
-  }
+  public Geo() {}
 
   public Integer getType() {
     return this.type;
-  }
-
-  public String getRegion() {
-    return this.region;
-  }
-
-  public String getRegionfips104() {
-    return this.regionfips104;
-  }
-
-  public String getMetro() {
-    return this.metro;
-  }
-
-  public String getCity() {
-    return this.city;
-  }
-
-  public String getZip() {
-    return this.zip;
-  }
-
-  public Integer getUtcoffset() {
-    return this.utcoffset;
-  }
-
-  public String getCountry() {
-    return this.country;
-  }
-
-  public Float getLat() {
-    return this.lat;
-  }
-
-  public Float getLon() {
-    return this.lon;
-  }
-
-  public Integer getAccuracy() {
-    return this.accuracy;
-  }
-
-  public Integer getLastfix() {
-    return this.lastfix;
-  }
-
-  public Integer getIpservice() {
-    return this.ipservice;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setType(Integer type) {
     this.type = type;
   }
 
+  public String getRegion() {
+    return this.region;
+  }
+
   public void setRegion(String region) {
     this.region = region;
+  }
+
+  public String getRegionfips104() {
+    return this.regionfips104;
   }
 
   public void setRegionfips104(String regionfips104) {
     this.regionfips104 = regionfips104;
   }
 
+  public String getMetro() {
+    return this.metro;
+  }
+
   public void setMetro(String metro) {
     this.metro = metro;
+  }
+
+  public String getCity() {
+    return this.city;
   }
 
   public void setCity(String city) {
     this.city = city;
   }
 
+  public String getZip() {
+    return this.zip;
+  }
+
   public void setZip(String zip) {
     this.zip = zip;
+  }
+
+  public Integer getUtcoffset() {
+    return this.utcoffset;
   }
 
   public void setUtcoffset(Integer utcoffset) {
     this.utcoffset = utcoffset;
   }
 
+  public String getCountry() {
+    return this.country;
+  }
+
   public void setCountry(String country) {
     this.country = country;
+  }
+
+  public Float getLat() {
+    return this.lat;
   }
 
   public void setLat(Float lat) {
     this.lat = lat;
   }
 
+  public Float getLon() {
+    return this.lon;
+  }
+
   public void setLon(Float lon) {
     this.lon = lon;
+  }
+
+  public Integer getAccuracy() {
+    return this.accuracy;
   }
 
   public void setAccuracy(Integer accuracy) {
     this.accuracy = accuracy;
   }
 
+  public Integer getLastfix() {
+    return this.lastfix;
+  }
+
   public void setLastfix(Integer lastfix) {
     this.lastfix = lastfix;
   }
 
+  public Integer getIpservice() {
+    return this.ipservice;
+  }
+
   public void setIpservice(Integer ipservice) {
     this.ipservice = ipservice;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -142,7 +152,7 @@ public class Geo {
     if (o == this) return true;
     if (!(o instanceof Geo)) return false;
     final Geo other = (Geo) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$type = this.getType();
     final Object other$type = other.getType();
     if (this$type == null ? other$type != null : !this$type.equals(other$type)) return false;
@@ -152,8 +162,9 @@ public class Geo {
       return false;
     final Object this$regionfips104 = this.getRegionfips104();
     final Object other$regionfips104 = other.getRegionfips104();
-    if (this$regionfips104 == null ? other$regionfips104 != null : !this$regionfips104.equals(other$regionfips104))
-      return false;
+    if (this$regionfips104 == null
+        ? other$regionfips104 != null
+        : !this$regionfips104.equals(other$regionfips104)) return false;
     final Object this$metro = this.getMetro();
     final Object other$metro = other.getMetro();
     if (this$metro == null ? other$metro != null : !this$metro.equals(other$metro)) return false;
@@ -234,6 +245,34 @@ public class Geo {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.Geo(type=" + this.getType() + ", region=" + this.getRegion() + ", regionfips104=" + this.getRegionfips104() + ", metro=" + this.getMetro() + ", city=" + this.getCity() + ", zip=" + this.getZip() + ", utcoffset=" + this.getUtcoffset() + ", country=" + this.getCountry() + ", lat=" + this.getLat() + ", lon=" + this.getLon() + ", accuracy=" + this.getAccuracy() + ", lastfix=" + this.getLastfix() + ", ipservice=" + this.getIpservice() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.Geo(type="
+        + this.getType()
+        + ", region="
+        + this.getRegion()
+        + ", regionfips104="
+        + this.getRegionfips104()
+        + ", metro="
+        + this.getMetro()
+        + ", city="
+        + this.getCity()
+        + ", zip="
+        + this.getZip()
+        + ", utcoffset="
+        + this.getUtcoffset()
+        + ", country="
+        + this.getCountry()
+        + ", lat="
+        + this.getLat()
+        + ", lon="
+        + this.getLon()
+        + ", accuracy="
+        + this.getAccuracy()
+        + ", lastfix="
+        + this.getLastfix()
+        + ", ipservice="
+        + this.getIpservice()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

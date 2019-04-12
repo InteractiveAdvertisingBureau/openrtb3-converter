@@ -1,3 +1,19 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb25.response.nativeresponse;
 
 import java.util.Map;
@@ -11,35 +27,34 @@ public class NativeImage {
 
   private Map<String, Object> ext;
 
-  public NativeImage() {
-  }
+  public NativeImage() {}
 
   public String getUrl() {
     return this.url;
-  }
-
-  public Integer getW() {
-    return this.w;
-  }
-
-  public Integer getH() {
-    return this.h;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setUrl(String url) {
     this.url = url;
   }
 
+  public Integer getW() {
+    return this.w;
+  }
+
   public void setW(Integer w) {
     this.w = w;
   }
 
+  public Integer getH() {
+    return this.h;
+  }
+
   public void setH(Integer h) {
     this.h = h;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -50,7 +65,7 @@ public class NativeImage {
     if (o == this) return true;
     if (!(o instanceof NativeImage)) return false;
     final NativeImage other = (NativeImage) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$url = this.getUrl();
     final Object other$url = other.getUrl();
     if (this$url == null ? other$url != null : !this$url.equals(other$url)) return false;
@@ -85,6 +100,14 @@ public class NativeImage {
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.nativeresponse.NativeImage(url=" + this.getUrl() + ", w=" + this.getW() + ", h=" + this.getH() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.response.nativeresponse.NativeImage(url="
+        + this.getUrl()
+        + ", w="
+        + this.getW()
+        + ", h="
+        + this.getH()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

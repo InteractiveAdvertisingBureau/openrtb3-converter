@@ -1,3 +1,19 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb25.request;
 
 import java.util.Map;
@@ -65,251 +81,250 @@ public class Device {
 
   private Map<String, Object> ext;
 
-  public Device() {
-  }
+  public Device() {}
 
   public String getUa() {
     return this.ua;
-  }
-
-  public Geo getGeo() {
-    return this.geo;
-  }
-
-  public Integer getDnt() {
-    return this.dnt;
-  }
-
-  public Integer getLmt() {
-    return this.lmt;
-  }
-
-  public String getIp() {
-    return this.ip;
-  }
-
-  public String getIpv6() {
-    return this.ipv6;
-  }
-
-  public String getOs() {
-    return this.os;
-  }
-
-  public Integer getDevicetype() {
-    return this.devicetype;
-  }
-
-  public String getMake() {
-    return this.make;
-  }
-
-  public String getModel() {
-    return this.model;
-  }
-
-  public String getOsv() {
-    return this.osv;
-  }
-
-  public String getHwv() {
-    return this.hwv;
-  }
-
-  public Integer getH() {
-    return this.h;
-  }
-
-  public Integer getW() {
-    return this.w;
-  }
-
-  public Integer getPpi() {
-    return this.ppi;
-  }
-
-  public Float getPxratio() {
-    return this.pxratio;
-  }
-
-  public Integer getJs() {
-    return this.js;
-  }
-
-  public Integer getGeofetch() {
-    return this.geofetch;
-  }
-
-  public String getMccmnc() {
-    return this.mccmnc;
-  }
-
-  public String getFlashver() {
-    return this.flashver;
-  }
-
-  public String getLanguage() {
-    return this.language;
-  }
-
-  public String getCarrier() {
-    return this.carrier;
-  }
-
-  public Integer getConnectiontype() {
-    return this.connectiontype;
-  }
-
-  public String getIfa() {
-    return this.ifa;
-  }
-
-  public String getDidsha1() {
-    return this.didsha1;
-  }
-
-  public String getDidmd5() {
-    return this.didmd5;
-  }
-
-  public String getDpidsha1() {
-    return this.dpidsha1;
-  }
-
-  public String getDpidmd5() {
-    return this.dpidmd5;
-  }
-
-  public String getMacsha1() {
-    return this.macsha1;
-  }
-
-  public String getMacmd5() {
-    return this.macmd5;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setUa(String ua) {
     this.ua = ua;
   }
 
+  public Geo getGeo() {
+    return this.geo;
+  }
+
   public void setGeo(Geo geo) {
     this.geo = geo;
+  }
+
+  public Integer getDnt() {
+    return this.dnt;
   }
 
   public void setDnt(Integer dnt) {
     this.dnt = dnt;
   }
 
+  public Integer getLmt() {
+    return this.lmt;
+  }
+
   public void setLmt(Integer lmt) {
     this.lmt = lmt;
+  }
+
+  public String getIp() {
+    return this.ip;
   }
 
   public void setIp(String ip) {
     this.ip = ip;
   }
 
+  public String getIpv6() {
+    return this.ipv6;
+  }
+
   public void setIpv6(String ipv6) {
     this.ipv6 = ipv6;
+  }
+
+  public String getOs() {
+    return this.os;
   }
 
   public void setOs(String os) {
     this.os = os;
   }
 
+  public Integer getDevicetype() {
+    return this.devicetype;
+  }
+
   public void setDevicetype(Integer devicetype) {
     this.devicetype = devicetype;
+  }
+
+  public String getMake() {
+    return this.make;
   }
 
   public void setMake(String make) {
     this.make = make;
   }
 
+  public String getModel() {
+    return this.model;
+  }
+
   public void setModel(String model) {
     this.model = model;
+  }
+
+  public String getOsv() {
+    return this.osv;
   }
 
   public void setOsv(String osv) {
     this.osv = osv;
   }
 
+  public String getHwv() {
+    return this.hwv;
+  }
+
   public void setHwv(String hwv) {
     this.hwv = hwv;
+  }
+
+  public Integer getH() {
+    return this.h;
   }
 
   public void setH(Integer h) {
     this.h = h;
   }
 
+  public Integer getW() {
+    return this.w;
+  }
+
   public void setW(Integer w) {
     this.w = w;
+  }
+
+  public Integer getPpi() {
+    return this.ppi;
   }
 
   public void setPpi(Integer ppi) {
     this.ppi = ppi;
   }
 
+  public Float getPxratio() {
+    return this.pxratio;
+  }
+
   public void setPxratio(Float pxratio) {
     this.pxratio = pxratio;
+  }
+
+  public Integer getJs() {
+    return this.js;
   }
 
   public void setJs(Integer js) {
     this.js = js;
   }
 
+  public Integer getGeofetch() {
+    return this.geofetch;
+  }
+
   public void setGeofetch(Integer geofetch) {
     this.geofetch = geofetch;
+  }
+
+  public String getMccmnc() {
+    return this.mccmnc;
   }
 
   public void setMccmnc(String mccmnc) {
     this.mccmnc = mccmnc;
   }
 
+  public String getFlashver() {
+    return this.flashver;
+  }
+
   public void setFlashver(String flashver) {
     this.flashver = flashver;
+  }
+
+  public String getLanguage() {
+    return this.language;
   }
 
   public void setLanguage(String language) {
     this.language = language;
   }
 
+  public String getCarrier() {
+    return this.carrier;
+  }
+
   public void setCarrier(String carrier) {
     this.carrier = carrier;
+  }
+
+  public Integer getConnectiontype() {
+    return this.connectiontype;
   }
 
   public void setConnectiontype(Integer connectiontype) {
     this.connectiontype = connectiontype;
   }
 
+  public String getIfa() {
+    return this.ifa;
+  }
+
   public void setIfa(String ifa) {
     this.ifa = ifa;
+  }
+
+  public String getDidsha1() {
+    return this.didsha1;
   }
 
   public void setDidsha1(String didsha1) {
     this.didsha1 = didsha1;
   }
 
+  public String getDidmd5() {
+    return this.didmd5;
+  }
+
   public void setDidmd5(String didmd5) {
     this.didmd5 = didmd5;
+  }
+
+  public String getDpidsha1() {
+    return this.dpidsha1;
   }
 
   public void setDpidsha1(String dpidsha1) {
     this.dpidsha1 = dpidsha1;
   }
 
+  public String getDpidmd5() {
+    return this.dpidmd5;
+  }
+
   public void setDpidmd5(String dpidmd5) {
     this.dpidmd5 = dpidmd5;
+  }
+
+  public String getMacsha1() {
+    return this.macsha1;
   }
 
   public void setMacsha1(String macsha1) {
     this.macsha1 = macsha1;
   }
 
+  public String getMacmd5() {
+    return this.macmd5;
+  }
+
   public void setMacmd5(String macmd5) {
     this.macmd5 = macmd5;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -320,7 +335,7 @@ public class Device {
     if (o == this) return true;
     if (!(o instanceof Device)) return false;
     final Device other = (Device) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$ua = this.getUa();
     final Object other$ua = other.getUa();
     if (this$ua == null ? other$ua != null : !this$ua.equals(other$ua)) return false;
@@ -344,8 +359,9 @@ public class Device {
     if (this$os == null ? other$os != null : !this$os.equals(other$os)) return false;
     final Object this$devicetype = this.getDevicetype();
     final Object other$devicetype = other.getDevicetype();
-    if (this$devicetype == null ? other$devicetype != null : !this$devicetype.equals(other$devicetype))
-      return false;
+    if (this$devicetype == null
+        ? other$devicetype != null
+        : !this$devicetype.equals(other$devicetype)) return false;
     final Object this$make = this.getMake();
     final Object other$make = other.getMake();
     if (this$make == null ? other$make != null : !this$make.equals(other$make)) return false;
@@ -396,8 +412,9 @@ public class Device {
       return false;
     final Object this$connectiontype = this.getConnectiontype();
     final Object other$connectiontype = other.getConnectiontype();
-    if (this$connectiontype == null ? other$connectiontype != null : !this$connectiontype.equals(other$connectiontype))
-      return false;
+    if (this$connectiontype == null
+        ? other$connectiontype != null
+        : !this$connectiontype.equals(other$connectiontype)) return false;
     final Object this$ifa = this.getIfa();
     final Object other$ifa = other.getIfa();
     if (this$ifa == null ? other$ifa != null : !this$ifa.equals(other$ifa)) return false;
@@ -504,6 +521,68 @@ public class Device {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.Device(ua=" + this.getUa() + ", geo=" + this.getGeo() + ", dnt=" + this.getDnt() + ", lmt=" + this.getLmt() + ", ip=" + this.getIp() + ", ipv6=" + this.getIpv6() + ", os=" + this.getOs() + ", devicetype=" + this.getDevicetype() + ", make=" + this.getMake() + ", model=" + this.getModel() + ", osv=" + this.getOsv() + ", hwv=" + this.getHwv() + ", h=" + this.getH() + ", w=" + this.getW() + ", ppi=" + this.getPpi() + ", pxratio=" + this.getPxratio() + ", js=" + this.getJs() + ", geofetch=" + this.getGeofetch() + ", mccmnc=" + this.getMccmnc() + ", flashver=" + this.getFlashver() + ", language=" + this.getLanguage() + ", carrier=" + this.getCarrier() + ", connectiontype=" + this.getConnectiontype() + ", ifa=" + this.getIfa() + ", didsha1=" + this.getDidsha1() + ", didmd5=" + this.getDidmd5() + ", dpidsha1=" + this.getDpidsha1() + ", dpidmd5=" + this.getDpidmd5() + ", macsha1=" + this.getMacsha1() + ", macmd5=" + this.getMacmd5() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.Device(ua="
+        + this.getUa()
+        + ", geo="
+        + this.getGeo()
+        + ", dnt="
+        + this.getDnt()
+        + ", lmt="
+        + this.getLmt()
+        + ", ip="
+        + this.getIp()
+        + ", ipv6="
+        + this.getIpv6()
+        + ", os="
+        + this.getOs()
+        + ", devicetype="
+        + this.getDevicetype()
+        + ", make="
+        + this.getMake()
+        + ", model="
+        + this.getModel()
+        + ", osv="
+        + this.getOsv()
+        + ", hwv="
+        + this.getHwv()
+        + ", h="
+        + this.getH()
+        + ", w="
+        + this.getW()
+        + ", ppi="
+        + this.getPpi()
+        + ", pxratio="
+        + this.getPxratio()
+        + ", js="
+        + this.getJs()
+        + ", geofetch="
+        + this.getGeofetch()
+        + ", mccmnc="
+        + this.getMccmnc()
+        + ", flashver="
+        + this.getFlashver()
+        + ", language="
+        + this.getLanguage()
+        + ", carrier="
+        + this.getCarrier()
+        + ", connectiontype="
+        + this.getConnectiontype()
+        + ", ifa="
+        + this.getIfa()
+        + ", didsha1="
+        + this.getDidsha1()
+        + ", didmd5="
+        + this.getDidmd5()
+        + ", dpidsha1="
+        + this.getDpidsha1()
+        + ", dpidmd5="
+        + this.getDpidmd5()
+        + ", macsha1="
+        + this.getMacsha1()
+        + ", macmd5="
+        + this.getMacmd5()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

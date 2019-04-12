@@ -1,16 +1,27 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb25.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
-/**
- * Created by vishnu on 6/5/16.
- */
+/** Created by vishnu on 6/5/16. */
 public class Deal {
 
   private static final double DEFAULT_BIDFLOOR = 0.0;
@@ -28,9 +39,7 @@ public class Deal {
   private Collection<String> wadomain;
   private Map<String, Object> ext;
 
-  public Deal() {
-  }
-
+  public Deal() {}
 
   public String getBidFloorCur() {
     return bidFloorCur;
@@ -44,44 +53,44 @@ public class Deal {
     return this.id;
   }
 
-  public double getBidFloor() {
-    return this.bidFloor;
-  }
-
-  public Integer getAt() {
-    return this.at;
-  }
-
-  public Collection<String> getWseat() {
-    return this.wseat;
-  }
-
-  public Collection<String> getWadomain() {
-    return this.wadomain;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
-  }
-
   public void setId(String id) {
     this.id = id;
+  }
+
+  public double getBidFloor() {
+    return this.bidFloor;
   }
 
   public void setBidFloor(double bidFloor) {
     this.bidFloor = bidFloor;
   }
 
+  public Integer getAt() {
+    return this.at;
+  }
+
   public void setAt(Integer at) {
     this.at = at;
+  }
+
+  public Collection<String> getWseat() {
+    return this.wseat;
   }
 
   public void setWseat(Collection<String> wseat) {
     this.wseat = wseat;
   }
 
+  public Collection<String> getWadomain() {
+    return this.wadomain;
+  }
+
   public void setWadomain(Collection<String> wadomain) {
     this.wadomain = wadomain;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -92,15 +101,16 @@ public class Deal {
     if (o == this) return true;
     if (!(o instanceof Deal)) return false;
     final Deal other = (Deal) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$id = this.getId();
     final Object other$id = other.getId();
     if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;
     if (Double.compare(this.getBidFloor(), other.getBidFloor()) != 0) return false;
     final Object this$bidFloorCur = this.getBidFloorCur();
     final Object other$bidFloorCur = other.getBidFloorCur();
-    if (this$bidFloorCur == null ? other$bidFloorCur != null : !this$bidFloorCur.equals(other$bidFloorCur))
-      return false;
+    if (this$bidFloorCur == null
+        ? other$bidFloorCur != null
+        : !this$bidFloorCur.equals(other$bidFloorCur)) return false;
     final Object this$at = this.getAt();
     final Object other$at = other.getAt();
     if (this$at == null ? other$at != null : !this$at.equals(other$at)) return false;
@@ -142,6 +152,20 @@ public class Deal {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.Deal(id=" + this.getId() + ", bidFloor=" + this.getBidFloor() + ", bidFloorCur=" + this.getBidFloorCur() + ", at=" + this.getAt() + ", wseat=" + this.getWseat() + ", wadomain=" + this.getWadomain() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.Deal(id="
+        + this.getId()
+        + ", bidFloor="
+        + this.getBidFloor()
+        + ", bidFloorCur="
+        + this.getBidFloorCur()
+        + ", at="
+        + this.getAt()
+        + ", wseat="
+        + this.getWseat()
+        + ", wadomain="
+        + this.getWadomain()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

@@ -1,14 +1,27 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb3;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import net.media.utils.validator.CheckExactlyOneNotNull;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import javax.validation.Valid;
+import java.util.Collection;
+import java.util.Map;
 
 @CheckExactlyOneNotNull(fieldNames = {"adm", "banner", "_native", "curl"})
 public class Display {
@@ -23,124 +36,123 @@ public class Display {
   private String priv;
   private Object adm;
   private String curl;
-  @Valid
-  private Banner banner;
+  @Valid private Banner banner;
+
   @Valid
   @JsonProperty("native")
   private Native _native;
-  @Valid
-  private Collection<Event> event = null;
-  private Map<String,Object> ext;
 
-  public Display() {
-  }
+  @Valid private Collection<Event> event = null;
+  private Map<String, Object> ext;
+
+  public Display() {}
 
   public String getMime() {
     return this.mime;
-  }
-
-  public Collection<Integer> getApi() {
-    return this.api;
-  }
-
-  public Integer getCtype() {
-    return this.ctype;
-  }
-
-  public Integer getW() {
-    return this.w;
-  }
-
-  public Integer getH() {
-    return this.h;
-  }
-
-  public Integer getWratio() {
-    return this.wratio;
-  }
-
-  public Integer getHratio() {
-    return this.hratio;
-  }
-
-  public String getPriv() {
-    return this.priv;
-  }
-
-  public Object getAdm() {
-    return this.adm;
-  }
-
-  public String getCurl() {
-    return this.curl;
-  }
-
-  public @Valid Banner getBanner() {
-    return this.banner;
-  }
-
-  public @Valid Native get_native() {
-    return this._native;
-  }
-
-  public @Valid Collection<Event> getEvent() {
-    return this.event;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setMime(String mime) {
     this.mime = mime;
   }
 
+  public Collection<Integer> getApi() {
+    return this.api;
+  }
+
   public void setApi(Collection<Integer> api) {
     this.api = api;
+  }
+
+  public Integer getCtype() {
+    return this.ctype;
   }
 
   public void setCtype(Integer ctype) {
     this.ctype = ctype;
   }
 
+  public Integer getW() {
+    return this.w;
+  }
+
   public void setW(Integer w) {
     this.w = w;
+  }
+
+  public Integer getH() {
+    return this.h;
   }
 
   public void setH(Integer h) {
     this.h = h;
   }
 
+  public Integer getWratio() {
+    return this.wratio;
+  }
+
   public void setWratio(Integer wratio) {
     this.wratio = wratio;
+  }
+
+  public Integer getHratio() {
+    return this.hratio;
   }
 
   public void setHratio(Integer hratio) {
     this.hratio = hratio;
   }
 
+  public String getPriv() {
+    return this.priv;
+  }
+
   public void setPriv(String priv) {
     this.priv = priv;
+  }
+
+  public Object getAdm() {
+    return this.adm;
   }
 
   public void setAdm(Object adm) {
     this.adm = adm;
   }
 
+  public String getCurl() {
+    return this.curl;
+  }
+
   public void setCurl(String curl) {
     this.curl = curl;
+  }
+
+  public @Valid Banner getBanner() {
+    return this.banner;
   }
 
   public void setBanner(@Valid Banner banner) {
     this.banner = banner;
   }
 
+  public @Valid Native get_native() {
+    return this._native;
+  }
+
   public void set_native(@Valid Native _native) {
     this._native = _native;
   }
 
+  public @Valid Collection<Event> getEvent() {
+    return this.event;
+  }
+
   public void setEvent(@Valid Collection<Event> event) {
     this.event = event;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -151,7 +163,7 @@ public class Display {
     if (o == this) return true;
     if (!(o instanceof Display)) return false;
     final Display other = (Display) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$mime = this.getMime();
     final Object other$mime = other.getMime();
     if (this$mime == null ? other$mime != null : !this$mime.equals(other$mime)) return false;
@@ -240,6 +252,34 @@ public class Display {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Display(mime=" + this.getMime() + ", api=" + this.getApi() + ", ctype=" + this.getCtype() + ", w=" + this.getW() + ", h=" + this.getH() + ", wratio=" + this.getWratio() + ", hratio=" + this.getHratio() + ", priv=" + this.getPriv() + ", adm=" + this.getAdm() + ", curl=" + this.getCurl() + ", banner=" + this.getBanner() + ", _native=" + this.get_native() + ", event=" + this.getEvent() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.Display(mime="
+        + this.getMime()
+        + ", api="
+        + this.getApi()
+        + ", ctype="
+        + this.getCtype()
+        + ", w="
+        + this.getW()
+        + ", h="
+        + this.getH()
+        + ", wratio="
+        + this.getWratio()
+        + ", hratio="
+        + this.getHratio()
+        + ", priv="
+        + this.getPriv()
+        + ", adm="
+        + this.getAdm()
+        + ", curl="
+        + this.getCurl()
+        + ", banner="
+        + this.getBanner()
+        + ", _native="
+        + this.get_native()
+        + ", event="
+        + this.getEvent()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

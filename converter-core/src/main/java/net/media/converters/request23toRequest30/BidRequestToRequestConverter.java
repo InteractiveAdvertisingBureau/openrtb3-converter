@@ -1,3 +1,19 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.converters.request23toRequest30;
 
 import net.media.config.Config;
@@ -11,14 +27,13 @@ import java.util.Collection;
 
 import static java.util.Objects.nonNull;
 
-/**
- * Created by rajat.go on 03/04/19.
- */
-public class BidRequestToRequestConverter extends net.media.converters
-  .request25toRequest30.BidRequestToRequestConverter {
+/** Created by rajat.go on 03/04/19. */
+public class BidRequestToRequestConverter
+    extends net.media.converters.request25toRequest30.BidRequestToRequestConverter {
 
-  public void enhance(BidRequest2_X source, Request target, Config config, Provider
-    converterProvider) throws OpenRtbConverterException {
+  public void enhance(
+      BidRequest2_X source, Request target, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }
@@ -27,8 +42,8 @@ public class BidRequestToRequestConverter extends net.media.converters
         try {
           source.setBseat((Collection<String>) source.getExt().get("bseat"));
         } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting bseat from bidRequest.ext.bseat",
-            e);
+          throw new OpenRtbConverterException(
+              "Error in setting bseat from bidRequest.ext.bseat", e);
         }
         source.getExt().remove("bseat");
       }
@@ -36,8 +51,8 @@ public class BidRequestToRequestConverter extends net.media.converters
         try {
           source.setWlang((Collection<String>) source.getExt().get("wlang"));
         } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting wlang from bidRequest.ext.wlang",
-            e);
+          throw new OpenRtbConverterException(
+              "Error in setting wlang from bidRequest.ext.wlang", e);
         }
         source.getExt().remove("wlang");
       }
@@ -45,8 +60,8 @@ public class BidRequestToRequestConverter extends net.media.converters
         try {
           source.setSource((Source) source.getExt().get("source"));
         } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting source from bidRequest.ext.source",
-            e);
+          throw new OpenRtbConverterException(
+              "Error in setting source from bidRequest.ext.source", e);
         }
         source.getExt().remove("source");
       }
@@ -54,13 +69,11 @@ public class BidRequestToRequestConverter extends net.media.converters
         try {
           source.setBapp((Collection<String>) source.getExt().get("bapp"));
         } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting bapp from bidRequest.ext.bapp",
-            e);
+          throw new OpenRtbConverterException("Error in setting bapp from bidRequest.ext.bapp", e);
         }
         source.getExt().remove("bapp");
       }
     }
     super.enhance(source, target, config, converterProvider);
-
   }
 }

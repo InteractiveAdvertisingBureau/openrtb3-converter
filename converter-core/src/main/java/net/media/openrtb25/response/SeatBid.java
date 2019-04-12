@@ -1,21 +1,30 @@
-package net.media.openrtb25.response;
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+package net.media.openrtb25.response;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Map;
 
-/**
- * Created by vishnu on 30/5/16.
- */
+/** Created by vishnu on 30/5/16. */
 public class SeatBid {
 
-  @NotNull
-  @Valid
-  private Collection<Bid> bid;
+  @NotNull @Valid private Collection<Bid> bid;
 
   private String seat;
 
@@ -23,35 +32,34 @@ public class SeatBid {
 
   private Map<String, Object> ext;
 
-  public SeatBid() {
-  }
+  public SeatBid() {}
 
   public @NotNull @Valid Collection<Bid> getBid() {
     return this.bid;
-  }
-
-  public String getSeat() {
-    return this.seat;
-  }
-
-  public Integer getGroup() {
-    return this.group;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setBid(@NotNull @Valid Collection<Bid> bid) {
     this.bid = bid;
   }
 
+  public String getSeat() {
+    return this.seat;
+  }
+
   public void setSeat(String seat) {
     this.seat = seat;
   }
 
+  public Integer getGroup() {
+    return this.group;
+  }
+
   public void setGroup(Integer group) {
     this.group = group;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -62,7 +70,7 @@ public class SeatBid {
     if (o == this) return true;
     if (!(o instanceof SeatBid)) return false;
     final SeatBid other = (SeatBid) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$bid = this.getBid();
     final Object other$bid = other.getBid();
     if (this$bid == null ? other$bid != null : !this$bid.equals(other$bid)) return false;
@@ -97,6 +105,14 @@ public class SeatBid {
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.SeatBid(bid=" + this.getBid() + ", seat=" + this.getSeat() + ", group=" + this.getGroup() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.response.SeatBid(bid="
+        + this.getBid()
+        + ", seat="
+        + this.getSeat()
+        + ", group="
+        + this.getGroup()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

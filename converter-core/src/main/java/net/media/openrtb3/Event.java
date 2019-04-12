@@ -1,69 +1,78 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb3;
 
-
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Map;
 
 public class Event {
 
-  @NotNull
-  private Integer type;
-  @NotNull
-  private Integer method;
+  @NotNull private Integer type;
+  @NotNull private Integer method;
   private String url;
   private Collection<Integer> api;
-  private Map<String,Object> cdata;
-  private Object  ext;
+  private Map<String, Object> cdata;
+  private Object ext;
 
-  public Event() {
-  }
-
+  public Event() {}
 
   public @NotNull Integer getType() {
     return this.type;
-  }
-
-  public @NotNull Integer getMethod() {
-    return this.method;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public Collection<Integer> getApi() {
-    return this.api;
-  }
-
-  public Map<String, Object> getCdata() {
-    return this.cdata;
-  }
-
-  public Object getExt() {
-    return this.ext;
   }
 
   public void setType(@NotNull Integer type) {
     this.type = type;
   }
 
+  public @NotNull Integer getMethod() {
+    return this.method;
+  }
+
   public void setMethod(@NotNull Integer method) {
     this.method = method;
+  }
+
+  public String getUrl() {
+    return this.url;
   }
 
   public void setUrl(String url) {
     this.url = url;
   }
 
+  public Collection<Integer> getApi() {
+    return this.api;
+  }
+
   public void setApi(Collection<Integer> api) {
     this.api = api;
   }
 
+  public Map<String, Object> getCdata() {
+    return this.cdata;
+  }
+
   public void setCdata(Map<String, Object> cdata) {
     this.cdata = cdata;
+  }
+
+  public Object getExt() {
+    return this.ext;
   }
 
   public void setExt(Object ext) {
@@ -74,7 +83,7 @@ public class Event {
     if (o == this) return true;
     if (!(o instanceof Event)) return false;
     final Event other = (Event) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$type = this.getType();
     final Object other$type = other.getType();
     if (this$type == null ? other$type != null : !this$type.equals(other$type)) return false;
@@ -120,6 +129,18 @@ public class Event {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Event(type=" + this.getType() + ", method=" + this.getMethod() + ", url=" + this.getUrl() + ", api=" + this.getApi() + ", cdata=" + this.getCdata() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.Event(type="
+        + this.getType()
+        + ", method="
+        + this.getMethod()
+        + ", url="
+        + this.getUrl()
+        + ", api="
+        + this.getApi()
+        + ", cdata="
+        + this.getCdata()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

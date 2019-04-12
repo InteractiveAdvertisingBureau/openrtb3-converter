@@ -1,26 +1,40 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.api.models;
 
 import net.media.config.Config;
-import net.media.openrtb3.OpenRTB3_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
 
 public class RequestResponse3xPayload {
   private OpenRTBWrapper3_X openRTB;
   private Config config;
 
-  public RequestResponse3xPayload() {
-  }
+  public RequestResponse3xPayload() {}
 
   public OpenRTBWrapper3_X getOpenRTB() {
     return this.openRTB;
   }
 
-  public Config getConfig() {
-    return this.config;
-  }
-
   public void setOpenRTB(OpenRTBWrapper3_X openRTB) {
     this.openRTB = openRTB;
+  }
+
+  public Config getConfig() {
+    return this.config;
   }
 
   public void setConfig(Config config) {
@@ -31,7 +45,7 @@ public class RequestResponse3xPayload {
     if (o == this) return true;
     if (!(o instanceof RequestResponse3xPayload)) return false;
     final RequestResponse3xPayload other = (RequestResponse3xPayload) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$openRTB = this.getOpenRTB();
     final Object other$openRTB = other.getOpenRTB();
     if (this$openRTB == null ? other$openRTB != null : !this$openRTB.equals(other$openRTB))
@@ -58,6 +72,10 @@ public class RequestResponse3xPayload {
   }
 
   public String toString() {
-    return "net.media.api.models.RequestResponse3xPayload(openRTB=" + this.getOpenRTB() + ", config=" + this.getConfig() + ")";
+    return "net.media.api.models.RequestResponse3xPayload(openRTB="
+        + this.getOpenRTB()
+        + ", config="
+        + this.getConfig()
+        + ")";
   }
 }

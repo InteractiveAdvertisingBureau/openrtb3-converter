@@ -1,11 +1,26 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.converters.response25toresponse30;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-
-import net.media.driver.Conversion;
-import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Macro;
 import net.media.openrtb3.Media;
@@ -20,13 +35,12 @@ import java.util.Map;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-/**
- * @author shiva.b
- */
+/** @author shiva.b */
 public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.Bid> {
 
   @Override
-  public net.media.openrtb3.Bid map(Bid source, Config config, Provider converterProvider)throws OpenRtbConverterException {
+  public net.media.openrtb3.Bid map(Bid source, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
     if (isNull(source)) {
       return null;
     }
@@ -36,7 +50,9 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
   }
 
   @Override
-  public void enhance(Bid source, net.media.openrtb3.Bid target, Config config, Provider converterProvider) throws OpenRtbConverterException{
+  public void enhance(
+      Bid source, net.media.openrtb3.Bid target, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }

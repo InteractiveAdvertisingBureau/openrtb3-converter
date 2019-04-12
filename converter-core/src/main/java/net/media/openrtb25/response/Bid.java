@@ -1,23 +1,31 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb25.response;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Map;
 
-/**
- * Created by vishnu on 30/5/16.
- */
+/** Created by vishnu on 30/5/16. */
 public class Bid {
 
-  @NotNull
-  private String id;
-  @NotNull
-  private String impid;
-  @NotNull
-  private double price;
+  @NotNull private String id;
+  @NotNull private String impid;
+  @NotNull private double price;
   private String adid;
   private String nurl;
   private Object adm;
@@ -35,227 +43,226 @@ public class Bid {
   private Integer h;
   private String language;
   private Integer w;
-  private Integer  wratio;
+  private Integer wratio;
   private Integer hratio;
   private Integer exp;
   private String burl;
   private String lurl;
   private String tactic;
-  private Map<String,Object> ext;
+  private Map<String, Object> ext;
 
-  public Bid() {
-  }
+  public Bid() {}
 
   public @NotNull String getId() {
     return this.id;
-  }
-
-  public @NotNull String getImpid() {
-    return this.impid;
-  }
-
-  public @NotNull double getPrice() {
-    return this.price;
-  }
-
-  public String getAdid() {
-    return this.adid;
-  }
-
-  public String getNurl() {
-    return this.nurl;
-  }
-
-  public Object getAdm() {
-    return this.adm;
-  }
-
-  public Collection<String> getAdomain() {
-    return this.adomain;
-  }
-
-  public String getIurl() {
-    return this.iurl;
-  }
-
-  public String getCid() {
-    return this.cid;
-  }
-
-  public String getCrid() {
-    return this.crid;
-  }
-
-  public Collection<String> getCat() {
-    return this.cat;
-  }
-
-  public Collection<Integer> getAttr() {
-    return this.attr;
-  }
-
-  public String getBundle() {
-    return this.bundle;
-  }
-
-  public Integer getApi() {
-    return this.api;
-  }
-
-  public Integer getProtocol() {
-    return this.protocol;
-  }
-
-  public Integer getQagmediarating() {
-    return this.qagmediarating;
-  }
-
-  public String getDealid() {
-    return this.dealid;
-  }
-
-  public Integer getH() {
-    return this.h;
-  }
-
-  public String getLanguage() {
-    return this.language;
-  }
-
-  public Integer getW() {
-    return this.w;
-  }
-
-  public Integer getWratio() {
-    return this.wratio;
-  }
-
-  public Integer getHratio() {
-    return this.hratio;
-  }
-
-  public Integer getExp() {
-    return this.exp;
-  }
-
-  public String getBurl() {
-    return this.burl;
-  }
-
-  public String getLurl() {
-    return this.lurl;
-  }
-
-  public String getTactic() {
-    return this.tactic;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setId(@NotNull String id) {
     this.id = id;
   }
 
+  public @NotNull String getImpid() {
+    return this.impid;
+  }
+
   public void setImpid(@NotNull String impid) {
     this.impid = impid;
+  }
+
+  public @NotNull double getPrice() {
+    return this.price;
   }
 
   public void setPrice(@NotNull double price) {
     this.price = price;
   }
 
+  public String getAdid() {
+    return this.adid;
+  }
+
   public void setAdid(String adid) {
     this.adid = adid;
+  }
+
+  public String getNurl() {
+    return this.nurl;
   }
 
   public void setNurl(String nurl) {
     this.nurl = nurl;
   }
 
+  public Object getAdm() {
+    return this.adm;
+  }
+
   public void setAdm(Object adm) {
     this.adm = adm;
+  }
+
+  public Collection<String> getAdomain() {
+    return this.adomain;
   }
 
   public void setAdomain(Collection<String> adomain) {
     this.adomain = adomain;
   }
 
+  public String getIurl() {
+    return this.iurl;
+  }
+
   public void setIurl(String iurl) {
     this.iurl = iurl;
+  }
+
+  public String getCid() {
+    return this.cid;
   }
 
   public void setCid(String cid) {
     this.cid = cid;
   }
 
+  public String getCrid() {
+    return this.crid;
+  }
+
   public void setCrid(String crid) {
     this.crid = crid;
+  }
+
+  public Collection<String> getCat() {
+    return this.cat;
   }
 
   public void setCat(Collection<String> cat) {
     this.cat = cat;
   }
 
+  public Collection<Integer> getAttr() {
+    return this.attr;
+  }
+
   public void setAttr(Collection<Integer> attr) {
     this.attr = attr;
+  }
+
+  public String getBundle() {
+    return this.bundle;
   }
 
   public void setBundle(String bundle) {
     this.bundle = bundle;
   }
 
+  public Integer getApi() {
+    return this.api;
+  }
+
   public void setApi(Integer api) {
     this.api = api;
+  }
+
+  public Integer getProtocol() {
+    return this.protocol;
   }
 
   public void setProtocol(Integer protocol) {
     this.protocol = protocol;
   }
 
+  public Integer getQagmediarating() {
+    return this.qagmediarating;
+  }
+
   public void setQagmediarating(Integer qagmediarating) {
     this.qagmediarating = qagmediarating;
+  }
+
+  public String getDealid() {
+    return this.dealid;
   }
 
   public void setDealid(String dealid) {
     this.dealid = dealid;
   }
 
+  public Integer getH() {
+    return this.h;
+  }
+
   public void setH(Integer h) {
     this.h = h;
+  }
+
+  public String getLanguage() {
+    return this.language;
   }
 
   public void setLanguage(String language) {
     this.language = language;
   }
 
+  public Integer getW() {
+    return this.w;
+  }
+
   public void setW(Integer w) {
     this.w = w;
+  }
+
+  public Integer getWratio() {
+    return this.wratio;
   }
 
   public void setWratio(Integer wratio) {
     this.wratio = wratio;
   }
 
+  public Integer getHratio() {
+    return this.hratio;
+  }
+
   public void setHratio(Integer hratio) {
     this.hratio = hratio;
+  }
+
+  public Integer getExp() {
+    return this.exp;
   }
 
   public void setExp(Integer exp) {
     this.exp = exp;
   }
 
+  public String getBurl() {
+    return this.burl;
+  }
+
   public void setBurl(String burl) {
     this.burl = burl;
+  }
+
+  public String getLurl() {
+    return this.lurl;
   }
 
   public void setLurl(String lurl) {
     this.lurl = lurl;
   }
 
+  public String getTactic() {
+    return this.tactic;
+  }
+
   public void setTactic(String tactic) {
     this.tactic = tactic;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -266,7 +273,7 @@ public class Bid {
     if (o == this) return true;
     if (!(o instanceof Bid)) return false;
     final Bid other = (Bid) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$id = this.getId();
     final Object other$id = other.getId();
     if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;
@@ -315,8 +322,9 @@ public class Bid {
       return false;
     final Object this$qagmediarating = this.getQagmediarating();
     final Object other$qagmediarating = other.getQagmediarating();
-    if (this$qagmediarating == null ? other$qagmediarating != null : !this$qagmediarating.equals(other$qagmediarating))
-      return false;
+    if (this$qagmediarating == null
+        ? other$qagmediarating != null
+        : !this$qagmediarating.equals(other$qagmediarating)) return false;
     final Object this$dealid = this.getDealid();
     final Object other$dealid = other.getDealid();
     if (this$dealid == null ? other$dealid != null : !this$dealid.equals(other$dealid))
@@ -423,6 +431,60 @@ public class Bid {
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.Bid(id=" + this.getId() + ", impid=" + this.getImpid() + ", price=" + this.getPrice() + ", adid=" + this.getAdid() + ", nurl=" + this.getNurl() + ", adm=" + this.getAdm() + ", adomain=" + this.getAdomain() + ", iurl=" + this.getIurl() + ", cid=" + this.getCid() + ", crid=" + this.getCrid() + ", cat=" + this.getCat() + ", attr=" + this.getAttr() + ", bundle=" + this.getBundle() + ", api=" + this.getApi() + ", protocol=" + this.getProtocol() + ", qagmediarating=" + this.getQagmediarating() + ", dealid=" + this.getDealid() + ", h=" + this.getH() + ", language=" + this.getLanguage() + ", w=" + this.getW() + ", wratio=" + this.getWratio() + ", hratio=" + this.getHratio() + ", exp=" + this.getExp() + ", burl=" + this.getBurl() + ", lurl=" + this.getLurl() + ", tactic=" + this.getTactic() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.response.Bid(id="
+        + this.getId()
+        + ", impid="
+        + this.getImpid()
+        + ", price="
+        + this.getPrice()
+        + ", adid="
+        + this.getAdid()
+        + ", nurl="
+        + this.getNurl()
+        + ", adm="
+        + this.getAdm()
+        + ", adomain="
+        + this.getAdomain()
+        + ", iurl="
+        + this.getIurl()
+        + ", cid="
+        + this.getCid()
+        + ", crid="
+        + this.getCrid()
+        + ", cat="
+        + this.getCat()
+        + ", attr="
+        + this.getAttr()
+        + ", bundle="
+        + this.getBundle()
+        + ", api="
+        + this.getApi()
+        + ", protocol="
+        + this.getProtocol()
+        + ", qagmediarating="
+        + this.getQagmediarating()
+        + ", dealid="
+        + this.getDealid()
+        + ", h="
+        + this.getH()
+        + ", language="
+        + this.getLanguage()
+        + ", w="
+        + this.getW()
+        + ", wratio="
+        + this.getWratio()
+        + ", hratio="
+        + this.getHratio()
+        + ", exp="
+        + this.getExp()
+        + ", burl="
+        + this.getBurl()
+        + ", lurl="
+        + this.getLurl()
+        + ", tactic="
+        + this.getTactic()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

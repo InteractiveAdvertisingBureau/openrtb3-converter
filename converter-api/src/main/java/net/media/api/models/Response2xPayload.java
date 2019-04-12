@@ -1,3 +1,19 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.api.models;
 
 import net.media.config.Config;
@@ -7,19 +23,18 @@ public class Response2xPayload {
   private BidResponse2_X response;
   private Config config;
 
-  public Response2xPayload() {
-  }
+  public Response2xPayload() {}
 
   public BidResponse2_X getResponse() {
     return this.response;
   }
 
-  public Config getConfig() {
-    return this.config;
-  }
-
   public void setResponse(BidResponse2_X response) {
     this.response = response;
+  }
+
+  public Config getConfig() {
+    return this.config;
   }
 
   public void setConfig(Config config) {
@@ -30,7 +45,7 @@ public class Response2xPayload {
     if (o == this) return true;
     if (!(o instanceof Response2xPayload)) return false;
     final Response2xPayload other = (Response2xPayload) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$response = this.getResponse();
     final Object other$response = other.getResponse();
     if (this$response == null ? other$response != null : !this$response.equals(other$response))
@@ -57,6 +72,10 @@ public class Response2xPayload {
   }
 
   public String toString() {
-    return "net.media.api.models.Response2xPayload(response=" + this.getResponse() + ", config=" + this.getConfig() + ")";
+    return "net.media.api.models.Response2xPayload(response="
+        + this.getResponse()
+        + ", config="
+        + this.getConfig()
+        + ")";
   }
 }

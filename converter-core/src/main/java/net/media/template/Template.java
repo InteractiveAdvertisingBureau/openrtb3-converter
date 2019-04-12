@@ -1,3 +1,19 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.template;
 
 import java.util.HashMap;
@@ -6,24 +22,32 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 
-/**
- * Created by shiva.b on 02/01/19.
- */
+/** Created by shiva.b on 02/01/19. */
 public interface Template {
+  static Template.TokenProvider getTokenProviderByGroupNames(List<String> groupNames) {
+    return matcher -> {
+      Map<String, String> groups = new HashMap<>(groupNames.size());
+      for (String groupName : groupNames) {
+        groups.put(groupName, matcher.group(groupName));
+      }
+      return new Template.Token(matcher.group(), groups);
+    };
+  }
+
   String replace(Template.TokenValue tokenValue);
 
-  default String replace(Template.TokenValue tokenValue, Function<Exception,Exception>
-    exceptionFunction) throws Exception {
-    try{
+  default String replace(
+      Template.TokenValue tokenValue, Function<Exception, Exception> exceptionFunction)
+      throws Exception {
+    try {
       return replace(tokenValue);
-    } catch (Exception e){
+    } catch (Exception e) {
       throw exceptionFunction.apply(e);
     }
   }
 
-
   @FunctionalInterface
-  interface TokenValue  {
+  interface TokenValue {
     String get(Token token);
   }
 
@@ -63,11 +87,12 @@ public interface Template {
       if (o == this) return true;
       if (!(o instanceof Token)) return false;
       final Token other = (Token) o;
-      if (!other.canEqual((Object) this)) return false;
+      if (!other.canEqual(this)) return false;
       final Object this$textValue = this.getTextValue();
       final Object other$textValue = other.getTextValue();
-      if (this$textValue == null ? other$textValue != null : !this$textValue.equals(other$textValue))
-        return false;
+      if (this$textValue == null
+          ? other$textValue != null
+          : !this$textValue.equals(other$textValue)) return false;
       final Object this$groups = this.getGroups();
       final Object other$groups = other.getGroups();
       if (this$groups == null ? other$groups != null : !this$groups.equals(other$groups))
@@ -90,17 +115,11 @@ public interface Template {
     }
 
     public String toString() {
-      return "net.media.template.Template.Token(textValue=" + this.getTextValue() + ", groups=" + this.getGroups() + ")";
+      return "net.media.template.Template.Token(textValue="
+          + this.getTextValue()
+          + ", groups="
+          + this.getGroups()
+          + ")";
     }
-  }
-
-  public static Template.TokenProvider getTokenProviderByGroupNames(List<String> groupNames) {
-    return matcher -> {
-      Map<String, String> groups = new HashMap<>(groupNames.size());
-      for (String groupName : groupNames) {
-        groups.put(groupName, matcher.group(groupName));
-      }
-      return new Template.Token(matcher.group(), groups);
-    };
   }
 }

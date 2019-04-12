@@ -1,13 +1,25 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb25.request;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
-/**
- * Created by vishnu on 6/5/16.
- */
-
+/** Created by vishnu on 6/5/16. */
 public class Content {
 
   private String id;
@@ -62,211 +74,210 @@ public class Content {
 
   private Map<String, Object> ext;
 
-  public Content() {
-  }
+  public Content() {}
 
   public String getId() {
     return this.id;
-  }
-
-  public Integer getEpisode() {
-    return this.episode;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public String getSeries() {
-    return this.series;
-  }
-
-  public String getSeason() {
-    return this.season;
-  }
-
-  public String getArtist() {
-    return this.artist;
-  }
-
-  public String getGenre() {
-    return this.genre;
-  }
-
-  public String getAlbum() {
-    return this.album;
-  }
-
-  public String getIsrc() {
-    return this.isrc;
-  }
-
-  public Producer getProducer() {
-    return this.producer;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public Integer getVideoquality() {
-    return this.videoquality;
-  }
-
-  public Collection<String> getCat() {
-    return this.cat;
-  }
-
-  public Integer getProdq() {
-    return this.prodq;
-  }
-
-  public Integer getContext() {
-    return this.context;
-  }
-
-  public String getContentrating() {
-    return this.contentrating;
-  }
-
-  public String getUserrating() {
-    return this.userrating;
-  }
-
-  public Integer getQagmediarating() {
-    return this.qagmediarating;
-  }
-
-  public String getKeywords() {
-    return this.keywords;
-  }
-
-  public Integer getLivestream() {
-    return this.livestream;
-  }
-
-  public Integer getSourcerelationship() {
-    return this.sourcerelationship;
-  }
-
-  public Integer getLen() {
-    return this.len;
-  }
-
-  public String getLanguage() {
-    return this.language;
-  }
-
-  public Integer getEmbeddable() {
-    return this.embeddable;
-  }
-
-  public Collection<Data> getData() {
-    return this.data;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setId(String id) {
     this.id = id;
   }
 
+  public Integer getEpisode() {
+    return this.episode;
+  }
+
   public void setEpisode(Integer episode) {
     this.episode = episode;
+  }
+
+  public String getTitle() {
+    return this.title;
   }
 
   public void setTitle(String title) {
     this.title = title;
   }
 
+  public String getSeries() {
+    return this.series;
+  }
+
   public void setSeries(String series) {
     this.series = series;
+  }
+
+  public String getSeason() {
+    return this.season;
   }
 
   public void setSeason(String season) {
     this.season = season;
   }
 
+  public String getArtist() {
+    return this.artist;
+  }
+
   public void setArtist(String artist) {
     this.artist = artist;
+  }
+
+  public String getGenre() {
+    return this.genre;
   }
 
   public void setGenre(String genre) {
     this.genre = genre;
   }
 
+  public String getAlbum() {
+    return this.album;
+  }
+
   public void setAlbum(String album) {
     this.album = album;
+  }
+
+  public String getIsrc() {
+    return this.isrc;
   }
 
   public void setIsrc(String isrc) {
     this.isrc = isrc;
   }
 
+  public Producer getProducer() {
+    return this.producer;
+  }
+
   public void setProducer(Producer producer) {
     this.producer = producer;
+  }
+
+  public String getUrl() {
+    return this.url;
   }
 
   public void setUrl(String url) {
     this.url = url;
   }
 
+  public Integer getVideoquality() {
+    return this.videoquality;
+  }
+
   public void setVideoquality(Integer videoquality) {
     this.videoquality = videoquality;
+  }
+
+  public Collection<String> getCat() {
+    return this.cat;
   }
 
   public void setCat(Collection<String> cat) {
     this.cat = cat;
   }
 
+  public Integer getProdq() {
+    return this.prodq;
+  }
+
   public void setProdq(Integer prodq) {
     this.prodq = prodq;
+  }
+
+  public Integer getContext() {
+    return this.context;
   }
 
   public void setContext(Integer context) {
     this.context = context;
   }
 
+  public String getContentrating() {
+    return this.contentrating;
+  }
+
   public void setContentrating(String contentrating) {
     this.contentrating = contentrating;
+  }
+
+  public String getUserrating() {
+    return this.userrating;
   }
 
   public void setUserrating(String userrating) {
     this.userrating = userrating;
   }
 
+  public Integer getQagmediarating() {
+    return this.qagmediarating;
+  }
+
   public void setQagmediarating(Integer qagmediarating) {
     this.qagmediarating = qagmediarating;
+  }
+
+  public String getKeywords() {
+    return this.keywords;
   }
 
   public void setKeywords(String keywords) {
     this.keywords = keywords;
   }
 
+  public Integer getLivestream() {
+    return this.livestream;
+  }
+
   public void setLivestream(Integer livestream) {
     this.livestream = livestream;
+  }
+
+  public Integer getSourcerelationship() {
+    return this.sourcerelationship;
   }
 
   public void setSourcerelationship(Integer sourcerelationship) {
     this.sourcerelationship = sourcerelationship;
   }
 
+  public Integer getLen() {
+    return this.len;
+  }
+
   public void setLen(Integer len) {
     this.len = len;
+  }
+
+  public String getLanguage() {
+    return this.language;
   }
 
   public void setLanguage(String language) {
     this.language = language;
   }
 
+  public Integer getEmbeddable() {
+    return this.embeddable;
+  }
+
   public void setEmbeddable(Integer embeddable) {
     this.embeddable = embeddable;
   }
 
+  public Collection<Data> getData() {
+    return this.data;
+  }
+
   public void setData(Collection<Data> data) {
     this.data = data;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -277,7 +288,7 @@ public class Content {
     if (o == this) return true;
     if (!(o instanceof Content)) return false;
     final Content other = (Content) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$id = this.getId();
     final Object other$id = other.getId();
     if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;
@@ -318,8 +329,9 @@ public class Content {
     if (this$url == null ? other$url != null : !this$url.equals(other$url)) return false;
     final Object this$videoquality = this.getVideoquality();
     final Object other$videoquality = other.getVideoquality();
-    if (this$videoquality == null ? other$videoquality != null : !this$videoquality.equals(other$videoquality))
-      return false;
+    if (this$videoquality == null
+        ? other$videoquality != null
+        : !this$videoquality.equals(other$videoquality)) return false;
     final Object this$cat = this.getCat();
     final Object other$cat = other.getCat();
     if (this$cat == null ? other$cat != null : !this$cat.equals(other$cat)) return false;
@@ -332,28 +344,33 @@ public class Content {
       return false;
     final Object this$contentrating = this.getContentrating();
     final Object other$contentrating = other.getContentrating();
-    if (this$contentrating == null ? other$contentrating != null : !this$contentrating.equals(other$contentrating))
-      return false;
+    if (this$contentrating == null
+        ? other$contentrating != null
+        : !this$contentrating.equals(other$contentrating)) return false;
     final Object this$userrating = this.getUserrating();
     final Object other$userrating = other.getUserrating();
-    if (this$userrating == null ? other$userrating != null : !this$userrating.equals(other$userrating))
-      return false;
+    if (this$userrating == null
+        ? other$userrating != null
+        : !this$userrating.equals(other$userrating)) return false;
     final Object this$qagmediarating = this.getQagmediarating();
     final Object other$qagmediarating = other.getQagmediarating();
-    if (this$qagmediarating == null ? other$qagmediarating != null : !this$qagmediarating.equals(other$qagmediarating))
-      return false;
+    if (this$qagmediarating == null
+        ? other$qagmediarating != null
+        : !this$qagmediarating.equals(other$qagmediarating)) return false;
     final Object this$keywords = this.getKeywords();
     final Object other$keywords = other.getKeywords();
     if (this$keywords == null ? other$keywords != null : !this$keywords.equals(other$keywords))
       return false;
     final Object this$livestream = this.getLivestream();
     final Object other$livestream = other.getLivestream();
-    if (this$livestream == null ? other$livestream != null : !this$livestream.equals(other$livestream))
-      return false;
+    if (this$livestream == null
+        ? other$livestream != null
+        : !this$livestream.equals(other$livestream)) return false;
     final Object this$sourcerelationship = this.getSourcerelationship();
     final Object other$sourcerelationship = other.getSourcerelationship();
-    if (this$sourcerelationship == null ? other$sourcerelationship != null : !this$sourcerelationship.equals(other$sourcerelationship))
-      return false;
+    if (this$sourcerelationship == null
+        ? other$sourcerelationship != null
+        : !this$sourcerelationship.equals(other$sourcerelationship)) return false;
     final Object this$len = this.getLen();
     final Object other$len = other.getLen();
     if (this$len == null ? other$len != null : !this$len.equals(other$len)) return false;
@@ -363,8 +380,9 @@ public class Content {
       return false;
     final Object this$embeddable = this.getEmbeddable();
     final Object other$embeddable = other.getEmbeddable();
-    if (this$embeddable == null ? other$embeddable != null : !this$embeddable.equals(other$embeddable))
-      return false;
+    if (this$embeddable == null
+        ? other$embeddable != null
+        : !this$embeddable.equals(other$embeddable)) return false;
     final Object this$data = this.getData();
     final Object other$data = other.getData();
     if (this$data == null ? other$data != null : !this$data.equals(other$data)) return false;
@@ -437,6 +455,58 @@ public class Content {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.Content(id=" + this.getId() + ", episode=" + this.getEpisode() + ", title=" + this.getTitle() + ", series=" + this.getSeries() + ", season=" + this.getSeason() + ", artist=" + this.getArtist() + ", genre=" + this.getGenre() + ", album=" + this.getAlbum() + ", isrc=" + this.getIsrc() + ", producer=" + this.getProducer() + ", url=" + this.getUrl() + ", videoquality=" + this.getVideoquality() + ", cat=" + this.getCat() + ", prodq=" + this.getProdq() + ", context=" + this.getContext() + ", contentrating=" + this.getContentrating() + ", userrating=" + this.getUserrating() + ", qagmediarating=" + this.getQagmediarating() + ", keywords=" + this.getKeywords() + ", livestream=" + this.getLivestream() + ", sourcerelationship=" + this.getSourcerelationship() + ", len=" + this.getLen() + ", language=" + this.getLanguage() + ", embeddable=" + this.getEmbeddable() + ", data=" + this.getData() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.Content(id="
+        + this.getId()
+        + ", episode="
+        + this.getEpisode()
+        + ", title="
+        + this.getTitle()
+        + ", series="
+        + this.getSeries()
+        + ", season="
+        + this.getSeason()
+        + ", artist="
+        + this.getArtist()
+        + ", genre="
+        + this.getGenre()
+        + ", album="
+        + this.getAlbum()
+        + ", isrc="
+        + this.getIsrc()
+        + ", producer="
+        + this.getProducer()
+        + ", url="
+        + this.getUrl()
+        + ", videoquality="
+        + this.getVideoquality()
+        + ", cat="
+        + this.getCat()
+        + ", prodq="
+        + this.getProdq()
+        + ", context="
+        + this.getContext()
+        + ", contentrating="
+        + this.getContentrating()
+        + ", userrating="
+        + this.getUserrating()
+        + ", qagmediarating="
+        + this.getQagmediarating()
+        + ", keywords="
+        + this.getKeywords()
+        + ", livestream="
+        + this.getLivestream()
+        + ", sourcerelationship="
+        + this.getSourcerelationship()
+        + ", len="
+        + this.getLen()
+        + ", language="
+        + this.getLanguage()
+        + ", embeddable="
+        + this.getEmbeddable()
+        + ", data="
+        + this.getData()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

@@ -1,24 +1,35 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb3;
 
 import net.media.utils.validator.CheckExactlyOneNotNull;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.Map;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_THREEDOTX;
 
-
-/**
- * Created by shiva.b on 17/12/18.
- */
+/** Created by shiva.b on 17/12/18. */
 @CheckExactlyOneNotNull(fieldNames = {"video", "audio", "display"})
 public class Ad {
 
-  @NotNull
-  private String id;
+  @NotNull private String id;
   private Collection<String> adomain = null;
   private Collection<String> bundle = null;
   private String iurl;
@@ -30,149 +41,144 @@ public class Ad {
   private Integer mrating;
   private Integer init;
   private Integer lastmod;
-  @Valid
-  private Display display;
-  @Valid
-  private Video video;
-  @Valid
-  private Audio audio;
-  @Valid
-  private Audit audit;
+  @Valid private Display display;
+  @Valid private Video video;
+  @Valid private Audio audio;
+  @Valid private Audit audit;
   private Map<String, Object> ext;
 
-  public Ad() {
-  }
+  public Ad() {}
 
   public @NotNull String getId() {
     return this.id;
-  }
-
-  public Collection<String> getAdomain() {
-    return this.adomain;
-  }
-
-  public Collection<String> getBundle() {
-    return this.bundle;
-  }
-
-  public String getIurl() {
-    return this.iurl;
-  }
-
-  public Collection<String> getCat() {
-    return this.cat;
-  }
-
-  public Integer getCattax() {
-    return this.cattax;
-  }
-
-  public String getLang() {
-    return this.lang;
-  }
-
-  public Collection<Integer> getAttr() {
-    return this.attr;
-  }
-
-  public Integer getSecure() {
-    return this.secure;
-  }
-
-  public Integer getMrating() {
-    return this.mrating;
-  }
-
-  public Integer getInit() {
-    return this.init;
-  }
-
-  public Integer getLastmod() {
-    return this.lastmod;
-  }
-
-  public @Valid Display getDisplay() {
-    return this.display;
-  }
-
-  public @Valid Video getVideo() {
-    return this.video;
-  }
-
-  public @Valid Audio getAudio() {
-    return this.audio;
-  }
-
-  public @Valid Audit getAudit() {
-    return this.audit;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setId(@NotNull String id) {
     this.id = id;
   }
 
+  public Collection<String> getAdomain() {
+    return this.adomain;
+  }
+
   public void setAdomain(Collection<String> adomain) {
     this.adomain = adomain;
+  }
+
+  public Collection<String> getBundle() {
+    return this.bundle;
   }
 
   public void setBundle(Collection<String> bundle) {
     this.bundle = bundle;
   }
 
+  public String getIurl() {
+    return this.iurl;
+  }
+
   public void setIurl(String iurl) {
     this.iurl = iurl;
+  }
+
+  public Collection<String> getCat() {
+    return this.cat;
   }
 
   public void setCat(Collection<String> cat) {
     this.cat = cat;
   }
 
+  public Integer getCattax() {
+    return this.cattax;
+  }
+
   public void setCattax(Integer cattax) {
     this.cattax = cattax;
+  }
+
+  public String getLang() {
+    return this.lang;
   }
 
   public void setLang(String lang) {
     this.lang = lang;
   }
 
+  public Collection<Integer> getAttr() {
+    return this.attr;
+  }
+
   public void setAttr(Collection<Integer> attr) {
     this.attr = attr;
+  }
+
+  public Integer getSecure() {
+    return this.secure;
   }
 
   public void setSecure(Integer secure) {
     this.secure = secure;
   }
 
+  public Integer getMrating() {
+    return this.mrating;
+  }
+
   public void setMrating(Integer mrating) {
     this.mrating = mrating;
+  }
+
+  public Integer getInit() {
+    return this.init;
   }
 
   public void setInit(Integer init) {
     this.init = init;
   }
 
+  public Integer getLastmod() {
+    return this.lastmod;
+  }
+
   public void setLastmod(Integer lastmod) {
     this.lastmod = lastmod;
+  }
+
+  public @Valid Display getDisplay() {
+    return this.display;
   }
 
   public void setDisplay(@Valid Display display) {
     this.display = display;
   }
 
+  public @Valid Video getVideo() {
+    return this.video;
+  }
+
   public void setVideo(@Valid Video video) {
     this.video = video;
+  }
+
+  public @Valid Audio getAudio() {
+    return this.audio;
   }
 
   public void setAudio(@Valid Audio audio) {
     this.audio = audio;
   }
 
+  public @Valid Audit getAudit() {
+    return this.audit;
+  }
+
   public void setAudit(@Valid Audit audit) {
     this.audit = audit;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -183,7 +189,7 @@ public class Ad {
     if (o == this) return true;
     if (!(o instanceof Ad)) return false;
     final Ad other = (Ad) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$id = this.getId();
     final Object other$id = other.getId();
     if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;
@@ -290,6 +296,40 @@ public class Ad {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Ad(id=" + this.getId() + ", adomain=" + this.getAdomain() + ", bundle=" + this.getBundle() + ", iurl=" + this.getIurl() + ", cat=" + this.getCat() + ", cattax=" + this.getCattax() + ", lang=" + this.getLang() + ", attr=" + this.getAttr() + ", secure=" + this.getSecure() + ", mrating=" + this.getMrating() + ", init=" + this.getInit() + ", lastmod=" + this.getLastmod() + ", display=" + this.getDisplay() + ", video=" + this.getVideo() + ", audio=" + this.getAudio() + ", audit=" + this.getAudit() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.Ad(id="
+        + this.getId()
+        + ", adomain="
+        + this.getAdomain()
+        + ", bundle="
+        + this.getBundle()
+        + ", iurl="
+        + this.getIurl()
+        + ", cat="
+        + this.getCat()
+        + ", cattax="
+        + this.getCattax()
+        + ", lang="
+        + this.getLang()
+        + ", attr="
+        + this.getAttr()
+        + ", secure="
+        + this.getSecure()
+        + ", mrating="
+        + this.getMrating()
+        + ", init="
+        + this.getInit()
+        + ", lastmod="
+        + this.getLastmod()
+        + ", display="
+        + this.getDisplay()
+        + ", video="
+        + this.getVideo()
+        + ", audio="
+        + this.getAudio()
+        + ", audit="
+        + this.getAudit()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

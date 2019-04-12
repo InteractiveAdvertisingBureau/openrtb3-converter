@@ -1,5 +1,20 @@
-package net.media.openrtb25.response.nativeresponse;
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
+package net.media.openrtb25.response.nativeresponse;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -8,8 +23,7 @@ public class NativeResponse {
   @JsonProperty("native")
   private NativeResponseBody nativeResponseBody;
 
-  public NativeResponse() {
-  }
+  public NativeResponse() {}
 
   public NativeResponseBody getNativeResponseBody() {
     return this.nativeResponseBody;
@@ -23,11 +37,12 @@ public class NativeResponse {
     if (o == this) return true;
     if (!(o instanceof NativeResponse)) return false;
     final NativeResponse other = (NativeResponse) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$nativeResponseBody = this.getNativeResponseBody();
     final Object other$nativeResponseBody = other.getNativeResponseBody();
-    if (this$nativeResponseBody == null ? other$nativeResponseBody != null : !this$nativeResponseBody.equals(other$nativeResponseBody))
-      return false;
+    if (this$nativeResponseBody == null
+        ? other$nativeResponseBody != null
+        : !this$nativeResponseBody.equals(other$nativeResponseBody)) return false;
     return true;
   }
 
@@ -44,6 +59,8 @@ public class NativeResponse {
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.nativeresponse.NativeResponse(nativeResponseBody=" + this.getNativeResponseBody() + ")";
+    return "net.media.openrtb25.response.nativeresponse.NativeResponse(nativeResponseBody="
+        + this.getNativeResponseBody()
+        + ")";
   }
 }

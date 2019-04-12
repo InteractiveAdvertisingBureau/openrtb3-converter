@@ -1,16 +1,28 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb25.request;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Map;
 
 public class App {
 
-  @NotNull
-  private String id;
+  @NotNull private String id;
 
   private String name;
 
@@ -40,123 +52,122 @@ public class App {
 
   private Map<String, Object> ext;
 
-  public App(){
-  }
+  public App() {}
 
   public @NotNull String getId() {
     return this.id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public String getBundle() {
-    return this.bundle;
-  }
-
-  public String getDomain() {
-    return this.domain;
-  }
-
-  public String getStoreurl() {
-    return this.storeurl;
-  }
-
-  public Collection<String> getCat() {
-    return this.cat;
-  }
-
-  public Collection<String> getSectioncat() {
-    return this.sectioncat;
-  }
-
-  public Collection<String> getPagecat() {
-    return this.pagecat;
-  }
-
-  public String getVer() {
-    return this.ver;
-  }
-
-  public Integer getPrivacypolicy() {
-    return this.privacypolicy;
-  }
-
-  public Integer getPaid() {
-    return this.paid;
-  }
-
-  public Publisher getPublisher() {
-    return this.publisher;
-  }
-
-  public Content getContent() {
-    return this.content;
-  }
-
-  public String getKeywords() {
-    return this.keywords;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setId(@NotNull String id) {
     this.id = id;
   }
 
+  public String getName() {
+    return this.name;
+  }
+
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getBundle() {
+    return this.bundle;
   }
 
   public void setBundle(String bundle) {
     this.bundle = bundle;
   }
 
+  public String getDomain() {
+    return this.domain;
+  }
+
   public void setDomain(String domain) {
     this.domain = domain;
+  }
+
+  public String getStoreurl() {
+    return this.storeurl;
   }
 
   public void setStoreurl(String storeurl) {
     this.storeurl = storeurl;
   }
 
+  public Collection<String> getCat() {
+    return this.cat;
+  }
+
   public void setCat(Collection<String> cat) {
     this.cat = cat;
+  }
+
+  public Collection<String> getSectioncat() {
+    return this.sectioncat;
   }
 
   public void setSectioncat(Collection<String> sectioncat) {
     this.sectioncat = sectioncat;
   }
 
+  public Collection<String> getPagecat() {
+    return this.pagecat;
+  }
+
   public void setPagecat(Collection<String> pagecat) {
     this.pagecat = pagecat;
+  }
+
+  public String getVer() {
+    return this.ver;
   }
 
   public void setVer(String ver) {
     this.ver = ver;
   }
 
+  public Integer getPrivacypolicy() {
+    return this.privacypolicy;
+  }
+
   public void setPrivacypolicy(Integer privacypolicy) {
     this.privacypolicy = privacypolicy;
+  }
+
+  public Integer getPaid() {
+    return this.paid;
   }
 
   public void setPaid(Integer paid) {
     this.paid = paid;
   }
 
+  public Publisher getPublisher() {
+    return this.publisher;
+  }
+
   public void setPublisher(Publisher publisher) {
     this.publisher = publisher;
+  }
+
+  public Content getContent() {
+    return this.content;
   }
 
   public void setContent(Content content) {
     this.content = content;
   }
 
+  public String getKeywords() {
+    return this.keywords;
+  }
+
   public void setKeywords(String keywords) {
     this.keywords = keywords;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -167,7 +178,7 @@ public class App {
     if (o == this) return true;
     if (!(o instanceof App)) return false;
     final App other = (App) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$id = this.getId();
     final Object other$id = other.getId();
     if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;
@@ -191,8 +202,9 @@ public class App {
     if (this$cat == null ? other$cat != null : !this$cat.equals(other$cat)) return false;
     final Object this$sectioncat = this.getSectioncat();
     final Object other$sectioncat = other.getSectioncat();
-    if (this$sectioncat == null ? other$sectioncat != null : !this$sectioncat.equals(other$sectioncat))
-      return false;
+    if (this$sectioncat == null
+        ? other$sectioncat != null
+        : !this$sectioncat.equals(other$sectioncat)) return false;
     final Object this$pagecat = this.getPagecat();
     final Object other$pagecat = other.getPagecat();
     if (this$pagecat == null ? other$pagecat != null : !this$pagecat.equals(other$pagecat))
@@ -202,8 +214,9 @@ public class App {
     if (this$ver == null ? other$ver != null : !this$ver.equals(other$ver)) return false;
     final Object this$privacypolicy = this.getPrivacypolicy();
     final Object other$privacypolicy = other.getPrivacypolicy();
-    if (this$privacypolicy == null ? other$privacypolicy != null : !this$privacypolicy.equals(other$privacypolicy))
-      return false;
+    if (this$privacypolicy == null
+        ? other$privacypolicy != null
+        : !this$privacypolicy.equals(other$privacypolicy)) return false;
     final Object this$paid = this.getPaid();
     final Object other$paid = other.getPaid();
     if (this$paid == null ? other$paid != null : !this$paid.equals(other$paid)) return false;
@@ -266,6 +279,36 @@ public class App {
   }
 
   public String toString() {
-    return "net.media.openrtb25.request.App(id=" + this.getId() + ", name=" + this.getName() + ", bundle=" + this.getBundle() + ", domain=" + this.getDomain() + ", storeurl=" + this.getStoreurl() + ", cat=" + this.getCat() + ", sectioncat=" + this.getSectioncat() + ", pagecat=" + this.getPagecat() + ", ver=" + this.getVer() + ", privacypolicy=" + this.getPrivacypolicy() + ", paid=" + this.getPaid() + ", publisher=" + this.getPublisher() + ", content=" + this.getContent() + ", keywords=" + this.getKeywords() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.request.App(id="
+        + this.getId()
+        + ", name="
+        + this.getName()
+        + ", bundle="
+        + this.getBundle()
+        + ", domain="
+        + this.getDomain()
+        + ", storeurl="
+        + this.getStoreurl()
+        + ", cat="
+        + this.getCat()
+        + ", sectioncat="
+        + this.getSectioncat()
+        + ", pagecat="
+        + this.getPagecat()
+        + ", ver="
+        + this.getVer()
+        + ", privacypolicy="
+        + this.getPrivacypolicy()
+        + ", paid="
+        + this.getPaid()
+        + ", publisher="
+        + this.getPublisher()
+        + ", content="
+        + this.getContent()
+        + ", keywords="
+        + this.getKeywords()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

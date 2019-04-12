@@ -1,41 +1,51 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb3;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import javax.validation.Valid;
+import java.util.Collection;
+import java.util.Map;
 
 public class Native {
 
+  @Valid private LinkAsset link;
+  @Valid private Collection<Asset> asset = null;
+  private Map<String, Object> ext;
 
-  @Valid
-  private LinkAsset link;
-  @Valid
-  private Collection<Asset> asset = null;
-  private Map<String,Object> ext;
-
-  public Native() {
-  }
+  public Native() {}
 
   public @Valid LinkAsset getLink() {
     return this.link;
-  }
-
-  public @Valid Collection<Asset> getAsset() {
-    return this.asset;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setLink(@Valid LinkAsset link) {
     this.link = link;
   }
 
+  public @Valid Collection<Asset> getAsset() {
+    return this.asset;
+  }
+
   public void setAsset(@Valid Collection<Asset> asset) {
     this.asset = asset;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -46,7 +56,7 @@ public class Native {
     if (o == this) return true;
     if (!(o instanceof Native)) return false;
     final Native other = (Native) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$link = this.getLink();
     final Object other$link = other.getLink();
     if (this$link == null ? other$link != null : !this$link.equals(other$link)) return false;
@@ -76,6 +86,12 @@ public class Native {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Native(link=" + this.getLink() + ", asset=" + this.getAsset() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.Native(link="
+        + this.getLink()
+        + ", asset="
+        + this.getAsset()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

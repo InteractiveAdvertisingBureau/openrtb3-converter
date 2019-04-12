@@ -1,6 +1,6 @@
 {
   "domainSpec": "3.0",
-  "response" : {
+  "response": {
     "id": "0123456789ABCDEF",
     "bidid": "0011223344AABBCC",
     "nbr": 1,
@@ -69,36 +69,44 @@
                     "link": {
                       "url": "",
                       "urlfb": "",
-                      "trkr": [""]
+                      "trkr": [
+                        ""
+                      ]
                     },
-                    "asset": [{
-                      "id": 12123,
-                      "req": 232,
-                      "title": {
-                        "text": "kjnjnnn",
-                        "len": 12
-                      },
-                      "image": {
-                        "url": "hjb,bnbm",
-                        "w": 3,
-                        "h": 2,
-                        "type": 4
-                      },
-                      "video": {
-                        "adm": "",
-                        "curl": ""
-                      },
-                      "data": {
-                        "value": [""],
-                        "len": "",
-                        "type": ""
-                      },
-                      "link": {
-                        "url": "ermghhhhmm",
-                        "urlfb": "",
-                        "trkr": [""]
+                    "asset": [
+                      {
+                        "id": 12123,
+                        "req": 232,
+                        "title": {
+                          "text": "kjnjnnn",
+                          "len": 12
+                        },
+                        "image": {
+                          "url": "hjb,bnbm",
+                          "w": 3,
+                          "h": 2,
+                          "type": 4
+                        },
+                        "video": {
+                          "adm": "",
+                          "curl": ""
+                        },
+                        "data": {
+                          "value": [
+                            ""
+                          ],
+                          "len": "",
+                          "type": ""
+                        },
+                        "link": {
+                          "url": "ermghhhhmm",
+                          "urlfb": "",
+                          "trkr": [
+                            ""
+                          ]
+                        }
                       }
-                    }]
+                    ]
                   },
                   "event": [
                     {

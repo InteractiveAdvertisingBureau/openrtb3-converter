@@ -1,3 +1,19 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb3;
 
 import java.util.Collection;
@@ -12,51 +28,50 @@ public class Audit {
   private Map<String, Object> corr;
   private Map<String,Object> ext;
 
-  public Audit() {
-  }
+  public Audit() {}
 
   public Integer getStatus() {
     return this.status;
-  }
-
-  public Collection<String> getFeedback() {
-    return this.feedback;
-  }
-
-  public Integer getInit() {
-    return this.init;
-  }
-
-  public Integer getLastmod() {
-    return this.lastmod;
-  }
-
-  public Map<String, Object> getCorr() {
-    return this.corr;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setStatus(Integer status) {
     this.status = status;
   }
 
+  public Collection<String> getFeedback() {
+    return this.feedback;
+  }
+
   public void setFeedback(Collection<String> feedback) {
     this.feedback = feedback;
+  }
+
+  public Integer getInit() {
+    return this.init;
   }
 
   public void setInit(Integer init) {
     this.init = init;
   }
 
+  public Integer getLastmod() {
+    return this.lastmod;
+  }
+
   public void setLastmod(Integer lastmod) {
     this.lastmod = lastmod;
   }
 
+	public Map<String, Object> getCorr() {
+		return this.corr;
+	}
+
   public void setCorr(Map<String, Object> corr) {
     this.corr = corr;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -67,7 +82,7 @@ public class Audit {
     if (o == this) return true;
     if (!(o instanceof Audit)) return false;
     final Audit other = (Audit) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$status = this.getStatus();
     final Object other$status = other.getStatus();
     if (this$status == null ? other$status != null : !this$status.equals(other$status))
@@ -115,6 +130,18 @@ public class Audit {
   }
 
   public String toString() {
-    return "net.media.openrtb3.Audit(status=" + this.getStatus() + ", feedback=" + this.getFeedback() + ", init=" + this.getInit() + ", lastmod=" + this.getLastmod() + ", corr=" + this.getCorr() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb3.Audit(status="
+        + this.getStatus()
+        + ", feedback="
+        + this.getFeedback()
+        + ", init="
+        + this.getInit()
+        + ", lastmod="
+        + this.getLastmod()
+        + ", corr="
+        + this.getCorr()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

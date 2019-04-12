@@ -1,3 +1,19 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.openrtb25.response.nativeresponse;
 
 import java.util.Map;
@@ -9,27 +25,26 @@ public class NativeData {
 
   private Map<String, Object> ext;
 
-  public NativeData() {
-  }
+  public NativeData() {}
 
   public String getLabel() {
     return this.label;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public Map<String, Object> getExt() {
-    return this.ext;
   }
 
   public void setLabel(String label) {
     this.label = label;
   }
 
+  public String getValue() {
+    return this.value;
+  }
+
   public void setValue(String value) {
     this.value = value;
+  }
+
+  public Map<String, Object> getExt() {
+    return this.ext;
   }
 
   public void setExt(Map<String, Object> ext) {
@@ -40,7 +55,7 @@ public class NativeData {
     if (o == this) return true;
     if (!(o instanceof NativeData)) return false;
     final NativeData other = (NativeData) o;
-    if (!other.canEqual((Object) this)) return false;
+    if (!other.canEqual(this)) return false;
     final Object this$label = this.getLabel();
     final Object other$label = other.getLabel();
     if (this$label == null ? other$label != null : !this$label.equals(other$label)) return false;
@@ -70,6 +85,12 @@ public class NativeData {
   }
 
   public String toString() {
-    return "net.media.openrtb25.response.nativeresponse.NativeData(label=" + this.getLabel() + ", value=" + this.getValue() + ", ext=" + this.getExt() + ")";
+    return "net.media.openrtb25.response.nativeresponse.NativeData(label="
+        + this.getLabel()
+        + ", value="
+        + this.getValue()
+        + ", ext="
+        + this.getExt()
+        + ")";
   }
 }

@@ -1,3 +1,19 @@
+/*
+ * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package net.media.converters.request30toRequest25;
 
 import net.media.config.Config;
@@ -9,10 +25,11 @@ import net.media.utils.Utils;
 
 import static java.util.Objects.isNull;
 
-public class MetricToMetricConverter implements Converter<Metric, net.media.openrtb25.request.Metric> {
+public class MetricToMetricConverter
+    implements Converter<Metric, net.media.openrtb25.request.Metric> {
   @Override
-  public net.media.openrtb25.request.Metric map(Metric metric, Config config, Provider
-    converterProvider) throws OpenRtbConverterException {
+  public net.media.openrtb25.request.Metric map(
+      Metric metric, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (isNull(metric)) {
       return null;
     }
@@ -22,9 +39,12 @@ public class MetricToMetricConverter implements Converter<Metric, net.media.open
   }
 
   @Override
-  public void enhance(Metric metric, net.media.openrtb25.request.Metric metric1, Config config,
-                      Provider converterProvider)
-    throws OpenRtbConverterException {
+  public void enhance(
+      Metric metric,
+      net.media.openrtb25.request.Metric metric1,
+      Config config,
+      Provider converterProvider)
+      throws OpenRtbConverterException {
     if (metric != null) {
       metric1.setType(metric.getType());
       metric1.setVendor(metric.getVendor());
