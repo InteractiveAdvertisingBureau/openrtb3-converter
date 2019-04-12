@@ -28,7 +28,6 @@
         <guice.version>3.0</guice.version>
         <tomcat.version>9.0.0.M6</tomcat.version>
         <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
-        <lombok.version>1.16.14</lombok.version>
         <guava.version>23.0</guava.version>
         <log4j.version>2.7</log4j.version>
     </properties>
@@ -40,12 +39,6 @@
         <module>converter-core</module>
     </modules>
 
-    <scm>
-        <connection>scm:git:http://tree.mn/Video-AdExchange/openrtb-converter.git</connection>
-        <url>http://tree.mn/Video-AdExchange/openrtb-converter</url>
-        <developerConnection>scm:git:http://tree.mn/Video-AdExchange/openrtb-converter.git</developerConnection>
-        <tag>HEAD</tag>
-    </scm>
 
     <build>
         <plugins>
@@ -79,25 +72,11 @@
                                 </goals>
                             </execution>
                         </executions>
-                        <configuration>
-                            <serverId>nexus-releases</serverId>
-                            <nexusUrl>http://repository.media.net/</nexusUrl>
-                            <skipStaging>true</skipStaging>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
         </profile>
     </profiles>
 
-    <distributionManagement>
-        <repository>
-            <uniqueVersion>false</uniqueVersion>
-            <id>corp1</id>
-            <name>Corporate Repository</name>
-            <url>scp://172.16.140.221:8080/nexus/content/repositories/medianet/</url>
-            <layout>default</layout>
-        </repository>
-    </distributionManagement>
 
 </project>
