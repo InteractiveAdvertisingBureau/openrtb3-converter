@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -66,8 +66,7 @@ public class VideoAsset {
     if (this$curl == null ? other$curl != null : !this$curl.equals(other$curl)) return false;
     final Object this$ext = this.getExt();
     final Object other$ext = other.getExt();
-    if (this$ext == null ? other$ext != null : !this$ext.equals(other$ext)) return false;
-    return true;
+    return this$ext == null ? other$ext == null : this$ext.equals(other$ext);
   }
 
   public int hashCode() {

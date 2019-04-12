@@ -3,13 +3,12 @@
   "response": {
     "id": "0123456789ABCDEF",
     "bidid": "0011223344AABBCC",
-    "nbr": 1,
     "cur": "USD",
     "cdata": "cdata",
     "ext": {
-      "customdata": "pyaz",
-      "ankit": {
-        "cho": "lul"
+      "customdata": "aofdj",
+      "ankfweqopjfwpit": {
+        "fqpijf": "fqif"
       }
     },
     "seatbid": [
@@ -35,7 +34,7 @@
                   "ford.com"
                 ],
                 "bundle": [
-                  "chocho"
+                  "fqofjpq"
                 ],
                 "iurl": "Abcd.com",
                 "cat": [
@@ -116,16 +115,16 @@
                     }
                   ],
                   "ext": {
-                    "aloo1": "pyaz",
-                    "ankit1": {
-                      "cho1": "lul"
+                    "qfqfq": "pyafqffqz",
+                    "fqfqf": {
+                      "fqffqfq": "fqfqq"
                     }
                   }
                 },
                 "ext": {
-                  "aloo2": "pyaz",
+                  "fqfq": "fqfqfe",
                   "ankit3": {
-                    "cho": "lul"
+                    "fqf": "fqfqf"
                   }
                 }
               }
@@ -134,9 +133,9 @@
         ],
         "_package": 2,
         "ext": {
-          "aloo": "pyaz",
-          "sourav": {
-            "chu": "luli"
+          "fqfqqffo": "fqfq",
+          "abcdef": {
+            "fq": "qgfe"
           }
         }
       }
