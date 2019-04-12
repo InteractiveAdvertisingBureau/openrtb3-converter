@@ -21,11 +21,10 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Audit;
-import net.media.openrtb3.Corr;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
@@ -39,6 +38,7 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
       return null;
     }
     Audit audit = new Audit();
+    enhance(source, audit, config, converterProvider);
     return audit;
   }
 
@@ -65,7 +65,7 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
           target.setLastmod((Integer) map.get("lastmod"));
         }
         if (map.containsKey("feedback")) {
-          target.setFeedback((List<String>) map.get("feedback"));
+          target.setFeedback((Collection<String>) map.get("feedback"));
         }
       } catch (Exception e) {
         throw new OpenRtbConverterException("error while type casting in bid.ext", e);

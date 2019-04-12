@@ -17,6 +17,11 @@
 package net.media.openrtb3;
 
 import javax.validation.constraints.NotNull;
+import com.fasterxml.jackson.databind.JavaType;
+
+import net.media.exceptions.OpenRtbConverterException;
+import net.media.utils.Utils;
+
 import java.util.Collection;
 import java.util.Map;
 
