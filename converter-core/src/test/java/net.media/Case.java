@@ -30,7 +30,7 @@ public class Case {
   private Map<String, String> outputEdits;
   private JsonNode outputJson;
   private String purpose;
-  private Map<String, String> params;
+  private Map<String, Object> params;
 
   public Case() {}
 
@@ -106,11 +106,11 @@ public class Case {
     this.purpose = purpose;
   }
 
-  public Map<String, String> getParams() {
+  public Map<String, Object> getParams() {
     return this.params;
   }
 
-  public void setParams(Map<String, String> params) {
+  public void setParams(Map<String, Object> params) {
     this.params = params;
   }
 }

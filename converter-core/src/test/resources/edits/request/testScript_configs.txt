@@ -1,0 +1,48 @@
+cases:
+ - inputFile: NATIVE_APP_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: NATIVE_APP_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: nativeStringConfigFalse
+   params:
+     nativeRequestAsString: false
+
+ - inputFile: NATIVE_APP_30_string.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: NATIVE_APP_25_string.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: nativeStringConfigTrue
+   params:
+     nativeRequestAsString: true
+
+ - inputFile: NATIVE_APP_30_string.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: NATIVE_APP_25_string.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: nativeStringConfigDefault
+
+ - inputFile: NATIVE_APP_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: empty.json
+   outputType: "REQUEST25"
+   outputEdits:
+     status: "ERROR"
+   purpose: nativeStringConfigWrongValue
+   params:
+     nativeRequestAsString: "random"
+
+

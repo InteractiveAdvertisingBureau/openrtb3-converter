@@ -27,6 +27,7 @@ import org.junit.Test;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -52,21 +53,35 @@ public class ConverterTest {
       for (File files : innerFolder) {
         totalFiles += files.listFiles().length;
         for (File file : files.listFiles()) {
-
+          System.out.println("file: " + file );
+          Exception exception = new Exception();
           byte[] jsonData = Files.readAllBytes(file.toPath());
           TestPojo testPojo = null;
           try {
             testPojo = JacksonObjectMapper.getMapper().readValue(jsonData, TestPojo.class);
           } catch (Exception e) {
+            exception = e;
           }
           if (isNull(testPojo)
               || isNull(testPojo.getInputType())
               || isNull(testPojo.getOutputType())) {
-            OutputTestPojo outputTestPojo = new OutputTestPojo();
+            /*OutputTestPojo outputTestPojo = new OutputTestPojo();
             outputTestPojo.setInputFile(file.getName());
             outputTestPojo.setStatus("FAILURE");
             outputTestPojo.setException("Test file = " + file.getName() + " is incorrect");
-            testOutput.getFailedTestList().add(outputTestPojo);
+            testOutput.getFailedTestList().add(outputTestPojo);*/
+            OutputTestPojo outputTestPojo = new OutputTestPojo();
+            Map<String, Object> inputPojo = JacksonObjectMapper.getMapper().readValue(jsonData, Map.class);
+            outputTestPojo.setInputFile(null);
+            outputTestPojo.setStatus("FAILURE");
+            outputTestPojo.setInputType((String) inputPojo.get("inputType"));
+            outputTestPojo.setOutputType((String) inputPojo.get("outputType"));
+            outputTestPojo.setException(exception.getMessage());
+
+            if (!((Map)inputPojo.get("outputEdits")).containsKey("status")
+              || !((Map)inputPojo.get("outputEdits")).get("status").equals("ERROR")) {
+              testOutput.getFailedTestList().add(outputTestPojo);
+            }
           } else if (testPojo.getInputType().equalsIgnoreCase("REQUEST25")
               && testPojo.getOutputType().equalsIgnoreCase("REQUEST30")) {
             ortbTester.test(

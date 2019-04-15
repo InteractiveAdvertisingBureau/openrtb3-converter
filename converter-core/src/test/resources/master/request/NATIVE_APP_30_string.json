@@ -1,5 +1,4 @@
-{
-  "openrtb": {
+{ "openrtb": {
     "ver": "3.0",
     "domainSpec": "adcom",
     "domainVer": "1.0",
@@ -32,8 +31,6 @@
       "item": [
         {
           "id": "1",
-          "qty": 1,
-          "seq": 1,
           "flr": 0.03,
           "flrcur": "USD",
           "exp": 1,
@@ -89,8 +86,6 @@
                   "def"
                 ],
                 "clktype": 1,
-                "ptype": 1,
-                "context": 2,
                 "api": [
                   3,
                   2
@@ -101,162 +96,8 @@
                 "priv": 0,
                 "nativefmt": {
                   "ext": {
-                    "adunit": 1,
-                    "contextsubtype": 2,
-                    "dummy": "object",
-                    "layout": 1,
                     "ver": "1.2"
-                  },
-                  "asset": [
-                    {
-                      "id": 1,
-                      "req": 0,
-                      "title": {
-                        "len": 1,
-                        "ext": {
-                          "dummy": "title.ext"
-                        }
-                      },
-                      "img": {
-                        "type": 1,
-                        "mime": [
-                          "a",
-                          "bc",
-                          "def"
-                        ],
-                        "w": 1,
-                        "h": 2,
-                        "wmin": 2,
-                        "hmin": 3,
-                        "wratio": 4,
-                        "hratio": 5,
-                        "ext": {
-                          "dummy": "img.ext"
-                        }
-                      },
-                      "video": {
-                        "comptype": [
-                          1,
-                          2
-                        ],
-                        "ptype": 1,
-                        "pos": 1,
-                        "delay": 1,
-                        "skip": 1,
-                        "skipmin": 1,
-                        "skipafter": 1,
-                        "playmethod": 1,
-                        "playend": 1,
-                        "clktype": 1,
-                        "mime": [
-                          "abc",
-                          "def"
-                        ],
-                        "api": [
-                          2,
-                          3
-                        ],
-                        "ctype": [
-                          2,
-                          3
-                        ],
-                        "w": 1,
-                        "h": 1,
-                        "unit": 2,
-                        "mindur": 1,
-                        "maxdur": 1,
-                        "maxext": 1,
-                        "minbitr": 2,
-                        "maxbitr": 2,
-                        "delivery": [
-                          1,
-                          2
-                        ],
-                        "maxseq": 1,
-                        "linear": 1,
-                        "boxing": 1,
-                        "ext": {
-                          "dummy": "video.ext"
-                        },
-                        "comp": [
-                          {
-                            "id": "4.0",
-                            "vcm": 1,
-                            "display": {
-                              "pos": 0,
-                              "topframe": 22,
-                              "ptype": 1,
-                              "context": 2,
-                              "mime": [
-                                "application/x-shockwave-flash",
-                                "image/jpg"
-                              ],
-                              "api": [
-                                3,
-                                2
-                              ],
-                              "ctype": [
-                                1
-                              ],
-                              "w": 300,
-                              "h": 250,
-                              "unit": 1,
-                              "priv": 0,
-                              "displayfmt": [
-                                {
-                                  "w": 200,
-                                  "h": 20,
-                                  "wratio": 200,
-                                  "hratio": 30,
-                                  "expdir": [
-                                    3,
-                                    4
-                                  ],
-                                  "ext": {
-                                    "dummy": "f1.ext"
-                                  }
-                                },
-                                {
-                                  "w": 33,
-                                  "h": 11,
-                                  "wratio": 200,
-                                  "hratio": 30,
-                                  "expdir": [
-                                    3,
-                                    4
-                                  ],
-                                  "ext": {
-                                    "dummy": "f2.ext"
-                                  }
-                                }
-                              ],
-                              "ext": {
-                                "dummy": "innerdisplay.ext",
-                                "btype": [
-                                  3,
-                                  4
-                                ],
-                                "hmin": 1,
-                                "wmin": 1,
-                                "hmax": 1,
-                                "wmax": 1
-                              }
-                            }
-                          }
-                        ]
-                      },
-                      "data": {
-                        "type": 1,
-                        "len": 1,
-                        "ext": {
-                          "dummy": "data.ext"
-                        }
-                      },
-                      "ext": {
-                        "dummy": "asset.ext"
-                      }
-                    }
-                  ]
+                  }
                 },
                 "ext": {
                   "dummy": "entry"
@@ -276,9 +117,9 @@
         }
       ],
       "context": {
-        "site": {
-          "id": "102855",
-          "name": "abdk",
+        "app": {
+          "id": "abcde2345",
+          "name": "android app",
           "pub": {
             "id": "8953",
             "name": "foobar.com",
@@ -289,7 +130,7 @@
             ],
             "cattax": 2,
             "ext": {
-              "dummy": "pub.ext"
+              "dummy": "ff"
             }
           },
           "content": {
@@ -329,7 +170,7 @@
               ],
               "cattax": 2,
               "ext": {
-                "dummy": "producer.ext"
+                "dummy": "ff"
               }
             },
             "data": [
@@ -342,17 +183,17 @@
                     "name": "name123",
                     "value": "acde",
                     "ext": {
-                      "dummy": "segment.ext"
+                      "dummy": "ff"
                     }
                   }
                 ],
                 "ext": {
-                  "dummy": "data.ext"
+                  "dummy": "ff"
                 }
               }
             ],
             "ext": {
-              "dummy": "content.ext",
+              "dummy": "ff",
               "videoquality": 2
             }
           },
@@ -372,13 +213,13 @@
           "cattax": 2,
           "privpolicy": 1,
           "keywords": "ewew",
-          "page": "http://www.foobar.com/1234.html ",
-          "ref": "sdfe",
-          "search": "eded",
-          "mobile": 1,
-          "amp": 2,
+          "bundle": "com.media.net",
+          "storeid": "abc1234",
+          "storeurl": "axcdabc.com/test123",
+          "ver": "123",
+          "paid": 0,
           "ext": {
-            "dummy": "site.ext"
+            "dummy": "ff"
           }
         },
         "user": {

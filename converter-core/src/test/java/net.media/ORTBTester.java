@@ -53,10 +53,9 @@ public class ORTBTester<U, V> {
     try {
       U bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
       V converted = openRtbConverter.convert(config, bidRequest, sourceClass, targetClass);
-
       JSONAssert.assertEquals(
-          JacksonObjectMapper.getMapper().writeValueAsString(target),
-          JacksonObjectMapper.getMapper().writeValueAsString(converted),
+          JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+",""),
+          JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+",""),
           true);
 
     } catch (Exception | AssertionError e) {

@@ -16,6 +16,7 @@
 
 package net.media.converters.request30toRequest25;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -29,6 +30,7 @@ import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.JacksonObjectMapper;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
@@ -63,8 +65,8 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     }
     Converter<DisplayPlacement, Banner> displayPlacementBannerConverter =
         converterProvider.fetch(new Conversion<>(DisplayPlacement.class, Banner.class));
-    Converter<DisplayPlacement, Native> displayPlacementNativeConverter =
-        converterProvider.fetch(new Conversion<>(DisplayPlacement.class, Native.class));
+    Converter<DisplayPlacement, NativeRequest> displayPlacementNativeConverter =
+        converterProvider.fetch(new Conversion<>(DisplayPlacement.class, NativeRequest.class));
     Converter<VideoPlacement, Video> videoPlacementVideoConverter =
         converterProvider.fetch(new Conversion<>(VideoPlacement.class, Video.class));
     Converter<AudioPlacement, Audio> audioPlacementAudioConverter =
@@ -112,11 +114,53 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
           imp.getBanner().getExt().put("qty", item.getQty());
         }
       }
-      imp.setNat(displayPlacementNativeConverter.map(display, config, converterProvider));
-      if (nonNull(imp.getNat()) && nonNull(imp.getNat().getNativeRequestBody())) {
-        imp.getNat().getNativeRequestBody().setPlcmtcnt(item.getQty());
-        imp.getNat().getNativeRequestBody().setSeq(item.getSeq());
+      //imp.setNat(displayPlacementNativeConverter.map(display, config, converterProvider));
+      NativeRequest nativeRequest = displayPlacementNativeConverter.map(display, config, converterProvider);
+      Native nat = new Native();
+      nat.setApi(Utils.copyCollection(display.getApi(), config));
+      if (nonNull(display.getExt())) {
+        if (isNull(nat.getExt())) {
+          nat.setExt(new HashMap<>());
+        }
+        nat.getExt().putAll(display.getExt());
+        try {
+          if (display.getNativefmt().getExt() != null
+            && display.getNativefmt().getExt().containsKey("ver")) {
+            nat.setVer((String) display.getNativefmt().getExt().get("ver"));
+            display.getNativefmt().getExt().remove("ver");
+          }
+        } catch (ClassCastException e) {
+          throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+        }
       }
+
+      try {
+        if (display.getPriv() != null) {
+          if (nat.getExt() == null) nat.setExt(new HashMap<>());
+          nat.getExt().put("priv", display.getPriv());
+        }
+        if (display.getCtype() != null) {
+          if (nat.getExt() == null) nat.setExt(new HashMap<>());
+          nat.getExt().put("ctype", display.getCtype());
+        }
+      } catch (ClassCastException e) {
+        throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+      }
+      if (nonNull(nativeRequest) && nonNull(nativeRequest.getNativeRequestBody())) {
+        nativeRequest.getNativeRequestBody().setPlcmtcnt(item.getQty());
+        nativeRequest.getNativeRequestBody().setSeq(item.getSeq());
+      }
+      if (config.getNativeRequestAsString()) {
+        try {
+          nat.setRequest(JacksonObjectMapper.getMapper().writeValueAsString(nativeRequest));
+        } catch (JsonProcessingException e) {
+          throw new OpenRtbConverterException(e);
+        }
+      } else {
+        nat.setRequest(nativeRequest);
+      }
+
+      imp.setNat(nat);
       imp.setInstl(display.getInstl());
       imp.setIframebuster(Utils.copyCollection(display.getIfrbust(), config));
       imp.setClickbrowser(display.getClktype());
@@ -339,14 +383,20 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         if (isNull(imp.getExt())) {
           imp.setExt(new HashMap<>());
         }
-        imp.getExt().put("ssai", item.getSpec().getPlacement().getSsai());
-        imp.getExt().put("reward", item.getSpec().getPlacement().getReward());
-        imp.getExt().put("admx", item.getSpec().getPlacement().getAdmx());
-        imp.getExt().put("curlx", item.getSpec().getPlacement().getCurlx());
+        if(item.getSpec().getPlacement().getSsai() != null)
+          imp.getExt().put("ssai", item.getSpec().getPlacement().getSsai());
+        if(item.getSpec().getPlacement().getReward() != null)
+          imp.getExt().put("reward", item.getSpec().getPlacement().getReward());
+        if(item.getSpec().getPlacement().getAdmx() != null)
+          imp.getExt().put("admx", item.getSpec().getPlacement().getAdmx());
+        if(item.getSpec().getPlacement().getCurlx() != null)
+          imp.getExt().put("curlx", item.getSpec().getPlacement().getCurlx());
       }
       if (nonNull(item.getSpec().getPlacement().getDisplay())) {
-        imp.getExt().put("ampren", item.getSpec().getPlacement().getDisplay().getAmpren());
-        imp.getExt().put("event", item.getSpec().getPlacement().getDisplay().getEvent());
+        if(item.getSpec().getPlacement().getDisplay().getAmpren() != null)
+          imp.getExt().put("ampren", item.getSpec().getPlacement().getDisplay().getAmpren());
+        if(item.getSpec().getPlacement().getDisplay().getEvent() != null)
+          imp.getExt().put("event", item.getSpec().getPlacement().getDisplay().getEvent());
       }
     }
   }
