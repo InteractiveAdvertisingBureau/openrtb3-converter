@@ -1,5 +1,4 @@
-{
-  "openrtb": {
+{ "openrtb": {
     "ver": "3.0",
     "domainSpec": "adcom",
     "domainVer": "1.0",
@@ -25,15 +24,13 @@
         "digest": "digest:digest, abcde:efg",
         "pchain": "dd",
         "ext": {
-          "dummy": "ff",
+          "dummy": "source.ext",
           "fd": 1
         }
       },
       "item": [
         {
           "id": "1",
-          "qty": 1,
-          "seq": 1,
           "flr": 0.03,
           "flrcur": "USD",
           "exp": 1,
@@ -45,7 +42,7 @@
               "value": 1.0,
               "vendor": "dssf",
               "ext": {
-                "dummy": "ff"
+                "dummy": "metric.ext"
               }
             }
           ],
@@ -57,14 +54,14 @@
               "at": 1,
               "wseat": [
                 "dd",
-                "as"
+                "ss"
               ],
               "wadomain": [
                 "ss.com",
                 "abc.com"
               ],
               "ext": {
-                "dummy": "ff"
+                "dummy": "deal.ext"
               }
             }
           ],
@@ -82,138 +79,147 @@
               "admx": 1,
               "curlx": 0,
               "display": {
-                "pos": 0,
+                "unit": 1,
                 "instl": 0,
-                "topframe": 22,
                 "ifrbust": [
                   "abc",
                   "def"
                 ],
                 "clktype": 1,
-                "ampren": 1,
-                "ptype": 1,
-                "context": 2,
-                "mime": [
-                  "application/x-shockwave-flash",
-                  "image/jpg"
-                ],
                 "api": [
                   3,
                   2
                 ],
-                "ctype": 1,
-                "w": 300,
-                "h": 250,
-                "unit": 1,
+                "ctype": [
+                  1
+                ],
                 "priv": 0,
-                "displayfmt": [
-                  {
-                    "w": 200,
-                    "h": 20,
-                    "wratio": 200,
-                    "hratio": 30,
-                    "expdir": [
-                      3,
-                      9
-                    ],
-                    "ext": {
-                      "dummy": "ffaa"
-                    }
-                  },
-                  {
-                    "w": 33,
-                    "h": 11,
-                    "wratio": 200,
-                    "hratio": 30,
-                    "expdir": [
-                      3,
-                      9
-                    ],
-                    "ext": {
-                      "dummy": "ffaa"
-                    }
+                "nativefmt": {
+                  "ext": {
+                    "ver": "1.2"
                   }
-                ],
-                "event": [
-                  {
-                    "type": 1,
-                    "method": [
-                      1
-                    ],
-                    "api": [
-                      1,
-                      2
-                    ],
-                    "jstrk": [
-                      "abc",
-                      "Def"
-                    ],
-                    "wjs": 1,
-                    "pxtrk": [
-                      "abc",
-                      "def"
-                    ],
-                    "wpx": 1,
-                    "ext": {
-                      "dummy": "ffaa"
-                    }
-                  },
-                  {
-                    "type": 1,
-                    "method": [
-                      1
-                    ],
-                    "api": [
-                      1,
-                      2
-                    ],
-                    "jstrk": [
-                      "abc",
-                      "Def"
-                    ],
-                    "wjs": 1,
-                    "pxtrk": [
-                      "abc",
-                      "def"
-                    ],
-                    "wpx": 1,
-                    "ext": {
-                      "dummy": "ffaa"
-                    }
-                  }
-                ],
+                },
                 "ext": {
-                  "dummy": "ffaa",
-                  "btype": [
-                    3,
-                    4
-                  ]
+                  "dummy": "entry"
                 }
               }
             }
           },
           "ext": {
-            "dummy": "ff",
-            "sequence": 1
+            "dummy": "item.ext",
+            "pmp": {
+              "ext": {
+                "dummy": "pmp.ext"
+              }
+            }
           },
           "private": 1
         }
       ],
       "context": {
-        "dooh": {
-          "venue": 1,
-          "venuefixed": 1,
-          "venuefixedetime": 2,
-          "venuefixedetimedpi": {
-            "dummy": "entry"
-          },
-          "venuefixedetimedpiext": {
-            "dummy": "entry"
-          },
-          "id": "3.0",
-          "name": "dummyname",
+        "app": {
+          "id": "abcde2345",
+          "name": "android app",
           "pub": {
-            "dummy": "entry"
+            "id": "8953",
+            "name": "foobar.com",
+            "domain": "foobar.com",
+            "cat": [
+              "IAB3-1",
+              "IAB3-2"
+            ],
+            "cattax": 2,
+            "ext": {
+              "dummy": "ff"
+            }
+          },
+          "content": {
+            "id": "rfewa",
+            "episode": 1,
+            "title": "sf",
+            "series": "rf",
+            "season": "wed",
+            "artist": "we",
+            "genre": "sefw",
+            "album": "edwe",
+            "isrc": "ewde",
+            "url": "ewfe.com",
+            "cat": [
+              "IAB3-1",
+              "IAB3-2"
+            ],
+            "cattax": 2,
+            "prodq": 1,
+            "context": 1,
+            "rating": "wqewq",
+            "urating": "ewew",
+            "mrating": 1,
+            "keywords": "efea",
+            "live": 1,
+            "srcrel": 1,
+            "len": 2,
+            "lang": "en",
+            "embed": 1,
+            "producer": {
+              "id": "eew",
+              "name": "edew",
+              "domain": "abc.com",
+              "cat": [
+                "IAB3-1",
+                "IAB3-2"
+              ],
+              "cattax": 2,
+              "ext": {
+                "dummy": "ff"
+              }
+            },
+            "data": [
+              {
+                "id": "1",
+                "name": "Abcdef",
+                "segment": [
+                  {
+                    "id": "bcdef",
+                    "name": "name123",
+                    "value": "acde",
+                    "ext": {
+                      "dummy": "ff"
+                    }
+                  }
+                ],
+                "ext": {
+                  "dummy": "ff"
+                }
+              }
+            ],
+            "ext": {
+              "dummy": "ff",
+              "videoquality": 2
+            }
+          },
+          "domain": "www.foobar.com",
+          "cat": [
+            "IAB3-1",
+            "IAB3-2"
+          ],
+          "sectcat": [
+            "zz",
+            "dd"
+          ],
+          "pagecat": [
+            "ss",
+            "as"
+          ],
+          "cattax": 2,
+          "privpolicy": 1,
+          "keywords": "ewew",
+          "bundle": "com.media.net",
+          "storeid": "abc1234",
+          "storeurl": "axcdabc.com/test123",
+          "ver": "123",
+          "paid": 0,
+          "ext": {
+            "dummy": "ff"
           }
         },
         "user": {
@@ -237,7 +243,7 @@
             "zip": "ewe",
             "utcoffset": 1,
             "ext": {
-              "dummy": "ff",
+              "dummy": "geo1.ext",
               "regionfips104": "eew"
             }
           },
@@ -251,21 +257,25 @@
                   "name": "rewfe",
                   "value": "ew",
                   "ext": {
-                    "dummy": "ff"
+                    "dummy": "segment12.ext"
                   }
                 }
               ],
               "ext": {
-                "dummy": "ff"
+                "dummy": "data12.ext"
               }
             }
-          ]
+          ],
+          "ext": {
+            "dummy": "user.ext"
+          }
         },
         "device": {
           "type": 2,
           "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2",
           "dnt": "1",
           "lmt": 1,
+          "ifa": "ifa",
           "make": "weew",
           "model": "edew",
           "os": 2,
@@ -299,12 +309,12 @@
             "zip": "ewe",
             "utcoffset": 1,
             "ext": {
-              "dummy": "ff",
+              "dummy": "geo.ext",
               "regionfips104": "eew"
             }
           },
           "ext": {
-            "dummy": "ff",
+            "dummy": "device.ext",
             "flashver": "ewe"
           }
         },
@@ -312,7 +322,7 @@
           "coppa": 1,
           "gdpr": 1,
           "ext": {
-            "dummy": "ff"
+            "dummy": "regs.ext"
           }
         },
         "restrictions": {
@@ -327,16 +337,17 @@
             "nn"
           ],
           "battr": [
-            1,
-            2
+            2,
+            5,
+            8
           ],
           "ext": {
-            "dummy": "ff"
+            "dummy": "rest.ext"
           }
         }
       },
       "ext": {
-        "dummy": "ff"
+        "dummy": "request.ext"
       },
       "package": 0
     }
