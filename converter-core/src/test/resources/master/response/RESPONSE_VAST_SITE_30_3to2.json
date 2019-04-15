@@ -5,7 +5,6 @@
     "response": {
       "id": "0123456789ABCDEF",
       "bidid": "0011223344AABBCC",
-      "nbr": 1,
       "cur": "USD",
       "cdata": "cdata",
       "ext": {

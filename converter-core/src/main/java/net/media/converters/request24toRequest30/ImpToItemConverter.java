@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,12 +16,15 @@
 
 package net.media.converters.request24toRequest30;
 
+import com.fasterxml.jackson.databind.JavaType;
+
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.Metric;
 import net.media.openrtb3.Item;
 import net.media.utils.Provider;
+import net.media.utils.Utils;
 
 import java.util.Collection;
 
@@ -31,7 +34,8 @@ import static java.util.Objects.nonNull;
 public class ImpToItemConverter
     extends net.media.converters.request25toRequest30.ImpToItemConverter {
 
-  public void enhance(Imp imp, Item item, Config config, Provider converterProvider)
+private static final JavaType javaTypeForMetricCollection = Utils.getMapper().getTypeFactory()
+    .constructCollectionType(Collection.class, Metric.class);  public void enhance(Imp imp, Item item, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
     if (imp == null || item == null) {
       return;
@@ -39,7 +43,8 @@ public class ImpToItemConverter
     if (nonNull(imp.getExt())) {
       if (imp.getExt().containsKey("metric")) {
         try {
-          imp.setMetric((Collection<Metric>) imp.getExt().get("metric"));
+          imp.setMetric(Utils.getMapper().convertValue(imp.getExt().get("metric"),
+            javaTypeForMetricCollection));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting metric from imp.ext.metric", e);
         }

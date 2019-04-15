@@ -1,0 +1,51 @@
+cases:
+ - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     openrtb.response.id: "\"1\""
+   purpose: bannerSiteRESPONSE_2to3
+
+
+ - inputFile: RESPONSE_NATIVE_SITE_25_2to3.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: RESPONSE_NATIVE_SITE_30_2to3.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     openrtb.response.id: "\"1\""
+
+   purpose: nativeSiteRESPONSE_2to3
+   params:
+      adTypeMapping :
+          yaddayadda : NATIVE
+
+ - inputFile: RESPONSE_VAST_SITE_25_2to3.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: RESPONSE_VAST_SITE_30_2to3.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     openrtb.response.id: "\"1\""
+   purpose: vastSiteRESPONSE_2to3
+   params:
+         adTypeMapping :
+             yaddayadda : VIDEO
+
+ - inputFile: RESPONSE_AUDIO_SITE_25_2to3.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: RESPONSE_AUDIO_SITE_30_2to3.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     openrtb.response.id: "\"1\""
+   purpose: audioSiteRESPONSE_2to3
+   params:
+     adTypeMapping :
+        yaddayadda : AUDIO

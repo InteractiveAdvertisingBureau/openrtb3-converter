@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,13 @@
 
 package net.media.converters.response25toresponse30;
 
+import com.fasterxml.jackson.databind.JavaType;
+
+import net.media.driver.Conversion;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.driver.Conversion;
 import net.media.enums.AdType;
-import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb3.Banner;
@@ -37,6 +39,9 @@ import static java.util.Objects.nonNull;
 
 /** @author shiva.b */
 public class BidToDisplayConverter implements Converter<Bid, Display> {
+
+  private static final JavaType javaTypeForEventCollection = Utils.getMapper().getTypeFactory()
+    .constructCollectionType(Collection.class, Event.class);
 
   @Override
   public Display map(Bid source, Config config, Provider converterProvider) throws OpenRtbConverterException {
@@ -128,7 +133,13 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
             source.getExt().remove("native");
           }
         }
-        target.setEvent((List<Event>) ext.get("event"));
+        try {
+          target.setEvent(Utils.getMapper().convertValue(ext.get("event"),
+            javaTypeForEventCollection));
+        } catch (IllegalArgumentException e) {
+          throw new OpenRtbConverterException("error while setting display.event from bid.ext" +
+            ".event", e);
+        }
         source.getExt().remove("event");
       }
       catch (Exception e) {

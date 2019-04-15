@@ -12,3 +12,4 @@ target*
 *.pyc
 *.releaseBackup
 *dependency-reduced-pom.xml*
+release.properties

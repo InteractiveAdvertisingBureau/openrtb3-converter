@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -114,53 +114,54 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
           imp.getBanner().getExt().put("qty", item.getQty());
         }
       }
-      //imp.setNat(displayPlacementNativeConverter.map(display, config, converterProvider));
-      NativeRequest nativeRequest = displayPlacementNativeConverter.map(display, config, converterProvider);
-      Native nat = new Native();
-      nat.setApi(Utils.copyCollection(display.getApi(), config));
-      if (nonNull(display.getExt())) {
-        if (isNull(nat.getExt())) {
-          nat.setExt(new HashMap<>());
+      if(nonNull(display.getNativefmt())) {
+        NativeRequest nativeRequest = displayPlacementNativeConverter.map(display, config, converterProvider);
+        Native nat = new Native();
+        nat.setApi(Utils.copyCollection(display.getApi(), config));
+        if (nonNull(display.getExt())) {
+          if (isNull(nat.getExt())) {
+            nat.setExt(new HashMap<>());
+          }
+          nat.getExt().putAll(display.getExt());
+          try {
+            if (display.getNativefmt().getExt() != null
+              && display.getNativefmt().getExt().containsKey("ver")) {
+              nat.setVer((String) display.getNativefmt().getExt().get("ver"));
+              display.getNativefmt().getExt().remove("ver");
+            }
+          } catch (ClassCastException e) {
+            throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+          }
         }
-        nat.getExt().putAll(display.getExt());
+
         try {
-          if (display.getNativefmt().getExt() != null
-            && display.getNativefmt().getExt().containsKey("ver")) {
-            nat.setVer((String) display.getNativefmt().getExt().get("ver"));
-            display.getNativefmt().getExt().remove("ver");
+          if (display.getPriv() != null) {
+            if (nat.getExt() == null) nat.setExt(new HashMap<>());
+            nat.getExt().put("priv", display.getPriv());
+          }
+          if (display.getCtype() != null) {
+            if (nat.getExt() == null) nat.setExt(new HashMap<>());
+            nat.getExt().put("ctype", display.getCtype());
           }
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
         }
-      }
+        if (nonNull(nativeRequest) && nonNull(nativeRequest.getNativeRequestBody())) {
+          nativeRequest.getNativeRequestBody().setPlcmtcnt(item.getQty());
+          nativeRequest.getNativeRequestBody().setSeq(item.getSeq());
+        }
+        if (config.getNativeRequestAsString()) {
+          try {
+            nat.setRequest(JacksonObjectMapper.getMapper().writeValueAsString(nativeRequest));
+          } catch (JsonProcessingException e) {
+            throw new OpenRtbConverterException(e);
+          }
+        } else {
+          nat.setRequest(nativeRequest);
+        }
 
-      try {
-        if (display.getPriv() != null) {
-          if (nat.getExt() == null) nat.setExt(new HashMap<>());
-          nat.getExt().put("priv", display.getPriv());
-        }
-        if (display.getCtype() != null) {
-          if (nat.getExt() == null) nat.setExt(new HashMap<>());
-          nat.getExt().put("ctype", display.getCtype());
-        }
-      } catch (ClassCastException e) {
-        throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
+        imp.setNat(nat);
       }
-      if (nonNull(nativeRequest) && nonNull(nativeRequest.getNativeRequestBody())) {
-        nativeRequest.getNativeRequestBody().setPlcmtcnt(item.getQty());
-        nativeRequest.getNativeRequestBody().setSeq(item.getSeq());
-      }
-      if (config.getNativeRequestAsString()) {
-        try {
-          nat.setRequest(JacksonObjectMapper.getMapper().writeValueAsString(nativeRequest));
-        } catch (JsonProcessingException e) {
-          throw new OpenRtbConverterException(e);
-        }
-      } else {
-        nat.setRequest(nativeRequest);
-      }
-
-      imp.setNat(nat);
       imp.setInstl(display.getInstl());
       imp.setIframebuster(Utils.copyCollection(display.getIfrbust(), config));
       imp.setClickbrowser(display.getClktype());
