@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,6 @@
 
 package net.media.openrtb3;
 
-import net.media.exceptions.OpenRtbConverterException;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.Map;
@@ -29,18 +27,6 @@ public class Banner {
   private Map<String, Object> ext;
 
   public Banner() {}
-
-  public static Banner HashMapToBanner(Map<String, Object> map) throws OpenRtbConverterException {
-    Banner banner = new Banner();
-    try {
-      banner.setImg((String) map.get("img"));
-      banner.setLink(LinkAsset.HashMaptoLinkAsset((Map<String, Object>) map.get("link")));
-      banner.setExt((Map<String, Object>) map.get("ext"));
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting map values to Banner fields", e);
-    }
-    return banner;
-  }
 
   public @NotNull String getImg() {
     return this.img;
@@ -79,8 +65,7 @@ public class Banner {
     if (this$link == null ? other$link != null : !this$link.equals(other$link)) return false;
     final Object this$ext = this.getExt();
     final Object other$ext = other.getExt();
-    if (this$ext == null ? other$ext != null : !this$ext.equals(other$ext)) return false;
-    return true;
+    return this$ext == null ? other$ext == null : this$ext.equals(other$ext);
   }
 
   public int hashCode() {

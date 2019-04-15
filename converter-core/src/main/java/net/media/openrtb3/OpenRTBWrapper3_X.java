@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,9 +38,7 @@ public class OpenRTBWrapper3_X {
     if (!other.canEqual(this)) return false;
     final Object this$openrtb = this.getOpenrtb();
     final Object other$openrtb = other.getOpenrtb();
-    if (this$openrtb == null ? other$openrtb != null : !this$openrtb.equals(other$openrtb))
-      return false;
-    return true;
+    return this$openrtb == null ? other$openrtb == null : this$openrtb.equals(other$openrtb);
   }
 
   public int hashCode() {

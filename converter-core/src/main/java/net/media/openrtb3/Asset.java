@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package net.media.openrtb3;
 import net.media.utils.validator.CheckExactlyOneNotNull;
 
 import javax.validation.Valid;
+import java.util.Map;
 
 @CheckExactlyOneNotNull(fieldNames = {"title", "image", "video", "data", "link"})
 public class Asset {
@@ -30,8 +31,10 @@ public class Asset {
   @Valid private VideoAsset video;
   @Valid private DataAsset data;
   @Valid private LinkAsset link;
+  private Map<String, Object> ext;
 
   public Asset() {}
+
 
   public Integer getId() {
     return this.id;
@@ -89,6 +92,14 @@ public class Asset {
     this.link = link;
   }
 
+	public Map<String, Object> getExt() {
+  	return ext;
+  }
+
+  public void setExt(Map<String, Object> ext) {
+  	this.ext = ext;
+  }
+
   public boolean equals(Object o) {
     if (o == this) return true;
     if (!(o instanceof Asset)) return false;
@@ -114,8 +125,7 @@ public class Asset {
     if (this$data == null ? other$data != null : !this$data.equals(other$data)) return false;
     final Object this$link = this.getLink();
     final Object other$link = other.getLink();
-    if (this$link == null ? other$link != null : !this$link.equals(other$link)) return false;
-    return true;
+    return this$link == null ? other$link == null : this$link.equals(other$link);
   }
 
   public int hashCode() {

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,17 +16,15 @@
 
 package net.media.converters.response25toresponse30;
 
+
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
-import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Video;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.nonNull;
 
@@ -50,14 +48,8 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
     if (source == null || target == null) {
       return;
     }
-    Map<String, Object> map = source.getExt();
-    if (map != null) {
-      target.setExt(new HashMap<>(map));
-    } else {
-      target.setExt(null);
-    }
     target.setAdm(source.getAdm());
-    if (nonNull(source.getApi())) {
+    if(nonNull(source.getApi())) {
       List<Integer> api = new ArrayList<>();
       api.add(source.getApi());
       target.setApi(api);
@@ -68,9 +60,13 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
       Map<String, Object> ext = source.getExt();
       try {
         target.setCtype((Integer) ext.get("ctype"));
+        source.getExt().remove("ctype");
         target.setDur((Integer) ext.get("dur"));
-        target.setMime((List<String>) ext.get("mime"));
-      } catch (Exception e) {
+        source.getExt().remove("dur");
+        target.setMime((Collection<String>) ext.get("mime"));
+        source.getExt().remove("mime");
+      }
+      catch (Exception e) {
         throw new OpenRtbConverterException("error while type casting bid.ext content", e);
       }
     }

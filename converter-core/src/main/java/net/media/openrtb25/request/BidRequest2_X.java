@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import javax.validation.constraints.NotEmpty;
 import java.util.Collection;
 import java.util.Map;
 
-@CheckAtLeastOneNotNull(fieldNames = {"site", "app"})
+//@CheckAtLeastOneNotNull(fieldNames = {"site", "app"})
 @CheckAtMostOneNotNull(fieldNames = {"wseat", "bseat"})
 public class BidRequest2_X {
 
@@ -360,8 +360,7 @@ public class BidRequest2_X {
     if (this$regs == null ? other$regs != null : !this$regs.equals(other$regs)) return false;
     final Object this$ext = this.getExt();
     final Object other$ext = other.getExt();
-    if (this$ext == null ? other$ext != null : !this$ext.equals(other$ext)) return false;
-    return true;
+    return this$ext == null ? other$ext == null : this$ext.equals(other$ext);
   }
 
   public int hashCode() {

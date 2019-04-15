@@ -1,0 +1,115 @@
+{
+  "openrtb": {
+    "domainSpec": "adcom",
+    "ver": "3.0",
+    "domainVer": "1.0",
+    "response": {
+      "id": "0123456789ABCDEF",
+      "bidid": "0011223344AABBCC",
+      "cur": "USD",
+      "cdata": "cdata",
+      "ext": {
+        "buyermemberid": 298,
+        "landingpageurl": "www.livelife.best",
+        "brandid": [
+          null
+        ],
+        "originalSize": {
+          "width": 728,
+          "height": 90
+        },
+        "admwrapped": false
+      },
+      "seatbid": [
+        {
+          "seat": "XYZ",
+          "bid": [
+            {
+              "id": "yaddayadda",
+              "item": "1",
+              "deal": "1234",
+              "price": 1.50,
+              "tactic": "...",
+              "purl": "http://www.example.com/",
+              "burl": "http://www.example1.com/",
+              "lurl": "http://www.example2.com/",
+              "mid": "123",
+              "cid": "campaign-xyz.123",
+              "exp": 1,
+              "macro": [{
+                "key": "macro1",
+                "value": "duck",
+                "ext": {
+                  "customdata": "pyaz"
+                }
+              }],
+              "media": {
+                "ad": {
+                  "id": "d0bcb39723af87c2bb00942afee5710e",
+                  "adomain": [
+                    "ford.com"
+                  ],
+                  "bundle": [
+                    "chocho"
+                  ],
+                  "iurl": "Abcd.com",
+                  "cat": [
+                    "cat",
+                    "dog"
+                  ],
+                  "cattax": 1,
+                  "lang": "english",
+                  "attr": [
+                    6,
+                    1
+                  ],
+                  "secure": 1,
+                  "mrating": 5,
+                  "init": 1,
+                  "lastmod": 1,
+                  "video": {
+                    "mime": [
+                      "mime1",
+                      "mime2"
+                    ],
+                    "api": [
+                      3
+                    ],
+                    "ctype": 5,
+                    "dur": 120,
+                    "adm": "video ka adm",
+                    "curl": "http://www.example.com/"
+                  },
+                  "audit": {
+                    "status": 4,
+                    "feedback": [
+                      "feedback1",
+                      "feedback2"
+                    ],
+                    "init": 56,
+                    "lastmod": 45,
+
+                    "ext": {
+                      "auditkaext": "audit.txt"
+                    }
+                  }
+                }
+              },
+              "ext": {
+                "bidkaext": "bid.ext",
+                "protocol": 98
+              }
+            }
+          ],
+          "package": 2,
+          "ext": {
+            "aloo3": "pyaz",
+            "test4": {
+              "test5": "seatbid.ext"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

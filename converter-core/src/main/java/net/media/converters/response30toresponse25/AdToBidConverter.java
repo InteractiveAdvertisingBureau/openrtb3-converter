@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,17 +41,15 @@ public class AdToBidConverter implements Converter<Ad, Bid> {
     return bid;
   }
 
-  public void enhance(Ad source, Bid target, Config config, Provider converterProvider)
-      throws OpenRtbConverterException {
-    if (isNull(source) || isNull(target) || isNull(config)) return;
-    Converter<Display, Bid> displayBidConverter =
-        converterProvider.fetch(new Conversion<>(Display.class, Bid.class));
-    Converter<Video, Bid> videoBidConverter =
-        converterProvider.fetch(new Conversion<>(Video.class, Bid.class));
-    Converter<Audio, Bid> audioBidConverter =
-        converterProvider.fetch(new Conversion<>(Audio.class, Bid.class));
-    Converter<Audit, Bid> auditBidConverter =
-        converterProvider.fetch(new Conversion<>(Audit.class, Bid.class));
+  public void enhance(Ad source, Bid target, Config config, Provider converterProvider) throws OpenRtbConverterException {
+    if(isNull(source) || isNull(target) || isNull(config))
+      return ;
+    Converter<Display, Bid>displayBidConverter = converterProvider.fetch(new Conversion<>(Display.class,
+      Bid.class));
+    Converter<Video, Bid> videoBidConverter = converterProvider.fetch(new Conversion<>(Video.class,
+      Bid.class));
+    Converter<Audio, Bid> audioBidConverter = converterProvider.fetch(new Conversion<>(Audio.class,
+      Bid.class));
 
     target.setCrid(source.getId());
 
@@ -79,6 +77,9 @@ public class AdToBidConverter implements Converter<Ad, Bid> {
     if (nonNull(source.getCattax())) {
       target.getExt().put("cattax", source.getCattax());
     }
+    if (nonNull(source.getAudit())) {
+      target.getExt().put("audit", source.getAudit());
+    }
     target.setQagmediarating(source.getMrating());
     AdType adType = config.getAdType(target.getId());
     switch (adType) {
@@ -91,9 +92,6 @@ public class AdToBidConverter implements Converter<Ad, Bid> {
         break;
       case AUDIO:
         audioBidConverter.enhance(source.getAudio(), target, config, converterProvider);
-        break;
-      case AUDIT:
-        auditBidConverter.enhance(source.getAudit(), target, config, converterProvider);
         break;
     }
   }

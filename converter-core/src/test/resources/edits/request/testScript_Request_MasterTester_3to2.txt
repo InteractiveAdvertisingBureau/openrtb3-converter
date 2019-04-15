@@ -1,0 +1,85 @@
+cases:
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.id: "\"1\""
+   outputFile: BANNER_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     id: "\"1\""
+   purpose: bannerSiteRequest_3to2
+
+ - inputFile: BANNER_APP_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.id: "\"1\""
+   outputFile: BANNER_APP_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     id: "\"1\""
+   purpose: bannerAppRequest_3to2
+
+ - inputFile: NATIVE_SITE_30_3to2.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.id: "\"1\""
+   outputFile: NATIVE_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     id: "\"1\""
+   purpose: nativeSiteRequest_3to2
+   params:
+      nativeRequestAsString : false
+
+ - inputFile: NATIVE_APP_30_3to2.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.id: "\"1\""
+   outputFile: NATIVE_APP_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     id: "\"1\""
+   purpose: nativeAppRequest_3to2
+   params :
+     nativeRequestAsString : false
+
+ - inputFile: VAST_SITE_30_3to2.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.id: "\"1\""
+   outputFile: VAST_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     id: "\"1\""
+   purpose: vastSiteRequest_3to2
+
+ - inputFile: VAST_APP_30_3to2.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.id: "\"1\""
+   outputFile: VAST_APP_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     id: "\"1\""
+   purpose: vastAppRequest_3to2
+
+ - inputFile: AUDIO_SITE_30_3to2.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.id: "\"1\""
+   outputFile: AUDIO_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     id: "\"1\""
+   purpose: audioSiteRequest_3to2
+
+ - inputFile: AUDIO_APP_30_3to2.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.id: "\"1\""
+   outputFile: AUDIO_APP_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     id: "\"1\""
+   purpose: nativeAppRequest_3to2
+

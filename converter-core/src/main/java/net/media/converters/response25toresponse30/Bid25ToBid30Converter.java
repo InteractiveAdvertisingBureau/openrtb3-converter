@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,12 @@
 
 package net.media.converters.response25toresponse30;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import net.media.config.Config;
-import net.media.converters.Converter;
+import com.fasterxml.jackson.databind.JavaType;
+
 import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
+import net.media.config.Config;
+import net.media.converters.Converter;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Macro;
 import net.media.openrtb3.Media;
@@ -30,12 +31,16 @@ import net.media.utils.Utils;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 /** @author shiva.b */
 public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.Bid> {
+
+  private static final JavaType javaTypeForMacroCollection = Utils.getMapper().getTypeFactory()
+    .constructCollectionType(Collection.class, Macro.class);
 
   @Override
   public net.media.openrtb3.Bid map(Bid source, Config config, Provider converterProvider)
@@ -55,40 +60,51 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
     if (source == null || target == null) {
       return;
     }
-    target.setExt(Utils.copyMap(source.getExt(), config));
-    target.setItem(source.getImpid());
-    target.setDeal(source.getDealid());
-    target.setPurl(source.getNurl());
-    Converter<Bid, Media> converter =
-        converterProvider.fetch(new Conversion<>(Bid.class, Media.class));
-    target.setMedia(converter.map(source, config, converterProvider));
-    target.setId(source.getId());
-    target.setPrice(source.getPrice());
-    target.setCid(source.getCid());
-    target.setTactic(source.getTactic());
-    target.setBurl(source.getBurl());
-    target.setLurl(source.getLurl());
-    target.setExp(source.getExp());
-    target.setMid(source.getAdid());
-    MacroMapper.macroReplaceThreeX(target);
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("macro")) {
-        try {
-          Collection<Macro> macros =
-              Utils.getMapper()
-                  .convertValue(
-                      source.getExt().get("macro"), new TypeReference<Collection<Macro>>() {});
-          target.setMacro(macros);
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting bid.macro from bid.ext.macro", e);
+    Map<String, Object> tempExt = new HashMap<>(source.getExt());
+
+    try {
+      target.setItem(source.getImpid());
+      target.setDeal(source.getDealid());
+      target.setPurl(source.getNurl());
+      Converter<Bid, Media> converter = converterProvider.fetch(new Conversion<>(Bid.class, Media
+          .class));
+      target.setId(source.getId());
+      target.setPrice(source.getPrice());
+      target.setCid(source.getCid());
+      target.setTactic(source.getTactic());
+      target.setBurl(source.getBurl());
+      target.setLurl(source.getLurl());
+      target.setExp(source.getExp());
+      target.setMid(source.getAdid());
+      MacroMapper.macroReplaceThreeX(target);
+      if (nonNull(source.getExt())) {
+        if (source.getExt().containsKey("macro")) {
+          try {
+            Collection<Macro> macros = Utils.getMapper().convertValue(source.getExt().get("macro"),
+                javaTypeForMacroCollection);
+            target.setMacro(macros);
+          } catch (Exception e) {
+            throw new OpenRtbConverterException("Error in setting bid.macro from bid.ext.macro", e);
+          }
+          source.getExt().remove("macro");
         }
       }
-    }
-    if (nonNull(source.getProtocol())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
+      if (nonNull(source.getProtocol())) {
+        if (isNull(target.getExt())) {
+          target.setExt(new HashMap<>());
+        }
+        target.getExt().put("protocol", source.getProtocol());
+        source.getExt().remove("protocol");
       }
-      target.getExt().put("protocol", source.getProtocol());
+      target.setMedia(converter.map(source, config, converterProvider));
+      Map<String, Object> extCopy = Utils.copyMap(source.getExt(), config);
+      if (nonNull(extCopy)) {
+        target.getExt().putAll(extCopy);
+      }
+    } catch (Exception e) {
+      throw new OpenRtbConverterException(e);
+    } finally {
+      source.setExt(tempExt);
     }
   }
 }

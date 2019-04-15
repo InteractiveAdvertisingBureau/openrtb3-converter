@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +16,12 @@
 
 package net.media.openrtb3;
 
-import net.media.exceptions.OpenRtbConverterException;
-
 import javax.validation.constraints.NotNull;
+import com.fasterxml.jackson.databind.JavaType;
+
+import net.media.exceptions.OpenRtbConverterException;
+import net.media.utils.Utils;
+
 import java.util.Collection;
 import java.util.Map;
 
@@ -30,21 +33,6 @@ public class LinkAsset {
   private Map<String, Object> ext;
 
   public LinkAsset() {}
-
-  public static LinkAsset HashMaptoLinkAsset(Map<String, Object> map)
-      throws OpenRtbConverterException {
-    LinkAsset linkAsset = new LinkAsset();
-    try {
-      linkAsset.setUrl((String) map.get("url"));
-      linkAsset.setUrlfb((String) map.get("urlfb"));
-      linkAsset.setTrkr((Collection<String>) map.get("trkr"));
-      linkAsset.setExt((Map<String, Object>) map.get("ext"));
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException(
-          "error while typecasting map values to linkAsset fields", e);
-    }
-    return linkAsset;
-  }
 
   public @NotNull String getUrl() {
     return this.url;
@@ -94,8 +82,7 @@ public class LinkAsset {
     if (this$trkr == null ? other$trkr != null : !this$trkr.equals(other$trkr)) return false;
     final Object this$ext = this.getExt();
     final Object other$ext = other.getExt();
-    if (this$ext == null ? other$ext != null : !this$ext.equals(other$ext)) return false;
-    return true;
+    return this$ext == null ? other$ext == null : this$ext.equals(other$ext);
   }
 
   public int hashCode() {

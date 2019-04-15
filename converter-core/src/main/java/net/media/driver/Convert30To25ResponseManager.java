@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,23 +46,15 @@ public class Convert30To25ResponseManager {
         new Conversion<>(Audio.class, net.media.openrtb25.response.Bid.class),
         new AudioToBidConverter());
     converterProvider.register(
-        new Conversion<>(Audit.class, net.media.openrtb25.response.Bid.class),
-        new AuditToBidConverter());
-    converterProvider.register(
-        new Conversion<>(Ad.class, net.media.openrtb25.response.Bid.class), new AdToBidConverter());
-    converterProvider.register(
-        new Conversion<>(Media.class, net.media.openrtb25.response.Bid.class),
-        new MediatoBidConverter());
-    converterProvider.register(
-        new Conversion<>(Bid.class, net.media.openrtb25.response.Bid.class),
-        new Bid30ToBid25Converter());
-    converterProvider.register(
-        new Conversion<>(Seatbid.class, SeatBid.class), new SeatBid30ToSeatBid25Converter());
-    converterProvider.register(
-        new Conversion<>(OpenRTB3_X.class, BidResponse2_X.class),
-        new OpenRtbResponseToBidResponseConverter());
-    converterProvider.register(
-        new Conversion<>(OpenRTBWrapper3_X.class, BidResponse2_X.class),
-        new OpenRtbWrapperToBidResponseConverter());
+        new Conversion<>(Ad.class, net.media.openrtb25.response.Bid.class),
+      new AdToBidConverter());
+    converterProvider.register(new Conversion<>(Media.class, net.media.openrtb25.response.Bid
+      .class), new MediatoBidConverter());
+    converterProvider.register(new Conversion<>(Bid.class, net.media.openrtb25.response.Bid.class),
+      new Bid30ToBid25Converter());
+    converterProvider.register(new Conversion<>(Seatbid.class, SeatBid.class), new SeatBid30ToSeatBid25Converter());
+    converterProvider.register(new Conversion<>(OpenRTB3_X.class, BidResponse2_X.class), new OpenRtbResponseToBidResponseConverter());
+    converterProvider.register(new Conversion<>(OpenRTBWrapper3_X.class, BidResponse2_X.class),
+      new OpenRtbWrapperToBidResponseConverter());
   }
 }

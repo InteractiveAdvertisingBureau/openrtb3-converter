@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -120,8 +120,9 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
     if (source.getExt().containsKey("dooh")) {
       if (target.getContext() == null) target.setContext(new Context());
       try {
-        Dooh dooh = (Dooh) source.getExt().get("dooh");
-        target.getContext().setDooh(dooh);
+        target.getContext().setDooh(Utils.getMapper().convertValue(source.getExt().get("dooh"),
+          Dooh.class));
+        target.getExt().remove("dooh");
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for BidRequest2_X", e);
       }

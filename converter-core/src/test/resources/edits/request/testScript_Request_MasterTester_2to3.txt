@@ -1,0 +1,80 @@
+cases:
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.id: "\"1\""
+   purpose: bannerSiteRequest_2to3
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.id: "\"1\""
+   purpose: bannerAppRequest_2to3
+
+ - inputFile: NATIVE_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: NATIVE_SITE_30_2to3.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.id: "\"1\""
+
+   purpose: nativeSiteRequest_2to3
+ - inputFile: NATIVE_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: NATIVE_APP_30_2to3.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.id: "\"1\""
+   purpose: nativeAppRequest_2to3
+
+ - inputFile: VAST_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: VAST_SITE_30_2to3.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.id: "\"1\""
+   purpose: vastSiteRequest_2to3
+
+ - inputFile: VAST_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: VAST_APP_30_2to3.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.id: "\"1\""
+   purpose: vastAppRequest_2to3
+
+ - inputFile: AUDIO_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: AUDIO_SITE_30_2to3.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.id: "\"1\""
+   purpose: audioSiteRequest_2to3
+
+ - inputFile: AUDIO_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: AUDIO_APP_30_2to3.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.id: "\"1\""
+   purpose: audioAppRequest_2to3

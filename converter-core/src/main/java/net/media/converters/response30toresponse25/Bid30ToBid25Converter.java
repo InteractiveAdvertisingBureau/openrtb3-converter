@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -81,6 +81,7 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
       if (nonNull(source.getExt())) {
         if (source.getExt().containsKey("protocol")) {
           target.setProtocol((Integer) source.getExt().get("protocol"));
+          target.getExt().remove("protocol");
         }
       }
     }
