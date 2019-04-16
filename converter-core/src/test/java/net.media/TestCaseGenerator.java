@@ -34,6 +34,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static java.util.Objects.isNull;
+
 public class TestCaseGenerator {
 
   static final ObjectMapper objectMapper = new ObjectMapper();
@@ -135,6 +137,12 @@ public class TestCaseGenerator {
       int newIndex = index + 1;
       if (!fieldName.contains("[")) {
         if (index == path.length - 1) {
+          if(nodeToSet == NullNode.getInstance()) {
+            ((ObjectNode)master).remove(fieldName);
+//            jsonNode = NullNode.getInstance();
+
+            return;
+          }
           /*if (request.get(fieldName).isContainerNode()) {
             throw new RuntimeException("Unexpected Container Node found.");
           }*/
