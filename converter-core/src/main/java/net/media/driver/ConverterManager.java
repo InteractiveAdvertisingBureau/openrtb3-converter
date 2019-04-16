@@ -43,6 +43,8 @@ public class ConverterManager {
 
   public ConverterManager(Config config) {
     converterProvider = new Provider();
+    converterProvider2_3 = new Provider();
+    converterProvider2_4 = new Provider();
     new Convert25To30RequestManager(converterProvider);
     new Convert30To25RequestManager(converterProvider);
     new Convert25To30ResponseManager(converterProvider);
