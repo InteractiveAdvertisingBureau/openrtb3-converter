@@ -58,12 +58,7 @@ public class OpenRtbConverter {
   private ConverterManager converterManager;
 
   public OpenRtbConverter(Config config) {
-    this(config, new HashMap<>());
-  }
-
-  public OpenRtbConverter(Config config, Map<Conversion, Converter> overridenMap) {
-    this.config = config;
-    converterManager = new ConverterManager(overridenMap, config);
+    converterManager = new ConverterManager(config);
   }
 
   /**
