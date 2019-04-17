@@ -26,7 +26,7 @@ import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
-public class CustomPublisherToPublisherConverter
+public class CustomPublisherToPublisherConverter2to3
   implements Converter<Publisher, net.media.openrtb3.Publisher> {
   @Override
   public net.media.openrtb3.Publisher map(
@@ -49,10 +49,10 @@ public class CustomPublisherToPublisherConverter
     Config config,
     Provider converterProvider) {
     if (source == null || target == null) return;
-    target.setId(source.getId());
+    target.setId("customConverterID");
     target.setName(source.getName());
-    target.setDomain(source.getDomain());
-    target.setCat(Utils.copyCollection(source.getCat(), config));
+    target.setDomain("myCustomDomain");
+    target.setCat(null);
     Map<String, Object> map = source.getExt();
     if (map != null) {
       target.setExt(Utils.copyMap(map, config));

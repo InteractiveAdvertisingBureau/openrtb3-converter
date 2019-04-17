@@ -22,6 +22,7 @@ import net.media.enums.OpenRtbVersion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
+import net.media.openrtb25.request.App;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
@@ -35,6 +36,7 @@ import javax.naming.ConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.rmi.activation.Activator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,8 +67,8 @@ public class ConverterTest {
       for (File files : innerFolder) {
         totalFiles += files.listFiles().length;
         for (File file : files.listFiles()) {
-          if(file.getName().equals("ortbversion24.json")==false)
-            continue;
+//          if(file.getName().equals("overridingConverter.json")==false)
+//            continue;
           System.out.println("file: " + file );
           count+=1;
           Exception exception = new Exception();
@@ -110,12 +112,12 @@ public class ConverterTest {
                 Class<?> src = Class.forName(tempMap.get("sourceClass"));
                 Class<?> target = Class.forName(tempMap.get("targetClass"));
                 Class<?> customConverter =Class.forName(tempMap.get("converterClass"));
-                Converter converter1 = (Converter)customConverter.newInstance();
-                overRider.put(new Conversion(src, target), converter1);
+                Converter<App, App> converter1 = (Converter<App,App>)customConverter.newInstance();
+                overRider.put(new Conversion<>(src, target), converter1);
               }
             }
             catch(Exception e) {
-              e.printStackTrace();
+              System.out.println("Wrong Converter name provided");
             }
           }
 

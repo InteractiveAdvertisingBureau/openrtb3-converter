@@ -215,9 +215,9 @@
           "id": "bingo",
           "name": "android app",
           "pub": {
-            "id": "8953",
+            "id": "customConverterID",
             "name": "foobar.com",
-            "domain": "foobar.com",
+            "domain": "myCustomDomain",
             "cat": [
               "IAB3-1",
               "IAB3-2"

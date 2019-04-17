@@ -19,6 +19,8 @@ package net.media.driver;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
+import net.media.openrtb3.App;
+import net.media.openrtb3.Publisher;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
@@ -98,6 +100,7 @@ public class OpenRtbConverter {
     }
     Provider converterProvider =
         converterManager.getConverterProvider(overridenMap, overridingConfig);
+
     Converter<U, V> converter = converterProvider.fetch(new Conversion<>(sourceClass, targetClass));
     return converter.map(source, overridingConfig, converterProvider);
   }

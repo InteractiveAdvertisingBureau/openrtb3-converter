@@ -1,4 +1,28 @@
 cases:
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+     openrtb.request.context.app.content : null
+     openrtb.request.context.app.id : "\"bingo\""
+     openrtb.request.context.app.pub.id : "\"customConverterID\""
+     openrtb.request.context.app.pub.domain: "\"myCustomDomain\""
+     openrtb.request.context.app.pub.cat: null
+   purpose: overridingConverter2to3
+   overRidingMap:
+     CustomApptoAppConverter :
+        sourceClass : net.media.openrtb25.request.App
+        targetClass : net.media.openrtb3.App
+        converterClass: net.media.CustomApptoAppConverter2to3
+     CustomPublisherConverter :
+        sourceClass : net.media.openrtb25.request.Publisher
+        targetClass : net.media.openrtb3.Publisher
+        converterClass: net.media.CustomPublisherToPublisherConverter2to3
+
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"
@@ -9,3 +33,66 @@ cases:
    outputEdits:
      openrtb.request.at: 2
    purpose: PostoverridingConvertertest
+
+
+ - inputFile: BANNER_APP_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: BANNER_APP_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+     ext.dummy : "\"userIDhere\""
+     user.buyeruid : null
+   purpose: overridingConverter3to2
+   overRidingMap:
+     CustomApptoAppConverter :
+        sourceClass : net.media.openrtb3.Request
+        targetClass : net.media.openrtb25.request.BidRequest2_X
+        converterClass: net.media.CustomRequestToBidRequestConverter
+     CustomPublisherConverter :
+        sourceClass : net.media.openrtb3.User
+        targetClass : net.media.openrtb25.request.User
+        converterClass: net.media.CustomUsertoUserConverter
+
+
+ - inputFile: BANNER_SITE_24.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+     openrtb.request.item[0].metric: null
+     openrtb.request.context.site.pub.id : "\"customConverterID\""
+     openrtb.request.context.site.pub.domain : "\"myCustomDomain\""
+     openrtb.request.context.site.pub.cat : null
+
+   purpose: overridingConverter24to30
+   overRidingMap:
+     CustomItemtoImpConverter :
+        sourceClass : net.media.openrtb25.request.Imp
+        targetClass : net.media.openrtb3.Item
+        converterClass : net.media.CustomImpToItemConverter
+     CustomPublisherConverter :
+        sourceClass : net.media.openrtb25.request.Publisher
+        targetClass : net.media.openrtb3.Publisher
+        converterClass: net.media.CustomPublisherToPublisherConverter2to3
+   params:
+        openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+ - inputFile: BANNER_SITE_23.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+
+
+   purpose: overridingConverter23to30
+   params:
+        openRtbVersion2_XVersion: TWO_DOT_THREE

@@ -1,5 +1,5 @@
 {
-  "inputFile" : "BANNER_APP_25_appOverridden.json",
+  "inputFile" : "BANNER_APP_25.json",
   "inputType" : "REQUEST25",
   "inputEdits" : {
     "at" : "2"
@@ -333,11 +333,15 @@
       }
     }
   },
-  "outputFile" : "BANNER_APP_30_appOverridden.json",
+  "outputFile" : "BANNER_APP_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
     "openrtb.request.at" : "2",
-    "openrtb.request.context.app.content" : null
+    "openrtb.request.context.app.content" : null,
+    "openrtb.request.context.app.id" : "\"bingo\"",
+    "openrtb.request.context.app.pub.id" : "\"customConverterID\"",
+    "openrtb.request.context.app.pub.domain" : "\"myCustomDomain\"",
+    "openrtb.request.context.app.pub.cat" : null
   },
   "outputJson" : {
     "openrtb" : {
@@ -493,7 +497,6 @@
               "id" : "customConverterID",
               "name" : "foobar.com",
               "domain" : "myCustomDomain",
-              "cat" : [ "IAB3-1", "IAB3-2" ],
               "cattax" : 2,
               "ext" : {
                 "dummy" : "ff"
@@ -628,18 +631,18 @@
       }
     }
   },
-  "purpose" : "overridingConverter",
+  "purpose" : "overridingConverter2to3",
   "params" : null,
   "overRidingMap" : {
     "CustomApptoAppConverter" : {
       "sourceClass" : "net.media.openrtb25.request.App",
       "targetClass" : "net.media.openrtb3.App",
-      "converterClass" : "net.media.CustomApptoAppConverter"
+      "converterClass" : "net.media.CustomApptoAppConverter2to3"
     },
     "CustomPublisherConverter" : {
       "sourceClass" : "net.media.openrtb25.request.Publisher",
       "targetClass" : "net.media.openrtb3.Publisher",
-      "converterClass" : "net.media.CustomPublisherToPublisherConverter"
+      "converterClass" : "net.media.CustomPublisherToPublisherConverter2to3"
     }
   }
 }

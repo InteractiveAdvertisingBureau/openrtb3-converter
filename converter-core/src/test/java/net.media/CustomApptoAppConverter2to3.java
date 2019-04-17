@@ -30,7 +30,7 @@ import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
-public class CustomApptoAppConverter implements Converter<App, net.media.openrtb3.App> {
+public class CustomApptoAppConverter2to3 implements Converter<App, net.media.openrtb3.App> {
 
   @Override
   public net.media.openrtb3.App map(App source, Config config, Provider converterProvider)
