@@ -205,7 +205,9 @@ public class OpenRtbConverter {
     if (shouldValidate(overridingConfig)) {
       Utils.validate(source);
     }
-    Converter<U, V> converter = converterManager.getConverter(sourceClass, targetClass);
+    Provider converterProvider =
+      converterManager.getConverterProvider(overridenMap, overridingConfig);
+    Converter<U, V> converter = converterProvider.fetch(new Conversion<>(sourceClass, targetClass));
     converter.enhance(
         source,
         target,
