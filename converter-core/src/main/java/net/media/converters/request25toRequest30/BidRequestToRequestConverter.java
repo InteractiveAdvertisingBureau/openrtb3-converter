@@ -95,7 +95,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
     target.setSource(source25Source3Converter.map(source.source, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(new HashMap<String, Object>(map));
+      target.setExt(new HashMap<>(map));
     }
 
     if (!CollectionUtils.isEmpty(target.getItem())) {
@@ -114,8 +114,12 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
       target.setSeat(Utils.copyCollection(source.getBseat(), config));
     }
     if (target.getExt() == null) return;
-    target.getExt().remove("cattax");
-    target.getExt().remove("restrictions");
+    if (target.getExt().containsKey("cattax")) {
+      target.getExt().remove("cattax");
+    }
+    if (target.getExt().containsKey("restrictions")) {
+      target.getExt().remove("restrictions");
+    }
     if (source.getExt() == null) return;
     if (source.getExt().containsKey("dooh")) {
       if (target.getContext() == null) target.setContext(new Context());

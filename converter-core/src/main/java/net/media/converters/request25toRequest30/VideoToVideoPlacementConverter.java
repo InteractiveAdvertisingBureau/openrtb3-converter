@@ -100,7 +100,9 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
           videoPlacement.setMaxseq((Integer) video.getExt().get("maxseq"));
           videoPlacement.getExt().remove("maxseq");
         }
-        videoPlacement.getExt().remove("qty");
+        if (videoPlacement.getExt().containsKey("qty")) {
+          videoPlacement.getExt().remove("qty");
+        }
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Video", e);

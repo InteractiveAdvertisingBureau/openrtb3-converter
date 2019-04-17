@@ -128,7 +128,9 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
           audioPlacement.setSkip((Integer) audio.getExt().get("delay"));
           audioPlacement.getExt().remove("delay");
         }
-        audioPlacement.getExt().remove("qty");
+        if (audioPlacement.getExt().containsKey("qty")) {
+          audioPlacement.getExt().remove("qty");
+        }
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Audio", e);

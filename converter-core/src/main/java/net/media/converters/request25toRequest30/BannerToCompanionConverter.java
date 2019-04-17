@@ -54,7 +54,11 @@ public class BannerToCompanionConverter implements Converter<Banner, Companion> 
     companion.setId(banner.getId());
     if (companion.getDisplay() != null) {
       companion.getDisplay().setClktype(null); // remove clktype for companion
-      if (companion.getDisplay().getExt() != null) companion.getDisplay().getExt().remove("id");
+      if (companion.getDisplay().getExt() != null) {
+        if (companion.getDisplay().getExt().containsKey("id")) {
+          companion.getDisplay().getExt().remove("id");
+        }
+      }
     }
   }
 }

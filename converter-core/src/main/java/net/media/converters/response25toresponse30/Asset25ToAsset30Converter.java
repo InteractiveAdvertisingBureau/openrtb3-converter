@@ -74,10 +74,14 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     dataAsset.setValue(value);
     try {
       if (nonNull(nativeData.getExt())) {
-        dataAsset.setType((Integer) nativeData.getExt().get("type"));
-        dataAsset.setLen((Integer) nativeData.getExt().get("len"));
-        dataAsset.getExt().remove("type");
-        dataAsset.getExt().remove("len");
+        if (nativeData.getExt().containsKey("type")) {
+          dataAsset.setType((Integer) nativeData.getExt().get("type"));
+          dataAsset.getExt().remove("type");
+        }
+        if (nativeData.getExt().containsKey("len")) {
+          dataAsset.setLen((Integer) nativeData.getExt().get("len"));
+          dataAsset.getExt().remove("len");
+        }
       }
     } catch (Exception e) {
       throw new OpenRtbConverterException("error while typecasting ext for nativeData", e);
@@ -100,8 +104,10 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     imageAsset.setExt(Utils.copyMap(nativeImage.getExt(), config));
     try {
       if (nonNull(nativeImage.getExt())) {
-        imageAsset.setType((Integer) nativeImage.getExt().get("type"));
-        imageAsset.getExt().remove("type");
+        if (nativeImage.getExt().containsKey("type")) {
+          imageAsset.setType((Integer) nativeImage.getExt().get("type"));
+          imageAsset.getExt().remove("type");
+        }
       }
     }
     catch (Exception e) {
@@ -118,8 +124,10 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     titleAsset.setText(nativeTitle.getText());
     try {
       if (nonNull(nativeTitle.getExt())) {
-        titleAsset.setLen((Integer) nativeTitle.getExt().get("len"));
-        titleAsset.getExt().remove("len");
+        if (nativeTitle.getExt().containsKey("len")) {
+          titleAsset.setLen((Integer) nativeTitle.getExt().get("len"));
+          titleAsset.getExt().remove("len");
+        }
       }
     }
     catch (Exception e) {
@@ -136,8 +144,10 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     videoAsset.setExt(Utils.copyMap(nativeVideo.getExt(), config));
     try {
       if (nonNull(nativeVideo.getExt())) {
-        videoAsset.setCurl((String) nativeVideo.getExt().get("curl"));
-        videoAsset.getExt().remove("curl");
+        if (nativeVideo.getExt().containsKey("curl")) {
+          videoAsset.setCurl((String) nativeVideo.getExt().get("curl"));
+          videoAsset.getExt().remove("curl");
+        }
       }
     }
     catch (Exception e) {
