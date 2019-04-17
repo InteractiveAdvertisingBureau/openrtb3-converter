@@ -58,7 +58,8 @@ public class OpenRtbConverter {
   private ConverterManager converterManager;
 
   public OpenRtbConverter(Config config) {
-    converterManager = new ConverterManager(config);
+    this.config = config;
+    converterManager = new ConverterManager();
   }
 
   /**
@@ -205,7 +206,9 @@ public class OpenRtbConverter {
     if (shouldValidate(overridingConfig)) {
       Utils.validate(source);
     }
-    Converter<U, V> converter = converterManager.getConverter(sourceClass, targetClass);
+    Provider converterProvider =
+      converterManager.getConverterProvider(overridenMap, overridingConfig);
+    Converter<U, V> converter = converterProvider.fetch(new Conversion<>(sourceClass, targetClass));
     converter.enhance(
         source,
         target,

@@ -41,35 +41,32 @@ public class ConverterManager {
 
   private Provider converterProvider2_4;
 
-  public ConverterManager(Config config) {
+  public ConverterManager() {
     converterProvider = new Provider();
-    converterProvider2_3 = new Provider();
-    converterProvider2_4 = new Provider();
     new Convert25To30RequestManager(converterProvider);
     new Convert30To25RequestManager(converterProvider);
     new Convert25To30ResponseManager(converterProvider);
     new Convert30To25ResponseManager(converterProvider);
-    if (nonNull(config)) {
-      if (OpenRtbVersion.TWO_DOT_FOUR.equals(config.getOpenRtbVersion2_XVersion())) {
-        new Convert25To30RequestManager(converterProvider2_4);
-        new Convert30To25RequestManager(converterProvider2_4);
-        new Convert25To30ResponseManager(converterProvider2_4);
-        new Convert30To25ResponseManager(converterProvider2_4);
-        new Convert24To30RequestManager(converterProvider2_4);
-        new Convert30To24RequestManager(converterProvider2_4);
-        new Convert24To30ResponseManager(converterProvider2_4);
-        new Convert30To24ResponseManager(converterProvider2_4);
-      } else if (OpenRtbVersion.TWO_DOT_THREE.equals(config.getOpenRtbVersion2_XVersion())) {
-        new Convert25To30RequestManager(converterProvider2_3);
-        new Convert30To25RequestManager(converterProvider2_3);
-        new Convert25To30ResponseManager(converterProvider2_3);
-        new Convert30To25ResponseManager(converterProvider2_3);
-        new Convert23To30RequestManager(converterProvider2_3);
-        new Convert30To23RequestManager(converterProvider2_3);
-        new Convert23To30ResponseManager(converterProvider2_3);
-        new Convert30To23ResponseManager(converterProvider2_3);
-      }
-    }
+
+    converterProvider2_4 = new Provider();
+    new Convert25To30RequestManager(converterProvider2_4);
+    new Convert30To25RequestManager(converterProvider2_4);
+    new Convert25To30ResponseManager(converterProvider2_4);
+    new Convert30To25ResponseManager(converterProvider2_4);
+    new Convert24To30RequestManager(converterProvider2_4);
+    new Convert30To24RequestManager(converterProvider2_4);
+    new Convert24To30ResponseManager(converterProvider2_4);
+    new Convert30To24ResponseManager(converterProvider2_4);
+
+    converterProvider2_3 = new Provider();
+    new Convert25To30RequestManager(converterProvider2_3);
+    new Convert30To25RequestManager(converterProvider2_3);
+    new Convert25To30ResponseManager(converterProvider2_3);
+    new Convert30To25ResponseManager(converterProvider2_3);
+    new Convert23To30RequestManager(converterProvider2_3);
+    new Convert30To23RequestManager(converterProvider2_3);
+    new Convert23To30ResponseManager(converterProvider2_3);
+    new Convert30To23ResponseManager(converterProvider2_3);
   }
 
   public <U, V> Converter<U, V> getConverter(Class<U> source, Class<V> target) {
