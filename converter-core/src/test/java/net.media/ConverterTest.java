@@ -16,8 +16,8 @@
 
 package net.media;
 
-import net.media.config.Config;
-import net.media.driver.OpenRtbConverter;
+import net.media.converters.Converter;
+import net.media.driver.Conversion;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
@@ -27,6 +27,7 @@ import org.junit.Test;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.util.HashMap;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
@@ -37,15 +38,15 @@ public class ConverterTest {
 
   @Test
   public void run() throws Exception {
-    OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
     ClassLoader classLoader = getClass().getClassLoader();
-    ORTBTester ortbTester = new ORTBTester(openRtbConverter);
+    ORTBTester ortbTester = new ORTBTester();
     TestOutput testOutput = new TestOutput();
 
     File folder = new File(classLoader.getResource("generated").getFile());
     File[] innerFolder = folder.listFiles();
 
     // files.
+    int count = 0;
     File outputFile =
         new File(classLoader.getResource("generatedOutput").getPath() + "/Output.json");
     if (nonNull(innerFolder)) {
@@ -53,10 +54,14 @@ public class ConverterTest {
       for (File files : innerFolder) {
         totalFiles += files.listFiles().length;
         for (File file : files.listFiles()) {
+//          if(file.getName().equals("overridingConverter.json")==false)
+//            continue;
           System.out.println("file: " + file );
+          count+=1;
           Exception exception = new Exception();
           byte[] jsonData = Files.readAllBytes(file.toPath());
           TestPojo testPojo = null;
+          String tmp = new String(jsonData);
           try {
             testPojo = JacksonObjectMapper.getMapper().readValue(jsonData, TestPojo.class);
           } catch (Exception e) {
@@ -82,7 +87,30 @@ public class ConverterTest {
               || !((Map)inputPojo.get("outputEdits")).get("status").equals("ERROR")) {
               testOutput.getFailedTestList().add(outputTestPojo);
             }
-          } else if (testPojo.getInputType().equalsIgnoreCase("REQUEST25")
+            continue;
+          }
+          Map<Conversion, Converter> overRider = null;
+
+          if(testPojo.getOverRidingMap() != null) {
+            try {
+              overRider = new HashMap<>();
+              Map<String, Object> overRidingMap = testPojo.getOverRidingMap();
+              for (Object over : testPojo.getOverRidingMap().values()) {
+                Map<String, String> tempMap = (Map<String, String>) over;
+                Class<?> src = Class.forName(tempMap.get("sourceClass"));
+                Class<?> target = Class.forName(tempMap.get("targetClass"));
+                Class<?> customConverter =Class.forName(tempMap.get("converterClass"));
+                Converter converter1 = (Converter)customConverter.newInstance();
+                overRider.put(new Conversion(src, target), converter1);
+              }
+            }
+            catch(Exception e) {
+              e.printStackTrace();
+            }
+          }
+
+
+          if (testPojo.getInputType().equalsIgnoreCase("REQUEST25")
               && testPojo.getOutputType().equalsIgnoreCase("REQUEST30")) {
             ortbTester.test(
                 testPojo.getInputJson(),
@@ -92,7 +120,7 @@ public class ConverterTest {
                 testPojo.getParams(),
                 testPojo,
                 testOutput,
-                file.getName());
+                file.getName(),overRider);
           } else if (testPojo.getInputType().equalsIgnoreCase("REQUEST30")
               && testPojo.getOutputType().equalsIgnoreCase("REQUEST25")) {
             ortbTester.test(
@@ -103,7 +131,7 @@ public class ConverterTest {
                 testPojo.getParams(),
                 testPojo,
                 testOutput,
-                file.getName());
+                file.getName(),overRider);
           } else if (testPojo.getInputType().equalsIgnoreCase("RESPONSE25")
               && testPojo.getOutputType().equalsIgnoreCase("RESPONSE30")) {
             ortbTester.test(
@@ -114,7 +142,7 @@ public class ConverterTest {
                 testPojo.getParams(),
                 testPojo,
                 testOutput,
-                file.getName());
+                file.getName(),overRider);
           } else if (testPojo.getInputType().equalsIgnoreCase("RESPONSE30")
               && testPojo.getOutputType().equalsIgnoreCase("RESPONSE25")) {
             ortbTester.test(
@@ -125,7 +153,7 @@ public class ConverterTest {
                 testPojo.getParams(),
                 testPojo,
                 testOutput,
-                file.getName());
+                file.getName(),overRider);
           } else {
             OutputTestPojo outputTestPojo = new OutputTestPojo();
             outputTestPojo.setInputFile(file.getName());
@@ -137,7 +165,7 @@ public class ConverterTest {
           }
         }
       }
-      System.out.println("total cases : "+totalFiles);
+      System.out.println("total cases : "+count);
       System.out.println("failed cases : "+testOutput.getFailedTestList().size());
       testOutput.setTotalTestCases(totalFiles);
       testOutput.setFailedTestCases(testOutput.getFailedTestList().size());

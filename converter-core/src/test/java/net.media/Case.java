@@ -31,6 +31,8 @@ public class Case {
   private JsonNode outputJson;
   private String purpose;
   private Map<String, Object> params;
+  private Map<String,Object> overRidingMap;
+
 
   public Case() {}
 
@@ -112,5 +114,13 @@ public class Case {
 
   public void setParams(Map<String, Object> params) {
     this.params = params;
+  }
+
+  public Map<String, Object> getOverRidingMap() {
+    return overRidingMap;
+  }
+
+  public void setOverRidingMap(Map<String, Object> overRidingMap) {
+    this.overRidingMap = overRidingMap;
   }
 }

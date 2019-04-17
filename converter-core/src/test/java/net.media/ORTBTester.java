@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+ * Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,19 +17,23 @@
 package net.media;
 
 import net.media.config.Config;
+import net.media.converters.Converter;
+import net.media.driver.Conversion;
 import net.media.driver.OpenRtbConverter;
 import net.media.utils.JacksonObjectMapper;
 import org.skyscreamer.jsonassert.JSONAssert;
+
+import java.util.Map;
 
 /** Created by rajat.go on 09/01/19. */
 public class ORTBTester<U, V> {
 
   private OpenRtbConverter openRtbConverter;
 
-  @java.beans.ConstructorProperties({"openRtbConverter"})
-  public ORTBTester(OpenRtbConverter openRtbConverter) {
-    this.openRtbConverter = openRtbConverter;
-  }
+//  @java.beans.ConstructorProperties({"openRtbConverter"})
+//  public ORTBTester(OpenRtbConverter openRtbConverter) {
+//    this.openRtbConverter = openRtbConverter;
+//  }
 
   public static void main(String[] args) {
     String exception =
@@ -46,13 +50,16 @@ public class ORTBTester<U, V> {
       Config config,
       TestPojo inputPojo,
       TestOutput testOutput,
-      String inputFile)
+      String inputFile, Map<Conversion, Converter> overRider)
       throws Exception {
 
     String FAILURE = "FAILURE";
     try {
+
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+
       U bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
-      V converted = openRtbConverter.convert(config, bidRequest, sourceClass, targetClass);
+      V converted = openRtbConverter.convert(config, bidRequest, sourceClass, targetClass,overRider);
       JSONAssert.assertEquals(
           JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+",""),
           JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+",""),
