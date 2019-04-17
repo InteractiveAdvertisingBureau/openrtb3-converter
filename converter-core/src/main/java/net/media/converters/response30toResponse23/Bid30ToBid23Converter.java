@@ -49,7 +49,7 @@ public class Bid30ToBid23Converter extends Bid30ToBid25Converter {
         target.setExt(new HashMap<>());
       }
       target.getExt().put("lurl", target.getLurl());
-      target.setNurl(null);
+      target.setLurl(null);
     }
     if (nonNull(target.getTactic())) {
       if (isNull(target.getExt())) {

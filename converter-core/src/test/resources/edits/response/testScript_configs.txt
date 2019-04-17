@@ -241,3 +241,95 @@ cases:
         "yaddayadda": BANNER
         "yaddayadda1": NATIVE
 
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_23_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponse23_3to2
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_THREE
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_24_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponse24_3to2
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponse25_3to2
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversiondefaultresponse_3to2
+
+  - inputFile: RESPONSE_BANNER_SITE_23_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponse23_2to3
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_THREE
+
+  - inputFile: RESPONSE_BANNER_SITE_24_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponse24_2to3
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+  - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponse25_2to3
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+  - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversiondefaultresponse_2to3
+
