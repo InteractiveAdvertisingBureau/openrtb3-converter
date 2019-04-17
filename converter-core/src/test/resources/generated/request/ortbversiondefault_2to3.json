@@ -1,5 +1,5 @@
 {
-  "inputFile" : "BANNER_SITE_23.json",
+  "inputFile" : "BANNER_SITE_25.json",
   "inputType" : "REQUEST25",
   "inputEdits" : {
     "at" : "2"
@@ -10,6 +10,19 @@
     "test" : 1,
     "tmax" : 100,
     "wseat" : [ "a" ],
+    "source" : {
+      "fd" : 1,
+      "tid" : "dd",
+      "pchain" : "dd",
+      "ext" : {
+        "ts" : 1,
+        "ds" : "ds",
+        "dsmap" : "abcdefghij",
+        "cert" : "abc.com/xyz/efg",
+        "digest" : "digest:digest, abcde:efg",
+        "dummy" : "ff"
+      }
+    },
     "regs" : {
       "coppa" : 1,
       "ext" : {
@@ -18,21 +31,6 @@
       }
     },
     "ext" : {
-      "bapp" : [ "nn" ],
-      "wlang" : [ "en" ],
-      "source" : {
-        "fd" : 1,
-        "tid" : "dd",
-        "pchain" : "dd",
-        "ext" : {
-          "ts" : 1,
-          "ds" : "ds",
-          "dsmap" : "abcdefghij",
-          "cert" : "abc.com/xyz/efg",
-          "digest" : "digest:digest, abcde:efg",
-          "dummy" : "ff"
-        }
-      },
       "cattax" : 2,
       "dummy" : "ff",
       "restrictions" : {
@@ -43,10 +41,20 @@
     },
     "cur" : [ "USD" ],
     "allimps" : 0,
+    "wlang" : [ "en" ],
     "bcat" : [ "bb" ],
     "badv" : [ "cc" ],
+    "bapp" : [ "nn" ],
     "imp" : [ {
       "id" : "1",
+      "metric" : [ {
+        "type" : "dd",
+        "value" : 1.0,
+        "vendor" : "dssf",
+        "ext" : {
+          "dummy" : "ff"
+        }
+      } ],
       "bidfloor" : 0.03,
       "bidfloorcur" : "USD",
       "pmp" : {
@@ -68,12 +76,33 @@
       },
       "displaymanager" : "dd",
       "displaymanagerver" : "22",
+      "clickbrowser" : 1,
       "secure" : 1,
       "iframebuster" : [ "abc", "def" ],
       "instl" : 0,
       "tagid" : "re",
+      "exp" : 1,
       "banner" : {
         "id" : "dd",
+        "format" : [ {
+          "w" : 200,
+          "h" : 20,
+          "wratio" : 200,
+          "hratio" : 30,
+          "wmin" : 3,
+          "ext" : {
+            "dummy" : "ffaa"
+          }
+        }, {
+          "w" : 33,
+          "h" : 11,
+          "wratio" : 200,
+          "hratio" : 30,
+          "wmin" : 3,
+          "ext" : {
+            "dummy" : "ffaa"
+          }
+        } ],
         "h" : 250,
         "w" : 300,
         "btype" : [ 3, 4 ],
@@ -84,25 +113,6 @@
         "mimes" : [ "application/x-shockwave-flash", "image/jpg" ],
         "pos" : 0,
         "ext" : {
-          "format" : [ {
-            "w" : 200,
-            "h" : 20,
-            "wratio" : 200,
-            "hratio" : 30,
-            "wmin" : 3,
-            "ext" : {
-              "dummy" : "ffaa"
-            }
-          }, {
-            "w" : 33,
-            "h" : 11,
-            "wratio" : 200,
-            "hratio" : 30,
-            "wmin" : 3,
-            "ext" : {
-              "dummy" : "ffaa"
-            }
-          } ],
           "qty" : 1,
           "seq" : 1,
           "context" : 2,
@@ -114,16 +124,6 @@
         }
       },
       "ext" : {
-        "clickbrowser" : 1,
-        "exp" : 1,
-        "metric" : [ {
-          "type" : "dd",
-          "value" : 1.0,
-          "vendor" : "dssf",
-          "ext" : {
-            "dummy" : "ff"
-          }
-        } ],
         "ssai" : 1,
         "reward" : 1,
         "admx" : 1,
@@ -187,6 +187,10 @@
         "title" : "sf",
         "series" : "rf",
         "season" : "wed",
+        "genre" : "sefw",
+        "album" : "edwe",
+        "artist" : "we",
+        "isrc" : "ewde",
         "producer" : {
           "id" : "eew",
           "name" : "edew",
@@ -199,6 +203,7 @@
         },
         "url" : "ewfe.com",
         "cat" : [ "IAB3-1", "IAB3-2" ],
+        "prodq" : 1,
         "videoquality" : 2,
         "context" : 2,
         "contentrating" : "wqewq",
@@ -210,29 +215,24 @@
         "len" : 2,
         "language" : "en",
         "embeddable" : 1,
-        "ext" : {
-          "data" : [ {
-            "id" : "1",
-            "name" : "Abcdef",
-            "segment" : [ {
-              "id" : "bcdef",
-              "name" : "name123",
-              "value" : "acde",
-              "ext" : {
-                "dummy" : "ff"
-              }
-            } ],
+        "data" : [ {
+          "id" : "1",
+          "name" : "Abcdef",
+          "segment" : [ {
+            "id" : "bcdef",
+            "name" : "name123",
+            "value" : "acde",
             "ext" : {
               "dummy" : "ff"
             }
           } ],
-          "genre" : "sefw",
-          "album" : "edwe",
-          "artist" : "we",
-          "isrc" : "ewde",
+          "ext" : {
+            "dummy" : "ff"
+          }
+        } ],
+        "ext" : {
           "cattax" : 2,
-          "dummy" : "ff",
-          "prodq" : 1
+          "dummy" : "ff"
         }
       },
       "ext" : {
@@ -248,6 +248,9 @@
         "lat" : 22.22,
         "lon" : 22.2,
         "type" : 1,
+        "accuracy" : 1,
+        "lastfix" : 1,
+        "ipservice" : 2,
         "country" : "sd",
         "region" : "eew",
         "regionfips104" : "eew",
@@ -256,10 +259,7 @@
         "zip" : "ewe",
         "utcoffset" : 1,
         "ext" : {
-          "dummy" : "ff",
-          "accuracy" : 1,
-          "lastfix" : 1,
-          "ipservice" : 2
+          "dummy" : "ff"
         }
       },
       "dnt" : 1,
@@ -276,16 +276,16 @@
       "ppi" : 1,
       "pxratio" : 1.2,
       "js" : 1,
+      "geofetch" : 2,
       "flashver" : "ewe",
       "language" : "weew",
       "carrier" : "weew",
+      "mccmnc" : "ewew",
       "connectiontype" : 2,
       "ext" : {
         "xff" : "1.2.3.4",
         "iptr" : 1,
-        "dummy" : "ff",
-        "mccmnc" : "ewew",
-        "geofetch" : 2
+        "dummy" : "ff"
       }
     },
     "user" : {
@@ -299,6 +299,9 @@
         "lat" : 22.22,
         "lon" : 22.2,
         "type" : 1,
+        "accuracy" : 1,
+        "lastfix" : 1,
+        "ipservice" : 2,
         "country" : "sd",
         "region" : "eew",
         "regionfips104" : "eew",
@@ -307,9 +310,6 @@
         "zip" : "ewe",
         "utcoffset" : 1,
         "ext" : {
-          "accuracy" : 1,
-          "lastfix" : 1,
-          "ipservice" : 2,
           "dummy" : "ff"
         }
       },
@@ -336,11 +336,7 @@
   "outputFile" : "BANNER_SITE_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
-    "openrtb.request.at" : "2",
-    "openrtb.request.context.site.pub.id" : "\"customConverterID\"",
-    "openrtb.request.context.site.pub.domain" : "\"myCustomDomain\"",
-    "openrtb.request.context.site.pub.cat" : null,
-    "openrtb.request.context.site.content.data" : null
+    "openrtb.request.at" : "2"
   },
   "outputJson" : {
     "openrtb" : {
@@ -493,9 +489,10 @@
             "id" : "102855",
             "name" : "abdk",
             "pub" : {
-              "id" : "customConverterID",
+              "id" : "8953",
               "name" : "foobar.com",
-              "domain" : "myCustomDomain",
+              "domain" : "foobar.com",
+              "cat" : [ "IAB3-1", "IAB3-2" ],
               "cattax" : 2,
               "ext" : {
                 "dummy" : "ff"
@@ -535,6 +532,21 @@
                   "dummy" : "ff"
                 }
               },
+              "data" : [ {
+                "id" : "1",
+                "name" : "Abcdef",
+                "segment" : [ {
+                  "id" : "bcdef",
+                  "name" : "name123",
+                  "value" : "acde",
+                  "ext" : {
+                    "dummy" : "ff"
+                  }
+                } ],
+                "ext" : {
+                  "dummy" : "ff"
+                }
+              } ],
               "ext" : {
                 "dummy" : "ff",
                 "videoquality" : 2
@@ -669,20 +681,7 @@
       }
     }
   },
-  "purpose" : "overridingConverter23to30",
-  "params" : {
-    "openRtbVersion2_XVersion" : "TWO_DOT_THREE"
-  },
-  "overRidingMap" : {
-    "CustomItemtoImpConverter" : {
-      "sourceClass" : "net.media.openrtb25.request.Content",
-      "targetClass" : "net.media.openrtb3.Content",
-      "converterClass" : "net.media.CustomContentToContentConverter"
-    },
-    "CustomPublisherConverter" : {
-      "sourceClass" : "net.media.openrtb25.request.Publisher",
-      "targetClass" : "net.media.openrtb3.Publisher",
-      "converterClass" : "net.media.CustomPublisherToPublisherConverter2to3"
-    }
-  }
+  "purpose" : "ortbversiondefault_2to3",
+  "params" : null,
+  "overRidingMap" : null
 }

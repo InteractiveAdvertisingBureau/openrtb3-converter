@@ -1,15 +1,32 @@
 {
-  "inputFile" : "BANNER_SITE_23.json",
+  "inputFile" : "BANNER_APP_25.json",
   "inputType" : "REQUEST25",
   "inputEdits" : {
-    "at" : "2"
+    "test" : null,
+    "at" : null,
+    "cur" : null,
+    "allimps" : null,
+    "app.paid" : null,
+    "app.ext.cattax" : null,
+    "app.publisher.ext.cattax" : null
   },
   "inputJson" : {
     "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
-    "at" : 2,
-    "test" : 1,
     "tmax" : 100,
     "wseat" : [ "a" ],
+    "source" : {
+      "fd" : 1,
+      "tid" : "dd",
+      "pchain" : "dd",
+      "ext" : {
+        "ts" : 1,
+        "ds" : "ds",
+        "dsmap" : "abcdefghij",
+        "cert" : "abc.com/xyz/efg",
+        "digest" : "digest:digest, abcde:efg",
+        "dummy" : "ff"
+      }
+    },
     "regs" : {
       "coppa" : 1,
       "ext" : {
@@ -18,21 +35,6 @@
       }
     },
     "ext" : {
-      "bapp" : [ "nn" ],
-      "wlang" : [ "en" ],
-      "source" : {
-        "fd" : 1,
-        "tid" : "dd",
-        "pchain" : "dd",
-        "ext" : {
-          "ts" : 1,
-          "ds" : "ds",
-          "dsmap" : "abcdefghij",
-          "cert" : "abc.com/xyz/efg",
-          "digest" : "digest:digest, abcde:efg",
-          "dummy" : "ff"
-        }
-      },
       "cattax" : 2,
       "dummy" : "ff",
       "restrictions" : {
@@ -41,12 +43,20 @@
         }
       }
     },
-    "cur" : [ "USD" ],
-    "allimps" : 0,
+    "wlang" : [ "en" ],
     "bcat" : [ "bb" ],
     "badv" : [ "cc" ],
+    "bapp" : [ "nn" ],
     "imp" : [ {
       "id" : "1",
+      "metric" : [ {
+        "type" : "dd",
+        "value" : 1.0,
+        "vendor" : "dssf",
+        "ext" : {
+          "dummy" : "ff"
+        }
+      } ],
       "bidfloor" : 0.03,
       "bidfloorcur" : "USD",
       "pmp" : {
@@ -68,12 +78,33 @@
       },
       "displaymanager" : "dd",
       "displaymanagerver" : "22",
+      "clickbrowser" : 1,
       "secure" : 1,
       "iframebuster" : [ "abc", "def" ],
       "instl" : 0,
       "tagid" : "re",
+      "exp" : 1,
       "banner" : {
         "id" : "dd",
+        "format" : [ {
+          "w" : 200,
+          "h" : 20,
+          "wratio" : 200,
+          "hratio" : 30,
+          "wmin" : 3,
+          "ext" : {
+            "dummy" : "ffaa"
+          }
+        }, {
+          "w" : 33,
+          "h" : 11,
+          "wratio" : 200,
+          "hratio" : 30,
+          "wmin" : 3,
+          "ext" : {
+            "dummy" : "ffaa"
+          }
+        } ],
         "h" : 250,
         "w" : 300,
         "btype" : [ 3, 4 ],
@@ -84,25 +115,6 @@
         "mimes" : [ "application/x-shockwave-flash", "image/jpg" ],
         "pos" : 0,
         "ext" : {
-          "format" : [ {
-            "w" : 200,
-            "h" : 20,
-            "wratio" : 200,
-            "hratio" : 30,
-            "wmin" : 3,
-            "ext" : {
-              "dummy" : "ffaa"
-            }
-          }, {
-            "w" : 33,
-            "h" : 11,
-            "wratio" : 200,
-            "hratio" : 30,
-            "wmin" : 3,
-            "ext" : {
-              "dummy" : "ffaa"
-            }
-          } ],
           "qty" : 1,
           "seq" : 1,
           "context" : 2,
@@ -114,16 +126,6 @@
         }
       },
       "ext" : {
-        "clickbrowser" : 1,
-        "exp" : 1,
-        "metric" : [ {
-          "type" : "dd",
-          "value" : 1.0,
-          "vendor" : "dssf",
-          "ext" : {
-            "dummy" : "ff"
-          }
-        } ],
         "ssai" : 1,
         "reward" : 1,
         "admx" : 1,
@@ -158,26 +160,23 @@
         "dummy" : "ff"
       }
     } ],
-    "site" : {
-      "id" : "102855",
-      "name" : "abdk",
+    "app" : {
+      "id" : "abcde2345",
+      "name" : "android app",
+      "bundle" : "com.media.net",
+      "domain" : "www.foobar.com",
+      "storeurl" : "axcdabc.com/test123",
+      "cat" : [ "IAB3-1", "IAB3-2" ],
       "sectioncat" : [ "zz", "dd" ],
       "pagecat" : [ "ss", "as" ],
-      "cat" : [ "IAB3-1", "IAB3-2" ],
-      "ref" : "sdfe",
-      "search" : "eded",
-      "mobile" : 1,
+      "ver" : "123",
       "privacypolicy" : 1,
-      "keywords" : "ewew",
-      "domain" : "www.foobar.com",
-      "page" : "http://www.foobar.com/1234.html ",
       "publisher" : {
         "id" : "8953",
         "name" : "foobar.com",
         "cat" : [ "IAB3-1", "IAB3-2" ],
         "domain" : "foobar.com",
         "ext" : {
-          "cattax" : 2,
           "dummy" : "ff"
         }
       },
@@ -187,6 +186,10 @@
         "title" : "sf",
         "series" : "rf",
         "season" : "wed",
+        "genre" : "sefw",
+        "album" : "edwe",
+        "artist" : "we",
+        "isrc" : "ewde",
         "producer" : {
           "id" : "eew",
           "name" : "edew",
@@ -199,8 +202,9 @@
         },
         "url" : "ewfe.com",
         "cat" : [ "IAB3-1", "IAB3-2" ],
+        "prodq" : 1,
         "videoquality" : 2,
-        "context" : 2,
+        "context" : 1,
         "contentrating" : "wqewq",
         "userrating" : "ewew",
         "qagmediarating" : 1,
@@ -210,35 +214,30 @@
         "len" : 2,
         "language" : "en",
         "embeddable" : 1,
-        "ext" : {
-          "data" : [ {
-            "id" : "1",
-            "name" : "Abcdef",
-            "segment" : [ {
-              "id" : "bcdef",
-              "name" : "name123",
-              "value" : "acde",
-              "ext" : {
-                "dummy" : "ff"
-              }
-            } ],
+        "data" : [ {
+          "id" : "1",
+          "name" : "Abcdef",
+          "segment" : [ {
+            "id" : "bcdef",
+            "name" : "name123",
+            "value" : "acde",
             "ext" : {
               "dummy" : "ff"
             }
           } ],
-          "genre" : "sefw",
-          "album" : "edwe",
-          "artist" : "we",
-          "isrc" : "ewde",
+          "ext" : {
+            "dummy" : "ff"
+          }
+        } ],
+        "ext" : {
           "cattax" : 2,
-          "dummy" : "ff",
-          "prodq" : 1
+          "dummy" : "ff"
         }
       },
+      "keywords" : "ewew",
       "ext" : {
-        "cattax" : 2,
         "dummy" : "ff",
-        "amp" : 2
+        "storeid" : "abc1234"
       }
     },
     "device" : {
@@ -248,6 +247,9 @@
         "lat" : 22.22,
         "lon" : 22.2,
         "type" : 1,
+        "accuracy" : 1,
+        "lastfix" : 1,
+        "ipservice" : 2,
         "country" : "sd",
         "region" : "eew",
         "regionfips104" : "eew",
@@ -256,10 +258,7 @@
         "zip" : "ewe",
         "utcoffset" : 1,
         "ext" : {
-          "dummy" : "ff",
-          "accuracy" : 1,
-          "lastfix" : 1,
-          "ipservice" : 2
+          "dummy" : "ff"
         }
       },
       "dnt" : 1,
@@ -276,16 +275,16 @@
       "ppi" : 1,
       "pxratio" : 1.2,
       "js" : 1,
+      "geofetch" : 2,
       "flashver" : "ewe",
       "language" : "weew",
       "carrier" : "weew",
+      "mccmnc" : "ewew",
       "connectiontype" : 2,
       "ext" : {
         "xff" : "1.2.3.4",
         "iptr" : 1,
-        "dummy" : "ff",
-        "mccmnc" : "ewew",
-        "geofetch" : 2
+        "dummy" : "ff"
       }
     },
     "user" : {
@@ -299,6 +298,9 @@
         "lat" : 22.22,
         "lon" : 22.2,
         "type" : 1,
+        "accuracy" : 1,
+        "lastfix" : 1,
+        "ipservice" : 2,
         "country" : "sd",
         "region" : "eew",
         "regionfips104" : "eew",
@@ -307,9 +309,6 @@
         "zip" : "ewe",
         "utcoffset" : 1,
         "ext" : {
-          "accuracy" : 1,
-          "lastfix" : 1,
-          "ipservice" : 2,
           "dummy" : "ff"
         }
       },
@@ -333,14 +332,16 @@
       }
     }
   },
-  "outputFile" : "BANNER_SITE_30.json",
+  "outputFile" : "BANNER_APP_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
-    "openrtb.request.at" : "2",
-    "openrtb.request.context.site.pub.id" : "\"customConverterID\"",
-    "openrtb.request.context.site.pub.domain" : "\"myCustomDomain\"",
-    "openrtb.request.context.site.pub.cat" : null,
-    "openrtb.request.context.site.content.data" : null
+    "openrtb.request.test" : null,
+    "openrtb.request.at" : null,
+    "openrtb.request.cur" : null,
+    "openrtb.request.package" : "0",
+    "openrtb.request.context.app.paid" : null,
+    "openrtb.request.context.app.cattax" : "1",
+    "openrtb.request.context.app.pub.cattax" : "1"
   },
   "outputJson" : {
     "openrtb" : {
@@ -349,10 +350,7 @@
       "domainVer" : "1.0",
       "request" : {
         "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
-        "test" : 1,
         "tmax" : 100,
-        "at" : 2,
-        "cur" : [ "USD" ],
         "seat" : [ "a" ],
         "wseat" : 1,
         "cdata" : "ewew",
@@ -489,14 +487,15 @@
           "private" : 1
         } ],
         "context" : {
-          "site" : {
-            "id" : "102855",
-            "name" : "abdk",
+          "app" : {
+            "id" : "abcde2345",
+            "name" : "android app",
             "pub" : {
-              "id" : "customConverterID",
+              "id" : "8953",
               "name" : "foobar.com",
-              "domain" : "myCustomDomain",
-              "cattax" : 2,
+              "domain" : "foobar.com",
+              "cat" : [ "IAB3-1", "IAB3-2" ],
+              "cattax" : 1,
               "ext" : {
                 "dummy" : "ff"
               }
@@ -515,7 +514,7 @@
               "cat" : [ "IAB3-1", "IAB3-2" ],
               "cattax" : 2,
               "prodq" : 1,
-              "context" : 2,
+              "context" : 1,
               "rating" : "wqewq",
               "urating" : "ewew",
               "mrating" : 1,
@@ -535,6 +534,21 @@
                   "dummy" : "ff"
                 }
               },
+              "data" : [ {
+                "id" : "1",
+                "name" : "Abcdef",
+                "segment" : [ {
+                  "id" : "bcdef",
+                  "name" : "name123",
+                  "value" : "acde",
+                  "ext" : {
+                    "dummy" : "ff"
+                  }
+                } ],
+                "ext" : {
+                  "dummy" : "ff"
+                }
+              } ],
               "ext" : {
                 "dummy" : "ff",
                 "videoquality" : 2
@@ -544,14 +558,13 @@
             "cat" : [ "IAB3-1", "IAB3-2" ],
             "sectcat" : [ "zz", "dd" ],
             "pagecat" : [ "ss", "as" ],
-            "cattax" : 2,
+            "cattax" : 1,
             "privpolicy" : 1,
             "keywords" : "ewew",
-            "page" : "http://www.foobar.com/1234.html ",
-            "ref" : "sdfe",
-            "search" : "eded",
-            "mobile" : 1,
-            "amp" : 2,
+            "bundle" : "com.media.net",
+            "storeid" : "abc1234",
+            "storeurl" : "axcdabc.com/test123",
+            "ver" : "123",
             "ext" : {
               "dummy" : "ff"
             }
@@ -669,20 +682,7 @@
       }
     }
   },
-  "purpose" : "overridingConverter23to30",
-  "params" : {
-    "openRtbVersion2_XVersion" : "TWO_DOT_THREE"
-  },
-  "overRidingMap" : {
-    "CustomItemtoImpConverter" : {
-      "sourceClass" : "net.media.openrtb25.request.Content",
-      "targetClass" : "net.media.openrtb3.Content",
-      "converterClass" : "net.media.CustomContentToContentConverter"
-    },
-    "CustomPublisherConverter" : {
-      "sourceClass" : "net.media.openrtb25.request.Publisher",
-      "targetClass" : "net.media.openrtb3.Publisher",
-      "converterClass" : "net.media.CustomPublisherToPublisherConverter2to3"
-    }
-  }
+  "purpose" : "DefaultRequestValueIsNullApp_2to3",
+  "params" : null,
+  "overRidingMap" : null
 }

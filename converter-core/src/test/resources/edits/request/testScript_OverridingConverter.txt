@@ -83,6 +83,7 @@ cases:
    params:
         openRtbVersion2_XVersion: TWO_DOT_FOUR
 
+
  - inputFile: BANNER_SITE_23.json
    inputType: "REQUEST25"
    inputEdits:
@@ -91,8 +92,20 @@ cases:
    outputType: "REQUEST30"
    outputEdits:
      openrtb.request.at: 2
-
+     openrtb.request.context.site.pub.id : "\"customConverterID\""
+     openrtb.request.context.site.pub.domain : "\"myCustomDomain\""
+     openrtb.request.context.site.pub.cat : null
+     openrtb.request.context.site.content.data : null
 
    purpose: overridingConverter23to30
+   overRidingMap:
+     CustomItemtoImpConverter :
+        sourceClass : net.media.openrtb25.request.Content
+        targetClass : net.media.openrtb3.Content
+        converterClass : net.media.CustomContentToContentConverter
+     CustomPublisherConverter :
+        sourceClass : net.media.openrtb25.request.Publisher
+        targetClass : net.media.openrtb3.Publisher
+        converterClass: net.media.CustomPublisherToPublisherConverter2to3
    params:
         openRtbVersion2_XVersion: TWO_DOT_THREE
