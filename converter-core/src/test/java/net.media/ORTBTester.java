@@ -46,17 +46,28 @@ public class ORTBTester<U, V> {
       Config config,
       TestPojo inputPojo,
       TestOutput testOutput,
-      String inputFile)
+      String inputFile,
+      Config initconfig)
       throws Exception {
 
     String FAILURE = "FAILURE";
     try {
-      U bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
-      V converted = openRtbConverter.convert(config, bidRequest, sourceClass, targetClass);
-      JSONAssert.assertEquals(
+      if(initconfig != null) {
+        OpenRtbConverter tempOpenRtbConverter = new OpenRtbConverter(initconfig);
+        U bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
+        V converted = tempOpenRtbConverter.convert(config, bidRequest, sourceClass, targetClass);
+        JSONAssert.assertEquals(
           JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+",""),
           JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+",""),
           true);
+      } else {
+        U bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
+        V converted = openRtbConverter.convert(config, bidRequest, sourceClass, targetClass);
+        JSONAssert.assertEquals(
+          JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""),
+          JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""),
+          true);
+      }
 
     } catch (Exception | AssertionError e) {
       OutputTestPojo outputTestPojo = new OutputTestPojo();

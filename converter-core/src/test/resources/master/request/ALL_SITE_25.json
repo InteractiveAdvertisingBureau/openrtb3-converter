@@ -191,7 +191,6 @@
           }
         ],
         "ext": {
-          "delay": 1,
           "skipmin": 1,
           "skip": 1,
           "skipafter": 1,
@@ -439,9 +438,8 @@
           2
         ],
         "battr": [
-          2,
-          5,
-          8
+          1,
+          2
         ],
         "ext": {
           "dummy": "entry",

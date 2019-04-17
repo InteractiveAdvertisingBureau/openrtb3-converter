@@ -191,7 +191,6 @@
           }
         ],
         "ext": {
-          "delay": 1,
           "skipmin": 1,
           "skip": 1,
           "skipafter": 1,
