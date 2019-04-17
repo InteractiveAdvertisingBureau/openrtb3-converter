@@ -58,7 +58,8 @@ public class OpenRtbConverter {
   private ConverterManager converterManager;
 
   public OpenRtbConverter(Config config) {
-    converterManager = new ConverterManager(config);
+    this.config = config;
+    converterManager = new ConverterManager();
   }
 
   /**
