@@ -35,6 +35,14 @@ public class Case {
 
   public Case() {}
 
+  public Map<String, Object> getConfig() {
+    return config;
+  }
+
+  public void setConfig(Map<String, Object> config) {
+    this.config = config;
+  }
+
   public String getInputFile() {
     return this.inputFile;
   }
