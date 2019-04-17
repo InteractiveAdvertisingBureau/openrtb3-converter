@@ -635,6 +635,11 @@
       "sourceClass" : "net.media.openrtb25.request.App",
       "targetClass" : "net.media.openrtb3.App",
       "converterClass" : "net.media.CustomApptoAppConverter"
+    },
+    "CustomPublisherConverter" : {
+      "sourceClass" : "net.media.openrtb25.request.Publisher",
+      "targetClass" : "net.media.openrtb3.App",
+      "converterClass" : "net.media.CustomApptoAppConverter"
     }
   }
 }

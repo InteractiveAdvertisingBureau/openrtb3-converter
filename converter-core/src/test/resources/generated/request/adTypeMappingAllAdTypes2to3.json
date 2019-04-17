@@ -137,7 +137,6 @@
           }
         } ],
         "ext" : {
-          "delay" : 1,
           "skipmin" : 1,
           "skip" : 1,
           "skipafter" : 1,
@@ -1508,5 +1507,6 @@
       "3" : "NATIVE",
       "4" : "VIDEO"
     }
-  }
+  },
+  "overRidingMap" : null
 }

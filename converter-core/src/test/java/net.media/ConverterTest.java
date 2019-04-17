@@ -16,16 +16,24 @@
 
 package net.media;
 
+import net.media.config.Config;
+import net.media.driver.OpenRtbConverter;
+import net.media.enums.OpenRtbVersion;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
 import net.media.utils.JacksonObjectMapper;
+import org.json.JSONException;
 import org.junit.Assert;
 import org.junit.Test;
+import org.skyscreamer.jsonassert.JSONAssert;
 
+import javax.naming.ConfigurationException;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,8 +46,11 @@ public class ConverterTest {
 
   @Test
   public void run() throws Exception {
+
     ClassLoader classLoader = getClass().getClassLoader();
-    ORTBTester ortbTester = new ORTBTester();
+    OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+
+    ORTBTester ortbTester = new ORTBTester(openRtbConverter);
     TestOutput testOutput = new TestOutput();
 
     File folder = new File(classLoader.getResource("generated").getFile());
@@ -54,14 +65,13 @@ public class ConverterTest {
       for (File files : innerFolder) {
         totalFiles += files.listFiles().length;
         for (File file : files.listFiles()) {
-//          if(file.getName().equals("overridingConverter.json")==false)
-//            continue;
+          if(file.getName().equals("ortbversion24.json")==false)
+            continue;
           System.out.println("file: " + file );
           count+=1;
           Exception exception = new Exception();
           byte[] jsonData = Files.readAllBytes(file.toPath());
           TestPojo testPojo = null;
-          String tmp = new String(jsonData);
           try {
             testPojo = JacksonObjectMapper.getMapper().readValue(jsonData, TestPojo.class);
           } catch (Exception e) {
@@ -120,7 +130,7 @@ public class ConverterTest {
                 testPojo.getParams(),
                 testPojo,
                 testOutput,
-                file.getName(),overRider);
+                file.getName(),overRider,testPojo.getConfig());
           } else if (testPojo.getInputType().equalsIgnoreCase("REQUEST30")
               && testPojo.getOutputType().equalsIgnoreCase("REQUEST25")) {
             ortbTester.test(
@@ -131,7 +141,7 @@ public class ConverterTest {
                 testPojo.getParams(),
                 testPojo,
                 testOutput,
-                file.getName(),overRider);
+                file.getName(),overRider,testPojo.getConfig());
           } else if (testPojo.getInputType().equalsIgnoreCase("RESPONSE25")
               && testPojo.getOutputType().equalsIgnoreCase("RESPONSE30")) {
             ortbTester.test(
@@ -142,7 +152,7 @@ public class ConverterTest {
                 testPojo.getParams(),
                 testPojo,
                 testOutput,
-                file.getName(),overRider);
+                file.getName(),overRider,testPojo.getConfig());
           } else if (testPojo.getInputType().equalsIgnoreCase("RESPONSE30")
               && testPojo.getOutputType().equalsIgnoreCase("RESPONSE25")) {
             ortbTester.test(
@@ -153,7 +163,7 @@ public class ConverterTest {
                 testPojo.getParams(),
                 testPojo,
                 testOutput,
-                file.getName(),overRider);
+                file.getName(),overRider,testPojo.getConfig());
           } else {
             OutputTestPojo outputTestPojo = new OutputTestPojo();
             outputTestPojo.setInputFile(file.getName());
@@ -177,5 +187,57 @@ public class ConverterTest {
           0,
           testOutput.getFailedTestList().size());
     }
+  }
+
+  @Test
+  public void configOrtbversion24() throws IOException, OpenRtbConverterException, ConfigurationException, JSONException {
+    Boolean success = true;
+    try {
+      ClassLoader classLoader = getClass().getClassLoader();
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_30.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config config = new Config();
+      config.setOpenRtbVersion2_XVersion(OpenRtbVersion.TWO_DOT_FOUR);
+      BidRequest2_X converted = openRtbConverter.convert(config, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_24.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""),
+        true);
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void configOrtbversion23() {
+    Boolean success = true;
+    try {
+      ClassLoader classLoader = getClass().getClassLoader();
+      Config config = new Config();
+      //config.setOpenRtbVersion2_XVersion(OpenRtbVersion.TWO_DOT_FIVE);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_30.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      config.setOpenRtbVersion2_XVersion(OpenRtbVersion.TWO_DOT_THREE);
+      BidRequest2_X converted = openRtbConverter.convert(config, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_23.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""),
+        true);
+    } catch (Exception | AssertionError e) {
+      System.out.println(e);
+      success = false;
+    }
+    Assert.assertTrue(success);
   }
 }

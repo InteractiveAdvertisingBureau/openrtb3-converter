@@ -1,24 +1,4 @@
 cases:
- - inputFile: BANNER_APP_25_appOverridden.json
-   inputType: "REQUEST25"
-   inputEdits:
-     at: 2
-   outputFile: BANNER_APP_30_appOverridden.json
-   outputType: "REQUEST30"
-   outputEdits:
-     openrtb.request.at: 2
-     openrtb.request.context.app.content : null
-   purpose: overridingConverter
-   overRidingMap:
-     CustomApptoAppConverter :
-        sourceClass : net.media.openrtb25.request.App
-        targetClass : net.media.openrtb3.App
-        converterClass: net.media.CustomApptoAppConverter
-     CustomPublisherConverter :
-        sourceClass : net.media.openrtb25.request.Publisher
-        targetClass : net.media.openrtb3.App
-        converterClass: net.media.CustomApptoAppConverter
-
 
  - inputFile: BANNER_APP_25.json
    inputType: "REQUEST25"

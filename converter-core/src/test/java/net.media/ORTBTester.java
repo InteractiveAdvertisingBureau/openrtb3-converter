@@ -30,10 +30,10 @@ public class ORTBTester<U, V> {
 
   private OpenRtbConverter openRtbConverter;
 
-//  @java.beans.ConstructorProperties({"openRtbConverter"})
-//  public ORTBTester(OpenRtbConverter openRtbConverter) {
-//    this.openRtbConverter = openRtbConverter;
-//  }
+  @java.beans.ConstructorProperties({"openRtbConverter"})
+  public ORTBTester(OpenRtbConverter openRtbConverter) {
+    this.openRtbConverter = openRtbConverter;
+  }
 
   public static void main(String[] args) {
     String exception =
@@ -50,20 +50,27 @@ public class ORTBTester<U, V> {
       Config config,
       TestPojo inputPojo,
       TestOutput testOutput,
-      String inputFile, Map<Conversion, Converter> overRider)
+      String inputFile, Map<Conversion, Converter> overRider, Config initconfig)
       throws Exception {
 
     String FAILURE = "FAILURE";
     try {
-
-      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
-
-      U bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
-      V converted = openRtbConverter.convert(config, bidRequest, sourceClass, targetClass,overRider);
-      JSONAssert.assertEquals(
+      if(initconfig != null) {
+        OpenRtbConverter tempOpenRtbConverter = new OpenRtbConverter(initconfig);
+        U bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
+        V converted = tempOpenRtbConverter.convert(config, bidRequest, sourceClass, targetClass,overRider);
+        JSONAssert.assertEquals(
           JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+",""),
           JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+",""),
           true);
+      } else {
+        U bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
+        V converted = openRtbConverter.convert(config, bidRequest, sourceClass, targetClass,overRider);
+        JSONAssert.assertEquals(
+          JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""),
+          JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""),
+          true);
+      }
 
     } catch (Exception | AssertionError e) {
       OutputTestPojo outputTestPojo = new OutputTestPojo();
