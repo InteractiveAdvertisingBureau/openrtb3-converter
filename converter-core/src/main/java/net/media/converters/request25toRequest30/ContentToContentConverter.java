@@ -95,10 +95,10 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     try {
       if (source.getExt().containsKey("cattax")) {
         target.setCattax((Integer) source.getExt().get("cattax"));
+        target.getExt().remove("cattax");
       } else {
         target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
-      target.getExt().remove("cattax");
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Content", e);
     }

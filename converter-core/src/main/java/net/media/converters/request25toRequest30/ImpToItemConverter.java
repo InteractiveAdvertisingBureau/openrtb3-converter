@@ -98,7 +98,9 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     Integer sequence = impSequence(imp);
     if (sequence != null) {
       item.setSeq(sequence);
-      item.getExt().remove("seq");
+      if (item.getExt().containsKey("seq")) {
+        item.getExt().remove("seq");
+      }
     }
     item.setExp(imp.getExp());
     Collection<Metric> metrics = imp.getMetric();
@@ -313,9 +315,15 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       }
     }
     if (nonNull(item.getExt())) {
-      item.getExt().remove("ampren");
-      item.getExt().remove("ctype");
-      item.getExt().remove("event");
+      if (item.getExt().containsKey("ampren")) {
+        item.getExt().remove("ampren");
+      }
+      if (item.getExt().containsKey("ctype")) {
+        item.getExt().remove("ctype");
+      }
+      if (item.getExt().containsKey("event")) {
+        item.getExt().remove("event");
+      }
     }
   }
 }

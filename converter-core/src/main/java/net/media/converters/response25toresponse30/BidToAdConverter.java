@@ -68,18 +68,24 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
     try {
       if (nonNull(source.getExt())) {
         Map<String, Object> ext = source.getExt();
-        target.setSecure((Integer) ext.get("secure"));
-        source.getExt().remove("secure");
-        target.setInit((Integer) ext.get("init"));
-        source.getExt().remove("init");
-        target.setLastmod((Integer) ext.get("lastmod"));
-        source.getExt().remove("lastmod");
+        if (ext.containsKey("secure")) {
+          target.setSecure((Integer) ext.get("secure"));
+          source.getExt().remove("secure");
+        }
+        if (ext.containsKey("init")) {
+          target.setInit((Integer) ext.get("init"));
+          source.getExt().remove("init");
+        }
+        if (ext.containsKey("lastmod")) {
+          target.setLastmod((Integer) ext.get("lastmod"));
+          source.getExt().remove("lastmod");
+        }
         if (ext.containsKey("cattax")) {
           target.setCattax((Integer) ext.get("cattax"));
+          source.getExt().remove("cattax");
         } else {
           target.setCattax(DEFAULT_CATTAX_TWODOTX);
         }
-        source.getExt().remove("cattax");
 
         if (source.getExt().containsKey("audit")) {
           target.setAudit(Utils.getMapper().convertValue(source.getExt().get("audit"), Audit.class));
