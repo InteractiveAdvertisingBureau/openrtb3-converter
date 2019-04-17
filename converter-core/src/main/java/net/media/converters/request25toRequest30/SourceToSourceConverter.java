@@ -64,11 +64,21 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
       target.setDsmap((String) source.getExt().get("dsmap"));
       target.setCert((String) source.getExt().get("cert"));
       target.setDigest((String) source.getExt().get("digest"));
-      target.getExt().remove("ts");
-      target.getExt().remove("ds");
-      target.getExt().remove("dsmap");
-      target.getExt().remove("cert");
-      target.getExt().remove("digest");
+      if (target.getExt().containsKey("ts")) {
+        target.getExt().remove("ts");
+      }
+      if (target.getExt().containsKey("ds")) {
+        target.getExt().remove("ds");
+      }
+      if (target.getExt().containsKey("dsmap")) {
+        target.getExt().remove("dsmap");
+      }
+      if (target.getExt().containsKey("cert")) {
+        target.getExt().remove("cert");
+      }
+      if (target.getExt().containsKey("digest")) {
+        target.getExt().remove("digest");
+      }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Source", e);
     }

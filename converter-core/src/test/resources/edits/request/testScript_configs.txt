@@ -53,19 +53,86 @@ cases:
    outputType: "REQUEST25"
    outputEdits:
      at: 2
-   purpose: ortbversion23
+   purpose: ortbversion23_3to2
    params:
      openRtbVersion2_XVersion: TWO_DOT_THREE
 
  - inputFile: BANNER_SITE_30.json
    inputType: "REQUEST30"
    inputEdits:
-    openrtb.request.at: 2
+     openrtb.request.at: 2
    outputFile: BANNER_SITE_24.json
    outputType: "REQUEST25"
    outputEdits:
      at: 2
-   purpose: ortbversion24
+   purpose: ortbversion24_3to2
    params:
      openRtbVersion2_XVersion: TWO_DOT_FOUR
 
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: BANNER_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversion25_3to2
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: BANNER_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversiondefault_3to2
+
+ - inputFile: BANNER_SITE_23.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversion23_2to3
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_THREE
+
+ - inputFile: BANNER_SITE_24.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversion24_2to3
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversion25_2to3
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversiondefault_2to3

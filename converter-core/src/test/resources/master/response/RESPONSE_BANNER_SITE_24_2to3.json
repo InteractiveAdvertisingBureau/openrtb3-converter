@@ -21,7 +21,7 @@
         "IAB14"
       ],
       "attr": [6, 7],
-      "api" : "testapi",
+      "api" : 1,
       "protocol": 123,
       "qagmediarating": 5,
       "exp": 1,
@@ -29,39 +29,72 @@
       "h": 90,
       "w": 728,
       "ext": {
-        "buyermemberid": 298,
-        "landingpageurl": "www.livelife.best",
-        "brandid": [
-          null
-        ]
+        "burl":"test/burl",
+        "lurl": "test/lurl",
+        "tactic":"testtactic",
+        "wratio": 90,
+        "hratio": 55,
+        "language": "EN",
+        "audit": {
+          "status": 1,
+          "feedback": ["testfeedback"],
+          "init": 1,
+          "lastmod": 1,
+          "ext": {
+            "auditExt": "auditExt"
+          }
+        },
+        "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt",
+        "macro": [{
+          "key" : "test",
+          "value" : "test2",
+          "ext" : {
+            "key" : "value"
+          }
+        }],
+        "cattax": 2,
+        "secure" : 1,
+        "init" : 1,
+        "lastmod" : 1,
+        "mime" : "image/jpeg",
+        "ctype" : 1,
+        "priv" : "googleusercontent.com/1.jpg",
+        "banner" : {
+          "img" : "https://somebuyer.com/creative",
+          "link" : {
+            "url": "https://somebuyer.com/click",
+            "urlfb": "https://somebuyer.com",
+            "trkr": ["2113", "21312"],
+            "ext": {"link": "link"}
+          },
+          "ext" : {
+            "mediaAdDisplayBannerext" :  "mediaAdDisplayBannerext"}
+        },
+        "event": [{
+          "type": 1,
+          "method": 1,
+          "url": "https://somebuyer.com/pixel",
+          "api": [
+            1,
+            2
+          ],
+          "cdata": {
+            "acct": "123"
+          },
+          "ext" : {
+            "mediaAdDisplayEventExt" :  "mediaAdDisplayEventExt"
+          }
+        }]
       }
     }],
     "ext": {
-      "buyermemberid": 298,
-      "landingpageurl": "www.livelife.best",
-      "brandid": [
-        null
-      ],
-      "originalSize": {
-        "width": 728,
-        "height": 90
-      },
-      "admwrapped": false
+      "bidresponseSeatbidExt" : "bidresponseSeatbidExt"
     },
     "seat": "xyzseat",
     "group": 1
   }],
   "ext": {
-    "buyermemberid": 298,
-    "landingpageurl": "www.livelife.best",
-    "brandid": [
-      null
-    ],
-    "originalSize": {
-      "width": 728,
-      "height": 90
-    },
-    "admwrapped": false
+    "bidresponseEXT": "bidresponseEXT"
   },
   "bidid": "7phb82pzl"
 }
