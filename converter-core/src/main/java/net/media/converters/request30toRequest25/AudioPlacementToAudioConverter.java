@@ -75,8 +75,10 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     if (map != null) {
       audio.setExt(Utils.copyMap(map, config));
       try {
-        audio.setStitched((Integer) map.get("stitched"));
-        audio.getExt().remove("stitched");
+        if (map.containsKey("stitched")) {
+          audio.setStitched((Integer) map.get("stitched"));
+          audio.getExt().remove("stitched");
+        }
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for Audio", e);
       }
