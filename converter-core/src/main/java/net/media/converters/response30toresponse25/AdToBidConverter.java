@@ -23,8 +23,8 @@ import net.media.enums.AdType;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.*;
+import net.media.utils.CollectionUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 
@@ -53,12 +53,12 @@ public class AdToBidConverter implements Converter<Ad, Bid> {
 
     target.setCrid(source.getId());
 
-    target.setAdomain(Utils.copyCollection(source.getAdomain(), config));
+    target.setAdomain(CollectionUtils.copyCollection(source.getAdomain(), config));
     if (nonNull(source.getBundle()) && source.getBundle().size() > 0)
       target.setBundle(source.getBundle().iterator().next());
     target.setIurl(source.getIurl());
-    target.setCat(Utils.copyCollection(source.getCat(), config));
-    target.setAttr(Utils.copyCollection(source.getAttr(), config));
+    target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
+    target.setAttr(CollectionUtils.copyCollection(source.getAttr(), config));
     target.setLanguage(source.getLang());
 
     if (isNull(target.getExt())) target.setExt(new HashMap<>());

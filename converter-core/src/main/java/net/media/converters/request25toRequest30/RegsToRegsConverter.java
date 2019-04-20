@@ -20,8 +20,8 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Regs;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Map;
 
@@ -49,7 +49,7 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.R
     target.setCoppa(source.getCoppa());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getExt() == null) return;
     try {

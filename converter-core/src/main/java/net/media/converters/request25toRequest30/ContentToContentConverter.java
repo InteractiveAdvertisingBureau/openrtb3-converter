@@ -24,8 +24,9 @@ import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Producer;
 import net.media.openrtb3.Data;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CollectionUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -76,7 +77,7 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     target.setAlbum(source.getAlbum());
     target.setIsrc(source.getIsrc());
     target.setUrl(source.getUrl());
-    target.setCat(Utils.copyCollection(source.getCat(), config));
+    target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
     target.setProdq(source.getProdq());
     target.setContext(source.getContext());
     target.setKeywords(source.getKeywords());
@@ -88,7 +89,7 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
             source.getData(), dataDataConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(MapUtils.copyMap(map, config));
     }
 
     if (source.getExt() == null) return;

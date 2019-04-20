@@ -20,8 +20,8 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Source;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -54,7 +54,7 @@ public class SourceToSourceConverter
     target.setPchain(source.getPchain());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getTs() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());

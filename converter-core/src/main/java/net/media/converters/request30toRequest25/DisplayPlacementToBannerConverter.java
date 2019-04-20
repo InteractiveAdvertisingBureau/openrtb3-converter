@@ -24,8 +24,8 @@ import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CollectionUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.*;
 
@@ -54,12 +54,12 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     if (isNull(displayPlacement) || isNull(banner)) {
       return;
     }
-    banner.setMimes(Utils.copyCollection(displayPlacement.getMime(), config));
+    banner.setMimes(CollectionUtils.copyCollection(displayPlacement.getMime(), config));
     banner.setFormat(displayFormatListToFormatList(displayPlacement.getDisplayfmt(), config));
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
         if (!CollectionUtils.isEmpty(displayFormat.getExpdir())) {
-          Collection<Integer> formatExpdir = Utils.copyCollection(displayFormat.getExpdir(),
+          Collection<Integer> formatExpdir = CollectionUtils.copyCollection(displayFormat.getExpdir(),
             config);
           if (isNull(banner.getExpdir())) {
             banner.setExpdir(formatExpdir);
@@ -81,13 +81,13 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     banner.setH(displayPlacement.getH());
     banner.setPos(displayPlacement.getPos());
     banner.setTopframe(displayPlacement.getTopframe());
-    banner.setApi(Utils.copyCollection(displayPlacement.getApi(), config));
+    banner.setApi(CollectionUtils.copyCollection(displayPlacement.getApi(), config));
     Map<String, Object> map = displayPlacement.getExt();
     if (map != null) {
-      banner.setExt(Utils.copyMap(map, config));
+      banner.setExt(MapUtils.copyMap(map, config));
       if (map.containsKey("btype")) {
         try {
-          banner.setBtype(Utils.copyCollection((Collection<Integer>) map.get("btype"), config));
+          banner.setBtype(CollectionUtils.copyCollection((Collection<Integer>) map.get("btype"), config));
           banner.getExt().remove("btype");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
@@ -200,7 +200,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     format.setHratio(displayFormat.getHratio());
     Map<String, Object> map = displayFormat.getExt();
     if (map != null) {
-      format.setExt(Utils.copyMap(map, config));
+      format.setExt(MapUtils.copyMap(map, config));
       try {
         if (map.containsKey("wmin")) {
           format.setWmin((Integer) map.get("wmin"));

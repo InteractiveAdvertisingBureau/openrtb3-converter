@@ -24,8 +24,9 @@ import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.*;
 import net.media.openrtb3.*;
+import net.media.utils.CollectionUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.*;
 
@@ -57,7 +58,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     asset.setImg(imageAssetFormatToNativeImage(assetFormat.getImg(), config));
     asset.setVideo(videoAssetFormatToVideoImage(assetFormat.getVideo(), config));
     asset.setData(dataAssetFormatToNativeData(assetFormat.getData(), config));
-    asset.setExt(Utils.copyMap(assetFormat.getExt(), config));
+    asset.setExt(MapUtils.copyMap(assetFormat.getExt(), config));
 
     if (asset.getExt() == null) {
       asset.setExt(new HashMap<>());
@@ -91,7 +92,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     NativeTitle nativeTitle = new NativeTitle();
 
     nativeTitle.setLen(titleAssetFormat.getLen());
-    nativeTitle.setExt(Utils.copyMap(titleAssetFormat.getExt(), config));
+    nativeTitle.setExt(MapUtils.copyMap(titleAssetFormat.getExt(), config));
 
     return nativeTitle;
   }
@@ -104,7 +105,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
 
     NativeImage nativeImage = new NativeImage();
 
-    nativeImage.setMimes(Utils.copyCollection(imageAssetFormat.getMime(), config));
+    nativeImage.setMimes(CollectionUtils.copyCollection(imageAssetFormat.getMime(), config));
     nativeImage.setType(imageAssetFormat.getType());
     nativeImage.setW(imageAssetFormat.getW());
     nativeImage.setWmin(imageAssetFormat.getWmin());
@@ -112,7 +113,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     nativeImage.setHmin(imageAssetFormat.getHmin());
     Map<String, Object> map = imageAssetFormat.getExt();
     if (map != null) {
-      nativeImage.setExt(Utils.copyMap(map, config));
+      nativeImage.setExt(MapUtils.copyMap(map, config));
     }
     try {
       if (imageAssetFormat.getHratio() != null) {
@@ -137,11 +138,11 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
 
     NativeVideo nativeVideo = new NativeVideo();
 
-    nativeVideo.setProtocols(Utils.copyCollection(videoPlacement.getCtype(), config));
+    nativeVideo.setProtocols(CollectionUtils.copyCollection(videoPlacement.getCtype(), config));
     nativeVideo.setMinduration(videoPlacement.getMindur());
     nativeVideo.setMaxduration(videoPlacement.getMaxdur());
-    nativeVideo.setMimes(Utils.copyCollection(videoPlacement.getMime(), config));
-    nativeVideo.setExt(Utils.copyMap(videoPlacement.getExt(), config));
+    nativeVideo.setMimes(CollectionUtils.copyCollection(videoPlacement.getMime(), config));
+    nativeVideo.setExt(MapUtils.copyMap(videoPlacement.getExt(), config));
     nativeVideo.getExt().put("boxingallowed", videoPlacement.getBoxing());
     nativeVideo.getExt().put("ptype", videoPlacement.getPtype());
     nativeVideo.getExt().put("pos", videoPlacement.getPos());
@@ -177,7 +178,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
 
     nativeData.setType(dataAssetFormat.getType());
     nativeData.setLen(dataAssetFormat.getLen());
-    nativeData.setExt(Utils.copyMap(dataAssetFormat.getExt(), config));
+    nativeData.setExt(MapUtils.copyMap(dataAssetFormat.getExt(), config));
 
     return nativeData;
   }

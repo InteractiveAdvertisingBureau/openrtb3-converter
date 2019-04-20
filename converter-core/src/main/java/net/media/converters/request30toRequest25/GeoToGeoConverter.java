@@ -20,8 +20,8 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Geo;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Map;
 
@@ -67,6 +67,6 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.req
         throw new OpenRtbConverterException("error while typecasting ext for Geo", e);
       }
     }
-    target.setExt(Utils.copyMap(map, config));
+    target.setExt(MapUtils.copyMap(map, config));
   }
 }

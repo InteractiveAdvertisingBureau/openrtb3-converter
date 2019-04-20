@@ -24,8 +24,9 @@ import net.media.openrtb25.request.Audio;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.Companion;
+import net.media.utils.CollectionUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -57,8 +58,8 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     if (isNull(audioPlacement) || isNull(audio)) {
       return;
     }
-    audio.setDelivery(Utils.copyCollection(audioPlacement.getDelivery(), config));
-    audio.setApi(Utils.copyCollection(audioPlacement.getApi(), config));
+    audio.setDelivery(CollectionUtils.copyCollection(audioPlacement.getDelivery(), config));
+    audio.setApi(CollectionUtils.copyCollection(audioPlacement.getApi(), config));
     audio.setMaxseq(audioPlacement.getMaxseq());
     audio.setFeed(audioPlacement.getFeed());
     audio.setNvol(audioPlacement.getNvol());
@@ -73,7 +74,7 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     audio.setProtocols(audioPlacement.getCtype());
     Map<String, Object> map = audioPlacement.getExt();
     if (map != null) {
-      audio.setExt(Utils.copyMap(map, config));
+      audio.setExt(MapUtils.copyMap(map, config));
       try {
         if (map.containsKey("stitched")) {
           audio.setStitched((Integer) map.get("stitched"));

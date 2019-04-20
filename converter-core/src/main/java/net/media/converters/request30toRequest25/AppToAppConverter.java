@@ -23,8 +23,9 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.App;
 import net.media.openrtb3.Content;
 import net.media.openrtb3.Publisher;
+import net.media.utils.CollectionUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,7 +51,7 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb25.req
       App source, net.media.openrtb25.request.App target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
     if (source == null || target == null) return;
-    target.setSectioncat(Utils.copyCollection(source.getSectcat(), config));
+    target.setSectioncat(CollectionUtils.copyCollection(source.getSectcat(), config));
     target.setPrivacypolicy(source.getPrivpolicy());
     Converter<Publisher, net.media.openrtb25.request.Publisher> publisherPublisherConverter =
         converterProvider.fetch(
@@ -65,15 +66,15 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb25.req
     target.setBundle(source.getBundle());
     target.setDomain(source.getDomain());
     target.setStoreurl(source.getStoreurl());
-    target.setCat(Utils.copyCollection(source.getCat(), config));
-    target.setPagecat(Utils.copyCollection(source.getPagecat(), config));
+    target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
+    target.setPagecat(CollectionUtils.copyCollection(source.getPagecat(), config));
     target.setVer(source.getVer());
     target.setPaid(source.getPaid());
     target.setContent(contentContentConverter.map(source.getContent(), config, converterProvider));
     target.setKeywords(source.getKeywords());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getCattax() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());

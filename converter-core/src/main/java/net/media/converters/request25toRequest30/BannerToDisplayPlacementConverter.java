@@ -24,8 +24,8 @@ import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CollectionUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -61,13 +61,13 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
         Collection<Integer> expdir = impBannerExpdir(banner);
-        displayFormat.setExpdir(Utils.copyCollection(expdir, config));
+        displayFormat.setExpdir(CollectionUtils.copyCollection(expdir, config));
       }
     }
-    displayPlacement.setMime(Utils.copyCollection(banner.getMimes(), config));
+    displayPlacement.setMime(CollectionUtils.copyCollection(banner.getMimes(), config));
     displayPlacement.setPos(banner.getPos());
     displayPlacement.setTopframe(banner.getTopframe());
-    displayPlacement.setApi(Utils.copyCollection(banner.getApi(), config));
+    displayPlacement.setApi(CollectionUtils.copyCollection(banner.getApi(), config));
     displayPlacement.setW(banner.getW());
     displayPlacement.setH(banner.getH());
     Map<String, Object> bannerExt = banner.getExt();
@@ -83,7 +83,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
         }
         if (bannerExt.containsKey("ctype")) {
           displayPlacement.setCtype(
-              Utils.copyCollection((Collection<Integer>) bannerExt.get("ctype"), config));
+              CollectionUtils.copyCollection((Collection<Integer>) bannerExt.get("ctype"), config));
           displayPlacement.getExt().remove("ctype");
         }
         if (bannerExt.containsKey("ptype")) {
@@ -172,7 +172,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
 
     DisplayFormat displayFormat = new DisplayFormat();
 
-    displayFormat.setExt(Utils.copyMap(format.getExt(), config));
+    displayFormat.setExt(MapUtils.copyMap(format.getExt(), config));
     displayFormat.setW(format.getW());
     displayFormat.setH(format.getH());
     displayFormat.setWratio(format.getWratio());

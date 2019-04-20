@@ -24,8 +24,8 @@ import net.media.openrtb3.Data;
 import net.media.openrtb3.Geo;
 import net.media.openrtb3.User;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -70,7 +70,7 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb25.
             source.getData(), dataDataConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getConsent() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());

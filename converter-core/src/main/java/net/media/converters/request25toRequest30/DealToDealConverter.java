@@ -19,8 +19,9 @@ package net.media.converters.request25toRequest30;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.Deal;
+import net.media.utils.CollectionUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 /** Created by rajat.go on 03/01/19. */
 public class DealToDealConverter implements Converter<Deal, net.media.openrtb3.Deal> {
@@ -45,8 +46,8 @@ public class DealToDealConverter implements Converter<Deal, net.media.openrtb3.D
     deal1.setFlr(deal.getBidFloor());
     deal1.setId(deal.getId());
     deal1.setAt(deal.getAt());
-    deal1.setWseat(Utils.copyCollection(deal.getWseat(), config));
-    deal1.setWadomain(Utils.copyCollection(deal.getWadomain(), config));
-    deal1.setExt(Utils.copyMap(deal.getExt(), config));
+    deal1.setWseat(CollectionUtils.copyCollection(deal.getWseat(), config));
+    deal1.setWadomain(CollectionUtils.copyCollection(deal.getWadomain(), config));
+    deal1.setExt(MapUtils.copyMap(deal.getExt(), config));
   }
 }

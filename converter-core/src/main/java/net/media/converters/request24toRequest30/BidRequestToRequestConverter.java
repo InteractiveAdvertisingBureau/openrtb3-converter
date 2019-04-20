@@ -21,8 +21,8 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Source;
 import net.media.openrtb3.Request;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Collection;
 
@@ -60,7 +60,7 @@ public class BidRequestToRequestConverter
       if (source.getExt().containsKey("source")) {
         try {
           Source source1 =
-              Utils.getMapper().convertValue(source.getExt().get("source"), Source.class);
+              JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get("source"), Source.class);
           source.setSource(source1);
         } catch (Exception e) {
           throw new OpenRtbConverterException(

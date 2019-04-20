@@ -25,8 +25,8 @@ import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.NativeFormat;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 
@@ -59,7 +59,7 @@ public class NativeRequestBodyToNativeFormatConverter
     if (nativeRequestBody == null || nativeFormat == null) {
       return;
     }
-    nativeFormat.setExt(Utils.copyMap(nativeRequestBody.getExt(), config));
+    nativeFormat.setExt(MapUtils.copyMap(nativeRequestBody.getExt(), config));
     if (nonNull(nativeRequestBody.getContextsubtype())) {
       if (isNull(nativeFormat.getExt())) {
         nativeFormat.setExt(new HashMap<>());

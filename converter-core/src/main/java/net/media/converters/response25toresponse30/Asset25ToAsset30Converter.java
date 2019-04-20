@@ -22,8 +22,8 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.nativeresponse.*;
 import net.media.openrtb3.*;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -61,14 +61,14 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     Converter<Link, LinkAsset> converter =
         converterProvider.fetch(new Conversion<>(Link.class, LinkAsset.class));
     target.setLink(converter.map(source.getLink(), config, converterProvider));
-    target.setExt(Utils.copyMap(source.getExt(), config));
+    target.setExt(MapUtils.copyMap(source.getExt(), config));
   }
 
   private DataAsset nativeDataToData(NativeData nativeData, Config config)
       throws OpenRtbConverterException {
     if (isNull(nativeData)) return null;
     DataAsset dataAsset = new DataAsset();
-    dataAsset.setExt(Utils.copyMap(nativeData.getExt(), config));
+    dataAsset.setExt(MapUtils.copyMap(nativeData.getExt(), config));
     List<String> value = new ArrayList<>();
     value.add(nativeData.getValue());
     dataAsset.setValue(value);
@@ -101,7 +101,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     imageAsset.setH(nativeImage.getH());
     imageAsset.setW(nativeImage.getW());
     imageAsset.setUrl(nativeImage.getUrl());
-    imageAsset.setExt(Utils.copyMap(nativeImage.getExt(), config));
+    imageAsset.setExt(MapUtils.copyMap(nativeImage.getExt(), config));
     try {
       if (nonNull(nativeImage.getExt())) {
         if (nativeImage.getExt().containsKey("type")) {
@@ -120,7 +120,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
       throws OpenRtbConverterException {
     if (isNull(nativeTitle)) return null;
     TitleAsset titleAsset = new TitleAsset();
-    titleAsset.setExt(Utils.copyMap(nativeTitle.getExt(), config));
+    titleAsset.setExt(MapUtils.copyMap(nativeTitle.getExt(), config));
     titleAsset.setText(nativeTitle.getText());
     try {
       if (nonNull(nativeTitle.getExt())) {
@@ -141,7 +141,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     if (isNull(nativeVideo)) return null;
     VideoAsset videoAsset = new VideoAsset();
     videoAsset.setAdm(nativeVideo.getVasttag());
-    videoAsset.setExt(Utils.copyMap(nativeVideo.getExt(), config));
+    videoAsset.setExt(MapUtils.copyMap(nativeVideo.getExt(), config));
     try {
       if (nonNull(nativeVideo.getExt())) {
         if (nativeVideo.getExt().containsKey("curl")) {

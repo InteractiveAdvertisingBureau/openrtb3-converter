@@ -22,9 +22,9 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Device;
 import net.media.openrtb25.request.Geo;
+import net.media.utils.MapUtils;
 import net.media.utils.OsMap;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -81,7 +81,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     target.setMccmnc(source.getMccmnc());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getFlashver() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());

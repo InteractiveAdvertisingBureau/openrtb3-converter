@@ -23,8 +23,8 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Collection;
 
@@ -34,7 +34,7 @@ import static java.util.Objects.nonNull;
 public class BannerToDisplayPlacementConverter
     extends net.media.converters.request25toRequest30.BannerToDisplayPlacementConverter {
 
-	private static final JavaType javaTypeForFormatCollection = Utils.getMapper().getTypeFactory()
+  private static final JavaType javaTypeForFormatCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
 			.constructCollectionType(Collection.class, Format.class);
 
   public void enhance(
@@ -50,7 +50,7 @@ public class BannerToDisplayPlacementConverter
       }
       if (banner.getExt().containsKey("format")) {
         try {
-          banner.setFormat(Utils.getMapper().convertValue(banner.getExt().get("format"),
+          banner.setFormat(JacksonObjectMapperUtils.getMapper().convertValue(banner.getExt().get("format"),
             javaTypeForFormatCollection));
         } catch (Exception e) {
           throw new OpenRtbConverterException(

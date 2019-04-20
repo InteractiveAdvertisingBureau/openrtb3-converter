@@ -21,7 +21,8 @@ import net.media.driver.OpenRtbConverter;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
-import net.media.utils.JacksonObjectMapper;
+import net.media.utils.JacksonObjectMapperUtils;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -56,7 +57,7 @@ public class ConverterTest {
           byte[] jsonData = Files.readAllBytes(file.toPath());
           TestPojo testPojo = null;
           try {
-            testPojo = JacksonObjectMapper.getMapper().readValue(jsonData, TestPojo.class);
+            testPojo = JacksonObjectMapperUtils.getMapper().readValue(jsonData, TestPojo.class);
           } catch (Exception e) {
           }
           if (isNull(testPojo)
@@ -126,7 +127,7 @@ public class ConverterTest {
       System.out.println("failed cases : "+testOutput.getFailedTestList().size());
       testOutput.setTotalTestCases(totalFiles);
       testOutput.setFailedTestCases(testOutput.getFailedTestList().size());
-      JacksonObjectMapper.getMapper()
+      JacksonObjectMapperUtils.getMapper()
           .writerWithDefaultPrettyPrinter()
           .writeValue(outputFile, testOutput);
       Assert.assertEquals(

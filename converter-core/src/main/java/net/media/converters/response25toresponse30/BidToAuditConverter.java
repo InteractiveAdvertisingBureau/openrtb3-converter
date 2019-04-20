@@ -21,8 +21,8 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Audit;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Collection;
 import java.util.Map;
@@ -51,7 +51,7 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
     Map<String, Object> map = source.getExt();
     if (map != null) {
       try {
-        target.setExt(Utils.copyMap(map, config));
+        target.setExt(MapUtils.copyMap(map, config));
         if (map.containsKey("corr")) {
           target.setCorr((Map<String, Object>) map.get("corr"));
         }

@@ -31,8 +31,10 @@ import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CollectionUtils;
+import net.media.utils.JacksonObjectMapperUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -45,7 +47,7 @@ import static java.util.Objects.nonNull;
 /** Created by rajat.go on 03/01/19. */
 public class ImpToItemConverter implements Converter<Imp, Item> {
 
-  private static final JavaType javaTypeForEventSpecCollection = Utils.getMapper().getTypeFactory()
+  private static final JavaType javaTypeForEventSpecCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
     .constructCollectionType(Collection.class, EventSpec.class);
 
   @Override
@@ -75,7 +77,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     }
     impToSpec1(imp, item.getSpec(), config, converterProvider);
     Map<String, Object> map = imp.getExt();
-    item.setExt(Utils.copyMap(map, config));
+    item.setExt(MapUtils.copyMap(map, config));
     if (imp.getPmp() != null && imp.getPmp().getExt() != null) {
       Pmp pmp = new Pmp();
       pmp.setExt(imp.getPmp().getExt());
@@ -163,7 +165,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
           displayPlacement.setAmpren((Integer) imp.getExt().get("ampren"));
         }
         if (imp.getExt().containsKey("event")) {
-          displayPlacement.setEvent(Utils.getMapper().convertValue(imp.getExt().get("event"),
+          displayPlacement.setEvent(JacksonObjectMapperUtils.getMapper().convertValue(imp.getExt().get("event"),
             javaTypeForEventSpecCollection));
         }
       }
@@ -178,7 +180,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     mappingTarget.setDisplay(displayPlacement);
     if (nonNull(mappingTarget.getDisplay())) {
       mappingTarget.getDisplay().setClktype(imp.getClickbrowser());
-      mappingTarget.getDisplay().setIfrbust(Utils.copyCollection(imp.getIframebuster(), config));
+      mappingTarget.getDisplay().setIfrbust(CollectionUtils.copyCollection(imp.getIframebuster(), config));
       mappingTarget.getDisplay().setInstl(imp.getInstl());
     }
   }

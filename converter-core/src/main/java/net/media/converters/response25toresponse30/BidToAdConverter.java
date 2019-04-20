@@ -22,8 +22,9 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.*;
+import net.media.utils.CollectionUtils;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,16 +55,16 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
       return;
     }
     target.setId(source.getCrid());
-    target.setAdomain(Utils.copyCollection(source.getAdomain(), config));
+    target.setAdomain(CollectionUtils.copyCollection(source.getAdomain(), config));
     if (nonNull(source.getBundle())) {
       List<String> bundle = new ArrayList<>();
       bundle.add(source.getBundle());
       target.setBundle(bundle);
     }
     target.setIurl(source.getIurl());
-    target.setCat(Utils.copyCollection(source.getCat(), config));
+    target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
     target.setLang(source.getLanguage());
-    target.setAttr(Utils.copyCollection(source.getAttr(), config));
+    target.setAttr(CollectionUtils.copyCollection(source.getAttr(), config));
     target.setMrating(source.getQagmediarating());
     try {
       if (nonNull(source.getExt())) {
@@ -88,7 +89,7 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
         }
 
         if (source.getExt().containsKey("audit")) {
-          target.setAudit(Utils.getMapper().convertValue(source.getExt().get("audit"), Audit.class));
+          target.setAudit(JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get("audit"), Audit.class));
           source.getExt().remove("audit");
         }
       }

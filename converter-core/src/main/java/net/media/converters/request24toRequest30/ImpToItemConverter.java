@@ -23,8 +23,8 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.Metric;
 import net.media.openrtb3.Item;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Collection;
 
@@ -34,7 +34,7 @@ import static java.util.Objects.nonNull;
 public class ImpToItemConverter
     extends net.media.converters.request25toRequest30.ImpToItemConverter {
 
-private static final JavaType javaTypeForMetricCollection = Utils.getMapper().getTypeFactory()
+private static final JavaType javaTypeForMetricCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
     .constructCollectionType(Collection.class, Metric.class);  public void enhance(Imp imp, Item item, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
     if (imp == null || item == null) {
@@ -43,7 +43,7 @@ private static final JavaType javaTypeForMetricCollection = Utils.getMapper().ge
     if (nonNull(imp.getExt())) {
       if (imp.getExt().containsKey("metric")) {
         try {
-          imp.setMetric(Utils.getMapper().convertValue(imp.getExt().get("metric"),
+          imp.setMetric(JacksonObjectMapperUtils.getMapper().convertValue(imp.getExt().get("metric"),
             javaTypeForMetricCollection));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting metric from imp.ext.metric", e);

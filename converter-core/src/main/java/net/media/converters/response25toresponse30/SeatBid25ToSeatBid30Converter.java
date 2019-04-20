@@ -23,8 +23,8 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb25.response.SeatBid;
 import net.media.openrtb3.Seatbid;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +56,7 @@ public class SeatBid25ToSeatBid30Converter implements Converter<SeatBid, Seatbid
 
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      seatbid.setExt(Utils.copyMap(map, config));
+      seatbid.setExt(MapUtils.copyMap(map, config));
     } else {
       seatbid.setExt(null);
     }

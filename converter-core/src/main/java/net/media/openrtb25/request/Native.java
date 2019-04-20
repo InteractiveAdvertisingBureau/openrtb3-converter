@@ -16,7 +16,7 @@
 
 package net.media.openrtb25.request;
 
-import net.media.utils.JacksonObjectMapper;
+import net.media.utils.JacksonObjectMapperUtils;
 
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
@@ -60,15 +60,15 @@ public class Native {
       requestAsString = nativeRequestString;
       try {
         nativeRequestBody =
-            JacksonObjectMapper.getMapper().readValue(nativeRequestString, NativeRequestBody.class);
+            JacksonObjectMapperUtils.getMapper().readValue(nativeRequestString, NativeRequestBody.class);
       } catch (IOException e) {
         return null;
       }
     } else {
       NativeRequest nativeRequest =
-          JacksonObjectMapper.getMapper().convertValue(request, NativeRequest.class);
+          JacksonObjectMapperUtils.getMapper().convertValue(request, NativeRequest.class);
       nativeRequestBody =
-          JacksonObjectMapper.getMapper()
+          JacksonObjectMapperUtils.getMapper()
               .convertValue(nativeRequest.getNativeRequestBody(), NativeRequestBody.class);
     }
     return nativeRequestBody;

@@ -25,8 +25,10 @@ import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.*;
 import net.media.openrtb3.*;
+import net.media.utils.CollectionUtils;
+import net.media.utils.JacksonObjectMapperUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -39,7 +41,7 @@ import static java.util.Objects.isNull;
 public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat> {
 
   private static final JavaType javaTypeForBannerCollection =
-      Utils.getMapper().getTypeFactory().constructCollectionType(Collection.class, Banner.class);
+      JacksonObjectMapperUtils.getMapper().getTypeFactory().constructCollectionType(Collection.class, Banner.class);
 
   @Override
   public AssetFormat map(Asset asset, Config config, Provider converterProvider)
@@ -67,7 +69,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     assetFormat.setData(nativeDataToDataAssetFormat(asset.getData(), config));
     Map<String, Object> map = asset.getExt();
     if (map != null) {
-      assetFormat.setExt(Utils.copyMap(map, config));
+      assetFormat.setExt(MapUtils.copyMap(map, config));
 
       try {
         if (assetFormat.getExt().containsKey("clickbrowser")) {
@@ -83,7 +85,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     if (assetFormat.getVideo().getExt().containsKey("companionad")) {
       try {
         Collection<Banner> banners =
-            Utils.getMapper()
+            JacksonObjectMapperUtils.getMapper()
                 .convertValue(
                     assetFormat.getVideo().getExt().get("companionad"),
                     javaTypeForBannerCollection);
@@ -111,7 +113,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     titleAssetFormat.setLen(nativeTitle.getLen());
     Map<String, Object> map = nativeTitle.getExt();
     if (map != null) {
-      titleAssetFormat.setExt(Utils.copyMap(map, config));
+      titleAssetFormat.setExt(MapUtils.copyMap(map, config));
     }
 
     return titleAssetFormat;
@@ -125,7 +127,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
 
     ImageAssetFormat imageAssetFormat = new ImageAssetFormat();
 
-    imageAssetFormat.setMime(Utils.copyCollection(nativeImage.getMimes(), config));
+    imageAssetFormat.setMime(CollectionUtils.copyCollection(nativeImage.getMimes(), config));
     imageAssetFormat.setType(nativeImage.getType());
     imageAssetFormat.setW(nativeImage.getW());
     imageAssetFormat.setH(nativeImage.getH());
@@ -152,7 +154,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     }
     Map<String, Object> map = nativeImage.getExt();
     if (map != null) {
-      imageAssetFormat.setExt(Utils.copyMap(map, config));
+      imageAssetFormat.setExt(MapUtils.copyMap(map, config));
     }
 
     return imageAssetFormat;
@@ -168,9 +170,9 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
 
     videoPlacement.setMaxdur(nativeVideo.getMaxduration());
     videoPlacement.setMindur(nativeVideo.getMinduration());
-    videoPlacement.setCtype(Utils.copyCollection(nativeVideo.getProtocols(), config));
-    videoPlacement.setMime(Utils.copyCollection(nativeVideo.getMimes(), config));
-    videoPlacement.setExt(Utils.copyMap(nativeVideo.getExt(), config));
+    videoPlacement.setCtype(CollectionUtils.copyCollection(nativeVideo.getProtocols(), config));
+    videoPlacement.setMime(CollectionUtils.copyCollection(nativeVideo.getMimes(), config));
+    videoPlacement.setExt(MapUtils.copyMap(nativeVideo.getExt(), config));
     try {
       if (nativeVideo.getExt() != null) {
         if (nativeVideo.getExt().containsKey("ptype")) {
@@ -257,7 +259,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
         }
 
         /*if(nativeVideo.getExt().containsKey("companionad")) {
-          Collection<Companion> companionads = Utils.getMapper().convertValue(nativeVideo.getExt().get("companionad"),
+          Collection<Companion> companionads = JacksonObjectMapperUtils.getMapper().convertValue(nativeVideo.getExt().get("companionad"),
             javaTypeForCompanionCollection);
           videoPlacement.setComp(companionads);
           videoPlacement.getExt().remove("companionad");
@@ -285,7 +287,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     dataAssetFormat.setLen(nativeData.getLen());
     Map<String, Object> map = nativeData.getExt();
     if (map != null) {
-      dataAssetFormat.setExt(Utils.copyMap(map, config));
+      dataAssetFormat.setExt(MapUtils.copyMap(map, config));
     }
 
     return dataAssetFormat;

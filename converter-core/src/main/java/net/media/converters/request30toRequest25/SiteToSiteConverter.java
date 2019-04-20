@@ -23,8 +23,9 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Content;
 import net.media.openrtb3.Publisher;
 import net.media.openrtb3.Site;
+import net.media.utils.CollectionUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -59,7 +60,7 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.
     Converter<Content, net.media.openrtb25.request.Content> contentContentConverter =
         converterProvider.fetch(
             new Conversion<>(Content.class, net.media.openrtb25.request.Content.class));
-    target.setSectioncat(Utils.copyCollection(source.getSectcat(), config));
+    target.setSectioncat(CollectionUtils.copyCollection(source.getSectcat(), config));
     target.setPrivacypolicy(source.getPrivpolicy());
     target.setPublisher(
         publisherPublisherConverter.map(source.getPub(), config, converterProvider));
@@ -67,9 +68,9 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.
     target.setName(source.getName());
     target.setDomain(source.getDomain());
     if (source.getCat() != null) {
-      target.setCat(Utils.copyCollection(source.getCat(), config));
+      target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
     }
-    target.setPagecat(Utils.copyCollection(source.getPagecat(), config));
+    target.setPagecat(CollectionUtils.copyCollection(source.getPagecat(), config));
     target.setPage(source.getPage());
     target.setRef(source.getRef());
     target.setSearch(source.getSearch());
@@ -78,7 +79,7 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.
     target.setKeywords(source.getKeywords());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getCattax() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());

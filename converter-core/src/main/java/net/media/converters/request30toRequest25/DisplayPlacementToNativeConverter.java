@@ -26,9 +26,9 @@ import net.media.openrtb25.request.NativeRequest;
 import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.NativeFormat;
-import net.media.utils.JacksonObjectMapper;
+import net.media.utils.CollectionUtils;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 
@@ -72,7 +72,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       nativeRequest.getNativeRequestBody().setContext(displayPlacement.getContext());
       nativeRequest.getNativeRequestBody().setPlcmttype(displayPlacement.getPtype());
     }
-    nat.setApi(Utils.copyCollection(displayPlacement.getApi(), config));
+    nat.setApi(CollectionUtils.copyCollection(displayPlacement.getApi(), config));
     if (nonNull(displayPlacement.getExt())) {
       if (isNull(nat.getExt())) {
         nat.setExt(new HashMap<>());
@@ -90,7 +90,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     }
     if (config.getNativeRequestAsString()) {
       try {
-        nat.setRequest(JacksonObjectMapper.getMapper().writeValueAsString(nativeRequest));
+        nat.setRequest(JacksonObjectMapperUtils.getMapper().writeValueAsString(nativeRequest));
       } catch (JsonProcessingException e) {
         throw new OpenRtbConverterException(e);
       }
@@ -109,6 +109,5 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
     }
-    //    nat.setExt(Utils.copyMap(displayPlacement.getExt(), config));
   }
 }

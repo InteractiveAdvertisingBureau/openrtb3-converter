@@ -29,8 +29,9 @@ import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CollectionUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -72,7 +73,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     Converter<net.media.openrtb3.Metric, Metric> metricMetricConverter =
         converterProvider.fetch(new Conversion<>(net.media.openrtb3.Metric.class, Metric.class));
     imp.setPmp(itemToPmp(item, config, converterProvider));
-    imp.setExt(Utils.copyMap(item.getExt(), config));
+    imp.setExt(MapUtils.copyMap(item.getExt(), config));
     fillExtMap(item, imp, config);
     imp.setBidfloor(item.getFlr());
     VideoPlacement video = itemSpecPlacementVideo(item);
@@ -118,7 +119,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         imp.getNat().getNativeRequestBody().setSeq(item.getSeq());
       }
       imp.setInstl(display.getInstl());
-      imp.setIframebuster(Utils.copyCollection(display.getIfrbust(), config));
+      imp.setIframebuster(CollectionUtils.copyCollection(display.getIfrbust(), config));
       imp.setClickbrowser(display.getClktype());
     }
     imp.setBidfloorcur(item.getFlrcur());

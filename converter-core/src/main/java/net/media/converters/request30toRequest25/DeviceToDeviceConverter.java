@@ -22,9 +22,9 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Device;
 import net.media.openrtb3.Geo;
+import net.media.utils.MapUtils;
 import net.media.utils.OsMap;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -94,7 +94,7 @@ public class DeviceToDeviceConverter
           throw new OpenRtbConverterException("error while typecasting ext for Device", e);
         }
       }
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getXff() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());

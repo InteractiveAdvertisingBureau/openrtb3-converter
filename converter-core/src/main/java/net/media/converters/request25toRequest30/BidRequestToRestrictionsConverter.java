@@ -22,8 +22,8 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb3.Restrictions;
+import net.media.utils.CollectionUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -51,9 +51,9 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_
       BidRequest2_X source, Restrictions target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
     if (source == null || target == null) return;
-    target.setBapp(Utils.copyCollection(source.getBapp(), config));
-    target.setBcat(Utils.copyCollection(source.getBcat(), config));
-    target.setBadv(Utils.copyCollection(source.getBadv(), config));
+    target.setBapp(CollectionUtils.copyCollection(source.getBapp(), config));
+    target.setBcat(CollectionUtils.copyCollection(source.getBcat(), config));
+    target.setBadv(CollectionUtils.copyCollection(source.getBadv(), config));
     if (source.getImp() == null) return;
     if (source.getImp().size() == 0) return;
     Collection<Integer> battr = new HashSet<>();
@@ -69,7 +69,7 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_
       }
     }
     if (battr.size() > 0) {
-      target.setBattr(Utils.copyCollection(battr, config));
+      target.setBattr(CollectionUtils.copyCollection(battr, config));
     }
     if (source.getExt() == null) return;
     try {
