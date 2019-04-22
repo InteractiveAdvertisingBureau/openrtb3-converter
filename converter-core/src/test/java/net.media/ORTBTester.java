@@ -17,9 +17,13 @@
 package net.media;
 
 import net.media.config.Config;
+import net.media.converters.Converter;
+import net.media.driver.Conversion;
 import net.media.driver.OpenRtbConverter;
 import net.media.utils.JacksonObjectMapper;
 import org.skyscreamer.jsonassert.JSONAssert;
+
+import java.util.Map;
 
 /** Created by rajat.go on 09/01/19. */
 public class ORTBTester<U, V> {
@@ -47,6 +51,7 @@ public class ORTBTester<U, V> {
       TestPojo inputPojo,
       TestOutput testOutput,
       String inputFile,
+      Map<Conversion, Converter> overRider,
       Config initconfig)
       throws Exception {
 
@@ -57,14 +62,14 @@ public class ORTBTester<U, V> {
       if(initconfig != null) {
         OpenRtbConverter tempOpenRtbConverter = new OpenRtbConverter(initconfig);
         bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
-        converted = tempOpenRtbConverter.convert(config, bidRequest, sourceClass, targetClass);
+        converted = tempOpenRtbConverter.convert(config, bidRequest, sourceClass, targetClass,overRider);
         JSONAssert.assertEquals(
           JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+",""),
           JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+",""),
           true);
       } else {
         bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
-        converted = openRtbConverter.convert(config, bidRequest, sourceClass, targetClass);
+        converted = openRtbConverter.convert(config, bidRequest, sourceClass, targetClass,overRider);
         JSONAssert.assertEquals(
           JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""),
           JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""),
