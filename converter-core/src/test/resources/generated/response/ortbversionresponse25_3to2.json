@@ -228,5 +228,6 @@
   "params" : {
     "openRtbVersion2_XVersion" : "TWO_DOT_FIVE"
   },
-  "config" : null
+  "config" : null,
+  "overRidingMap" : null
 }

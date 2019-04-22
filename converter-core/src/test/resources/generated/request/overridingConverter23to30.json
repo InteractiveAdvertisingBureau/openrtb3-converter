@@ -673,6 +673,7 @@
   "params" : {
     "openRtbVersion2_XVersion" : "TWO_DOT_THREE"
   },
+  "config" : null,
   "overRidingMap" : {
     "CustomItemtoImpConverter" : {
       "sourceClass" : "net.media.openrtb25.request.Content",

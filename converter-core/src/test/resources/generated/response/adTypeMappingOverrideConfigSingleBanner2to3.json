@@ -225,5 +225,6 @@
     "adTypeMapping" : {
       "yaddayadda" : "VIDEO"
     }
-  }
+  },
+  "overRidingMap" : null
 }

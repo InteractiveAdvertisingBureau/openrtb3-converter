@@ -192,5 +192,6 @@
     "adTypeMapping" : {
       "yaddayadda" : "AUDIO"
     }
-  }
+  },
+  "overRidingMap" : null
 }

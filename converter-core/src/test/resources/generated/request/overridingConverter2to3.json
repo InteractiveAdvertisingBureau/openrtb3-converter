@@ -633,6 +633,7 @@
   },
   "purpose" : "overridingConverter2to3",
   "params" : null,
+  "config" : null,
   "overRidingMap" : {
     "CustomApptoAppConverter" : {
       "sourceClass" : "net.media.openrtb25.request.App",

@@ -230,5 +230,6 @@
     "adTypeMapping" : {
       "yaddayadda" : "BANNER"
     }
-  }
+  },
+  "overRidingMap" : null
 }

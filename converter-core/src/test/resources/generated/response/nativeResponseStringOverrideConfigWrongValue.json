@@ -186,5 +186,6 @@
     "adTypeMapping" : {
       "yaddayadda" : "NATIVE"
     }
-  }
+  },
+  "overRidingMap" : null
 }
