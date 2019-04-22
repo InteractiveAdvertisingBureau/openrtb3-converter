@@ -1,0 +1,238 @@
+cases:
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     test : 5
+     at: 5
+     cur[*]: null
+     cur[0] : "\"IN\""
+     allimps: 5
+     imp[0].bidfloor : 3.0
+     imp[0].pmp.deals[0].bidfloor : 3.0
+     imp[0].instl : 3
+     site.ext.cattax : 4
+     site.publisher.ext.cattax : 3
+     site.content.producer.ext.cattax : 3
+     site.content.ext.cattax : 3
+     ext.cattax : 4
+
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.test: 5
+     openrtb.request.at: 5
+     openrtb.request.cur[*]: null
+     openrtb.request.cur[0] :  "\"IN\""
+     openrtb.request.package: 5
+     openrtb.request.item[0].flr: 3.0
+     openrtb.request.item[0].deal[0].flr: 3.0
+     openrtb.request.item[0].spec.placement.display.instl: 3
+     openrtb.request.context.site.cattax : 4
+     openrtb.request.context.site.pub.cattax : 3
+     openrtb.request.context.site.content.producer.cattax : 3
+     openrtb.request.context.site.content.cattax : 3
+     openrtb.request.context.restrictions.cattax : 4
+
+   purpose: DefaultRequestValuePresent_2to3
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     test : null
+     at: null
+     cur: null
+     allimps: null
+     imp[0].bidfloor: null
+     imp[0].bidfloorcur: "\"YEN\""
+     imp[0].pmp.deals[0].bidfloor : null
+     imp[0].instl : null
+     site.ext.cattax : null
+     site.publisher.ext.cattax : null
+     site.content.producer.ext.cattax : null
+     site.content.ext.cattax : null
+     ext.cattax : null
+
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.test: null
+     openrtb.request.at: null
+     openrtb.request.cur: null
+     openrtb.request.package : 0
+     openrtb.request.item[0].flr: 0
+     openrtb.request.item[0].flrcur: "\"YEN\""
+     openrtb.request.item[0].deal[0].flr : 0
+     openrtb.request.item[0].spec.placement.display.instl: null
+     openrtb.request.context.site.cattax : 1
+     openrtb.request.context.site.pub.cattax : 1
+     openrtb.request.context.site.content.producer.cattax : 1
+     openrtb.request.context.site.content.cattax : 1
+     openrtb.request.context.restrictions.cattax : 1
+   purpose: DefaultRequestValueIsNull_2to3
+
+
+
+ - inputFile: BANNER_APP_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     test : null
+     at: null
+     cur: null
+     allimps: null
+     app.paid: null
+     app.ext.cattax : null
+     app.publisher.ext.cattax : null
+   outputFile: BANNER_APP_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.test: null
+     openrtb.request.at: null
+     openrtb.request.cur: null
+     openrtb.request.package : 0
+     openrtb.request.context.app.paid: null
+     openrtb.request.context.app.cattax : 1
+     openrtb.request.context.app.pub.cattax : 1
+
+
+   purpose: DefaultRequestValueIsNullApp_2to3
+
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.test: 5
+     openrtb.request.at: 2
+     openrtb.request.cur[*]: null
+     openrtb.request.cur[0]: "\"US\""
+     openrtb.request.package : 0
+     openrtb.request.item[0].dlvy : 67
+     openrtb.request.item[0].spec.placement.ssai : 40
+     openrtb.request.item[0].spec.placement.reward : 5
+     openrtb.request.item[0].spec.placement.display.clktype : 2
+     openrtb.request.item[0].spec.placement.display.unit : 2
+     openrtb.request.item[0].spec.placement.display.priv : 4
+     openrtb.request.context.site.cattax : 23
+     openrtb.request.context.site.pub.cattax : 23
+     openrtb.request.context.restrictions.cattax : 2
+
+   outputFile: BANNER_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     test : 5
+     at: 2
+     cur[*] : null
+     cur[0]: "\"US\""
+     allimps: 0
+     imp[0].ext.dlvy : 67
+     imp[0].ext.ssai : 40
+     imp[0].ext.reward : 5
+     imp[0].clickbrowser : 2
+     imp[0].banner.ext.unit : 2
+     imp[0].banner.ext.priv : 4
+     site.ext.cattax : 23
+     site.publisher.ext.cattax : 23
+     ext.cattax : 2
+   purpose: DefaultRequestValueIsPresent_3to2
+
+
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.test: null
+     openrtb.request.at: null
+     openrtb.request.cur: null
+     openrtb.request.package : null
+     openrtb.request.item[0].dlvy : null
+     openrtb.request.item[0].spec.placement.ssai : null
+     openrtb.request.item[0].spec.placement.reward : null
+     openrtb.request.item[0].spec.placement.display.clktype : null
+     openrtb.request.item[0].spec.placement.display.unit : null
+     openrtb.request.item[0].spec.placement.display.priv : null
+     openrtb.request.context.site.cattax : null
+     openrtb.request.context.site.pub.cattax : null
+     openrtb.request.context.restrictions.cattax : null
+
+   outputFile: BANNER_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     test : null
+     at: null
+     cur[*]: null
+     cur[0] : "\"USD\""
+     allimps: null
+     imp[0].ext.dlvy : 0
+     imp[0].ext.ssai : 0
+     imp[0].ext.reward : 0
+     imp[0].clickbrowser : 1
+     imp[0].banner.ext.unit : 1
+     imp[0].banner.ext.priv : 0
+     site.ext.cattax : 2
+     site.publisher.ext.cattax : 2
+     ext.cattax : 2
+
+   purpose: DefaultRequestValueIsNull_3to2
+
+
+ - inputFile: BANNER_APP_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.test: null
+     openrtb.request.at: null
+     openrtb.request.cur: null
+     openrtb.request.package : null
+     openrtb.request.context.app.paid: null
+     openrtb.request.context.app.cattax : null
+     openrtb.request.context.app.pub.cattax : null
+
+   outputFile: BANNER_APP_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     test : null
+     at: null
+     cur[*]: null
+     cur[0] : "\"USD\""
+     allimps: null
+     app.paid : 0
+     app.ext.cattax : 2
+     app.publisher.ext.cattax : 2
+   purpose: DefaultRequestValueIsNullApp_3to2
+
+
+
+
+ - inputFile: NATIVE_SITE_30_3to2.json
+   inputType: "REQUEST30"
+   inputEdits:
+      openrtb.request.item[0].qty : null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].req : null
+   outputFile: NATIVE_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+      imp[0].native.request.native.plcmtcnt : 1
+      imp[0].native.request.native.assets[0].required : 0
+   purpose: DefaultRequestValueIsNullNative_3to2
+   params:
+      nativeRequestAsString : false
+
+ - inputFile: VAST_SITE_30_3to2.json
+   inputType: "REQUEST30"
+   inputEdits:
+      openrtb.request.item[0].spec.placement.video.unit : null
+   outputFile: VAST_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+      imp[0].video.ext.unit : 1
+   purpose: DefaultRequestValueIsNullVideo_3to2
+
+ - inputFile: AUDIO_SITE_30_3to2.json
+   inputType: "REQUEST30"
+   inputEdits:
+      openrtb.request.item[0].spec.placement.audio.skipmin : null
+      openrtb.request.item[0].spec.placement.audio.skipafter : null
+   outputFile: AUDIO_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+      imp[0].audio.ext.skipmin : 0
+      imp[0].audio.ext.skipafter : 0
+   purpose: DefaultRequestValueIsNullAudio_3to2

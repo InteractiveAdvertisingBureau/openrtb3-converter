@@ -20,7 +20,7 @@
         "seatbid" : [ {
           "seat" : "xyzseat",
           "bid" : [ {
-            "id" : "4c4uqld",
+            "id" : "yaddayadda",
             "item" : "1",
             "deal" : "667fdf7",
             "price" : 4.5,
@@ -131,7 +131,7 @@
     "customdata" : "cdata",
     "seatbid" : [ {
       "bid" : [ {
-        "id" : "4c4uqld",
+        "id" : "yaddayadda",
         "impid" : "1",
         "price" : 4.5,
         "bundle" : "testbundle",
@@ -225,5 +225,6 @@
     "bidid" : "7phb82pzl"
   },
   "purpose" : "TC6000_native",
-  "params" : null
+  "params" : null,
+  "config" : null
 }

@@ -108,12 +108,18 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     if (nonNull(source.getExt())) {
       try {
         Map<String, Object> ext = source.getExt();
-        target.setCtype((Integer) ext.get("ctype"));
-        source.getExt().remove("ctype");
-        target.setPriv((String) ext.get("priv"));
-        source.getExt().remove("priv");
-        target.setMime((String) ext.get("mime"));
-        source.getExt().remove("mime");
+        if(ext.containsKey("ctype")) {
+          target.setCtype((Integer) ext.get("ctype"));
+          source.getExt().remove("ctype");
+        }
+        if(ext.containsKey("priv")) {
+          target.setPriv((String) ext.get("priv"));
+          source.getExt().remove("priv");
+        }
+        if(ext.containsKey("mime")) {
+          target.setMime((String) ext.get("mime"));
+          source.getExt().remove("mime");
+        }
 
         if (config.getAdType(source.getId()) == AdType.BANNER) {
           if (ext.containsKey("banner")) {
@@ -134,13 +140,15 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
           }
         }
         try {
-          target.setEvent(Utils.getMapper().convertValue(ext.get("event"),
-            javaTypeForEventCollection));
+          if(ext.containsKey("event")) {
+            target.setEvent(Utils.getMapper().convertValue(ext.get("event"),
+              javaTypeForEventCollection));
+            source.getExt().remove("event");
+          }
         } catch (IllegalArgumentException e) {
           throw new OpenRtbConverterException("error while setting display.event from bid.ext" +
             ".event", e);
         }
-        source.getExt().remove("event");
       }
       catch (Exception e) {
         throw new OpenRtbConverterException("error while casting contents of bid.ext", e);

@@ -342,5 +342,6 @@
     "status" : "RRO"
   },
   "purpose" : "idStringFormat67",
-  "params" : null
+  "params" : null,
+  "config" : null
 }

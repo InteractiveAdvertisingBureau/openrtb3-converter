@@ -30,9 +30,20 @@ public class Case {
   private Map<String, String> outputEdits;
   private JsonNode outputJson;
   private String purpose;
-  private Map<String, String> params;
+  private Map<String, Object> params;
+  private Map<String, Object> config;
+  private Map<String,Object> overRidingMap;
+
 
   public Case() {}
+
+  public Map<String, Object> getConfig() {
+    return config;
+  }
+
+  public void setConfig(Map<String, Object> config) {
+    this.config = config;
+  }
 
   public String getInputFile() {
     return this.inputFile;
@@ -106,11 +117,19 @@ public class Case {
     this.purpose = purpose;
   }
 
-  public Map<String, String> getParams() {
+  public Map<String, Object> getParams() {
     return this.params;
   }
 
-  public void setParams(Map<String, String> params) {
+  public void setParams(Map<String, Object> params) {
     this.params = params;
+  }
+
+  public Map<String, Object> getOverRidingMap() {
+    return overRidingMap;
+  }
+
+  public void setOverRidingMap(Map<String, Object> overRidingMap) {
+    this.overRidingMap = overRidingMap;
   }
 }

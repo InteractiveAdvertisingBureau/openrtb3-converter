@@ -1,0 +1,1512 @@
+{
+  "inputFile" : "ALL_APP_25.json",
+  "inputType" : "REQUEST25",
+  "inputEdits" : {
+    "at" : "1"
+  },
+  "inputJson" : {
+    "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
+    "at" : 1,
+    "test" : 1,
+    "tmax" : 100,
+    "wseat" : [ "a" ],
+    "source" : {
+      "fd" : 1,
+      "tid" : "dd",
+      "pchain" : "dd",
+      "ext" : {
+        "ts" : 1,
+        "ds" : "ds",
+        "dsmap" : "abcdefghij",
+        "cert" : "abc.com/xyz/efg",
+        "digest" : "digest:digest, abcde:efg",
+        "dummy" : "ff"
+      }
+    },
+    "regs" : {
+      "coppa" : 1,
+      "ext" : {
+        "gdpr" : 1,
+        "dummy" : "ff"
+      }
+    },
+    "ext" : {
+      "cattax" : 2,
+      "dummy" : "ff",
+      "restrictions" : {
+        "ext" : {
+          "dummy" : "ff"
+        }
+      }
+    },
+    "cur" : [ "USD" ],
+    "allimps" : 0,
+    "wlang" : [ "en" ],
+    "bcat" : [ "bb" ],
+    "badv" : [ "cc" ],
+    "bapp" : [ "nn" ],
+    "imp" : [ {
+      "id" : "1",
+      "metric" : [ {
+        "type" : "dd",
+        "value" : 1.0,
+        "vendor" : "dssf",
+        "ext" : {
+          "dummy" : "ff"
+        }
+      } ],
+      "bidfloor" : 0.03,
+      "bidfloorcur" : "USD",
+      "pmp" : {
+        "private_auction" : 1,
+        "deals" : [ {
+          "id" : "ww",
+          "bidfloor" : 0.0,
+          "bidfloorcur" : "USD",
+          "at" : 1,
+          "wseat" : [ "dd", "as" ],
+          "wadomain" : [ "ss.com", "abc.com" ],
+          "ext" : {
+            "dummy" : "ff"
+          }
+        } ],
+        "ext" : {
+          "dummy" : "ff"
+        }
+      },
+      "displaymanager" : "dd",
+      "displaymanagerver" : "22",
+      "secure" : 1,
+      "tagid" : "re",
+      "exp" : 1,
+      "audio" : {
+        "mimes" : [ "1", "2" ],
+        "minduration" : 1,
+        "maxduration" : 1,
+        "protocols" : [ 1, 2 ],
+        "startdelay" : 1,
+        "sequence" : 1,
+        "battr" : [ 1, 2 ],
+        "maxextended" : 1,
+        "minbitrate" : 1,
+        "maxbitrate" : 1,
+        "delivery" : [ 2, 1 ],
+        "api" : [ 1, 2 ],
+        "companiontype" : [ 1, 2 ],
+        "maxseq" : 1,
+        "feed" : 1,
+        "stitched" : 1,
+        "nvol" : 1,
+        "companionad" : [ {
+          "id" : "3.0",
+          "vcm" : 1,
+          "pos" : 0,
+          "topframe" : 22,
+          "expdir" : [ 3, 9 ],
+          "mimes" : [ "application/x-shockwave-flash", "image/jpg" ],
+          "api" : [ 3, 2 ],
+          "w" : 300,
+          "h" : 250,
+          "btype" : [ 3, 4 ],
+          "format" : [ {
+            "ext" : {
+              "dummy" : "ffaa"
+            },
+            "h" : 20,
+            "hratio" : 30,
+            "w" : 200,
+            "wmin" : 3,
+            "wratio" : 200
+          }, {
+            "ext" : {
+              "dummy" : "ffaa"
+            },
+            "h" : 11,
+            "hratio" : 30,
+            "w" : 33,
+            "wmin" : 3,
+            "wratio" : 200
+          } ],
+          "ext" : {
+            "ptype" : 1,
+            "context" : 2,
+            "ctype" : [ 1 ],
+            "unit" : 1,
+            "priv" : 0,
+            "dummy" : "entry"
+          }
+        } ],
+        "ext" : {
+          "skipmin" : 1,
+          "skip" : 1,
+          "skipafter" : 1,
+          "playmethod" : 1,
+          "playend" : 1,
+          "qty" : 1
+        }
+      },
+      "ext" : {
+        "ssai" : 1,
+        "reward" : 1,
+        "admx" : 1,
+        "dt" : 1,
+        "dlvy" : 1,
+        "sequence" : 1,
+        "curlx" : 0,
+        "dummy" : "ff"
+      }
+    }, {
+      "id" : "2",
+      "metric" : [ {
+        "type" : "dd",
+        "value" : 1.0,
+        "vendor" : "dssf",
+        "ext" : {
+          "dummy" : "ff"
+        }
+      } ],
+      "bidfloor" : 0.03,
+      "bidfloorcur" : "USD",
+      "pmp" : {
+        "private_auction" : 1,
+        "deals" : [ {
+          "id" : "ww",
+          "bidfloor" : 0.0,
+          "bidfloorcur" : "USD",
+          "at" : 1,
+          "wseat" : [ "dd", "as" ],
+          "wadomain" : [ "ss.com", "abc.com" ],
+          "ext" : {
+            "dummy" : "ff"
+          }
+        } ],
+        "ext" : {
+          "dummy" : "ff"
+        }
+      },
+      "displaymanager" : "dd",
+      "displaymanagerver" : "22",
+      "clickbrowser" : 1,
+      "secure" : 1,
+      "iframebuster" : [ "abc", "def" ],
+      "instl" : 0,
+      "tagid" : "re",
+      "exp" : 1,
+      "banner" : {
+        "id" : "dd",
+        "format" : [ {
+          "w" : 200,
+          "h" : 20,
+          "wratio" : 200,
+          "hratio" : 30,
+          "wmin" : 3,
+          "ext" : {
+            "dummy" : "ffaa"
+          }
+        }, {
+          "w" : 33,
+          "h" : 11,
+          "wratio" : 200,
+          "hratio" : 30,
+          "wmin" : 3,
+          "ext" : {
+            "dummy" : "ffaa"
+          }
+        } ],
+        "h" : 250,
+        "w" : 300,
+        "btype" : [ 3, 4 ],
+        "battr" : [ 1, 2 ],
+        "topframe" : 22,
+        "expdir" : [ 3, 9 ],
+        "api" : [ 3, 2 ],
+        "mimes" : [ "application/x-shockwave-flash", "image/jpg" ],
+        "pos" : 0,
+        "ext" : {
+          "qty" : 1,
+          "seq" : 1,
+          "context" : 2,
+          "ctype" : [ 1 ],
+          "unit" : 1,
+          "priv" : 0,
+          "ptype" : 1,
+          "dummy" : "ffaa"
+        }
+      },
+      "ext" : {
+        "ssai" : 1,
+        "reward" : 1,
+        "admx" : 1,
+        "dt" : 1,
+        "dlvy" : 1,
+        "sequence" : 1,
+        "curlx" : 0,
+        "ampren" : 1,
+        "event" : [ {
+          "type" : 1,
+          "method" : [ 1 ],
+          "api" : [ 1, 2 ],
+          "jstrk" : [ "abc", "Def" ],
+          "wjs" : 1,
+          "pxtrk" : [ "abc", "def" ],
+          "wpx" : 1,
+          "ext" : {
+            "dummy" : "ffaa"
+          }
+        }, {
+          "type" : 1,
+          "method" : [ 1 ],
+          "api" : [ 1, 2 ],
+          "jstrk" : [ "abc", "Def" ],
+          "wjs" : 1,
+          "pxtrk" : [ "abc", "def" ],
+          "wpx" : 1,
+          "ext" : {
+            "dummy" : "ffaa"
+          }
+        } ],
+        "dummy" : "ff"
+      }
+    }, {
+      "id" : "3",
+      "instl" : 0,
+      "iframebuster" : [ "abc", "def" ],
+      "clickbrowser" : 1,
+      "metric" : [ {
+        "type" : "dd",
+        "value" : 1.0,
+        "vendor" : "dssf",
+        "ext" : {
+          "dummy" : "metric.ext"
+        }
+      } ],
+      "bidfloor" : 0.03,
+      "bidfloorcur" : "USD",
+      "pmp" : {
+        "private_auction" : 1,
+        "deals" : [ {
+          "id" : "ww",
+          "bidfloor" : 0.0,
+          "bidfloorcur" : "USD",
+          "at" : 1,
+          "wseat" : [ "dd", "ss" ],
+          "wadomain" : [ "ss.com", "abc.com" ],
+          "ext" : {
+            "dummy" : "deal.ext"
+          }
+        } ],
+        "ext" : {
+          "dummy" : "pmp.ext"
+        }
+      },
+      "displaymanager" : "dd",
+      "displaymanagerver" : "22",
+      "secure" : 1,
+      "tagid" : "re",
+      "exp" : 1,
+      "native" : {
+        "ver" : "1.1",
+        "api" : [ 3, 2 ],
+        "battr" : [ 1, 2 ],
+        "ext" : {
+          "dummy" : "entry",
+          "priv" : 0,
+          "ctype" : [ 1 ]
+        },
+        "request" : {
+          "native" : {
+            "ver" : "1.2",
+            "layout" : 1,
+            "adunit" : 1,
+            "context" : 2,
+            "contextsubtype" : 2,
+            "plcmttype" : 1,
+            "plcmtcnt" : 1,
+            "seq" : 1,
+            "ext" : {
+              "dummy" : "object"
+            },
+            "assets" : [ {
+              "id" : 1,
+              "required" : 0,
+              "title" : {
+                "len" : 1,
+                "ext" : {
+                  "dummy" : "title.ext"
+                }
+              },
+              "img" : {
+                "type" : 1,
+                "mimes" : [ "a", "bc", "def" ],
+                "w" : 1,
+                "h" : 2,
+                "wmin" : 2,
+                "hmin" : 3,
+                "ext" : {
+                  "wratio" : 4,
+                  "hratio" : 5,
+                  "dummy" : "img.ext"
+                }
+              },
+              "video" : {
+                "protocols" : [ 2, 3 ],
+                "mimes" : [ "abc", "def" ],
+                "minduration" : 1,
+                "maxduration" : 1,
+                "ext" : {
+                  "companionad" : [ {
+                    "id" : "4.0",
+                    "vcm" : 1,
+                    "pos" : 0,
+                    "topframe" : 22,
+                    "expdir" : [ 3, 4 ],
+                    "mimes" : [ "application/x-shockwave-flash", "image/jpg" ],
+                    "api" : [ 3, 2 ],
+                    "w" : 300,
+                    "h" : 250,
+                    "btype" : [ 3, 4 ],
+                    "hmin" : 1,
+                    "wmin" : 1,
+                    "hmax" : 1,
+                    "wmax" : 1,
+                    "format" : [ {
+                      "ext" : {
+                        "dummy" : "f1.ext"
+                      },
+                      "h" : 20,
+                      "hratio" : 30,
+                      "w" : 200,
+                      "wratio" : 200
+                    }, {
+                      "ext" : {
+                        "dummy" : "f2.ext"
+                      },
+                      "h" : 11,
+                      "hratio" : 30,
+                      "w" : 33,
+                      "wratio" : 200
+                    } ],
+                    "ext" : {
+                      "ptype" : 1,
+                      "context" : 2,
+                      "unit" : 1,
+                      "priv" : 0,
+                      "dummy" : "innerdisplay.ext",
+                      "ctype" : [ 1 ]
+                    }
+                  } ],
+                  "unit" : 2,
+                  "maxseq" : 1,
+                  "dummy" : "video.ext",
+                  "ptype" : 1,
+                  "pos" : 1,
+                  "startdelay" : 1,
+                  "skip" : 1,
+                  "skipmin" : 1,
+                  "skipafter" : 1,
+                  "playbackmethod" : [ 1 ],
+                  "playbackend" : 1,
+                  "maxextended" : 1,
+                  "minbitrate" : 2,
+                  "maxbitrate" : 2,
+                  "linearity" : 1,
+                  "boxingallowed" : 1,
+                  "companiontype" : [ 1, 2 ],
+                  "w" : 1,
+                  "h" : 1,
+                  "api" : [ 2, 3 ],
+                  "delivery" : [ 1, 2 ]
+                }
+              },
+              "data" : {
+                "type" : 1,
+                "len" : 1,
+                "ext" : {
+                  "dummy" : "data.ext"
+                }
+              },
+              "ext" : {
+                "dummy" : "asset.ext",
+                "clickbrowser" : 1
+              }
+            } ]
+          }
+        }
+      },
+      "ext" : {
+        "ssai" : 1,
+        "reward" : 1,
+        "admx" : 1,
+        "dt" : 1,
+        "dlvy" : 1,
+        "curlx" : 0,
+        "dummy" : "item.ext"
+      }
+    }, {
+      "id" : "4",
+      "clickbrowser" : 1,
+      "metric" : [ {
+        "type" : "dd",
+        "value" : 1.0,
+        "vendor" : "dssf",
+        "ext" : {
+          "dummy" : "ff"
+        }
+      } ],
+      "bidfloor" : 0.03,
+      "bidfloorcur" : "USD",
+      "pmp" : {
+        "private_auction" : 1,
+        "deals" : [ {
+          "id" : "ww",
+          "bidfloor" : 0.0,
+          "bidfloorcur" : "USD",
+          "at" : 1,
+          "wseat" : [ "dd", "as" ],
+          "wadomain" : [ "ss.com", "abc.com" ],
+          "ext" : {
+            "dummy" : "ff"
+          }
+        } ],
+        "ext" : {
+          "dummy" : "ff"
+        }
+      },
+      "displaymanager" : "dd",
+      "displaymanagerver" : "22",
+      "secure" : 1,
+      "tagid" : "re",
+      "exp" : 1,
+      "video" : {
+        "mimes" : [ "abc", "def" ],
+        "companiontype" : [ 1, 2 ],
+        "minduration" : 1,
+        "maxduration" : 1,
+        "protocols" : [ 2, 3 ],
+        "w" : 1,
+        "h" : 1,
+        "startdelay" : 1,
+        "placement" : 1,
+        "linearity" : 1,
+        "skip" : 1,
+        "skipmin" : 1,
+        "skipafter" : 1,
+        "sequence" : 1,
+        "battr" : [ 1, 2 ],
+        "maxextended" : 1,
+        "minbitrate" : 2,
+        "maxbitrate" : 2,
+        "boxingallowed" : 1,
+        "playbackmethod" : [ 1 ],
+        "playbackend" : 1,
+        "delivery" : [ 1, 2 ],
+        "pos" : 1,
+        "companionad" : [ {
+          "id" : "3.0",
+          "vcm" : 1,
+          "pos" : 0,
+          "topframe" : 22,
+          "expdir" : [ 3, 9 ],
+          "mimes" : [ "application/x-shockwave-flash", "image/jpg" ],
+          "api" : [ 3, 2 ],
+          "w" : 300,
+          "h" : 250,
+          "btype" : [ 3, 4 ],
+          "format" : [ {
+            "ext" : {
+              "dummy" : "ffaa"
+            },
+            "h" : 20,
+            "hratio" : 30,
+            "w" : 200,
+            "wmin" : 3,
+            "wratio" : 200
+          }, {
+            "ext" : {
+              "dummy" : "ffaa"
+            },
+            "h" : 11,
+            "hratio" : 30,
+            "w" : 33,
+            "wmin" : 3,
+            "wratio" : 200
+          } ],
+          "ext" : {
+            "ptype" : 1,
+            "context" : 2,
+            "ctype" : [ 1 ],
+            "unit" : 1,
+            "priv" : 0,
+            "dummy" : "entry"
+          }
+        } ],
+        "api" : [ 2, 3 ],
+        "ext" : {
+          "unit" : 1,
+          "maxseq" : 1,
+          "qty" : 1
+        }
+      },
+      "ext" : {
+        "ssai" : 1,
+        "reward" : 1,
+        "admx" : 1,
+        "dt" : 1,
+        "dlvy" : 1,
+        "sequence" : 1,
+        "curlx" : 0,
+        "dummy" : "ff"
+      }
+    } ],
+    "app" : {
+      "id" : "abcde2345",
+      "name" : "android app",
+      "bundle" : "com.media.net",
+      "domain" : "www.foobar.com",
+      "storeurl" : "axcdabc.com/test123",
+      "cat" : [ "IAB3-1", "IAB3-2" ],
+      "sectioncat" : [ "zz", "dd" ],
+      "pagecat" : [ "ss", "as" ],
+      "ver" : "123",
+      "privacypolicy" : 1,
+      "paid" : 0,
+      "publisher" : {
+        "id" : "8953",
+        "name" : "foobar.com",
+        "cat" : [ "IAB3-1", "IAB3-2" ],
+        "domain" : "foobar.com",
+        "ext" : {
+          "cattax" : 2,
+          "dummy" : "ff"
+        }
+      },
+      "content" : {
+        "id" : "rfewa",
+        "episode" : 1,
+        "title" : "sf",
+        "series" : "rf",
+        "season" : "wed",
+        "genre" : "sefw",
+        "album" : "edwe",
+        "artist" : "we",
+        "isrc" : "ewde",
+        "producer" : {
+          "id" : "eew",
+          "name" : "edew",
+          "cat" : [ "IAB3-1", "IAB3-2" ],
+          "domain" : "abc.com",
+          "ext" : {
+            "cattax" : 2,
+            "dummy" : "ff"
+          }
+        },
+        "url" : "ewfe.com",
+        "cat" : [ "IAB3-1", "IAB3-2" ],
+        "prodq" : 1,
+        "videoquality" : 2,
+        "context" : 1,
+        "contentrating" : "wqewq",
+        "userrating" : "ewew",
+        "qagmediarating" : 1,
+        "keywords" : "efea",
+        "livestream" : 1,
+        "sourcerelationship" : 1,
+        "len" : 2,
+        "language" : "en",
+        "embeddable" : 1,
+        "data" : [ {
+          "id" : "1",
+          "name" : "Abcdef",
+          "segment" : [ {
+            "id" : "bcdef",
+            "name" : "name123",
+            "value" : "acde",
+            "ext" : {
+              "dummy" : "ff"
+            }
+          } ],
+          "ext" : {
+            "dummy" : "ff"
+          }
+        } ],
+        "ext" : {
+          "cattax" : 2,
+          "dummy" : "ff"
+        }
+      },
+      "keywords" : "ewew",
+      "ext" : {
+        "dummy" : "ff",
+        "cattax" : 2,
+        "storeid" : "abc1234"
+      }
+    },
+    "device" : {
+      "ua" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2",
+      "ip" : "123.145.167.10",
+      "geo" : {
+        "lat" : 22.22,
+        "lon" : 22.2,
+        "type" : 1,
+        "accuracy" : 1,
+        "lastfix" : 1,
+        "ipservice" : 2,
+        "country" : "sd",
+        "region" : "eew",
+        "regionfips104" : "eew",
+        "metro" : "ee",
+        "city" : "eew",
+        "zip" : "ewe",
+        "utcoffset" : 1,
+        "ext" : {
+          "dummy" : "ff"
+        }
+      },
+      "dnt" : 1,
+      "lmt" : 1,
+      "ipv6" : "123.145.167.1.3.2",
+      "devicetype" : 2,
+      "make" : "weew",
+      "model" : "edew",
+      "os" : "android",
+      "osv" : "hwv",
+      "hwv" : "ww",
+      "h" : 2,
+      "w" : 2,
+      "ppi" : 1,
+      "pxratio" : 1.2,
+      "js" : 1,
+      "geofetch" : 2,
+      "flashver" : "ewe",
+      "language" : "weew",
+      "carrier" : "weew",
+      "mccmnc" : "ewew",
+      "connectiontype" : 2,
+      "ext" : {
+        "xff" : "1.2.3.4",
+        "iptr" : 1,
+        "dummy" : "ff"
+      }
+    },
+    "user" : {
+      "id" : "55816b39711f9b5acf3b90e313ed29e51665623f",
+      "buyeruid" : "eewew",
+      "yob" : 2,
+      "gender" : "M",
+      "keywords" : "ewew",
+      "customdata" : "ewew",
+      "geo" : {
+        "lat" : 22.22,
+        "lon" : 22.2,
+        "type" : 1,
+        "accuracy" : 1,
+        "lastfix" : 1,
+        "ipservice" : 2,
+        "country" : "sd",
+        "region" : "eew",
+        "regionfips104" : "eew",
+        "metro" : "ee",
+        "city" : "eew",
+        "zip" : "ewe",
+        "utcoffset" : 1,
+        "ext" : {
+          "dummy" : "ff"
+        }
+      },
+      "data" : [ {
+        "id" : "wwe",
+        "name" : "ee",
+        "segment" : [ {
+          "id" : "ew",
+          "name" : "rewfe",
+          "value" : "ew",
+          "ext" : {
+            "dummy" : "ff"
+          }
+        } ],
+        "ext" : {
+          "dummy" : "ff"
+        }
+      } ],
+      "ext" : {
+        "consent" : "abcdef"
+      }
+    }
+  },
+  "outputFile" : "ALL_APP_30.json",
+  "outputType" : "REQUEST30",
+  "outputEdits" : {
+    "openrtb.request.at" : "1"
+  },
+  "outputJson" : {
+    "openrtb" : {
+      "ver" : "3.0",
+      "domainSpec" : "adcom",
+      "domainVer" : "1.0",
+      "request" : {
+        "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
+        "test" : 1,
+        "tmax" : 100,
+        "at" : 1,
+        "cur" : [ "USD" ],
+        "seat" : [ "a" ],
+        "wseat" : 1,
+        "cdata" : "ewew",
+        "source" : {
+          "tid" : "dd",
+          "ts" : 1,
+          "ds" : "ds",
+          "dsmap" : "abcdefghij",
+          "cert" : "abc.com/xyz/efg",
+          "digest" : "digest:digest, abcde:efg",
+          "pchain" : "dd",
+          "ext" : {
+            "dummy" : "ff",
+            "fd" : 1
+          }
+        },
+        "item" : [ {
+          "id" : "1",
+          "qty" : 1,
+          "seq" : 1,
+          "flr" : 0.03,
+          "flrcur" : "USD",
+          "exp" : 1,
+          "dt" : 1,
+          "dlvy" : 1,
+          "metric" : [ {
+            "type" : "dd",
+            "value" : 1.0,
+            "vendor" : "dssf",
+            "ext" : {
+              "dummy" : "ff"
+            }
+          } ],
+          "deal" : [ {
+            "id" : "ww",
+            "flr" : 0.0,
+            "flrcur" : "USD",
+            "at" : 1,
+            "wseat" : [ "dd", "as" ],
+            "wadomain" : [ "ss.com", "abc.com" ],
+            "ext" : {
+              "dummy" : "ff"
+            }
+          } ],
+          "spec" : {
+            "placement" : {
+              "tagid" : "re",
+              "ssai" : 1,
+              "sdk" : "dd",
+              "sdkver" : "22",
+              "reward" : 1,
+              "wlang" : [ "en" ],
+              "secure" : 1,
+              "admx" : 1,
+              "curlx" : 0,
+              "audio" : {
+                "playmethod" : 1,
+                "delay" : 1,
+                "skip" : 1,
+                "skipmin" : 1,
+                "skipafter" : 1,
+                "playend" : 1,
+                "feed" : 1,
+                "nvol" : 1,
+                "mime" : [ "1", "2" ],
+                "api" : [ 1, 2 ],
+                "ctype" : [ 1, 2 ],
+                "mindur" : 1,
+                "maxdur" : 1,
+                "maxext" : 1,
+                "minbitr" : 1,
+                "maxbitr" : 1,
+                "delivery" : [ 2, 1 ],
+                "maxseq" : 1,
+                "comptype" : [ 1, 2 ],
+                "comp" : [ {
+                  "id" : "3.0",
+                  "vcm" : 1,
+                  "display" : {
+                    "pos" : 0,
+                    "topframe" : 22,
+                    "ptype" : 1,
+                    "context" : 2,
+                    "mime" : [ "application/x-shockwave-flash", "image/jpg" ],
+                    "api" : [ 3, 2 ],
+                    "ctype" : [ 1 ],
+                    "w" : 300,
+                    "h" : 250,
+                    "unit" : 1,
+                    "priv" : 0,
+                    "displayfmt" : [ {
+                      "w" : 200,
+                      "h" : 20,
+                      "wratio" : 200,
+                      "hratio" : 30,
+                      "expdir" : [ 3, 9 ],
+                      "ext" : {
+                        "wmin" : 3,
+                        "dummy" : "ffaa"
+                      }
+                    }, {
+                      "w" : 33,
+                      "h" : 11,
+                      "wratio" : 200,
+                      "hratio" : 30,
+                      "expdir" : [ 3, 9 ],
+                      "ext" : {
+                        "wmin" : 3,
+                        "dummy" : "ffaa"
+                      }
+                    } ],
+                    "ext" : {
+                      "dummy" : "entry",
+                      "btype" : [ 3, 4 ]
+                    }
+                  }
+                } ],
+                "ext" : {
+                  "stitched" : 1
+                }
+              }
+            }
+          },
+          "ext" : {
+            "dummy" : "ff",
+            "sequence" : 1,
+            "pmp" : {
+              "ext" : {
+                "dummy" : "ff"
+              }
+            }
+          },
+          "private" : 1
+        }, {
+          "id" : "2",
+          "qty" : 1,
+          "seq" : 1,
+          "flr" : 0.03,
+          "flrcur" : "USD",
+          "exp" : 1,
+          "dt" : 1,
+          "dlvy" : 1,
+          "metric" : [ {
+            "type" : "dd",
+            "value" : 1.0,
+            "vendor" : "dssf",
+            "ext" : {
+              "dummy" : "ff"
+            }
+          } ],
+          "deal" : [ {
+            "id" : "ww",
+            "flr" : 0.0,
+            "flrcur" : "USD",
+            "at" : 1,
+            "wseat" : [ "dd", "as" ],
+            "wadomain" : [ "ss.com", "abc.com" ],
+            "ext" : {
+              "dummy" : "ff"
+            }
+          } ],
+          "spec" : {
+            "placement" : {
+              "tagid" : "re",
+              "ssai" : 1,
+              "sdk" : "dd",
+              "sdkver" : "22",
+              "reward" : 1,
+              "wlang" : [ "en" ],
+              "secure" : 1,
+              "admx" : 1,
+              "curlx" : 0,
+              "display" : {
+                "pos" : 0,
+                "instl" : 0,
+                "topframe" : 22,
+                "ifrbust" : [ "abc", "def" ],
+                "clktype" : 1,
+                "ampren" : 1,
+                "ptype" : 1,
+                "context" : 2,
+                "mime" : [ "application/x-shockwave-flash", "image/jpg" ],
+                "api" : [ 3, 2 ],
+                "ctype" : [ 1 ],
+                "w" : 300,
+                "h" : 250,
+                "unit" : 1,
+                "priv" : 0,
+                "displayfmt" : [ {
+                  "w" : 200,
+                  "h" : 20,
+                  "wratio" : 200,
+                  "hratio" : 30,
+                  "expdir" : [ 3, 9 ],
+                  "ext" : {
+                    "dummy" : "ffaa",
+                    "wmin" : 3
+                  }
+                }, {
+                  "w" : 33,
+                  "h" : 11,
+                  "wratio" : 200,
+                  "hratio" : 30,
+                  "expdir" : [ 3, 9 ],
+                  "ext" : {
+                    "dummy" : "ffaa",
+                    "wmin" : 3
+                  }
+                } ],
+                "event" : [ {
+                  "type" : 1,
+                  "method" : [ 1 ],
+                  "api" : [ 1, 2 ],
+                  "jstrk" : [ "abc", "Def" ],
+                  "wjs" : 1,
+                  "pxtrk" : [ "abc", "def" ],
+                  "wpx" : 1,
+                  "ext" : {
+                    "dummy" : "ffaa"
+                  }
+                }, {
+                  "type" : 1,
+                  "method" : [ 1 ],
+                  "api" : [ 1, 2 ],
+                  "jstrk" : [ "abc", "Def" ],
+                  "wjs" : 1,
+                  "pxtrk" : [ "abc", "def" ],
+                  "wpx" : 1,
+                  "ext" : {
+                    "dummy" : "ffaa"
+                  }
+                } ],
+                "ext" : {
+                  "dummy" : "ffaa",
+                  "qty" : 1,
+                  "btype" : [ 3, 4 ],
+                  "id" : "dd"
+                }
+              }
+            }
+          },
+          "ext" : {
+            "dummy" : "ff",
+            "sequence" : 1,
+            "pmp" : {
+              "ext" : {
+                "dummy" : "ff"
+              }
+            }
+          },
+          "private" : 1
+        }, {
+          "id" : "3",
+          "qty" : 1,
+          "seq" : 1,
+          "flr" : 0.03,
+          "flrcur" : "USD",
+          "exp" : 1,
+          "dt" : 1,
+          "dlvy" : 1,
+          "metric" : [ {
+            "type" : "dd",
+            "value" : 1.0,
+            "vendor" : "dssf",
+            "ext" : {
+              "dummy" : "metric.ext"
+            }
+          } ],
+          "deal" : [ {
+            "id" : "ww",
+            "flr" : 0.0,
+            "flrcur" : "USD",
+            "at" : 1,
+            "wseat" : [ "dd", "ss" ],
+            "wadomain" : [ "ss.com", "abc.com" ],
+            "ext" : {
+              "dummy" : "deal.ext"
+            }
+          } ],
+          "spec" : {
+            "placement" : {
+              "tagid" : "re",
+              "ssai" : 1,
+              "sdk" : "dd",
+              "sdkver" : "22",
+              "reward" : 1,
+              "wlang" : [ "en" ],
+              "secure" : 1,
+              "admx" : 1,
+              "curlx" : 0,
+              "display" : {
+                "unit" : 1,
+                "instl" : 0,
+                "ifrbust" : [ "abc", "def" ],
+                "clktype" : 1,
+                "ptype" : 1,
+                "context" : 2,
+                "api" : [ 3, 2 ],
+                "ctype" : [ 1 ],
+                "priv" : 0,
+                "nativefmt" : {
+                  "ext" : {
+                    "adunit" : 1,
+                    "contextsubtype" : 2,
+                    "dummy" : "object",
+                    "layout" : 1,
+                    "ver" : "1.2"
+                  },
+                  "asset" : [ {
+                    "id" : 1,
+                    "req" : 0,
+                    "title" : {
+                      "len" : 1,
+                      "ext" : {
+                        "dummy" : "title.ext"
+                      }
+                    },
+                    "img" : {
+                      "type" : 1,
+                      "mime" : [ "a", "bc", "def" ],
+                      "w" : 1,
+                      "h" : 2,
+                      "wmin" : 2,
+                      "hmin" : 3,
+                      "wratio" : 4,
+                      "hratio" : 5,
+                      "ext" : {
+                        "dummy" : "img.ext"
+                      }
+                    },
+                    "video" : {
+                      "comptype" : [ 1, 2 ],
+                      "ptype" : 1,
+                      "pos" : 1,
+                      "delay" : 1,
+                      "skip" : 1,
+                      "skipmin" : 1,
+                      "skipafter" : 1,
+                      "playmethod" : 1,
+                      "playend" : 1,
+                      "clktype" : 1,
+                      "mime" : [ "abc", "def" ],
+                      "api" : [ 2, 3 ],
+                      "ctype" : [ 2, 3 ],
+                      "w" : 1,
+                      "h" : 1,
+                      "unit" : 2,
+                      "mindur" : 1,
+                      "maxdur" : 1,
+                      "maxext" : 1,
+                      "minbitr" : 2,
+                      "maxbitr" : 2,
+                      "delivery" : [ 1, 2 ],
+                      "maxseq" : 1,
+                      "linear" : 1,
+                      "boxing" : 1,
+                      "ext" : {
+                        "dummy" : "video.ext"
+                      },
+                      "comp" : [ {
+                        "id" : "4.0",
+                        "vcm" : 1,
+                        "display" : {
+                          "pos" : 0,
+                          "topframe" : 22,
+                          "ptype" : 1,
+                          "context" : 2,
+                          "mime" : [ "application/x-shockwave-flash", "image/jpg" ],
+                          "api" : [ 3, 2 ],
+                          "ctype" : [ 1 ],
+                          "w" : 300,
+                          "h" : 250,
+                          "unit" : 1,
+                          "priv" : 0,
+                          "displayfmt" : [ {
+                            "w" : 200,
+                            "h" : 20,
+                            "wratio" : 200,
+                            "hratio" : 30,
+                            "expdir" : [ 3, 4 ],
+                            "ext" : {
+                              "dummy" : "f1.ext"
+                            }
+                          }, {
+                            "w" : 33,
+                            "h" : 11,
+                            "wratio" : 200,
+                            "hratio" : 30,
+                            "expdir" : [ 3, 4 ],
+                            "ext" : {
+                              "dummy" : "f2.ext"
+                            }
+                          } ],
+                          "ext" : {
+                            "dummy" : "innerdisplay.ext",
+                            "btype" : [ 3, 4 ],
+                            "hmin" : 1,
+                            "wmin" : 1,
+                            "hmax" : 1,
+                            "wmax" : 1
+                          }
+                        }
+                      } ]
+                    },
+                    "data" : {
+                      "type" : 1,
+                      "len" : 1,
+                      "ext" : {
+                        "dummy" : "data.ext"
+                      }
+                    },
+                    "ext" : {
+                      "dummy" : "asset.ext"
+                    }
+                  } ]
+                },
+                "ext" : {
+                  "dummy" : "entry"
+                }
+              }
+            }
+          },
+          "ext" : {
+            "dummy" : "item.ext",
+            "pmp" : {
+              "ext" : {
+                "dummy" : "pmp.ext"
+              }
+            }
+          },
+          "private" : 1
+        }, {
+          "id" : "4",
+          "qty" : 1,
+          "seq" : 1,
+          "flr" : 0.03,
+          "flrcur" : "USD",
+          "exp" : 1,
+          "dt" : 1,
+          "dlvy" : 1,
+          "metric" : [ {
+            "type" : "dd",
+            "value" : 1.0,
+            "vendor" : "dssf",
+            "ext" : {
+              "dummy" : "ff"
+            }
+          } ],
+          "deal" : [ {
+            "id" : "ww",
+            "flr" : 0.0,
+            "flrcur" : "USD",
+            "at" : 1,
+            "wseat" : [ "dd", "as" ],
+            "wadomain" : [ "ss.com", "abc.com" ],
+            "ext" : {
+              "dummy" : "ff"
+            }
+          } ],
+          "spec" : {
+            "placement" : {
+              "tagid" : "re",
+              "ssai" : 1,
+              "sdk" : "dd",
+              "sdkver" : "22",
+              "reward" : 1,
+              "wlang" : [ "en" ],
+              "secure" : 1,
+              "admx" : 1,
+              "curlx" : 0,
+              "video" : {
+                "ptype" : 1,
+                "pos" : 1,
+                "delay" : 1,
+                "skip" : 1,
+                "comptype" : [ 1, 2 ],
+                "skipmin" : 1,
+                "skipafter" : 1,
+                "playmethod" : 1,
+                "playend" : 1,
+                "clktype" : 1,
+                "mime" : [ "abc", "def" ],
+                "api" : [ 2, 3 ],
+                "ctype" : [ 2, 3 ],
+                "w" : 1,
+                "h" : 1,
+                "unit" : 1,
+                "mindur" : 1,
+                "maxdur" : 1,
+                "maxext" : 1,
+                "minbitr" : 2,
+                "maxbitr" : 2,
+                "delivery" : [ 1, 2 ],
+                "maxseq" : 1,
+                "linear" : 1,
+                "boxing" : 1,
+                "comp" : [ {
+                  "id" : "3.0",
+                  "vcm" : 1,
+                  "display" : {
+                    "pos" : 0,
+                    "topframe" : 22,
+                    "ptype" : 1,
+                    "context" : 2,
+                    "mime" : [ "application/x-shockwave-flash", "image/jpg" ],
+                    "api" : [ 3, 2 ],
+                    "ctype" : [ 1 ],
+                    "w" : 300,
+                    "h" : 250,
+                    "unit" : 1,
+                    "priv" : 0,
+                    "displayfmt" : [ {
+                      "w" : 200,
+                      "h" : 20,
+                      "wratio" : 200,
+                      "hratio" : 30,
+                      "expdir" : [ 3, 9 ],
+                      "ext" : {
+                        "wmin" : 3,
+                        "dummy" : "ffaa"
+                      }
+                    }, {
+                      "w" : 33,
+                      "h" : 11,
+                      "wratio" : 200,
+                      "hratio" : 30,
+                      "expdir" : [ 3, 9 ],
+                      "ext" : {
+                        "wmin" : 3,
+                        "dummy" : "ffaa"
+                      }
+                    } ],
+                    "ext" : {
+                      "dummy" : "entry",
+                      "btype" : [ 3, 4 ]
+                    }
+                  }
+                } ]
+              }
+            }
+          },
+          "ext" : {
+            "dummy" : "ff",
+            "sequence" : 1,
+            "pmp" : {
+              "ext" : {
+                "dummy" : "ff"
+              }
+            }
+          },
+          "private" : 1
+        } ],
+        "context" : {
+          "app" : {
+            "id" : "abcde2345",
+            "name" : "android app",
+            "pub" : {
+              "id" : "8953",
+              "name" : "foobar.com",
+              "domain" : "foobar.com",
+              "cat" : [ "IAB3-1", "IAB3-2" ],
+              "cattax" : 2,
+              "ext" : {
+                "dummy" : "ff"
+              }
+            },
+            "content" : {
+              "id" : "rfewa",
+              "episode" : 1,
+              "title" : "sf",
+              "series" : "rf",
+              "season" : "wed",
+              "artist" : "we",
+              "genre" : "sefw",
+              "album" : "edwe",
+              "isrc" : "ewde",
+              "url" : "ewfe.com",
+              "cat" : [ "IAB3-1", "IAB3-2" ],
+              "cattax" : 2,
+              "prodq" : 1,
+              "context" : 1,
+              "rating" : "wqewq",
+              "urating" : "ewew",
+              "mrating" : 1,
+              "keywords" : "efea",
+              "live" : 1,
+              "srcrel" : 1,
+              "len" : 2,
+              "lang" : "en",
+              "embed" : 1,
+              "producer" : {
+                "id" : "eew",
+                "name" : "edew",
+                "domain" : "abc.com",
+                "cat" : [ "IAB3-1", "IAB3-2" ],
+                "cattax" : 2,
+                "ext" : {
+                  "dummy" : "ff"
+                }
+              },
+              "data" : [ {
+                "id" : "1",
+                "name" : "Abcdef",
+                "segment" : [ {
+                  "id" : "bcdef",
+                  "name" : "name123",
+                  "value" : "acde",
+                  "ext" : {
+                    "dummy" : "ff"
+                  }
+                } ],
+                "ext" : {
+                  "dummy" : "ff"
+                }
+              } ],
+              "ext" : {
+                "dummy" : "ff",
+                "videoquality" : 2
+              }
+            },
+            "domain" : "www.foobar.com",
+            "cat" : [ "IAB3-1", "IAB3-2" ],
+            "sectcat" : [ "zz", "dd" ],
+            "pagecat" : [ "ss", "as" ],
+            "cattax" : 2,
+            "privpolicy" : 1,
+            "keywords" : "ewew",
+            "bundle" : "com.media.net",
+            "storeid" : "abc1234",
+            "storeurl" : "axcdabc.com/test123",
+            "ver" : "123",
+            "paid" : 0,
+            "ext" : {
+              "dummy" : "ff"
+            }
+          },
+          "user" : {
+            "id" : "55816b39711f9b5acf3b90e313ed29e51665623f",
+            "buyeruid" : "eewew",
+            "yob" : 2,
+            "gender" : "M",
+            "keywords" : "ewew",
+            "consent" : "abcdef",
+            "geo" : {
+              "type" : 1,
+              "lat" : 22.22,
+              "lon" : 22.2,
+              "accur" : 1,
+              "lastfix" : 1,
+              "ipserv" : 2,
+              "country" : "sd",
+              "region" : "eew",
+              "metro" : "ee",
+              "city" : "eew",
+              "zip" : "ewe",
+              "utcoffset" : 1,
+              "ext" : {
+                "dummy" : "ff",
+                "regionfips104" : "eew"
+              }
+            },
+            "data" : [ {
+              "id" : "wwe",
+              "name" : "ee",
+              "segment" : [ {
+                "id" : "ew",
+                "name" : "rewfe",
+                "value" : "ew",
+                "ext" : {
+                  "dummy" : "ff"
+                }
+              } ],
+              "ext" : {
+                "dummy" : "ff"
+              }
+            } ]
+          },
+          "device" : {
+            "type" : 2,
+            "ua" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2",
+            "dnt" : "1",
+            "lmt" : 1,
+            "make" : "weew",
+            "model" : "edew",
+            "os" : 2,
+            "osv" : "hwv",
+            "hwv" : "ww",
+            "h" : 2,
+            "w" : 2,
+            "ppi" : 1,
+            "pxratio" : 1.2,
+            "js" : 1,
+            "lang" : "weew",
+            "ip" : "123.145.167.10",
+            "ipv6" : "123.145.167.1.3.2",
+            "xff" : "1.2.3.4",
+            "iptr" : 1,
+            "carrier" : "weew",
+            "mccmnc" : "ewew",
+            "contype" : 2,
+            "geofetch" : 2,
+            "geo" : {
+              "type" : 1,
+              "lat" : 22.22,
+              "lon" : 22.2,
+              "accur" : 1,
+              "lastfix" : 1,
+              "ipserv" : 2,
+              "country" : "sd",
+              "region" : "eew",
+              "metro" : "ee",
+              "city" : "eew",
+              "zip" : "ewe",
+              "utcoffset" : 1,
+              "ext" : {
+                "dummy" : "ff",
+                "regionfips104" : "eew"
+              }
+            },
+            "ext" : {
+              "dummy" : "ff",
+              "flashver" : "ewe"
+            }
+          },
+          "regs" : {
+            "coppa" : 1,
+            "gdpr" : 1,
+            "ext" : {
+              "dummy" : "ff"
+            }
+          },
+          "restrictions" : {
+            "bcat" : [ "bb" ],
+            "cattax" : 2,
+            "badv" : [ "cc" ],
+            "bapp" : [ "nn" ],
+            "battr" : [ 1, 2 ],
+            "ext" : {
+              "dummy" : "ff"
+            }
+          }
+        },
+        "ext" : {
+          "dummy" : "ff"
+        },
+        "package" : 0
+      }
+    }
+  },
+  "purpose" : "adTypeMappingAllAdTypes2to3",
+  "params" : {
+    "nativeResponseAsString" : false,
+    "adTypeMapping" : {
+      "1" : "AUDIO",
+      "2" : "BANNER",
+      "3" : "NATIVE",
+      "4" : "VIDEO"
+    }
+  },
+  "config" : null
+}

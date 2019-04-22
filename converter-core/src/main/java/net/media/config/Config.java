@@ -99,6 +99,7 @@ public class Config {
   public Config(Config oldConfig) {
     if (nonNull(oldConfig)) {
       this.nativeRequestAsString = oldConfig.nativeRequestAsString;
+      this.nativeResponseAsString = oldConfig.nativeResponseAsString;
       this.adTypeMapping = oldConfig.adTypeMapping;
       this.validate = oldConfig.validate;
       this.disableCloning = oldConfig.disableCloning;

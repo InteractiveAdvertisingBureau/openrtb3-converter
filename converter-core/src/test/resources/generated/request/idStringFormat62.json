@@ -706,5 +706,6 @@
     }
   },
   "purpose" : "idStringFormat62",
-  "params" : null
+  "params" : null,
+  "config" : null
 }

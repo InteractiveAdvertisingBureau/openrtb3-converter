@@ -1,0 +1,587 @@
+{
+  "inputFile" : "NATIVE_APP_30_string.json",
+  "inputType" : "REQUEST30",
+  "inputEdits" : {
+    "openrtb.request.at" : "2"
+  },
+  "inputJson" : {
+    "openrtb" : {
+      "ver" : "3.0",
+      "domainSpec" : "adcom",
+      "domainVer" : "1.0",
+      "request" : {
+        "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
+        "test" : 1,
+        "tmax" : 100,
+        "at" : 2,
+        "cur" : [ "USD" ],
+        "seat" : [ "a" ],
+        "wseat" : 1,
+        "cdata" : "ewew",
+        "source" : {
+          "tid" : "dd",
+          "ts" : 1,
+          "ds" : "ds",
+          "dsmap" : "abcdefghij",
+          "cert" : "abc.com/xyz/efg",
+          "digest" : "digest:digest, abcde:efg",
+          "pchain" : "dd",
+          "ext" : {
+            "dummy" : "source.ext",
+            "fd" : 1
+          }
+        },
+        "item" : [ {
+          "id" : "1",
+          "flr" : 0.03,
+          "flrcur" : "USD",
+          "exp" : 1,
+          "dt" : 1,
+          "dlvy" : 1,
+          "metric" : [ {
+            "type" : "dd",
+            "value" : 1.0,
+            "vendor" : "dssf",
+            "ext" : {
+              "dummy" : "metric.ext"
+            }
+          } ],
+          "deal" : [ {
+            "id" : "ww",
+            "flr" : 0.0,
+            "flrcur" : "USD",
+            "at" : 1,
+            "wseat" : [ "dd", "ss" ],
+            "wadomain" : [ "ss.com", "abc.com" ],
+            "ext" : {
+              "dummy" : "deal.ext"
+            }
+          } ],
+          "spec" : {
+            "placement" : {
+              "tagid" : "re",
+              "ssai" : 1,
+              "sdk" : "dd",
+              "sdkver" : "22",
+              "reward" : 1,
+              "wlang" : [ "en" ],
+              "secure" : 1,
+              "admx" : 1,
+              "curlx" : 0,
+              "display" : {
+                "unit" : 1,
+                "instl" : 0,
+                "ifrbust" : [ "abc", "def" ],
+                "clktype" : 1,
+                "api" : [ 3, 2 ],
+                "ctype" : [ 1 ],
+                "priv" : 0,
+                "nativefmt" : {
+                  "ext" : {
+                    "ver" : "1.2"
+                  }
+                },
+                "ext" : {
+                  "dummy" : "entry"
+                }
+              }
+            }
+          },
+          "ext" : {
+            "dummy" : "item.ext",
+            "pmp" : {
+              "ext" : {
+                "dummy" : "pmp.ext"
+              }
+            }
+          },
+          "private" : 1
+        } ],
+        "context" : {
+          "app" : {
+            "id" : "abcde2345",
+            "name" : "android app",
+            "pub" : {
+              "id" : "8953",
+              "name" : "foobar.com",
+              "domain" : "foobar.com",
+              "cat" : [ "IAB3-1", "IAB3-2" ],
+              "cattax" : 2,
+              "ext" : {
+                "dummy" : "ff"
+              }
+            },
+            "content" : {
+              "id" : "rfewa",
+              "episode" : 1,
+              "title" : "sf",
+              "series" : "rf",
+              "season" : "wed",
+              "artist" : "we",
+              "genre" : "sefw",
+              "album" : "edwe",
+              "isrc" : "ewde",
+              "url" : "ewfe.com",
+              "cat" : [ "IAB3-1", "IAB3-2" ],
+              "cattax" : 2,
+              "prodq" : 1,
+              "context" : 1,
+              "rating" : "wqewq",
+              "urating" : "ewew",
+              "mrating" : 1,
+              "keywords" : "efea",
+              "live" : 1,
+              "srcrel" : 1,
+              "len" : 2,
+              "lang" : "en",
+              "embed" : 1,
+              "producer" : {
+                "id" : "eew",
+                "name" : "edew",
+                "domain" : "abc.com",
+                "cat" : [ "IAB3-1", "IAB3-2" ],
+                "cattax" : 2,
+                "ext" : {
+                  "dummy" : "ff"
+                }
+              },
+              "data" : [ {
+                "id" : "1",
+                "name" : "Abcdef",
+                "segment" : [ {
+                  "id" : "bcdef",
+                  "name" : "name123",
+                  "value" : "acde",
+                  "ext" : {
+                    "dummy" : "ff"
+                  }
+                } ],
+                "ext" : {
+                  "dummy" : "ff"
+                }
+              } ],
+              "ext" : {
+                "dummy" : "ff",
+                "videoquality" : 2
+              }
+            },
+            "domain" : "www.foobar.com",
+            "cat" : [ "IAB3-1", "IAB3-2" ],
+            "sectcat" : [ "zz", "dd" ],
+            "pagecat" : [ "ss", "as" ],
+            "cattax" : 2,
+            "privpolicy" : 1,
+            "keywords" : "ewew",
+            "bundle" : "com.media.net",
+            "storeid" : "abc1234",
+            "storeurl" : "axcdabc.com/test123",
+            "ver" : "123",
+            "paid" : 0,
+            "ext" : {
+              "dummy" : "ff"
+            }
+          },
+          "user" : {
+            "id" : "55816b39711f9b5acf3b90e313ed29e51665623f",
+            "buyeruid" : "eewew",
+            "yob" : 2,
+            "gender" : "M",
+            "keywords" : "ewew",
+            "consent" : "abcdef",
+            "geo" : {
+              "type" : 1,
+              "lat" : 22.22,
+              "lon" : 22.2,
+              "accur" : 1,
+              "lastfix" : 1,
+              "ipserv" : 2,
+              "country" : "sd",
+              "region" : "eew",
+              "metro" : "ee",
+              "city" : "eew",
+              "zip" : "ewe",
+              "utcoffset" : 1,
+              "ext" : {
+                "dummy" : "geo1.ext",
+                "regionfips104" : "eew"
+              }
+            },
+            "data" : [ {
+              "id" : "wwe",
+              "name" : "ee",
+              "segment" : [ {
+                "id" : "ew",
+                "name" : "rewfe",
+                "value" : "ew",
+                "ext" : {
+                  "dummy" : "segment12.ext"
+                }
+              } ],
+              "ext" : {
+                "dummy" : "data12.ext"
+              }
+            } ],
+            "ext" : {
+              "dummy" : "user.ext"
+            }
+          },
+          "device" : {
+            "type" : 2,
+            "ua" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2",
+            "dnt" : "1",
+            "lmt" : 1,
+            "ifa" : "ifa",
+            "make" : "weew",
+            "model" : "edew",
+            "os" : 2,
+            "osv" : "hwv",
+            "hwv" : "ww",
+            "h" : 2,
+            "w" : 2,
+            "ppi" : 1,
+            "pxratio" : 1.2,
+            "js" : 1,
+            "lang" : "weew",
+            "ip" : "123.145.167.10",
+            "ipv6" : "123.145.167.1.3.2",
+            "xff" : "1.2.3.4",
+            "iptr" : 1,
+            "carrier" : "weew",
+            "mccmnc" : "ewew",
+            "contype" : 2,
+            "geofetch" : 2,
+            "geo" : {
+              "type" : 1,
+              "lat" : 22.22,
+              "lon" : 22.2,
+              "accur" : 1,
+              "lastfix" : 1,
+              "ipserv" : 2,
+              "country" : "sd",
+              "region" : "eew",
+              "metro" : "ee",
+              "city" : "eew",
+              "zip" : "ewe",
+              "utcoffset" : 1,
+              "ext" : {
+                "dummy" : "geo.ext",
+                "regionfips104" : "eew"
+              }
+            },
+            "ext" : {
+              "dummy" : "device.ext",
+              "flashver" : "ewe"
+            }
+          },
+          "regs" : {
+            "coppa" : 1,
+            "gdpr" : 1,
+            "ext" : {
+              "dummy" : "regs.ext"
+            }
+          },
+          "restrictions" : {
+            "bcat" : [ "bb" ],
+            "cattax" : 2,
+            "badv" : [ "cc" ],
+            "bapp" : [ "nn" ],
+            "battr" : [ 2, 5, 8 ],
+            "ext" : {
+              "dummy" : "rest.ext"
+            }
+          }
+        },
+        "ext" : {
+          "dummy" : "request.ext"
+        },
+        "package" : 0
+      }
+    }
+  },
+  "outputFile" : "NATIVE_APP_25_string.json",
+  "outputType" : "REQUEST25",
+  "outputEdits" : {
+    "at" : "2"
+  },
+  "outputJson" : {
+    "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
+    "at" : 2,
+    "test" : 1,
+    "tmax" : 100,
+    "wseat" : [ "a" ],
+    "source" : {
+      "fd" : 1,
+      "tid" : "dd",
+      "pchain" : "dd",
+      "ext" : {
+        "ts" : 1,
+        "ds" : "ds",
+        "dsmap" : "abcdefghij",
+        "cert" : "abc.com/xyz/efg",
+        "digest" : "digest:digest, abcde:efg",
+        "dummy" : "source.ext"
+      }
+    },
+    "regs" : {
+      "coppa" : 1,
+      "ext" : {
+        "gdpr" : 1,
+        "dummy" : "regs.ext"
+      }
+    },
+    "ext" : {
+      "cattax" : 2,
+      "dummy" : "request.ext",
+      "restrictions" : {
+        "ext" : {
+          "dummy" : "rest.ext"
+        }
+      }
+    },
+    "cur" : [ "USD" ],
+    "allimps" : 0,
+    "wlang" : [ "en" ],
+    "bcat" : [ "bb" ],
+    "badv" : [ "cc" ],
+    "bapp" : [ "nn" ],
+    "imp" : [ {
+      "id" : "1",
+      "instl" : 0,
+      "iframebuster" : [ "abc", "def" ],
+      "clickbrowser" : 1,
+      "metric" : [ {
+        "type" : "dd",
+        "value" : 1.0,
+        "vendor" : "dssf",
+        "ext" : {
+          "dummy" : "metric.ext"
+        }
+      } ],
+      "bidfloor" : 0.03,
+      "bidfloorcur" : "USD",
+      "pmp" : {
+        "private_auction" : 1,
+        "deals" : [ {
+          "id" : "ww",
+          "bidfloor" : 0.0,
+          "bidfloorcur" : "USD",
+          "at" : 1,
+          "wseat" : [ "dd", "ss" ],
+          "wadomain" : [ "ss.com", "abc.com" ],
+          "ext" : {
+            "dummy" : "deal.ext"
+          }
+        } ],
+        "ext" : {
+          "dummy" : "pmp.ext"
+        }
+      },
+      "displaymanager" : "dd",
+      "displaymanagerver" : "22",
+      "secure" : 1,
+      "tagid" : "re",
+      "exp" : 1,
+      "native" : {
+        "ver" : "1.1",
+        "api" : [ 3, 2 ],
+        "battr" : [ 2, 5, 8 ],
+        "ext" : {
+          "dummy" : "entry",
+          "priv" : 0,
+          "ctype" : [ 1 ]
+        },
+        "request" : "{\"native\":{\"ver\":\"1.2\",\"plcmtcnt\":1}}"
+      },
+      "ext" : {
+        "ssai" : 1,
+        "reward" : 1,
+        "admx" : 1,
+        "dt" : 1,
+        "dlvy" : 1,
+        "curlx" : 0,
+        "dummy" : "item.ext"
+      }
+    } ],
+    "app" : {
+      "id" : "abcde2345",
+      "name" : "android app",
+      "bundle" : "com.media.net",
+      "domain" : "www.foobar.com",
+      "storeurl" : "axcdabc.com/test123",
+      "cat" : [ "IAB3-1", "IAB3-2" ],
+      "sectioncat" : [ "zz", "dd" ],
+      "pagecat" : [ "ss", "as" ],
+      "ver" : "123",
+      "privacypolicy" : 1,
+      "paid" : 0,
+      "publisher" : {
+        "id" : "8953",
+        "name" : "foobar.com",
+        "cat" : [ "IAB3-1", "IAB3-2" ],
+        "domain" : "foobar.com",
+        "ext" : {
+          "cattax" : 2,
+          "dummy" : "ff"
+        }
+      },
+      "content" : {
+        "id" : "rfewa",
+        "episode" : 1,
+        "title" : "sf",
+        "series" : "rf",
+        "season" : "wed",
+        "genre" : "sefw",
+        "album" : "edwe",
+        "artist" : "we",
+        "isrc" : "ewde",
+        "producer" : {
+          "id" : "eew",
+          "name" : "edew",
+          "cat" : [ "IAB3-1", "IAB3-2" ],
+          "domain" : "abc.com",
+          "ext" : {
+            "cattax" : 2,
+            "dummy" : "ff"
+          }
+        },
+        "url" : "ewfe.com",
+        "cat" : [ "IAB3-1", "IAB3-2" ],
+        "prodq" : 1,
+        "videoquality" : 2,
+        "context" : 1,
+        "contentrating" : "wqewq",
+        "userrating" : "ewew",
+        "qagmediarating" : 1,
+        "keywords" : "efea",
+        "livestream" : 1,
+        "sourcerelationship" : 1,
+        "len" : 2,
+        "language" : "en",
+        "embeddable" : 1,
+        "data" : [ {
+          "id" : "1",
+          "name" : "Abcdef",
+          "segment" : [ {
+            "id" : "bcdef",
+            "name" : "name123",
+            "value" : "acde",
+            "ext" : {
+              "dummy" : "ff"
+            }
+          } ],
+          "ext" : {
+            "dummy" : "ff"
+          }
+        } ],
+        "ext" : {
+          "cattax" : 2,
+          "dummy" : "ff"
+        }
+      },
+      "keywords" : "ewew",
+      "ext" : {
+        "dummy" : "ff",
+        "cattax" : 2,
+        "storeid" : "abc1234"
+      }
+    },
+    "device" : {
+      "ua" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2",
+      "ip" : "123.145.167.10",
+      "geo" : {
+        "lat" : 22.22,
+        "lon" : 22.2,
+        "type" : 1,
+        "accuracy" : 1,
+        "lastfix" : 1,
+        "ipservice" : 2,
+        "country" : "sd",
+        "region" : "eew",
+        "regionfips104" : "eew",
+        "metro" : "ee",
+        "city" : "eew",
+        "zip" : "ewe",
+        "utcoffset" : 1,
+        "ext" : {
+          "dummy" : "geo.ext"
+        }
+      },
+      "dnt" : 1,
+      "lmt" : 1,
+      "ifa" : "ifa",
+      "ipv6" : "123.145.167.1.3.2",
+      "devicetype" : 2,
+      "make" : "weew",
+      "model" : "edew",
+      "os" : "android",
+      "osv" : "hwv",
+      "hwv" : "ww",
+      "h" : 2,
+      "w" : 2,
+      "ppi" : 1,
+      "pxratio" : 1.2,
+      "js" : 1,
+      "geofetch" : 2,
+      "flashver" : "ewe",
+      "language" : "weew",
+      "carrier" : "weew",
+      "mccmnc" : "ewew",
+      "connectiontype" : 2,
+      "ext" : {
+        "xff" : "1.2.3.4",
+        "iptr" : 1,
+        "dummy" : "device.ext"
+      }
+    },
+    "user" : {
+      "id" : "55816b39711f9b5acf3b90e313ed29e51665623f",
+      "buyeruid" : "eewew",
+      "yob" : 2,
+      "gender" : "M",
+      "keywords" : "ewew",
+      "customdata" : "ewew",
+      "geo" : {
+        "lat" : 22.22,
+        "lon" : 22.2,
+        "type" : 1,
+        "accuracy" : 1,
+        "lastfix" : 1,
+        "ipservice" : 2,
+        "country" : "sd",
+        "region" : "eew",
+        "regionfips104" : "eew",
+        "metro" : "ee",
+        "city" : "eew",
+        "zip" : "ewe",
+        "utcoffset" : 1,
+        "ext" : {
+          "dummy" : "geo1.ext"
+        }
+      },
+      "data" : [ {
+        "id" : "wwe",
+        "name" : "ee",
+        "segment" : [ {
+          "id" : "ew",
+          "name" : "rewfe",
+          "value" : "ew",
+          "ext" : {
+            "dummy" : "segment12.ext"
+          }
+        } ],
+        "ext" : {
+          "dummy" : "data12.ext"
+        }
+      } ],
+      "ext" : {
+        "consent" : "abcdef",
+        "dummy" : "user.ext"
+      }
+    }
+  },
+  "purpose" : "nativeStringConfigTrue",
+  "params" : {
+    "nativeRequestAsString" : true
+  },
+  "config" : null
+}

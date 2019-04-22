@@ -682,5 +682,6 @@
     }
   },
   "purpose" : "idStringFormat113",
-  "params" : null
+  "params" : null,
+  "config" : null
 }
