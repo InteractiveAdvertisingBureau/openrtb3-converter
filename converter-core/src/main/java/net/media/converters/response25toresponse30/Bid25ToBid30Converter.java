@@ -94,7 +94,9 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
           target.setExt(new HashMap<>());
         }
         target.getExt().put("protocol", source.getProtocol());
-        source.getExt().remove("protocol");
+        if (source.getExt().containsKey("protocol")) {
+          source.getExt().remove("protocol");
+        }
       }
       target.setMedia(converter.map(source, config, converterProvider));
       Map<String, Object> extCopy = Utils.copyMap(source.getExt(), config);

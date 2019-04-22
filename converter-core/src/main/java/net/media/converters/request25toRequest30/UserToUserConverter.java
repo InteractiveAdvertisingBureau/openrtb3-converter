@@ -69,8 +69,10 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
     }
     if (source.getExt() == null) return;
     try {
-      target.setConsent((String) source.getExt().get("consent"));
-      target.getExt().remove("consent");
+      if (source.getExt().containsKey("consent")) {
+        target.setConsent((String) source.getExt().get("consent"));
+        target.getExt().remove("consent");
+      }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for User", e);
     }

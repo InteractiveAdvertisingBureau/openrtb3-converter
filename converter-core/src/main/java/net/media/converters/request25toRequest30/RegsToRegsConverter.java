@@ -53,8 +53,10 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.R
     }
     if (source.getExt() == null) return;
     try {
-      target.setGdpr((Integer) source.getExt().get("gdpr"));
-      target.getExt().remove("gdpr");
+      if (source.getExt().containsKey("gdpr")) {
+        target.setGdpr((Integer) source.getExt().get("gdpr"));
+        target.getExt().remove("gdpr");
+      }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Regs", e);
     }
