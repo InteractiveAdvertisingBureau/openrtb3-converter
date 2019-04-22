@@ -581,5 +581,5 @@
   },
   "purpose" : "nativeStringConfigDefault",
   "params" : null,
-  "overRidingMap" : null
+  "config" : null
 }

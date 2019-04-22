@@ -343,5 +343,5 @@
   },
   "purpose" : "invalidData2",
   "params" : null,
-  "overRidingMap" : null
+  "config" : null
 }

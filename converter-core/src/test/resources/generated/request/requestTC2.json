@@ -683,5 +683,5 @@
   },
   "purpose" : "requestTC2",
   "params" : null,
-  "overRidingMap" : null
+  "config" : null
 }

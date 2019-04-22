@@ -686,5 +686,5 @@
   },
   "purpose" : "TC24",
   "params" : null,
-  "overRidingMap" : null
+  "config" : null
 }

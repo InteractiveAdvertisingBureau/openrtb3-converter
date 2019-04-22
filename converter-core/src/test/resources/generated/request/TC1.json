@@ -699,5 +699,5 @@
   },
   "purpose" : "TC1",
   "params" : null,
-  "overRidingMap" : null
+  "config" : null
 }

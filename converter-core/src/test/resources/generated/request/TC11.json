@@ -344,5 +344,5 @@
   },
   "purpose" : "TC11",
   "params" : null,
-  "overRidingMap" : null
+  "config" : null
 }

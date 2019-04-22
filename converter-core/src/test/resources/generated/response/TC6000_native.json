@@ -226,5 +226,5 @@
   },
   "purpose" : "TC6000_native",
   "params" : null,
-  "overRidingMap" : null
+  "config" : null
 }

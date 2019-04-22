@@ -686,5 +686,5 @@
   },
   "purpose" : "TC18",
   "params" : null,
-  "overRidingMap" : null
+  "config" : null
 }

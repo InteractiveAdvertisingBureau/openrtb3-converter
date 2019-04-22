@@ -226,5 +226,5 @@
   },
   "purpose" : "adTypeMappingSingleDefaultValue",
   "params" : null,
-  "overRidingMap" : null
+  "config" : null
 }
