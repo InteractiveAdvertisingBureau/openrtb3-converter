@@ -263,6 +263,10 @@ public class Config {
           isNull(this.nativeRequestAsString)
               ? config.nativeRequestAsString
               : this.nativeRequestAsString;
+      this.nativeResponseAsString =
+        isNull(this.nativeResponseAsString)
+          ? config.nativeResponseAsString
+          : this.nativeResponseAsString;
       this.adTypeMapping = isNull(this.adTypeMapping) ? config.adTypeMapping : this.adTypeMapping;
       this.validate = isNull(this.validate) ? config.validate : this.validate;
       this.disableCloning =
