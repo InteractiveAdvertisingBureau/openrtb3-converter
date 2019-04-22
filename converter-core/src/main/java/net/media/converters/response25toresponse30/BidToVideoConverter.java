@@ -60,11 +60,8 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
       Map<String, Object> ext = source.getExt();
       try {
         target.setCtype((Integer) ext.get("ctype"));
-        source.getExt().remove("ctype");
         target.setDur((Integer) ext.get("dur"));
-        source.getExt().remove("dur");
         target.setMime((Collection<String>) ext.get("mime"));
-        source.getExt().remove("mime");
       }
       catch (Exception e) {
         throw new OpenRtbConverterException("error while type casting bid.ext content", e);

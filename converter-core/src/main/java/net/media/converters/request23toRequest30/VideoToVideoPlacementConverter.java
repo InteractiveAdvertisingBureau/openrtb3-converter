@@ -22,11 +22,23 @@ import net.media.openrtb25.request.Video;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.util.Objects.nonNull;
 
 /** Created by rajat.go on 03/04/19. */
 public class VideoToVideoPlacementConverter
     extends net.media.converters.request25toRequest30.VideoToVideoPlacementConverter {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("placement");
+    extraFieldsInExt.add("playbackend");
+    extraFieldsInExt.add("skip");
+    extraFieldsInExt.add("skipmin");
+    extraFieldsInExt.add("skipafter");
+  }
 
   public void enhance(
       Video video, VideoPlacement videoPlacement, Config config, Provider converterProvider)
@@ -42,7 +54,6 @@ public class VideoToVideoPlacementConverter
           throw new OpenRtbConverterException(
               "Error in setting placement from video.ext.placement", e);
         }
-        video.getExt().remove("placement");
       }
       if (video.getExt().containsKey("playbackend")) {
         try {
@@ -51,7 +62,6 @@ public class VideoToVideoPlacementConverter
           throw new OpenRtbConverterException(
               "Error in setting playbackend from imp.ext" + ".playbackend", e);
         }
-        video.getExt().remove("playbackend");
       }
       if (video.getExt().containsKey("skip")) {
         try {
@@ -59,7 +69,6 @@ public class VideoToVideoPlacementConverter
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting skip from video.ext.skip", e);
         }
-        video.getExt().remove("skip");
       }
       if (video.getExt().containsKey("skipmin")) {
         try {
@@ -67,7 +76,6 @@ public class VideoToVideoPlacementConverter
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting skipmin from video.ext.skipmin", e);
         }
-        video.getExt().remove("skipmin");
       }
       if (video.getExt().containsKey("skipafter")) {
         try {
@@ -76,9 +84,9 @@ public class VideoToVideoPlacementConverter
           throw new OpenRtbConverterException(
               "Error in setting skipafter from video.ext" + ".skipafter", e);
         }
-        video.getExt().remove("skipafter");
       }
     }
     super.enhance(video, videoPlacement, config, converterProvider);
+    removeFromExt(videoPlacement.getExt(), extraFieldsInExt);
   }
 }

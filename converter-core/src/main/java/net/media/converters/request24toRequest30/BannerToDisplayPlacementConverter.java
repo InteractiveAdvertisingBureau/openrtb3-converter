@@ -23,11 +23,22 @@ import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.util.Objects.nonNull;
 
 /** Created by rajat.go on 03/04/19. */
 public class BannerToDisplayPlacementConverter
     extends net.media.converters.request25toRequest30.BannerToDisplayPlacementConverter {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("vcm");
+    extraFieldsInExt.add("wratio");
+    extraFieldsInExt.add("hratio");
+    extraFieldsInExt.add("wmin");
+  }
 
   public void enhance(
       Banner banner, DisplayPlacement displayPlacement, Config config, Provider converterProvider)
@@ -42,7 +53,6 @@ public class BannerToDisplayPlacementConverter
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting vcm from banner.ext.vcm", e);
         }
-        banner.getExt().remove("vcm");
       }
     }
     if (nonNull(banner.getFormat())) {
@@ -55,7 +65,6 @@ public class BannerToDisplayPlacementConverter
               throw new OpenRtbConverterException(
                   "Error in setting wratio from banner.format.ext" + ".wratio", e);
             }
-            format.getExt().remove("wratio");
           }
           if (format.getExt().containsKey("hratio")) {
             try {
@@ -64,7 +73,6 @@ public class BannerToDisplayPlacementConverter
               throw new OpenRtbConverterException(
                   "Error in setting hratio from banner.ext" + ".hratio", e);
             }
-            format.getExt().remove("hratio");
           }
           if (format.getExt().containsKey("wmin")) {
             try {
@@ -73,11 +81,11 @@ public class BannerToDisplayPlacementConverter
               throw new OpenRtbConverterException(
                   "Error in setting wmin from banner.ext" + ".wmin", e);
             }
-            format.getExt().remove("wmin");
           }
         }
       }
     }
     super.enhance(banner, displayPlacement, config, converterProvider);
+    removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
   }
 }

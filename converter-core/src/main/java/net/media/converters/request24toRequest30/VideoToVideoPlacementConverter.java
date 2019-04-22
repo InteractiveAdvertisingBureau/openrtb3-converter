@@ -22,11 +22,20 @@ import net.media.openrtb25.request.Video;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.util.Objects.nonNull;
 
 /** Created by rajat.go on 03/04/19. */
 public class VideoToVideoPlacementConverter
     extends net.media.converters.request25toRequest30.VideoToVideoPlacementConverter {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("placement");
+    extraFieldsInExt.add("playbackend");
+  }
 
   public void enhance(
       Video video, VideoPlacement videoPlacement, Config config, Provider converterProvider)
@@ -55,5 +64,6 @@ public class VideoToVideoPlacementConverter
       }
     }
     super.enhance(video, videoPlacement, config, converterProvider);
+    removeFromExt(videoPlacement.getExt(), extraFieldsInExt);
   }
 }

@@ -30,12 +30,20 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /** Created by rajat.go on 03/01/19. */
 public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Request> {
 
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("cattax");
+    extraFieldsInExt.add("restrictions");
+    extraFieldsInExt.add("dooh");
+  }
   private String bidRequestUserCustomdata(BidRequest2_X bidRequest) {
     if (bidRequest == null) {
       return null;
@@ -114,23 +122,17 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
       target.setSeat(Utils.copyCollection(source.getBseat(), config));
     }
     if (target.getExt() == null) return;
-    if (target.getExt().containsKey("cattax")) {
-      target.getExt().remove("cattax");
-    }
-    if (target.getExt().containsKey("restrictions")) {
-      target.getExt().remove("restrictions");
-    }
     if (source.getExt() == null) return;
     if (source.getExt().containsKey("dooh")) {
       if (target.getContext() == null) target.setContext(new Context());
       try {
         target.getContext().setDooh(Utils.getMapper().convertValue(source.getExt().get("dooh"),
           Dooh.class));
-        target.getExt().remove("dooh");
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for BidRequest2_X", e);
       }
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 
   private void bidRequestToSpec(BidRequest2_X bidRequest, Spec mappingTarget, Config config) {

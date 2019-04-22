@@ -26,6 +26,7 @@ import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class DataToDataConverter implements Converter<Data, net.media.openrtb25.request.Data> {
@@ -63,7 +64,7 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb25.
             source.getSegment(), segmentSegmentConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
   }
 }

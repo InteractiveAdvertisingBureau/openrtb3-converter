@@ -73,7 +73,7 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb25.req
     target.setKeywords(source.getKeywords());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
     if (source.getCattax() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());

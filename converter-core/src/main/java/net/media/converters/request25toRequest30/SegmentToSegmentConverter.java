@@ -22,6 +22,7 @@ import net.media.openrtb25.request.Segment;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class SegmentToSegmentConverter implements Converter<Segment, net.media.openrtb3.Segment> {
@@ -50,7 +51,7 @@ public class SegmentToSegmentConverter implements Converter<Segment, net.media.o
     target.setValue(source.getValue());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
   }
 }

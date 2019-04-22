@@ -22,6 +22,8 @@ import net.media.openrtb25.request.Deal;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.HashMap;
+
 /** Created by rajat.go on 03/01/19. */
 public class DealToDealConverter implements Converter<Deal, net.media.openrtb3.Deal> {
   @Override
@@ -47,6 +49,6 @@ public class DealToDealConverter implements Converter<Deal, net.media.openrtb3.D
     deal1.setAt(deal.getAt());
     deal1.setWseat(Utils.copyCollection(deal.getWseat(), config));
     deal1.setWadomain(Utils.copyCollection(deal.getWadomain(), config));
-    deal1.setExt(Utils.copyMap(deal.getExt(), config));
+    deal1.setExt(new HashMap<>(deal.getExt()));
   }
 }

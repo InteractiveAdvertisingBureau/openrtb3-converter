@@ -24,13 +24,21 @@ import net.media.openrtb3.Audit;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
-import java.util.Collection;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.isNull;
 
 /** @author shiva.b */
 public class BidToAuditConverter implements Converter<Bid, Audit> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("corr");
+    extraFieldsInExt.add("status");
+    extraFieldsInExt.add("audit");
+    extraFieldsInExt.add("lastmod");
+    extraFieldsInExt.add("feedback");
+  }
   @Override
   public Audit map(Bid source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -51,7 +59,7 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
     Map<String, Object> map = source.getExt();
     if (map != null) {
       try {
-        target.setExt(Utils.copyMap(map, config));
+        target.setExt(new HashMap<>(map));
         if (map.containsKey("corr")) {
           target.setCorr((Map<String, Object>) map.get("corr"));
         }
@@ -73,5 +81,6 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
     } else {
       target.setExt(null);
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

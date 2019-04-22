@@ -75,7 +75,6 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_
     try {
       if (source.getExt().containsKey("cattax")) {
         target.setCattax((Integer) source.getExt().get("cattax"));
-        source.getExt().remove("cattax");
       } else {
         target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
@@ -89,7 +88,6 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException("Error in converting pmp ext ", e);
         }
-        source.getExt().remove("restrictions");
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for BidRequest2_X", e);

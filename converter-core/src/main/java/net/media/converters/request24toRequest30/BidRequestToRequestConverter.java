@@ -24,13 +24,23 @@ import net.media.openrtb3.Request;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import static java.util.Objects.nonNull;
 
 /** Created by rajat.go on 02/04/19. */
 public class BidRequestToRequestConverter
     extends net.media.converters.request25toRequest30.BidRequestToRequestConverter {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("bseat");
+    extraFieldsInExt.add("wlang");
+    extraFieldsInExt.add("source");
+    extraFieldsInExt.add("wmin");
+  }
 
   public void enhance(
       BidRequest2_X source, Request target, Config config, Provider converterProvider)
@@ -46,7 +56,6 @@ public class BidRequestToRequestConverter
           throw new OpenRtbConverterException(
               "Error in setting bseat from bidRequest.ext.bseat", e);
         }
-        source.getExt().remove("bseat");
       }
       if (source.getExt().containsKey("wlang")) {
         try {
@@ -55,7 +64,6 @@ public class BidRequestToRequestConverter
           throw new OpenRtbConverterException(
               "Error in setting wlang from bidRequest.ext.wlang", e);
         }
-        source.getExt().remove("wlang");
       }
       if (source.getExt().containsKey("source")) {
         try {
@@ -66,9 +74,9 @@ public class BidRequestToRequestConverter
           throw new OpenRtbConverterException(
               "Error in setting source from bidRequest.ext.source", e);
         }
-        source.getExt().remove("source");
       }
     }
     super.enhance(source, target, config, converterProvider);
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

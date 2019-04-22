@@ -26,6 +26,7 @@ import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
@@ -58,12 +59,11 @@ public class CompanionToBannerConverter implements Converter<Companion, Banner> 
     banner.setId(companion.getId());
     Map<String, Object> map = companion.getExt();
     if (map != null) {
-      if (banner.getExt() == null) banner.setExt(Utils.copyMap(map, config));
+      if (banner.getExt() == null) banner.setExt(new HashMap<>(map));
       else
         try {
-          Map<String, Object> copyMap = Utils.copyMap(map, config);
-          if (nonNull(copyMap)) {
-            banner.getExt().putAll(copyMap);
+          if (nonNull(map)) {
+            banner.getExt().putAll(map);
           }
         } catch (Exception e) {
           throw new OpenRtbConverterException("companion to banner conversion failed ", e);

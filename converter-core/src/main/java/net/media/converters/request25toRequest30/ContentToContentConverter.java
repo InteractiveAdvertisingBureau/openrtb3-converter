@@ -27,12 +27,19 @@ import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
 public class ContentToContentConverter implements Converter<Content, net.media.openrtb3.Content> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("cattax");
+  }
 
   @Override
   public net.media.openrtb3.Content map(Content source, Config config, Provider converterProvider)
@@ -88,14 +95,13 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
             source.getData(), dataDataConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
 
     if (source.getExt() == null) return;
     try {
       if (source.getExt().containsKey("cattax")) {
         target.setCattax((Integer) source.getExt().get("cattax"));
-        target.getExt().remove("cattax");
       } else {
         target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
@@ -106,5 +112,6 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
       if (target.getExt() == null) target.setExt(new HashMap<>());
       target.getExt().put("videoquality", source.getVideoquality());
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

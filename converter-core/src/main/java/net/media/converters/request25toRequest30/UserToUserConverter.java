@@ -27,9 +27,17 @@ import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserToUserConverter implements Converter<User, net.media.openrtb3.User> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("consent");
+  }
 
   @Override
   public net.media.openrtb3.User map(User source, Config config, Provider converterProvider)
@@ -65,16 +73,16 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
             source.getData(), dataDataConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
     if (source.getExt() == null) return;
     try {
       if (source.getExt().containsKey("consent")) {
         target.setConsent((String) source.getExt().get("consent"));
-        target.getExt().remove("consent");
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for User", e);
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

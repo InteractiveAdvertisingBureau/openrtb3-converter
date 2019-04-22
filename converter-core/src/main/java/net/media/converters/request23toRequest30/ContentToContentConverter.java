@@ -25,13 +25,25 @@ import net.media.openrtb25.request.Data;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import static java.util.Objects.nonNull;
 
 /** Created by rajat.go on 03/04/19. */
 public class ContentToContentConverter
     extends net.media.converters.request25toRequest30.ContentToContentConverter {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("artist");
+    extraFieldsInExt.add("genre");
+    extraFieldsInExt.add("album");
+    extraFieldsInExt.add("isrc");
+    extraFieldsInExt.add("prodq");
+    extraFieldsInExt.add("data");
+  }
 
   private static final JavaType javaTypeForDataCollection = Utils.getMapper().getTypeFactory()
     .constructCollectionType(Collection.class, Data.class);
@@ -94,5 +106,6 @@ public class ContentToContentConverter
       }
     }
     super.enhance(source, target, config, converterProvider);
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

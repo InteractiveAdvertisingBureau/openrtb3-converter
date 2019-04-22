@@ -23,11 +23,23 @@ import net.media.openrtb25.request.Source;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /** Created by rajat.go on 03/01/19. */
 public class SourceToSourceConverter implements Converter<Source, net.media.openrtb3.Source> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("ts");
+    extraFieldsInExt.add("ds");
+    extraFieldsInExt.add("dsmap");
+    extraFieldsInExt.add("cert");
+    extraFieldsInExt.add("digest");
+  }
+
   @Override
   public net.media.openrtb3.Source map(Source source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -51,7 +63,7 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
     target.setPchain(source.getPchain());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
     if (source.getFd() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
@@ -64,23 +76,9 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
       target.setDsmap((String) source.getExt().get("dsmap"));
       target.setCert((String) source.getExt().get("cert"));
       target.setDigest((String) source.getExt().get("digest"));
-      if (target.getExt().containsKey("ts")) {
-        target.getExt().remove("ts");
-      }
-      if (target.getExt().containsKey("ds")) {
-        target.getExt().remove("ds");
-      }
-      if (target.getExt().containsKey("dsmap")) {
-        target.getExt().remove("dsmap");
-      }
-      if (target.getExt().containsKey("cert")) {
-        target.getExt().remove("cert");
-      }
-      if (target.getExt().containsKey("digest")) {
-        target.getExt().remove("digest");
-      }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Source", e);
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

@@ -33,6 +33,19 @@ import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 public class DisplayPlacementToBannerConverter implements Converter<DisplayPlacement, Banner> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static List<String> extraFieldsInFormatExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("btype");
+    extraFieldsInExt.add("id");
+    extraFieldsInExt.add("hmax");
+    extraFieldsInExt.add("wmax");
+    extraFieldsInExt.add("hmin");
+    extraFieldsInExt.add("wmin");
+    extraFieldsInFormatExt.add("wmin");
+  }
+
   @Override
   public Banner map(DisplayPlacement displayPlacement, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -84,11 +97,10 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     banner.setApi(Utils.copyCollection(displayPlacement.getApi(), config));
     Map<String, Object> map = displayPlacement.getExt();
     if (map != null) {
-      banner.setExt(Utils.copyMap(map, config));
+      banner.setExt(new HashMap<>(map));
       if (map.containsKey("btype")) {
         try {
           banner.setBtype(Utils.copyCollection((Collection<Integer>) map.get("btype"), config));
-          banner.getExt().remove("btype");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
               "error while typecasting ext for DisplayPlacement", e);
@@ -97,7 +109,6 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       if (map.containsKey("id")) {
         try {
           banner.setId((String) map.get("id"));
-          banner.getExt().remove("id");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
               "error while typecasting ext for DisplayPlacement", e);
@@ -106,7 +117,6 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       if (map.containsKey("hmax")) {
         try {
           banner.setHmax((Integer) map.get("hmax"));
-          banner.getExt().remove("hmax");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
               "error while typecasting ext for DisplayPlacement", e);
@@ -115,7 +125,6 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       if (map.containsKey("wmax")) {
         try {
           banner.setWmax((Integer) map.get("wmax"));
-          banner.getExt().remove("wmax");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
               "error while typecasting ext for DisplayPlacement", e);
@@ -124,7 +133,6 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       if (map.containsKey("hmin")) {
         try {
           banner.setHmin((Integer) map.get("hmin"));
-          banner.getExt().remove("hmin");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
               "error while typecasting ext for DisplayPlacement", e);
@@ -133,7 +141,6 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       if (map.containsKey("wmin")) {
         try {
           banner.setWmin((Integer) map.get("wmin"));
-          banner.getExt().remove("wmin");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
               "error while typecasting ext for DisplayPlacement", e);
@@ -170,6 +177,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       }
       banner.getExt().put("priv", displayPlacement.getPriv());
     }
+    removeFromExt(banner.getExt(), extraFieldsInExt);
   }
 
   private Collection<Format> displayFormatListToFormatList(
@@ -200,7 +208,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     format.setHratio(displayFormat.getHratio());
     Map<String, Object> map = displayFormat.getExt();
     if (map != null) {
-      format.setExt(Utils.copyMap(map, config));
+      format.setExt(new HashMap<>(map));
       try {
         if (map.containsKey("wmin")) {
           format.setWmin((Integer) map.get("wmin"));
@@ -210,7 +218,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
         throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
       }
     }
-
+    removeFromExt(format.getExt(), extraFieldsInFormatExt);
     return format;
   }
 }

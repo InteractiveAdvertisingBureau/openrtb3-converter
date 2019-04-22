@@ -23,6 +23,8 @@ import net.media.openrtb25.response.nativeresponse.Link;
 import net.media.openrtb3.LinkAsset;
 import net.media.utils.Provider;
 
+import java.util.HashMap;
+
 /** @author shiva.b */
 public class LinkToLinkAssetConverter implements Converter<Link, LinkAsset> {
 
@@ -46,6 +48,6 @@ public class LinkToLinkAssetConverter implements Converter<Link, LinkAsset> {
     target.setUrl(source.getUrl());
     target.setUrlfb(source.getFallback());
     target.setTrkr(source.getClicktrackers());
-    target.setExt(source.getExt());
+    target.setExt(new HashMap<>(source.getExt()));
   }
 }

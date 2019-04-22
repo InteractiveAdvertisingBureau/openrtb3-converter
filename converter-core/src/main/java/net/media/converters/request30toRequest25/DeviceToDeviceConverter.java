@@ -26,11 +26,18 @@ import net.media.utils.OsMap;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DeviceToDeviceConverter
     implements Converter<Device, net.media.openrtb25.request.Device> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("flashver");
+  }
 
   @Override
   public net.media.openrtb25.request.Device map(
@@ -89,12 +96,11 @@ public class DeviceToDeviceConverter
       if (map.containsKey("flashver")) {
         try {
           target.setFlashver((String) source.getExt().get("flashver"));
-          map.remove("flashver");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException("error while typecasting ext for Device", e);
         }
       }
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
     if (source.getXff() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
@@ -108,5 +114,6 @@ public class DeviceToDeviceConverter
       if (target.getExt() == null) target.setExt(new HashMap<>());
       target.getExt().put("mccmncsim", source.getMccmncsim());
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

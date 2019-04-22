@@ -23,9 +23,17 @@ import net.media.openrtb25.request.Regs;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.Regs> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("gdpr");
+  }
 
   @Override
   public net.media.openrtb3.Regs map(Regs source, Config config, Provider converterProvider)
@@ -49,13 +57,12 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.R
     target.setCoppa(source.getCoppa());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
     if (source.getExt() == null) return;
     try {
       if (source.getExt().containsKey("gdpr")) {
         target.setGdpr((Integer) source.getExt().get("gdpr"));
-        target.getExt().remove("gdpr");
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Regs", e);

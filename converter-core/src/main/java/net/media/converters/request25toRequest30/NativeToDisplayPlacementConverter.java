@@ -41,6 +41,11 @@ import static java.util.Objects.nonNull;
 /** Created by rajat.go on 03/01/19. */
 public class NativeToDisplayPlacementConverter implements Converter<Native, DisplayPlacement> {
 
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("ctype");
+    extraFieldsInExt.add("priv");
+  }
   @Override
   public DisplayPlacement map(Native nat, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -102,22 +107,15 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
             } catch (ClassCastException e) {
               throw new OpenRtbConverterException("error while typecasting ext for Native", e);
             }
-            if (nonNull(displayPlacement.getNativefmt())
-                && nonNull(displayPlacement.getNativefmt().getExt())) {
-              displayPlacement.getExt().remove("ctype");
-            }
           }
         }
         if (nonNull(nat.getExt())) {
           if (nat.getExt().containsKey("priv")) {
             displayPlacement.setPriv((Integer) nat.getExt().get("priv"));
-            if (nonNull(displayPlacement.getNativefmt())
-                && nonNull(displayPlacement.getNativefmt().getExt())) {
-              displayPlacement.getExt().remove("priv");
-            }
           }
         }
       }
     }
+    removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
   }
 }

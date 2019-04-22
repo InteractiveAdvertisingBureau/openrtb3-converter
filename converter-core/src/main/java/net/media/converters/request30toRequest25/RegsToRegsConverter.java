@@ -50,7 +50,7 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb25.
     target.setCoppa(source.getCoppa());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
     if (source.getGdpr() == null) return;
     if (target.getExt() == null) target.setExt(new HashMap<>());

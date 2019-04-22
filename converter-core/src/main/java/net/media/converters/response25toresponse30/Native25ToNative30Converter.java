@@ -58,7 +58,7 @@ public class Native25ToNative30Converter implements Converter<NativeResponse, Na
     if (source == null || target == null || source.getNativeResponseBody() == null) {
       return;
     }
-    target.setExt(Utils.copyMap(source.getNativeResponseBody().getExt(), config));
+    target.setExt(new HashMap<>(source.getNativeResponseBody().getExt()));
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }

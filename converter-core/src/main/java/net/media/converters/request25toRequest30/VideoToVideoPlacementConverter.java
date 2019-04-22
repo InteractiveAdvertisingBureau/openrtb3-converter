@@ -29,11 +29,22 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 /** Created by rajat.go on 03/01/19. */
 public class VideoToVideoPlacementConverter implements Converter<Video, VideoPlacement> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("unit");
+    extraFieldsInExt.add("maxseq");
+    extraFieldsInExt.add("qty");
+  }
 
   @Override
   public VideoPlacement map(Video video, Config config, Provider converterProvider)
@@ -83,7 +94,6 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     videoPlacement.setW(video.getW());
     videoPlacement.setH(video.getH());
     videoPlacement.setDelivery(Utils.copyCollection(video.getDelivery(), config));
-    videoPlacement.setExt(Utils.copyMap(video.getExt(), config));
     videoToVideoPlacementAfterMapping(video, config, videoPlacement);
   }
 
@@ -91,21 +101,17 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
       Video video, Config config, VideoPlacement videoPlacement) throws OpenRtbConverterException {
     try {
       if (nonNull(video) && nonNull(video.getExt()) && nonNull(videoPlacement)) {
-        videoPlacement.setExt((Utils.copyMap(video.getExt(), config)));
+        videoPlacement.setExt(new HashMap<>(video.getExt()));
         if (video.getExt().containsKey("unit")) {
           videoPlacement.setUnit((Integer) video.getExt().get("unit"));
-          videoPlacement.getExt().remove("unit");
         }
         if (video.getExt().containsKey("maxseq")) {
           videoPlacement.setMaxseq((Integer) video.getExt().get("maxseq"));
-          videoPlacement.getExt().remove("maxseq");
-        }
-        if (videoPlacement.getExt().containsKey("qty")) {
-          videoPlacement.getExt().remove("qty");
         }
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Video", e);
     }
+    removeFromExt(videoPlacement.getExt(), extraFieldsInExt);
   }
 }

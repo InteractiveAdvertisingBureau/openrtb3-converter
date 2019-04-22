@@ -27,11 +27,18 @@ import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ContentToContentConverter
     implements Converter<Content, net.media.openrtb25.request.Content> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("videoquality");
+  }
 
   @Override
   public net.media.openrtb25.request.Content map(
@@ -90,7 +97,7 @@ public class ContentToContentConverter
             source.getData(), dataDataConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
     if (source.getCattax() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
@@ -100,11 +107,11 @@ public class ContentToContentConverter
       if (source.getExt().containsKey("videoquality")) {
         try {
           target.setVideoquality((Integer) source.getExt().get("videoquality"));
-          target.getExt().remove("videoquality");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException("error while typecasting ext for Content", e);
         }
       }
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

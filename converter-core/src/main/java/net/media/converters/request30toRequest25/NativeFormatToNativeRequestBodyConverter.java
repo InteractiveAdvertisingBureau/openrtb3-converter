@@ -28,11 +28,23 @@ import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 public class NativeFormatToNativeRequestBodyConverter
     implements Converter<NativeFormat, NativeRequestBody> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("contextsubtype");
+    extraFieldsInExt.add("adunit");
+    extraFieldsInExt.add("layout");
+    extraFieldsInExt.add("ver");
+  }
 
   @Override
   public NativeRequestBody map(NativeFormat nativeFormat, Config config, Provider converterProvider)
@@ -60,7 +72,6 @@ public class NativeFormatToNativeRequestBodyConverter
         try {
           nativeRequestBody.setContextsubtype(
               (Integer) nativeFormat.getExt().get("contextsubtype"));
-          nativeFormat.getExt().remove("contextsubtype");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
               "error while typecasting ext for DisplayPlacement", e);
@@ -69,7 +80,6 @@ public class NativeFormatToNativeRequestBodyConverter
       if (nativeFormat.getExt().containsKey("adunit")) {
         try {
           nativeRequestBody.setAdunit((Integer) nativeFormat.getExt().get("adunit"));
-          nativeFormat.getExt().remove("adunit");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
               "error while typecasting ext for DisplayPlacement", e);
@@ -78,7 +88,6 @@ public class NativeFormatToNativeRequestBodyConverter
       if (nativeFormat.getExt().containsKey("layout")) {
         try {
           nativeRequestBody.setLayout((Integer) nativeFormat.getExt().get("layout"));
-          nativeFormat.getExt().remove("layout");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
               "error while typecasting ext for DisplayPlacement", e);
@@ -87,18 +96,18 @@ public class NativeFormatToNativeRequestBodyConverter
       if (nativeFormat.getExt().containsKey("ver")) {
         try {
           nativeRequestBody.setVer((String) nativeFormat.getExt().get("ver"));
-          nativeFormat.getExt().remove("ver");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
               "error while typecasting ext for DisplayPlacement", e);
         }
       }
     }
-    nativeRequestBody.setExt(Utils.copyMap(nativeFormat.getExt(), config));
+    nativeRequestBody.setExt(new HashMap<>(nativeFormat.getExt()));
     Converter<AssetFormat, Asset> assetFormatAssetConverter =
         converterProvider.fetch(new Conversion<>(AssetFormat.class, Asset.class));
     nativeRequestBody.setAssets(
         CollectionToCollectionConverter.convert(
             nativeFormat.getAsset(), assetFormatAssetConverter, config, converterProvider));
+    removeFromExt(nativeRequestBody.getExt(), extraFieldsInExt);
   }
 }

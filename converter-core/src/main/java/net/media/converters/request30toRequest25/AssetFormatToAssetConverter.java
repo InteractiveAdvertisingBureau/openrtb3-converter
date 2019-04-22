@@ -57,7 +57,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     asset.setImg(imageAssetFormatToNativeImage(assetFormat.getImg(), config));
     asset.setVideo(videoAssetFormatToVideoImage(assetFormat.getVideo(), config));
     asset.setData(dataAssetFormatToNativeData(assetFormat.getData(), config));
-    asset.setExt(Utils.copyMap(assetFormat.getExt(), config));
+    asset.setExt(new HashMap<>(assetFormat.getExt()));
 
     if (asset.getExt() == null) {
       asset.setExt(new HashMap<>());
@@ -91,7 +91,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     NativeTitle nativeTitle = new NativeTitle();
 
     nativeTitle.setLen(titleAssetFormat.getLen());
-    nativeTitle.setExt(Utils.copyMap(titleAssetFormat.getExt(), config));
+    nativeTitle.setExt(new HashMap<>(titleAssetFormat.getExt()));
 
     return nativeTitle;
   }
@@ -112,7 +112,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     nativeImage.setHmin(imageAssetFormat.getHmin());
     Map<String, Object> map = imageAssetFormat.getExt();
     if (map != null) {
-      nativeImage.setExt(Utils.copyMap(map, config));
+      nativeImage.setExt(new HashMap<>(map));
     }
     try {
       if (imageAssetFormat.getHratio() != null) {
@@ -141,7 +141,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     nativeVideo.setMinduration(videoPlacement.getMindur());
     nativeVideo.setMaxduration(videoPlacement.getMaxdur());
     nativeVideo.setMimes(Utils.copyCollection(videoPlacement.getMime(), config));
-    nativeVideo.setExt(Utils.copyMap(videoPlacement.getExt(), config));
+    nativeVideo.setExt(new HashMap<>(videoPlacement.getExt()));
     nativeVideo.getExt().put("boxingallowed", videoPlacement.getBoxing());
     nativeVideo.getExt().put("ptype", videoPlacement.getPtype());
     nativeVideo.getExt().put("pos", videoPlacement.getPos());
@@ -177,7 +177,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
 
     nativeData.setType(dataAssetFormat.getType());
     nativeData.setLen(dataAssetFormat.getLen());
-    nativeData.setExt(Utils.copyMap(dataAssetFormat.getExt(), config));
+    nativeData.setExt(new HashMap<>(dataAssetFormat.getExt()));
 
     return nativeData;
   }

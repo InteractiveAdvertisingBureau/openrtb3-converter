@@ -26,13 +26,21 @@ import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import static java.util.Objects.nonNull;
 
 /** Created by rajat.go on 03/04/19. */
 public class BannerToDisplayPlacementConverter
     extends net.media.converters.request25toRequest30.BannerToDisplayPlacementConverter {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("vcm");
+    extraFieldsInExt.add("format");
+  }
 
 	private static final JavaType javaTypeForFormatCollection = Utils.getMapper().getTypeFactory()
 			.constructCollectionType(Collection.class, Format.class);
@@ -46,7 +54,6 @@ public class BannerToDisplayPlacementConverter
     if (nonNull(banner.getExt())) {
       if (banner.getExt().containsKey("vcm")) {
         banner.setVcm((Integer) banner.getExt().get("vcm"));
-        banner.getExt().remove("vcm");
       }
       if (banner.getExt().containsKey("format")) {
         try {
@@ -56,9 +63,9 @@ public class BannerToDisplayPlacementConverter
           throw new OpenRtbConverterException(
               "Error in setting banner.format from banner.ext" + ".format", e);
         }
-        banner.getExt().remove("format");
       }
     }
     super.enhance(banner, displayPlacement, config, converterProvider);
+    removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
   }
 }

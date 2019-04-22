@@ -23,9 +23,18 @@ import net.media.openrtb3.Geo;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.request.Geo> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("regionfips104");
+  }
+
   @Override
   public net.media.openrtb25.request.Geo map(Geo source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -62,11 +71,11 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.req
     if (source.getExt().containsKey("regionfips104")) {
       try {
         target.setRegionfips104((String) source.getExt().get("regionfips104"));
-        source.getExt().remove("regionfips104");
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for Geo", e);
       }
     }
-    target.setExt(Utils.copyMap(map, config));
+    target.setExt(new HashMap<>(map));
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

@@ -56,7 +56,7 @@ public class PublisherToPublisherConverter
     target.setDomain(source.getDomain());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
     if (nonNull(source.getCattax())) {
       if (target.getExt() == null) target.setExt(new HashMap<>());

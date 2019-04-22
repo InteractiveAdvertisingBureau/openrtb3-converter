@@ -25,8 +25,16 @@ import net.media.openrtb3.Companion;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /** Created by rajat.go on 03/01/19. */
 public class BannerToCompanionConverter implements Converter<Banner, Companion> {
+
+  static List<String> extraFieldsInDisplay = new ArrayList<>();
+  static {
+    extraFieldsInDisplay.add("id");
+  }
 
   @Override
   public Companion map(Banner banner, Config config, Provider converterProvider)
@@ -54,11 +62,7 @@ public class BannerToCompanionConverter implements Converter<Banner, Companion> 
     companion.setId(banner.getId());
     if (companion.getDisplay() != null) {
       companion.getDisplay().setClktype(null); // remove clktype for companion
-      if (companion.getDisplay().getExt() != null) {
-        if (companion.getDisplay().getExt().containsKey("id")) {
-          companion.getDisplay().getExt().remove("id");
-        }
-      }
+      removeFromExt(companion.getDisplay().getExt(),extraFieldsInDisplay);
     }
   }
 }

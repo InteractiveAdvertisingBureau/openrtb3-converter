@@ -109,6 +109,5 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
     }
-    //    nat.setExt(Utils.copyMap(displayPlacement.getExt(), config));
   }
 }

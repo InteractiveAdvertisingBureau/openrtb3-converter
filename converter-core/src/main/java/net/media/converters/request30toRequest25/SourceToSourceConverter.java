@@ -23,11 +23,19 @@ import net.media.openrtb3.Source;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SourceToSourceConverter
     implements Converter<Source, net.media.openrtb25.request.Source> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("fd");
+  }
+
   @Override
   public net.media.openrtb25.request.Source map(
       Source source, Config config, Provider converterProvider) throws OpenRtbConverterException {
@@ -54,7 +62,7 @@ public class SourceToSourceConverter
     target.setPchain(source.getPchain());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
     if (source.getTs() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
@@ -81,10 +89,10 @@ public class SourceToSourceConverter
     if (source.getExt().containsKey("fd")) {
       try {
         target.setFd((Integer) source.getExt().get("fd"));
-        target.getExt().remove("fd");
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for Source", e);
       }
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

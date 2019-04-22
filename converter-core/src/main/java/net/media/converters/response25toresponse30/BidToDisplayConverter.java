@@ -109,16 +109,12 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
       try {
         Map<String, Object> ext = source.getExt();
         target.setCtype((Integer) ext.get("ctype"));
-        source.getExt().remove("ctype");
         target.setPriv((String) ext.get("priv"));
-        source.getExt().remove("priv");
         target.setMime((String) ext.get("mime"));
-        source.getExt().remove("mime");
 
         if (config.getAdType(source.getId()) == AdType.BANNER) {
           if (ext.containsKey("banner")) {
             target.setBanner(Utils.getMapper().convertValue(ext.get("banner"), Banner.class));
-            source.getExt().remove("banner");
           }
         } else if (config.getAdType(source.getId()) == AdType.NATIVE) {
           if (ext.containsKey("native")) {
@@ -130,7 +126,6 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
               throw new OpenRtbConverterException(
                   "Error in setting displayConverter.native from " + "bid.ext.native", e);
             }
-            source.getExt().remove("native");
           }
         }
         try {
@@ -140,7 +135,6 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
           throw new OpenRtbConverterException("error while setting display.event from bid.ext" +
             ".event", e);
         }
-        source.getExt().remove("event");
       }
       catch (Exception e) {
         throw new OpenRtbConverterException("error while casting contents of bid.ext", e);

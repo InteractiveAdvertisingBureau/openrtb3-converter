@@ -35,6 +35,18 @@ import static java.util.Objects.nonNull;
 /** @author shiva.b */
 public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset> {
 
+  static List<String> extraFieldsInDataExt = new ArrayList<>();
+  static List<String> extraFieldsInImageAssetExt = new ArrayList<>();
+  static List<String> extraFieldsInTitleAssetExt = new ArrayList<>();
+  static List<String> extraFieldsInVideoAssetExt = new ArrayList<>();
+  static {
+    extraFieldsInDataExt.add("type");
+    extraFieldsInDataExt.add("len");
+    extraFieldsInImageAssetExt.add("type");
+    extraFieldsInTitleAssetExt.add("len");
+    extraFieldsInVideoAssetExt.add("curl");
+  }
+
   @Override
   public Asset map(AssetResponse source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -61,14 +73,14 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     Converter<Link, LinkAsset> converter =
         converterProvider.fetch(new Conversion<>(Link.class, LinkAsset.class));
     target.setLink(converter.map(source.getLink(), config, converterProvider));
-    target.setExt(Utils.copyMap(source.getExt(), config));
+    target.setExt(new HashMap<>(source.getExt()));
   }
 
   private DataAsset nativeDataToData(NativeData nativeData, Config config)
       throws OpenRtbConverterException {
     if (isNull(nativeData)) return null;
     DataAsset dataAsset = new DataAsset();
-    dataAsset.setExt(Utils.copyMap(nativeData.getExt(), config));
+    dataAsset.setExt(new HashMap<>(nativeData.getExt()));
     List<String> value = new ArrayList<>();
     value.add(nativeData.getValue());
     dataAsset.setValue(value);
@@ -89,6 +101,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     if(isNull(dataAsset.getExt()))
       dataAsset.setExt(new HashMap<>());
     dataAsset.getExt().put("label",nativeData.getLabel());
+    removeFromExt(dataAsset.getExt(), extraFieldsInDataExt);
     return dataAsset;
   }
 
@@ -101,7 +114,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     imageAsset.setH(nativeImage.getH());
     imageAsset.setW(nativeImage.getW());
     imageAsset.setUrl(nativeImage.getUrl());
-    imageAsset.setExt(Utils.copyMap(nativeImage.getExt(), config));
+    imageAsset.setExt(new HashMap<>(nativeImage.getExt()));
     try {
       if (nonNull(nativeImage.getExt())) {
         if (nativeImage.getExt().containsKey("type")) {
@@ -113,6 +126,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     catch (Exception e) {
       throw new OpenRtbConverterException("error while type casting ext for image asset" ,e);
     }
+    removeFromExt(imageAsset.getExt(), extraFieldsInImageAssetExt);
     return imageAsset;
   }
 
@@ -120,7 +134,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
       throws OpenRtbConverterException {
     if (isNull(nativeTitle)) return null;
     TitleAsset titleAsset = new TitleAsset();
-    titleAsset.setExt(Utils.copyMap(nativeTitle.getExt(), config));
+    titleAsset.setExt(new HashMap<>(nativeTitle.getExt()));
     titleAsset.setText(nativeTitle.getText());
     try {
       if (nonNull(nativeTitle.getExt())) {
@@ -133,6 +147,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     catch (Exception e) {
       throw new OpenRtbConverterException("error while type casting ext for title asset", e);
     }
+    removeFromExt(titleAsset.getExt(), extraFieldsInTitleAssetExt);
     return titleAsset;
   }
 
@@ -141,7 +156,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     if (isNull(nativeVideo)) return null;
     VideoAsset videoAsset = new VideoAsset();
     videoAsset.setAdm(nativeVideo.getVasttag());
-    videoAsset.setExt(Utils.copyMap(nativeVideo.getExt(), config));
+    videoAsset.setExt(new HashMap<>(nativeVideo.getExt()));
     try {
       if (nonNull(nativeVideo.getExt())) {
         if (nativeVideo.getExt().containsKey("curl")) {
@@ -153,6 +168,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     catch (Exception e) {
       throw new OpenRtbConverterException("error while casting ext for videoAsset", e);
     }
+    removeFromExt(videoAsset.getExt(), extraFieldsInVideoAssetExt);
     return videoAsset;
   }
 }

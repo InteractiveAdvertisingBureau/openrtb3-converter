@@ -34,10 +34,7 @@ import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -45,6 +42,20 @@ import static java.util.Objects.nonNull;
 /** Created by rajat.go on 03/01/19. */
 public class ImpToItemConverter implements Converter<Imp, Item> {
 
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("seq");
+    extraFieldsInExt.add("qty");
+    extraFieldsInExt.add("dt");
+    extraFieldsInExt.add("dlvy");
+    extraFieldsInExt.add("ssai");
+    extraFieldsInExt.add("reward");
+    extraFieldsInExt.add("admx");
+    extraFieldsInExt.add("curlx");
+    extraFieldsInExt.add("ampren");
+    extraFieldsInExt.add("ctype");
+    extraFieldsInExt.add("event");
+  }
   private static final JavaType javaTypeForEventSpecCollection = Utils.getMapper().getTypeFactory()
     .constructCollectionType(Collection.class, EventSpec.class);
 
@@ -98,9 +109,6 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     Integer sequence = impSequence(imp);
     if (sequence != null) {
       item.setSeq(sequence);
-      if (item.getExt().containsKey("seq")) {
-        item.getExt().remove("seq");
-      }
     }
     item.setExp(imp.getExp());
     Collection<Metric> metrics = imp.getMetric();
@@ -112,10 +120,8 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       item.setMetric(metrics1);
     }
     item.setQty(getQuantity(imp));
-    if (nonNull(item.getExt()) && imp.getExt().containsKey("qty")) {
-      item.getExt().remove("qty");
-    }
     impToItemAfterMapping(imp, item);
+    removeFromExt(item.getExt(), extraFieldsInExt);
   }
 
   private void impToSpec1(Imp imp, Spec mappingTarget, Config config, Provider converterProvider)
@@ -282,11 +288,9 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
         if (nonNull(item) && nonNull(imp.getExt())) {
           if (imp.getExt().containsKey("dt")) {
             item.setDt((Integer) imp.getExt().get("dt"));
-            item.getExt().remove("dt");
           }
           if (imp.getExt().containsKey("dlvy")) {
             item.setDlvy((Integer) imp.getExt().get("dlvy"));
-            item.getExt().remove("dlvy");
           }
         }
         if (nonNull(item)
@@ -295,34 +299,19 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
             && nonNull(imp.getExt())) {
           if (imp.getExt().containsKey("ssai")) {
             item.getSpec().getPlacement().setSsai((Integer) imp.getExt().get("ssai"));
-            item.getExt().remove("ssai");
           }
           if (imp.getExt().containsKey("reward")) {
             item.getSpec().getPlacement().setReward((Integer) imp.getExt().get("reward"));
-            item.getExt().remove("reward");
           }
           if (imp.getExt().containsKey("admx")) {
             item.getSpec().getPlacement().setAdmx((Integer) imp.getExt().get("admx"));
-            item.getExt().remove("admx");
           }
           if (imp.getExt().containsKey("curlx")) {
             item.getSpec().getPlacement().setCurlx((Integer) imp.getExt().get("curlx"));
-            item.getExt().remove("curlx");
           }
         }
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for Imp", e);
-      }
-    }
-    if (nonNull(item.getExt())) {
-      if (item.getExt().containsKey("ampren")) {
-        item.getExt().remove("ampren");
-      }
-      if (item.getExt().containsKey("ctype")) {
-        item.getExt().remove("ctype");
-      }
-      if (item.getExt().containsKey("event")) {
-        item.getExt().remove("event");
       }
     }
   }

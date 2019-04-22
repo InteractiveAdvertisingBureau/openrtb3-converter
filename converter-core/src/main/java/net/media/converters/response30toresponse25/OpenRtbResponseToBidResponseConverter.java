@@ -29,6 +29,7 @@ import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static java.util.Objects.isNull;
@@ -68,7 +69,7 @@ public class OpenRtbResponseToBidResponseConverter
     target.setBidid(response.getBidid());
     target.setCur(response.getCur());
     target.setNbr(response.getNbr());
-    target.setExt(Utils.copyMap(response.getExt(), config));
+    target.setExt(new HashMap<>(response.getExt()));
     target.setCustomdata(response.getCdata());
   }
 }

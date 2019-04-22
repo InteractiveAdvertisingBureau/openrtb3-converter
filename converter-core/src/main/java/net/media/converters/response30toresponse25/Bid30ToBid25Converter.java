@@ -26,13 +26,20 @@ import net.media.template.MacroMapper;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, Bid> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("protocol");
+  }
 
   @Override
   public Bid map(net.media.openrtb3.Bid source, Config config, Provider converterProvider)
@@ -72,18 +79,16 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      //      target.setQagmediarating(Integer.parseInt(source.getMid()));
       target.setAdid(source.getMid());
-      //      target.getExt().put("qagmediarating", source.getMid());
       target.getExt().put("macro", source.getMacro());
       mediaBidConverter.enhance(source.getMedia(), target, config, converterProvider);
       MacroMapper.macroReplaceTwoX(target);
       if (nonNull(source.getExt())) {
         if (source.getExt().containsKey("protocol")) {
           target.setProtocol((Integer) source.getExt().get("protocol"));
-          target.getExt().remove("protocol");
         }
       }
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

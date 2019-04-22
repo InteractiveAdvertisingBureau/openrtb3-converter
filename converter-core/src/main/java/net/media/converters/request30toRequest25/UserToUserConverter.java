@@ -70,7 +70,7 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb25.
             source.getData(), dataDataConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
     if (source.getConsent() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());

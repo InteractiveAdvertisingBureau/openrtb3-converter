@@ -17,8 +17,13 @@
 package net.media.converters;
 
 import net.media.config.Config;
+import net.media.driver.OpenRtbConverter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.utils.Provider;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Interface from which classes responsible for executing transformation operations can be derived.
@@ -51,4 +56,17 @@ public interface Converter<U, V> {
    */
   void enhance(U source, V target, Config config, Provider converterProvider)
       throws OpenRtbConverterException;
+
+
+  default void removeFromExt(Map<String, Object> ext, List<String> extraFields) {
+    if(ext != null) {
+      for (String key: extraFields) {
+        ext.remove(key);
+      }
+      for(Map.Entry<String, Object> entry: ext.entrySet()) {
+        if(entry.getValue() == null)
+          ext.remove(entry.getKey());
+      }
+    }
+  }
 }

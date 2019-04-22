@@ -22,12 +22,21 @@ import net.media.openrtb25.request.Publisher;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
 public class PublisherToPublisherConverter
     implements Converter<Publisher, net.media.openrtb3.Publisher> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("cattax");
+  }
+
   @Override
   public net.media.openrtb3.Publisher map(
       Publisher source, Config config, Provider converterProvider) {
@@ -55,13 +64,13 @@ public class PublisherToPublisherConverter
     target.setCat(Utils.copyCollection(source.getCat(), config));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
       if (map.containsKey("cattax")) {
         target.setCattax((Integer) map.get("cattax"));
       } else {
         target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
-      target.getExt().remove("cattax");
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

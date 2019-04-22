@@ -27,15 +27,17 @@ import net.media.openrtb3.Companion;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 public class AudioPlacementToAudioConverter implements Converter<AudioPlacement, Audio> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("stitched");
+  }
 
   @Override
   public Audio map(AudioPlacement audioPlacement, Config config, Provider converterProvider)
@@ -73,11 +75,10 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     audio.setProtocols(audioPlacement.getCtype());
     Map<String, Object> map = audioPlacement.getExt();
     if (map != null) {
-      audio.setExt(Utils.copyMap(map, config));
+      audio.setExt(new HashMap<>(map));
       try {
         if (map.containsKey("stitched")) {
           audio.setStitched((Integer) map.get("stitched"));
-          audio.getExt().remove("stitched");
         }
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for Audio", e);
@@ -86,6 +87,7 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     audio.setCompanionad(
         companionListToBannerList(audioPlacement.getComp(), config, converterProvider));
     audioPlacementToAudioAfterMapping(audioPlacement, audio);
+    removeFromExt(audio.getExt(), extraFieldsInExt);
   }
 
   private void audioPlacementToAudioAfterMapping(AudioPlacement audioPlacement, Audio audio) {

@@ -56,6 +56,7 @@ public class AudioToBidConverter implements Converter<Audio, Bid> {
       target.setNurl(source.getCurl());
     }
     target.getExt().put("mime", source.getMime());
-    if (nonNull(source.getExt())) target.getExt().putAll(source.getExt());
+    if (nonNull(source.getExt()))
+      target.getExt().putAll(source.getExt());
   }
 }

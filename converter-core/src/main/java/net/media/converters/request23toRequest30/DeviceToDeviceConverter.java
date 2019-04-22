@@ -21,11 +21,20 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Device;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.util.Objects.nonNull;
 
 /** Created by rajat.go on 03/04/19. */
 public class DeviceToDeviceConverter
     extends net.media.converters.request25toRequest30.DeviceToDeviceConverter {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("mccmnc");
+    extraFieldsInExt.add("geofetch");
+  }
 
   public void enhance(
       Device source, net.media.openrtb3.Device target, Config config, Provider converterProvider)
@@ -40,7 +49,6 @@ public class DeviceToDeviceConverter
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting mccmnc from device.ext.mccmnc", e);
         }
-        source.getExt().remove("mccmnc");
       }
       if (source.getExt().containsKey("geofetch")) {
         try {
@@ -49,9 +57,9 @@ public class DeviceToDeviceConverter
           throw new OpenRtbConverterException(
               "Error in setting geofetch from device.ext.geofetch", e);
         }
-        source.getExt().remove("geofetch");
       }
     }
     super.enhance(source, target, config, converterProvider);
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

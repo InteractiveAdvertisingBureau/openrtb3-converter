@@ -31,12 +31,19 @@ import net.media.utils.Provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 public class Native30ToNative10Converter implements Converter<Native, NativeResponse> {
+
+  static List<String> extraFieldsInativeResponseBodyExt = new ArrayList<>();
+  static {
+    extraFieldsInativeResponseBodyExt.add("jsTracker");
+    extraFieldsInativeResponseBodyExt.add("impTrackers");
+  }
 
   public NativeResponse map(Native source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -69,17 +76,16 @@ public class Native30ToNative10Converter implements Converter<Native, NativeResp
     nativeResponseBody.setAsset(assetResponseList);
     nativeResponseBody.setLink(
         linkAssetLinkConverter.map(source.getLink(), config, converterProvider));
-    nativeResponseBody.setExt(source.getExt());
+    nativeResponseBody.setExt(new HashMap<>(source.getExt()));
     try {
       if (nonNull(source.getExt())) {
         nativeResponseBody.setJstracker((String) source.getExt().get("jsTracker"));
-        nativeResponseBody.getExt().remove("jsTracker");
         nativeResponseBody.setImptrackers((Collection<String>) source.getExt().get("impTrackers"));
-        nativeResponseBody.getExt().remove("impTrackers");
       }
     } catch (Exception e) {
       throw new OpenRtbConverterException("error while type casting ext objects in native", e);
     }
+    removeFromExt(nativeResponseBody.getExt(), extraFieldsInativeResponseBodyExt);
     target.setNativeResponseBody(nativeResponseBody);
   }
 }

@@ -39,6 +39,16 @@ import static java.util.Objects.nonNull;
 /** Created by rajat.go on 03/01/19. */
 public class BannerToDisplayPlacementConverter implements Converter<Banner, DisplayPlacement> {
 
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("unit");
+    extraFieldsInExt.add("ctype");
+    extraFieldsInExt.add("ptype");
+    extraFieldsInExt.add("context");
+    extraFieldsInExt.add("priv");
+    extraFieldsInExt.add("seq");
+  }
+
   @Override
   public DisplayPlacement map(Banner banner, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -79,27 +89,19 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
         displayPlacement.getExt().putAll(bannerExt);
         if (bannerExt.containsKey("unit")) {
           displayPlacement.setUnit((Integer) bannerExt.get("unit"));
-          displayPlacement.getExt().remove("unit");
         }
         if (bannerExt.containsKey("ctype")) {
           displayPlacement.setCtype(
               Utils.copyCollection((Collection<Integer>) bannerExt.get("ctype"), config));
-          displayPlacement.getExt().remove("ctype");
         }
         if (bannerExt.containsKey("ptype")) {
           displayPlacement.setPtype((Integer) bannerExt.get("ptype"));
-          displayPlacement.getExt().remove("ptype");
         }
         if (bannerExt.containsKey("context")) {
           displayPlacement.setContext((Integer) bannerExt.get("context"));
-          displayPlacement.getExt().remove("context");
         }
         if (bannerExt.containsKey("priv")) {
           displayPlacement.setPriv((Integer) bannerExt.get("priv"));
-          displayPlacement.getExt().remove("priv");
-        }
-        if (bannerExt.containsKey("seq")) {
-          displayPlacement.getExt().remove("seq");
         }
       }
     } catch (ClassCastException e) {
@@ -141,6 +143,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
       }
       displayPlacement.getExt().put("wmin", banner.getWmin());
     }
+    removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
   }
 
   private Collection<Integer> impBannerExpdir(Banner banner) {
@@ -172,7 +175,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
 
     DisplayFormat displayFormat = new DisplayFormat();
 
-    displayFormat.setExt(Utils.copyMap(format.getExt(), config));
+    displayFormat.setExt(new HashMap<>(format.getExt()));
     displayFormat.setW(format.getW());
     displayFormat.setH(format.getH());
     displayFormat.setWratio(format.getWratio());

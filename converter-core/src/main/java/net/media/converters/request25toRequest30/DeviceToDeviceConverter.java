@@ -26,11 +26,19 @@ import net.media.utils.OsMap;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DeviceToDeviceConverter implements Converter<Device, net.media.openrtb3.Device> {
 
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("xff");
+    extraFieldsInExt.add("iptr");
+    extraFieldsInExt.add("mccmncsim");
+  }
   @Override
   public net.media.openrtb3.Device map(Device source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -81,7 +89,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     target.setMccmnc(source.getMccmnc());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
     if (source.getFlashver() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
@@ -91,18 +99,16 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     try {
       if (source.getExt().containsKey("xff")) {
         target.setXff((String) source.getExt().get("xff"));
-        target.getExt().remove("xff");
       }
       if (source.getExt().containsKey("iptr")) {
         target.setIptr((Integer) source.getExt().get("iptr"));
-        target.getExt().remove("iptr");
       }
       if (source.getExt().containsKey("mccmncsim")) {
         target.setMccmncsim((String) source.getExt().get("mccmncsim"));
-        target.getExt().remove("mccmncsim");
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Device", e);
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

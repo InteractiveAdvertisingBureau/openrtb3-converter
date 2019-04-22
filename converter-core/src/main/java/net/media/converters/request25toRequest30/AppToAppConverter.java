@@ -26,11 +26,20 @@ import net.media.openrtb25.request.Publisher;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
 public class AppToAppConverter implements Converter<App, net.media.openrtb3.App> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("cattax");
+    extraFieldsInExt.add("storeid");
+  }
 
   @Override
   public net.media.openrtb3.App map(App source, Config config, Provider converterProvider)
@@ -73,7 +82,7 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
     target.setPaid(source.getPaid());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
 
     if (source.getExt() == null) return;
@@ -84,10 +93,9 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
         target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
       target.setStoreid((String) source.getExt().get("storeid"));
-      target.getExt().remove("cattax");
-      target.getExt().remove("storeid");
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for app", e);
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

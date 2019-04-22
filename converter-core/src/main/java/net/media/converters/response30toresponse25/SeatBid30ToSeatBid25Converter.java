@@ -27,6 +27,7 @@ import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -54,7 +55,7 @@ public class SeatBid30ToSeatBid25Converter implements Converter<Seatbid, SeatBid
 
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(source.getExt()));
     } else {
       target.setExt(null);
     }

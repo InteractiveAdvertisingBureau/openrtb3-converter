@@ -32,16 +32,17 @@ import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 public class ItemToImpConverter implements Converter<Item, Imp> {
 
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("pmp");
+  }
   @Override
   public Imp map(Item item, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -72,7 +73,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     Converter<net.media.openrtb3.Metric, Metric> metricMetricConverter =
         converterProvider.fetch(new Conversion<>(net.media.openrtb3.Metric.class, Metric.class));
     imp.setPmp(itemToPmp(item, config, converterProvider));
-    imp.setExt(Utils.copyMap(item.getExt(), config));
+    imp.setExt(new HashMap<>(item.getExt()));
     fillExtMap(item, imp, config);
     imp.setBidfloor(item.getFlr());
     VideoPlacement video = itemSpecPlacementVideo(item);
@@ -157,6 +158,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
       }
       imp.setMetric(metrics1);
     }
+    removeFromExt(imp.getExt(), extraFieldsInExt);
   }
 
   private Pmp itemToPmp(Item item, Config config, Provider converterProvider)
@@ -181,7 +183,6 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
           if (pmp1.containsKey("ext")) {
             pmp.setExt((Map<String, Object>) pmp1.get("ext"));
           }
-          item.getExt().remove("pmp");
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException("Error in converting pmp ext ", e);
         }

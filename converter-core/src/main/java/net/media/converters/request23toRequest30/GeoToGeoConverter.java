@@ -21,10 +21,20 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Geo;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.util.Objects.nonNull;
 
 /** Created by rajat.go on 03/04/19. */
 public class GeoToGeoConverter extends net.media.converters.request25toRequest30.GeoToGeoConverter {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static {
+    extraFieldsInExt.add("accuracy");
+    extraFieldsInExt.add("lastfix");
+    extraFieldsInExt.add("ipservice");
+  }
 
   public void enhance(
       Geo source, net.media.openrtb3.Geo target, Config config, Provider converterProvider)
@@ -39,7 +49,6 @@ public class GeoToGeoConverter extends net.media.converters.request25toRequest30
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting accuracy from geo.ext.accuracy", e);
         }
-        source.getExt().remove("accuracy");
       }
       if (source.getExt().containsKey("lastfix")) {
         try {
@@ -47,7 +56,6 @@ public class GeoToGeoConverter extends net.media.converters.request25toRequest30
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting lastfix from geo.ext.lastfix", e);
         }
-        source.getExt().remove("lastfix");
       }
       if (source.getExt().containsKey("ipservice")) {
         try {
@@ -56,9 +64,9 @@ public class GeoToGeoConverter extends net.media.converters.request25toRequest30
           throw new OpenRtbConverterException(
               "Error in setting ipservice from geo.ext.ipservice", e);
         }
-        source.getExt().remove("ipservice");
       }
     }
     super.enhance(source, target, config, converterProvider);
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }
