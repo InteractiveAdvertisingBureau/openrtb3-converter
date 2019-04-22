@@ -29,6 +29,7 @@ public class EventSpec {
   private Integer wjs;
   private Collection<String> pxtrk;
   private Integer wpx;
+  private Map<String, Object> ext;
 
   public Integer getType() {
     return type;
@@ -93,6 +94,4 @@ public class EventSpec {
   public void setExt(Map<String, Object> ext) {
     this.ext = ext;
   }
-
-  private Map<String, Object> ext;
 }

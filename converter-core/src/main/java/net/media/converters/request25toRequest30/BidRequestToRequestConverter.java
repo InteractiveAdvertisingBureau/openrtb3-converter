@@ -124,8 +124,9 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
     if (source.getExt().containsKey("dooh")) {
       if (target.getContext() == null) target.setContext(new Context());
       try {
-        target.getContext().setDooh(Utils.getMapper().convertValue(source.getExt().get("dooh"),
-          Dooh.class));
+        target
+            .getContext()
+            .setDooh(Utils.getMapper().convertValue(source.getExt().get("dooh"), Dooh.class));
         target.getExt().remove("dooh");
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for BidRequest2_X", e);

@@ -17,7 +17,6 @@
 package net.media.converters.request23toRequest30;
 
 import com.fasterxml.jackson.databind.JavaType;
-
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
@@ -34,8 +33,8 @@ import static java.util.Objects.nonNull;
 public class BannerToDisplayPlacementConverter
     extends net.media.converters.request25toRequest30.BannerToDisplayPlacementConverter {
 
-	private static final JavaType javaTypeForFormatCollection = Utils.getMapper().getTypeFactory()
-			.constructCollectionType(Collection.class, Format.class);
+  private static final JavaType javaTypeForFormatCollection =
+      Utils.getMapper().getTypeFactory().constructCollectionType(Collection.class, Format.class);
 
   public void enhance(
       Banner banner, DisplayPlacement displayPlacement, Config config, Provider converterProvider)
@@ -50,8 +49,9 @@ public class BannerToDisplayPlacementConverter
       }
       if (banner.getExt().containsKey("format")) {
         try {
-          banner.setFormat(Utils.getMapper().convertValue(banner.getExt().get("format"),
-            javaTypeForFormatCollection));
+          banner.setFormat(
+              Utils.getMapper()
+                  .convertValue(banner.getExt().get("format"), javaTypeForFormatCollection));
         } catch (Exception e) {
           throw new OpenRtbConverterException(
               "Error in setting banner.format from banner.ext" + ".format", e);

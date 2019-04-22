@@ -92,7 +92,7 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     }
     Converter<Banner, net.media.openrtb3.Companion> bannerCompanionConverter =
         converterProvider.fetch(new Conversion<>(Banner.class, Companion.class));
-    Collection<Companion> list1 = new ArrayList<Companion>(list.size());
+    Collection<Companion> list1 = new ArrayList<>(list.size());
     for (Banner banner : list) {
       list1.add(bannerCompanionConverter.map(banner, config, converterProvider));
     }

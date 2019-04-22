@@ -88,7 +88,8 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
         }
 
         if (source.getExt().containsKey("audit")) {
-          target.setAudit(Utils.getMapper().convertValue(source.getExt().get("audit"), Audit.class));
+          target.setAudit(
+              Utils.getMapper().convertValue(source.getExt().get("audit"), Audit.class));
           source.getExt().remove("audit");
         }
       }

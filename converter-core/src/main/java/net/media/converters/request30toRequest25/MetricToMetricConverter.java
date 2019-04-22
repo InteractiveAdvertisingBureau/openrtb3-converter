@@ -43,8 +43,7 @@ public class MetricToMetricConverter
       Metric metric,
       net.media.openrtb25.request.Metric metric1,
       Config config,
-      Provider converterProvider)
-      throws OpenRtbConverterException {
+      Provider converterProvider) {
     if (metric != null) {
       metric1.setType(metric.getType());
       metric1.setVendor(metric.getVendor());

@@ -122,8 +122,8 @@ public class ConverterTest {
           }
         }
       }
-      System.out.println("total cases : "+totalFiles);
-      System.out.println("failed cases : "+testOutput.getFailedTestList().size());
+      System.out.println("total cases : " + totalFiles);
+      System.out.println("failed cases : " + testOutput.getFailedTestList().size());
       testOutput.setTotalTestCases(totalFiles);
       testOutput.setFailedTestCases(testOutput.getFailedTestList().size());
       JacksonObjectMapper.getMapper()

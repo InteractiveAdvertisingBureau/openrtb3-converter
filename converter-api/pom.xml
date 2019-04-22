@@ -110,7 +110,7 @@
             <artifactId>guice</artifactId>
             <version>${guice.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>net.media.open-rtb-converter</groupId>
             <artifactId>converter-core</artifactId>

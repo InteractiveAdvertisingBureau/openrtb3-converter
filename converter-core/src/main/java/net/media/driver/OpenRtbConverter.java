@@ -33,6 +33,8 @@ import static java.util.Objects.isNull;
  * Config} {@link #converterManager} contains the pipeline for converter dependencies {@link
  * ConverterManager} initialised while calling {@link OpenRtbConverter(Config)}
  *
+ * <p>
+ *
  * <ul>
  *   <li>{@link OpenRtbConverter(Config)} : instantiates OpenRtb converter object single object
  *       would be enough for the entire object

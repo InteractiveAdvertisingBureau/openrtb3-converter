@@ -89,9 +89,7 @@ public class ConverterManager {
     add2_XConverters(provider, config);
     if (nonNull(overrideMap)) {
       overrideMap.forEach(
-          (conversion, converter) -> {
-            provider.register(conversion, converter);
-          });
+        provider::register);
     }
     return provider;
   }

@@ -37,9 +37,9 @@ public class CollectionToCollectionConverter {
     }
     Collection<T> collection1;
     if (collection instanceof Set) {
-      collection1 = new HashSet<T>(collection.size());
+      collection1 = new HashSet<>(collection.size());
     } else {
-      collection1 = new ArrayList<T>(collection.size());
+      collection1 = new ArrayList<>(collection.size());
     }
     for (S value : collection) {
       collection1.add(stConverter.map(value, config, converterProvider));

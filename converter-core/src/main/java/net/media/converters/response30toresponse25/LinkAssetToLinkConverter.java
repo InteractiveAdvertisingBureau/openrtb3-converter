@@ -36,8 +36,7 @@ public class LinkAssetToLinkConverter implements Converter<LinkAsset, Link> {
     return link;
   }
 
-  public void enhance(LinkAsset source, Link target, Config config, Provider converterProvider)
-      throws OpenRtbConverterException {
+  public void enhance(LinkAsset source, Link target, Config config, Provider converterProvider) {
     if (isNull(source) || isNull(target) || isNull(config)) return;
 
     target.setUrl(source.getUrl());
