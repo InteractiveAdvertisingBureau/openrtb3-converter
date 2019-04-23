@@ -80,7 +80,7 @@ public class ORTBTester<U, V> {
       outputTestPojo.setOutputType(inputPojo.getOutputType());
       outputTestPojo.setException(e.getMessage());
 
-      if (!inputPojo.getOutputEdits().containsKey("status")
+      if (e instanceof AssertionError || !inputPojo.getOutputEdits().containsKey("status")
           || !inputPojo.getOutputEdits().get("status").equals("ERROR")) {
         System.out.println(JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""));
         System.out.println(JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""));
