@@ -48,7 +48,7 @@ import static java.util.Objects.isNull;
  *       {@link #config} for that particular call
  *   <li>{@link #enhance(Object, Object, Class, Class)} uses {@link #enhance(Config, Object, Object,
  *       Class, Class)} without overriding config
- *       <ul/>
+ *  </ul>
  *
  * @author shiva.b
  * @since 1.0
@@ -138,14 +138,6 @@ public class OpenRtbConverter {
     return Utils.convertToJson(targetObject);
   }
 
-  /**
-   * @param source
-   * @param sourceClass source object
-   * @param targetClass target object
-   * @param <U> source class type
-   * @param <V> target class type
-   * @return <class>V</class> target class
-   */
   public <U, V> V convert(U source, Class<U> sourceClass, Class<V> targetClass)
       throws ConfigurationException, OpenRtbConverterException {
     return convert(null, source, sourceClass, targetClass, null);
@@ -158,33 +150,12 @@ public class OpenRtbConverter {
     return Utils.convertToJson(targetObject);
   }
 
-  /**
-   * @param overridingConfig
-   * @param source
-   * @param target
-   * @param sourceClass
-   * @param targetClass
-   * @param <U> source class type
-   * @param <V> target class type
-   * @throws ConfigurationException
-   * @throws OpenRtbConverterException
-   */
   public <U, V> void enhance(
       Config overridingConfig, U source, V target, Class<U> sourceClass, Class<V> targetClass)
       throws ConfigurationException, OpenRtbConverterException {
     enhance(overridingConfig, source, target, sourceClass, targetClass, null);
   }
 
-  /**
-   * @param source
-   * @param target
-   * @param sourceClass
-   * @param targetClass
-   * @param <U> source class type
-   * @param <V> target class type
-   * @throws ConfigurationException
-   * @throws OpenRtbConverterException
-   */
   public <U, V> void enhance(U source, V target, Class<U> sourceClass, Class<V> targetClass)
       throws OpenRtbConverterException, ConfigurationException {
     enhance(null, source, target, sourceClass, targetClass, null);
@@ -220,10 +191,6 @@ public class OpenRtbConverter {
         converterManager.getConverterProvider(overridenMap, overridingConfig));
   }
 
-  /**
-   * @param overridingConfig
-   * @return
-   */
   private Config enhanceConfig(Config overridingConfig) {
     if (isNull(overridingConfig)) {
       overridingConfig = new Config(config);

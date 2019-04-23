@@ -46,10 +46,6 @@ public class Provider {
     providerMap = new ConcurrentHashMap<>(provider.providerMap);
   }
 
-  /**
-   * @param key
-   * @param value
-   */
   public <X, Y> void register(Conversion<X, Y> key, Converter<X, Y> value) {
     providerMap.put(key, value);
   }
