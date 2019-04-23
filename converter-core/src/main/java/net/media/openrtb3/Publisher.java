@@ -20,13 +20,15 @@ import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.Map;
 
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_THREEDOTX;
+
 public class Publisher {
 
   @NotNull private String id;
   private String name;
   private String domain;
   private Collection<String> cat;
-  private Integer cattax;
+  private Integer cattax = DEFAULT_CATTAX_THREEDOTX;
   private Map<String, Object> ext;
 
   public @NotNull String getId() {

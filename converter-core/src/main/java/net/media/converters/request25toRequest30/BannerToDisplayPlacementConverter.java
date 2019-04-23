@@ -174,8 +174,8 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     }
 
     DisplayFormat displayFormat = new DisplayFormat();
-
-    displayFormat.setExt(new HashMap<>(format.getExt()));
+    if(nonNull(format.getExt()))
+      displayFormat.setExt(new HashMap<>(format.getExt()));
     displayFormat.setW(format.getW());
     displayFormat.setH(format.getH());
     displayFormat.setWratio(format.getWratio());

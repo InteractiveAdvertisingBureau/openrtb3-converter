@@ -59,7 +59,8 @@ public class NativeRequestBodyToNativeFormatConverter
     if (nativeRequestBody == null || nativeFormat == null) {
       return;
     }
-    nativeFormat.setExt(new HashMap<>(nativeRequestBody.getExt()));
+    if(nonNull(nativeRequestBody.getExt()))
+      nativeFormat.setExt(new HashMap<>(nativeRequestBody.getExt()));
     if (nonNull(nativeRequestBody.getContextsubtype())) {
       if (isNull(nativeFormat.getExt())) {
         nativeFormat.setExt(new HashMap<>());

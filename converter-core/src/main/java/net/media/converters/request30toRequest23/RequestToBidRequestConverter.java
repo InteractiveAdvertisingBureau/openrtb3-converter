@@ -64,7 +64,7 @@ public class RequestToBidRequestConverter
         target.setExt(new HashMap<>());
       }
       target.getExt().put("bapp", target.getBapp());
-      target.setBseat(null);
+      target.setBapp(null);
     }
   }
 }

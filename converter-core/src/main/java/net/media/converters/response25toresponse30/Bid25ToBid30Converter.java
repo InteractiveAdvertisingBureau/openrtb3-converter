@@ -40,6 +40,18 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
     extraFieldsInExt.add("macro");
+    extraFieldsInExt.add("audit");
+    extraFieldsInExt.add("cattax");
+    extraFieldsInExt.add("lastmod");
+    extraFieldsInExt.add("init");
+    extraFieldsInExt.add("secure");
+    extraFieldsInExt.add("ctype");
+    extraFieldsInExt.add("priv");
+    extraFieldsInExt.add("mime");
+    extraFieldsInExt.add("banner");
+    extraFieldsInExt.add("native");
+    extraFieldsInExt.add("event");
+    extraFieldsInExt.add("dur");
   }
 
   private static final JavaType javaTypeForMacroCollection = Utils.getMapper().getTypeFactory()

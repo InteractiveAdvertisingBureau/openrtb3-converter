@@ -69,7 +69,8 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
       return;
     }
     audioPlacement.setComptype(Utils.copyCollection(audio.getCompaniontype(), config));
-    audioPlacement.setExt(new HashMap<>(audio.getExt()));
+    if(nonNull(audio.getExt()))
+      audioPlacement.setExt(new HashMap<>(audio.getExt()));
     if (nonNull(audio.getStitched())) {
       if (isNull(audioPlacement.getExt())) {
         audioPlacement.setExt(new HashMap<>());

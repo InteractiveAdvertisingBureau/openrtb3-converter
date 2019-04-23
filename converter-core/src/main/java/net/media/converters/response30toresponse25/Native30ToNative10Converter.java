@@ -39,10 +39,10 @@ import static java.util.Objects.nonNull;
 
 public class Native30ToNative10Converter implements Converter<Native, NativeResponse> {
 
-  static List<String> extraFieldsInativeResponseBodyExt = new ArrayList<>();
+  static List<String> extraFieldsInNativeResponseBodyExt = new ArrayList<>();
   static {
-    extraFieldsInativeResponseBodyExt.add("jsTracker");
-    extraFieldsInativeResponseBodyExt.add("impTrackers");
+    extraFieldsInNativeResponseBodyExt.add("jsTracker");
+    extraFieldsInNativeResponseBodyExt.add("impTrackers");
   }
 
   public NativeResponse map(Native source, Config config, Provider converterProvider)
@@ -76,7 +76,10 @@ public class Native30ToNative10Converter implements Converter<Native, NativeResp
     nativeResponseBody.setAsset(assetResponseList);
     nativeResponseBody.setLink(
         linkAssetLinkConverter.map(source.getLink(), config, converterProvider));
-    nativeResponseBody.setExt(new HashMap<>(source.getExt()));
+    if(isNull(source.getExt()))
+      nativeResponseBody.setExt(new HashMap<>());
+    else
+      nativeResponseBody.setExt(new HashMap<>(source.getExt()));
     try {
       if (nonNull(source.getExt())) {
         nativeResponseBody.setJstracker((String) source.getExt().get("jsTracker"));
@@ -85,7 +88,7 @@ public class Native30ToNative10Converter implements Converter<Native, NativeResp
     } catch (Exception e) {
       throw new OpenRtbConverterException("error while type casting ext objects in native", e);
     }
-    removeFromExt(nativeResponseBody.getExt(), extraFieldsInativeResponseBodyExt);
+    removeFromExt(nativeResponseBody.getExt(), extraFieldsInNativeResponseBodyExt);
     target.setNativeResponseBody(nativeResponseBody);
   }
 }

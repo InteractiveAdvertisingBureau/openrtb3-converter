@@ -67,5 +67,6 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.R
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Regs", e);
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

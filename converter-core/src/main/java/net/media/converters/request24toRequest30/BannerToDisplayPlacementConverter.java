@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
+import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.Provider;
 
@@ -33,10 +34,11 @@ public class BannerToDisplayPlacementConverter
     extends net.media.converters.request25toRequest30.BannerToDisplayPlacementConverter {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+  private static final List<String> extraFieldsInDisplayFormatExt = new ArrayList<>();
   static {
     extraFieldsInExt.add("vcm");
-    extraFieldsInExt.add("wratio");
-    extraFieldsInExt.add("hratio");
+    extraFieldsInDisplayFormatExt.add("wratio");
+    extraFieldsInDisplayFormatExt.add("hratio");
     extraFieldsInExt.add("wmin");
   }
 
@@ -87,5 +89,7 @@ public class BannerToDisplayPlacementConverter
     }
     super.enhance(banner, displayPlacement, config, converterProvider);
     removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
+    for(DisplayFormat displayFormat:displayPlacement.getDisplayfmt())
+      removeFromExt(displayFormat.getExt(), extraFieldsInDisplayFormatExt);
   }
 }

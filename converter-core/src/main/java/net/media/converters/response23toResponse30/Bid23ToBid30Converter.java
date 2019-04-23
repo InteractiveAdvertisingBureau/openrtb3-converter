@@ -40,7 +40,6 @@ public class Bid23ToBid30Converter extends Bid25ToBid30Converter {
     extraFieldsInExt.add("hratio");
     extraFieldsInExt.add("adid");
     extraFieldsInExt.add("api");
-    extraFieldsInExt.add("protocol");
     extraFieldsInExt.add("qagmediarating");
     extraFieldsInExt.add("exp");
   }

@@ -1,0 +1,68 @@
+cases:
+  - inputFile: ALL_APP_25.json
+    inputType: "REQUEST25"
+    inputEdits:
+      at: 1
+    outputFile: ALL_APP_30.json
+    outputType: "REQUEST30"
+    outputEdits:
+      openrtb.request.at: 1
+    purpose: adTypeMappingAllAdTypes2to3
+    params:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "1": AUDIO
+        "2": BANNER
+        "3": NATIVE
+        "4": VIDEO
+
+  - inputFile: ALL_APP_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.at: 1
+    outputFile: ALL_APP_25.json
+    outputType: "REQUEST25"
+    outputEdits:
+      at: 1
+    purpose: adTypeMappingAllAdTypes3to2
+    params:
+      nativeRequestAsString: false
+      adTypeMapping:
+        "1": AUDIO
+        "2": BANNER
+        "3": NATIVE
+        "4": VIDEO
+
+  - inputFile: ALL_SITE_25.json
+    inputType: "REQUEST25"
+    inputEdits:
+      at: 1
+    outputFile: ALL_SITE_30.json
+    outputType: "REQUEST30"
+    outputEdits:
+      openrtb.request.at: 1
+    purpose: adTypeMappingAllAdTypesSite2to3
+    params:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "1": AUDIO
+        "2": BANNER
+        "3": NATIVE
+        "4": VIDEO
+
+  - inputFile: ALL_SITE_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.at: 1
+    outputFile: ALL_SITE_25.json
+    outputType: "REQUEST25"
+    outputEdits:
+      at: 1
+    purpose: adTypeMappingAllAdTypesSite3to2
+    params:
+      nativeRequestAsString: false
+      adTypeMapping:
+        "1": AUDIO
+        "2": BANNER
+        "3": NATIVE
+        "4": VIDEO

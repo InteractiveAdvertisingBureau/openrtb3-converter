@@ -32,6 +32,7 @@ import net.media.utils.Utils;
 import java.util.*;
 
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 /** Created by rajat.go on 03/01/19. */
 public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat> {
@@ -56,14 +57,14 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     extraFieldsInVideoExt.add("h");
     extraFieldsInVideoExt.add("unit");
     extraFieldsInVideoExt.add("maxextended");
-    extraFieldsInImageExt.add("minbitrate");
-    extraFieldsInImageExt.add("maxbitrate");
-    extraFieldsInImageExt.add("delivery");
-    extraFieldsInImageExt.add("maxseq");
-    extraFieldsInImageExt.add("linearity");
-    extraFieldsInImageExt.add("boxingallowed");
-    extraFieldsInImageExt.add("playbackend");
-    extraFieldsInImageExt.add("companiontype");
+    extraFieldsInVideoExt.add("minbitrate");
+    extraFieldsInVideoExt.add("maxbitrate");
+    extraFieldsInVideoExt.add("delivery");
+    extraFieldsInVideoExt.add("maxseq");
+    extraFieldsInVideoExt.add("linearity");
+    extraFieldsInVideoExt.add("boxingallowed");
+    extraFieldsInVideoExt.add("playbackend");
+    extraFieldsInVideoExt.add("companiontype");
 
   }
 
@@ -127,7 +128,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     }
     removeFromExt(assetFormat.getExt(), extraFieldsInExt);
     removeFromExt(assetFormat.getVideo().getExt(), extraFieldsInVideoExt);
-    removeFromExt(assetFormat.getImg().getExt(),extraFieldsInImageExt);
+    removeFromExt(assetFormat.getImg().getExt(), extraFieldsInImageExt);
   }
 
   private TitleAssetFormat nativeTitleToTitleAssetFormat(NativeTitle nativeTitle, Config config) {
@@ -199,7 +200,8 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     videoPlacement.setMindur(nativeVideo.getMinduration());
     videoPlacement.setCtype(Utils.copyCollection(nativeVideo.getProtocols(), config));
     videoPlacement.setMime(Utils.copyCollection(nativeVideo.getMimes(), config));
-    videoPlacement.setExt(new HashMap<>(nativeVideo.getExt()));
+    if(nonNull(nativeVideo.getExt()))
+      videoPlacement.setExt(new HashMap<>(nativeVideo.getExt()));
     try {
       if (nativeVideo.getExt() != null) {
         if (nativeVideo.getExt().containsKey("ptype")) {
@@ -293,7 +295,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     dataAssetFormat.setLen(nativeData.getLen());
     Map<String, Object> map = nativeData.getExt();
     if (map != null) {
-      dataAssetFormat.setExt(new HashMap<>());
+      dataAssetFormat.setExt(new HashMap<>(map));
     }
 
     return dataAssetFormat;

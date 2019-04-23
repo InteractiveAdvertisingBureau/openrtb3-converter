@@ -129,8 +129,10 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
           }
         }
         try {
-          target.setEvent(Utils.getMapper().convertValue(ext.get("event"),
-            javaTypeForEventCollection));
+          if(ext.containsKey("event")) {
+            target.setEvent(Utils.getMapper().convertValue(ext.get("event"),
+              javaTypeForEventCollection));
+          }
         } catch (IllegalArgumentException e) {
           throw new OpenRtbConverterException("error while setting display.event from bid.ext" +
             ".event", e);

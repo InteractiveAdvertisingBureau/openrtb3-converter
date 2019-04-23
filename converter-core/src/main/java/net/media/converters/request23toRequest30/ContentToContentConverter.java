@@ -28,6 +28,8 @@ import net.media.utils.Utils;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Consumer;
 
 import static java.util.Objects.nonNull;
 
@@ -61,7 +63,6 @@ public class ContentToContentConverter
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting artist from content.ext.artist", e);
         }
-        source.getExt().remove("artist");
       }
       if (source.getExt().containsKey("genre")) {
         try {
@@ -69,7 +70,6 @@ public class ContentToContentConverter
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting genre from content.ext.genre", e);
         }
-        source.getExt().remove("genre");
       }
       if (source.getExt().containsKey("album")) {
         try {
@@ -77,7 +77,6 @@ public class ContentToContentConverter
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting album from content.ext.album", e);
         }
-        source.getExt().remove("album");
       }
       if (source.getExt().containsKey("isrc")) {
         try {
@@ -85,7 +84,6 @@ public class ContentToContentConverter
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting isrc from content.ext.isrc", e);
         }
-        source.getExt().remove("isrc");
       }
       if (source.getExt().containsKey("prodq")) {
         try {
@@ -93,7 +91,6 @@ public class ContentToContentConverter
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting prodq from content.ext.prodq", e);
         }
-        source.getExt().remove("prodq");
       }
       if (source.getExt().containsKey("data")) {
         try {
@@ -102,7 +99,6 @@ public class ContentToContentConverter
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting data from content.ext.data", e);
         }
-        source.getExt().remove("data");
       }
     }
     super.enhance(source, target, config, converterProvider);

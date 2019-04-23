@@ -1,0 +1,472 @@
+cases:
+ - inputFile: NATIVE_APP_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: NATIVE_APP_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: nativeStringConfigFalse
+   params:
+     nativeRequestAsString: false
+
+ - inputFile: NATIVE_APP_30_string.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: NATIVE_APP_25_string.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: nativeStringConfigTrue
+   params:
+     nativeRequestAsString: true
+
+ - inputFile: NATIVE_APP_30_string.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: NATIVE_APP_25_string.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: nativeStringConfigDefault
+
+ - inputFile: NATIVE_APP_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: empty.json
+   outputType: "REQUEST25"
+   outputEdits:
+     status: "ERROR"
+   purpose: nativeStringConfigWrongValue
+   params:
+     nativeRequestAsString: "random"
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+    openrtb.request.at: 2
+   outputFile: BANNER_SITE_23.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversion23_3to2
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_THREE
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: BANNER_SITE_24.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversion24_3to2
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: BANNER_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversion25_3to2
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: BANNER_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversiondefault_3to2
+
+ - inputFile: BANNER_SITE_23.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversion23_2to3
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_THREE
+
+ - inputFile: BANNER_SITE_24.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversion24_2to3
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversion25_2to3
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversiondefault_2to3
+
+ - inputFile: NATIVE_APP_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: NATIVE_APP_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: nativeStringInitConfigFalse
+   config:
+     nativeRequestAsString: false
+
+ - inputFile: NATIVE_APP_30_string.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: NATIVE_APP_25_string.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: nativeStringInitConfigTrue
+   config:
+     nativeRequestAsString: true
+
+ - inputFile: NATIVE_APP_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: empty.json
+   outputType: "REQUEST25"
+   outputEdits:
+     status: "ERROR"
+   purpose: nativeStringInitConfigWrongValue
+   config:
+     nativeRequestAsString: "random"
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+    openrtb.request.at: 2
+   outputFile: BANNER_SITE_23.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversionInitConfig23_3to2
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_THREE
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: BANNER_SITE_24.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversionInitConfig24_3to2
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: BANNER_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversionInitConfig25_3to2
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+ - inputFile: BANNER_SITE_23.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversionInitConfig23_2to3
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_THREE
+
+ - inputFile: BANNER_SITE_24.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversionInitConfig24_2to3
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversionInitConfig25_2to3
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+
+
+ - inputFile: NATIVE_APP_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: NATIVE_APP_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: nativeStringOverrideConfigFalse
+   config:
+     nativeRequestAsString: true
+   params:
+     nativeRequestAsString: false
+
+ - inputFile: NATIVE_APP_30_string.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: NATIVE_APP_25_string.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: nativeStringOverrideConfigTrue
+   config:
+     nativeRequestAsString: false
+   params:
+     nativeRequestAsString: true
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+    openrtb.request.at: 2
+   outputFile: BANNER_SITE_23.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversionOverrideConfig23_3to2
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_THREE
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: BANNER_SITE_24.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversionOverrideConfig24_3to2
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_FIVE
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: BANNER_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversionOverrideConfig25_3to2
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+ - inputFile: BANNER_SITE_23.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversionOverrideConfig23_2to3
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_THREE
+
+ - inputFile: BANNER_SITE_24.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversionOverrideConfig24_2to3
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_FIVE
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversionOverrideConfig25_2to3
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_THREE
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+ - inputFile: NATIVE_APP_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: NATIVE_APP_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: nativeStringBackupConfigFalse
+   config:
+     nativeRequestAsString: false
+   params:
+     validate: false
+
+ - inputFile: NATIVE_APP_30_string.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: NATIVE_APP_25_string.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: nativeStringBackupConfigTrue
+   config:
+     nativeRequestAsString: true
+   params:
+     validate: false
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+    openrtb.request.at: 2
+   outputFile: BANNER_SITE_23.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversionBackupConfig23_3to2
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_THREE
+   params:
+     validate: false
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: BANNER_SITE_24.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversionBackupConfig24_3to2
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+   params:
+     validate: false
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.at: 2
+   outputFile: BANNER_SITE_25.json
+   outputType: "REQUEST25"
+   outputEdits:
+     at: 2
+   purpose: ortbversionBackupConfig25_3to2
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_FIVE
+   params:
+     validate: false
+
+ - inputFile: BANNER_SITE_23.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversionBackupConfig23_2to3
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_THREE
+   params:
+     validate: false
+
+ - inputFile: BANNER_SITE_24.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversionBackupConfig24_2to3
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+   params:
+     validate: false
+
+ - inputFile: BANNER_SITE_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     at: 2
+   outputFile: BANNER_SITE_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.at: 2
+   purpose: ortbversionBackupConfig25_2to3
+   config:
+     openRtbVersion2_XVersion: TWO_DOT_FIVE
+   params:
+     validate: false

@@ -76,7 +76,6 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
     if (nonNull(source.getExt())) target.getExt().putAll(source.getExt());
 
     if (config.getAdType(target.getId()) == AdType.NATIVE) {
-      target.getExt().put("native", source.get_native());
       if (nonNull(source.get_native())) {
         NativeResponse _native =
             nativeBidConverter.map(source.get_native(), config, converterProvider);

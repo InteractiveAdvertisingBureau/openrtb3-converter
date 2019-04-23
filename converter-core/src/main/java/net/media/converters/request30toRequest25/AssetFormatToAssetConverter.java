@@ -30,6 +30,7 @@ import net.media.utils.Utils;
 import java.util.*;
 
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 /** Created by rajat.go on 04/01/19. */
 public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset> {
@@ -57,7 +58,8 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     asset.setImg(imageAssetFormatToNativeImage(assetFormat.getImg(), config));
     asset.setVideo(videoAssetFormatToVideoImage(assetFormat.getVideo(), config));
     asset.setData(dataAssetFormatToNativeData(assetFormat.getData(), config));
-    asset.setExt(new HashMap<>(assetFormat.getExt()));
+    if(nonNull(assetFormat.getExt()))
+      asset.setExt(new HashMap<>(assetFormat.getExt()));
 
     if (asset.getExt() == null) {
       asset.setExt(new HashMap<>());
@@ -177,7 +179,8 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
 
     nativeData.setType(dataAssetFormat.getType());
     nativeData.setLen(dataAssetFormat.getLen());
-    nativeData.setExt(new HashMap<>(dataAssetFormat.getExt()));
+    if(nonNull(dataAssetFormat.getExt()))
+      nativeData.setExt(new HashMap<>(dataAssetFormat.getExt()));
 
     return nativeData;
   }
