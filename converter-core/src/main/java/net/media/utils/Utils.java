@@ -16,6 +16,7 @@
 
 package net.media.utils;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.media.config.Config;
@@ -38,6 +39,7 @@ public class Utils {
   private static Validator defaultValidator = buildDefaultValidatorFactory().getValidator();
 
   public static ObjectMapper getMapper() {
+    mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
     return mapper;
   }
 

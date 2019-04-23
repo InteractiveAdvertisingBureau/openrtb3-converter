@@ -16,6 +16,8 @@
 
 package net.media.driver;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -115,6 +117,9 @@ public class OpenRtbConverter {
     U sourceObject = Utils.convertToObject(sourceClass, source);
     V targetObject =
         convert(overridingConfig, sourceObject, sourceClass, targetClass, overridenMap);
+    ObjectMapper objectMapper = new ObjectMapper();
+
+//    return (new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL)).writeValueAsString(targetObject);
     return Utils.convertToJson(targetObject);
   }
 
@@ -235,4 +240,5 @@ public class OpenRtbConverter {
   private boolean shouldValidate(Config overridingConfig) {
     return overridingConfig.getValidate();
   }
+
 }

@@ -95,7 +95,13 @@ public class TestCaseGenerator {
     for (Map.Entry<String, String> entry : aCase.getInputEdits().entrySet()) {
       modify(inputJsonObject, getNode(entry.getValue()), entry.getKey().split("\\."), 0);
     }
-    aCase.setInputJson(inputJsonObject);
+
+    if(aCase.getInputAsString() == null) {
+      aCase.setInputJson(inputJsonObject);
+    }
+    else {
+      aCase.setInputJson(inputJsonObject.toString());
+    }
 
     if (aCase.getOutputFile() != null
         && !aCase.getOutputFile().trim().equals("null")
