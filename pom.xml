@@ -23,6 +23,7 @@
     <version>1.0.1-SNAPSHOT</version>
     <name>openrtb3-converter-parent</name>
     <description>Parent of the openrtb3 converter</description>
+    <url>https://github.com/media-net/openrtb3-converter</url>
 
     <properties>
         <jackson.version>2.8.0</jackson.version>

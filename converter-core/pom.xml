@@ -24,9 +24,10 @@
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>converter-core</artifactId>
+    <artifactId>openrtb3-converter-core</artifactId>
     <name>openrtb3-converter-core</name>
     <description>Core library offering transformation support between requests and responses of various OpenRTB versions: 2.3, 2.4, 2.5 and 3.0 </description>
+    <url>https://github.com/media-net/openrtb3-converter/tree/master/converter-core</url>
 
     <build>
         <finalName>${project.artifactId}##${project.version}</finalName>

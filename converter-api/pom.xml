@@ -24,9 +24,10 @@
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>converter-api</artifactId>
+    <artifactId>openrtb3-converter-api</artifactId>
     <name>openrtb3-converter-api</name>
     <description>Servlet spec based API to test openrtb 3.0 transformation logic</description>
+    <url>https://github.com/media-net/openrtb3-converter/tree/master/converter-api</url>
 
     <build>
         <finalName>${project.artifactId}##${project.version}</finalName>
