@@ -20,7 +20,7 @@
 
     <groupId>net.media</groupId>
     <artifactId>openrtb3-converter</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>openrtb3-converter-parent</name>
     <description>Parent of the openrtb3 converter</description>
 
@@ -166,6 +166,13 @@
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
                         <version>1.6.6</version>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <skipStaging>true</skipStaging>
+                            <!-- update this to the correct id! -->
+                            <!--stagingProfileId>1296f79efe04a4d0</stagingProfileId-->
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>default-deploy</id>
