@@ -61,8 +61,8 @@ public class ConverterTest {
       for (File files : innerFolder) {
         totalFiles += files.listFiles().length;
         for (File file : files.listFiles()) {
-          if(file.getName().equals("nativeResponseStringInitConfigTrue.json")==false)
-            continue;
+//          if(file.getName().equals("nativeResponseStringInitConfigTrue.json")==false)
+//            continue;
           //System.out.println("file: " + file );
           Exception exception = new Exception();
           byte[] jsonData = Files.readAllBytes(file.toPath());

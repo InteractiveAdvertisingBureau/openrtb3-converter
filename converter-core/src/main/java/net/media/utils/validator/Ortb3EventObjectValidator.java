@@ -17,19 +17,28 @@
 package net.media.utils.validator;
 
 import net.media.openrtb3.Event;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.validation.Constraint;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import javax.validation.Payload;
 import java.lang.annotation.*;
+
+/** Created by rohit.ji on 23/04/19. */
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
-@Constraint(validatedBy = CheckEventUrlNotNull.Validator.class)
+@Constraint(validatedBy = Ortb3EventObjectValidator.Validator.class)
 @Documented
-public @interface CheckEventUrlNotNull {
+public @interface Ortb3EventObjectValidator {
+    String message() default "";
 
-    class Validator implements ConstraintValidator<CheckEventUrlNotNull, Event> {
+    Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
+
+    class Validator implements ConstraintValidator<Ortb3EventObjectValidator, Event> {
         @Override
         public boolean isValid(Event event, ConstraintValidatorContext context) {
             if (event == null || event.getMethod() == null) {
@@ -37,7 +46,8 @@ public @interface CheckEventUrlNotNull {
             }
             int method = event.getMethod();
             if (1 <= method && method <= 2) {
-                if (event.getUrl() != null && !event.getUrl().isEmpty()) {
+                if (StringUtils.isNotBlank(event.getUrl())) {
+
                     return true;
                 } else {
                     ValidatorErrorHandler.setErrorMessage(

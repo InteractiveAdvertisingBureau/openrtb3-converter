@@ -16,13 +16,13 @@
 
 package net.media.openrtb3;
 
-import net.media.utils.validator.CheckEventUrlNotNull;
+import net.media.utils.validator.Ortb3EventObjectValidator;
 
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.Map;
 
-@CheckEventUrlNotNull
+@Ortb3EventObjectValidator
 public class Event {
 
   @NotNull private Integer type;
