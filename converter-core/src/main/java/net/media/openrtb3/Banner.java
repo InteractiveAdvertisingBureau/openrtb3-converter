@@ -17,22 +17,22 @@
 package net.media.openrtb3;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.util.Map;
 
 public class Banner {
 
-  @NotNull private String img;
+  @NotBlank private String img;
   @Valid private LinkAsset link;
   private Map<String, Object> ext;
 
   public Banner() {}
 
-  public @NotNull String getImg() {
+  public @NotBlank String getImg() {
     return this.img;
   }
 
-  public void setImg(@NotNull String img) {
+  public void setImg(@NotBlank String img) {
     this.img = img;
   }
 

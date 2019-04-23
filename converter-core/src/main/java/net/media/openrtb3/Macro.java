@@ -16,22 +16,22 @@
 
 package net.media.openrtb3;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.util.Map;
 
 public class Macro {
 
-  @NotNull private String key;
+  @NotBlank private String key;
   private String value;
   private Map<String, Object> ext;
 
   public Macro() {}
 
-  public @NotNull String getKey() {
+  public String getKey() {
     return this.key;
   }
 
-  public void setKey(@NotNull String key) {
+  public void setKey(String key) {
     this.key = key;
   }
 
