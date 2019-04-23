@@ -68,15 +68,7 @@ public class OpenRtbConverter {
     converterManager = new ConverterManager(overridenMap, config);
   }
 
-  /**
-   * @param overridingConfig
-   * @param source
-   * @param sourceClass
-   * @param targetClass
-   * @param <U> source class type
-   * @param <V> target class type
-   * @return <class>V</class> target class
-   */
+
   public <U, V> V convert(
       Config overridingConfig, U source, Class<U> sourceClass, Class<V> targetClass)
       throws ConfigurationException, OpenRtbConverterException {

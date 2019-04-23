@@ -50,11 +50,6 @@ public class Provider {
     providerMap.put(key, value);
   }
 
-  /**
-   * @param key
-   * @return
-   * @throws IllegalArgumentException
-   */
   public <X, Y> Converter<X, Y> fetch(Conversion<X, Y> key) throws IllegalArgumentException {
     Converter<X, Y> value;
     try {
