@@ -21,7 +21,7 @@
     <parent>
         <groupId>net.media</groupId>
         <artifactId>openrtb3-converter</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2-SNAPSHOT</version>
     </parent>
 
     <artifactId>openrtb3-converter-api</artifactId>
