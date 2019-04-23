@@ -7,20 +7,23 @@ import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
 public class RemoveFiles {
-  static final String basePath = "converter-core/src/test/resources/genrated/request";
+  static final String basePaths[] = {"converter-core/src/test/resources/generated/request","converter-core/src/test/resources/generated/response","converter-core/target/test-classes/generated/request","converter-core/target/test-classes/generated/response"};
   public static void main(String[] args) {
 
     try {
-      File directory = new File(basePath);
+      for (String basePath : basePaths) {
+        File directory = new File(basePath);
 
-      File[] files = directory.listFiles();
-      for (File file : files) {
+        File[] files = directory.listFiles();
+        for (File file : files) {
+          System.out.println(file.getPath().toString());
+          if (!file.delete()) {
+            System.out.println("Failed to delete " + file);
 
-        if (!file.delete()) {
-          System.out.println("Failed to delete "+file);
+          }
+//        break;
 
         }
-
       }
     } catch (Exception e) {
 
