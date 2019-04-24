@@ -243,6 +243,20 @@ cases:
   - inputFile: MINIMUM_RESPONSE_BANNER_30.json
     inputType: "RESPONSE30"
     inputEdits:
+      openrtb.response.seatbid[0].bid[0].media.ad.display.event[0].url: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.event[0].method: 10
+    outputFile: MINIMUM_RESPONSE_BANNER_25_3TO2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      seatbid[0].bid[0].ext.event[0].method: 10
+      seatbid[0].bid[0].ext.event[0].url: null
+    purpose: BidMediaAdDisplayEventUrlAllowedNullForOtherMethods
+    params:
+      validate: true
+
+  - inputFile: MINIMUM_RESPONSE_BANNER_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
       openrtb.response.seatbid[0].bid[0].media.ad.display.event[0].method: null
     outputFile: empty.json
     outputType: "RESPONSE25"
