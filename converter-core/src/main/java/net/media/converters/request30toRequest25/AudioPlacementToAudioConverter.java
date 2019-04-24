@@ -25,6 +25,7 @@ import net.media.openrtb25.request.Banner;
 import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.Companion;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -76,9 +77,9 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     if (map != null) {
       audio.setExt(MapUtils.copyMap(map, config));
       try {
-        if (map.containsKey("stitched")) {
-          audio.setStitched((Integer) map.get("stitched"));
-          audio.getExt().remove("stitched");
+        if (map.containsKey(CommonConstants.STITCHED)) {
+          audio.setStitched((Integer) map.get(CommonConstants.STITCHED));
+          audio.getExt().remove(CommonConstants.STITCHED);
         }
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for Audio", e);
@@ -94,11 +95,11 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
       if (isNull(audio.getExt())) {
         audio.setExt(new HashMap<>());
       }
-      audio.getExt().put("skip", audioPlacement.getSkip());
-      audio.getExt().put("skipmin", audioPlacement.getSkipmin());
-      audio.getExt().put("skipafter", audioPlacement.getSkipafter());
-      audio.getExt().put("playmethod", audioPlacement.getPlaymethod());
-      audio.getExt().put("playend", audioPlacement.getPlayend());
+      audio.getExt().put(CommonConstants.SKIP, audioPlacement.getSkip());
+      audio.getExt().put(CommonConstants.SKIPMIN, audioPlacement.getSkipmin());
+      audio.getExt().put(CommonConstants.SKIPAFTER, audioPlacement.getSkipafter());
+      audio.getExt().put(CommonConstants.PLAYMETHOD, audioPlacement.getPlaymethod());
+      audio.getExt().put(CommonConstants.PLAYEND, audioPlacement.getPlayend());
     }
   }
 

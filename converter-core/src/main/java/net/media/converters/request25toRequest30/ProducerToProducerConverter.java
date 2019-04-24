@@ -21,6 +21,7 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Producer;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -30,6 +31,7 @@ import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
 public class ProducerToProducerConverter
     implements Converter<Producer, net.media.openrtb3.Producer> {
+
   @Override
   public net.media.openrtb3.Producer map(Producer source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -62,12 +64,12 @@ public class ProducerToProducerConverter
     }
     if (source.getExt() == null) return;
     try {
-      if (source.getExt().containsKey("cattax")) {
-        target.setCattax((Integer) source.getExt().get("cattax"));
+      if (source.getExt().containsKey(CommonConstants.CATTAX)) {
+        target.setCattax((Integer) source.getExt().get(CommonConstants.CATTAX));
       } else {
         target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
-      target.getExt().remove("cattax");
+      target.getExt().remove(CommonConstants.CATTAX);
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Producer", e);
     }

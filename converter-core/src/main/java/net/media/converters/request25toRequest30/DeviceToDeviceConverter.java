@@ -22,6 +22,7 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Device;
 import net.media.openrtb25.request.Geo;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.OsMap;
 import net.media.utils.Provider;
@@ -85,21 +86,21 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     }
     if (source.getFlashver() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("flashver", source.getFlashver());
+      target.getExt().put(CommonConstants.FLASHVER, source.getFlashver());
     }
     if (source.getExt() == null) return;
     try {
-      if (source.getExt().containsKey("xff")) {
-        target.setXff((String) source.getExt().get("xff"));
-        target.getExt().remove("xff");
+      if (source.getExt().containsKey(CommonConstants.XFF)) {
+        target.setXff((String) source.getExt().get(CommonConstants.XFF));
+        target.getExt().remove(CommonConstants.XFF);
       }
-      if (source.getExt().containsKey("iptr")) {
-        target.setIptr((Integer) source.getExt().get("iptr"));
-        target.getExt().remove("iptr");
+      if (source.getExt().containsKey(CommonConstants.IPTR)) {
+        target.setIptr((Integer) source.getExt().get(CommonConstants.IPTR));
+        target.getExt().remove(CommonConstants.IPTR);
       }
-      if (source.getExt().containsKey("mccmncsim")) {
-        target.setMccmncsim((String) source.getExt().get("mccmncsim"));
-        target.getExt().remove("mccmncsim");
+      if (source.getExt().containsKey(CommonConstants.MCCMNCSIM)) {
+        target.setMccmncsim((String) source.getExt().get(CommonConstants.MCCMNCSIM));
+        target.getExt().remove(CommonConstants.MCCMNCSIM);
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Device", e);

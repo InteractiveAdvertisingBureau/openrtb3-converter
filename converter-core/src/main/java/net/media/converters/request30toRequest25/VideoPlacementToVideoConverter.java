@@ -26,6 +26,7 @@ import net.media.openrtb3.Companion;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -98,13 +99,13 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
       if (isNull(video.getExt())) {
         video.setExt(new HashMap<>());
       }
-      video.getExt().put("unit", videoPlacement.getUnit());
+      video.getExt().put(CommonConstants.UNIT, videoPlacement.getUnit());
     }
     if (nonNull(videoPlacement.getMaxseq())) {
       if (isNull(video.getExt())) {
         video.setExt(new HashMap<>());
       }
-      video.getExt().put("maxseq", videoPlacement.getMaxseq());
+      video.getExt().put(CommonConstants.MAXSEQ, videoPlacement.getMaxseq());
     }
   }
 }

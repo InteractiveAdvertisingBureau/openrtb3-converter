@@ -24,6 +24,7 @@ import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -77,29 +78,30 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
           displayPlacement.setExt(new HashMap<>());
         }
         displayPlacement.getExt().putAll(bannerExt);
-        if (bannerExt.containsKey("unit")) {
-          displayPlacement.setUnit((Integer) bannerExt.get("unit"));
-          displayPlacement.getExt().remove("unit");
+        if (bannerExt.containsKey(CommonConstants.UNIT)) {
+          displayPlacement.setUnit((Integer) bannerExt.get(CommonConstants.UNIT));
+          displayPlacement.getExt().remove(CommonConstants.UNIT);
         }
-        if (bannerExt.containsKey("ctype")) {
+        if (bannerExt.containsKey(CommonConstants.CTYPE)) {
           displayPlacement.setCtype(
-              CollectionUtils.copyCollection((Collection<Integer>) bannerExt.get("ctype"), config));
-          displayPlacement.getExt().remove("ctype");
+              CollectionUtils.copyCollection((Collection<Integer>) bannerExt.get(CommonConstants
+                .CTYPE), config));
+          displayPlacement.getExt().remove(CommonConstants.CTYPE);
         }
-        if (bannerExt.containsKey("ptype")) {
-          displayPlacement.setPtype((Integer) bannerExt.get("ptype"));
-          displayPlacement.getExt().remove("ptype");
+        if (bannerExt.containsKey(CommonConstants.PTYPE)) {
+          displayPlacement.setPtype((Integer) bannerExt.get(CommonConstants.PTYPE));
+          displayPlacement.getExt().remove(CommonConstants.PTYPE);
         }
-        if (bannerExt.containsKey("context")) {
-          displayPlacement.setContext((Integer) bannerExt.get("context"));
-          displayPlacement.getExt().remove("context");
+        if (bannerExt.containsKey(CommonConstants.CONTEXT)) {
+          displayPlacement.setContext((Integer) bannerExt.get(CommonConstants.CONTEXT));
+          displayPlacement.getExt().remove(CommonConstants.CONTEXT);
         }
-        if (bannerExt.containsKey("priv")) {
-          displayPlacement.setPriv((Integer) bannerExt.get("priv"));
-          displayPlacement.getExt().remove("priv");
+        if (bannerExt.containsKey(CommonConstants.PRIV)) {
+          displayPlacement.setPriv((Integer) bannerExt.get(CommonConstants.PRIV));
+          displayPlacement.getExt().remove(CommonConstants.PRIV);
         }
-        if (bannerExt.containsKey("seq")) {
-          displayPlacement.getExt().remove("seq");
+        if (bannerExt.containsKey(CommonConstants.SEQ)) {
+          displayPlacement.getExt().remove(CommonConstants.SEQ);
         }
       }
     } catch (ClassCastException e) {
@@ -109,37 +111,37 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
       if (isNull(displayPlacement.getExt())) {
         displayPlacement.setExt(new HashMap<>());
       }
-      displayPlacement.getExt().put("btype", new ArrayList<>(banner.getBtype()));
+      displayPlacement.getExt().put(CommonConstants.BTYPE, new ArrayList<>(banner.getBtype()));
     }
     if (banner.getId() != null) {
       if (isNull(displayPlacement.getExt())) {
         displayPlacement.setExt(new HashMap<>());
       }
-      displayPlacement.getExt().put("id", banner.getId());
+      displayPlacement.getExt().put(CommonConstants.ID, banner.getId());
     }
     if (banner.getHmax() != null) {
       if (isNull(displayPlacement.getExt())) {
         displayPlacement.setExt(new HashMap<>());
       }
-      displayPlacement.getExt().put("hmax", banner.getHmax());
+      displayPlacement.getExt().put(CommonConstants.HMAX, banner.getHmax());
     }
     if (banner.getHmin() != null) {
       if (isNull(displayPlacement.getExt())) {
         displayPlacement.setExt(new HashMap<>());
       }
-      displayPlacement.getExt().put("hmin", banner.getHmin());
+      displayPlacement.getExt().put(CommonConstants.HMIN, banner.getHmin());
     }
     if (banner.getWmax() != null) {
       if (isNull(displayPlacement.getExt())) {
         displayPlacement.setExt(new HashMap<>());
       }
-      displayPlacement.getExt().put("wmax", banner.getWmax());
+      displayPlacement.getExt().put(CommonConstants.WMAX, banner.getWmax());
     }
     if (banner.getWmin() != null) {
       if (isNull(displayPlacement.getExt())) {
         displayPlacement.setExt(new HashMap<>());
       }
-      displayPlacement.getExt().put("wmin", banner.getWmin());
+      displayPlacement.getExt().put(CommonConstants.WMIN, banner.getWmin());
     }
   }
 
@@ -179,7 +181,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     displayFormat.setHratio(format.getHratio());
     if (nonNull(format.getWmin())) {
       if (displayFormat.getExt() == null) displayFormat.setExt(new HashMap<>());
-      displayFormat.getExt().put("wmin", format.getWmin());
+      displayFormat.getExt().put(CommonConstants.WMIN, format.getWmin());
     }
 
     return displayFormat;

@@ -24,6 +24,7 @@ import net.media.openrtb3.App;
 import net.media.openrtb3.Content;
 import net.media.openrtb3.Publisher;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -78,11 +79,11 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb25.req
     }
     if (source.getCattax() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("cattax", source.getCattax());
+      target.getExt().put(CommonConstants.CATTAX, source.getCattax());
     }
     if (source.getStoreid() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("storeid", source.getStoreid());
+      target.getExt().put(CommonConstants.STOREID, source.getStoreid());
     }
   }
 }

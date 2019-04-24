@@ -24,6 +24,7 @@ import net.media.openrtb3.Data;
 import net.media.openrtb3.Geo;
 import net.media.openrtb3.User;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -74,7 +75,7 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb25.
     }
     if (source.getConsent() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("consent", source.getConsent());
+      target.getExt().put(CommonConstants.CONSENT, source.getConsent());
     }
   }
 }

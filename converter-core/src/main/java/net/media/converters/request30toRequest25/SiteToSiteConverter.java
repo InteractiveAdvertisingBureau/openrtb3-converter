@@ -24,6 +24,7 @@ import net.media.openrtb3.Content;
 import net.media.openrtb3.Publisher;
 import net.media.openrtb3.Site;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -83,11 +84,11 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.
     }
     if (source.getCattax() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("cattax", source.getCattax());
+      target.getExt().put(CommonConstants.CATTAX, source.getCattax());
     }
     if (source.getAmp() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("amp", source.getAmp());
+      target.getExt().put(CommonConstants.AMP, source.getAmp());
     }
   }
 }

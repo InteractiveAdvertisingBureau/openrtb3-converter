@@ -25,6 +25,7 @@ import net.media.openrtb25.request.Producer;
 import net.media.openrtb3.Data;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -94,9 +95,9 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
 
     if (source.getExt() == null) return;
     try {
-      if (source.getExt().containsKey("cattax")) {
-        target.setCattax((Integer) source.getExt().get("cattax"));
-        target.getExt().remove("cattax");
+      if (source.getExt().containsKey(CommonConstants.CATTAX)) {
+        target.setCattax((Integer) source.getExt().get(CommonConstants.CATTAX));
+        target.getExt().remove(CommonConstants.CATTAX);
       } else {
         target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
@@ -105,7 +106,7 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     }
     if (source.getVideoquality() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("videoquality", source.getVideoquality());
+      target.getExt().put(CommonConstants.VIDEOQUALITY, source.getVideoquality());
     }
   }
 }

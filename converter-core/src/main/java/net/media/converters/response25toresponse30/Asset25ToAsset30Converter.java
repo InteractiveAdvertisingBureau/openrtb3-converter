@@ -22,6 +22,7 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.nativeresponse.*;
 import net.media.openrtb3.*;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -74,13 +75,13 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     dataAsset.setValue(value);
     try {
       if (nonNull(nativeData.getExt())) {
-        if (nativeData.getExt().containsKey("type")) {
-          dataAsset.setType((Integer) nativeData.getExt().get("type"));
-          dataAsset.getExt().remove("type");
+        if (nativeData.getExt().containsKey(CommonConstants.TYPE)) {
+          dataAsset.setType((Integer) nativeData.getExt().get(CommonConstants.TYPE));
+          dataAsset.getExt().remove(CommonConstants.TYPE);
         }
-        if (nativeData.getExt().containsKey("len")) {
-          dataAsset.setLen((Integer) nativeData.getExt().get("len"));
-          dataAsset.getExt().remove("len");
+        if (nativeData.getExt().containsKey(CommonConstants.LEN)) {
+          dataAsset.setLen((Integer) nativeData.getExt().get(CommonConstants.LEN));
+          dataAsset.getExt().remove(CommonConstants.LEN);
         }
       }
     } catch (Exception e) {
@@ -88,7 +89,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     }
     if(isNull(dataAsset.getExt()))
       dataAsset.setExt(new HashMap<>());
-    dataAsset.getExt().put("label",nativeData.getLabel());
+    dataAsset.getExt().put(CommonConstants.LABEL,nativeData.getLabel());
     return dataAsset;
   }
 
@@ -104,9 +105,9 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     imageAsset.setExt(MapUtils.copyMap(nativeImage.getExt(), config));
     try {
       if (nonNull(nativeImage.getExt())) {
-        if (nativeImage.getExt().containsKey("type")) {
-          imageAsset.setType((Integer) nativeImage.getExt().get("type"));
-          imageAsset.getExt().remove("type");
+        if (nativeImage.getExt().containsKey(CommonConstants.TYPE)) {
+          imageAsset.setType((Integer) nativeImage.getExt().get(CommonConstants.TYPE));
+          imageAsset.getExt().remove(CommonConstants.TYPE);
         }
       }
     }
@@ -124,9 +125,9 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     titleAsset.setText(nativeTitle.getText());
     try {
       if (nonNull(nativeTitle.getExt())) {
-        if (nativeTitle.getExt().containsKey("len")) {
-          titleAsset.setLen((Integer) nativeTitle.getExt().get("len"));
-          titleAsset.getExt().remove("len");
+        if (nativeTitle.getExt().containsKey(CommonConstants.LEN)) {
+          titleAsset.setLen((Integer) nativeTitle.getExt().get(CommonConstants.LEN));
+          titleAsset.getExt().remove(CommonConstants.LEN);
         }
       }
     }
@@ -144,9 +145,9 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     videoAsset.setExt(MapUtils.copyMap(nativeVideo.getExt(), config));
     try {
       if (nonNull(nativeVideo.getExt())) {
-        if (nativeVideo.getExt().containsKey("curl")) {
-          videoAsset.setCurl((String) nativeVideo.getExt().get("curl"));
-          videoAsset.getExt().remove("curl");
+        if (nativeVideo.getExt().containsKey(CommonConstants.CURL)) {
+          videoAsset.setCurl((String) nativeVideo.getExt().get(CommonConstants.CURL));
+          videoAsset.getExt().remove(CommonConstants.CURL);
         }
       }
     }

@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.Publisher;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -29,6 +30,7 @@ import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
 public class PublisherToPublisherConverter
     implements Converter<Publisher, net.media.openrtb3.Publisher> {
+
   @Override
   public net.media.openrtb3.Publisher map(
       Publisher source, Config config, Provider converterProvider) {
@@ -57,12 +59,12 @@ public class PublisherToPublisherConverter
     Map<String, Object> map = source.getExt();
     if (map != null) {
       target.setExt(MapUtils.copyMap(map, config));
-      if (map.containsKey("cattax")) {
-        target.setCattax((Integer) map.get("cattax"));
+      if (map.containsKey(CommonConstants.CATTAX)) {
+        target.setCattax((Integer) map.get(CommonConstants.CATTAX));
       } else {
         target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
-      target.getExt().remove("cattax");
+      target.getExt().remove(CommonConstants.CATTAX);
     }
   }
 }

@@ -26,6 +26,7 @@ import net.media.openrtb25.response.Bid;
 import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb3.Display;
 import net.media.openrtb3.Native;
+import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
@@ -63,19 +64,19 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
-    target.getExt().put("ctype", source.getCtype());
+    target.getExt().put(CommonConstants.CTYPE, source.getCtype());
 
-    target.getExt().put("priv", source.getPriv());
-    target.getExt().put("curl", source.getCurl());
+    target.getExt().put(CommonConstants.PRIV, source.getPriv());
+    target.getExt().put(CommonConstants.CURL, source.getCurl());
     if (isEmpty(target.getNurl())) {
       target.setNurl(source.getCurl());
     }
-    target.getExt().put("event", source.getEvent());
-    target.getExt().put("mime", source.getMime());
+    target.getExt().put(CommonConstants.EVENT, source.getEvent());
+    target.getExt().put(CommonConstants.MIME, source.getMime());
     if (nonNull(source.getExt())) target.getExt().putAll(source.getExt());
 
     if (config.getAdType(target.getId()) == AdType.NATIVE) {
-      target.getExt().put("native", source.get_native());
+      target.getExt().put(CommonConstants.NATIVE, source.get_native());
       if (nonNull(source.get_native())) {
         NativeResponse _native =
             nativeBidConverter.map(source.get_native(), config, converterProvider);
@@ -102,7 +103,7 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
         }
       }
     } else {
-      target.getExt().put("banner", source.getBanner());
+      target.getExt().put(CommonConstants.BANNER, source.getBanner());
       if (nonNull(source.getAdm())) {
         target.setAdm(source.getAdm());
       }

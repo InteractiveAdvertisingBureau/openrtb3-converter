@@ -23,6 +23,7 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Media;
 import net.media.template.MacroMapper;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -75,13 +76,13 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
       //      target.setQagmediarating(Integer.parseInt(source.getMid()));
       target.setAdid(source.getMid());
       //      target.getExt().put("qagmediarating", source.getMid());
-      target.getExt().put("macro", source.getMacro());
+      target.getExt().put(CommonConstants.MACRO, source.getMacro());
       mediaBidConverter.enhance(source.getMedia(), target, config, converterProvider);
       MacroMapper.macroReplaceTwoX(target);
       if (nonNull(source.getExt())) {
-        if (source.getExt().containsKey("protocol")) {
-          target.setProtocol((Integer) source.getExt().get("protocol"));
-          target.getExt().remove("protocol");
+        if (source.getExt().containsKey(CommonConstants.PROTOCOL)) {
+          target.setProtocol((Integer) source.getExt().get(CommonConstants.PROTOCOL));
+          target.getExt().remove(CommonConstants.PROTOCOL);
         }
       }
     }

@@ -26,6 +26,7 @@ import net.media.openrtb3.Companion;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -92,13 +93,13 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     try {
       if (nonNull(video) && nonNull(video.getExt()) && nonNull(videoPlacement)) {
         videoPlacement.setExt((MapUtils.copyMap(video.getExt(), config)));
-        if (video.getExt().containsKey("unit")) {
-          videoPlacement.setUnit((Integer) video.getExt().get("unit"));
-          videoPlacement.getExt().remove("unit");
+        if (video.getExt().containsKey(CommonConstants.UNIT)) {
+          videoPlacement.setUnit((Integer) video.getExt().get(CommonConstants.UNIT));
+          videoPlacement.getExt().remove(CommonConstants.UNIT);
         }
-        if (video.getExt().containsKey("maxseq")) {
-          videoPlacement.setMaxseq((Integer) video.getExt().get("maxseq"));
-          videoPlacement.getExt().remove("maxseq");
+        if (video.getExt().containsKey(CommonConstants.MAXSEQ)) {
+          videoPlacement.setMaxseq((Integer) video.getExt().get(CommonConstants.MAXSEQ));
+          videoPlacement.getExt().remove(CommonConstants.MAXSEQ);
         }
         if (videoPlacement.getExt().containsKey("qty")) {
           videoPlacement.getExt().remove("qty");

@@ -26,6 +26,7 @@ import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.*;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
@@ -72,9 +73,9 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
       assetFormat.setExt(MapUtils.copyMap(map, config));
 
       try {
-        if (assetFormat.getExt().containsKey("clickbrowser")) {
-          assetFormat.getVideo().setClktype((Integer) assetFormat.getExt().get("clickbrowser"));
-          assetFormat.getExt().remove("clickbrowser");
+        if (assetFormat.getExt().containsKey(CommonConstants.CLICKBROWSER)) {
+          assetFormat.getVideo().setClktype((Integer) assetFormat.getExt().get(CommonConstants.CLICKBROWSER));
+          assetFormat.getExt().remove(CommonConstants.CLICKBROWSER);
         }
       } catch (Exception e) {
         throw new OpenRtbConverterException(
@@ -82,7 +83,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
       }
     }
 
-    if (assetFormat.getVideo().getExt().containsKey("companionad")) {
+    if (assetFormat.getVideo().getExt().containsKey(CommonConstants.COMPANIONAD)) {
       try {
         Collection<Banner> banners =
             JacksonObjectMapperUtils.getMapper()
@@ -175,87 +176,87 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     videoPlacement.setExt(MapUtils.copyMap(nativeVideo.getExt(), config));
     try {
       if (nativeVideo.getExt() != null) {
-        if (nativeVideo.getExt().containsKey("ptype")) {
-          videoPlacement.setPtype((Integer) nativeVideo.getExt().get("ptype"));
-          videoPlacement.getExt().remove("ptype");
+        if (nativeVideo.getExt().containsKey(CommonConstants.PTYPE)) {
+          videoPlacement.setPtype((Integer) nativeVideo.getExt().get(CommonConstants.PTYPE));
+          videoPlacement.getExt().remove(CommonConstants.PTYPE);
         }
-        if (nativeVideo.getExt().containsKey("pos")) {
-          videoPlacement.setPos((Integer) nativeVideo.getExt().get("pos"));
-          videoPlacement.getExt().remove("pos");
+        if (nativeVideo.getExt().containsKey(CommonConstants.POS)) {
+          videoPlacement.setPos((Integer) nativeVideo.getExt().get(CommonConstants.POS));
+          videoPlacement.getExt().remove(CommonConstants.POS);
         }
-        if (nativeVideo.getExt().containsKey("startdelay")) {
-          videoPlacement.setDelay((Integer) nativeVideo.getExt().get("startdelay"));
-          videoPlacement.getExt().remove("startdelay");
+        if (nativeVideo.getExt().containsKey(CommonConstants.STARTDELAY)) {
+          videoPlacement.setDelay((Integer) nativeVideo.getExt().get(CommonConstants.STARTDELAY));
+          videoPlacement.getExt().remove(CommonConstants.STARTDELAY);
         }
-        if (nativeVideo.getExt().containsKey("skip")) {
-          videoPlacement.setSkip((Integer) nativeVideo.getExt().get("skip"));
-          videoPlacement.getExt().remove("skip");
+        if (nativeVideo.getExt().containsKey(CommonConstants.SKIP)) {
+          videoPlacement.setSkip((Integer) nativeVideo.getExt().get(CommonConstants.SKIP));
+          videoPlacement.getExt().remove(CommonConstants.SKIP);
         }
-        if (nativeVideo.getExt().containsKey("skipmin")) {
-          videoPlacement.setSkipmin((Integer) nativeVideo.getExt().get("skipmin"));
-          videoPlacement.getExt().remove("skipmin");
+        if (nativeVideo.getExt().containsKey(CommonConstants.SKIPMIN)) {
+          videoPlacement.setSkipmin((Integer) nativeVideo.getExt().get(CommonConstants.SKIPMIN));
+          videoPlacement.getExt().remove(CommonConstants.SKIPMIN);
         }
-        if (nativeVideo.getExt().containsKey("skipafter")) {
-          videoPlacement.setSkipafter((Integer) nativeVideo.getExt().get("skipafter"));
-          videoPlacement.getExt().remove("skipafter");
+        if (nativeVideo.getExt().containsKey(CommonConstants.SKIPAFTER)) {
+          videoPlacement.setSkipafter((Integer) nativeVideo.getExt().get(CommonConstants.SKIPAFTER));
+          videoPlacement.getExt().remove(CommonConstants.SKIPAFTER);
         }
-        if (nativeVideo.getExt().containsKey("playbackmethod")) {
+        if (nativeVideo.getExt().containsKey(CommonConstants.PLAYBACKMETHOD)) {
           videoPlacement.setPlaymethod(
-              ((List<Integer>) nativeVideo.getExt().get("playbackmethod")).get(0));
-          videoPlacement.getExt().remove("playbackmethod");
+              ((List<Integer>) nativeVideo.getExt().get(CommonConstants.PLAYBACKMETHOD)).get(0));
+          videoPlacement.getExt().remove(CommonConstants.PLAYBACKMETHOD);
         }
-        if (nativeVideo.getExt().containsKey("api")) {
-          videoPlacement.setApi((List<Integer>) nativeVideo.getExt().get("api"));
-          videoPlacement.getExt().remove("api");
+        if (nativeVideo.getExt().containsKey(CommonConstants.API)) {
+          videoPlacement.setApi((List<Integer>) nativeVideo.getExt().get(CommonConstants.API));
+          videoPlacement.getExt().remove(CommonConstants.API);
         }
-        if (nativeVideo.getExt().containsKey("w")) {
-          videoPlacement.setW((Integer) nativeVideo.getExt().get("w"));
-          videoPlacement.getExt().remove("w");
+        if (nativeVideo.getExt().containsKey(CommonConstants.W)) {
+          videoPlacement.setW((Integer) nativeVideo.getExt().get(CommonConstants.W));
+          videoPlacement.getExt().remove(CommonConstants.W);
         }
-        if (nativeVideo.getExt().containsKey("h")) {
-          videoPlacement.setH((Integer) nativeVideo.getExt().get("h"));
-          videoPlacement.getExt().remove("h");
+        if (nativeVideo.getExt().containsKey(CommonConstants.H)) {
+          videoPlacement.setH((Integer) nativeVideo.getExt().get(CommonConstants.H));
+          videoPlacement.getExt().remove(CommonConstants.H);
         }
-        if (nativeVideo.getExt().containsKey("unit")) {
-          videoPlacement.setUnit((Integer) nativeVideo.getExt().get("unit"));
-          videoPlacement.getExt().remove("unit");
+        if (nativeVideo.getExt().containsKey(CommonConstants.UNIT)) {
+          videoPlacement.setUnit((Integer) nativeVideo.getExt().get(CommonConstants.UNIT));
+          videoPlacement.getExt().remove(CommonConstants.UNIT);
         }
-        if (nativeVideo.getExt().containsKey("maxextended")) {
-          videoPlacement.setMaxext((Integer) nativeVideo.getExt().get("maxextended"));
-          videoPlacement.getExt().remove("maxextended");
+        if (nativeVideo.getExt().containsKey(CommonConstants.MAXEXTENDED)) {
+          videoPlacement.setMaxext((Integer) nativeVideo.getExt().get(CommonConstants.MAXEXTENDED));
+          videoPlacement.getExt().remove(CommonConstants.MAXEXTENDED);
         }
-        if (nativeVideo.getExt().containsKey("minbitrate")) {
-          videoPlacement.setMinbitr((Integer) nativeVideo.getExt().get("minbitrate"));
-          videoPlacement.getExt().remove("minbitrate");
+        if (nativeVideo.getExt().containsKey(CommonConstants.MINBITRATE)) {
+          videoPlacement.setMinbitr((Integer) nativeVideo.getExt().get(CommonConstants.MINBITRATE));
+          videoPlacement.getExt().remove(CommonConstants.MINBITRATE);
         }
-        if (nativeVideo.getExt().containsKey("maxbitrate")) {
-          videoPlacement.setMaxbitr((Integer) nativeVideo.getExt().get("maxbitrate"));
-          videoPlacement.getExt().remove("maxbitrate");
+        if (nativeVideo.getExt().containsKey(CommonConstants.MAXBITRATE)) {
+          videoPlacement.setMaxbitr((Integer) nativeVideo.getExt().get(CommonConstants.MAXBITRATE));
+          videoPlacement.getExt().remove(CommonConstants.MAXBITRATE);
         }
-        if (nativeVideo.getExt().containsKey("delivery")) {
-          videoPlacement.setDelivery((List<Integer>) nativeVideo.getExt().get("delivery"));
-          videoPlacement.getExt().remove("delivery");
+        if (nativeVideo.getExt().containsKey(CommonConstants.DELIVERY)) {
+          videoPlacement.setDelivery((List<Integer>) nativeVideo.getExt().get(CommonConstants.DELIVERY));
+          videoPlacement.getExt().remove(CommonConstants.DELIVERY);
         }
-        if (nativeVideo.getExt().containsKey("maxseq")) {
-          videoPlacement.setMaxseq((Integer) nativeVideo.getExt().get("maxseq"));
-          videoPlacement.getExt().remove("maxseq");
+        if (nativeVideo.getExt().containsKey(CommonConstants.MAXSEQ)) {
+          videoPlacement.setMaxseq((Integer) nativeVideo.getExt().get(CommonConstants.MAXSEQ));
+          videoPlacement.getExt().remove(CommonConstants.MAXSEQ);
         }
-        if (nativeVideo.getExt().containsKey("linearity")) {
-          videoPlacement.setLinear((Integer) nativeVideo.getExt().get("linearity"));
-          videoPlacement.getExt().remove("linearity");
+        if (nativeVideo.getExt().containsKey(CommonConstants.LINEARITY)) {
+          videoPlacement.setLinear((Integer) nativeVideo.getExt().get(CommonConstants.LINEARITY));
+          videoPlacement.getExt().remove(CommonConstants.LINEARITY);
         }
-        if (nativeVideo.getExt().containsKey("boxingallowed")) {
-          videoPlacement.setBoxing((Integer) nativeVideo.getExt().get("boxingallowed"));
-          videoPlacement.getExt().remove("boxingallowed");
+        if (nativeVideo.getExt().containsKey(CommonConstants.BOXINGALLOWED)) {
+          videoPlacement.setBoxing((Integer) nativeVideo.getExt().get(CommonConstants.BOXINGALLOWED));
+          videoPlacement.getExt().remove(CommonConstants.BOXINGALLOWED);
         }
-        if (nativeVideo.getExt().containsKey("playbackend")) {
-          videoPlacement.setPlayend((Integer) nativeVideo.getExt().get("playbackend"));
-          videoPlacement.getExt().remove("playbackend");
+        if (nativeVideo.getExt().containsKey(CommonConstants.PLAYBACKEND)) {
+          videoPlacement.setPlayend((Integer) nativeVideo.getExt().get(CommonConstants.PLAYBACKEND));
+          videoPlacement.getExt().remove(CommonConstants.PLAYBACKEND);
         }
 
-        if (nativeVideo.getExt().containsKey("companiontype")) {
-          videoPlacement.setComptype((List<Integer>) nativeVideo.getExt().get("companiontype"));
-          videoPlacement.getExt().remove("companiontype");
+        if (nativeVideo.getExt().containsKey(CommonConstants.COMPANIONTYPE)) {
+          videoPlacement.setComptype((List<Integer>) nativeVideo.getExt().get(CommonConstants.COMPANIONTYPE));
+          videoPlacement.getExt().remove(CommonConstants.COMPANIONTYPE);
         }
 
         /*if(nativeVideo.getExt().containsKey("companionad")) {

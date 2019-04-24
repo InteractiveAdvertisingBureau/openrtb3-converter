@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Source;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -28,6 +29,7 @@ import java.util.Map;
 
 public class SourceToSourceConverter
     implements Converter<Source, net.media.openrtb25.request.Source> {
+
   @Override
   public net.media.openrtb25.request.Source map(
       Source source, Config config, Provider converterProvider) throws OpenRtbConverterException {
@@ -58,30 +60,30 @@ public class SourceToSourceConverter
     }
     if (source.getTs() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("ts", source.getTs());
+      target.getExt().put(CommonConstants.TS, source.getTs());
     }
     if (source.getDs() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("ds", source.getDs());
+      target.getExt().put(CommonConstants.DS, source.getDs());
     }
     if (source.getDsmap() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("dsmap", source.getDsmap());
+      target.getExt().put(CommonConstants.DSMAP, source.getDsmap());
     }
     if (source.getCert() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("cert", source.getCert());
+      target.getExt().put(CommonConstants.CERT, source.getCert());
     }
     if (source.getDigest() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("digest", source.getDigest());
+      target.getExt().put(CommonConstants.DIGEST, source.getDigest());
     }
 
     if (source.getExt() == null) return;
-    if (source.getExt().containsKey("fd")) {
+    if (source.getExt().containsKey(CommonConstants.FD)) {
       try {
-        target.setFd((Integer) source.getExt().get("fd"));
-        target.getExt().remove("fd");
+        target.setFd((Integer) source.getExt().get(CommonConstants.FD));
+        target.getExt().remove(CommonConstants.FD);
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for Source", e);
       }

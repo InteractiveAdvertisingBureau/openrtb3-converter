@@ -21,6 +21,7 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import static java.util.Objects.nonNull;
@@ -36,44 +37,44 @@ public class BannerToDisplayPlacementConverter
       return;
     }
     if (nonNull(banner.getExt())) {
-      if (banner.getExt().containsKey("vcm")) {
+      if (banner.getExt().containsKey(CommonConstants.VCM)) {
         try {
-          banner.setVcm((Integer) banner.getExt().get("vcm"));
+          banner.setVcm((Integer) banner.getExt().get(CommonConstants.VCM));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting vcm from banner.ext.vcm", e);
         }
-        banner.getExt().remove("vcm");
+        banner.getExt().remove(CommonConstants.VCM);
       }
     }
     if (nonNull(banner.getFormat())) {
       for (Format format : banner.getFormat()) {
         if (nonNull(format.getExt())) {
-          if (format.getExt().containsKey("wratio")) {
+          if (format.getExt().containsKey(CommonConstants.WRATIO)) {
             try {
-              format.setWratio((Integer) format.getExt().get("wratio"));
+              format.setWratio((Integer) format.getExt().get(CommonConstants.WRATIO));
             } catch (Exception e) {
               throw new OpenRtbConverterException(
                   "Error in setting wratio from banner.format.ext" + ".wratio", e);
             }
-            format.getExt().remove("wratio");
+            format.getExt().remove(CommonConstants.WRATIO);
           }
-          if (format.getExt().containsKey("hratio")) {
+          if (format.getExt().containsKey(CommonConstants.HRATIO)) {
             try {
-              format.setHratio((Integer) format.getExt().get("hratio"));
+              format.setHratio((Integer) format.getExt().get(CommonConstants.HRATIO));
             } catch (Exception e) {
               throw new OpenRtbConverterException(
                   "Error in setting hratio from banner.ext" + ".hratio", e);
             }
-            format.getExt().remove("hratio");
+            format.getExt().remove(CommonConstants.HRATIO);
           }
-          if (format.getExt().containsKey("wmin")) {
+          if (format.getExt().containsKey(CommonConstants.WMIN)) {
             try {
-              format.setWmin((Integer) format.getExt().get("wmin"));
+              format.setWmin((Integer) format.getExt().get(CommonConstants.WMIN));
             } catch (Exception e) {
               throw new OpenRtbConverterException(
                   "Error in setting wmin from banner.ext" + ".wmin", e);
             }
-            format.getExt().remove("wmin");
+            format.getExt().remove(CommonConstants.WMIN);
           }
         }
       }

@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Producer;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -28,6 +29,7 @@ import java.util.Map;
 
 public class ProducerToProducerConverter
     implements Converter<Producer, net.media.openrtb25.request.Producer> {
+
   @Override
   public net.media.openrtb25.request.Producer map(
       Producer source, Config config, Provider converterProvider) {
@@ -59,7 +61,7 @@ public class ProducerToProducerConverter
     }
     if (source.getCattax() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("cattax", source.getCattax());
+      target.getExt().put(CommonConstants.CATTAX, source.getCattax());
     }
   }
 }

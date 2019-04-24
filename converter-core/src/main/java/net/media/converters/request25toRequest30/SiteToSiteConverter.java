@@ -24,6 +24,7 @@ import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Publisher;
 import net.media.openrtb25.request.Site;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -80,15 +81,15 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
     }
     if (source.getExt() == null) return;
     try {
-      if (source.getExt().containsKey("cattax")) {
-        target.setCattax((Integer) source.getExt().get("cattax"));
-        target.getExt().remove("cattax");
+      if (source.getExt().containsKey(CommonConstants.CATTAX)) {
+        target.setCattax((Integer) source.getExt().get(CommonConstants.CATTAX));
+        target.getExt().remove(CommonConstants.CATTAX);
       } else {
         target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
-      if (source.getExt().containsKey("amp")) {
-        target.setAmp((Integer) source.getExt().get("amp"));
-        target.getExt().remove("amp");
+      if (source.getExt().containsKey(CommonConstants.AMP)) {
+        target.setAmp((Integer) source.getExt().get(CommonConstants.AMP));
+        target.getExt().remove(CommonConstants.AMP);
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Site", e);

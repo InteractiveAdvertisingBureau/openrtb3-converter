@@ -26,6 +26,7 @@ import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb3.Asset;
 import net.media.openrtb3.LinkAsset;
 import net.media.openrtb3.Native;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -62,8 +63,8 @@ public class Native25ToNative30Converter implements Converter<NativeResponse, Na
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
-    target.getExt().put("jsTracker", source.getNativeResponseBody().getJstracker());
-    target.getExt().put("impTrackers", source.getNativeResponseBody().getImptrackers());
+    target.getExt().put(CommonConstants.JS_TRACKER, source.getNativeResponseBody().getJstracker());
+    target.getExt().put(CommonConstants.IMP_TRACKERS, source.getNativeResponseBody().getImptrackers());
     Converter<Link, LinkAsset> linkLinkAssetConverter =
         converterProvider.fetch(new Conversion<>(Link.class, LinkAsset.class));
     Converter<AssetResponse, Asset> assetResponseAssetConverter =

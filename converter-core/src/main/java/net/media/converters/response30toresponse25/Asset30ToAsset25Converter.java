@@ -22,6 +22,7 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.nativeresponse.*;
 import net.media.openrtb3.*;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -63,12 +64,12 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     NativeData nativeData = new NativeData();
     nativeData.setExt(MapUtils.copyMap(data.getExt(), config));
     if (nonNull(data.getExt())) {
-      nativeData.setLabel((String) data.getExt().get("label"));
-      nativeData.getExt().remove("label");
+      nativeData.setLabel((String) data.getExt().get(CommonConstants.LABEL));
+      nativeData.getExt().remove(CommonConstants.LABEL);
     }
     if (isNull(nativeData.getExt())) nativeData.setExt(new HashMap<>());
-    nativeData.getExt().put("type", data.getType());
-    nativeData.getExt().put("len", data.getLen());
+    nativeData.getExt().put(CommonConstants.TYPE, data.getType());
+    nativeData.getExt().put(CommonConstants.LEN, data.getLen());
     if (nonNull(data.getValue()) && data.getValue().size() > 0)
       nativeData.setValue(data.getValue().iterator().next());
     return nativeData;
@@ -82,7 +83,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     nativeImage.setW(imageAsset.getW());
     nativeImage.setUrl(imageAsset.getUrl());
     if (isNull(nativeImage.getExt())) nativeImage.setExt(new HashMap<>());
-    nativeImage.getExt().put("type", imageAsset.getType());
+    nativeImage.getExt().put(CommonConstants.TYPE, imageAsset.getType());
     return nativeImage;
   }
 
@@ -106,7 +107,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     if (isNull(nativeTitle.getExt())) {
       nativeTitle.setExt(new HashMap<>());
     }
-    nativeTitle.getExt().put("len", titleAsset.getLen());
+    nativeTitle.getExt().put(CommonConstants.LEN, titleAsset.getLen());
     return nativeTitle;
   }
 }

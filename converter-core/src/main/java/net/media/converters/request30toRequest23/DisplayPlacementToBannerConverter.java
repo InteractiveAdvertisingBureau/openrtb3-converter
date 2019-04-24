@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -42,14 +43,14 @@ public class DisplayPlacementToBannerConverter
       if (isNull(banner.getExt())) {
         banner.setExt(new HashMap<>());
       }
-      banner.getExt().put("vcm", banner.getVcm());
+      banner.getExt().put(CommonConstants.VCM, banner.getVcm());
       banner.setVcm(null);
     }
     if (nonNull(banner.getFormat())) {
       if (isNull(banner.getExt())) {
         banner.setExt(new HashMap<>());
       }
-      banner.getExt().put("format", banner.getFormat());
+      banner.getExt().put(CommonConstants.FORMAT, banner.getFormat());
       banner.setFormat(null);
     }
   }

@@ -23,6 +23,7 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.Metric;
 import net.media.openrtb3.Item;
+import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
@@ -43,31 +44,31 @@ public class ImpToItemConverter
       return;
     }
     if (nonNull(imp.getExt())) {
-      if (imp.getExt().containsKey("metric")) {
+      if (imp.getExt().containsKey(CommonConstants.METRIC)) {
         try {
-          imp.setMetric(JacksonObjectMapperUtils.getMapper().convertValue(imp.getExt().get("metric"),
+          imp.setMetric(JacksonObjectMapperUtils.getMapper().convertValue(imp.getExt().get(CommonConstants.METRIC),
             javaTypeForMetricCollection));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting metric from imp.ext.accuracy", e);
         }
-        imp.getExt().remove("metric");
+        imp.getExt().remove(CommonConstants.METRIC);
       }
-      if (imp.getExt().containsKey("clickbrowser")) {
+      if (imp.getExt().containsKey(CommonConstants.CLICKBROWSER)) {
         try {
-          imp.setClickbrowser((Integer) imp.getExt().get("clickbrowser"));
+          imp.setClickbrowser((Integer) imp.getExt().get(CommonConstants.CLICKBROWSER));
         } catch (Exception e) {
           throw new OpenRtbConverterException(
               "Error in setting clickbrowser from imp.ext" + ".clickbrowser", e);
         }
-        imp.getExt().remove("clickbrowser");
+        imp.getExt().remove(CommonConstants.CLICKBROWSER);
       }
-      if (imp.getExt().containsKey("exp")) {
+      if (imp.getExt().containsKey(CommonConstants.EXP)) {
         try {
-          imp.setExp((Integer) imp.getExt().get("exp"));
+          imp.setExp((Integer) imp.getExt().get(CommonConstants.EXP));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting exp from imp.ext" + ".exp", e);
         }
-        imp.getExt().remove("exp");
+        imp.getExt().remove(CommonConstants.EXP);
       }
     }
     super.enhance(imp, item, config, converterProvider);

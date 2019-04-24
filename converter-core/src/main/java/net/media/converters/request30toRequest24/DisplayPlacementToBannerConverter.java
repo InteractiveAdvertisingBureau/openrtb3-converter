@@ -21,6 +21,7 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -43,7 +44,7 @@ public class DisplayPlacementToBannerConverter
       if (isNull(banner.getExt())) {
         banner.setExt(new HashMap<>());
       }
-      banner.getExt().put("vcm", banner.getVcm());
+      banner.getExt().put(CommonConstants.VCM, banner.getVcm());
       banner.setVcm(null);
     }
     if (nonNull(banner.getFormat())) {
@@ -52,21 +53,21 @@ public class DisplayPlacementToBannerConverter
           if (isNull(format.getExt())) {
             format.setExt(new HashMap<>());
           }
-          format.getExt().put("wratio", format.getWratio());
+          format.getExt().put(CommonConstants.WRATIO, format.getWratio());
           format.setWratio(null);
         }
         if (nonNull(format.getHratio())) {
           if (isNull(format.getExt())) {
             format.setExt(new HashMap<>());
           }
-          format.getExt().put("hratio", format.getHratio());
+          format.getExt().put(CommonConstants.HRATIO, format.getHratio());
           format.setHratio(null);
         }
         if (nonNull(format.getWmin())) {
           if (isNull(format.getExt())) {
             format.setExt(new HashMap<>());
           }
-          format.getExt().put("wmin", format.getWmin());
+          format.getExt().put(CommonConstants.WMIN, format.getWmin());
           format.setWmin(null);
         }
       }

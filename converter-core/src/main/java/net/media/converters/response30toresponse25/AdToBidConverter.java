@@ -24,6 +24,7 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -66,19 +67,19 @@ public class AdToBidConverter implements Converter<Ad, Bid> {
       target.getExt().putAll(source.getExt());
     }
     if (nonNull(source.getSecure())) {
-      target.getExt().put("secure", source.getSecure());
+      target.getExt().put(CommonConstants.SECURE, source.getSecure());
     }
     if (nonNull(source.getInit())) {
-      target.getExt().put("init", source.getInit());
+      target.getExt().put(CommonConstants.INIT, source.getInit());
     }
     if (nonNull(source.getLastmod())) {
-      target.getExt().put("lastmod", source.getLastmod());
+      target.getExt().put(CommonConstants.LASTMOD, source.getLastmod());
     }
     if (nonNull(source.getCattax())) {
-      target.getExt().put("cattax", source.getCattax());
+      target.getExt().put(CommonConstants.CATTAX, source.getCattax());
     }
     if (nonNull(source.getAudit())) {
-      target.getExt().put("audit", source.getAudit());
+      target.getExt().put(CommonConstants.AUDIT, source.getAudit());
     }
     target.setQagmediarating(source.getMrating());
     AdType adType = config.getAdType(target.getId());

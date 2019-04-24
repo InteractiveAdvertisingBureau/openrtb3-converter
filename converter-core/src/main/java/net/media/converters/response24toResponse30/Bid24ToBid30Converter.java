@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.converters.response25toresponse30.Bid25ToBid30Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import static java.util.Objects.nonNull;
@@ -34,39 +35,39 @@ public class Bid24ToBid30Converter extends Bid25ToBid30Converter {
       return;
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("burl")) {
-        source.setBurl((String) source.getExt().get("burl"));
-        source.getExt().remove("burl");
+      if (source.getExt().containsKey(CommonConstants.BURL)) {
+        source.setBurl((String) source.getExt().get(CommonConstants.BURL));
+        source.getExt().remove(CommonConstants.BURL);
       }
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("lurl")) {
-        source.setLurl((String) source.getExt().get("lurl"));
-        source.getExt().remove("lurl");
+      if (source.getExt().containsKey(CommonConstants.LURL)) {
+        source.setLurl((String) source.getExt().get(CommonConstants.LURL));
+        source.getExt().remove(CommonConstants.LURL);
       }
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("tactic")) {
-        source.setTactic((String) source.getExt().get("tactic"));
-        source.getExt().remove("tactic");
+      if (source.getExt().containsKey(CommonConstants.TACTIC)) {
+        source.setTactic((String) source.getExt().get(CommonConstants.TACTIC));
+        source.getExt().remove(CommonConstants.TACTIC);
       }
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("language")) {
-        source.setLanguage((String) source.getExt().get("language"));
-        source.getExt().remove("language");
+      if (source.getExt().containsKey(CommonConstants.LANGUAGE)) {
+        source.setLanguage((String) source.getExt().get(CommonConstants.LANGUAGE));
+        source.getExt().remove(CommonConstants.LANGUAGE);
       }
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("wratio")) {
-        source.setWratio((Integer) source.getExt().get("wratio"));
-        source.getExt().remove("wratio");
+      if (source.getExt().containsKey(CommonConstants.WRATIO)) {
+        source.setWratio((Integer) source.getExt().get(CommonConstants.WRATIO));
+        source.getExt().remove(CommonConstants.WRATIO);
       }
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("hratio")) {
-        source.setHratio((Integer) source.getExt().get("hratio"));
-        source.getExt().remove("hratio");
+      if (source.getExt().containsKey(CommonConstants.HRATIO)) {
+        source.setHratio((Integer) source.getExt().get(CommonConstants.HRATIO));
+        source.getExt().remove(CommonConstants.HRATIO);
       }
     }
     super.enhance(source, target, config, converterProvider);

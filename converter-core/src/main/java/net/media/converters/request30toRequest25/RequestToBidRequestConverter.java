@@ -26,6 +26,7 @@ import net.media.openrtb25.request.User;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -232,6 +233,6 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     if (source.getContext().getDooh() == null) return;
 
     if (target.getExt() == null) target.setExt(new HashMap<>());
-    target.getExt().put("dooh", source.getContext().getDooh());
+    target.getExt().put(CommonConstants.DOOH, source.getContext().getDooh());
   }
 }

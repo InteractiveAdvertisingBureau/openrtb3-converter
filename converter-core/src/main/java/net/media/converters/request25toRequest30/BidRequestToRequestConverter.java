@@ -27,6 +27,7 @@ import net.media.openrtb25.request.User;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
@@ -114,19 +115,19 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
       target.setSeat(CollectionUtils.copyCollection(source.getBseat(), config));
     }
     if (target.getExt() == null) return;
-    if (target.getExt().containsKey("cattax")) {
-      target.getExt().remove("cattax");
+    if (target.getExt().containsKey(CommonConstants.CATTAX)) {
+      target.getExt().remove(CommonConstants.CATTAX);
     }
-    if (target.getExt().containsKey("restrictions")) {
-      target.getExt().remove("restrictions");
+    if (target.getExt().containsKey(CommonConstants.RESTRICTIONS)) {
+      target.getExt().remove(CommonConstants.RESTRICTIONS);
     }
     if (source.getExt() == null) return;
-    if (source.getExt().containsKey("dooh")) {
+    if (source.getExt().containsKey(CommonConstants.DOOH)) {
       if (target.getContext() == null) target.setContext(new Context());
       try {
-        target.getContext().setDooh(JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get("dooh"),
+        target.getContext().setDooh(JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get(CommonConstants.DOOH),
           Dooh.class));
-        target.getExt().remove("dooh");
+        target.getExt().remove(CommonConstants.DOOH);
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for BidRequest2_X", e);
       }

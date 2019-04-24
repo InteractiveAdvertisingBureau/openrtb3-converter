@@ -29,6 +29,7 @@ import net.media.openrtb3.Banner;
 import net.media.openrtb3.Display;
 import net.media.openrtb3.Event;
 import net.media.openrtb3.Native;
+import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
@@ -108,39 +109,39 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     if (nonNull(source.getExt())) {
       try {
         Map<String, Object> ext = source.getExt();
-        target.setCtype((Integer) ext.get("ctype"));
-        source.getExt().remove("ctype");
-        target.setPriv((String) ext.get("priv"));
-        source.getExt().remove("priv");
-        target.setMime((String) ext.get("mime"));
-        source.getExt().remove("mime");
+        target.setCtype((Integer) ext.get(CommonConstants.CTYPE));
+        source.getExt().remove(CommonConstants.CTYPE);
+        target.setPriv((String) ext.get(CommonConstants.PRIV));
+        source.getExt().remove(CommonConstants.PRIV);
+        target.setMime((String) ext.get(CommonConstants.MIME));
+        source.getExt().remove(CommonConstants.MIME);
 
         if (config.getAdType(source.getId()) == AdType.BANNER) {
-          if (ext.containsKey("banner")) {
-            target.setBanner(JacksonObjectMapperUtils.getMapper().convertValue(ext.get("banner"), Banner.class));
-            source.getExt().remove("banner");
+          if (ext.containsKey(CommonConstants.BANNER)) {
+            target.setBanner(JacksonObjectMapperUtils.getMapper().convertValue(ext.get(CommonConstants.BANNER), Banner.class));
+            source.getExt().remove(CommonConstants.BANNER);
           }
         } else if (config.getAdType(source.getId()) == AdType.NATIVE) {
-          if (ext.containsKey("native")) {
+          if (ext.containsKey(CommonConstants.NATIVE)) {
             Native _native = null;
             try {
-              _native = JacksonObjectMapperUtils.getMapper().convertValue(ext.get("native"), Native.class);
+              _native = JacksonObjectMapperUtils.getMapper().convertValue(ext.get(CommonConstants.NATIVE), Native.class);
               target.set_native(_native);
             } catch (Exception e) {
               throw new OpenRtbConverterException(
                   "Error in setting displayConverter.native from " + "bid.ext.native", e);
             }
-            source.getExt().remove("native");
+            source.getExt().remove(CommonConstants.NATIVE);
           }
         }
         try {
-          target.setEvent(JacksonObjectMapperUtils.getMapper().convertValue(ext.get("event"),
+          target.setEvent(JacksonObjectMapperUtils.getMapper().convertValue(ext.get(CommonConstants.EVENT),
             javaTypeForEventCollection));
         } catch (IllegalArgumentException e) {
           throw new OpenRtbConverterException("error while setting display.event from bid.ext" +
             ".event", e);
         }
-        source.getExt().remove("event");
+        source.getExt().remove(CommonConstants.EVENT);
       }
       catch (Exception e) {
         throw new OpenRtbConverterException("error while casting contents of bid.ext", e);

@@ -26,6 +26,7 @@ import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.NativeFormat;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
@@ -93,25 +94,25 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
           displayPlacement.getExt().putAll(nat.getExt());
         }
         if (nonNull(nat.getExt())) {
-          if (nat.getExt().containsKey("ctype")) {
+          if (nat.getExt().containsKey(CommonConstants.CTYPE)) {
             try {
               displayPlacement.setCtype(CollectionUtils.copyCollection((Collection<Integer>) nat.getExt().get
-                ("ctype"), config));
+                (CommonConstants.CTYPE), config));
             } catch (ClassCastException e) {
               throw new OpenRtbConverterException("error while typecasting ext for Native", e);
             }
             if (nonNull(displayPlacement.getNativefmt())
                 && nonNull(displayPlacement.getNativefmt().getExt())) {
-              displayPlacement.getExt().remove("ctype");
+              displayPlacement.getExt().remove(CommonConstants.CTYPE);
             }
           }
         }
         if (nonNull(nat.getExt())) {
-          if (nat.getExt().containsKey("priv")) {
-            displayPlacement.setPriv((Integer) nat.getExt().get("priv"));
+          if (nat.getExt().containsKey(CommonConstants.PRIV)) {
+            displayPlacement.setPriv((Integer) nat.getExt().get(CommonConstants.PRIV));
             if (nonNull(displayPlacement.getNativefmt())
                 && nonNull(displayPlacement.getNativefmt().getExt())) {
-              displayPlacement.getExt().remove("priv");
+              displayPlacement.getExt().remove(CommonConstants.PRIV);
             }
           }
         }

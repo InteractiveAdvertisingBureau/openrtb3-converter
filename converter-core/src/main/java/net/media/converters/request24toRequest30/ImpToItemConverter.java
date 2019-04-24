@@ -23,6 +23,7 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.Metric;
 import net.media.openrtb3.Item;
+import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
@@ -34,21 +35,22 @@ import static java.util.Objects.nonNull;
 public class ImpToItemConverter
     extends net.media.converters.request25toRequest30.ImpToItemConverter {
 
-private static final JavaType javaTypeForMetricCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Metric.class);  public void enhance(Imp imp, Item item, Config config, Provider converterProvider)
+  private static final JavaType javaTypeForMetricCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
+    .constructCollectionType(Collection.class, Metric.class);
+  public void enhance(Imp imp, Item item, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
     if (imp == null || item == null) {
       return;
     }
     if (nonNull(imp.getExt())) {
-      if (imp.getExt().containsKey("metric")) {
+      if (imp.getExt().containsKey(CommonConstants.METRIC)) {
         try {
-          imp.setMetric(JacksonObjectMapperUtils.getMapper().convertValue(imp.getExt().get("metric"),
+          imp.setMetric(JacksonObjectMapperUtils.getMapper().convertValue(imp.getExt().get(CommonConstants.METRIC),
             javaTypeForMetricCollection));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting metric from imp.ext.metric", e);
         }
-        imp.getExt().remove("metric");
+        imp.getExt().remove(CommonConstants.METRIC);
       }
     }
     super.enhance(imp, item, config, converterProvider);

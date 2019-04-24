@@ -52,7 +52,7 @@ public class OpenRtbResponseToBidResponseConverter
       throws OpenRtbConverterException {
 
     Converter<Seatbid, SeatBid> seatBid30ToSeatBid25Converter =
-        converterProvider.fetch(new Conversion(Seatbid.class, SeatBid.class));
+        converterProvider.fetch(new Conversion<>(Seatbid.class, SeatBid.class));
     if (isNull(source) || isNull(target) || isNull(config)) return;
     Response response = source.getResponse();
     if (response == null) return;

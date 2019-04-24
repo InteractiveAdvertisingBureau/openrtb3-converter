@@ -24,6 +24,7 @@ import net.media.openrtb25.request.Data;
 import net.media.openrtb25.request.Geo;
 import net.media.openrtb25.request.User;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -69,9 +70,9 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
     }
     if (source.getExt() == null) return;
     try {
-      if (source.getExt().containsKey("consent")) {
-        target.setConsent((String) source.getExt().get("consent"));
-        target.getExt().remove("consent");
+      if (source.getExt().containsKey(CommonConstants.CONSENT)) {
+        target.setConsent((String) source.getExt().get(CommonConstants.CONSENT));
+        target.getExt().remove(CommonConstants.CONSENT);
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for User", e);
