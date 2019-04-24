@@ -9,9 +9,6 @@
         "macro" : [ {
           "key" : "7"
         } ],
-        "curl" : null,
-        "ctype" : null,
-        "mime" : null,
         "cattax" : 2,
         "banner" : {
           "img" : "https://somebuyer.com/creative",
@@ -19,7 +16,6 @@
             "url" : "https://somebuyer.com/click"
           }
         },
-        "priv" : null,
         "event" : [ {
           "type" : 1,
           "method" : 1,
