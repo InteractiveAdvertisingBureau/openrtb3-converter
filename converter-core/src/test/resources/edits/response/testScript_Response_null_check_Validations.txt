@@ -265,3 +265,58 @@ cases:
     purpose: BidMediaAdDisplayEventMethodRequired
     params:
       validate: true
+
+  - inputFile: MINIMUM_RESPONSE_MEDIA_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.seatbid[0].bid[0].media.ad.display: null
+      openrtb.response.seatbid[0].bid[0].media.ad.video: null
+      openrtb.response.seatbid[0].bid[0].media.ad.audio: null
+    outputFile: empty.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      status: ERROR
+    purpose: BidMediaAdExactlyOneRequired
+    params:
+      validate: true
+
+
+  - inputFile: MINIMUM_RESPONSE_MEDIA_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.seatbid[0].bid[0].media.ad.display: null
+      openrtb.response.seatbid[0].bid[0].media.ad.audio: null
+    outputFile: MINIMUM_RESPONSE_BANNER_25_3TO2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      seatbid[0].bid[0].ext.curl: "\"video\""
+      seatbid[0].bid[0].nurl: "\"video\""
+      seatbid[0].bid[0].id: "\"ad12\""
+      seatbid[0].bid[0].ext.banner: null
+      seatbid[0].bid[0].ext.event: null
+    purpose: BidMediaAdVideoPass
+    params:
+      validate: true
+      adTypeMapping:
+        "ad12": VIDEO
+
+
+  - inputFile: MINIMUM_RESPONSE_MEDIA_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.seatbid[0].bid[0].media.ad.display: null
+      openrtb.response.seatbid[0].bid[0].media.ad.video: null
+    outputFile: MINIMUM_RESPONSE_BANNER_25_3TO2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      seatbid[0].bid[0].ext.curl: "\"audio\""
+      seatbid[0].bid[0].nurl: "\"audio\""
+      seatbid[0].bid[0].id: "\"ad12\""
+      seatbid[0].bid[0].ext.banner: null
+      seatbid[0].bid[0].ext.event: null
+    purpose: BidMediaAdAudioPass
+    params:
+      validate: true
+      adTypeMapping:
+        "ad12": AUDIO
+

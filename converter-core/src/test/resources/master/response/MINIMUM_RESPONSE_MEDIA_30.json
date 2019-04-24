@@ -1,0 +1,38 @@
+{
+  "openrtb": {
+    "response": {
+      "id": "0123456789ABCDEF",
+      "seatbid": [
+        {
+          "bid": [{
+            "id": "ad12",
+            "item": "12",
+            "price" : 1.6,
+            "macro": [{
+              "key": 7
+            }],
+            "media" : {
+              "ad" : {
+                "id" : "ad1",
+                "display": {
+                  "banner": {
+                    "img": "https://somebuyer.com/creative",
+                    "link": {
+                      "url": "https://somebuyer.com/click"
+                    }
+                  }
+                },
+                "video": {
+                  "curl": "video"
+                },
+                "audio": {
+                  "curl": "audio"
+                }
+              }
+            }
+          }]
+        }
+      ]
+    }
+  }
+}
