@@ -79,5 +79,4 @@ public class BidRequestToRequestConverter
     }
     super.enhance(source, target, config, converterProvider);
   }
-
 }

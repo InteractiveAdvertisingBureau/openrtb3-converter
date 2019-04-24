@@ -341,19 +341,19 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         if (isNull(imp.getExt())) {
           imp.setExt(new HashMap<>());
         }
-        if(item.getSpec().getPlacement().getSsai() != null)
+        if (item.getSpec().getPlacement().getSsai() != null)
           imp.getExt().put(CommonConstants.SSAI, item.getSpec().getPlacement().getSsai());
-        if(item.getSpec().getPlacement().getReward() != null)
+        if (item.getSpec().getPlacement().getReward() != null)
           imp.getExt().put(CommonConstants.REWARD, item.getSpec().getPlacement().getReward());
-        if(item.getSpec().getPlacement().getAdmx() != null)
+        if (item.getSpec().getPlacement().getAdmx() != null)
           imp.getExt().put(CommonConstants.ADMX, item.getSpec().getPlacement().getAdmx());
-        if(item.getSpec().getPlacement().getCurlx() != null)
+        if (item.getSpec().getPlacement().getCurlx() != null)
           imp.getExt().put(CommonConstants.CURLX, item.getSpec().getPlacement().getCurlx());
       }
       if (nonNull(item.getSpec().getPlacement().getDisplay())) {
-        if(item.getSpec().getPlacement().getDisplay().getAmpren() != null)
+        if (item.getSpec().getPlacement().getDisplay().getAmpren() != null)
           imp.getExt().put(CommonConstants.AMPREN, item.getSpec().getPlacement().getDisplay().getAmpren());
-        if(item.getSpec().getPlacement().getDisplay().getEvent() != null)
+        if (item.getSpec().getPlacement().getDisplay().getEvent() != null)
           imp.getExt().put(CommonConstants.EVENT, item.getSpec().getPlacement().getDisplay().getEvent());
       }
     }

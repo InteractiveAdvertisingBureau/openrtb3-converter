@@ -40,14 +40,13 @@ public class VideoToBidConverter implements Converter<Video, Bid> {
     return bid;
   }
 
-  public void enhance(Video source, Bid target, Config config, Provider converterProvider)
-      throws OpenRtbConverterException {
+  public void enhance(Video source, Bid target, Config config, Provider converterProvider) {
     if (isNull(source) || isNull(target) || isNull(config)) return;
 
     target.setAdm(source.getAdm());
-    if(nonNull(source.getApi()) && source.getApi().size()>0)
+    if (nonNull(source.getApi()) && source.getApi().size() > 0)
       target.setApi(source.getApi().iterator().next());
-    if(isNull(target.getExt())){
+    if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
     target.getExt().put(CommonConstants.CTYPE, source.getCtype());

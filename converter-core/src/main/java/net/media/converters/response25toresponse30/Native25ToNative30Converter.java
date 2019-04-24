@@ -69,7 +69,9 @@ public class Native25ToNative30Converter implements Converter<NativeResponse, Na
         converterProvider.fetch(new Conversion<>(Link.class, LinkAsset.class));
     Converter<AssetResponse, Asset> assetResponseAssetConverter =
         converterProvider.fetch(new Conversion<>(AssetResponse.class, Asset.class));
-    LinkAsset linkAsset = linkLinkAssetConverter.map(source.getNativeResponseBody().getLink(), config, converterProvider);
+    LinkAsset linkAsset =
+        linkLinkAssetConverter.map(
+            source.getNativeResponseBody().getLink(), config, converterProvider);
     target.setLink(linkAsset);
     if (!isEmpty(source.getNativeResponseBody().getAsset())) {
       List<Asset> assetList = new ArrayList<>();

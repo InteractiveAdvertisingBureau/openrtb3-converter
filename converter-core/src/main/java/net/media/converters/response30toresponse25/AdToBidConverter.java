@@ -22,7 +22,10 @@ import net.media.driver.Conversion;
 import net.media.enums.AdType;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
-import net.media.openrtb3.*;
+import net.media.openrtb3.Ad;
+import net.media.openrtb3.Audio;
+import net.media.openrtb3.Display;
+import net.media.openrtb3.Video;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
@@ -42,15 +45,15 @@ public class AdToBidConverter implements Converter<Ad, Bid> {
     return bid;
   }
 
-  public void enhance(Ad source, Bid target, Config config, Provider converterProvider) throws OpenRtbConverterException {
-    if(isNull(source) || isNull(target) || isNull(config))
-      return ;
-    Converter<Display, Bid>displayBidConverter = converterProvider.fetch(new Conversion<>(Display.class,
-      Bid.class));
-    Converter<Video, Bid> videoBidConverter = converterProvider.fetch(new Conversion<>(Video.class,
-      Bid.class));
-    Converter<Audio, Bid> audioBidConverter = converterProvider.fetch(new Conversion<>(Audio.class,
-      Bid.class));
+  public void enhance(Ad source, Bid target, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
+    if (isNull(source) || isNull(target) || isNull(config)) return;
+    Converter<Display, Bid> displayBidConverter =
+        converterProvider.fetch(new Conversion<>(Display.class, Bid.class));
+    Converter<Video, Bid> videoBidConverter =
+        converterProvider.fetch(new Conversion<>(Video.class, Bid.class));
+    Converter<Audio, Bid> audioBidConverter =
+        converterProvider.fetch(new Conversion<>(Audio.class, Bid.class));
 
     target.setCrid(source.getId());
 

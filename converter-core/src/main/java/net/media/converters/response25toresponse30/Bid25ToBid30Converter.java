@@ -17,11 +17,10 @@
 package net.media.converters.response25toresponse30;
 
 import com.fasterxml.jackson.databind.JavaType;
-
-import net.media.driver.Conversion;
-import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Macro;
 import net.media.openrtb3.Media;
@@ -68,8 +67,8 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       target.setItem(source.getImpid());
       target.setDeal(source.getDealid());
       target.setPurl(source.getNurl());
-      Converter<Bid, Media> converter = converterProvider.fetch(new Conversion<>(Bid.class, Media
-          .class));
+      Converter<Bid, Media> converter =
+          converterProvider.fetch(new Conversion<>(Bid.class, Media.class));
       target.setId(source.getId());
       target.setPrice(source.getPrice());
       target.setCid(source.getCid());

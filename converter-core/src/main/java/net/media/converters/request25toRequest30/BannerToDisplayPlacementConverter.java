@@ -28,11 +28,7 @@ import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -159,7 +155,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
       return null;
     }
 
-    List<DisplayFormat> list1 = new ArrayList<DisplayFormat>(list.size());
+    List<DisplayFormat> list1 = new ArrayList<>(list.size());
     for (Format format : list) {
       list1.add(map(format, config));
     }

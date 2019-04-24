@@ -63,7 +63,7 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
         converterProvider.fetch(new Conversion<>(NativeRequestBody.class, NativeFormat.class));
     displayPlacement.setApi(CollectionUtils.copyCollection(nat.getApi(), config));
     if (nonNull(nat.getRequest())) {
-      NativeRequest nativeRequest = null;
+      NativeRequest nativeRequest;
       if (nat.getRequest() instanceof String) {
         String nativeRequestString = (String) nat.getRequest();
         try {

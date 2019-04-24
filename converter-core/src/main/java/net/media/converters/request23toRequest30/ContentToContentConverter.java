@@ -17,7 +17,6 @@
 package net.media.converters.request23toRequest30;
 
 import com.fasterxml.jackson.databind.JavaType;
-
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Content;
@@ -36,7 +35,6 @@ public class ContentToContentConverter
 
   private static final JavaType javaTypeForDataCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
     .constructCollectionType(Collection.class, Data.class);
-  public static final String PRODQ = "prodq";
 
   public void enhance(
       Content source, net.media.openrtb3.Content target, Config config, Provider converterProvider)
@@ -77,13 +75,13 @@ public class ContentToContentConverter
         }
         source.getExt().remove(CommonConstants.ISRC);
       }
-      if (source.getExt().containsKey(PRODQ)) {
+      if (source.getExt().containsKey(CommonConstants.PRODQ)) {
         try {
-          source.setProdq((Integer) source.getExt().get(PRODQ));
+          source.setProdq((Integer) source.getExt().get(CommonConstants.PRODQ));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting prodq from content.ext.prodq", e);
         }
-        source.getExt().remove(PRODQ);
+        source.getExt().remove(CommonConstants.PRODQ);
       }
       if (source.getExt().containsKey(CommonConstants.DATA)) {
         try {
