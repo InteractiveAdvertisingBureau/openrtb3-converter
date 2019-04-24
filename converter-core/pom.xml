@@ -242,12 +242,16 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>net.media</groupId>
+            <artifactId>openrtb-model</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.skyscreamer</groupId>
             <artifactId>jsonassert</artifactId>
             <version>1.2.3</version>
             <scope>test</scope>
         </dependency>
-
 
     </dependencies>
 
