@@ -80,14 +80,6 @@
                     </nonFilteredFileExtensions>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
 
         </plugins>
         <resources>
@@ -112,9 +104,9 @@
         </dependency>
 
         <dependency>
-            <groupId>net.media.open-rtb-converter</groupId>
-            <artifactId>converter-core</artifactId>
-            <version>1.2.1</version>
+            <groupId>net.media</groupId>
+            <artifactId>openrtb3-converter-core</artifactId>
+            <version>1.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
