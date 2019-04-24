@@ -34,7 +34,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>converter-api</module>
+        <module>converter-example</module>
         <module>converter-core</module>
     </modules>
 

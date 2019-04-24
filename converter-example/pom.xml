@@ -25,7 +25,7 @@
         <version>1.2.1</version>
     </parent>
 
-    <artifactId>converter-api</artifactId>
+    <artifactId>converter-example</artifactId>
     <version>1.2.1</version>
 
     <build>
