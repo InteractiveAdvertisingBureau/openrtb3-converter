@@ -171,6 +171,19 @@ cases:
   - inputFile: MINIMUM_RESPONSE_BANNER_30.json
     inputType: "RESPONSE30"
     inputEdits:
+      openrtb.response.seatbid[0].bid[0].media.ad.display.curl: "\"somelink.com/ad\""
+      openrtb.response.seatbid[0].bid[0].media.ad.display.adm: "\"sample-adm/ad\""
+    outputFile: empty.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      status: ERROR
+    purpose: BidMediaAdDisplay-BannerCurlAdmNotAllowedTogether
+    params:
+      validate: true
+
+  - inputFile: MINIMUM_RESPONSE_BANNER_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
       openrtb.response.seatbid[0].bid[0].media.ad.display.banner.img: null
     outputFile: empty.json
     outputType: "RESPONSE25"
