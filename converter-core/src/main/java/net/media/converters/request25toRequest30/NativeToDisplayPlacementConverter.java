@@ -30,10 +30,8 @@ import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -64,7 +62,7 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
         converterProvider.fetch(new Conversion<>(NativeRequestBody.class, NativeFormat.class));
     displayPlacement.setApi(Utils.copyCollection(nat.getApi(), config));
     if (nonNull(nat.getRequest())) {
-      NativeRequest nativeRequest = null;
+      NativeRequest nativeRequest;
       if (nat.getRequest() instanceof String) {
         String nativeRequestString = (String) nat.getRequest();
         try {
@@ -97,8 +95,8 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
         if (nonNull(nat.getExt())) {
           if (nat.getExt().containsKey("ctype")) {
             try {
-              displayPlacement.setCtype(Utils.copyCollection((Collection<Integer>) nat.getExt().get
-                ("ctype"), config));
+              displayPlacement.setCtype(
+                  Utils.copyCollection((Collection<Integer>) nat.getExt().get("ctype"), config));
             } catch (ClassCastException e) {
               throw new OpenRtbConverterException("error while typecasting ext for Native", e);
             }

@@ -40,7 +40,9 @@ public class NativeResponse {
     if (!other.canEqual(this)) return false;
     final Object this$nativeResponseBody = this.getNativeResponseBody();
     final Object other$nativeResponseBody = other.getNativeResponseBody();
-    return this$nativeResponseBody == null ? other$nativeResponseBody == null : this$nativeResponseBody.equals(other$nativeResponseBody);
+    return this$nativeResponseBody == null
+        ? other$nativeResponseBody == null
+        : this$nativeResponseBody.equals(other$nativeResponseBody);
   }
 
   public int hashCode() {

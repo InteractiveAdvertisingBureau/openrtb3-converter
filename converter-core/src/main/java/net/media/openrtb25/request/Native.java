@@ -54,7 +54,7 @@ public class Native {
     if (isNull(request)) {
       return null;
     }
-    NativeRequestBody nativeRequestBody = null;
+    NativeRequestBody nativeRequestBody;
     if (request instanceof String) {
       String nativeRequestString = (String) request;
       requestAsString = nativeRequestString;

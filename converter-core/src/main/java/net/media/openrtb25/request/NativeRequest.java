@@ -40,7 +40,9 @@ public class NativeRequest {
     if (!other.canEqual(this)) return false;
     final Object this$nativeRequestBody = this.getNativeRequestBody();
     final Object other$nativeRequestBody = other.getNativeRequestBody();
-    return this$nativeRequestBody == null ? other$nativeRequestBody == null : this$nativeRequestBody.equals(other$nativeRequestBody);
+    return this$nativeRequestBody == null
+        ? other$nativeRequestBody == null
+        : this$nativeRequestBody.equals(other$nativeRequestBody);
   }
 
   public int hashCode() {

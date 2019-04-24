@@ -15,18 +15,19 @@
   ~ limitations under the License.
   -->
 
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>net.media.open-rtb-converter</groupId>
-        <artifactId>open-rtb-converter</artifactId>
-        <version>1.2.1</version>
+        <groupId>net.media</groupId>
+        <artifactId>openrtb3-converter</artifactId>
+        <version>1.0.2-SNAPSHOT</version>
     </parent>
 
-    <artifactId>converter-api</artifactId>
-    <version>1.2.1</version>
+    <artifactId>openrtb3-converter-api</artifactId>
+    <name>openrtb3-converter-api</name>
+    <description>Servlet spec based API to test openrtb 3.0 transformation logic</description>
+    <url>https://github.com/media-net/openrtb3-converter/tree/master/converter-api</url>
 
     <build>
         <finalName>${project.artifactId}##${project.version}</finalName>
@@ -53,8 +54,7 @@
                                 </filter>
                             </filters>
                             <transformers>
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <manifestEntries>
                                         <Main-Class>net.media.api.ConverterApplication</Main-Class>
                                     </manifestEntries>
@@ -110,7 +110,7 @@
             <artifactId>guice</artifactId>
             <version>${guice.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>net.media.open-rtb-converter</groupId>
             <artifactId>converter-core</artifactId>

@@ -26,7 +26,7 @@ public class Audit {
   private Integer init;
   private Integer lastmod;
   private Map<String, Object> corr;
-  private Map<String,Object> ext;
+  private Map<String, Object> ext;
 
   public Audit() {}
 
@@ -62,9 +62,9 @@ public class Audit {
     this.lastmod = lastmod;
   }
 
-	public Map<String, Object> getCorr() {
-		return this.corr;
-	}
+  public Map<String, Object> getCorr() {
+    return this.corr;
+  }
 
   public void setCorr(Map<String, Object> corr) {
     this.corr = corr;

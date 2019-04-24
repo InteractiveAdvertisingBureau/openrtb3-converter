@@ -39,8 +39,7 @@ public class AudioToBidConverter implements Converter<Audio, Bid> {
     return bid;
   }
 
-  public void enhance(Audio source, Bid target, Config config, Provider converterProvider)
-      throws OpenRtbConverterException {
+  public void enhance(Audio source, Bid target, Config config, Provider converterProvider) {
     if (isNull(source) || isNull(target) || isNull(config)) return;
 
     target.setAdm(source.getAdm());

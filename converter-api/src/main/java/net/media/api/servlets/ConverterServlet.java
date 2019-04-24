@@ -163,8 +163,7 @@ public class ConverterServlet extends HttpServlet {
     queryActionMap.put(RESPONSE, THREEXTOTHREEX, get3xto2xResponse);
   }
 
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) {
     Map<String, String[]> queryMap = request.getParameterMap();
     BiConsumer<HttpServletRequest, HttpServletResponse> queryConsumer = getQueryValues(queryMap);
     queryConsumer.accept(request, response);

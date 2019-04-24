@@ -16,20 +16,15 @@
 
 package net.media.converters.request23toRequest30;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.JavaType;
-
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
-import net.media.openrtb25.request.Format;
 import net.media.openrtb25.request.Source;
 import net.media.openrtb3.Request;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.Collection;
-import java.util.Map;
 
 import static java.util.Objects.nonNull;
 
@@ -64,7 +59,8 @@ public class BidRequestToRequestConverter
       }
       if (source.getExt().containsKey("source")) {
         try {
-          source.setSource(Utils.getMapper().convertValue(source.getExt().get("source"),Source.class));
+          source.setSource(
+              Utils.getMapper().convertValue(source.getExt().get("source"), Source.class));
         } catch (Exception e) {
           throw new OpenRtbConverterException(
               "Error in setting source from bidRequest.ext.source", e);
@@ -82,5 +78,4 @@ public class BidRequestToRequestConverter
     }
     super.enhance(source, target, config, converterProvider);
   }
-
 }

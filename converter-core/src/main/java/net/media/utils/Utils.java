@@ -76,9 +76,9 @@ public class Utils {
     }
     if (nonNull(input)) {
       if (input instanceof Set) {
-        return new HashSet<T>(input);
+        return new HashSet<>(input);
       } else {
-        return new ArrayList<T>(input);
+        return new ArrayList<>(input);
       }
     }
     return null;

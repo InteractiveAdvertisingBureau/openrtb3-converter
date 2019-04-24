@@ -90,7 +90,7 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
         } else target.setAdm(_native);
       } else if (nonNull(source.getAdm())) {
         try {
-          Native native3 = null;
+          Native native3;
           if (source.getAdm() instanceof String) {
             native3 = mapper.readValue((String) source.getAdm(), Native.class);
           } else {

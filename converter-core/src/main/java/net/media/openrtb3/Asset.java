@@ -35,7 +35,6 @@ public class Asset {
 
   public Asset() {}
 
-
   public Integer getId() {
     return this.id;
   }
@@ -92,12 +91,12 @@ public class Asset {
     this.link = link;
   }
 
-	public Map<String, Object> getExt() {
-  	return ext;
+  public Map<String, Object> getExt() {
+    return ext;
   }
 
   public void setExt(Map<String, Object> ext) {
-  	this.ext = ext;
+    this.ext = ext;
   }
 
   public boolean equals(Object o) {

@@ -15,18 +15,19 @@
   ~ limitations under the License.
   -->
 
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>net.media.open-rtb-converter</groupId>
-        <artifactId>open-rtb-converter</artifactId>
-        <version>1.2.1</version>
+        <groupId>net.media</groupId>
+        <artifactId>openrtb3-converter</artifactId>
+        <version>1.0.2-SNAPSHOT</version>
     </parent>
 
-    <artifactId>converter-core</artifactId>
-    <version>1.2.1</version>
+    <artifactId>openrtb3-converter-core</artifactId>
+    <name>openrtb3-converter-core</name>
+    <description>Core library offering transformation support between requests and responses of various OpenRTB versions: 2.3, 2.4, 2.5 and 3.0 </description>
+    <url>https://github.com/media-net/openrtb3-converter/tree/master/converter-core</url>
 
     <build>
         <finalName>${project.artifactId}##${project.version}</finalName>
@@ -189,11 +190,6 @@
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-parameter-names</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jdk8</artifactId>
             <version>${jackson.version}</version>
         </dependency>
         <dependency>
