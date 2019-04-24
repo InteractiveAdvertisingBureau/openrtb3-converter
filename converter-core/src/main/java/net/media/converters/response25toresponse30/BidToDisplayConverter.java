@@ -17,12 +17,11 @@
 package net.media.converters.response25toresponse30;
 
 import com.fasterxml.jackson.databind.JavaType;
-
-import net.media.driver.Conversion;
-import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
 import net.media.enums.AdType;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb3.Banner;
@@ -33,18 +32,22 @@ import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
 
 import static java.util.Objects.nonNull;
 
 /** @author shiva.b */
 public class BidToDisplayConverter implements Converter<Bid, Display> {
 
-  private static final JavaType javaTypeForEventCollection = Utils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Event.class);
+  private static final JavaType javaTypeForEventCollection =
+      Utils.getMapper().getTypeFactory().constructCollectionType(Collection.class, Event.class);
 
   @Override
-  public Display map(Bid source, Config config, Provider converterProvider) throws OpenRtbConverterException {
+  public Display map(Bid source, Config config, Provider converterProvider)
+      throws OpenRtbConverterException {
     if (source == null) {
       return null;
     }
@@ -64,15 +67,15 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     target.setW(source.getW());
     target.setHratio(source.getHratio());
     target.setCurl(source.getNurl());
-    if(nonNull(source.getApi())) {
+    if (nonNull(source.getApi())) {
       target.setApi(new ArrayList<>(Collections.singletonList(source.getApi())));
     }
-//    if (nonNull(source.getExt())) {
-//      if (source.getExt().containsKey("curl")) {
-//        target.setCurl((String) source.getExt().get("curl"));
-//        source.getExt().remove("curl");
-//      }
-//    }
+    //    if (nonNull(source.getExt())) {
+    //      if (source.getExt().containsKey("curl")) {
+    //        target.setCurl((String) source.getExt().get("curl"));
+    //        source.getExt().remove("curl");
+    //      }
+    //    }
     Converter<NativeResponse, Native> converter =
         converterProvider.fetch(new Conversion<>(NativeResponse.class, Native.class));
     if (config.getAdType(source.getId()) == AdType.NATIVE) {
@@ -81,10 +84,8 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
           NativeResponse nativeResponse =
               Utils.getMapper().readValue((String) source.getAdm(), NativeResponse.class);
           Native _native = converter.map(nativeResponse, config, converterProvider);
-          if(config.getNativeResponseAsString())
-            target.setAdm(_native);
-          else
-            target.set_native(_native);
+          if (config.getNativeResponseAsString()) target.setAdm(_native);
+          else target.set_native(_native);
         } catch (IOException e) {
           throw new OpenRtbConverterException(
               "error while deserializing native response object", e);
@@ -92,13 +93,13 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
       } else {
         try {
           Native _native =
-		          converter.map(Utils.getMapper().convertValue(source.getAdm(), NativeResponse.class), config, converterProvider);
-          if(config.getNativeResponseAsString())
-            target.setAdm(_native);
-          else
-            target.set_native(_native);
-        }
-        catch (Exception e) {
+              converter.map(
+                  Utils.getMapper().convertValue(source.getAdm(), NativeResponse.class),
+                  config,
+                  converterProvider);
+          if (config.getNativeResponseAsString()) target.setAdm(_native);
+          else target.set_native(_native);
+        } catch (Exception e) {
           throw new OpenRtbConverterException("error while casting adm to native response", e);
         }
       }
@@ -128,7 +129,7 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
           }
         } else if (config.getAdType(source.getId()) == AdType.NATIVE) {
           if (ext.containsKey("native")) {
-            Native _native = null;
+            Native _native;
             try {
               _native = Utils.getMapper().convertValue(ext.get("native"), Native.class);
               target.set_native(_native);

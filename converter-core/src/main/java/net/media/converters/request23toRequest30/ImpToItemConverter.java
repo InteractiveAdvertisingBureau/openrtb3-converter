@@ -17,7 +17,6 @@
 package net.media.converters.request23toRequest30;
 
 import com.fasterxml.jackson.databind.JavaType;
-
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Imp;
@@ -34,8 +33,8 @@ import static java.util.Objects.nonNull;
 public class ImpToItemConverter
     extends net.media.converters.request25toRequest30.ImpToItemConverter {
 
-  private static final JavaType javaTypeForMetricCollection = Utils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Metric.class);
+  private static final JavaType javaTypeForMetricCollection =
+      Utils.getMapper().getTypeFactory().constructCollectionType(Collection.class, Metric.class);
 
   public void enhance(Imp imp, Item item, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -45,8 +44,9 @@ public class ImpToItemConverter
     if (nonNull(imp.getExt())) {
       if (imp.getExt().containsKey("metric")) {
         try {
-          imp.setMetric(Utils.getMapper().convertValue(imp.getExt().get("metric"),
-            javaTypeForMetricCollection));
+          imp.setMetric(
+              Utils.getMapper()
+                  .convertValue(imp.getExt().get("metric"), javaTypeForMetricCollection));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting metric from imp.ext.accuracy", e);
         }

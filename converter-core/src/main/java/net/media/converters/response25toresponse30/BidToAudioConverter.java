@@ -23,7 +23,10 @@ import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Audio;
 import net.media.utils.Provider;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;

@@ -17,7 +17,6 @@
 package net.media.converters.request23toRequest30;
 
 import com.fasterxml.jackson.databind.JavaType;
-
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Content;
@@ -33,8 +32,8 @@ import static java.util.Objects.nonNull;
 public class ContentToContentConverter
     extends net.media.converters.request25toRequest30.ContentToContentConverter {
 
-  private static final JavaType javaTypeForDataCollection = Utils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Data.class);
+  private static final JavaType javaTypeForDataCollection =
+      Utils.getMapper().getTypeFactory().constructCollectionType(Collection.class, Data.class);
 
   public void enhance(
       Content source, net.media.openrtb3.Content target, Config config, Provider converterProvider)
@@ -85,8 +84,9 @@ public class ContentToContentConverter
       }
       if (source.getExt().containsKey("data")) {
         try {
-          source.setData(Utils.getMapper().convertValue(source.getExt().get("data"),
-            javaTypeForDataCollection));
+          source.setData(
+              Utils.getMapper()
+                  .convertValue(source.getExt().get("data"), javaTypeForDataCollection));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting data from content.ext.data", e);
         }

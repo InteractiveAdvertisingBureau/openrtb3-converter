@@ -27,7 +27,10 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -59,8 +62,8 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
         if (!CollectionUtils.isEmpty(displayFormat.getExpdir())) {
-          Collection<Integer> formatExpdir = Utils.copyCollection(displayFormat.getExpdir(),
-            config);
+          Collection<Integer> formatExpdir =
+              Utils.copyCollection(displayFormat.getExpdir(), config);
           if (isNull(banner.getExpdir())) {
             banner.setExpdir(formatExpdir);
           } else {
@@ -178,7 +181,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       return null;
     }
 
-    Collection<Format> list1 = new ArrayList<Format>(list.size());
+    Collection<Format> list1 = new ArrayList<>(list.size());
     for (DisplayFormat displayFormat : list) {
       list1.add(displayFormatToFormat(displayFormat, config));
     }

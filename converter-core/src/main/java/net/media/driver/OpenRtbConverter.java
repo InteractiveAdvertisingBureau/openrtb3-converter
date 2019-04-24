@@ -16,6 +16,8 @@
 
 package net.media.driver;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -35,6 +37,8 @@ import static java.util.Objects.isNull;
  * Config} {@link #converterManager} contains the pipeline for converter dependencies {@link
  * ConverterManager} initialised while calling {@link OpenRtbConverter(Config)}
  *
+ * <p>
+ *
  * <ul>
  *   <li>{@link OpenRtbConverter(Config)} : instantiates OpenRtb converter object single object
  *       would be enough for the entire object
@@ -48,7 +52,7 @@ import static java.util.Objects.isNull;
  *       {@link #config} for that particular call
  *   <li>{@link #enhance(Object, Object, Class, Class)} uses {@link #enhance(Config, Object, Object,
  *       Class, Class)} without overriding config
- *       <ul/>
+ *  </ul>
  *
  * @author shiva.b
  * @since 1.0
@@ -64,15 +68,7 @@ public class OpenRtbConverter {
     converterManager = new ConverterManager();
   }
 
-  /**
-   * @param overridingConfig
-   * @param source
-   * @param sourceClass
-   * @param targetClass
-   * @param <U> source class type
-   * @param <V> target class type
-   * @return <class>V</class> target class
-   */
+
   public <U, V> V convert(
       Config overridingConfig, U source, Class<U> sourceClass, Class<V> targetClass)
       throws ConfigurationException, OpenRtbConverterException {
@@ -115,6 +111,9 @@ public class OpenRtbConverter {
     U sourceObject = Utils.convertToObject(sourceClass, source);
     V targetObject =
         convert(overridingConfig, sourceObject, sourceClass, targetClass, overridenMap);
+    ObjectMapper objectMapper = new ObjectMapper();
+
+//    return (new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL)).writeValueAsString(targetObject);
     return Utils.convertToJson(targetObject);
   }
 
@@ -135,14 +134,6 @@ public class OpenRtbConverter {
     return Utils.convertToJson(targetObject);
   }
 
-  /**
-   * @param source
-   * @param sourceClass source object
-   * @param targetClass target object
-   * @param <U> source class type
-   * @param <V> target class type
-   * @return <class>V</class> target class
-   */
   public <U, V> V convert(U source, Class<U> sourceClass, Class<V> targetClass)
       throws ConfigurationException, OpenRtbConverterException {
     return convert(null, source, sourceClass, targetClass, null);
@@ -155,33 +146,12 @@ public class OpenRtbConverter {
     return Utils.convertToJson(targetObject);
   }
 
-  /**
-   * @param overridingConfig
-   * @param source
-   * @param target
-   * @param sourceClass
-   * @param targetClass
-   * @param <U> source class type
-   * @param <V> target class type
-   * @throws ConfigurationException
-   * @throws OpenRtbConverterException
-   */
   public <U, V> void enhance(
       Config overridingConfig, U source, V target, Class<U> sourceClass, Class<V> targetClass)
       throws ConfigurationException, OpenRtbConverterException {
     enhance(overridingConfig, source, target, sourceClass, targetClass, null);
   }
 
-  /**
-   * @param source
-   * @param target
-   * @param sourceClass
-   * @param targetClass
-   * @param <U> source class type
-   * @param <V> target class type
-   * @throws ConfigurationException
-   * @throws OpenRtbConverterException
-   */
   public <U, V> void enhance(U source, V target, Class<U> sourceClass, Class<V> targetClass)
       throws OpenRtbConverterException, ConfigurationException {
     enhance(null, source, target, sourceClass, targetClass, null);
@@ -219,10 +189,6 @@ public class OpenRtbConverter {
         converterManager.getConverterProvider(overridenMap, overridingConfig));
   }
 
-  /**
-   * @param overridingConfig
-   * @return
-   */
   private Config enhanceConfig(Config overridingConfig) {
     if (isNull(overridingConfig)) {
       overridingConfig = new Config(config);
@@ -235,4 +201,5 @@ public class OpenRtbConverter {
   private boolean shouldValidate(Config overridingConfig) {
     return overridingConfig.getValidate();
   }
+
 }

@@ -17,11 +17,10 @@
 package net.media.converters.response25toresponse30;
 
 import com.fasterxml.jackson.databind.JavaType;
-
-import net.media.driver.Conversion;
-import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Macro;
 import net.media.openrtb3.Media;
@@ -39,8 +38,8 @@ import static java.util.Objects.nonNull;
 /** @author shiva.b */
 public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.Bid> {
 
-  private static final JavaType javaTypeForMacroCollection = Utils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Macro.class);
+  private static final JavaType javaTypeForMacroCollection =
+      Utils.getMapper().getTypeFactory().constructCollectionType(Collection.class, Macro.class);
 
   @Override
   public net.media.openrtb3.Bid map(Bid source, Config config, Provider converterProvider)
@@ -66,8 +65,8 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       target.setItem(source.getImpid());
       target.setDeal(source.getDealid());
       target.setPurl(source.getNurl());
-      Converter<Bid, Media> converter = converterProvider.fetch(new Conversion<>(Bid.class, Media
-          .class));
+      Converter<Bid, Media> converter =
+          converterProvider.fetch(new Conversion<>(Bid.class, Media.class));
       target.setId(source.getId());
       target.setPrice(source.getPrice());
       target.setCid(source.getCid());
@@ -80,8 +79,9 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       if (nonNull(source.getExt())) {
         if (source.getExt().containsKey("macro")) {
           try {
-            Collection<Macro> macros = Utils.getMapper().convertValue(source.getExt().get("macro"),
-                javaTypeForMacroCollection);
+            Collection<Macro> macros =
+                Utils.getMapper()
+                    .convertValue(source.getExt().get("macro"), javaTypeForMacroCollection);
             target.setMacro(macros);
           } catch (Exception e) {
             throw new OpenRtbConverterException("Error in setting bid.macro from bid.ext.macro", e);

@@ -1,0 +1,22 @@
+cases:
+ - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+   inputType: "RESPONSE30"
+   inputEdits:
+     openrtb.response.id : "\"2\""
+   outputFile: RESPONSE_BANNER_SITE_25_3to2.json
+   outputType: "RESPONSE25"
+   outputEdits:
+     id : "\"2\""
+   purpose: ResponseStringInput_3to2
+   inputAsString : 1
+
+ - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     id: "\"2\""
+   outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     openrtb.response.id : "\"2\""
+   purpose: ResponseStringInput_2to3
+   inputAsString : 1

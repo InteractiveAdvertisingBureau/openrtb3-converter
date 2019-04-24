@@ -65,13 +65,15 @@ public class Config {
    * against impression ids which will aid in conversion. Example: Say, the map has the following
    * mapping:
    *
+   * <p>
+   *
    * <pre>
    *   {imp1, BANNER}
    *   {imp2, VIDEO}
    *   {imp3, NATIVE}
    * </pre>
    *
-   * If in 2.x response, bidResponse.seatBid.bid.impId = imp1, then when converting to 3.0, this
+   * <p>If in 2.x response, bidResponse.seatBid.bid.impId = imp1, then when converting to 3.0, this
    * impression will be converted to {@link net.media.openrtb3.Banner} object. Aditionally, if in
    * 3.0 response, openrtb.response.seatbid.bid.media.ad.display.banner is not null, then an
    * appropriate bidResponse.seatBid.bid will be created with impId = imp1. Note that, support for
@@ -264,6 +266,12 @@ public class Config {
           isNull(this.nativeRequestAsString)
               ? config.nativeRequestAsString
               : this.nativeRequestAsString;
+
+      this.nativeResponseAsString =
+        isNull(this.nativeResponseAsString)
+          ? config.nativeResponseAsString
+          : this.nativeResponseAsString;
+
       this.adTypeMapping = isNull(this.adTypeMapping) ? config.adTypeMapping : this.adTypeMapping;
       this.validate = isNull(this.validate) ? config.validate : this.validate;
       this.disableCloning =
