@@ -91,13 +91,12 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
       target.setExt(Utils.copyMap(map, config));
     }
 
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
     if (source.getExt() == null) return;
     try {
       if (source.getExt().containsKey("cattax")) {
         target.setCattax((Integer) source.getExt().get("cattax"));
         target.getExt().remove("cattax");
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Content", e);

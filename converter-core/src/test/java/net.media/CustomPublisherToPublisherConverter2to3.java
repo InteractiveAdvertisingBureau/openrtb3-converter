@@ -53,13 +53,12 @@ public class CustomPublisherToPublisherConverter2to3
     target.setName(source.getName());
     target.setDomain("myCustomDomain");
     target.setCat(null);
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
     Map<String, Object> map = source.getExt();
     if (map != null) {
       target.setExt(Utils.copyMap(map, config));
       if (map.containsKey("cattax")) {
         target.setCattax((Integer) map.get("cattax"));
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
       target.getExt().remove("cattax");
     }

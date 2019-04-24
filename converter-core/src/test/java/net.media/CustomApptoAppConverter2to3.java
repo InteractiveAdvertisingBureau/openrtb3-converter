@@ -75,13 +75,11 @@ public class CustomApptoAppConverter2to3 implements Converter<App, net.media.ope
     if (map != null) {
       target.setExt(Utils.copyMap(map, config));
     }
-
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
     if (source.getExt() == null) return;
     try {
       if (source.getExt().containsKey("cattax")) {
         target.setCattax((Integer) source.getExt().get("cattax"));
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
       target.setStoreid((String) source.getExt().get("storeid"));
       target.getExt().remove("cattax");

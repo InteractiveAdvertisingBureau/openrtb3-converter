@@ -54,12 +54,12 @@ public class PublisherToPublisherConverter
     target.setDomain(source.getDomain());
     target.setCat(Utils.copyCollection(source.getCat(), config));
     Map<String, Object> map = source.getExt();
+
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
     if (map != null) {
       target.setExt(Utils.copyMap(map, config));
       if (map.containsKey("cattax")) {
         target.setCattax((Integer) map.get("cattax"));
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
       target.getExt().remove("cattax");
     }

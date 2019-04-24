@@ -116,6 +116,8 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
         target.setSite(siteSiteConverter.map(site, config, converterProvider));
       }
 
+      if (target.getExt() == null) target.setExt(new HashMap<>());
+      target.getExt().put("cattax", source.getContext().getRestrictions().getCattax());
       if (source.getContext().getRestrictions() != null) {
         target.setBapp(
             Utils.copyCollection(source.getContext().getRestrictions().getBapp(), config));
@@ -123,10 +125,6 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
             Utils.copyCollection(source.getContext().getRestrictions().getBcat(), config));
         target.setBadv(
             Utils.copyCollection(source.getContext().getRestrictions().getBadv(), config));
-        if (source.getContext().getRestrictions().getCattax() != null) {
-          if (target.getExt() == null) target.setExt(new HashMap<>());
-          target.getExt().put("cattax", source.getContext().getRestrictions().getCattax());
-        }
 
         if (source.getContext().getRestrictions().getExt() != null) {
           if (target.getExt() == null) target.setExt(new HashMap<>());
