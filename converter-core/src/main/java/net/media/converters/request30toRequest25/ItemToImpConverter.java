@@ -29,12 +29,8 @@ import net.media.openrtb25.request.Metric;
 import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.*;
-import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.*;
 import net.media.utils.JacksonObjectMapper;
-import net.media.utils.CollectionUtils;
-import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
-import net.media.utils.Provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -119,7 +115,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
       if(nonNull(display.getNativefmt())) {
         NativeRequest nativeRequest = displayPlacementNativeConverter.map(display, config, converterProvider);
         Native nat = new Native();
-        nat.setApi(Utils.copyCollection(display.getApi(), config));
+        nat.setApi(CollectionUtils.copyCollection(display.getApi(), config));
         if (nonNull(display.getExt())) {
           if (isNull(nat.getExt())) {
             nat.setExt(new HashMap<>());

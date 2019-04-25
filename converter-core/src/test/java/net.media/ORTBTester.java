@@ -65,16 +65,16 @@ public class ORTBTester<U, V> {
           tempOpenRtbConverter = new OpenRtbConverter(initconfig);
       }
        if(inputPojo.getInputAsString() == null) {
-         bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
+         bidRequest = JacksonObjectMapperUtils.getMapper().convertValue(source, sourceClass);
          converted = tempOpenRtbConverter.convert(config, bidRequest, sourceClass, targetClass,overRider);
       } else {
          String stringInput = source.toString();
          String stringOutput = tempOpenRtbConverter.convert(config, stringInput, sourceClass, targetClass, overRider).replaceAll("\\s+","");
-         converted = JacksonObjectMapper.getMapper().readValue(stringOutput, targetClass);
+         converted = JacksonObjectMapperUtils.getMapper().readValue(stringOutput, targetClass);
       }
         JSONAssert.assertEquals(
-        JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+",""),
-        JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+",""),
+        JacksonObjectMapperUtils.getMapper().writeValueAsString(target).replaceAll("\\s+",""),
+        JacksonObjectMapperUtils.getMapper().writeValueAsString(converted).replaceAll("\\s+",""),
         true);
 
     } catch (Exception | AssertionError e) {
@@ -88,8 +88,8 @@ public class ORTBTester<U, V> {
 
       if (!inputPojo.getOutputEdits().containsKey("status")
           || !inputPojo.getOutputEdits().get("status").equals("ERROR")) {
-        System.out.println(JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""));
-        System.out.println(JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""));
+        System.out.println(JacksonObjectMapperUtils.getMapper().writeValueAsString(target).replaceAll("\\s+", ""));
+        System.out.println(JacksonObjectMapperUtils.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""));
         testOutput.getFailedTestList().add(outputTestPojo);
       }
     }

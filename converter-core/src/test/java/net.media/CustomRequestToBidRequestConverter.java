@@ -26,8 +26,8 @@ import net.media.openrtb25.request.User;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -81,7 +81,7 @@ public class CustomRequestToBidRequestConverter implements Converter<Request, Bi
 
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(MapUtils.copyMap(map, config));
     }
 
     if (source.getContext() != null) {
@@ -119,11 +119,11 @@ public class CustomRequestToBidRequestConverter implements Converter<Request, Bi
       target.getExt().put("cattax", source.getContext().getRestrictions().getCattax());
       if (source.getContext().getRestrictions() != null) {
         target.setBapp(
-          Utils.copyCollection(source.getContext().getRestrictions().getBapp(), config));
+          CollectionUtils.copyCollection(source.getContext().getRestrictions().getBapp(), config));
         target.setBcat(
-          Utils.copyCollection(source.getContext().getRestrictions().getBcat(), config));
+          CollectionUtils.copyCollection(source.getContext().getRestrictions().getBcat(), config));
         target.setBadv(
-          Utils.copyCollection(source.getContext().getRestrictions().getBadv(), config));
+          CollectionUtils.copyCollection(source.getContext().getRestrictions().getBadv(), config));
 
         if (source.getContext().getRestrictions().getExt() != null) {
           if (target.getExt() == null) target.setExt(new HashMap<>());
@@ -150,7 +150,7 @@ public class CustomRequestToBidRequestConverter implements Converter<Request, Bi
             if (nonNull(source.getContext().getRestrictions().getBattr())) {
               imp.getBanner()
                 .setBattr(
-                  Utils.copyCollection(
+                  CollectionUtils.copyCollection(
                     source.getContext().getRestrictions().getBattr(), config));
             }
           }
@@ -158,7 +158,7 @@ public class CustomRequestToBidRequestConverter implements Converter<Request, Bi
             if (nonNull(source.getContext().getRestrictions().getBattr())) {
               imp.getVideo()
                 .setBattr(
-                  Utils.copyCollection(
+                  CollectionUtils.copyCollection(
                     source.getContext().getRestrictions().getBattr(), config));
             }
           }
@@ -166,7 +166,7 @@ public class CustomRequestToBidRequestConverter implements Converter<Request, Bi
             if (nonNull(source.getContext().getRestrictions().getBattr())) {
               imp.getAudio()
                 .setBattr(
-                  Utils.copyCollection(
+                  CollectionUtils.copyCollection(
                     source.getContext().getRestrictions().getBattr(), config));
             }
           }
@@ -174,7 +174,7 @@ public class CustomRequestToBidRequestConverter implements Converter<Request, Bi
             if (nonNull(source.getContext().getRestrictions().getBattr())) {
               imp.getNat()
                 .setBattr(
-                  Utils.copyCollection(
+                  CollectionUtils.copyCollection(
                     source.getContext().getRestrictions().getBattr(), config));
             }
           }
@@ -188,16 +188,16 @@ public class CustomRequestToBidRequestConverter implements Converter<Request, Bi
     target.setSource(sourceSourceConverter.map(source.getSource(), config, converterProvider));
     Collection<String> list1 = source.getCur();
     if (list1 != null) {
-      target.setCur(Utils.copyCollection(list1, config));
+      target.setCur(CollectionUtils.copyCollection(list1, config));
     }
 
     if (source.getWseat() != null) {
 
       if (source.getWseat() == 0) {
-        target.setBseat(Utils.copyCollection(source.getSeat(), config));
-        target.setBseat(Utils.copyCollection(source.getSeat(), config));
+        target.setBseat(CollectionUtils.copyCollection(source.getSeat(), config));
+        target.setBseat(CollectionUtils.copyCollection(source.getSeat(), config));
       } else {
-        target.setWseat(Utils.copyCollection(source.getSeat(), config));
+        target.setWseat(CollectionUtils.copyCollection(source.getSeat(), config));
       }
     }
 
@@ -210,7 +210,7 @@ public class CustomRequestToBidRequestConverter implements Converter<Request, Bi
           wlang.addAll(item.getSpec().getPlacement().getWlang());
         }
       }
-      target.setWlang(Utils.copyCollection(wlang, config));
+      target.setWlang(CollectionUtils.copyCollection(wlang, config));
     }
 
     if (target.getImp() != null) {

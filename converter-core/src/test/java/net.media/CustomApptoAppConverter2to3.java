@@ -23,8 +23,9 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.App;
 import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Publisher;
+import net.media.utils.CollectionUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Map;
 
@@ -52,7 +53,7 @@ public class CustomApptoAppConverter2to3 implements Converter<App, net.media.ope
     throws OpenRtbConverterException {
     if (source == null || target == null) return;
     target.setPrivpolicy(source.getPrivacypolicy());
-    target.setSectcat(Utils.copyCollection(source.getSectioncat(), config));
+    target.setSectcat(CollectionUtils.copyCollection(source.getSectioncat(), config));
     Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter =
       converterProvider.fetch(
         new Conversion<>(Publisher.class, net.media.openrtb3.Publisher.class));
@@ -64,8 +65,8 @@ public class CustomApptoAppConverter2to3 implements Converter<App, net.media.ope
     target.setName(source.getName());
     target.setContent(null);
     target.setDomain(source.getDomain());
-    target.setCat(Utils.copyCollection(source.getCat(), config));
-    target.setPagecat(Utils.copyCollection(source.getPagecat(), config));
+    target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
+    target.setPagecat(CollectionUtils.copyCollection(source.getPagecat(), config));
     target.setKeywords(source.getKeywords());
     target.setBundle(source.getBundle());
     target.setStoreurl(source.getStoreurl());
@@ -73,7 +74,7 @@ public class CustomApptoAppConverter2to3 implements Converter<App, net.media.ope
     target.setPaid(source.getPaid());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(MapUtils.copyMap(map, config));
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
     if (source.getExt() == null) return;

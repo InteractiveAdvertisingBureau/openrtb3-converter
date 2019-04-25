@@ -80,10 +80,6 @@ public class ConverterTest {
               || isNull(testPojo.getInputType())
               || isNull(testPojo.getOutputType())) {
             OutputTestPojo outputTestPojo = new OutputTestPojo();
-            outputTestPojo.setInputFile(file.getName());
-            outputTestPojo.setStatus("FAILURE");
-            outputTestPojo.setException("Test file = " + file.getName() + " is incorrect");
-            testOutput.getFailedTestList().add(outputTestPojo);*/
             Map<String, Object> inputPojo = JacksonObjectMapper.getMapper().readValue(jsonData, Map.class);
             outputTestPojo.setInputFile(null);
             outputTestPojo.setStatus("FAILURE");

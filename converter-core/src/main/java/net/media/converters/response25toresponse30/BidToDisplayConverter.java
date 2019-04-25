@@ -143,7 +143,7 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
         }
         try {
           if(ext.containsKey(CommonConstants.EVENT)) {
-            target.setEvent(Utils.getMapper().convertValue(ext.get(CommonConstants.EVENT),
+            target.setEvent(JacksonObjectMapperUtils.getMapper().convertValue(ext.get(CommonConstants.EVENT),
               javaTypeForEventCollection));
             source.getExt().remove(CommonConstants.EVENT);
           }

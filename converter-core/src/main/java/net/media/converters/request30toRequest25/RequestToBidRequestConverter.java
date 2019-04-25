@@ -125,7 +125,7 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
         target.setBcat(
             CollectionUtils.copyCollection(source.getContext().getRestrictions().getBcat(), config));
         target.setBadv(
-            Utils.copyCollection(source.getContext().getRestrictions().getBadv(), config));
+          CollectionUtils.copyCollection(source.getContext().getRestrictions().getBadv(), config));
 
         if (source.getContext().getRestrictions().getExt() != null) {
           if (target.getExt() == null) target.setExt(new HashMap<>());
