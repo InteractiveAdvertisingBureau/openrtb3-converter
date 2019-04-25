@@ -179,8 +179,8 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
       if (item.getExt().containsKey(CommonConstants.PMP)) {
         try {
           Map<String, Object> pmp1 = (Map<String, Object>) item.getExt().get(CommonConstants.PMP);
-          if (pmp1.containsKey("ext")) {
-            pmp.setExt((Map<String, Object>) pmp1.get("ext"));
+          if (pmp1.containsKey(CommonConstants.EXT)) {
+            pmp.setExt((Map<String, Object>) pmp1.get(CommonConstants.EXT));
           }
           item.getExt().remove(CommonConstants.PMP);
         } catch (ClassCastException e) {

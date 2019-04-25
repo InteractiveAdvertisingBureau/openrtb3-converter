@@ -30,6 +30,7 @@ import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
@@ -159,11 +160,11 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
         bannerDisplayPlacementConverter.map(imp.getBanner(), config, converterProvider);
     try {
       if (nonNull(imp.getExt()) && !imp.getExt().isEmpty() && nonNull(displayPlacement)) {
-        if (imp.getExt().containsKey("ampren")) {
-          displayPlacement.setAmpren((Integer) imp.getExt().get("ampren"));
+        if (imp.getExt().containsKey(CommonConstants.AMPREN)) {
+          displayPlacement.setAmpren((Integer) imp.getExt().get(CommonConstants.AMPREN));
         }
-        if (imp.getExt().containsKey("event")) {
-          displayPlacement.setEvent(JacksonObjectMapperUtils.getMapper().convertValue(imp.getExt().get("event"),
+        if (imp.getExt().containsKey(CommonConstants.EVENT)) {
+          displayPlacement.setEvent(JacksonObjectMapperUtils.getMapper().convertValue(imp.getExt().get(CommonConstants.EVENT),
             javaTypeForEventSpecCollection));
         }
       }
@@ -315,14 +316,14 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       }
     }
     if (nonNull(item.getExt())) {
-      if (item.getExt().containsKey("ampren")) {
-        item.getExt().remove("ampren");
+      if (item.getExt().containsKey(CommonConstants.AMPREN)) {
+        item.getExt().remove(CommonConstants.AMPREN);
       }
       if (item.getExt().containsKey("ctype")) {
         item.getExt().remove("ctype");
       }
-      if (item.getExt().containsKey("event")) {
-        item.getExt().remove("event");
+      if (item.getExt().containsKey(CommonConstants.EVENT)) {
+        item.getExt().remove(CommonConstants.EVENT);
       }
     }
   }
