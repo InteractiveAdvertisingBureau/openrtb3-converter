@@ -21,7 +21,7 @@
     <parent>
         <groupId>net.media</groupId>
         <artifactId>openrtb3-converter</artifactId>
-        <version>1.0.3-SNAPSHOT</version>
+        <version>1.0.3</version>
     </parent>
 
     <artifactId>openrtb3-converter-api</artifactId>
@@ -106,7 +106,7 @@
         <dependency>
             <groupId>net.media</groupId>
             <artifactId>openrtb3-converter-core</artifactId>
-            <version>1.0.3-SNAPSHOT</version>
+            <version>1.0.3</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
