@@ -124,10 +124,6 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
           audioPlacement.setPlayend((Integer) audio.getExt().get("playend"));
           audioPlacement.getExt().remove("playend");
         }
-        if (audio.getExt().containsKey("delay")) {
-          audioPlacement.setSkip((Integer) audio.getExt().get("delay"));
-          audioPlacement.getExt().remove("delay");
-        }
         if (audioPlacement.getExt().containsKey("qty")) {
           audioPlacement.getExt().remove("qty");
         }

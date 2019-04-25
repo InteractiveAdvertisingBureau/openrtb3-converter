@@ -65,6 +65,7 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
     target.setLang(source.getLanguage());
     target.setAttr(Utils.copyCollection(source.getAttr(), config));
     target.setMrating(source.getQagmediarating());
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
     try {
       if (nonNull(source.getExt())) {
         Map<String, Object> ext = source.getExt();
@@ -83,8 +84,6 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
         if (ext.containsKey("cattax")) {
           target.setCattax((Integer) ext.get("cattax"));
           source.getExt().remove("cattax");
-        } else {
-          target.setCattax(DEFAULT_CATTAX_TWODOTX);
         }
 
         if (source.getExt().containsKey("audit")) {

@@ -246,4 +246,85 @@ public class ConverterTest {
     }
     Assert.assertTrue(success);
   }
+
+  @Test
+  public void testDuplicateKeys() {
+    Boolean success = true;
+    try {
+      ClassLoader classLoader = getClass().getClassLoader();
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      File file =
+              new File(classLoader.getResource("master").getPath() + "/request/DUP_BANNER_SITE_30.json");
+      String jsonData = new String(Files.readAllBytes(file.toPath()));
+      String converted = openRtbConverter.convert(jsonData, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+              new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+              JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""),
+              converted.replaceAll("\\s+", ""),
+              true);
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testInvalidJson() {
+    Boolean success = false;
+    try {
+      ClassLoader classLoader = getClass().getClassLoader();
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      File file =
+              new File(classLoader.getResource("master").getPath() + "/request/INV_JSON_BANNER_SITE_30.json");
+      String jsonData = new String(Files.readAllBytes(file.toPath()));
+      String converted = openRtbConverter.convert(jsonData, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+
+    } catch (Exception e) {
+      success = true;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testInvalidKeys() {
+    Boolean success = true;
+    ClassLoader classLoader = getClass().getClassLoader();
+    OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+    try {
+
+      File file =
+              new File(classLoader.getResource("master").getPath() + "/request/INV_BANNER_SITE_30.json");
+      String jsonData = new String(Files.readAllBytes(file.toPath()));
+      String converted = openRtbConverter.convert(jsonData, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+              new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+              JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""),
+              converted.replaceAll("\\s+", ""),
+              true);
+    } catch (Exception e) {
+      success = false;
+    } catch (AssertionError e) {
+
+    }
+    try {
+      File file =
+              new File(classLoader.getResource("master").getPath() + "/request/INV_BANNER_SITE_25.json");
+      String jsonData = new String(Files.readAllBytes(file.toPath()));
+      String converted = openRtbConverter.convert(jsonData, BidRequest2_X.class, OpenRTBWrapper3_X.class);
+      OpenRTBWrapper3_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+              new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_30.json").toPath()), OpenRTBWrapper3_X.class);
+      JSONAssert.assertEquals(
+              JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""),
+              converted.replaceAll("\\s+", ""),
+              true);
+    } catch (Exception e) {
+      success = false;
+    } catch (AssertionError e) {
+
+    }
+
+    Assert.assertTrue(success);
+  }
 }
