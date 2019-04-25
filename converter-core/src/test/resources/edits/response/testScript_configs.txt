@@ -1031,7 +1031,7 @@ cases:
       adTypeMapping:
         "yaddayadda": NATIVE
     params:
-      validate: true
+      validate: false
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
     inputType: "RESPONSE30"
