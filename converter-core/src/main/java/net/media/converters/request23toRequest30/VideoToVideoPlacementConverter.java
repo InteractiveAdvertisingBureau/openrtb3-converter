@@ -35,6 +35,7 @@ public class VideoToVideoPlacementConverter
     extends net.media.converters.request25toRequest30.VideoToVideoPlacementConverter {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.PLACEMENT);
     extraFieldsInExt.add(CommonConstants.PLAYBACKEND);

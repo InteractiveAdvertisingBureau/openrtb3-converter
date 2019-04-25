@@ -43,6 +43,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class VideoToVideoPlacementConverter implements Converter<Video, VideoPlacement> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.UNIT);
     extraFieldsInExt.add(CommonConstants.MAXSEQ);

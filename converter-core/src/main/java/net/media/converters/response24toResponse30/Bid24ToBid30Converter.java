@@ -34,6 +34,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class Bid24ToBid30Converter extends Bid25ToBid30Converter {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.BURL);
     extraFieldsInExt.add(CommonConstants.LURL);

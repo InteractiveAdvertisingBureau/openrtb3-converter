@@ -42,6 +42,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class ContentToContentConverter implements Converter<Content, net.media.openrtb3.Content> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.CATTAX);
   }
@@ -64,7 +65,9 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
   public void enhance(
       Content source, net.media.openrtb3.Content target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Producer, net.media.openrtb3.Producer> producerProducerConverter =
         converterProvider.fetch(
             new Conversion<>(Producer.class, net.media.openrtb3.Producer.class));

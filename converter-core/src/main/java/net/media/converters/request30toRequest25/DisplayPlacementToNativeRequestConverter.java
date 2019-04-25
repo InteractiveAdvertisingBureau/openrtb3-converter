@@ -68,7 +68,5 @@ public class DisplayPlacementToNativeRequestConverter implements Converter<Displ
       nat.getNativeRequestBody().setContext(displayPlacement.getContext());
       nat.getNativeRequestBody().setPlcmttype(displayPlacement.getPtype());
     }
-
-    //    nat.setExt(Utils.copyMap(displayPlacement.getExt(), config));
   }
 }

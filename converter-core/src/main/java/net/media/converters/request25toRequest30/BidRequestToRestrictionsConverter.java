@@ -54,12 +54,18 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_
   public void enhance(
       BidRequest2_X source, Restrictions target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setBapp(CollectionUtils.copyCollection(source.getBapp(), config));
     target.setBcat(CollectionUtils.copyCollection(source.getBcat(), config));
     target.setBadv(CollectionUtils.copyCollection(source.getBadv(), config));
-    if (source.getImp() == null) return;
-    if (source.getImp().size() == 0) return;
+    if (source.getImp() == null) {
+      return;
+    }
+    if (source.getImp().size() == 0) {
+      return;
+    }
     Collection<Integer> battr = new HashSet<>();
     for (Imp imp : source.getImp()) {
       if (imp.getBanner() != null && imp.getBanner().getBattr() != null) {

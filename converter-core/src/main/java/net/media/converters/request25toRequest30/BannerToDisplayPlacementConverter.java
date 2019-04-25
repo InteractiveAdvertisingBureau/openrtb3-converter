@@ -38,6 +38,7 @@ import static net.media.utils.ExtUtils.*;
 public class BannerToDisplayPlacementConverter implements Converter<Banner, DisplayPlacement> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.UNIT);
     extraFieldsInExt.add(CommonConstants.CTYPE);
@@ -128,14 +129,17 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     }
 
     DisplayFormat displayFormat = new DisplayFormat();
-    if(nonNull(format.getExt()))
+    if(nonNull(format.getExt())) {
       displayFormat.setExt(new HashMap<>(format.getExt()));
+    }
     displayFormat.setW(format.getW());
     displayFormat.setH(format.getH());
     displayFormat.setWratio(format.getWratio());
     displayFormat.setHratio(format.getHratio());
     if (nonNull(format.getWmin())) {
-      if (displayFormat.getExt() == null) displayFormat.setExt(new HashMap<>());
+      if (displayFormat.getExt() == null) {
+        displayFormat.setExt(new HashMap<>());
+      }
       displayFormat.getExt().put(CommonConstants.WMIN, format.getWmin());
     }
     displayFormat.setExt(putToExt(format::getWmin,displayFormat.getExt(),CommonConstants.WMIN));

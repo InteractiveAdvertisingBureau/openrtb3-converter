@@ -37,6 +37,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class SourceToSourceConverter implements Converter<Source, net.media.openrtb3.Source> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.TS);
     extraFieldsInExt.add(CommonConstants.DS);
@@ -73,15 +74,11 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
       target.setExt(new HashMap<>(map));
     }
     target.setExt(putToExt(source::getFd, target.getExt(), CommonConstants.FD));
-    try {
-      fetchFromExt(target::setTs, source.getExt(), CommonConstants.TS, "error while mapping ts from source");
-      fetchFromExt(target::setDs, source.getExt(), CommonConstants.DS, "error while mapping ds from source");
-      fetchFromExt(target::setDsmap, source.getExt(), CommonConstants.DSMAP, "error while mapping dsmap from source");
-      fetchFromExt(target::setCert, source.getExt(), CommonConstants.CERT, "error while mapping cert from source");
-      fetchFromExt(target::setDigest, source.getExt(), CommonConstants.DIGEST, "error while mapping digest from source");
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Source", e);
-    }
+    fetchFromExt(target::setTs, source.getExt(), CommonConstants.TS, "error while mapping ts from source");
+    fetchFromExt(target::setDs, source.getExt(), CommonConstants.DS, "error while mapping ds from source");
+    fetchFromExt(target::setDsmap, source.getExt(), CommonConstants.DSMAP, "error while mapping dsmap from source");
+    fetchFromExt(target::setCert, source.getExt(), CommonConstants.CERT, "error while mapping cert from source");
+    fetchFromExt(target::setDigest, source.getExt(), CommonConstants.DIGEST, "error while mapping digest from source");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

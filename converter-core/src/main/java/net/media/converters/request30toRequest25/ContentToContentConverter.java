@@ -42,6 +42,7 @@ public class ContentToContentConverter
     implements Converter<Content, net.media.openrtb25.request.Content> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.VIDEOQUALITY);
   }

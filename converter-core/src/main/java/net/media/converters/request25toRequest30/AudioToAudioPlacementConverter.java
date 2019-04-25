@@ -28,7 +28,6 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -74,8 +73,9 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
       return;
     }
     audioPlacement.setComptype(CollectionUtils.copyCollection(audio.getCompaniontype(), config));
-    if(nonNull(audio.getExt()))
+    if(nonNull(audio.getExt())) {
       audioPlacement.setExt(new HashMap<>(audio.getExt()));
+    }
     audioPlacement.setExt(putToExt(audio::getStitched, audioPlacement.getExt(), CommonConstants.STITCHED));
     audioPlacement.setComp(
         bannerListToCompanionList(audio.getCompanionad(), config, converterProvider));

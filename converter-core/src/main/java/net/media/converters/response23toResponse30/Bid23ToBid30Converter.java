@@ -22,7 +22,6 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +34,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class Bid23ToBid30Converter extends Bid25ToBid30Converter {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.BURL);
     extraFieldsInExt.add(CommonConstants.LURL);

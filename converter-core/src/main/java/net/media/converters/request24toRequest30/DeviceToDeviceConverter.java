@@ -34,6 +34,7 @@ public class DeviceToDeviceConverter
     extends net.media.converters.request25toRequest30.DeviceToDeviceConverter {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.MCCMNC);
   }

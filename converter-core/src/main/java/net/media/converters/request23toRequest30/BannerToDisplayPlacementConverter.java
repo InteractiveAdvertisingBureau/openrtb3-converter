@@ -39,6 +39,7 @@ public class BannerToDisplayPlacementConverter
     extends net.media.converters.request25toRequest30.BannerToDisplayPlacementConverter {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.VCM);
     extraFieldsInExt.add(CommonConstants.FORMAT);

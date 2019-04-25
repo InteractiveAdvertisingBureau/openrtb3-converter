@@ -24,7 +24,6 @@ import net.media.openrtb25.request.Data;
 import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -41,6 +40,7 @@ public class ContentToContentConverter
     extends net.media.converters.request25toRequest30.ContentToContentConverter {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.ARTIST);
     extraFieldsInExt.add(CommonConstants.GENRE);

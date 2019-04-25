@@ -24,7 +24,6 @@ import net.media.openrtb3.Audit;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.*;
 
@@ -36,6 +35,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class BidToAuditConverter implements Converter<Bid, Audit> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.CORR);
     extraFieldsInExt.add(CommonConstants.STATUS);

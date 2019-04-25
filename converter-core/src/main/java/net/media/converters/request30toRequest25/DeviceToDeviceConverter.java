@@ -40,6 +40,7 @@ public class DeviceToDeviceConverter
     implements Converter<Device, net.media.openrtb25.request.Device> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.FLASHVER);
   }
@@ -82,8 +83,9 @@ public class DeviceToDeviceConverter
     target.setIp(source.getIp());
     target.setIpv6(source.getIpv6());
     if (source.getOs() != null) {
-      if (OsMap.osMap.inverse().containsKey(source.getOs()))
+      if (OsMap.osMap.inverse().containsKey(source.getOs())) {
         target.setOs(OsMap.osMap.inverse().get(source.getOs()));
+      }
     }
     target.setMake(source.getMake());
     target.setModel(source.getModel());

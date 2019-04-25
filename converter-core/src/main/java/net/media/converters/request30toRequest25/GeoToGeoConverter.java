@@ -23,7 +23,6 @@ import net.media.openrtb3.Geo;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +36,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.request.Geo> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.REGIONFIPS_104);
   }

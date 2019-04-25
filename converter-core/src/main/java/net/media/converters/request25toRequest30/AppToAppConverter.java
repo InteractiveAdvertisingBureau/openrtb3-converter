@@ -40,6 +40,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class AppToAppConverter implements Converter<App, net.media.openrtb3.App> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.CATTAX);
     extraFieldsInExt.add(CommonConstants.STOREID);

@@ -36,14 +36,18 @@ public class VideoToBidConverter implements Converter<Video, Bid> {
 
   public Bid map(Video source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(config)) return null;
+    if (isNull(source) || isNull(config)) {
+      return null;
+    }
     Bid bid = new Bid();
     enhance(source, bid, config, converterProvider);
     return bid;
   }
 
   public void enhance(Video source, Bid target, Config config, Provider converterProvider) {
-    if (isNull(source) || isNull(target) || isNull(config)) return;
+    if (isNull(source) || isNull(target) || isNull(config)) {
+      return;
+    }
 
     target.setAdm(source.getAdm());
     if (nonNull(source.getApi()) && source.getApi().size() > 0)
@@ -58,6 +62,8 @@ public class VideoToBidConverter implements Converter<Video, Bid> {
     if (isEmpty(target.getNurl())) {
       target.setNurl(source.getCurl());
     }
-    if (nonNull(source.getExt())) target.getExt().putAll(source.getExt());
+    if (nonNull(source.getExt())) {
+      target.getExt().putAll(source.getExt());
+    }
   }
 }

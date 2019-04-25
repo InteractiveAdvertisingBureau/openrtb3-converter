@@ -29,7 +29,6 @@ import net.media.openrtb3.LinkAsset;
 import net.media.openrtb3.Native;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -44,6 +43,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class Native30ToNative10Converter implements Converter<Native, NativeResponse> {
 
   static List<String> extraFieldsInNativeResponseBodyExt = new ArrayList<>();
+
   static {
     extraFieldsInNativeResponseBodyExt.add(CommonConstants.JS_TRACKER);
     extraFieldsInNativeResponseBodyExt.add(CommonConstants.IMP_TRACKERS);
@@ -51,7 +51,9 @@ public class Native30ToNative10Converter implements Converter<Native, NativeResp
 
   public NativeResponse map(Native source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(config)) return null;
+    if (isNull(source) || isNull(config)) {
+      return null;
+    }
     NativeResponse nativeResponse = new NativeResponse();
     NativeResponseBody nativeResponseBody = new NativeResponseBody();
     nativeResponse.setNativeResponseBody(nativeResponseBody);
@@ -68,7 +70,9 @@ public class Native30ToNative10Converter implements Converter<Native, NativeResp
     Converter<LinkAsset, Link> linkAssetLinkConverter =
         converterProvider.fetch(new Conversion<>(LinkAsset.class, Link.class));
 
-    if (isNull(source) || isNull(target) || isNull(config)) return;
+    if (isNull(source) || isNull(target) || isNull(config)) {
+      return;
+    }
 
     NativeResponseBody nativeResponseBody = target.getNativeResponseBody();
     List<AssetResponse> assetResponseList = new ArrayList<>();
@@ -80,10 +84,11 @@ public class Native30ToNative10Converter implements Converter<Native, NativeResp
     nativeResponseBody.setAsset(assetResponseList);
     nativeResponseBody.setLink(
         linkAssetLinkConverter.map(source.getLink(), config, converterProvider));
-    if(isNull(source.getExt()))
+    if(isNull(source.getExt())) {
       nativeResponseBody.setExt(new HashMap<>());
-    else
+    } else {
       nativeResponseBody.setExt(new HashMap<>(source.getExt()));
+    }
     fetchFromExt(nativeResponseBody::setJstracker, source.getExt(), CommonConstants.JS_TRACKER, "error while mapping jstracker from native.ext");
     fetchFromExt(nativeResponseBody::setImptrackers, source.getExt(), CommonConstants.IMP_TRACKERS, "error while mapping imptrackers from native.ext");
     removeFromExt(nativeResponseBody.getExt(), extraFieldsInNativeResponseBodyExt);

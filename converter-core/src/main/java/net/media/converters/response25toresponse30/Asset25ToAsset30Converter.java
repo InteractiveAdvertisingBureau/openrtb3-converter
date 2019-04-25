@@ -42,6 +42,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
   static List<String> extraFieldsInImageAssetExt = new ArrayList<>();
   static List<String> extraFieldsInTitleAssetExt = new ArrayList<>();
   static List<String> extraFieldsInVideoAssetExt = new ArrayList<>();
+
   static {
     extraFieldsInDataExt.add(CommonConstants.TYPE);
     extraFieldsInDataExt.add(CommonConstants.LEN);

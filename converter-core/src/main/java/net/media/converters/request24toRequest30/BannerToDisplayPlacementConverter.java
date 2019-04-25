@@ -38,6 +38,7 @@ public class BannerToDisplayPlacementConverter
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   private static final List<String> extraFieldsInDisplayFormatExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.VCM);
     extraFieldsInDisplayFormatExt.add(CommonConstants.WRATIO);
@@ -61,7 +62,8 @@ public class BannerToDisplayPlacementConverter
     }
     super.enhance(banner, displayPlacement, config, converterProvider);
     removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
-    for(DisplayFormat displayFormat:displayPlacement.getDisplayfmt())
+    for(DisplayFormat displayFormat:displayPlacement.getDisplayfmt()) {
       removeFromExt(displayFormat.getExt(), extraFieldsInDisplayFormatExt);
+    }
   }
 }

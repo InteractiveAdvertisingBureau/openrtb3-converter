@@ -33,7 +33,6 @@ import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.MapUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.*;
 import java.util.zip.CheckedOutputStream;
@@ -48,6 +47,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   private static final List<String> extraFieldsInVideoExt = new ArrayList<>();
   private static final List<String> extraFieldsInImageExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.CLICKBROWSER);
     extraFieldsInVideoExt.add(CommonConstants.COMPANIONAD);
@@ -166,8 +166,9 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     videoPlacement.setMindur(nativeVideo.getMinduration());
     videoPlacement.setCtype(CollectionUtils.copyCollection(nativeVideo.getProtocols(), config));
     videoPlacement.setMime(CollectionUtils.copyCollection(nativeVideo.getMimes(), config));
-    if(nonNull(nativeVideo.getExt()))
+    if(nonNull(nativeVideo.getExt())) {
       videoPlacement.setExt(new HashMap<>(nativeVideo.getExt()));
+    }
     fetchFromExt(videoPlacement::setPtype, nativeVideo.getExt(), CommonConstants.PTYPE, "Error in setting ptype from asset.video.ext");
     fetchFromExt(videoPlacement::setPos, nativeVideo.getExt(), CommonConstants.POS, "Error in setting pos from asset.video.ext");
     fetchFromExt(videoPlacement::setDelay, nativeVideo.getExt(), CommonConstants.STARTDELAY, "Error in setting startdelay from asset.video.ext");

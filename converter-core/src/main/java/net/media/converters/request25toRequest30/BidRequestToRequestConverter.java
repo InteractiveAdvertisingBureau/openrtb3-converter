@@ -30,7 +30,6 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,6 +43,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Request> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.CATTAX);
     extraFieldsInExt.add(CommonConstants.RESTRICTIONS);
@@ -126,7 +126,9 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
       target.setWseat(0);
       target.setSeat(CollectionUtils.copyCollection(source.getBseat(), config));
     }
-    if (target.getContext() == null) target.setContext(new Context());
+    if (target.getContext() == null) {
+      target.setContext(new Context());
+    }
     fetchFromExt(target.getContext()::setDooh, source.getExt(), CommonConstants.DOOH, "error while typecasting ext for BidRequest2_X", Dooh.class);
 
     removeFromExt(target.getExt(), extraFieldsInExt);

@@ -46,6 +46,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class NativeToDisplayPlacementConverter implements Converter<Native, DisplayPlacement> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.CTYPE);
     extraFieldsInExt.add(CommonConstants.PRIV);

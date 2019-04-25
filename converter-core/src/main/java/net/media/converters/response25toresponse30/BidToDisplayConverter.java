@@ -72,12 +72,6 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     if (nonNull(source.getApi())) {
       target.setApi(new ArrayList<>(Collections.singletonList(source.getApi())));
     }
-    //    if (nonNull(source.getExt())) {
-    //      if (source.getExt().containsKey("curl")) {
-    //        target.setCurl((String) source.getExt().get("curl"));
-    //        source.getExt().remove("curl");
-    //      }
-    //    }
     Converter<NativeResponse, Native> converter =
         converterProvider.fetch(new Conversion<>(NativeResponse.class, Native.class));
     if (config.getAdType(source.getId()) == AdType.NATIVE) {

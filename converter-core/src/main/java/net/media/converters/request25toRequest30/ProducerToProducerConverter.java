@@ -38,6 +38,7 @@ public class ProducerToProducerConverter
     implements Converter<Producer, net.media.openrtb3.Producer> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.CATTAX);
   }

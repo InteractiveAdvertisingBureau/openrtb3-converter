@@ -37,6 +37,7 @@ public class BidRequestToRequestConverter
     extends net.media.converters.request25toRequest30.BidRequestToRequestConverter {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.BSEAT);
     extraFieldsInExt.add(CommonConstants.WLANG);

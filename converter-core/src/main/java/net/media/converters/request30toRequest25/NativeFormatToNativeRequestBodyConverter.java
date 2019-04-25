@@ -42,6 +42,7 @@ public class NativeFormatToNativeRequestBodyConverter
     implements Converter<NativeFormat, NativeRequestBody> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.CONTEXTSUBTYPE);
     extraFieldsInExt.add(CommonConstants.ADUNIT);

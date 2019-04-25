@@ -41,6 +41,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, Bid> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.PROTOCOL);
   }

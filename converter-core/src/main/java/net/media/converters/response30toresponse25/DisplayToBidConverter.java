@@ -42,7 +42,9 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
 
   public Bid map(Display source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(config)) return null;
+    if (isNull(source) || isNull(config)) {
+      return null;
+    }
     Bid bid = new Bid();
     enhance(source, bid, config, converterProvider);
     return bid;
@@ -53,15 +55,18 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
     Converter<Native, NativeResponse> nativeBidConverter =
         converterProvider.fetch(new Conversion<>(Native.class, NativeResponse.class));
 
-    if (isNull(source) || isNull(target) || isNull(config)) return;
+    if (isNull(source) || isNull(target) || isNull(config)) {
+      return;
+    }
 
     ObjectMapper mapper = JacksonObjectMapperUtils.getMapper();
     target.setH(source.getH());
     target.setW(source.getW());
     target.setWratio(source.getWratio());
     target.setHratio(source.getHratio());
-    if (nonNull(source.getApi()) && source.getApi().size() > 0)
+    if (nonNull(source.getApi()) && source.getApi().size() > 0) {
       target.setApi(source.getApi().iterator().next());
+    }
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }

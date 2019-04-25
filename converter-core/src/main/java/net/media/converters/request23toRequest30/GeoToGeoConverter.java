@@ -33,6 +33,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class GeoToGeoConverter extends net.media.converters.request25toRequest30.GeoToGeoConverter {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.ACCURACY);
     extraFieldsInExt.add(CommonConstants.LASTFIX);

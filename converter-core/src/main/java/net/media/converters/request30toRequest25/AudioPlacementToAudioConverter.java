@@ -40,6 +40,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class AudioPlacementToAudioConverter implements Converter<AudioPlacement, Audio> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.STITCHED);
   }

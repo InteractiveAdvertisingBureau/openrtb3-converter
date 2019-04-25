@@ -40,6 +40,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.Site> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.CATTAX);
     extraFieldsInExt.add(CommonConstants.AMP);

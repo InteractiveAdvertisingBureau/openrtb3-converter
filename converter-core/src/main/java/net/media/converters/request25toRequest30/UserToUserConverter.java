@@ -39,6 +39,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class UserToUserConverter implements Converter<User, net.media.openrtb3.User> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.CONSENT);
   }

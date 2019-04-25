@@ -39,6 +39,7 @@ public class ImpToItemConverter
     extends net.media.converters.request25toRequest30.ImpToItemConverter {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.METRIC);
     extraFieldsInExt.add(CommonConstants.CLICKBROWSER);

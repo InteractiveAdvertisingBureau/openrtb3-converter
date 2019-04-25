@@ -38,6 +38,7 @@ public class PublisherToPublisherConverter
     implements Converter<Publisher, net.media.openrtb3.Publisher> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.CATTAX);
   }

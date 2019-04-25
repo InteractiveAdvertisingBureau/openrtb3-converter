@@ -42,24 +42,24 @@ public class Bid30ToBid23Converter extends Bid30ToBid25Converter {
     target.setExt(putToExt(target::getBurl, target.getExt(), CommonConstants.BURL));
     target.setBurl(null);
     target.setExt(putToExt(target::getLurl, target.getExt(), CommonConstants.LURL));
-    target.setBurl(null);
+    target.setLurl(null);
     target.setExt(putToExt(target::getTactic, target.getExt(), CommonConstants.TACTIC));
-    target.setBurl(null);
+    target.setTactic(null);
     target.setExt(putToExt(target::getLanguage, target.getExt(), CommonConstants.LANGUAGE));
-    target.setBurl(null);
+    target.setLanguage(null);
     target.setExt(putToExt(target::getWratio, target.getExt(), CommonConstants.WRATIO));
-    target.setBurl(null);
+    target.setWratio(null);
     target.setExt(putToExt(target::getHratio, target.getExt(), CommonConstants.HRATIO));
-    target.setBurl(null);
+    target.setHratio(null);
     target.setExt(putToExt(target::getAdid, target.getExt(), CommonConstants.ADID));
-    target.setBurl(null);
+    target.setAdid(null);
     target.setExt(putToExt(target::getApi, target.getExt(), CommonConstants.API));
-    target.setBurl(null);
+    target.setApi(null);
     target.setExt(putToExt(target::getProtocol, target.getExt(), CommonConstants.PROTOCOL));
-    target.setBurl(null);
+    target.setProtocol(null);
     target.setExt(putToExt(target::getQagmediarating, target.getExt(), CommonConstants.QAGMEDIARATING));
-    target.setBurl(null);
+    target.setQagmediarating(null);
     target.setExt(putToExt(target::getExp, target.getExt(), CommonConstants.EXP));
-    target.setBurl(null);
+    target.setExp(null);
   }
 }

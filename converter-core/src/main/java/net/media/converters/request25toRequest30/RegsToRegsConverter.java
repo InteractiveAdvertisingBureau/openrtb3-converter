@@ -35,6 +35,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.Regs> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.GDPR);
   }

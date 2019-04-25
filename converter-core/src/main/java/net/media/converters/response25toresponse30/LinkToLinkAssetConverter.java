@@ -50,8 +50,7 @@ public class LinkToLinkAssetConverter implements Converter<Link, LinkAsset> {
     target.setUrlfb(source.getFallback());
     target.setTrkr(source.getClicktrackers());
     if(nonNull(source.getExt())) {
-
-    }
       target.setExt(new HashMap<>(source.getExt()));
+    }
   }
 }

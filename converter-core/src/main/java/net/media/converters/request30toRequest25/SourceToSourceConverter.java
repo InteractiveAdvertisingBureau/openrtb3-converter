@@ -37,6 +37,7 @@ public class SourceToSourceConverter
     implements Converter<Source, net.media.openrtb25.request.Source> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.FD);
   }

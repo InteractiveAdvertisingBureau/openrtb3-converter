@@ -35,6 +35,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class BannerToCompanionConverter implements Converter<Banner, Companion> {
 
   static List<String> extraFieldsInDisplay = new ArrayList<>();
+
   static {
     extraFieldsInDisplay.add(CommonConstants.ID);
   }

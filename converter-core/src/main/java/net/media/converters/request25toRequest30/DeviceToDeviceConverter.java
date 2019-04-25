@@ -39,6 +39,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 public class DeviceToDeviceConverter implements Converter<Device, net.media.openrtb3.Device> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.XFF);
     extraFieldsInExt.add(CommonConstants.IPTR);

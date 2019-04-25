@@ -80,11 +80,15 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb25.req
       target.setExt(new HashMap<>(map));
     }
     if (source.getCattax() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.CATTAX, source.getCattax());
     }
     if (source.getStoreid() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.STOREID, source.getStoreid());
     }
   }

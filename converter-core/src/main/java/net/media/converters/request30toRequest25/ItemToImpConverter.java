@@ -45,6 +45,7 @@ import static net.media.utils.ExtUtils.*;
 public class ItemToImpConverter implements Converter<Item, Imp> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
     extraFieldsInExt.add(CommonConstants.PMP);
   }
