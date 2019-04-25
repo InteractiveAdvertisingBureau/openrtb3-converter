@@ -24,8 +24,10 @@ import net.media.openrtb25.request.Audio;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.Companion;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -57,13 +59,13 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     if (audio == null || audioPlacement == null) {
       return;
     }
-    audioPlacement.setComptype(Utils.copyCollection(audio.getCompaniontype(), config));
-    audioPlacement.setExt(Utils.copyMap(audio.getExt(), config));
+    audioPlacement.setComptype(CollectionUtils.copyCollection(audio.getCompaniontype(), config));
+    audioPlacement.setExt(MapUtils.copyMap(audio.getExt(), config));
     if (nonNull(audio.getStitched())) {
       if (isNull(audioPlacement.getExt())) {
         audioPlacement.setExt(new HashMap<>());
       }
-      audioPlacement.getExt().put("stitched", audio.getStitched());
+      audioPlacement.getExt().put(CommonConstants.STITCHED, audio.getStitched());
     }
     audioPlacement.setComp(
         bannerListToCompanionList(audio.getCompanionad(), config, converterProvider));
@@ -71,14 +73,14 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     audioPlacement.setMaxext(audio.getMaxextended());
     audioPlacement.setDelay(audio.getStartdelay());
     audioPlacement.setMindur(audio.getMinduration());
-    audioPlacement.setCtype(Utils.copyCollection(audio.getProtocols(), config));
-    audioPlacement.setMime(Utils.copyCollection(audio.getMimes(), config));
+    audioPlacement.setCtype(CollectionUtils.copyCollection(audio.getProtocols(), config));
+    audioPlacement.setMime(CollectionUtils.copyCollection(audio.getMimes(), config));
     audioPlacement.setMinbitr(audio.getMinduration());
     audioPlacement.setMaxbitr(audio.getMaxduration());
     audioPlacement.setFeed(audio.getFeed());
     audioPlacement.setNvol(audio.getNvol());
-    audioPlacement.setApi(Utils.copyCollection(audio.getApi(), config));
-    audioPlacement.setDelivery(Utils.copyCollection(audio.getDelivery(), config));
+    audioPlacement.setApi(CollectionUtils.copyCollection(audio.getApi(), config));
+    audioPlacement.setDelivery(CollectionUtils.copyCollection(audio.getDelivery(), config));
     audioPlacement.setMaxseq(audio.getMaxseq());
 
     audioToAudioPlacementAfterMapping(audio, audioPlacement);
@@ -104,28 +106,28 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
       throws OpenRtbConverterException {
     try {
       if (nonNull(audio) && nonNull(audio.getExt()) && nonNull(audioPlacement)) {
-        if (audio.getExt().containsKey("skip")) {
-          audioPlacement.setSkip((Integer) audio.getExt().get("skip"));
-          audioPlacement.getExt().remove("skip");
+        if (audio.getExt().containsKey(CommonConstants.SKIP)) {
+          audioPlacement.setSkip((Integer) audio.getExt().get(CommonConstants.SKIP));
+          audioPlacement.getExt().remove(CommonConstants.SKIP);
         }
-        if (audio.getExt().containsKey("skipmin")) {
-          audioPlacement.setSkipmin((Integer) audio.getExt().get("skipmin"));
-          audioPlacement.getExt().remove("skipmin");
+        if (audio.getExt().containsKey(CommonConstants.SKIPMIN)) {
+          audioPlacement.setSkipmin((Integer) audio.getExt().get(CommonConstants.SKIPMIN));
+          audioPlacement.getExt().remove(CommonConstants.SKIPMIN);
         }
-        if (audio.getExt().containsKey("skipafter")) {
-          audioPlacement.setSkipafter((Integer) audio.getExt().get("skipafter"));
-          audioPlacement.getExt().remove("skipafter");
+        if (audio.getExt().containsKey(CommonConstants.SKIPAFTER)) {
+          audioPlacement.setSkipafter((Integer) audio.getExt().get(CommonConstants.SKIPAFTER));
+          audioPlacement.getExt().remove(CommonConstants.SKIPAFTER);
         }
-        if (audio.getExt().containsKey("playmethod")) {
-          audioPlacement.setPlaymethod((Integer) audio.getExt().get("playmethod"));
-          audioPlacement.getExt().remove("playmethod");
+        if (audio.getExt().containsKey(CommonConstants.PLAYMETHOD)) {
+          audioPlacement.setPlaymethod((Integer) audio.getExt().get(CommonConstants.PLAYMETHOD));
+          audioPlacement.getExt().remove(CommonConstants.PLAYMETHOD);
         }
-        if (audio.getExt().containsKey("playend")) {
-          audioPlacement.setPlayend((Integer) audio.getExt().get("playend"));
-          audioPlacement.getExt().remove("playend");
+        if (audio.getExt().containsKey(CommonConstants.PLAYEND)) {
+          audioPlacement.setPlayend((Integer) audio.getExt().get(CommonConstants.PLAYEND));
+          audioPlacement.getExt().remove(CommonConstants.PLAYEND);
         }
-        if (audioPlacement.getExt().containsKey("qty")) {
-          audioPlacement.getExt().remove("qty");
+        if (audioPlacement.getExt().containsKey(CommonConstants.QTY)) {
+          audioPlacement.getExt().remove(CommonConstants.QTY);
         }
       }
     } catch (ClassCastException e) {

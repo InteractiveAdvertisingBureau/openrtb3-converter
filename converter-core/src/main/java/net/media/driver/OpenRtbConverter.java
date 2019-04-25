@@ -21,10 +21,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
-import net.media.openrtb3.App;
-import net.media.openrtb3.Publisher;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
+import net.media.utils.validator.ValidatorUtils;
 
 import javax.naming.ConfigurationException;
 import java.util.HashMap;
@@ -78,9 +77,9 @@ public class OpenRtbConverter {
   public <U, V> String convert(
       Config overridingConfig, String source, Class<U> sourceClass, Class<V> targetClass)
       throws ConfigurationException, OpenRtbConverterException {
-    U sourceObject = Utils.convertToObject(sourceClass, source);
+    U sourceObject = JacksonObjectMapperUtils.convertToObject(sourceClass, source);
     V targetObject = convert(overridingConfig, sourceObject, sourceClass, targetClass, null);
-    return Utils.convertToJson(targetObject);
+    return JacksonObjectMapperUtils.convertToJson(targetObject);
   }
 
   public <U, V> V convert(
@@ -92,11 +91,10 @@ public class OpenRtbConverter {
       throws ConfigurationException, OpenRtbConverterException {
     overridingConfig = enhanceConfig(overridingConfig);
     if (shouldValidate(overridingConfig)) {
-      Utils.validate(source);
+      ValidatorUtils.validate(source);
     }
     Provider converterProvider =
         converterManager.getConverterProvider(overridenMap, overridingConfig);
-
     Converter<U, V> converter = converterProvider.fetch(new Conversion<>(sourceClass, targetClass));
     return converter.map(source, overridingConfig, converterProvider);
   }
@@ -108,13 +106,10 @@ public class OpenRtbConverter {
       Class<V> targetClass,
       Map<Conversion, Converter> overridenMap)
       throws ConfigurationException, OpenRtbConverterException {
-    U sourceObject = Utils.convertToObject(sourceClass, source);
+    U sourceObject = JacksonObjectMapperUtils.convertToObject(sourceClass, source);
     V targetObject =
         convert(overridingConfig, sourceObject, sourceClass, targetClass, overridenMap);
-    ObjectMapper objectMapper = new ObjectMapper();
-
-//    return (new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL)).writeValueAsString(targetObject);
-    return Utils.convertToJson(targetObject);
+    return JacksonObjectMapperUtils.convertToJson(targetObject);
   }
 
   public <U, V> V convert(
@@ -129,9 +124,9 @@ public class OpenRtbConverter {
       Class<V> targetClass,
       Map<Conversion, Converter> overridenMap)
       throws ConfigurationException, OpenRtbConverterException {
-    U sourceObject = Utils.convertToObject(sourceClass, source);
+    U sourceObject = JacksonObjectMapperUtils.convertToObject(sourceClass, source);
     V targetObject = convert(null, sourceObject, sourceClass, targetClass, overridenMap);
-    return Utils.convertToJson(targetObject);
+    return JacksonObjectMapperUtils.convertToJson(targetObject);
   }
 
   public <U, V> V convert(U source, Class<U> sourceClass, Class<V> targetClass)
@@ -141,9 +136,9 @@ public class OpenRtbConverter {
 
   public <U, V> String convert(String source, Class<U> sourceClass, Class<V> targetClass)
       throws ConfigurationException, OpenRtbConverterException {
-    U sourceObject = Utils.convertToObject(sourceClass, source);
+    U sourceObject = JacksonObjectMapperUtils.convertToObject(sourceClass, source);
     V targetObject = convert(null, sourceObject, sourceClass, targetClass, null);
-    return Utils.convertToJson(targetObject);
+    return JacksonObjectMapperUtils.convertToJson(targetObject);
   }
 
   public <U, V> void enhance(
@@ -177,7 +172,7 @@ public class OpenRtbConverter {
       throws ConfigurationException, OpenRtbConverterException {
     overridingConfig = enhanceConfig(overridingConfig);
     if (shouldValidate(overridingConfig)) {
-      Utils.validate(source);
+      ValidatorUtils.validate(source);
     }
     Provider converterProvider =
       converterManager.getConverterProvider(overridenMap, overridingConfig);

@@ -28,6 +28,8 @@ import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
 import net.media.utils.JacksonObjectMapper;
 import org.json.JSONException;
+import net.media.utils.JacksonObjectMapperUtils;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -47,10 +49,8 @@ public class ConverterTest {
 
   @Test
   public void run() throws Exception {
-
-    ClassLoader classLoader = getClass().getClassLoader();
     OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
-
+    ClassLoader classLoader = getClass().getClassLoader();
     ORTBTester ortbTester = new ORTBTester(openRtbConverter);
     TestOutput testOutput = new TestOutput();
 
@@ -72,19 +72,18 @@ public class ConverterTest {
           byte[] jsonData = Files.readAllBytes(file.toPath());
           TestPojo testPojo = null;
           try {
-            testPojo = JacksonObjectMapper.getMapper().readValue(jsonData, TestPojo.class);
+            testPojo = JacksonObjectMapperUtils.getMapper().readValue(jsonData, TestPojo.class);
           } catch (Exception e) {
             exception = e;
           }
           if (isNull(testPojo)
               || isNull(testPojo.getInputType())
               || isNull(testPojo.getOutputType())) {
-            /*OutputTestPojo outputTestPojo = new OutputTestPojo();
+            OutputTestPojo outputTestPojo = new OutputTestPojo();
             outputTestPojo.setInputFile(file.getName());
             outputTestPojo.setStatus("FAILURE");
             outputTestPojo.setException("Test file = " + file.getName() + " is incorrect");
             testOutput.getFailedTestList().add(outputTestPojo);*/
-            OutputTestPojo outputTestPojo = new OutputTestPojo();
             Map<String, Object> inputPojo = JacksonObjectMapper.getMapper().readValue(jsonData, Map.class);
             outputTestPojo.setInputFile(null);
             outputTestPojo.setStatus("FAILURE");
@@ -185,7 +184,7 @@ public class ConverterTest {
       System.out.println("failed cases : " + testOutput.getFailedTestList().size());
       testOutput.setTotalTestCases(totalFiles);
       testOutput.setFailedTestCases(testOutput.getFailedTestList().size());
-      JacksonObjectMapper.getMapper()
+      JacksonObjectMapperUtils.getMapper()
           .writerWithDefaultPrettyPrinter()
           .writeValue(outputFile, testOutput);
       Assert.assertEquals(
@@ -193,57 +192,5 @@ public class ConverterTest {
           0,
           testOutput.getFailedTestList().size());
     }
-  }
-
-  @Test
-  public void configOrtbversion24() throws IOException, OpenRtbConverterException, ConfigurationException, JSONException {
-    Boolean success = true;
-    try {
-      ClassLoader classLoader = getClass().getClassLoader();
-      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
-      File file =
-        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_30.json");
-      byte[] jsonData = Files.readAllBytes(file.toPath());
-      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
-      Config config = new Config();
-      config.setOpenRtbVersion2_XVersion(OpenRtbVersion.TWO_DOT_FOUR);
-      BidRequest2_X converted = openRtbConverter.convert(config, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
-      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
-        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_24.json").toPath()), BidRequest2_X.class);
-      JSONAssert.assertEquals(
-        JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""),
-        JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""),
-        true);
-    } catch (Exception | AssertionError e) {
-      success = false;
-    }
-    Assert.assertTrue(success);
-  }
-
-  @Test
-  public void configOrtbversion23() {
-    Boolean success = true;
-    try {
-      ClassLoader classLoader = getClass().getClassLoader();
-      Config config = new Config();
-      //config.setOpenRtbVersion2_XVersion(OpenRtbVersion.TWO_DOT_FIVE);
-      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
-      File file =
-        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_30.json");
-      byte[] jsonData = Files.readAllBytes(file.toPath());
-      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
-      config.setOpenRtbVersion2_XVersion(OpenRtbVersion.TWO_DOT_THREE);
-      BidRequest2_X converted = openRtbConverter.convert(config, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
-      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
-        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_23.json").toPath()), BidRequest2_X.class);
-      JSONAssert.assertEquals(
-        JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""),
-        JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""),
-        true);
-    } catch (Exception | AssertionError e) {
-      System.out.println(e);
-      success = false;
-    }
-    Assert.assertTrue(success);
   }
 }

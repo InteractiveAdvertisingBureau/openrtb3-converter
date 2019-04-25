@@ -20,7 +20,7 @@
 
     <groupId>net.media</groupId>
     <artifactId>openrtb3-converter</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.4-SNAPSHOT</version>
     <name>openrtb3-converter-parent</name>
     <description>Parent of the openrtb3 converter</description>
     <url>https://github.com/media-net/openrtb3-converter</url>
@@ -32,6 +32,8 @@
         <tomcat.version>9.0.0.M6</tomcat.version>
         <guava.version>23.0</guava.version>
         <log4j.version>2.7</log4j.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <licenses>
@@ -156,6 +158,15 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin-->
         </plugins>
     </build>
     <profiles>

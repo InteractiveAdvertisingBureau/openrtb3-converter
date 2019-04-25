@@ -25,8 +25,9 @@ import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.NativeFormat;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -56,45 +57,45 @@ public class NativeFormatToNativeRequestBodyConverter
       return;
     }
     if (nonNull(nativeFormat.getExt())) {
-      if (nativeFormat.getExt().containsKey("contextsubtype")) {
+      if (nativeFormat.getExt().containsKey(CommonConstants.CONTEXTSUBTYPE)) {
         try {
           nativeRequestBody.setContextsubtype(
-              (Integer) nativeFormat.getExt().get("contextsubtype"));
-          nativeFormat.getExt().remove("contextsubtype");
+              (Integer) nativeFormat.getExt().get(CommonConstants.CONTEXTSUBTYPE));
+          nativeFormat.getExt().remove(CommonConstants.CONTEXTSUBTYPE);
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
               "error while typecasting ext for DisplayPlacement", e);
         }
       }
-      if (nativeFormat.getExt().containsKey("adunit")) {
+      if (nativeFormat.getExt().containsKey(CommonConstants.ADUNIT)) {
         try {
-          nativeRequestBody.setAdunit((Integer) nativeFormat.getExt().get("adunit"));
-          nativeFormat.getExt().remove("adunit");
+          nativeRequestBody.setAdunit((Integer) nativeFormat.getExt().get(CommonConstants.ADUNIT));
+          nativeFormat.getExt().remove(CommonConstants.ADUNIT);
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
               "error while typecasting ext for DisplayPlacement", e);
         }
       }
-      if (nativeFormat.getExt().containsKey("layout")) {
+      if (nativeFormat.getExt().containsKey(CommonConstants.LAYOUT)) {
         try {
-          nativeRequestBody.setLayout((Integer) nativeFormat.getExt().get("layout"));
-          nativeFormat.getExt().remove("layout");
+          nativeRequestBody.setLayout((Integer) nativeFormat.getExt().get(CommonConstants.LAYOUT));
+          nativeFormat.getExt().remove(CommonConstants.LAYOUT);
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
               "error while typecasting ext for DisplayPlacement", e);
         }
       }
-      if (nativeFormat.getExt().containsKey("ver")) {
+      if (nativeFormat.getExt().containsKey(CommonConstants.VER)) {
         try {
-          nativeRequestBody.setVer((String) nativeFormat.getExt().get("ver"));
-          nativeFormat.getExt().remove("ver");
+          nativeRequestBody.setVer((String) nativeFormat.getExt().get(CommonConstants.VER));
+          nativeFormat.getExt().remove(CommonConstants.VER);
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(
               "error while typecasting ext for DisplayPlacement", e);
         }
       }
     }
-    nativeRequestBody.setExt(Utils.copyMap(nativeFormat.getExt(), config));
+    nativeRequestBody.setExt(MapUtils.copyMap(nativeFormat.getExt(), config));
     Converter<AssetFormat, Asset> assetFormatAssetConverter =
         converterProvider.fetch(new Conversion<>(AssetFormat.class, Asset.class));
     nativeRequestBody.setAssets(

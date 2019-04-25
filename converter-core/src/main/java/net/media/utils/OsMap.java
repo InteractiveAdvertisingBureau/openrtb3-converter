@@ -19,6 +19,7 @@ package net.media.utils;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class OsMap {
   public static BiMap<String, Integer> osMap;
 

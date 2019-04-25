@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb3.Item;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -41,21 +42,21 @@ public class ItemToImpConverter
       if (isNull(imp.getExt())) {
         imp.setExt(new HashMap<>());
       }
-      imp.getExt().put("metric", imp.getMetric());
+      imp.getExt().put(CommonConstants.METRIC, imp.getMetric());
       imp.setMetric(null);
     }
     if (nonNull(imp.getClickbrowser())) {
       if (isNull(imp.getExt())) {
         imp.setExt(new HashMap<>());
       }
-      imp.getExt().put("clickbrowser", imp.getClickbrowser());
+      imp.getExt().put(CommonConstants.CLICKBROWSER, imp.getClickbrowser());
       imp.setClickbrowser(null);
     }
     if (nonNull(imp.getExp())) {
       if (isNull(imp.getExt())) {
         imp.setExt(new HashMap<>());
       }
-      imp.getExt().put("exp", imp.getExp());
+      imp.getExt().put(CommonConstants.EXP, imp.getExp());
       imp.setExp(null);
     }
   }

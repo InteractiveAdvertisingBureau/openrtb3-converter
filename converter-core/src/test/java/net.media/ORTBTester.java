@@ -20,7 +20,8 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
 import net.media.driver.OpenRtbConverter;
-import net.media.utils.JacksonObjectMapper;
+import net.media.utils.JacksonObjectMapperUtils;
+
 import org.skyscreamer.jsonassert.JSONAssert;
 
 import java.util.Map;

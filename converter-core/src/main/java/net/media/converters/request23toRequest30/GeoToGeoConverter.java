@@ -19,6 +19,7 @@ package net.media.converters.request23toRequest30;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Geo;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import static java.util.Objects.nonNull;
@@ -33,30 +34,30 @@ public class GeoToGeoConverter extends net.media.converters.request25toRequest30
       return;
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("accuracy")) {
+      if (source.getExt().containsKey(CommonConstants.ACCURACY)) {
         try {
-          source.setAccuracy((Integer) source.getExt().get("accuracy"));
+          source.setAccuracy((Integer) source.getExt().get(CommonConstants.ACCURACY));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting accuracy from geo.ext.accuracy", e);
         }
-        source.getExt().remove("accuracy");
+        source.getExt().remove(CommonConstants.ACCURACY);
       }
-      if (source.getExt().containsKey("lastfix")) {
+      if (source.getExt().containsKey(CommonConstants.LASTFIX)) {
         try {
-          source.setLastfix((Integer) source.getExt().get("lastfix"));
+          source.setLastfix((Integer) source.getExt().get(CommonConstants.LASTFIX));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting lastfix from geo.ext.lastfix", e);
         }
-        source.getExt().remove("lastfix");
+        source.getExt().remove(CommonConstants.LASTFIX);
       }
-      if (source.getExt().containsKey("ipservice")) {
+      if (source.getExt().containsKey(CommonConstants.IPSERVICE)) {
         try {
-          source.setIpservice((Integer) source.getExt().get("ipservice"));
+          source.setIpservice((Integer) source.getExt().get(CommonConstants.IPSERVICE));
         } catch (Exception e) {
           throw new OpenRtbConverterException(
               "Error in setting ipservice from geo.ext.ipservice", e);
         }
-        source.getExt().remove("ipservice");
+        source.getExt().remove(CommonConstants.IPSERVICE);
       }
     }
     super.enhance(source, target, config, converterProvider);

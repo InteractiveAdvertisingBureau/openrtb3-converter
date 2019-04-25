@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.converters.response30toresponse25.Bid30ToBid25Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -41,42 +42,42 @@ public class Bid30ToBid24Converter extends Bid30ToBid25Converter {
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("burl", target.getBurl());
+      target.getExt().put(CommonConstants.BURL, target.getBurl());
       target.setBurl(null);
     }
     if (nonNull(target.getLurl())) {
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("lurl", target.getLurl());
+      target.getExt().put(CommonConstants.LURL, target.getLurl());
       target.setLurl(null);
     }
     if (nonNull(target.getTactic())) {
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("tactic", target.getTactic());
+      target.getExt().put(CommonConstants.TACTIC, target.getTactic());
       target.setTactic(null);
     }
     if (nonNull(target.getLanguage())) {
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("language", target.getLanguage());
+      target.getExt().put(CommonConstants.LANGUAGE, target.getLanguage());
       target.setLanguage(null);
     }
     if (nonNull(target.getWratio())) {
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("wratio", target.getWratio());
+      target.getExt().put(CommonConstants.WRATIO, target.getWratio());
       target.setWratio(null);
     }
     if (nonNull(target.getHratio())) {
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("hratio", target.getHratio());
+      target.getExt().put(CommonConstants.HRATIO, target.getHratio());
       target.setHratio(null);
     }
   }

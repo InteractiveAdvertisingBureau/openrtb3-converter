@@ -19,6 +19,7 @@ package net.media.converters.request30toRequest23;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Content;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -44,42 +45,42 @@ public class ContentToContentConverter
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("artist", target.getArtist());
+      target.getExt().put(CommonConstants.ARTIST, target.getArtist());
       target.setArtist(null);
     }
     if (nonNull(target.getGenre())) {
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("genre", target.getGenre());
+      target.getExt().put(CommonConstants.GENRE, target.getGenre());
       target.setGenre(null);
     }
     if (nonNull(target.getAlbum())) {
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("album", target.getAlbum());
+      target.getExt().put(CommonConstants.ALBUM, target.getAlbum());
       target.setAlbum(null);
     }
     if (nonNull(target.getIsrc())) {
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("isrc", target.getIsrc());
+      target.getExt().put(CommonConstants.ISRC, target.getIsrc());
       target.setIsrc(null);
     }
     if (nonNull(target.getProdq())) {
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("prodq", target.getProdq());
+      target.getExt().put(CommonConstants.PRODQ, target.getProdq());
       target.setProdq(null);
     }
     if (nonNull(target.getData())) {
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("data", target.getData());
+      target.getExt().put(CommonConstants.DATA, target.getData());
       target.setData(null);
     }
   }

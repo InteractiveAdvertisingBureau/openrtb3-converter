@@ -21,6 +21,7 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Video;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -61,13 +62,14 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
     if (nonNull(source.getExt())) {
       Map<String, Object> ext = source.getExt();
       try {
-        target.setCtype((Integer) ext.get("ctype"));
-        source.getExt().remove("ctype");
-        target.setDur((Integer) ext.get("dur"));
-        source.getExt().remove("dur");
-        target.setMime((Collection<String>) ext.get("mime"));
-        source.getExt().remove("mime");
-      } catch (Exception e) {
+        target.setCtype((Integer) ext.get(CommonConstants.CTYPE));
+        source.getExt().remove(CommonConstants.CTYPE);
+        target.setDur((Integer) ext.get(CommonConstants.DUR));
+        source.getExt().remove(CommonConstants.DUR);
+        target.setMime((Collection<String>) ext.get(CommonConstants.MIME));
+        source.getExt().remove(CommonConstants.MIME);
+      }
+      catch (Exception e) {
         throw new OpenRtbConverterException("error while type casting bid.ext content", e);
       }
     }

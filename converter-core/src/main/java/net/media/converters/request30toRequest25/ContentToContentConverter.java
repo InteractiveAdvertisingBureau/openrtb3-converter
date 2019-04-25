@@ -24,8 +24,10 @@ import net.media.openrtb3.Content;
 import net.media.openrtb3.Data;
 import net.media.openrtb3.Producer;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -80,7 +82,7 @@ public class ContentToContentConverter
     target.setProducer(
         producerProducerConverter.map(source.getProducer(), config, converterProvider));
     target.setUrl(source.getUrl());
-    target.setCat(Utils.copyCollection(source.getCat(), config));
+    target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
     target.setProdq(source.getProdq());
     target.setContext(source.getContext());
     target.setKeywords(source.getKeywords());
@@ -90,17 +92,17 @@ public class ContentToContentConverter
             source.getData(), dataDataConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getCattax() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("cattax", source.getCattax());
+      target.getExt().put(CommonConstants.CATTAX, source.getCattax());
     }
     if (source.getExt() != null) {
-      if (source.getExt().containsKey("videoquality")) {
+      if (source.getExt().containsKey(CommonConstants.VIDEOQUALITY)) {
         try {
-          target.setVideoquality((Integer) source.getExt().get("videoquality"));
-          target.getExt().remove("videoquality");
+          target.setVideoquality((Integer) source.getExt().get(CommonConstants.VIDEOQUALITY));
+          target.getExt().remove(CommonConstants.VIDEOQUALITY);
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException("error while typecasting ext for Content", e);
         }
