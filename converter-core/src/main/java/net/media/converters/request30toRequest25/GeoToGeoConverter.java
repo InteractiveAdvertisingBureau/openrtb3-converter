@@ -20,12 +20,14 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Geo;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Map;
 
 public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.request.Geo> {
+
   @Override
   public net.media.openrtb25.request.Geo map(Geo source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -59,14 +61,14 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.req
     target.setLastfix(source.getLastfix());
     Map<String, Object> map = source.getExt();
     if (map == null) return;
-    if (source.getExt().containsKey("regionfips104")) {
+    if (source.getExt().containsKey(CommonConstants.REGIONFIPS_104)) {
       try {
-        target.setRegionfips104((String) source.getExt().get("regionfips104"));
-        source.getExt().remove("regionfips104");
+        target.setRegionfips104((String) source.getExt().get(CommonConstants.REGIONFIPS_104));
+        source.getExt().remove(CommonConstants.REGIONFIPS_104);
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for Geo", e);
       }
     }
-    target.setExt(Utils.copyMap(map, config));
+    target.setExt(MapUtils.copyMap(map, config));
   }
 }

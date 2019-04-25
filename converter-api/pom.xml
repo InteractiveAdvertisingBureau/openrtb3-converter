@@ -106,7 +106,7 @@
         <dependency>
             <groupId>net.media</groupId>
             <artifactId>openrtb3-converter-core</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.3-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>

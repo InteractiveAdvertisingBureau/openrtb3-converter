@@ -29,8 +29,10 @@ import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -72,7 +74,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     Converter<net.media.openrtb3.Metric, Metric> metricMetricConverter =
         converterProvider.fetch(new Conversion<>(net.media.openrtb3.Metric.class, Metric.class));
     imp.setPmp(itemToPmp(item, config, converterProvider));
-    imp.setExt(Utils.copyMap(item.getExt(), config));
+    imp.setExt(MapUtils.copyMap(item.getExt(), config));
     fillExtMap(item, imp, config);
     imp.setBidfloor(item.getFlr());
     VideoPlacement video = itemSpecPlacementVideo(item);
@@ -88,7 +90,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         if (isNull(imp.getVideo().getExt())) {
           imp.getVideo().setExt(new HashMap<>());
         }
-        imp.getVideo().getExt().put("qty", item.getQty());
+        imp.getVideo().getExt().put(CommonConstants.QTY, item.getQty());
       }
     }
     String sdkver = itemSpecPlacementSdkver(item);
@@ -103,13 +105,13 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
           if (isNull(imp.getBanner().getExt())) {
             imp.getBanner().setExt(new HashMap<>());
           }
-          imp.getBanner().getExt().put("seq", item.getSeq());
+          imp.getBanner().getExt().put(CommonConstants.SEQ, item.getSeq());
         }
         if (nonNull(item.getQty())) {
           if (isNull(imp.getBanner().getExt())) {
             imp.getBanner().setExt(new HashMap<>());
           }
-          imp.getBanner().getExt().put("qty", item.getQty());
+          imp.getBanner().getExt().put(CommonConstants.QTY, item.getQty());
         }
       }
       imp.setNat(displayPlacementNativeConverter.map(display, config, converterProvider));
@@ -118,7 +120,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         imp.getNat().getNativeRequestBody().setSeq(item.getSeq());
       }
       imp.setInstl(display.getInstl());
-      imp.setIframebuster(Utils.copyCollection(display.getIfrbust(), config));
+      imp.setIframebuster(CollectionUtils.copyCollection(display.getIfrbust(), config));
       imp.setClickbrowser(display.getClktype());
     }
     imp.setBidfloorcur(item.getFlrcur());
@@ -140,7 +142,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         if (isNull(imp.getAudio().getExt())) {
           imp.getAudio().setExt(new HashMap<>());
         }
-        imp.getAudio().getExt().put("qty", item.getQty());
+        imp.getAudio().getExt().put(CommonConstants.QTY, item.getQty());
       }
     }
     imp.setId(item.getId());
@@ -175,13 +177,13 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
             item.getDeal(), dealDealConverter, config, converterProvider));
     pmp.setPrivate_auction(item.getPriv());
     if (item.getExt() != null) {
-      if (item.getExt().containsKey("pmp")) {
+      if (item.getExt().containsKey(CommonConstants.PMP)) {
         try {
-          Map<String, Object> pmp1 = (Map<String, Object>) item.getExt().get("pmp");
+          Map<String, Object> pmp1 = (Map<String, Object>) item.getExt().get(CommonConstants.PMP);
           if (pmp1.containsKey("ext")) {
             pmp.setExt((Map<String, Object>) pmp1.get("ext"));
           }
-          item.getExt().remove("pmp");
+          item.getExt().remove(CommonConstants.PMP);
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException("Error in converting pmp ext ", e);
         }
@@ -330,8 +332,8 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         if (isNull(imp.getExt())) {
           imp.setExt(new HashMap<>());
         }
-        imp.getExt().put("dt", item.getDt());
-        imp.getExt().put("dlvy", item.getDlvy());
+        imp.getExt().put(CommonConstants.DT, item.getDt());
+        imp.getExt().put(CommonConstants.DLVY, item.getDlvy());
       }
     }
     if (nonNull(item) && nonNull(item.getSpec()) && nonNull(item.getSpec().getPlacement())) {
@@ -340,19 +342,19 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
           imp.setExt(new HashMap<>());
         }
         if (item.getSpec().getPlacement().getSsai() != null)
-          imp.getExt().put("ssai", item.getSpec().getPlacement().getSsai());
+          imp.getExt().put(CommonConstants.SSAI, item.getSpec().getPlacement().getSsai());
         if (item.getSpec().getPlacement().getReward() != null)
-          imp.getExt().put("reward", item.getSpec().getPlacement().getReward());
+          imp.getExt().put(CommonConstants.REWARD, item.getSpec().getPlacement().getReward());
         if (item.getSpec().getPlacement().getAdmx() != null)
-          imp.getExt().put("admx", item.getSpec().getPlacement().getAdmx());
+          imp.getExt().put(CommonConstants.ADMX, item.getSpec().getPlacement().getAdmx());
         if (item.getSpec().getPlacement().getCurlx() != null)
-          imp.getExt().put("curlx", item.getSpec().getPlacement().getCurlx());
+          imp.getExt().put(CommonConstants.CURLX, item.getSpec().getPlacement().getCurlx());
       }
       if (nonNull(item.getSpec().getPlacement().getDisplay())) {
         if (item.getSpec().getPlacement().getDisplay().getAmpren() != null)
-          imp.getExt().put("ampren", item.getSpec().getPlacement().getDisplay().getAmpren());
+          imp.getExt().put(CommonConstants.AMPREN, item.getSpec().getPlacement().getDisplay().getAmpren());
         if (item.getSpec().getPlacement().getDisplay().getEvent() != null)
-          imp.getExt().put("event", item.getSpec().getPlacement().getDisplay().getEvent());
+          imp.getExt().put(CommonConstants.EVENT, item.getSpec().getPlacement().getDisplay().getEvent());
       }
     }
   }

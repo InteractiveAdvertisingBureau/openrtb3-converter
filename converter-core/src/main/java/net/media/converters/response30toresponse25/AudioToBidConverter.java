@@ -21,6 +21,7 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Audio;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -48,13 +49,13 @@ public class AudioToBidConverter implements Converter<Audio, Bid> {
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
-    target.getExt().put("ctype", source.getCtype());
-    target.getExt().put("dur", source.getDur());
-    target.getExt().put("curl", source.getCurl());
+    target.getExt().put(CommonConstants.CTYPE, source.getCtype());
+    target.getExt().put(CommonConstants.DUR, source.getDur());
+    target.getExt().put(CommonConstants.CURL, source.getCurl());
     if (isEmpty(target.getNurl())) {
       target.setNurl(source.getCurl());
     }
-    target.getExt().put("mime", source.getMime());
+    target.getExt().put(CommonConstants.MIME, source.getMime());
     if (nonNull(source.getExt())) target.getExt().putAll(source.getExt());
   }
 }

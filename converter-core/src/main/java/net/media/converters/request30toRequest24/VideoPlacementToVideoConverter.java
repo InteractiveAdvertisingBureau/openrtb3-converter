@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -42,14 +43,14 @@ public class VideoPlacementToVideoConverter
       if (isNull(video.getExt())) {
         video.setExt(new HashMap<>());
       }
-      video.getExt().put("placement", video.getPlacement());
+      video.getExt().put(CommonConstants.PLACEMENT, video.getPlacement());
       video.setPlacement(null);
     }
     if (nonNull(video.getPlaybackend())) {
       if (isNull(video.getExt())) {
         video.setExt(new HashMap<>());
       }
-      video.getExt().put("playbackend", video.getPlaybackend());
+      video.getExt().put(CommonConstants.PLAYBACKEND, video.getPlaybackend());
       video.setPlaybackend(null);
     }
   }

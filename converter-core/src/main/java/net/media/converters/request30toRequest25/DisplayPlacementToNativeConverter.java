@@ -26,9 +26,10 @@ import net.media.openrtb25.request.NativeRequest;
 import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.NativeFormat;
-import net.media.utils.JacksonObjectMapper;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 
@@ -72,7 +73,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       nativeRequest.getNativeRequestBody().setContext(displayPlacement.getContext());
       nativeRequest.getNativeRequestBody().setPlcmttype(displayPlacement.getPtype());
     }
-    nat.setApi(Utils.copyCollection(displayPlacement.getApi(), config));
+    nat.setApi(CollectionUtils.copyCollection(displayPlacement.getApi(), config));
     if (nonNull(displayPlacement.getExt())) {
       if (isNull(nat.getExt())) {
         nat.setExt(new HashMap<>());
@@ -80,9 +81,9 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
       nat.getExt().putAll(displayPlacement.getExt());
       try {
         if (displayPlacement.getNativefmt().getExt() != null
-            && displayPlacement.getNativefmt().getExt().containsKey("ver")) {
-          nat.setVer((String) displayPlacement.getNativefmt().getExt().get("ver"));
-          displayPlacement.getNativefmt().getExt().remove("ver");
+            && displayPlacement.getNativefmt().getExt().containsKey(CommonConstants.VER)) {
+          nat.setVer((String) displayPlacement.getNativefmt().getExt().get(CommonConstants.VER));
+          displayPlacement.getNativefmt().getExt().remove(CommonConstants.VER);
         }
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
@@ -90,7 +91,7 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     }
     if (config.getNativeRequestAsString()) {
       try {
-        nat.setRequest(JacksonObjectMapper.getMapper().writeValueAsString(nativeRequest));
+        nat.setRequest(JacksonObjectMapperUtils.getMapper().writeValueAsString(nativeRequest));
       } catch (JsonProcessingException e) {
         throw new OpenRtbConverterException(e);
       }
@@ -100,15 +101,14 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     try {
       if (displayPlacement.getPriv() != null) {
         if (nat.getExt() == null) nat.setExt(new HashMap<>());
-        nat.getExt().put("priv", displayPlacement.getPriv());
+        nat.getExt().put(CommonConstants.PRIV, displayPlacement.getPriv());
       }
       if (displayPlacement.getCtype() != null) {
         if (nat.getExt() == null) nat.setExt(new HashMap<>());
-        nat.getExt().put("ctype", displayPlacement.getCtype());
+        nat.getExt().put(CommonConstants.CTYPE, displayPlacement.getCtype());
       }
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
     }
-    //    nat.setExt(Utils.copyMap(displayPlacement.getExt(), config));
   }
 }

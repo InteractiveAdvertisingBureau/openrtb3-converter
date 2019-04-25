@@ -25,8 +25,10 @@ import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Macro;
 import net.media.openrtb3.Media;
 import net.media.template.MacroMapper;
+import net.media.utils.CommonConstants;
+import net.media.utils.JacksonObjectMapperUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -38,8 +40,8 @@ import static java.util.Objects.nonNull;
 /** @author shiva.b */
 public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.Bid> {
 
-  private static final JavaType javaTypeForMacroCollection =
-      Utils.getMapper().getTypeFactory().constructCollectionType(Collection.class, Macro.class);
+  private static final JavaType javaTypeForMacroCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
+    .constructCollectionType(Collection.class, Macro.class);
 
   @Override
   public net.media.openrtb3.Bid map(Bid source, Config config, Provider converterProvider)
@@ -77,29 +79,28 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       target.setMid(source.getAdid());
       MacroMapper.macroReplaceThreeX(target);
       if (nonNull(source.getExt())) {
-        if (source.getExt().containsKey("macro")) {
+        if (source.getExt().containsKey(CommonConstants.MACRO)) {
           try {
-            Collection<Macro> macros =
-                Utils.getMapper()
-                    .convertValue(source.getExt().get("macro"), javaTypeForMacroCollection);
+            Collection<Macro> macros = JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get(CommonConstants.MACRO),
+                javaTypeForMacroCollection);
             target.setMacro(macros);
           } catch (Exception e) {
             throw new OpenRtbConverterException("Error in setting bid.macro from bid.ext.macro", e);
           }
-          source.getExt().remove("macro");
+          source.getExt().remove(CommonConstants.MACRO);
         }
       }
       if (nonNull(source.getProtocol())) {
         if (isNull(target.getExt())) {
           target.setExt(new HashMap<>());
         }
-        target.getExt().put("protocol", source.getProtocol());
-        if (source.getExt().containsKey("protocol")) {
-          source.getExt().remove("protocol");
+        target.getExt().put(CommonConstants.PROTOCOL, source.getProtocol());
+        if (source.getExt().containsKey(CommonConstants.PROTOCOL)) {
+          source.getExt().remove(CommonConstants.PROTOCOL);
         }
       }
       target.setMedia(converter.map(source, config, converterProvider));
-      Map<String, Object> extCopy = Utils.copyMap(source.getExt(), config);
+      Map<String, Object> extCopy = MapUtils.copyMap(source.getExt(), config);
       if (nonNull(extCopy)) {
         target.getExt().putAll(extCopy);
       }

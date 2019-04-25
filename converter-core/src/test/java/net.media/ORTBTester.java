@@ -18,7 +18,8 @@ package net.media;
 
 import net.media.config.Config;
 import net.media.driver.OpenRtbConverter;
-import net.media.utils.JacksonObjectMapper;
+import net.media.utils.JacksonObjectMapperUtils;
+
 import org.skyscreamer.jsonassert.JSONAssert;
 
 /** Created by rajat.go on 09/01/19. */
@@ -50,13 +51,13 @@ public class ORTBTester<U, V> {
 
     String FAILURE = "FAILURE";
     try {
-      U bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
+      U bidRequest = JacksonObjectMapperUtils.getMapper().convertValue(source, sourceClass);
       V converted = openRtbConverter.convert(config, bidRequest, sourceClass, targetClass);
 
       JSONAssert.assertEquals(
-          JacksonObjectMapper.getMapper().writeValueAsString(target),
-          JacksonObjectMapper.getMapper().writeValueAsString(converted),
-          true);
+        JacksonObjectMapperUtils.getMapper().writeValueAsString(target),
+        JacksonObjectMapperUtils.getMapper().writeValueAsString(converted),
+        true);
 
     } catch (Exception | AssertionError e) {
       OutputTestPojo outputTestPojo = new OutputTestPojo();
