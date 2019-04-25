@@ -84,7 +84,7 @@ public class AdToBidConverter implements Converter<Ad, Bid> {
       target.getExt().put("audit", source.getAudit());
     }
     target.setQagmediarating(source.getMrating());
-    AdType adType = config.getAdType(target.getId());
+    AdType adType = config.getAdType(target.getImpid());
     switch (adType) {
       case BANNER:
       case NATIVE:

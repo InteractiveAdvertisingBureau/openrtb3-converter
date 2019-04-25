@@ -5,8 +5,7 @@
       "seatbid": [
         {
           "bid": [{
-            "id": "ad12",
-            "item": "12",
+            "item": "ad12",
             "price" : 1.6,
             "macro": [{
               "key": 7

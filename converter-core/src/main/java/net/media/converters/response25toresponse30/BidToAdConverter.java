@@ -97,7 +97,7 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
       throw new OpenRtbConverterException("error while type casting ext in bid", e);
     }
 
-    switch (config.getAdType(source.getId())) {
+    switch (config.getAdType(source.getImpid())) {
       case BANNER:
       case NATIVE:
         Converter<Bid, Display> bidDisplayConverter =

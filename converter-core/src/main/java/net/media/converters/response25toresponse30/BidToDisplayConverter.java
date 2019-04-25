@@ -78,7 +78,7 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     //    }
     Converter<NativeResponse, Native> converter =
         converterProvider.fetch(new Conversion<>(NativeResponse.class, Native.class));
-    if (config.getAdType(source.getId()) == AdType.NATIVE) {
+    if (config.getAdType(source.getImpid()) == AdType.NATIVE) {
       if (source.getAdm() instanceof String) {
         try {
           NativeResponse nativeResponse =
@@ -103,7 +103,7 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
           throw new OpenRtbConverterException("error while casting adm to native response", e);
         }
       }
-    } else if (config.getAdType(source.getId()) == AdType.BANNER) {
+    } else if (config.getAdType(source.getImpid()) == AdType.BANNER) {
       target.setAdm(source.getAdm());
     }
     if (nonNull(source.getExt())) {
@@ -122,12 +122,12 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
           source.getExt().remove("mime");
         }
 
-        if (config.getAdType(source.getId()) == AdType.BANNER) {
+        if (config.getAdType(source.getImpid()) == AdType.BANNER) {
           if (ext.containsKey("banner")) {
             target.setBanner(Utils.getMapper().convertValue(ext.get("banner"), Banner.class));
             source.getExt().remove("banner");
           }
-        } else if (config.getAdType(source.getId()) == AdType.NATIVE) {
+        } else if (config.getAdType(source.getImpid()) == AdType.NATIVE) {
           if (ext.containsKey("native")) {
             Native _native;
             try {
