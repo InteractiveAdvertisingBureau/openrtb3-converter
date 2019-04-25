@@ -34,9 +34,9 @@ public class GeoToGeoConverter extends net.media.converters.request25toRequest30
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("accuracy");
-    extraFieldsInExt.add("lastfix");
-    extraFieldsInExt.add("ipservice");
+    extraFieldsInExt.add(CommonConstants.ACCURACY);
+    extraFieldsInExt.add(CommonConstants.LASTFIX);
+    extraFieldsInExt.add(CommonConstants.IPSERVICE);
   }
 
   public void enhance(

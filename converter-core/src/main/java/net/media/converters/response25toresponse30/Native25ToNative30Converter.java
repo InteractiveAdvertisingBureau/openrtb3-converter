@@ -36,6 +36,7 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 import static org.apache.commons.collections.CollectionUtils.isEmpty;
 
 /** @author shiva.b */
@@ -64,8 +65,9 @@ public class Native25ToNative30Converter implements Converter<NativeResponse, Na
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
-    target.getExt().put(CommonConstants.JS_TRACKER, source.getNativeResponseBody().getJstracker());
-    target.getExt().put(CommonConstants.IMP_TRACKERS, source.getNativeResponseBody().getImptrackers());
+    target.setExt(putToExt(source.getNativeResponseBody()::getJstracker, target.getExt(), CommonConstants.JS_TRACKER));
+    target.setExt(putToExt(source.getNativeResponseBody()::getImptrackers, target.getExt(), CommonConstants.IMP_TRACKERS));
+
     Converter<Link, LinkAsset> linkLinkAssetConverter =
         converterProvider.fetch(new Conversion<>(Link.class, LinkAsset.class));
     Converter<AssetResponse, Asset> assetResponseAssetConverter =

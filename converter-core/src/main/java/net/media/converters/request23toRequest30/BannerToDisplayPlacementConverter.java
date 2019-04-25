@@ -40,8 +40,8 @@ public class BannerToDisplayPlacementConverter
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("vcm");
-    extraFieldsInExt.add("format");
+    extraFieldsInExt.add(CommonConstants.VCM);
+    extraFieldsInExt.add(CommonConstants.FORMAT);
   }
 
 	private static final JavaType javaTypeForFormatCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
@@ -54,7 +54,7 @@ public class BannerToDisplayPlacementConverter
       return;
     }
     fetchFromExt(banner::setVcm, banner.getExt(), CommonConstants.VCM, "Error in setting vcm from banner.ext.vcm");
-    fetchFromExt(banner::setFormat, banner.getExt(), CommonConstants.FORMAT, "Error in setting banner.format from banner.ext" + ".format", javaTypeForFormatCollection);
+    fetchFromExt(banner::setFormat, banner.getExt(), CommonConstants.FORMAT, "Error in setting banner.format from banner.ext.format", javaTypeForFormatCollection);
     super.enhance(banner, displayPlacement, config, converterProvider);
     removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
   }

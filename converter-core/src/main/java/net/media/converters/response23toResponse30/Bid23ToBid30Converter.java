@@ -22,11 +22,13 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
+import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
@@ -34,16 +36,16 @@ public class Bid23ToBid30Converter extends Bid25ToBid30Converter {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("burl");
-    extraFieldsInExt.add("lurl");
-    extraFieldsInExt.add("tactic");
-    extraFieldsInExt.add("language");
-    extraFieldsInExt.add("wratio");
-    extraFieldsInExt.add("hratio");
-    extraFieldsInExt.add("adid");
-    extraFieldsInExt.add("api");
-    extraFieldsInExt.add("qagmediarating");
-    extraFieldsInExt.add("exp");
+    extraFieldsInExt.add(CommonConstants.BURL);
+    extraFieldsInExt.add(CommonConstants.LURL);
+    extraFieldsInExt.add(CommonConstants.TACTIC);
+    extraFieldsInExt.add(CommonConstants.LANGUAGE);
+    extraFieldsInExt.add(CommonConstants.WRATIO);
+    extraFieldsInExt.add(CommonConstants.HRATIO);
+    extraFieldsInExt.add(CommonConstants.ADID);
+    extraFieldsInExt.add(CommonConstants.API);
+    extraFieldsInExt.add(CommonConstants.QAGMEDIARATING);
+    extraFieldsInExt.add(CommonConstants.EXP);
   }
   public void enhance(
       Bid source, net.media.openrtb3.Bid target, Config config, Provider converterProvider)
@@ -51,61 +53,17 @@ public class Bid23ToBid30Converter extends Bid25ToBid30Converter {
     if (source == null || target == null) {
       return;
     }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.BURL)) {
-        source.setBurl((String) source.getExt().get(CommonConstants.BURL));
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.LURL)) {
-        source.setLurl((String) source.getExt().get(CommonConstants.LURL));
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.TACTIC)) {
-        source.setTactic((String) source.getExt().get(CommonConstants.TACTIC));
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.LANGUAGE)) {
-        source.setLanguage((String) source.getExt().get(CommonConstants.LANGUAGE));
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.WRATIO)) {
-        source.setWratio((Integer) source.getExt().get(CommonConstants.WRATIO));
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.HRATIO)) {
-        source.setHratio((Integer) source.getExt().get(CommonConstants.HRATIO));
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.ADID)) {
-        source.setAdid((String) source.getExt().get(CommonConstants.ADID));
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.API)) {
-        source.setApi((Integer) source.getExt().get(CommonConstants.API));
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.PROTOCOL)) {
-        source.setProtocol((Integer) source.getExt().get(CommonConstants.PROTOCOL));
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.QAGMEDIARATING)) {
-        source.setQagmediarating((Integer) source.getExt().get(CommonConstants.QAGMEDIARATING));
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.EXP)) {
-        source.setExp((Integer) source.getExt().get(CommonConstants.EXP));
-      }
-    }
+    fetchFromExt(source::setBurl, source.getExt(), CommonConstants.BURL, "Failed while mapping burl from bid");
+    fetchFromExt(source::setLurl, source.getExt(), CommonConstants.LURL, "Failed while mapping lurl from bid");
+    fetchFromExt(source::setTactic, source.getExt(), CommonConstants.TACTIC, "Failed while mapping tactic from bid");
+    fetchFromExt(source::setLanguage, source.getExt(), CommonConstants.LANGUAGE, "Failed while mapping language from bid");
+    fetchFromExt(source::setWratio, source.getExt(), CommonConstants.WRATIO, "Failed while mapping wratio from bid");
+    fetchFromExt(source::setHratio, source.getExt(), CommonConstants.HRATIO, "Failed while mapping hratio from bid");
+    fetchFromExt(source::setAdid, source.getExt(), CommonConstants.ADID, "Failed while mapping adid from bid");
+    fetchFromExt(source::setApi, source.getExt(), CommonConstants.API, "Failed while mapping api from bid");
+    fetchFromExt(source::setProtocol, source.getExt(), CommonConstants.PROTOCOL, "Failed while mapping protocol from bid");
+    fetchFromExt(source::setQagmediarating, source.getExt(), CommonConstants.QAGMEDIARATING, "Failed while mapping qagmediarating from bid");
+    fetchFromExt(source::setExp, source.getExt(), CommonConstants.EXP, "Failed while mapping exp from bid");
     super.enhance(source, target, config, converterProvider);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

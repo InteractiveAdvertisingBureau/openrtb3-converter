@@ -38,10 +38,10 @@ public class BidRequestToRequestConverter
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("bseat");
-    extraFieldsInExt.add("wlang");
-    extraFieldsInExt.add("source");
-    extraFieldsInExt.add("bapp");
+    extraFieldsInExt.add(CommonConstants.BSEAT);
+    extraFieldsInExt.add(CommonConstants.WLANG);
+    extraFieldsInExt.add(CommonConstants.SOURCE);
+    extraFieldsInExt.add(CommonConstants.BAPP);
   }
 
   public void enhance(

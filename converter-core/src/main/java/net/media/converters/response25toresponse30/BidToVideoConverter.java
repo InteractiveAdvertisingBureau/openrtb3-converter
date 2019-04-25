@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
 
 /** @author shiva.b */
 public class BidToVideoConverter implements Converter<Bid, Video> {
@@ -58,17 +59,8 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
       target.setApi(api);
     }
     target.setCurl(source.getNurl());
-
-    if (nonNull(source.getExt())) {
-      Map<String, Object> ext = source.getExt();
-      try {
-        target.setCtype((Integer) ext.get(CommonConstants.CTYPE));
-        target.setDur((Integer) ext.get(CommonConstants.DUR));
-        target.setMime((Collection<String>) ext.get(CommonConstants.MIME));
-      }
-      catch (Exception e) {
-        throw new OpenRtbConverterException("error while type casting bid.ext content", e);
-      }
-    }
+    fetchFromExt(target::setCtype, source.getExt(), CommonConstants.CTYPE, "error while mapping ctype from bid.ext");
+    fetchFromExt(target::setDur, source.getExt(), CommonConstants.DUR, "error while mapping dur from bid.ext");
+    fetchFromExt(target::setMime, source.getExt(), CommonConstants.MIME, "error while mapping mime from bid.ext");
   }
 }

@@ -43,7 +43,7 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("cattax");
+    extraFieldsInExt.add(CommonConstants.CATTAX);
   }
 
   @Override
@@ -103,7 +103,6 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
       target.setExt(new HashMap<>(map));
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    if (source.getExt() == null) return;
     fetchFromExt(target::setCattax, source.getExt(), CommonConstants.CATTAX, "error while typecasting ext for Content");
     target.setExt(putToExt(source::getVideoquality, target.getExt(), CommonConstants.VIDEOQUALITY));
     removeFromExt(target.getExt(), extraFieldsInExt);

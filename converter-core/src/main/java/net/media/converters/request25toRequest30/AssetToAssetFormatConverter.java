@@ -33,6 +33,7 @@ import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.MapUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
+import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.*;
 import java.util.zip.CheckedOutputStream;
@@ -48,31 +49,30 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
   private static final List<String> extraFieldsInVideoExt = new ArrayList<>();
   private static final List<String> extraFieldsInImageExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("clickbrowser");
-    extraFieldsInVideoExt.add("companionad");
-    extraFieldsInImageExt.add("wratio");
-    extraFieldsInImageExt.add("hratio");
-    extraFieldsInVideoExt.add("ptype");
-    extraFieldsInVideoExt.add("pos");
-    extraFieldsInVideoExt.add("startdelay");
-    extraFieldsInVideoExt.add("skip");
-    extraFieldsInVideoExt.add("skipmin");
-    extraFieldsInVideoExt.add("skipafter");
-    extraFieldsInVideoExt.add("playbackmethod");
-    extraFieldsInVideoExt.add("api");
-    extraFieldsInVideoExt.add("w");
-    extraFieldsInVideoExt.add("h");
-    extraFieldsInVideoExt.add("unit");
-    extraFieldsInVideoExt.add("maxextended");
-    extraFieldsInVideoExt.add("minbitrate");
-    extraFieldsInVideoExt.add("maxbitrate");
-    extraFieldsInVideoExt.add("delivery");
-    extraFieldsInVideoExt.add("maxseq");
-    extraFieldsInVideoExt.add("linearity");
-    extraFieldsInVideoExt.add("boxingallowed");
-    extraFieldsInVideoExt.add("playbackend");
-    extraFieldsInVideoExt.add("companiontype");
-
+    extraFieldsInExt.add(CommonConstants.CLICKBROWSER);
+    extraFieldsInVideoExt.add(CommonConstants.COMPANIONAD);
+    extraFieldsInImageExt.add(CommonConstants.WRATIO);
+    extraFieldsInImageExt.add(CommonConstants.HRATIO);
+    extraFieldsInVideoExt.add(CommonConstants.PTYPE);
+    extraFieldsInVideoExt.add(CommonConstants.POS);
+    extraFieldsInVideoExt.add(CommonConstants.STARTDELAY);
+    extraFieldsInVideoExt.add(CommonConstants.SKIP);
+    extraFieldsInVideoExt.add(CommonConstants.SKIPMIN);
+    extraFieldsInVideoExt.add(CommonConstants.SKIPAFTER);
+    extraFieldsInVideoExt.add(CommonConstants.PLAYBACKMETHOD);
+    extraFieldsInVideoExt.add(CommonConstants.API);
+    extraFieldsInVideoExt.add(CommonConstants.W);
+    extraFieldsInVideoExt.add(CommonConstants.H);
+    extraFieldsInVideoExt.add(CommonConstants.UNIT);
+    extraFieldsInVideoExt.add(CommonConstants.MAXEXTENDED);
+    extraFieldsInVideoExt.add(CommonConstants.MINBITRATE);
+    extraFieldsInVideoExt.add(CommonConstants.MAXBITRATE);
+    extraFieldsInVideoExt.add(CommonConstants.DELIVERY);
+    extraFieldsInVideoExt.add(CommonConstants.MAXSEQ);
+    extraFieldsInVideoExt.add(CommonConstants.LINEARITY);
+    extraFieldsInVideoExt.add(CommonConstants.BOXINGALLOWED);
+    extraFieldsInVideoExt.add(CommonConstants.PLAYBACKEND);
+    extraFieldsInVideoExt.add(CommonConstants.COMPANIONTYPE);
   }
 
   private static final JavaType javaTypeForBannerCollection =
@@ -145,8 +145,8 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     imageAssetFormat.setH(nativeImage.getH());
     imageAssetFormat.setWmin(nativeImage.getWmin());
     imageAssetFormat.setHmin(nativeImage.getHmin());
-    fetchFromExt(imageAssetFormat::setWratio, nativeImage.getExt(), "wratio", "exception in converting image asset format");
-    fetchFromExt(imageAssetFormat::setHratio, nativeImage.getExt(), "hratio", "exception in converting image asset format");
+    fetchFromExt(imageAssetFormat::setWratio, nativeImage.getExt(), CommonConstants.WRATIO, "exception in converting image asset format");
+    fetchFromExt(imageAssetFormat::setHratio, nativeImage.getExt(), CommonConstants.HRATIO, "exception in converting image asset format");
     Map<String, Object> map = nativeImage.getExt();
     if (map != null) {
       imageAssetFormat.setExt(new HashMap<>(map));

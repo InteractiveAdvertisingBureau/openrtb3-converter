@@ -24,10 +24,12 @@ import net.media.openrtb3.Audit;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
+import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.*;
 
 import static java.util.Objects.isNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
 /** @author shiva.b */
@@ -35,11 +37,11 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("corr");
-    extraFieldsInExt.add("status");
-    extraFieldsInExt.add("audit");
-    extraFieldsInExt.add("lastmod");
-    extraFieldsInExt.add("feedback");
+    extraFieldsInExt.add(CommonConstants.CORR);
+    extraFieldsInExt.add(CommonConstants.STATUS);
+    extraFieldsInExt.add(CommonConstants.AUDIT);
+    extraFieldsInExt.add(CommonConstants.LASTMOD);
+    extraFieldsInExt.add(CommonConstants.FEEDBACK);
   }
   @Override
   public Audit map(Bid source, Config config, Provider converterProvider)
@@ -58,31 +60,11 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
     if (isNull(source) || isNull(target)) {
       return;
     }
-    Map<String, Object> map = source.getExt();
-    if (map != null) {
-      try {
-        target.setExt(new HashMap<>(map));
-        if (map.containsKey(CommonConstants.CORR)) {
-          target.setCorr((Map<String, Object>) map.get(CommonConstants.CORR));
-        }
-        if (map.containsKey(CommonConstants.STATUS)) {
-          target.setStatus((Integer) map.get(CommonConstants.STATUS));
-        }
-        if (map.containsKey(CommonConstants.AUDIT)) {
-          target.setInit(((Audit) map.get(CommonConstants.AUDIT)).getInit());
-        }
-        if (map.containsKey(CommonConstants.LASTMOD)) {
-          target.setLastmod((Integer) map.get(CommonConstants.LASTMOD));
-        }
-        if (map.containsKey(CommonConstants.FEEDBACK)) {
-          target.setFeedback((Collection<String>) map.get(CommonConstants.FEEDBACK));
-        }
-      } catch (Exception e) {
-        throw new OpenRtbConverterException("error while type casting in bid.ext", e);
-      }
-    } else {
-      target.setExt(null);
-    }
+    fetchFromExt(target::setCorr, source.getExt(), CommonConstants.CORR, "Error while mapping corr from bid.ext");
+    fetchFromExt(target::setStatus, source.getExt(), CommonConstants.STATUS, "Error while mapping status from bid.ext");
+    fetchFromExt(target::setInit, source.getExt(), CommonConstants.INIT, "Error while mapping init from bid.ext");
+    fetchFromExt(target::setLastmod, source.getExt(), CommonConstants.LASTMOD, "Error while mapping lastmod from bid.ext");
+    fetchFromExt(target::setFeedback, source.getExt(), CommonConstants.FEEDBACK, "Error while mapping feedback from bid.ext");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

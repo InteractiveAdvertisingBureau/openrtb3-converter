@@ -50,14 +50,20 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb25.
       net.media.openrtb25.request.Regs target,
       Config config,
       Provider converterProvider) {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setCoppa(source.getCoppa());
     Map<String, Object> map = source.getExt();
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    if (source.getGdpr() == null) return;
-    if (target.getExt() == null) target.setExt(new HashMap<>());
+    if (source.getGdpr() == null) {
+      return;
+    }
+    if (target.getExt() == null) {
+      target.setExt(new HashMap<>());
+    }
     target.setExt(putToExt(source::getGdpr, target.getExt(), CommonConstants.GDPR));
   }
 }

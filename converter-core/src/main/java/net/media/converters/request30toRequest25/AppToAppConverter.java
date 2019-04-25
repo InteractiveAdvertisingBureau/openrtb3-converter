@@ -51,7 +51,9 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb25.req
   public void enhance(
       App source, net.media.openrtb25.request.App target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setSectioncat(CollectionUtils.copyCollection(source.getSectcat(), config));
     target.setPrivacypolicy(source.getPrivpolicy());
     Converter<Publisher, net.media.openrtb25.request.Publisher> publisherPublisherConverter =

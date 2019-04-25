@@ -85,10 +85,11 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     video.setDelivery(CollectionUtils.copyCollection(videoPlacement.getDelivery(), config));
     video.setPos(videoPlacement.getPos());
     video.setApi(CollectionUtils.copyCollection(videoPlacement.getApi(), config));
-    if(isNull(videoPlacement.getExt()))
+    if(isNull(videoPlacement.getExt())){
       video.setExt(new HashMap<>());
-    else
+    } else {
       video.setExt(new HashMap<>(videoPlacement.getExt()));
+    }
     videoPlacementToVideoAfterMapping(videoPlacement, video);
   }
 

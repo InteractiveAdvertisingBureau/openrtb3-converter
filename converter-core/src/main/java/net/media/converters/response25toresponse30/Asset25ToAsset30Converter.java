@@ -23,7 +23,6 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.nativeresponse.*;
 import net.media.openrtb3.*;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -32,6 +31,8 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.putToExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
 /** @author shiva.b */
@@ -42,11 +43,11 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
   static List<String> extraFieldsInTitleAssetExt = new ArrayList<>();
   static List<String> extraFieldsInVideoAssetExt = new ArrayList<>();
   static {
-    extraFieldsInDataExt.add("type");
-    extraFieldsInDataExt.add("len");
-    extraFieldsInImageAssetExt.add("type");
-    extraFieldsInTitleAssetExt.add("len");
-    extraFieldsInVideoAssetExt.add("curl");
+    extraFieldsInDataExt.add(CommonConstants.TYPE);
+    extraFieldsInDataExt.add(CommonConstants.LEN);
+    extraFieldsInImageAssetExt.add(CommonConstants.TYPE);
+    extraFieldsInTitleAssetExt.add(CommonConstants.LEN);
+    extraFieldsInVideoAssetExt.add(CommonConstants.CURL);
   }
 
   @Override
@@ -70,41 +71,34 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     target.setId(source.getId());
     target.setReq(source.getRequired());
     target.setImage(nativeImageToImageAsset(source.getImg(), config));
-    target.setTitle(nativeTittleToTittleAsset(source.getTitle(), config));
+    target.setTitle(nativeTitleToTitleAsset(source.getTitle(), config));
     target.setVideo(nativeVideoToVideoAsset(source.getVideo(), config));
     Converter<Link, LinkAsset> converter =
         converterProvider.fetch(new Conversion<>(Link.class, LinkAsset.class));
     target.setLink(converter.map(source.getLink(), config, converterProvider));
-    if(nonNull(source.getExt()))
+    if(nonNull(source.getExt())) {
       target.setExt(new HashMap<>(source.getExt()));
+    }
   }
 
   private DataAsset nativeDataToData(NativeData nativeData, Config config)
       throws OpenRtbConverterException {
-    if (isNull(nativeData)) return null;
+    if (isNull(nativeData)) {
+      return null;
+    }
     DataAsset dataAsset = new DataAsset();
-    if(nonNull(nativeData.getExt()))
+    if(nonNull(nativeData.getExt())) {
       dataAsset.setExt(new HashMap<>(nativeData.getExt()));
+    }
     List<String> value = new ArrayList<>();
     value.add(nativeData.getValue());
     dataAsset.setValue(value);
-    try {
-      if (nonNull(nativeData.getExt())) {
-        if (nativeData.getExt().containsKey(CommonConstants.TYPE)) {
-          dataAsset.setType((Integer) nativeData.getExt().get(CommonConstants.TYPE));
-          dataAsset.getExt().remove(CommonConstants.TYPE);
-        }
-        if (nativeData.getExt().containsKey(CommonConstants.LEN)) {
-          dataAsset.setLen((Integer) nativeData.getExt().get(CommonConstants.LEN));
-          dataAsset.getExt().remove(CommonConstants.LEN);
-        }
-      }
-    } catch (Exception e) {
-      throw new OpenRtbConverterException("error while typecasting ext for nativeData", e);
-    }
-    if(isNull(dataAsset.getExt()))
+    fetchFromExt(dataAsset::setType, nativeData.getExt(), CommonConstants.TYPE, "Error while mapping type from nativedata");
+    fetchFromExt(dataAsset::setLen, nativeData.getExt(), CommonConstants.LEN, "Error while mapping len from nativedata");
+    if(isNull(dataAsset.getExt())) {
       dataAsset.setExt(new HashMap<>());
-    dataAsset.getExt().put(CommonConstants.LABEL,nativeData.getLabel());
+    }
+    dataAsset.setExt(putToExt(nativeData::getLabel, dataAsset.getExt(), CommonConstants.LABEL));
     removeFromExt(dataAsset.getExt(), extraFieldsInDataExt);
     return dataAsset;
   }
@@ -118,60 +112,40 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     imageAsset.setH(nativeImage.getH());
     imageAsset.setW(nativeImage.getW());
     imageAsset.setUrl(nativeImage.getUrl());
-    if(nonNull(nativeImage.getExt()))
+    if(nonNull(nativeImage.getExt())) {
       imageAsset.setExt(new HashMap<>(nativeImage.getExt()));
-    try {
-      if (nonNull(nativeImage.getExt())) {
-        if (nativeImage.getExt().containsKey(CommonConstants.TYPE)) {
-          imageAsset.setType((Integer) nativeImage.getExt().get(CommonConstants.TYPE));
-          imageAsset.getExt().remove(CommonConstants.TYPE);
-        }
-      }
-    } catch (Exception e) {
-      throw new OpenRtbConverterException("error while type casting ext for image asset", e);
     }
+    fetchFromExt(imageAsset::setType, nativeImage.getExt(), CommonConstants.TYPE, "Error while mapping type from nativeimage");
     removeFromExt(imageAsset.getExt(), extraFieldsInImageAssetExt);
     return imageAsset;
   }
 
-  private TitleAsset nativeTittleToTittleAsset(NativeTitle nativeTitle, Config config)
+  private TitleAsset nativeTitleToTitleAsset(NativeTitle nativeTitle, Config config)
       throws OpenRtbConverterException {
-    if (isNull(nativeTitle)) return null;
-    TitleAsset titleAsset = new TitleAsset();
-    if(nonNull(nativeTitle.getExt()))
-      titleAsset.setExt(new HashMap<>(nativeTitle.getExt()));
-    titleAsset.setText(nativeTitle.getText());
-    try {
-      if (nonNull(nativeTitle.getExt())) {
-        if (nativeTitle.getExt().containsKey(CommonConstants.LEN)) {
-          titleAsset.setLen((Integer) nativeTitle.getExt().get(CommonConstants.LEN));
-          titleAsset.getExt().remove(CommonConstants.LEN);
-        }
-      }
-    } catch (Exception e) {
-      throw new OpenRtbConverterException("error while type casting ext for title asset", e);
+    if (isNull(nativeTitle)) {
+      return null;
     }
+    TitleAsset titleAsset = new TitleAsset();
+    if(nonNull(nativeTitle.getExt())) {
+      titleAsset.setExt(new HashMap<>(nativeTitle.getExt()));
+    }
+    titleAsset.setText(nativeTitle.getText());
+    fetchFromExt(titleAsset::setLen, nativeTitle.getExt(), CommonConstants.LEN, "Error while mapping len from nativetitle");
     removeFromExt(titleAsset.getExt(), extraFieldsInTitleAssetExt);
     return titleAsset;
   }
 
   private VideoAsset nativeVideoToVideoAsset(NativeVideo nativeVideo, Config config)
       throws OpenRtbConverterException {
-    if (isNull(nativeVideo)) return null;
+    if (isNull(nativeVideo)) {
+      return null;
+    }
     VideoAsset videoAsset = new VideoAsset();
     videoAsset.setAdm(nativeVideo.getVasttag());
-    if(nonNull(nativeVideo.getExt()))
+    if(nonNull(nativeVideo.getExt())) {
       videoAsset.setExt(new HashMap<>(nativeVideo.getExt()));
-    try {
-      if (nonNull(nativeVideo.getExt())) {
-        if (nativeVideo.getExt().containsKey(CommonConstants.CURL)) {
-          videoAsset.setCurl((String) nativeVideo.getExt().get(CommonConstants.CURL));
-          videoAsset.getExt().remove(CommonConstants.CURL);
-        }
-      }
-    } catch (Exception e) {
-      throw new OpenRtbConverterException("error while casting ext for videoAsset", e);
     }
+    fetchFromExt(videoAsset::setCurl, nativeVideo.getExt(), CommonConstants.CURL, "Error while mapping curl from nativevideo");
     removeFromExt(videoAsset.getExt(), extraFieldsInVideoAssetExt);
     return videoAsset;
   }

@@ -47,7 +47,9 @@ public class SegmentToSegmentConverter
       net.media.openrtb25.request.Segment target,
       Config config,
       Provider converterProvider) {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setId(source.getId());
     target.setName(source.getName());
     target.setValue(source.getValue());

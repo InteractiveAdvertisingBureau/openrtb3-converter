@@ -43,10 +43,10 @@ public class NativeFormatToNativeRequestBodyConverter
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("contextsubtype");
-    extraFieldsInExt.add("adunit");
-    extraFieldsInExt.add("layout");
-    extraFieldsInExt.add("ver");
+    extraFieldsInExt.add(CommonConstants.CONTEXTSUBTYPE);
+    extraFieldsInExt.add(CommonConstants.ADUNIT);
+    extraFieldsInExt.add(CommonConstants.LAYOUT);
+    extraFieldsInExt.add(CommonConstants.VER);
   }
 
   @Override

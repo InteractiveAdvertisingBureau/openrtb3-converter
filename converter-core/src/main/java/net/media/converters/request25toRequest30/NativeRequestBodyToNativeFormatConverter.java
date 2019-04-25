@@ -61,8 +61,9 @@ public class NativeRequestBodyToNativeFormatConverter
     if (nativeRequestBody == null || nativeFormat == null) {
       return;
     }
-    if(nonNull(nativeRequestBody.getExt()))
+    if(nonNull(nativeRequestBody.getExt())) {
       nativeFormat.setExt(new HashMap<>(nativeRequestBody.getExt()));
+    }
     nativeFormat.setExt(putToExt(nativeRequestBody::getContextsubtype, nativeFormat.getExt(), CommonConstants.CONTEXTSUBTYPE));
     nativeFormat.setExt(putToExt(nativeRequestBody::getAdunit, nativeFormat.getExt(), CommonConstants.ADUNIT));
     nativeFormat.setExt(putToExt(nativeRequestBody::getLayout, nativeFormat.getExt(), CommonConstants.LAYOUT));

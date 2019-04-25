@@ -76,7 +76,6 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_
       target.setBattr(CollectionUtils.copyCollection(battr, config));
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    if (source.getExt() == null) return;
     fetchFromExt(target::setCattax, source.getExt(), CommonConstants.CATTAX, "error while typecasting ext for BidRequest2_X");
     target.setExt(fetchExtFromFieldInExt(source.getExt(), CommonConstants.RESTRICTIONS, "Error in mapping ext of restriction"));
   }

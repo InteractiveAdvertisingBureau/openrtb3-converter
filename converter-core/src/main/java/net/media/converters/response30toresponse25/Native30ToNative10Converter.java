@@ -29,6 +29,7 @@ import net.media.openrtb3.LinkAsset;
 import net.media.openrtb3.Native;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
+import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -37,14 +38,15 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
 public class Native30ToNative10Converter implements Converter<Native, NativeResponse> {
 
   static List<String> extraFieldsInNativeResponseBodyExt = new ArrayList<>();
   static {
-    extraFieldsInNativeResponseBodyExt.add("jsTracker");
-    extraFieldsInNativeResponseBodyExt.add("impTrackers");
+    extraFieldsInNativeResponseBodyExt.add(CommonConstants.JS_TRACKER);
+    extraFieldsInNativeResponseBodyExt.add(CommonConstants.IMP_TRACKERS);
   }
 
   public NativeResponse map(Native source, Config config, Provider converterProvider)
@@ -82,14 +84,8 @@ public class Native30ToNative10Converter implements Converter<Native, NativeResp
       nativeResponseBody.setExt(new HashMap<>());
     else
       nativeResponseBody.setExt(new HashMap<>(source.getExt()));
-    try {
-      if (nonNull(source.getExt())) {
-        nativeResponseBody.setJstracker((String) source.getExt().get(CommonConstants.JS_TRACKER));
-        nativeResponseBody.setImptrackers((Collection<String>) source.getExt().get(CommonConstants.IMP_TRACKERS));
-      }
-    } catch (Exception e) {
-      throw new OpenRtbConverterException("error while type casting ext objects in native", e);
-    }
+    fetchFromExt(nativeResponseBody::setJstracker, source.getExt(), CommonConstants.JS_TRACKER, "error while mapping jstracker from native.ext");
+    fetchFromExt(nativeResponseBody::setImptrackers, source.getExt(), CommonConstants.IMP_TRACKERS, "error while mapping imptrackers from native.ext");
     removeFromExt(nativeResponseBody.getExt(), extraFieldsInNativeResponseBodyExt);
     target.setNativeResponseBody(nativeResponseBody);
   }

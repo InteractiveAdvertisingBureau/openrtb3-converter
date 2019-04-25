@@ -38,14 +38,15 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static List<String> extraFieldsInFormatExt = new ArrayList<>();
+
   static {
-    extraFieldsInExt.add("btype");
-    extraFieldsInExt.add("id");
-    extraFieldsInExt.add("hmax");
-    extraFieldsInExt.add("wmax");
-    extraFieldsInExt.add("hmin");
-    extraFieldsInExt.add("wmin");
-    extraFieldsInFormatExt.add("wmin");
+    extraFieldsInExt.add(CommonConstants.BTYPE);
+    extraFieldsInExt.add(CommonConstants.ID);
+    extraFieldsInExt.add(CommonConstants.HMAX);
+    extraFieldsInExt.add(CommonConstants.WMAX);
+    extraFieldsInExt.add(CommonConstants.HMIN);
+    extraFieldsInExt.add(CommonConstants.WMIN);
+    extraFieldsInFormatExt.add(CommonConstants.WMIN);
   }
 
   @Override
@@ -107,8 +108,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       fetchFromExt(banner::setHmin, map, CommonConstants.HMIN, "error while mapping hmin from displayplacement.ext");
       fetchFromExt(banner::setWmin, map, CommonConstants.WMIN, "error while mapping wmin from displayplacement.ext");
     }
-    String s = "unit";
-    banner.setExt(putToExt(displayPlacement::getUnit, banner.getExt(), s));
+    banner.setExt(putToExt(displayPlacement::getUnit, banner.getExt(), CommonConstants.UNIT));
     banner.setExt(putToExt(displayPlacement::getPtype, banner.getExt(), CommonConstants.PTYPE));
     banner.setExt(putToExt(displayPlacement::getContext, banner.getExt(), CommonConstants.CONTEXT));
     banner.setExt(putToExt(displayPlacement::getCtype, banner.getExt(), CommonConstants.CTYPE));

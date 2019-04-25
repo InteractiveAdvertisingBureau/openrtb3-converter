@@ -22,6 +22,7 @@ import net.media.openrtb25.request.Video;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
+import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,8 +37,8 @@ public class VideoToVideoPlacementConverter
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("placement");
-    extraFieldsInExt.add("playbackend");
+    extraFieldsInExt.add(CommonConstants.PLACEMENT);
+    extraFieldsInExt.add(CommonConstants.PLAYBACKEND);
   }
 
   public void enhance(

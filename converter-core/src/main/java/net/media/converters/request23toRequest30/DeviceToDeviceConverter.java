@@ -35,8 +35,8 @@ public class DeviceToDeviceConverter
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("mccmnc");
-    extraFieldsInExt.add("geofetch");
+    extraFieldsInExt.add(CommonConstants.MCCMNC);
+    extraFieldsInExt.add(CommonConstants.GEOFETCH);
   }
 
   public void enhance(

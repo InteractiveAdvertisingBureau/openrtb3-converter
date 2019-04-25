@@ -65,8 +65,9 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     asset.setImg(imageAssetFormatToNativeImage(assetFormat.getImg(), config));
     asset.setVideo(videoAssetFormatToVideoImage(assetFormat.getVideo(), config));
     asset.setData(dataAssetFormatToNativeData(assetFormat.getData(), config));
-    if(nonNull(assetFormat.getExt()))
+    if(nonNull(assetFormat.getExt())) {
       asset.setExt(new HashMap<>(assetFormat.getExt()));
+    }
     asset.setExt(putToExt(assetFormat.getVideo()::getClktype, asset.getExt(), CommonConstants.CLICKBROWSER));
     if (assetFormat.getVideo().getComp() != null) {
       Converter<Companion, Banner> companionToBannerConverter =
@@ -85,9 +86,9 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     NativeTitle nativeTitle = new NativeTitle();
 
     nativeTitle.setLen(titleAssetFormat.getLen());
-    if(nonNull(titleAssetFormat.getExt()))
+    if(nonNull(titleAssetFormat.getExt())) {
       nativeTitle.setExt(new HashMap<>(titleAssetFormat.getExt()));
-
+    }
     return nativeTitle;
   }
 
@@ -125,8 +126,9 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     nativeVideo.setMinduration(videoPlacement.getMindur());
     nativeVideo.setMaxduration(videoPlacement.getMaxdur());
     nativeVideo.setMimes(CollectionUtils.copyCollection(videoPlacement.getMime(), config));
-    if(nonNull(videoPlacement.getExt()))
+    if(nonNull(videoPlacement.getExt())) {
       nativeVideo.setExt(new HashMap<>(videoPlacement.getExt()));
+    }
     nativeVideo.setExt(putToExt(videoPlacement::getBoxing, nativeVideo.getExt(),CommonConstants.BOXINGALLOWED));
     nativeVideo.setExt(putToExt(videoPlacement::getPtype, nativeVideo.getExt(),CommonConstants.PTYPE));
     nativeVideo.setExt(putToExt(videoPlacement::getPos, nativeVideo.getExt(),CommonConstants.POS));
@@ -159,9 +161,9 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
 
     nativeData.setType(dataAssetFormat.getType());
     nativeData.setLen(dataAssetFormat.getLen());
-    if(nonNull(dataAssetFormat.getExt()))
+    if(nonNull(dataAssetFormat.getExt())) {
       nativeData.setExt(new HashMap<>(dataAssetFormat.getExt()));
-
+    }
     return nativeData;
   }
 }

@@ -39,6 +39,7 @@ import java.util.Collections;
 import java.util.Map;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
 
 /** @author shiva.b */
 public class BidToDisplayConverter implements Converter<Bid, Display> {
@@ -107,42 +108,14 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     } else if (config.getAdType(source.getId()) == AdType.BANNER) {
       target.setAdm(source.getAdm());
     }
-    if (nonNull(source.getExt())) {
-      try {
-        Map<String, Object> ext = source.getExt();
-        target.setCtype((Integer) ext.get(CommonConstants.CTYPE));
-        target.setPriv((String) ext.get(CommonConstants.PRIV));
-        target.setMime((String) ext.get(CommonConstants.MIME));
-
-        if (config.getAdType(source.getId()) == AdType.BANNER) {
-          if (ext.containsKey(CommonConstants.BANNER)) {
-            target.setBanner(JacksonObjectMapperUtils.getMapper().convertValue(ext.get(CommonConstants.BANNER), Banner.class));
-          }
-        } else if (config.getAdType(source.getId()) == AdType.NATIVE) {
-          if (ext.containsKey(CommonConstants.NATIVE)) {
-            Native _native;
-            try {
-              _native = JacksonObjectMapperUtils.getMapper().convertValue(ext.get(CommonConstants.NATIVE), Native.class);
-              target.set_native(_native);
-            } catch (Exception e) {
-              throw new OpenRtbConverterException(
-                  "Error in setting displayConverter.native from " + "bid.ext.native", e);
-            }
-          }
-        }
-        try {
-          if(ext.containsKey(CommonConstants.EVENT)) {
-            target.setEvent(JacksonObjectMapperUtils.getMapper().convertValue(ext.get(CommonConstants.EVENT),
-              javaTypeForEventCollection));
-          }
-        } catch (IllegalArgumentException e) {
-          throw new OpenRtbConverterException(
-              "error while setting display.event from bid.ext" + ".event", e);
-        }
-      }
-      catch (Exception e) {
-        throw new OpenRtbConverterException("error while casting contents of bid.ext", e);
-      }
+    fetchFromExt(target::setCtype, source.getExt(), CommonConstants.CTYPE, "Error while mapping Ctype from Bid.ext");
+    fetchFromExt(target::setPriv, source.getExt(), CommonConstants.PRIV, "Error while mapping priv from Bid.ext");
+    fetchFromExt(target::setMime, source.getExt(), CommonConstants.MIME, "Error while mapping mime from Bid.ext");
+    if (config.getAdType(source.getId()) == AdType.BANNER) {
+      fetchFromExt(target::setBanner, source.getExt(), CommonConstants.BANNER, "error while mapping banner from bid.ext", Banner.class);
+    } else if (config.getAdType(source.getId()) == AdType.NATIVE) {
+      fetchFromExt(target::set_native, source.getExt(), CommonConstants.NATIVE, "error while mapping native from bid.ext", Native.class);
     }
+    fetchFromExt(target::setEvent, source.getExt(), CommonConstants.EVENT, "error while mapping event from bid.ext", javaTypeForEventCollection);
   }
 }

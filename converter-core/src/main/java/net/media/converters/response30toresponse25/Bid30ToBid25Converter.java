@@ -34,13 +34,15 @@ import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.putToExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
 public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, Bid> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("protocol");
+    extraFieldsInExt.add(CommonConstants.PROTOCOL);
   }
 
   @Override
@@ -64,7 +66,7 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
     if (source != null) {
       Map<String, Object> map = source.getExt();
       if (map != null) {
-        target.setExt(MapUtils.copyMap(map, config));
+        target.setExt(new HashMap<>(map));
       }
       target.setId(source.getId());
       if (source.getPrice() != null) {
@@ -82,14 +84,10 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
         target.setExt(new HashMap<>());
       }
       target.setAdid(source.getMid());
-      target.getExt().put(CommonConstants.MACRO, source.getMacro());
+      target.setExt(putToExt(source::getMacro, target.getExt(), CommonConstants.MACRO));
       mediaBidConverter.enhance(source.getMedia(), target, config, converterProvider);
       MacroMapper.macroReplaceTwoX(target);
-      if (nonNull(source.getExt())) {
-        if (source.getExt().containsKey(CommonConstants.PROTOCOL)) {
-          target.setProtocol((Integer) source.getExt().get(CommonConstants.PROTOCOL));
-        }
-      }
+      fetchFromExt(target::setProtocol, source.getExt(), CommonConstants.PROTOCOL, "error while mapping protocol from Bid.ext");
     }
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

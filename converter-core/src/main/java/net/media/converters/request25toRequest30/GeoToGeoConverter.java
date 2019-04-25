@@ -49,7 +49,9 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo>
   public void enhance(
       Geo source, net.media.openrtb3.Geo target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setIpserv(source.getIpservice());
     target.setAccur(source.getAccuracy());
     target.setType(source.getType());

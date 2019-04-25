@@ -35,7 +35,7 @@ public class DeviceToDeviceConverter
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("mccmnc");
+    extraFieldsInExt.add(CommonConstants.MCCMNC);
   }
 
   public void enhance(

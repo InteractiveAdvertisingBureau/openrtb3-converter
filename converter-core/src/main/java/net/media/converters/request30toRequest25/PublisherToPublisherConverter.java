@@ -53,7 +53,9 @@ public class PublisherToPublisherConverter
       net.media.openrtb25.request.Publisher target,
       Config config,
       Provider converterProvider) {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setId(source.getId());
     target.setName(source.getName());
     target.setCat(CollectionUtils.copyCollection(source.getCat(), config));

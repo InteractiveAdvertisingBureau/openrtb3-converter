@@ -39,7 +39,7 @@ public class PublisherToPublisherConverter
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("cattax");
+    extraFieldsInExt.add(CommonConstants.CATTAX);
   }
 
   @Override
@@ -62,7 +62,9 @@ public class PublisherToPublisherConverter
       net.media.openrtb3.Publisher target,
       Config config,
       Provider converterProvider) throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setId(source.getId());
     target.setName(source.getName());
     target.setDomain(source.getDomain());

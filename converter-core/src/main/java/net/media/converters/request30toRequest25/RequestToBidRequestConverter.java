@@ -58,7 +58,9 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
   public void enhance(
       Request source, BidRequest2_X target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
 
     Converter<net.media.openrtb3.User, User> userUserConverter =
         converterProvider.fetch(new Conversion<>(net.media.openrtb3.User.class, User.class));
@@ -131,7 +133,7 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
           Restrictions restrictions = new Restrictions();
           restrictions.setCattax(null);
           restrictions.setExt(source.getContext().getRestrictions().getExt());
-          target.setExt(putToExt(restrictions, target.getExt(), "restrictions"));
+          target.setExt(putToExt(restrictions, target.getExt(), CommonConstants.RESTRICTIONS));
         }
       }
 
@@ -227,9 +229,13 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       }
     }
 
-    if (source.getContext().getDooh() == null) return;
+    if (source.getContext().getDooh() == null) {
+      return;
+    }
 
-    if (target.getExt() == null) target.setExt(new HashMap<>());
+    if (target.getExt() == null) {
+      target.setExt(new HashMap<>());
+    }
     target.setExt(putToExt(source.getContext()::getDooh, target.getExt(), CommonConstants.DOOH));
   }
 }

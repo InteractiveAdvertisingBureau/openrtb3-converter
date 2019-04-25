@@ -56,7 +56,9 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Publisher, net.media.openrtb25.request.Publisher> publisherPublisherConverter =
         converterProvider.fetch(
             new Conversion<>(Publisher.class, net.media.openrtb25.request.Publisher.class));

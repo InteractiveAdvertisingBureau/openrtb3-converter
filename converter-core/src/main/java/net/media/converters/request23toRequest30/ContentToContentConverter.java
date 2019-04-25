@@ -24,6 +24,7 @@ import net.media.openrtb25.request.Data;
 import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
+import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -41,12 +42,12 @@ public class ContentToContentConverter
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("artist");
-    extraFieldsInExt.add("genre");
-    extraFieldsInExt.add("album");
-    extraFieldsInExt.add("isrc");
-    extraFieldsInExt.add("prodq");
-    extraFieldsInExt.add("data");
+    extraFieldsInExt.add(CommonConstants.ARTIST);
+    extraFieldsInExt.add(CommonConstants.GENRE);
+    extraFieldsInExt.add(CommonConstants.ALBUM);
+    extraFieldsInExt.add(CommonConstants.ISRC);
+    extraFieldsInExt.add(CommonConstants.PRODQ);
+    extraFieldsInExt.add(CommonConstants.DATA);
   }
 
   private static final JavaType javaTypeForDataCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()

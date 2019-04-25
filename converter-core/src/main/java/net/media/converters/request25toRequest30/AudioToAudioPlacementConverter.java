@@ -28,6 +28,7 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
+import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -42,14 +43,16 @@ import static net.media.utils.ExtUtils.*;
 public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPlacement> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+
   static {
-    extraFieldsInExt.add("skip");
-    extraFieldsInExt.add("skipmin");
-    extraFieldsInExt.add("skipafter");
-    extraFieldsInExt.add("playmethod");
-    extraFieldsInExt.add("playend");
-    extraFieldsInExt.add("qty");
+    extraFieldsInExt.add(CommonConstants.SKIP);
+    extraFieldsInExt.add(CommonConstants.SKIPMIN);
+    extraFieldsInExt.add(CommonConstants.SKIPAFTER);
+    extraFieldsInExt.add(CommonConstants.PLAYMETHOD);
+    extraFieldsInExt.add(CommonConstants.PLAYEND);
+    extraFieldsInExt.add(CommonConstants.QTY);
   }
+
   @Override
   public AudioPlacement map(Audio audio, Config config, Provider converterProvider)
       throws OpenRtbConverterException {

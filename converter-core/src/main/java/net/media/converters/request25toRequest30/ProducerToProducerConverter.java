@@ -39,7 +39,7 @@ public class ProducerToProducerConverter
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("cattax");
+    extraFieldsInExt.add(CommonConstants.CATTAX);
   }
 
   @Override
@@ -63,7 +63,9 @@ public class ProducerToProducerConverter
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setId(source.getId());
     target.setName(source.getName());
     target.setDomain(source.getDomain());
@@ -73,7 +75,6 @@ public class ProducerToProducerConverter
       target.setExt(new HashMap<>(map));
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    if (source.getExt() == null) return;
     fetchFromExt(target::setCattax, source.getExt(), CommonConstants.CATTAX, "error while mapping cattax from Producer");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

@@ -41,8 +41,8 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("cattax");
-    extraFieldsInExt.add("storeid");
+    extraFieldsInExt.add(CommonConstants.CATTAX);
+    extraFieldsInExt.add(CommonConstants.STOREID);
   }
 
   @Override
@@ -63,7 +63,9 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
   public void enhance(
       App source, net.media.openrtb3.App target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setPrivpolicy(source.getPrivacypolicy());
     target.setSectcat(CollectionUtils.copyCollection(source.getSectioncat(), config));
     Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter =

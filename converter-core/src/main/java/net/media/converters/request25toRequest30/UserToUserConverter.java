@@ -40,7 +40,7 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("consent");
+    extraFieldsInExt.add(CommonConstants.CONSENT);
   }
 
   @Override
@@ -61,7 +61,9 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
   public void enhance(
       User source, net.media.openrtb3.User target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter =
         converterProvider.fetch(new Conversion<>(Geo.class, net.media.openrtb3.Geo.class));
     Converter<Data, net.media.openrtb3.Data> dataDataConverter =

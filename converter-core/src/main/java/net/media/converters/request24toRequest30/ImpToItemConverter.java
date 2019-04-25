@@ -40,7 +40,7 @@ public class ImpToItemConverter
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("metric");
+    extraFieldsInExt.add(CommonConstants.METRIC);
   }
 
 private static final JavaType javaTypeForMetricCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()

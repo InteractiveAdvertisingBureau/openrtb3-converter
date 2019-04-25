@@ -46,7 +46,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("pmp");
+    extraFieldsInExt.add(CommonConstants.PMP);
   }
   @Override
   public Imp map(Item item, Config config, Provider converterProvider)
@@ -78,8 +78,9 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     Converter<net.media.openrtb3.Metric, Metric> metricMetricConverter =
         converterProvider.fetch(new Conversion<>(net.media.openrtb3.Metric.class, Metric.class));
     imp.setPmp(itemToPmp(item, config, converterProvider));
-    if(nonNull(item.getExt()))
+    if(nonNull(item.getExt())) {
       imp.setExt(new HashMap<>(item.getExt()));
+    }
     fillExtMap(item, imp, config);
     imp.setBidfloor(item.getFlr());
     VideoPlacement video = itemSpecPlacementVideo(item);

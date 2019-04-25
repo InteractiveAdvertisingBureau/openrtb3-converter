@@ -43,7 +43,7 @@ public class ContentToContentConverter
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("videoquality");
+    extraFieldsInExt.add(CommonConstants.VIDEOQUALITY);
   }
 
   @Override
@@ -67,7 +67,9 @@ public class ContentToContentConverter
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Producer, net.media.openrtb25.request.Producer> producerProducerConverter =
         converterProvider.fetch(
             new Conversion<>(Producer.class, net.media.openrtb25.request.Producer.class));

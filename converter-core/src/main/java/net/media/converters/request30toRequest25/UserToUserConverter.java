@@ -56,7 +56,9 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb25.
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter =
         converterProvider.fetch(new Conversion<>(Geo.class, net.media.openrtb25.request.Geo.class));
     Converter<Data, net.media.openrtb25.request.Data> dataDataConverter =

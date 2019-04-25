@@ -39,12 +39,12 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("unit");
-    extraFieldsInExt.add("ctype");
-    extraFieldsInExt.add("ptype");
-    extraFieldsInExt.add("context");
-    extraFieldsInExt.add("priv");
-    extraFieldsInExt.add("seq");
+    extraFieldsInExt.add(CommonConstants.UNIT);
+    extraFieldsInExt.add(CommonConstants.CTYPE);
+    extraFieldsInExt.add(CommonConstants.PTYPE);
+    extraFieldsInExt.add(CommonConstants.CONTEXT);
+    extraFieldsInExt.add(CommonConstants.PRIV);
+    extraFieldsInExt.add(CommonConstants.SEQ);
   }
 
   @Override
@@ -138,7 +138,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
       if (displayFormat.getExt() == null) displayFormat.setExt(new HashMap<>());
       displayFormat.getExt().put(CommonConstants.WMIN, format.getWmin());
     }
-    displayFormat.setExt(putToExt(format::getWmin,displayFormat.getExt(),"wmin"));
+    displayFormat.setExt(putToExt(format::getWmin,displayFormat.getExt(),CommonConstants.WMIN));
 
     return displayFormat;
   }

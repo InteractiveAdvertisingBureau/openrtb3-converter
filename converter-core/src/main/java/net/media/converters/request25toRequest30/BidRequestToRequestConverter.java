@@ -30,6 +30,7 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
+import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,9 +45,9 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("cattax");
-    extraFieldsInExt.add("restrictions");
-    extraFieldsInExt.add("dooh");
+    extraFieldsInExt.add(CommonConstants.CATTAX);
+    extraFieldsInExt.add(CommonConstants.RESTRICTIONS);
+    extraFieldsInExt.add(CommonConstants.DOOH);
   }
   private String bidRequestUserCustomdata(BidRequest2_X bidRequest) {
     if (bidRequest == null) {
@@ -125,8 +126,6 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
       target.setWseat(0);
       target.setSeat(CollectionUtils.copyCollection(source.getBseat(), config));
     }
-    if (target.getExt() == null) return;
-    if (source.getExt() == null) return;
     if (target.getContext() == null) target.setContext(new Context());
     fetchFromExt(target.getContext()::setDooh, source.getExt(), CommonConstants.DOOH, "error while typecasting ext for BidRequest2_X", Dooh.class);
 

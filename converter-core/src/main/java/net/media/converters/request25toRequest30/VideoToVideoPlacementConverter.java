@@ -44,9 +44,9 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("unit");
-    extraFieldsInExt.add("maxseq");
-    extraFieldsInExt.add("qty");
+    extraFieldsInExt.add(CommonConstants.UNIT);
+    extraFieldsInExt.add(CommonConstants.MAXSEQ);
+    extraFieldsInExt.add(CommonConstants.QTY);
   }
 
   @Override
@@ -97,8 +97,9 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     videoPlacement.setW(video.getW());
     videoPlacement.setH(video.getH());
     videoPlacement.setDelivery(CollectionUtils.copyCollection(video.getDelivery(), config));
-    if(nonNull(video.getExt()))
+    if(nonNull(video.getExt())) {
       videoPlacement.setExt(new HashMap<>(video.getExt()));
+    }
     videoToVideoPlacementAfterMapping(video, config, videoPlacement);
   }
 

@@ -39,10 +39,10 @@ public class BannerToDisplayPlacementConverter
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   private static final List<String> extraFieldsInDisplayFormatExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("vcm");
-    extraFieldsInDisplayFormatExt.add("wratio");
-    extraFieldsInDisplayFormatExt.add("hratio");
-    extraFieldsInExt.add("wmin");
+    extraFieldsInExt.add(CommonConstants.VCM);
+    extraFieldsInDisplayFormatExt.add(CommonConstants.WRATIO);
+    extraFieldsInDisplayFormatExt.add(CommonConstants.HRATIO);
+    extraFieldsInExt.add(CommonConstants.WMIN);
   }
 
   public void enhance(

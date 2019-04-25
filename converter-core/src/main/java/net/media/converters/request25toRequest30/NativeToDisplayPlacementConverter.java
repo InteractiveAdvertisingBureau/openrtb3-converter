@@ -47,8 +47,8 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("ctype");
-    extraFieldsInExt.add("priv");
+    extraFieldsInExt.add(CommonConstants.CTYPE);
+    extraFieldsInExt.add(CommonConstants.PRIV);
   }
   @Override
   public DisplayPlacement map(Native nat, Config config, Provider converterProvider)

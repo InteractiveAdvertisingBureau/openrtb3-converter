@@ -32,13 +32,15 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.putToExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
 public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse> {
 
   static List<String> extraFieldsInNativeDataExt = new ArrayList<>();
   static {
-    extraFieldsInNativeDataExt.add("label");
+    extraFieldsInNativeDataExt.add(CommonConstants.LABEL);
   }
 
   public AssetResponse map(Asset source, Config config, Provider converterProvider)
@@ -65,20 +67,23 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     target.setTitle(tittleAssetToNativeTittle(source.getTitle()));
     target.setLink(linkAssetLinkConverter.map(source.getLink(), config, converterProvider));
     if(nonNull(source.getExt()))
-    target.setExt(new HashMap<>(source.getExt()));
+      target.setExt(new HashMap<>(source.getExt()));
   }
 
-  private NativeData dataTonativeData(DataAsset data) {
-    if (isNull(data)) return null;
-    NativeData nativeData = new NativeData();
-    if(nonNull(data.getExt()))
-      nativeData.setExt(new HashMap<>(data.getExt()));
-    if (nonNull(data.getExt())) {
-      nativeData.setLabel((String) data.getExt().get(CommonConstants.LABEL));
+  private NativeData dataTonativeData(DataAsset data) throws OpenRtbConverterException {
+    if (isNull(data)) {
+      return null;
     }
-    if (isNull(nativeData.getExt())) nativeData.setExt(new HashMap<>());
-    nativeData.getExt().put(CommonConstants.TYPE, data.getType());
-    nativeData.getExt().put(CommonConstants.LEN, data.getLen());
+    NativeData nativeData = new NativeData();
+    if(nonNull(data.getExt())){
+      nativeData.setExt(new HashMap<>(data.getExt()));
+    }
+    fetchFromExt(nativeData::setLabel, data.getExt(), CommonConstants.LABEL, "error while mapping label from data.ext");
+    if (isNull(nativeData.getExt())) {
+      nativeData.setExt(new HashMap<>());
+    }
+    nativeData.setExt(putToExt(data::getType, nativeData.getExt(), CommonConstants.TYPE));
+    nativeData.setExt(putToExt(data::getLen, nativeData.getExt(), CommonConstants.LEN));
     if (nonNull(data.getValue()) && data.getValue().size() > 0)
       nativeData.setValue(data.getValue().iterator().next());
     removeFromExt(nativeData.getExt(), extraFieldsInNativeDataExt);
@@ -94,7 +99,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     nativeImage.setW(imageAsset.getW());
     nativeImage.setUrl(imageAsset.getUrl());
     if (isNull(nativeImage.getExt())) nativeImage.setExt(new HashMap<>());
-    nativeImage.getExt().put(CommonConstants.TYPE, imageAsset.getType());
+    nativeImage.setExt(putToExt(imageAsset::getType, nativeImage.getExt(), CommonConstants.TYPE));
     return nativeImage;
   }
 
@@ -107,7 +112,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     if (isNull(nativeVideo.getExt())) {
       nativeVideo.setExt(new HashMap<>());
     }
-    nativeVideo.getExt().put("curl", videoAsset.getCurl());
+    nativeVideo.setExt(putToExt(videoAsset::getCurl, nativeVideo.getExt(), CommonConstants.CURL));
     return nativeVideo;
   }
 
@@ -120,7 +125,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     if (isNull(nativeTitle.getExt())) {
       nativeTitle.setExt(new HashMap<>());
     }
-    nativeTitle.getExt().put(CommonConstants.LEN, titleAsset.getLen());
+    nativeTitle.setExt(putToExt(titleAsset::getLen, nativeTitle.getExt(), CommonConstants.LEN));
     return nativeTitle;
   }
 }

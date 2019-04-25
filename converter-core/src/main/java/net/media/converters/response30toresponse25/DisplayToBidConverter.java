@@ -35,6 +35,7 @@ import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 public class DisplayToBidConverter implements Converter<Display, Bid> {
@@ -64,16 +65,18 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
-    target.getExt().put(CommonConstants.CTYPE, source.getCtype());
+    target.setExt(putToExt(source::getCtype, target.getExt(), CommonConstants.CTYPE));
+    target.setExt(putToExt(source::getPriv, target.getExt(), CommonConstants.PRIV));
+    target.setExt(putToExt(source::getCurl, target.getExt(), CommonConstants.CURL));
+    target.setExt(putToExt(source::getEvent, target.getExt(), CommonConstants.EVENT));
+    target.setExt(putToExt(source::getMime, target.getExt(), CommonConstants.MIME));
 
-    target.getExt().put(CommonConstants.PRIV, source.getPriv());
-    target.getExt().put(CommonConstants.CURL, source.getCurl());
     if (isEmpty(target.getNurl())) {
       target.setNurl(source.getCurl());
     }
-    target.getExt().put(CommonConstants.EVENT, source.getEvent());
-    target.getExt().put(CommonConstants.MIME, source.getMime());
-    if (nonNull(source.getExt())) target.getExt().putAll(source.getExt());
+    if (nonNull(source.getExt())) {
+      target.getExt().putAll(source.getExt());
+    }
 
     if (config.getAdType(target.getId()) == AdType.NATIVE) {
       if (nonNull(source.get_native())) {
@@ -102,7 +105,7 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
         }
       }
     } else {
-      target.getExt().put(CommonConstants.BANNER, source.getBanner());
+      target.setExt(putToExt(source::getBanner, target.getExt(), CommonConstants.BANNER));
       if (nonNull(source.getAdm())) {
         target.setAdm(source.getAdm());
       }

@@ -53,7 +53,9 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb25.
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (target == null || source == null) return;
+    if (target == null || source == null) {
+      return;
+    }
     Converter<Segment, net.media.openrtb25.request.Segment> segmentSegmentConverter =
         converterProvider.fetch(
             new Conversion<>(Segment.class, net.media.openrtb25.request.Segment.class));

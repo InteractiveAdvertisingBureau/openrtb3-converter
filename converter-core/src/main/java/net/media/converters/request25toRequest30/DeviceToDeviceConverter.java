@@ -40,9 +40,9 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("xff");
-    extraFieldsInExt.add("iptr");
-    extraFieldsInExt.add("mccmncsim");
+    extraFieldsInExt.add(CommonConstants.XFF);
+    extraFieldsInExt.add(CommonConstants.IPTR);
+    extraFieldsInExt.add(CommonConstants.MCCMNCSIM);
   }
   @Override
   public net.media.openrtb3.Device map(Device source, Config config, Provider converterProvider)
@@ -62,7 +62,9 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
   public void enhance(
       Device source, net.media.openrtb3.Device target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter =
         converterProvider.fetch(new Conversion<>(Geo.class, net.media.openrtb3.Geo.class));
     target.setContype(source.getConnectiontype());
@@ -97,7 +99,9 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
       target.setExt(new HashMap<>(map));
     }
     target.setExt(putToExt(source::getFlashver, target.getExt(), CommonConstants.FLASHVER));
-    if (source.getExt() == null) return;
+    if (source.getExt() == null) {
+      return;
+    }
     fetchFromExt(target::setXff, source.getExt(), CommonConstants.XFF, "error while mapping xff for Device");
     fetchFromExt(target::setIptr, source.getExt(), CommonConstants.IPTR, "error while mapping iptr for Device");
     fetchFromExt(target::setMccmncsim, source.getExt(), CommonConstants.MCCMNCSIM, "error while mapping mccmncsim for Device");

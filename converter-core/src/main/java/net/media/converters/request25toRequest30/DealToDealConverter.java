@@ -52,7 +52,8 @@ public class DealToDealConverter implements Converter<Deal, net.media.openrtb3.D
     deal1.setAt(deal.getAt());
     deal1.setWseat(CollectionUtils.copyCollection(deal.getWseat(), config));
     deal1.setWadomain(CollectionUtils.copyCollection(deal.getWadomain(), config));
-    if(nonNull(deal.getExt()))
+    if(nonNull(deal.getExt())) {
       deal1.setExt(new HashMap<>(deal.getExt()));
+    }
   }
 }

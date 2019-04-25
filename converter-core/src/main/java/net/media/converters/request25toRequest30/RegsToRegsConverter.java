@@ -36,7 +36,7 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.R
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("gdpr");
+    extraFieldsInExt.add(CommonConstants.GDPR);
   }
 
   @Override
@@ -57,7 +57,9 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.R
   public void enhance(
       Regs source, net.media.openrtb3.Regs target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setCoppa(source.getCoppa());
     Map<String, Object> map = source.getExt();
     if (map != null) {

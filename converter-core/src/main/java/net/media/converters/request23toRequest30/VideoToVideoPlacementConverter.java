@@ -36,11 +36,11 @@ public class VideoToVideoPlacementConverter
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("placement");
-    extraFieldsInExt.add("playbackend");
-    extraFieldsInExt.add("skip");
-    extraFieldsInExt.add("skipmin");
-    extraFieldsInExt.add("skipafter");
+    extraFieldsInExt.add(CommonConstants.PLACEMENT);
+    extraFieldsInExt.add(CommonConstants.PLAYBACKEND);
+    extraFieldsInExt.add(CommonConstants.SKIP);
+    extraFieldsInExt.add(CommonConstants.SKIPMIN);
+    extraFieldsInExt.add(CommonConstants.SKIPAFTER);
   }
 
   public void enhance(

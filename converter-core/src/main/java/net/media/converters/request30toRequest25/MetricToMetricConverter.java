@@ -51,8 +51,9 @@ public class MetricToMetricConverter
       metric1.setType(metric.getType());
       metric1.setVendor(metric.getVendor());
       metric1.setValue(metric.getValue());
-      if(nonNull(metric.getExt()))
+      if(nonNull(metric.getExt())) {
         metric1.setExt(new HashMap<>(metric.getExt()));
+      }
     }
   }
 }

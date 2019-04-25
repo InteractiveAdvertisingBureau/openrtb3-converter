@@ -38,11 +38,11 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("ts");
-    extraFieldsInExt.add("ds");
-    extraFieldsInExt.add("dsmap");
-    extraFieldsInExt.add("cert");
-    extraFieldsInExt.add("digest");
+    extraFieldsInExt.add(CommonConstants.TS);
+    extraFieldsInExt.add(CommonConstants.DS);
+    extraFieldsInExt.add(CommonConstants.DSMAP);
+    extraFieldsInExt.add(CommonConstants.CERT);
+    extraFieldsInExt.add(CommonConstants.DIGEST);
   }
 
   @Override
@@ -63,7 +63,9 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
   public void enhance(
       Source source, net.media.openrtb3.Source target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setTid(source.getTid());
     target.setPchain(source.getPchain());
     Map<String, Object> map = source.getExt();

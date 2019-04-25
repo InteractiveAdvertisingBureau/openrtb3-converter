@@ -34,6 +34,7 @@ import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 public class AdToBidConverter implements Converter<Ad, Bid> {
 
@@ -69,21 +70,11 @@ public class AdToBidConverter implements Converter<Ad, Bid> {
     if (nonNull(source.getExt())) {
       target.getExt().putAll(source.getExt());
     }
-    if (nonNull(source.getSecure())) {
-      target.getExt().put(CommonConstants.SECURE, source.getSecure());
-    }
-    if (nonNull(source.getInit())) {
-      target.getExt().put(CommonConstants.INIT, source.getInit());
-    }
-    if (nonNull(source.getLastmod())) {
-      target.getExt().put(CommonConstants.LASTMOD, source.getLastmod());
-    }
-    if (nonNull(source.getCattax())) {
-      target.getExt().put(CommonConstants.CATTAX, source.getCattax());
-    }
-    if (nonNull(source.getAudit())) {
-      target.getExt().put(CommonConstants.AUDIT, source.getAudit());
-    }
+    target.setExt(putToExt(source::getSecure, target.getExt(), CommonConstants.SECURE));
+    target.setExt(putToExt(source::getInit, target.getExt(), CommonConstants.INIT));
+    target.setExt(putToExt(source::getLastmod, target.getExt(), CommonConstants.LASTMOD));
+    target.setExt(putToExt(source::getCattax, target.getExt(), CommonConstants.CATTAX));
+    target.setExt(putToExt(source::getAudit, target.getExt(), CommonConstants.AUDIT));
     target.setQagmediarating(source.getMrating());
     AdType adType = config.getAdType(target.getId());
     switch (adType) {

@@ -41,8 +41,8 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("cattax");
-    extraFieldsInExt.add("amp");
+    extraFieldsInExt.add(CommonConstants.CATTAX);
+    extraFieldsInExt.add(CommonConstants.AMP);
   }
 
   @Override
@@ -63,7 +63,9 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
   public void enhance(
       Site source, net.media.openrtb3.Site target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter =
         converterProvider.fetch(
             new Conversion<>(Publisher.class, net.media.openrtb3.Publisher.class));

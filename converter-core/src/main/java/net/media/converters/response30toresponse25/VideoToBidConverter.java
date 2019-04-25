@@ -26,8 +26,10 @@ import net.media.utils.Provider;
 
 import java.util.HashMap;
 
+import static java.util.Objects.compare;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 public class VideoToBidConverter implements Converter<Video, Bid> {
@@ -49,13 +51,13 @@ public class VideoToBidConverter implements Converter<Video, Bid> {
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
-    target.getExt().put(CommonConstants.CTYPE, source.getCtype());
-    target.getExt().put(CommonConstants.DUR, source.getDur());
-    target.getExt().put(CommonConstants.CURL, source.getCurl());
+    target.setExt(putToExt(source::getCtype, target.getExt(), CommonConstants.CTYPE));
+    target.setExt(putToExt(source::getDur, target.getExt(), CommonConstants.DUR));
+    target.setExt(putToExt(source::getCurl, target.getExt(), CommonConstants.CURL));
+    target.setExt(putToExt(source::getMime, target.getExt(), CommonConstants.MIME));
     if (isEmpty(target.getNurl())) {
       target.setNurl(source.getCurl());
     }
-    target.getExt().put(CommonConstants.MIME, source.getMime());
     if (nonNull(source.getExt())) target.getExt().putAll(source.getExt());
   }
 }

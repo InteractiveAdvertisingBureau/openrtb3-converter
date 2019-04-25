@@ -41,7 +41,7 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("stitched");
+    extraFieldsInExt.add(CommonConstants.STITCHED);
   }
 
   @Override

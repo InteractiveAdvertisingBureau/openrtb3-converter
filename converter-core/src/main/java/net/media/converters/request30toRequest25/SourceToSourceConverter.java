@@ -38,7 +38,7 @@ public class SourceToSourceConverter
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   static {
-    extraFieldsInExt.add("fd");
+    extraFieldsInExt.add(CommonConstants.FD);
   }
 
   @Override
@@ -62,7 +62,9 @@ public class SourceToSourceConverter
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setTid(source.getTid());
     target.setPchain(source.getPchain());
     Map<String, Object> map = source.getExt();

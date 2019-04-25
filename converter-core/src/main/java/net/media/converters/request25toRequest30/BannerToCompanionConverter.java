@@ -36,7 +36,7 @@ public class BannerToCompanionConverter implements Converter<Banner, Companion> 
 
   static List<String> extraFieldsInDisplay = new ArrayList<>();
   static {
-    extraFieldsInDisplay.add("id");
+    extraFieldsInDisplay.add(CommonConstants.ID);
   }
 
   @Override
