@@ -30,6 +30,8 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.putToExt;
+
 public class UserToUserConverter implements Converter<User, net.media.openrtb25.request.User> {
 
   @Override
@@ -72,9 +74,6 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb25.
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    if (source.getConsent() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("consent", source.getConsent());
-    }
+    target.setExt(putToExt(source::getConsent, target.getExt(), "consent"));
   }
 }

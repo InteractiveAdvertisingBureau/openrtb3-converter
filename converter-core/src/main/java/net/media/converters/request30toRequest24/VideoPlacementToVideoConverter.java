@@ -26,6 +26,7 @@ import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class VideoPlacementToVideoConverter
@@ -38,19 +39,9 @@ public class VideoPlacementToVideoConverter
       return;
     }
     super.enhance(videoPlacement, video, config, converterProvider);
-    if (nonNull(video.getPlacement())) {
-      if (isNull(video.getExt())) {
-        video.setExt(new HashMap<>());
-      }
-      video.getExt().put("placement", video.getPlacement());
-      video.setPlacement(null);
-    }
-    if (nonNull(video.getPlaybackend())) {
-      if (isNull(video.getExt())) {
-        video.setExt(new HashMap<>());
-      }
-      video.getExt().put("playbackend", video.getPlaybackend());
-      video.setPlaybackend(null);
-    }
+    video.setExt(putToExt(video::getPlacement, video.getExt(), "placement"));
+    video.setPlacement(null);
+    video.setExt(putToExt(video::getPlaybackend, video.getExt(), "playbackend"));
+    video.setPlaybackend(null);
   }
 }

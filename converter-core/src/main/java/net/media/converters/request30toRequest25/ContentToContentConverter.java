@@ -32,6 +32,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.putToExt;
+import static net.media.utils.ExtUtils.removeFromExt;
+
 public class ContentToContentConverter
     implements Converter<Content, net.media.openrtb25.request.Content> {
 
@@ -99,19 +103,8 @@ public class ContentToContentConverter
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    if (source.getCattax() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("cattax", source.getCattax());
-    }
-    if (source.getExt() != null) {
-      if (source.getExt().containsKey("videoquality")) {
-        try {
-          target.setVideoquality((Integer) source.getExt().get("videoquality"));
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException("error while typecasting ext for Content", e);
-        }
-      }
-    }
+    target.setExt(putToExt(source::getCattax, target.getExt(),"cattax"));
+    fetchFromExt(target::setVideoquality, source.getExt(), "videoquality", "error while setting videoquality from content ext");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

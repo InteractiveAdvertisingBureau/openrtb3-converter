@@ -25,6 +25,8 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.putToExt;
+
 public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb25.request.Regs> {
   @Override
   public net.media.openrtb25.request.Regs map(
@@ -54,6 +56,6 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb25.
     }
     if (source.getGdpr() == null) return;
     if (target.getExt() == null) target.setExt(new HashMap<>());
-    target.getExt().put("gdpr", source.getGdpr());
+    target.setExt(putToExt(source::getGdpr, target.getExt(), "gdpr"));
   }
 }

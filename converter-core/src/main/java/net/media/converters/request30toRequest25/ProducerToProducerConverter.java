@@ -25,6 +25,8 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.putToExt;
+
 public class ProducerToProducerConverter
     implements Converter<Producer, net.media.openrtb25.request.Producer> {
   @Override
@@ -56,9 +58,6 @@ public class ProducerToProducerConverter
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    if (source.getCattax() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("cattax", source.getCattax());
-    }
+    target.setExt(putToExt(source::getCattax, target.getExt(), "cattax"));
   }
 }

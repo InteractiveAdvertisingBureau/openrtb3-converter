@@ -18,6 +18,7 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Publisher;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
@@ -28,6 +29,8 @@ import java.util.List;
 import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class PublisherToPublisherConverter
     implements Converter<Publisher, net.media.openrtb3.Publisher> {
@@ -39,7 +42,7 @@ public class PublisherToPublisherConverter
 
   @Override
   public net.media.openrtb3.Publisher map(
-      Publisher source, Config config, Provider converterProvider) {
+      Publisher source, Config config, Provider converterProvider) throws OpenRtbConverterException {
     if (source == null) {
       return null;
     }
@@ -56,7 +59,7 @@ public class PublisherToPublisherConverter
       Publisher source,
       net.media.openrtb3.Publisher target,
       Config config,
-      Provider converterProvider) {
+      Provider converterProvider) throws OpenRtbConverterException {
     if (source == null || target == null) return;
     target.setId(source.getId());
     target.setName(source.getName());
@@ -65,12 +68,9 @@ public class PublisherToPublisherConverter
     Map<String, Object> map = source.getExt();
     if (map != null) {
       target.setExt(new HashMap<>(map));
-      if (map.containsKey("cattax")) {
-        target.setCattax((Integer) map.get("cattax"));
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
-      }
     }
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
+    fetchFromExt(target::setCattax, source.getExt(), "cattax", "error while mapping cattax from publisher");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

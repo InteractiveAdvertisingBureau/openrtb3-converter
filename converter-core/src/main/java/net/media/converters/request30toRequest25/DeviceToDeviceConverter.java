@@ -31,6 +31,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.putToExt;
+import static net.media.utils.ExtUtils.removeFromExt;
+
 public class DeviceToDeviceConverter
     implements Converter<Device, net.media.openrtb25.request.Device> {
 
@@ -93,27 +97,12 @@ public class DeviceToDeviceConverter
     target.setMccmnc(source.getMccmnc());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      if (map.containsKey("flashver")) {
-        try {
-          target.setFlashver((String) source.getExt().get("flashver"));
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException("error while typecasting ext for Device", e);
-        }
-      }
       target.setExt(new HashMap<>(map));
     }
-    if (source.getXff() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("xff", source.getXff());
-    }
-    if (source.getIptr() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("iptr", source.getIptr());
-    }
-    if (source.getMccmncsim() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("mccmncsim", source.getMccmncsim());
-    }
+    fetchFromExt(target::setFlashver, source.getExt(), "flashver", "error while mapping flashver from device.ext");
+    target.setExt(putToExt(source::getXff, target.getExt(),"xff"));
+    target.setExt(putToExt(source::getIptr, target.getExt(),"iptr"));
+    target.setExt(putToExt(source::getMccmncsim, target.getExt(),"mccmncsim"));
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

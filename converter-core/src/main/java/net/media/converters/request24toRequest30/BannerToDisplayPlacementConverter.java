@@ -28,6 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class BannerToDisplayPlacementConverter
@@ -48,43 +50,12 @@ public class BannerToDisplayPlacementConverter
     if (banner == null || displayPlacement == null) {
       return;
     }
-    if (nonNull(banner.getExt())) {
-      if (banner.getExt().containsKey("vcm")) {
-        try {
-          banner.setVcm((Integer) banner.getExt().get("vcm"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting vcm from banner.ext.vcm", e);
-        }
-      }
-    }
+    fetchFromExt(banner::setVcm, banner.getExt(), "vcm", "Error in setting vcm from banner.ext.vcm");
     if (nonNull(banner.getFormat())) {
       for (Format format : banner.getFormat()) {
-        if (nonNull(format.getExt())) {
-          if (format.getExt().containsKey("wratio")) {
-            try {
-              format.setWratio((Integer) format.getExt().get("wratio"));
-            } catch (Exception e) {
-              throw new OpenRtbConverterException(
-                  "Error in setting wratio from banner.format.ext" + ".wratio", e);
-            }
-          }
-          if (format.getExt().containsKey("hratio")) {
-            try {
-              format.setHratio((Integer) format.getExt().get("hratio"));
-            } catch (Exception e) {
-              throw new OpenRtbConverterException(
-                  "Error in setting hratio from banner.ext" + ".hratio", e);
-            }
-          }
-          if (format.getExt().containsKey("wmin")) {
-            try {
-              format.setWmin((Integer) format.getExt().get("wmin"));
-            } catch (Exception e) {
-              throw new OpenRtbConverterException(
-                  "Error in setting wmin from banner.ext" + ".wmin", e);
-            }
-          }
-        }
+        fetchFromExt(format::setWratio, format.getExt(), "wratio", "Error in setting wratio from banner.format.ext.wratio");
+        fetchFromExt(format::setHratio, format.getExt(), "hratio", "Error in setting hratio from banner.format.ext.hratio");
+        fetchFromExt(format::setWmin, format.getExt(), "wmin", "Error in setting wmin from banner.format.ext.wmin");
       }
     }
     super.enhance(banner, displayPlacement, config, converterProvider);

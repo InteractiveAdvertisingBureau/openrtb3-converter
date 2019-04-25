@@ -33,6 +33,9 @@ import java.util.List;
 import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.putToExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class ContentToContentConverter implements Converter<Content, net.media.openrtb3.Content> {
 
@@ -97,21 +100,10 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
     if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey("cattax")) {
-        target.setCattax((Integer) source.getExt().get("cattax"));
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Content", e);
-    }
-    if (source.getVideoquality() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("videoquality", source.getVideoquality());
-    }
+    fetchFromExt(target::setCattax, source.getExt(), "cattax", "error while typecasting ext for Content");
+    target.setExt(putToExt(source::getVideoquality, target.getExt(), "videoquality"));
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

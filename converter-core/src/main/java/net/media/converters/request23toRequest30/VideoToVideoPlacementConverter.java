@@ -26,6 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class VideoToVideoPlacementConverter
@@ -46,46 +48,11 @@ public class VideoToVideoPlacementConverter
     if (video == null || videoPlacement == null) {
       return;
     }
-    if (nonNull(video.getExt())) {
-      if (video.getExt().containsKey("placement")) {
-        try {
-          video.setPlacement((Integer) video.getExt().get("placement"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting placement from video.ext.placement", e);
-        }
-      }
-      if (video.getExt().containsKey("playbackend")) {
-        try {
-          video.setPlaybackend((Integer) video.getExt().get("playbackend"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting playbackend from imp.ext" + ".playbackend", e);
-        }
-      }
-      if (video.getExt().containsKey("skip")) {
-        try {
-          video.setSkip((Integer) video.getExt().get("skip"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting skip from video.ext.skip", e);
-        }
-      }
-      if (video.getExt().containsKey("skipmin")) {
-        try {
-          video.setSkipmin((Integer) video.getExt().get("skipmin"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting skipmin from video.ext.skipmin", e);
-        }
-      }
-      if (video.getExt().containsKey("skipafter")) {
-        try {
-          video.setSkipafter((Integer) video.getExt().get("skipafter"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting skipafter from video.ext" + ".skipafter", e);
-        }
-      }
-    }
+    fetchFromExt(video::setPlacement, video.getExt(), "placement", "Error in setting placement from video.ext.placement");
+    fetchFromExt(video::setPlaybackend, video.getExt(), "playbackend", "Error in setting playbackend from video.ext.playbackend");
+    fetchFromExt(video::setSkip, video.getExt(), "skip", "Error in setting skip from video.ext.skip");
+    fetchFromExt(video::setSkipmin, video.getExt(), "skipmin", "Error in setting skipmin from video.ext.skipmin");
+    fetchFromExt(video::setSkipafter, video.getExt(), "skipafter", "Error in setting skipafter from video.ext.skipafter");
     super.enhance(video, videoPlacement, config, converterProvider);
     removeFromExt(videoPlacement.getExt(), extraFieldsInExt);
   }

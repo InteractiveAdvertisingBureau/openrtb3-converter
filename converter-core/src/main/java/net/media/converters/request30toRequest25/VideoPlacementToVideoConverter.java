@@ -33,6 +33,7 @@ import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 public class VideoPlacementToVideoConverter implements Converter<VideoPlacement, Video> {
 
@@ -96,17 +97,7 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
         video.setPlaybackmethod(Collections.singletonList(videoPlacement.getPlaymethod()));
       }
     }
-    if (nonNull(videoPlacement.getUnit())) {
-      if (isNull(video.getExt())) {
-        video.setExt(new HashMap<>());
-      }
-      video.getExt().put("unit", videoPlacement.getUnit());
-    }
-    if (nonNull(videoPlacement.getMaxseq())) {
-      if (isNull(video.getExt())) {
-        video.setExt(new HashMap<>());
-      }
-      video.getExt().put("maxseq", videoPlacement.getMaxseq());
-    }
+    video.setExt(putToExt(videoPlacement::getUnit, video.getExt(), "unit"));
+    video.setExt(putToExt(videoPlacement::getMaxseq, video.getExt(), "maxseq"));
   }
 }

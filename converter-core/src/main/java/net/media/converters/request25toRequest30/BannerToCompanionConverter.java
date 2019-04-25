@@ -28,6 +28,8 @@ import net.media.utils.Provider;
 import java.util.ArrayList;
 import java.util.List;
 
+import static net.media.utils.ExtUtils.removeFromExt;
+
 /** Created by rajat.go on 03/01/19. */
 public class BannerToCompanionConverter implements Converter<Banner, Companion> {
 
@@ -62,7 +64,7 @@ public class BannerToCompanionConverter implements Converter<Banner, Companion> 
     companion.setId(banner.getId());
     if (companion.getDisplay() != null) {
       companion.getDisplay().setClktype(null); // remove clktype for companion
-      removeFromExt(companion.getDisplay().getExt(),extraFieldsInDisplay);
+      removeFromExt(companion.getDisplay().getExt(), extraFieldsInDisplay);
     }
   }
 }

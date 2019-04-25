@@ -27,6 +27,7 @@ import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class DisplayPlacementToBannerConverter
@@ -39,36 +40,16 @@ public class DisplayPlacementToBannerConverter
       return;
     }
     super.enhance(displayPlacement, banner, config, converterProvider);
-    if (nonNull(banner.getVcm())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put("vcm", banner.getVcm());
-      banner.setVcm(null);
-    }
+    banner.setExt(putToExt(banner::getVcm, banner.getExt(), "vcm"));
+    banner.setVcm(null);
     if (nonNull(banner.getFormat())) {
       for (Format format : banner.getFormat()) {
-        if (nonNull(format.getWratio())) {
-          if (isNull(format.getExt())) {
-            format.setExt(new HashMap<>());
-          }
-          format.getExt().put("wratio", format.getWratio());
-          format.setWratio(null);
-        }
-        if (nonNull(format.getHratio())) {
-          if (isNull(format.getExt())) {
-            format.setExt(new HashMap<>());
-          }
-          format.getExt().put("hratio", format.getHratio());
-          format.setHratio(null);
-        }
-        if (nonNull(format.getWmin())) {
-          if (isNull(format.getExt())) {
-            format.setExt(new HashMap<>());
-          }
-          format.getExt().put("wmin", format.getWmin());
-          format.setWmin(null);
-        }
+        format.setExt(putToExt(format::getWratio, format.getExt(), "wratio"));
+        format.setWratio(null);
+        format.setExt(putToExt(format::getHratio, format.getExt(), "hratio"));
+        format.setHratio(null);
+        format.setExt(putToExt(format::getWmin, format.getExt(), "wmin"));
+        format.setWmin(null);
       }
     }
   }

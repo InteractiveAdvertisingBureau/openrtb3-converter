@@ -29,6 +29,8 @@ import java.util.Collection;
 import java.util.List;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 02/04/19. */
 public class BidRequestToRequestConverter
@@ -48,34 +50,9 @@ public class BidRequestToRequestConverter
     if (source == null || target == null) {
       return;
     }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("bseat")) {
-        try {
-          source.setBseat((Collection<String>) source.getExt().get("bseat"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting bseat from bidRequest.ext.bseat", e);
-        }
-      }
-      if (source.getExt().containsKey("wlang")) {
-        try {
-          source.setWlang((Collection<String>) source.getExt().get("wlang"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting wlang from bidRequest.ext.wlang", e);
-        }
-      }
-      if (source.getExt().containsKey("source")) {
-        try {
-          Source source1 =
-              Utils.getMapper().convertValue(source.getExt().get("source"), Source.class);
-          source.setSource(source1);
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting source from bidRequest.ext.source", e);
-        }
-      }
-    }
+    fetchFromExt(source::setBseat, source.getExt(), "bseat", "Error in setting bseat from bidRequest.ext.bseat");
+    fetchFromExt(source::setWlang, source.getExt(), "wlang", "Error in setting wlang from bidRequest.ext.wlang");
+    fetchFromExt(source::setSource, source.getExt(), "source", "Error in setting source from bidRequest.ext.source", Source.class);
     super.enhance(source, target, config, converterProvider);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

@@ -38,6 +38,9 @@ import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.putToExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/01/19. */
 public class ImpToItemConverter implements Converter<Imp, Item> {
@@ -86,14 +89,12 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     }
     impToSpec1(imp, item.getSpec(), config, converterProvider);
     Map<String, Object> map = imp.getExt();
-    item.setExt(Utils.copyMap(map, config));
+    if(nonNull(map))
+      item.setExt(new HashMap<>(map));
     if (imp.getPmp() != null && imp.getPmp().getExt() != null) {
       Pmp pmp = new Pmp();
       pmp.setExt(imp.getPmp().getExt());
-      if (item.getExt() == null) {
-        item.setExt(new HashMap<>());
-      }
-      item.getExt().put("pmp", pmp);
+      item.setExt(putToExt(pmp, item.getExt(), "pmp"));
     }
     item.setFlrcur(imp.getBidfloorcur());
     Collection<Deal> deals = impPmpDeals(imp);
@@ -163,18 +164,9 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     mappingTarget.setSecure(imp.getSecure());
     DisplayPlacement displayPlacement =
         bannerDisplayPlacementConverter.map(imp.getBanner(), config, converterProvider);
-    try {
-      if (nonNull(imp.getExt()) && !imp.getExt().isEmpty() && nonNull(displayPlacement)) {
-        if (imp.getExt().containsKey("ampren")) {
-          displayPlacement.setAmpren((Integer) imp.getExt().get("ampren"));
-        }
-        if (imp.getExt().containsKey("event")) {
-          displayPlacement.setEvent(Utils.getMapper().convertValue(imp.getExt().get("event"),
-            javaTypeForEventSpecCollection));
-        }
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Imp", e);
+    if(nonNull(displayPlacement)) {
+      fetchFromExt(displayPlacement::setAmpren, imp.getExt(), "ampren", "error while mapping ampren from Imp");
+      fetchFromExt(displayPlacement::setEvent, imp.getExt(), "event", "error while mapping event from Imp", javaTypeForEventSpecCollection);
     }
     if (isNull(displayPlacement) && nonNull(imp.getNat())) {
       displayPlacement = new DisplayPlacement();
@@ -283,35 +275,16 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
   }
 
   private void impToItemAfterMapping(Imp imp, Item item) throws OpenRtbConverterException {
-    if (nonNull(imp) && nonNull(imp.getExt()) && !imp.getExt().isEmpty()) {
-      try {
-        if (nonNull(item) && nonNull(imp.getExt())) {
-          if (imp.getExt().containsKey("dt")) {
-            item.setDt((Integer) imp.getExt().get("dt"));
-          }
-          if (imp.getExt().containsKey("dlvy")) {
-            item.setDlvy((Integer) imp.getExt().get("dlvy"));
-          }
+    if(nonNull(imp)) {
+      if(nonNull(item)) {
+        fetchFromExt(item::setDt, imp.getExt(), "dt", "error while mapping dt from Imp");
+        fetchFromExt(item::setDlvy, imp.getExt(), "dlvy", "error while mapping dlvy from Imp");
+        if(nonNull(item.getSpec()) && nonNull(item.getSpec().getPlacement())) {
+          fetchFromExt(item.getSpec().getPlacement()::setSsai, imp.getExt(), "ssai", "error while mapping ssai from Imp");
+          fetchFromExt(item.getSpec().getPlacement()::setReward, imp.getExt(), "reward", "error while mapping reward from Imp");
+          fetchFromExt(item.getSpec().getPlacement()::setAdmx, imp.getExt(), "admx", "error while mapping admx from Imp");
+          fetchFromExt(item.getSpec().getPlacement()::setCurlx, imp.getExt(), "curlx", "error while mapping curlx from Imp");
         }
-        if (nonNull(item)
-            && nonNull(item.getSpec())
-            && nonNull(item.getSpec().getPlacement())
-            && nonNull(imp.getExt())) {
-          if (imp.getExt().containsKey("ssai")) {
-            item.getSpec().getPlacement().setSsai((Integer) imp.getExt().get("ssai"));
-          }
-          if (imp.getExt().containsKey("reward")) {
-            item.getSpec().getPlacement().setReward((Integer) imp.getExt().get("reward"));
-          }
-          if (imp.getExt().containsKey("admx")) {
-            item.getSpec().getPlacement().setAdmx((Integer) imp.getExt().get("admx"));
-          }
-          if (imp.getExt().containsKey("curlx")) {
-            item.getSpec().getPlacement().setCurlx((Integer) imp.getExt().get("curlx"));
-          }
-        }
-      } catch (ClassCastException e) {
-        throw new OpenRtbConverterException("error while typecasting ext for Imp", e);
       }
     }
   }

@@ -32,6 +32,8 @@ import java.util.List;
 import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class AppToAppConverter implements Converter<App, net.media.openrtb3.App> {
 
@@ -84,18 +86,9 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-
-    if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey("cattax")) {
-        target.setCattax((Integer) source.getExt().get("cattax"));
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
-      }
-      target.setStoreid((String) source.getExt().get("storeid"));
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for app", e);
-    }
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
+    fetchFromExt(target::setCattax, source.getExt(), "cattax", "error while typecasting ext for app");
+    fetchFromExt(target::setStoreid, source.getExt(), "storeid", "error while typecasting ext for app");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

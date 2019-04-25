@@ -35,6 +35,7 @@ import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.*;
 
 /** Created by rajat.go on 03/01/19. */
 public class BannerToDisplayPlacementConverter implements Converter<Banner, DisplayPlacement> {
@@ -81,68 +82,24 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     displayPlacement.setW(banner.getW());
     displayPlacement.setH(banner.getH());
     Map<String, Object> bannerExt = banner.getExt();
-    try {
-      if (nonNull(bannerExt)) {
-        if (isNull(displayPlacement.getExt())) {
-          displayPlacement.setExt(new HashMap<>());
-        }
-        displayPlacement.getExt().putAll(bannerExt);
-        if (bannerExt.containsKey("unit")) {
-          displayPlacement.setUnit((Integer) bannerExt.get("unit"));
-        }
-        if (bannerExt.containsKey("ctype")) {
-          displayPlacement.setCtype(
-              Utils.copyCollection((Collection<Integer>) bannerExt.get("ctype"), config));
-        }
-        if (bannerExt.containsKey("ptype")) {
-          displayPlacement.setPtype((Integer) bannerExt.get("ptype"));
-        }
-        if (bannerExt.containsKey("context")) {
-          displayPlacement.setContext((Integer) bannerExt.get("context"));
-        }
-        if (bannerExt.containsKey("priv")) {
-          displayPlacement.setPriv((Integer) bannerExt.get("priv"));
-        }
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Banner", e);
+    fetchFromExt(displayPlacement::setUnit, bannerExt, "unit", "error while setting unit from Banner.ext");
+    fetchCollectionFromExt(displayPlacement::setCtype, bannerExt, "ctype", "error while setting ctype from Banner.ext", config);
+    fetchFromExt(displayPlacement::setPtype, bannerExt, "ptype", "error while setting ptype from Banner.ext");
+    fetchFromExt(displayPlacement::setContext, bannerExt, "context", "error while setting context from Banner.ext");
+    fetchFromExt(displayPlacement::setPriv, bannerExt, "priv", "error while setting priv from Banner.ext");
+
+    if (isNull(displayPlacement.getExt())) {
+      displayPlacement.setExt(new HashMap<>(bannerExt));
     }
-    if (!CollectionUtils.isEmpty(banner.getBtype())) {
-      if (isNull(displayPlacement.getExt())) {
-        displayPlacement.setExt(new HashMap<>());
-      }
-      displayPlacement.getExt().put("btype", new ArrayList<>(banner.getBtype()));
+    if (nonNull(bannerExt)){
+      displayPlacement.getExt().putAll(bannerExt);
     }
-    if (banner.getId() != null) {
-      if (isNull(displayPlacement.getExt())) {
-        displayPlacement.setExt(new HashMap<>());
-      }
-      displayPlacement.getExt().put("id", banner.getId());
-    }
-    if (banner.getHmax() != null) {
-      if (isNull(displayPlacement.getExt())) {
-        displayPlacement.setExt(new HashMap<>());
-      }
-      displayPlacement.getExt().put("hmax", banner.getHmax());
-    }
-    if (banner.getHmin() != null) {
-      if (isNull(displayPlacement.getExt())) {
-        displayPlacement.setExt(new HashMap<>());
-      }
-      displayPlacement.getExt().put("hmin", banner.getHmin());
-    }
-    if (banner.getWmax() != null) {
-      if (isNull(displayPlacement.getExt())) {
-        displayPlacement.setExt(new HashMap<>());
-      }
-      displayPlacement.getExt().put("wmax", banner.getWmax());
-    }
-    if (banner.getWmin() != null) {
-      if (isNull(displayPlacement.getExt())) {
-        displayPlacement.setExt(new HashMap<>());
-      }
-      displayPlacement.getExt().put("wmin", banner.getWmin());
-    }
+    displayPlacement.setExt(putToExt(banner::getBtype,displayPlacement.getExt(),"btype"));
+    displayPlacement.setExt(putToExt(banner::getId,displayPlacement.getExt(),"id"));
+    displayPlacement.setExt(putToExt(banner::getHmax,displayPlacement.getExt(),"hmax"));
+    displayPlacement.setExt(putToExt(banner::getHmin,displayPlacement.getExt(),"hmin"));
+    displayPlacement.setExt(putToExt(banner::getWmax,displayPlacement.getExt(),"wmax"));
+    displayPlacement.setExt(putToExt(banner::getWmin,displayPlacement.getExt(),"wmin"));
     removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
   }
 
@@ -184,6 +141,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
       if (displayFormat.getExt() == null) displayFormat.setExt(new HashMap<>());
       displayFormat.getExt().put("wmin", format.getWmin());
     }
+    displayFormat.setExt(putToExt(format::getWmin,displayFormat.getExt(),"wmin"));
 
     return displayFormat;
   }

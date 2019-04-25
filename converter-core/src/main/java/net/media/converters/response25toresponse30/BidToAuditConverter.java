@@ -27,6 +27,7 @@ import net.media.utils.Utils;
 import java.util.*;
 
 import static java.util.Objects.isNull;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** @author shiva.b */
 public class BidToAuditConverter implements Converter<Bid, Audit> {

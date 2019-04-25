@@ -34,6 +34,7 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.*;
 
 /** Created by rajat.go on 03/01/19. */
 public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPlacement> {
@@ -45,7 +46,6 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     extraFieldsInExt.add("skipafter");
     extraFieldsInExt.add("playmethod");
     extraFieldsInExt.add("playend");
-    extraFieldsInExt.add("delay");
     extraFieldsInExt.add("qty");
   }
   @Override
@@ -71,12 +71,7 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     audioPlacement.setComptype(Utils.copyCollection(audio.getCompaniontype(), config));
     if(nonNull(audio.getExt()))
       audioPlacement.setExt(new HashMap<>(audio.getExt()));
-    if (nonNull(audio.getStitched())) {
-      if (isNull(audioPlacement.getExt())) {
-        audioPlacement.setExt(new HashMap<>());
-      }
-      audioPlacement.getExt().put("stitched", audio.getStitched());
-    }
+    audioPlacement.setExt(putToExt(audio::getStitched, audioPlacement.getExt(), "stitched"));
     audioPlacement.setComp(
         bannerListToCompanionList(audio.getCompanionad(), config, converterProvider));
     audioPlacement.setMaxdur(audio.getMaxduration());
@@ -115,29 +110,10 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
 
   private void audioToAudioPlacementAfterMapping(Audio audio, AudioPlacement audioPlacement)
       throws OpenRtbConverterException {
-    try {
-      if (nonNull(audio) && nonNull(audio.getExt()) && nonNull(audioPlacement)) {
-        if (audio.getExt().containsKey("skip")) {
-          audioPlacement.setSkip((Integer) audio.getExt().get("skip"));
-        }
-        if (audio.getExt().containsKey("skipmin")) {
-          audioPlacement.setSkipmin((Integer) audio.getExt().get("skipmin"));
-        }
-        if (audio.getExt().containsKey("skipafter")) {
-          audioPlacement.setSkipafter((Integer) audio.getExt().get("skipafter"));
-        }
-        if (audio.getExt().containsKey("playmethod")) {
-          audioPlacement.setPlaymethod((Integer) audio.getExt().get("playmethod"));
-        }
-        if (audio.getExt().containsKey("playend")) {
-          audioPlacement.setPlayend((Integer) audio.getExt().get("playend"));
-        }
-        if (audio.getExt().containsKey("delay")) {
-          audioPlacement.setSkip((Integer) audio.getExt().get("delay"));
-        }
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Audio", e);
-    }
+    fetchFromExt(audioPlacement::setSkip, audio.getExt(), "skip", "Error in setting skip from Audio.ext");
+    fetchFromExt(audioPlacement::setSkipmin, audio.getExt(), "skipmin", "Error in setting skipmin from Audio.ext");
+    fetchFromExt(audioPlacement::setSkipafter, audio.getExt(), "skipafter", "Error in setting skipafter from Audio.ext");
+    fetchFromExt(audioPlacement::setPlaymethod, audio.getExt(), "playmethod", "Error in setting playmethod from Audio.ext");
+    fetchFromExt(audioPlacement::setPlayend, audio.getExt(), "playend", "Error in setting playend from Audio.ext");
   }
 }

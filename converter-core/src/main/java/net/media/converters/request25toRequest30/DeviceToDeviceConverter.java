@@ -31,6 +31,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.putToExt;
+import static net.media.utils.ExtUtils.removeFromExt;
+
 public class DeviceToDeviceConverter implements Converter<Device, net.media.openrtb3.Device> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
@@ -91,24 +95,11 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    if (source.getFlashver() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("flashver", source.getFlashver());
-    }
+    target.setExt(putToExt(source::getFlashver, target.getExt(), "flashver"));
     if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey("xff")) {
-        target.setXff((String) source.getExt().get("xff"));
-      }
-      if (source.getExt().containsKey("iptr")) {
-        target.setIptr((Integer) source.getExt().get("iptr"));
-      }
-      if (source.getExt().containsKey("mccmncsim")) {
-        target.setMccmncsim((String) source.getExt().get("mccmncsim"));
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Device", e);
-    }
+    fetchFromExt(target::setXff, source.getExt(), "xff", "error while mapping xff for Device");
+    fetchFromExt(target::setIptr, source.getExt(), "iptr", "error while mapping iptr for Device");
+    fetchFromExt(target::setMccmncsim, source.getExt(), "mccmncsim", "error while mapping mccmncsim for Device");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

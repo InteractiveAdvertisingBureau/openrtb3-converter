@@ -23,6 +23,7 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.openrtb3.Source;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
@@ -30,7 +31,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class BannerToDisplayPlacementConverter
@@ -51,20 +53,8 @@ public class BannerToDisplayPlacementConverter
     if (banner == null || displayPlacement == null) {
       return;
     }
-    if (nonNull(banner.getExt())) {
-      if (banner.getExt().containsKey("vcm")) {
-        banner.setVcm((Integer) banner.getExt().get("vcm"));
-      }
-      if (banner.getExt().containsKey("format")) {
-        try {
-          banner.setFormat(Utils.getMapper().convertValue(banner.getExt().get("format"),
-            javaTypeForFormatCollection));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting banner.format from banner.ext" + ".format", e);
-        }
-      }
-    }
+    fetchFromExt(banner::setVcm, banner.getExt(), "vcm", "Error in setting vcm from banner.ext.vcm");
+    fetchFromExt(banner::setFormat, banner.getExt(), "format", "Error in setting banner.format from banner.ext" + ".format", javaTypeForFormatCollection);
     super.enhance(banner, displayPlacement, config, converterProvider);
     removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
   }

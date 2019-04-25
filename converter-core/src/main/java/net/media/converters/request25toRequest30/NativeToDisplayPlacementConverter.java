@@ -37,6 +37,9 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchCollectionFromExt;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/01/19. */
 public class NativeToDisplayPlacementConverter implements Converter<Native, DisplayPlacement> {
@@ -99,21 +102,8 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
           }
           displayPlacement.getExt().putAll(nat.getExt());
         }
-        if (nonNull(nat.getExt())) {
-          if (nat.getExt().containsKey("ctype")) {
-            try {
-              displayPlacement.setCtype(Utils.copyCollection((Collection<Integer>) nat.getExt().get
-                ("ctype"), config));
-            } catch (ClassCastException e) {
-              throw new OpenRtbConverterException("error while typecasting ext for Native", e);
-            }
-          }
-        }
-        if (nonNull(nat.getExt())) {
-          if (nat.getExt().containsKey("priv")) {
-            displayPlacement.setPriv((Integer) nat.getExt().get("priv"));
-          }
-        }
+        fetchCollectionFromExt(displayPlacement::setCtype, nat.getExt(), "ctype", "error while mapping ctype from Native", config);
+        fetchFromExt(displayPlacement::setPriv, nat.getExt(), "priv", "error while mapping priv from Native");
       }
     }
     removeFromExt(displayPlacement.getExt(), extraFieldsInExt);

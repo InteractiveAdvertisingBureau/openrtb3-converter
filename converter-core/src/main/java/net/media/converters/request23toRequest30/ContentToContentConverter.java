@@ -32,6 +32,8 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class ContentToContentConverter
@@ -56,51 +58,12 @@ public class ContentToContentConverter
     if (source == null || target == null) {
       return;
     }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("artist")) {
-        try {
-          source.setArtist((String) source.getExt().get("artist"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting artist from content.ext.artist", e);
-        }
-      }
-      if (source.getExt().containsKey("genre")) {
-        try {
-          source.setGenre((String) source.getExt().get("genre"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting genre from content.ext.genre", e);
-        }
-      }
-      if (source.getExt().containsKey("album")) {
-        try {
-          source.setAlbum((String) source.getExt().get("album"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting album from content.ext.album", e);
-        }
-      }
-      if (source.getExt().containsKey("isrc")) {
-        try {
-          source.setIsrc((String) source.getExt().get("isrc"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting isrc from content.ext.isrc", e);
-        }
-      }
-      if (source.getExt().containsKey("prodq")) {
-        try {
-          source.setProdq((Integer) source.getExt().get("prodq"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting prodq from content.ext.prodq", e);
-        }
-      }
-      if (source.getExt().containsKey("data")) {
-        try {
-          source.setData(Utils.getMapper().convertValue(source.getExt().get("data"),
-            javaTypeForDataCollection));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting data from content.ext.data", e);
-        }
-      }
-    }
+    fetchFromExt(source::setArtist, source.getExt(), "artist", "Error in setting artist from content.ext.artist");
+    fetchFromExt(source::setGenre, source.getExt(), "genre", "Error in setting genre from content.ext.genre");
+    fetchFromExt(source::setAlbum, source.getExt(), "album", "Error in setting album from content.ext.album");
+    fetchFromExt(source::setIsrc, source.getExt(), "isrc", "Error in setting isrc from content.ext.isrc");
+    fetchFromExt(source::setProdq, source.getExt(), "prodq", "Error in setting prodq from content.ext.prodq");
+    fetchFromExt(source::setData, source.getExt(), "data", "Error in setting data from content.ext.data", javaTypeForDataCollection);
     super.enhance(source, target, config, converterProvider);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

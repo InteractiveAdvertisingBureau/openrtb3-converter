@@ -28,6 +28,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.putToExt;
+import static net.media.utils.ExtUtils.removeFromExt;
+
 /** Created by rajat.go on 03/01/19. */
 public class SourceToSourceConverter implements Converter<Source, net.media.openrtb3.Source> {
 
@@ -65,17 +69,13 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    if (source.getFd() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("fd", source.getFd());
-    }
-    if (source.getExt() == null) return;
+    target.setExt(putToExt(source::getFd, target.getExt(), "fd"));
     try {
-      target.setTs((Integer) source.getExt().get("ts"));
-      target.setDs((String) source.getExt().get("ds"));
-      target.setDsmap((String) source.getExt().get("dsmap"));
-      target.setCert((String) source.getExt().get("cert"));
-      target.setDigest((String) source.getExt().get("digest"));
+      fetchFromExt(target::setTs, source.getExt(), "ts", "error while mapping ts from source");
+      fetchFromExt(target::setDs, source.getExt(), "ds", "error while mapping ds from source");
+      fetchFromExt(target::setDsmap, source.getExt(), "dsmap", "error while mapping dsmap from source");
+      fetchFromExt(target::setCert, source.getExt(), "cert", "error while mapping cert from source");
+      fetchFromExt(target::setDigest, source.getExt(), "digest", "error while mapping digest from source");
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Source", e);
     }

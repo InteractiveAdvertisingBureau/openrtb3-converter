@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class DeviceToDeviceConverter
@@ -41,15 +43,7 @@ public class DeviceToDeviceConverter
     if (source == null || target == null) {
       return;
     }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("mccmnc")) {
-        try {
-          source.setMccmnc((String) source.getExt().get("mccmnc"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting mccmnc from device.ext.mccmnc", e);
-        }
-      }
-    }
+    fetchFromExt(source::setMccmnc, source.getExt(), "mccmnc", "Error in setting mccmnc from device.ext.mccmnc");
     super.enhance(source, target, config, converterProvider);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

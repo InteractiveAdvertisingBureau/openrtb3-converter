@@ -26,6 +26,7 @@ import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.*;
 import net.media.openrtb25.request.Segment;
 import net.media.openrtb3.*;
+import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
@@ -33,6 +34,7 @@ import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.*;
 
 /** Created by rajat.go on 03/01/19. */
 public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat> {
@@ -98,33 +100,10 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     Map<String, Object> map = asset.getExt();
     if (map != null) {
       assetFormat.setExt(new HashMap<>(map));
-      try {
-        if (assetFormat.getExt().containsKey("clickbrowser")) {
-          assetFormat.getVideo().setClktype((Integer) assetFormat.getExt().get("clickbrowser"));
-        }
-      } catch (Exception e) {
-        throw new OpenRtbConverterException(
-            "Error in setting clktype from asset.ext.clickbrowser", e);
-      }
     }
-
-    if (assetFormat.getVideo().getExt().containsKey("companionad")) {
-      try {
-        Collection<Banner> banners =
-            Utils.getMapper()
-                .convertValue(
-                    assetFormat.getVideo().getExt().get("companionad"),
-                    javaTypeForBannerCollection);
-        ArrayList<Companion> companionArrayList = new ArrayList<>();
-        Converter<Banner, Companion> bannerCompanionConverter =
-            converterProvider.fetch(new Conversion<>(Banner.class, Companion.class));
-        for (Banner banner : banners) {
-          companionArrayList.add(bannerCompanionConverter.map(banner, config, converterProvider));
-        }
-        assetFormat.getVideo().setComp(companionArrayList);
-      } catch (Exception e) {
-        throw new OpenRtbConverterException("Error in setting creating companion", e);
-      }
+    if(nonNull(assetFormat.getVideo())) {
+      fetchFromExt(assetFormat.getVideo()::setClktype, assetFormat.getExt(), "clickbrowser", "Error in setting clktype from asset.ext.clickbrowser");
+      fetchCollectionFromExt(assetFormat.getVideo()::setComp, assetFormat.getVideo().getExt(), "companionad", "Error in setting creating companion", converterProvider.fetch(new Conversion<>(Banner.class, Companion.class)), config, converterProvider, javaTypeForBannerCollection);
     }
     removeFromExt(assetFormat.getExt(), extraFieldsInExt);
     removeFromExt(assetFormat.getVideo().getExt(), extraFieldsInVideoExt);
@@ -161,30 +140,12 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     imageAssetFormat.setH(nativeImage.getH());
     imageAssetFormat.setWmin(nativeImage.getWmin());
     imageAssetFormat.setHmin(nativeImage.getHmin());
-    if (nativeImage.getExt() != null) {
-      if (nativeImage.getExt().containsKey("wratio")) {
-        try {
-          imageAssetFormat.setWratio((Integer) nativeImage.getExt().get("wratio"));
-          nativeImage.getExt().remove("wratio");
-
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException("exception in converting image asset format", e);
-        }
-      }
-      if (nativeImage.getExt().containsKey("hratio")) {
-        try {
-          imageAssetFormat.setHratio((Integer) nativeImage.getExt().get("hratio"));
-          nativeImage.getExt().remove("hratio");
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException("exception in converting image asset format", e);
-        }
-      }
-    }
+    fetchFromExt(imageAssetFormat::setWratio, nativeImage.getExt(), "wratio", "exception in converting image asset format");
+    fetchFromExt(imageAssetFormat::setHratio, nativeImage.getExt(), "hratio", "exception in converting image asset format");
     Map<String, Object> map = nativeImage.getExt();
     if (map != null) {
       imageAssetFormat.setExt(new HashMap<>(map));
     }
-
     return imageAssetFormat;
   }
 
@@ -202,85 +163,27 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     videoPlacement.setMime(Utils.copyCollection(nativeVideo.getMimes(), config));
     if(nonNull(nativeVideo.getExt()))
       videoPlacement.setExt(new HashMap<>(nativeVideo.getExt()));
-    try {
-      if (nativeVideo.getExt() != null) {
-        if (nativeVideo.getExt().containsKey("ptype")) {
-          videoPlacement.setPtype((Integer) nativeVideo.getExt().get("ptype"));
-        }
-        if (nativeVideo.getExt().containsKey("pos")) {
-          videoPlacement.setPos((Integer) nativeVideo.getExt().get("pos"));
-        }
-        if (nativeVideo.getExt().containsKey("startdelay")) {
-          videoPlacement.setDelay((Integer) nativeVideo.getExt().get("startdelay"));
-        }
-        if (nativeVideo.getExt().containsKey("skip")) {
-          videoPlacement.setSkip((Integer) nativeVideo.getExt().get("skip"));
-        }
-        if (nativeVideo.getExt().containsKey("skipmin")) {
-          videoPlacement.setSkipmin((Integer) nativeVideo.getExt().get("skipmin"));
-        }
-        if (nativeVideo.getExt().containsKey("skipafter")) {
-          videoPlacement.setSkipafter((Integer) nativeVideo.getExt().get("skipafter"));
-        }
-        if (nativeVideo.getExt().containsKey("playbackmethod")) {
-          videoPlacement.setPlaymethod(
-              ((List<Integer>) nativeVideo.getExt().get("playbackmethod")).get(0));
-        }
-        if (nativeVideo.getExt().containsKey("api")) {
-          videoPlacement.setApi((List<Integer>) nativeVideo.getExt().get("api"));
-        }
-        if (nativeVideo.getExt().containsKey("w")) {
-          videoPlacement.setW((Integer) nativeVideo.getExt().get("w"));
-        }
-        if (nativeVideo.getExt().containsKey("h")) {
-          videoPlacement.setH((Integer) nativeVideo.getExt().get("h"));
-        }
-        if (nativeVideo.getExt().containsKey("unit")) {
-          videoPlacement.setUnit((Integer) nativeVideo.getExt().get("unit"));
-        }
-        if (nativeVideo.getExt().containsKey("maxextended")) {
-          videoPlacement.setMaxext((Integer) nativeVideo.getExt().get("maxextended"));
-        }
-        if (nativeVideo.getExt().containsKey("minbitrate")) {
-          videoPlacement.setMinbitr((Integer) nativeVideo.getExt().get("minbitrate"));
-        }
-        if (nativeVideo.getExt().containsKey("maxbitrate")) {
-          videoPlacement.setMaxbitr((Integer) nativeVideo.getExt().get("maxbitrate"));
-        }
-        if (nativeVideo.getExt().containsKey("delivery")) {
-          videoPlacement.setDelivery((List<Integer>) nativeVideo.getExt().get("delivery"));
-        }
-        if (nativeVideo.getExt().containsKey("maxseq")) {
-          videoPlacement.setMaxseq((Integer) nativeVideo.getExt().get("maxseq"));
-        }
-        if (nativeVideo.getExt().containsKey("linearity")) {
-          videoPlacement.setLinear((Integer) nativeVideo.getExt().get("linearity"));
-        }
-        if (nativeVideo.getExt().containsKey("boxingallowed")) {
-          videoPlacement.setBoxing((Integer) nativeVideo.getExt().get("boxingallowed"));
-        }
-        if (nativeVideo.getExt().containsKey("playbackend")) {
-          videoPlacement.setPlayend((Integer) nativeVideo.getExt().get("playbackend"));
-        }
-        if (nativeVideo.getExt().containsKey("companiontype")) {
-          videoPlacement.setComptype((List<Integer>) nativeVideo.getExt().get("companiontype"));
-        }
-
-        /*if(nativeVideo.getExt().containsKey("companionad")) {
-          Collection<Companion> companionads = Utils.getMapper().convertValue(nativeVideo.getExt().get("companionad"),
-            javaTypeForCompanionCollection);
-          videoPlacement.setComp(companionads);
-          videoPlacement.getExt().remove("companionad");
-        }*/
-
-        videoPlacement.setComp(new ArrayList<>());
-      }
-
-    } catch (Exception e) {
-      throw new OpenRtbConverterException(
-          "Error in setting videoplacement values from asset.veideo.ext", e);
-    }
-
+    fetchFromExt(videoPlacement::setPtype, nativeVideo.getExt(), "ptype", "Error in setting ptype from asset.video.ext");
+    fetchFromExt(videoPlacement::setPos, nativeVideo.getExt(), "pos", "Error in setting pos from asset.video.ext");
+    fetchFromExt(videoPlacement::setDelay, nativeVideo.getExt(), "startdelay", "Error in setting startdelay from asset.video.ext");
+    fetchFromExt(videoPlacement::setSkip, nativeVideo.getExt(), "skip", "Error in setting skip from asset.video.ext");
+    fetchFromExt(videoPlacement::setSkipmin, nativeVideo.getExt(), "skipmin", "Error in setting skipmin from asset.video.ext");
+    fetchFromExt(videoPlacement::setSkipafter, nativeVideo.getExt(), "skipafter", "Error in setting skipafter from asset.video.ext");
+    fetchElementFromListInExt(videoPlacement::setPlaymethod, nativeVideo.getExt(), "playbackmethod", "Error in setting playbackmethod from asset.video.ext");
+    fetchFromExt(videoPlacement::setApi, nativeVideo.getExt(), "api", "Error in setting api from asset.video.ext");
+    fetchFromExt(videoPlacement::setW, nativeVideo.getExt(), "w", "Error in setting w from asset.video.ext");
+    fetchFromExt(videoPlacement::setH, nativeVideo.getExt(), "h", "Error in setting h from asset.video.ext");
+    fetchFromExt(videoPlacement::setUnit, nativeVideo.getExt(), "unit", "Error in setting unit from asset.video.ext");
+    fetchFromExt(videoPlacement::setMaxext, nativeVideo.getExt(), "maxextended", "Error in setting maxextended from asset.video.ext");
+    fetchFromExt(videoPlacement::setMinbitr, nativeVideo.getExt(), "minbitrate", "Error in setting minbitrate from asset.video.ext");
+    fetchFromExt(videoPlacement::setMaxbitr, nativeVideo.getExt(), "maxbitrate", "Error in setting maxbitrate from asset.video.ext");
+    fetchFromExt(videoPlacement::setDelivery, nativeVideo.getExt(), "delivery", "Error in setting delivery from asset.video.ext");
+    fetchFromExt(videoPlacement::setMaxseq, nativeVideo.getExt(), "maxseq", "Error in setting maxseq from asset.video.ext");
+    fetchFromExt(videoPlacement::setLinear, nativeVideo.getExt(), "linearity", "Error in setting linearity from asset.video.ext");
+    fetchFromExt(videoPlacement::setBoxing, nativeVideo.getExt(), "boxingallowed", "Error in setting boxingallowed from asset.video.ext");
+    fetchFromExt(videoPlacement::setPlayend, nativeVideo.getExt(), "playbackend", "Error in setting playbackend from asset.video.ext");
+    fetchFromExt(videoPlacement::setComptype, nativeVideo.getExt(), "companiontype", "Error in setting companiontype from asset.video.ext");
+    videoPlacement.setComp(new ArrayList<>());
     return videoPlacement;
   }
 

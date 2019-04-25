@@ -25,6 +25,7 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 public class DealToDealConverter implements Converter<Deal, net.media.openrtb25.request.Deal> {
   @Override
@@ -55,6 +56,7 @@ public class DealToDealConverter implements Converter<Deal, net.media.openrtb25.
     deal1.setAt(deal.getAt());
     deal1.setWseat(Utils.copyCollection(deal.getWseat(), config));
     deal1.setWadomain(Utils.copyCollection(deal.getWadomain(), config));
-    deal1.setExt(new HashMap<>(deal.getExt()));
+    if(nonNull(deal.getExt()))
+      deal1.setExt(new HashMap<>(deal.getExt()));
   }
 }

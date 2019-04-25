@@ -28,6 +28,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
+
 public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.request.Geo> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
@@ -67,15 +71,9 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.req
     target.setUtcoffset(source.getUtcoffset());
     target.setLastfix(source.getLastfix());
     Map<String, Object> map = source.getExt();
-    if (map == null) return;
-    if (source.getExt().containsKey("regionfips104")) {
-      try {
-        target.setRegionfips104((String) source.getExt().get("regionfips104"));
-      } catch (ClassCastException e) {
-        throw new OpenRtbConverterException("error while typecasting ext for Geo", e);
-      }
-    }
-    target.setExt(new HashMap<>(map));
+    fetchFromExt(target::setRegionfips104, source.getExt(), "regionfips104", "error while mapping regionfips104 from geo.ext");
+    if(nonNull(map))
+      target.setExt(new HashMap<>(map));
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

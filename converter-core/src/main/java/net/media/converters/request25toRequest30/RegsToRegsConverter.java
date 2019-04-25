@@ -28,6 +28,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
+
 public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.Regs> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
@@ -59,14 +62,7 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.R
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey("gdpr")) {
-        target.setGdpr((Integer) source.getExt().get("gdpr"));
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Regs", e);
-    }
+    fetchFromExt(target::setGdpr, source.getExt(), "gdpr", "error while mapping gdpr from Regs");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

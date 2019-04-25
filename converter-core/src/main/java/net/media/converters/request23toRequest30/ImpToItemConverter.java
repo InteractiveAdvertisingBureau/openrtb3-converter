@@ -31,6 +31,8 @@ import java.util.Collection;
 import java.util.List;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class ImpToItemConverter
@@ -51,7 +53,10 @@ public class ImpToItemConverter
     if (imp == null || item == null) {
       return;
     }
-    if (nonNull(imp.getExt())) {
+    fetchFromExt(imp::setMetric, imp.getExt(), "metric", "Error in setting metric from imp.ext.metric", javaTypeForMetricCollection);
+    fetchFromExt(imp::setClickbrowser, imp.getExt(), "clickbrowser", "Error in setting clickbrowser from imp.ext.clickbrowser");
+    fetchFromExt(imp::setExp, imp.getExt(), "exp", "Error in setting exp from imp.ext.exp");
+    /*if (nonNull(imp.getExt())) {
       if (imp.getExt().containsKey("metric")) {
         try {
           imp.setMetric(Utils.getMapper().convertValue(imp.getExt().get("metric"),
@@ -75,7 +80,7 @@ public class ImpToItemConverter
           throw new OpenRtbConverterException("Error in setting exp from imp.ext" + ".exp", e);
         }
       }
-    }
+    }*/
     super.enhance(imp, item, config, converterProvider);
     removeFromExt(item.getExt(), extraFieldsInExt);
   }

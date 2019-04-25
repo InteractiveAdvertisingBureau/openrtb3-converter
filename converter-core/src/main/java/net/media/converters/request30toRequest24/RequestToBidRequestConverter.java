@@ -26,6 +26,7 @@ import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class RequestToBidRequestConverter
@@ -38,26 +39,11 @@ public class RequestToBidRequestConverter
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    if (nonNull(target.getBseat())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("bseat", target.getBseat());
-      target.setBseat(null);
-    }
-    if (nonNull(target.getWlang())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("wlang", target.getWlang());
-      target.setWlang(null);
-    }
-    if (nonNull(target.getSource())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("source", target.getSource());
-      target.setSource(null);
-    }
+    target.setExt(putToExt(target::getBseat, target.getExt(), "bseat"));
+    target.setBseat(null);
+    target.setExt(putToExt(target::getWlang, target.getExt(), "wlang"));
+    target.setWlang(null);
+    target.setExt(putToExt(target::getSource, target.getExt(), "source"));
+    target.setSource(null);
   }
 }

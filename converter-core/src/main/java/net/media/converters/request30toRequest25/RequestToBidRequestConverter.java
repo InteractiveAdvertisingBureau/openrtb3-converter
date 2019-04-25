@@ -35,6 +35,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 public class RequestToBidRequestConverter implements Converter<Request, BidRequest2_X> {
 
@@ -123,17 +124,13 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
             Utils.copyCollection(source.getContext().getRestrictions().getBcat(), config));
         target.setBadv(
             Utils.copyCollection(source.getContext().getRestrictions().getBadv(), config));
-        if (source.getContext().getRestrictions().getCattax() != null) {
-          if (target.getExt() == null) target.setExt(new HashMap<>());
-          target.getExt().put("cattax", source.getContext().getRestrictions().getCattax());
-        }
-
+        target.setExt(putToExt(source.getContext().getRestrictions()::getCattax, target.getExt(), "cattax"));
         if (source.getContext().getRestrictions().getExt() != null) {
           if (target.getExt() == null) target.setExt(new HashMap<>());
           Restrictions restrictions = new Restrictions();
           restrictions.setCattax(null);
           restrictions.setExt(source.getContext().getRestrictions().getExt());
-          target.getExt().put("restrictions", restrictions);
+          target.setExt(putToExt(restrictions, target.getExt(), "restrictions"));
         }
       }
 
@@ -232,6 +229,6 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     if (source.getContext().getDooh() == null) return;
 
     if (target.getExt() == null) target.setExt(new HashMap<>());
-    target.getExt().put("dooh", source.getContext().getDooh());
+    target.setExt(putToExt(source.getContext()::getDooh, target.getExt(), "dooh"));
   }
 }

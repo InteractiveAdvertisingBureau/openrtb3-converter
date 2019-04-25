@@ -31,6 +31,9 @@ import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.putToExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class AudioPlacementToAudioConverter implements Converter<AudioPlacement, Audio> {
 
@@ -76,14 +79,8 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     Map<String, Object> map = audioPlacement.getExt();
     if (map != null) {
       audio.setExt(new HashMap<>(map));
-      try {
-        if (map.containsKey("stitched")) {
-          audio.setStitched((Integer) map.get("stitched"));
-        }
-      } catch (ClassCastException e) {
-        throw new OpenRtbConverterException("error while typecasting ext for Audio", e);
-      }
     }
+    fetchFromExt(audio::setStitched, map, "stitched", "error while mapping stitched from audioplacement ext");
     audio.setCompanionad(
         companionListToBannerList(audioPlacement.getComp(), config, converterProvider));
     audioPlacementToAudioAfterMapping(audioPlacement, audio);
@@ -92,14 +89,11 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
 
   private void audioPlacementToAudioAfterMapping(AudioPlacement audioPlacement, Audio audio) {
     if (nonNull(audioPlacement) && nonNull(audioPlacement.getExt()) && nonNull(audio)) {
-      if (isNull(audio.getExt())) {
-        audio.setExt(new HashMap<>());
-      }
-      audio.getExt().put("skip", audioPlacement.getSkip());
-      audio.getExt().put("skipmin", audioPlacement.getSkipmin());
-      audio.getExt().put("skipafter", audioPlacement.getSkipafter());
-      audio.getExt().put("playmethod", audioPlacement.getPlaymethod());
-      audio.getExt().put("playend", audioPlacement.getPlayend());
+      audio.setExt(putToExt(audioPlacement::getSkip, audio.getExt(), "skip"));
+      audio.setExt(putToExt(audioPlacement::getSkipmin, audio.getExt(), "skipmin"));
+      audio.setExt(putToExt(audioPlacement::getSkipafter, audio.getExt(), "skipafter"));
+      audio.setExt(putToExt(audioPlacement::getPlaymethod, audio.getExt(), "playmethod"));
+      audio.setExt(putToExt(audioPlacement::getPlayend, audio.getExt(), "playend"));
     }
   }
 

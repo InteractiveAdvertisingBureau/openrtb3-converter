@@ -32,6 +32,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
+
 public class UserToUserConverter implements Converter<User, net.media.openrtb3.User> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
@@ -75,14 +78,7 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey("consent")) {
-        target.setConsent((String) source.getExt().get("consent"));
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for User", e);
-    }
+    fetchFromExt(target::setConsent, source.getExt(), "consent", "error while mapping consent from user");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

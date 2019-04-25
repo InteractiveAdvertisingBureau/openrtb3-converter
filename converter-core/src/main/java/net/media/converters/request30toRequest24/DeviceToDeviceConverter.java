@@ -25,6 +25,7 @@ import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class DeviceToDeviceConverter
@@ -40,12 +41,7 @@ public class DeviceToDeviceConverter
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    if (nonNull(target.getMccmnc())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("mccmnc", target.getMccmnc());
-      target.setMccmnc(null);
-    }
+    target.setExt(putToExt(target::getMccmnc, target.getExt(), "mccmnc"));
+    target.setMccmnc(null);
   }
 }

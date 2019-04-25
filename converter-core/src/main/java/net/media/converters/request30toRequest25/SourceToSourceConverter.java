@@ -28,6 +28,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.putToExt;
+import static net.media.utils.ExtUtils.removeFromExt;
+
 public class SourceToSourceConverter
     implements Converter<Source, net.media.openrtb25.request.Source> {
 
@@ -64,35 +68,12 @@ public class SourceToSourceConverter
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    if (source.getTs() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("ts", source.getTs());
-    }
-    if (source.getDs() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("ds", source.getDs());
-    }
-    if (source.getDsmap() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("dsmap", source.getDsmap());
-    }
-    if (source.getCert() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("cert", source.getCert());
-    }
-    if (source.getDigest() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("digest", source.getDigest());
-    }
-
-    if (source.getExt() == null) return;
-    if (source.getExt().containsKey("fd")) {
-      try {
-        target.setFd((Integer) source.getExt().get("fd"));
-      } catch (ClassCastException e) {
-        throw new OpenRtbConverterException("error while typecasting ext for Source", e);
-      }
-    }
+    target.setExt(putToExt(source::getTs, target.getExt(), "ts"));
+    target.setExt(putToExt(source::getDs, target.getExt(), "ds"));
+    target.setExt(putToExt(source::getDsmap, target.getExt(), "dsmap"));
+    target.setExt(putToExt(source::getCert, target.getExt(), "cert"));
+    target.setExt(putToExt(source::getDigest, target.getExt(), "digest"));
+    fetchFromExt(target::setFd, source.getExt(), "fd", "error while mapping fd from Source");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

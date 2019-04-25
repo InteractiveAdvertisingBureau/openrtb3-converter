@@ -30,6 +30,8 @@ import java.util.HashSet;
 import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.fetchExtFromFieldInExt;
+import static net.media.utils.ExtUtils.fetchFromExt;
 
 public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_X, Restrictions> {
   @Override
@@ -71,26 +73,9 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_
     if (battr.size() > 0) {
       target.setBattr(Utils.copyCollection(battr, config));
     }
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
     if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey("cattax")) {
-        target.setCattax((Integer) source.getExt().get("cattax"));
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
-      }
-      if (source.getExt().containsKey("restrictions")) {
-        try {
-          Map<String, Object> restrictions =
-              (Map<String, Object>) source.getExt().get("restrictions");
-          if (restrictions.containsKey("ext")) {
-            target.setExt((Map<String, Object>) restrictions.get("ext"));
-          }
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException("Error in converting pmp ext ", e);
-        }
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for BidRequest2_X", e);
-    }
+    fetchFromExt(target::setCattax, source.getExt(), "cattax", "error while typecasting ext for BidRequest2_X");
+    target.setExt(fetchExtFromFieldInExt(source.getExt(), "restrictions", "Error in mapping ext of restriction"));
   }
 }

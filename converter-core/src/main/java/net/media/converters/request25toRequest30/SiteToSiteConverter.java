@@ -32,6 +32,8 @@ import java.util.List;
 import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.Site> {
 
@@ -86,19 +88,9 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey("cattax")) {
-        target.setCattax((Integer) source.getExt().get("cattax"));
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
-      }
-      if (source.getExt().containsKey("amp")) {
-        target.setAmp((Integer) source.getExt().get("amp"));
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Site", e);
-    }
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
+    fetchFromExt(target::setCattax, source.getExt(), "cattax", "error while mapping cattax from site");
+    fetchFromExt(target::setAmp, source.getExt(), "amp", "error while mapping amp from site");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

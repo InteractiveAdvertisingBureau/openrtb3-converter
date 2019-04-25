@@ -29,6 +29,8 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.putToExt;
+
 public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.request.Site> {
 
   @Override
@@ -80,13 +82,7 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    if (source.getCattax() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("cattax", source.getCattax());
-    }
-    if (source.getAmp() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("amp", source.getAmp());
-    }
+    target.setExt(putToExt(source::getCattax, target.getExt(), "cattax"));
+    target.setExt(putToExt(source::getAmp, target.getExt(), "amp"));
   }
 }

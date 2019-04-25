@@ -26,6 +26,7 @@ import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class DisplayPlacementToBannerConverter
@@ -38,19 +39,9 @@ public class DisplayPlacementToBannerConverter
       return;
     }
     super.enhance(displayPlacement, banner, config, converterProvider);
-    if (nonNull(banner.getVcm())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put("vcm", banner.getVcm());
-      banner.setVcm(null);
-    }
-    if (nonNull(banner.getFormat())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put("format", banner.getFormat());
-      banner.setFormat(null);
-    }
+    banner.setExt(putToExt(banner::getVcm, banner.getExt(), "vcm"));
+    banner.setVcm(null);
+    banner.setExt(putToExt(banner::getFormat, banner.getExt(), "format"));
+    banner.setFormat(null);
   }
 }

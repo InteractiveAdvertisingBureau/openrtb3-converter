@@ -36,6 +36,7 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class Native30ToNative10Converter implements Converter<Native, NativeResponse> {
 

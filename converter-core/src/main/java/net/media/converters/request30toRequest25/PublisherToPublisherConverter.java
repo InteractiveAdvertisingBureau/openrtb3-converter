@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 public class PublisherToPublisherConverter
     implements Converter<Publisher, net.media.openrtb25.request.Publisher> {
@@ -58,9 +59,6 @@ public class PublisherToPublisherConverter
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    if (nonNull(source.getCattax())) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("cattax", source.getCattax());
-    }
+    target.setExt(putToExt(source::getCattax, target.getExt(), "cattax"));
   }
 }

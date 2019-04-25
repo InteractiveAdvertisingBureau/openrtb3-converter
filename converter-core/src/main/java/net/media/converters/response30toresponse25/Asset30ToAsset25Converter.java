@@ -31,6 +31,7 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse> {
 

@@ -26,6 +26,8 @@ import net.media.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.putToExt;
+
 public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo> {
   @Override
   public net.media.openrtb3.Geo map(Geo source, Config config, Provider converterProvider)
@@ -62,12 +64,6 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo>
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-
-    if (source.getRegionfips104() != null) {
-      if (target.getExt() == null) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("regionfips104", source.getRegionfips104());
-    }
+    target.setExt(putToExt(source::getRegionfips104, target.getExt(), "regionfips104"));
   }
 }

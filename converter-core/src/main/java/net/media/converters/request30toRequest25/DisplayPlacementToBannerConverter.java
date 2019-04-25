@@ -31,6 +31,7 @@ import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.*;
 
 public class DisplayPlacementToBannerConverter implements Converter<DisplayPlacement, Banner> {
 
@@ -98,85 +99,18 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     Map<String, Object> map = displayPlacement.getExt();
     if (map != null) {
       banner.setExt(new HashMap<>(map));
-      if (map.containsKey("btype")) {
-        try {
-          banner.setBtype(Utils.copyCollection((Collection<Integer>) map.get("btype"), config));
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (map.containsKey("id")) {
-        try {
-          banner.setId((String) map.get("id"));
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (map.containsKey("hmax")) {
-        try {
-          banner.setHmax((Integer) map.get("hmax"));
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (map.containsKey("wmax")) {
-        try {
-          banner.setWmax((Integer) map.get("wmax"));
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (map.containsKey("hmin")) {
-        try {
-          banner.setHmin((Integer) map.get("hmin"));
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (map.containsKey("wmin")) {
-        try {
-          banner.setWmin((Integer) map.get("wmin"));
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
+      fetchCollectionFromExt(banner::setBtype, map, "btype", "error while mapping btype from displayplacement.ext", config);
+      fetchFromExt(banner::setId, map, "id", "error while mapping id from displayplacement.ext");
+      fetchFromExt(banner::setHmax, map, "hmax", "error while mapping hmax from displayplacement.ext");
+      fetchFromExt(banner::setWmax, map, "wmax", "error while mapping wmax from displayplacement.ext");
+      fetchFromExt(banner::setHmin, map, "hmin", "error while mapping hmin from displayplacement.ext");
+      fetchFromExt(banner::setWmin, map, "wmin", "error while mapping wmin from displayplacement.ext");
     }
-    if (nonNull(displayPlacement.getUnit())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put("unit", displayPlacement.getUnit());
-    }
-    if (nonNull(displayPlacement.getPtype())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put("ptype", displayPlacement.getPtype());
-    }
-    if (nonNull(displayPlacement.getContext())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put("context", displayPlacement.getContext());
-    }
-    if (nonNull(displayPlacement.getCtype())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put("ctype", displayPlacement.getCtype());
-    }
-    if (nonNull(displayPlacement.getPriv())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put("priv", displayPlacement.getPriv());
-    }
+    banner.setExt(putToExt(displayPlacement::getUnit, banner.getExt(), "unit"));
+    banner.setExt(putToExt(displayPlacement::getPtype, banner.getExt(), "ptype"));
+    banner.setExt(putToExt(displayPlacement::getContext, banner.getExt(), "context"));
+    banner.setExt(putToExt(displayPlacement::getCtype, banner.getExt(), "ctype"));
+    banner.setExt(putToExt(displayPlacement::getPriv, banner.getExt(), "priv"));
     removeFromExt(banner.getExt(), extraFieldsInExt);
   }
 
@@ -209,14 +143,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     Map<String, Object> map = displayFormat.getExt();
     if (map != null) {
       format.setExt(new HashMap<>(map));
-      try {
-        if (map.containsKey("wmin")) {
-          format.setWmin((Integer) map.get("wmin"));
-          format.getExt().remove("wmin");
-        }
-      } catch (ClassCastException e) {
-        throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
-      }
+      fetchFromExt(format::setWmin, map, "wmin", "error while mapping wmin from displayformat.ext");
     }
     removeFromExt(format.getExt(), extraFieldsInFormatExt);
     return format;

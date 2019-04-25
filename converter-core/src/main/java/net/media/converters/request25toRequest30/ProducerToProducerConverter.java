@@ -29,6 +29,8 @@ import java.util.List;
 import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class ProducerToProducerConverter
     implements Converter<Producer, net.media.openrtb3.Producer> {
@@ -68,16 +70,9 @@ public class ProducerToProducerConverter
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
     if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey("cattax")) {
-        target.setCattax((Integer) source.getExt().get("cattax"));
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Producer", e);
-    }
+    fetchFromExt(target::setCattax, source.getExt(), "cattax", "error while mapping cattax from Producer");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

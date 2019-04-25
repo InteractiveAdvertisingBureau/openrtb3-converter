@@ -16,24 +16,19 @@
 
 package net.media.converters.request23toRequest30;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.JavaType;
-
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
-import net.media.openrtb25.request.Format;
 import net.media.openrtb25.request.Source;
 import net.media.openrtb3.Request;
 import net.media.utils.Provider;
 import net.media.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class BidRequestToRequestConverter
@@ -53,39 +48,10 @@ public class BidRequestToRequestConverter
     if (source == null || target == null) {
       return;
     }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("bseat")) {
-        try {
-          source.setBseat((Collection<String>) source.getExt().get("bseat"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting bseat from bidRequest.ext.bseat", e);
-        }
-      }
-      if (source.getExt().containsKey("wlang")) {
-        try {
-          source.setWlang((Collection<String>) source.getExt().get("wlang"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting wlang from bidRequest.ext.wlang", e);
-        }
-      }
-      if (source.getExt().containsKey("source")) {
-        try {
-          source.setSource(Utils.getMapper().convertValue(source.getExt().get("source"),Source.class));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting source from bidRequest.ext.source", e);
-        }
-      }
-      if (source.getExt().containsKey("bapp")) {
-        try {
-          source.setBapp((Collection<String>) source.getExt().get("bapp"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting bapp from bidRequest.ext.bapp", e);
-        }
-      }
-    }
+    fetchFromExt(source::setBseat, source.getExt(), "bseat", "Error in setting bseat from bidRequest.ext.bseat");
+    fetchFromExt(source::setWlang, source.getExt(), "wlang", "Error in setting wlang from bidRequest.ext.wlang");
+    fetchFromExt(source::setSource, source.getExt(), "source", "Error in setting source from bidRequest.ext.source", Source.class);
+    fetchFromExt(source::setBapp, source.getExt(), "bapp", "Error in setting bapp from bidRequest.ext.bapp");
     super.enhance(source, target, config, converterProvider);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

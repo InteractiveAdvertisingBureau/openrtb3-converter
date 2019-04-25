@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class GeoToGeoConverter extends net.media.converters.request25toRequest30.GeoToGeoConverter {
@@ -42,30 +44,9 @@ public class GeoToGeoConverter extends net.media.converters.request25toRequest30
     if (source == null || target == null) {
       return;
     }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("accuracy")) {
-        try {
-          source.setAccuracy((Integer) source.getExt().get("accuracy"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting accuracy from geo.ext.accuracy", e);
-        }
-      }
-      if (source.getExt().containsKey("lastfix")) {
-        try {
-          source.setLastfix((Integer) source.getExt().get("lastfix"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting lastfix from geo.ext.lastfix", e);
-        }
-      }
-      if (source.getExt().containsKey("ipservice")) {
-        try {
-          source.setIpservice((Integer) source.getExt().get("ipservice"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting ipservice from geo.ext.ipservice", e);
-        }
-      }
-    }
+    fetchFromExt(source::setAccuracy, source.getExt(), "accuracy", "Error in setting accuracy from geo.ext.accuracy");
+    fetchFromExt(source::setLastfix, source.getExt(), "lastfix", "Error in setting lastfix from geo.ext.lastfix");
+    fetchFromExt(source::setIpservice, source.getExt(), "ipservice", "Error in setting ipservice from geo.ext.ipservice");
     super.enhance(source, target, config, converterProvider);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

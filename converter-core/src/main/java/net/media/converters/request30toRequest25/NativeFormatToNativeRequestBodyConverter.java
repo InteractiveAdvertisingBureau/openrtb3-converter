@@ -34,6 +34,8 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class NativeFormatToNativeRequestBodyConverter
     implements Converter<NativeFormat, NativeRequestBody> {
@@ -67,41 +69,10 @@ public class NativeFormatToNativeRequestBodyConverter
     if (isNull(nativeFormat) || isNull(nativeRequestBody)) {
       return;
     }
-    if (nonNull(nativeFormat.getExt())) {
-      if (nativeFormat.getExt().containsKey("contextsubtype")) {
-        try {
-          nativeRequestBody.setContextsubtype(
-              (Integer) nativeFormat.getExt().get("contextsubtype"));
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (nativeFormat.getExt().containsKey("adunit")) {
-        try {
-          nativeRequestBody.setAdunit((Integer) nativeFormat.getExt().get("adunit"));
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (nativeFormat.getExt().containsKey("layout")) {
-        try {
-          nativeRequestBody.setLayout((Integer) nativeFormat.getExt().get("layout"));
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (nativeFormat.getExt().containsKey("ver")) {
-        try {
-          nativeRequestBody.setVer((String) nativeFormat.getExt().get("ver"));
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-    }
+    fetchFromExt(nativeRequestBody::setContextsubtype, nativeFormat.getExt(), "contextsubtype", "error while mapping ext for DisplayPlacement");
+    fetchFromExt(nativeRequestBody::setAdunit, nativeFormat.getExt(), "adunit", "error while mapping ext for DisplayPlacement");
+    fetchFromExt(nativeRequestBody::setLayout, nativeFormat.getExt(), "layout", "error while mapping ext for DisplayPlacement");
+    fetchFromExt(nativeRequestBody::setVer, nativeFormat.getExt(), "ver", "error while mapping ext for DisplayPlacement");
     nativeRequestBody.setExt(new HashMap<>(nativeFormat.getExt()));
     Converter<AssetFormat, Asset> assetFormatAssetConverter =
         converterProvider.fetch(new Conversion<>(AssetFormat.class, Asset.class));

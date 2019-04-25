@@ -35,6 +35,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
+
 /** Created by rajat.go on 03/01/19. */
 public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Request> {
 
@@ -123,15 +126,8 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
     }
     if (target.getExt() == null) return;
     if (source.getExt() == null) return;
-    if (source.getExt().containsKey("dooh")) {
-      if (target.getContext() == null) target.setContext(new Context());
-      try {
-        target.getContext().setDooh(Utils.getMapper().convertValue(source.getExt().get("dooh"),
-          Dooh.class));
-      } catch (ClassCastException e) {
-        throw new OpenRtbConverterException("error while typecasting ext for BidRequest2_X", e);
-      }
-    }
+    if (target.getContext() == null) target.setContext(new Context());
+    fetchFromExt(target.getContext()::setDooh, source.getExt(), "dooh", "error while typecasting ext for BidRequest2_X", Dooh.class);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 

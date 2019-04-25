@@ -35,6 +35,8 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/01/19. */
 public class VideoToVideoPlacementConverter implements Converter<Video, VideoPlacement> {
@@ -99,19 +101,9 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
 
   private void videoToVideoPlacementAfterMapping(
       Video video, Config config, VideoPlacement videoPlacement) throws OpenRtbConverterException {
-    try {
-      if (nonNull(video) && nonNull(video.getExt()) && nonNull(videoPlacement)) {
-        videoPlacement.setExt(new HashMap<>(video.getExt()));
-        if (video.getExt().containsKey("unit")) {
-          videoPlacement.setUnit((Integer) video.getExt().get("unit"));
-        }
-        if (video.getExt().containsKey("maxseq")) {
-          videoPlacement.setMaxseq((Integer) video.getExt().get("maxseq"));
-        }
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Video", e);
-    }
+    videoPlacement.setExt(new HashMap<>(video.getExt()));
+    fetchFromExt(videoPlacement::setUnit, video.getExt(), "unit", "error while mapping unit from Video");
+    fetchFromExt(videoPlacement::setMaxseq, video.getExt(), "maxseq", "error while mapping maxseq from Video");
     removeFromExt(videoPlacement.getExt(), extraFieldsInExt);
   }
 }
