@@ -165,7 +165,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     nativeVideo.getExt().put(CommonConstants.DELIVERY, videoPlacement.getDelivery());
     nativeVideo.getExt().put(CommonConstants.MAXSEQ, videoPlacement.getMaxseq());
     nativeVideo.getExt().put(CommonConstants.LINEARITY, videoPlacement.getLinear());
-    nativeVideo.getExt().put("companiontype", videoPlacement.getComptype());
+    nativeVideo.getExt().put(CommonConstants.COMPANIONTYPE, videoPlacement.getComptype());
 
     return nativeVideo;
   }

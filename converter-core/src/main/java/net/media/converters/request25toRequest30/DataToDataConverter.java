@@ -22,7 +22,7 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Data;
 import net.media.openrtb3.Segment;
-import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CollectionUtils;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
@@ -55,7 +55,7 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb3.D
     target.setId(source.getId());
     target.setName(source.getName());
     target.setSegment(
-        CollectionToCollectionConverter.convert(
+        CollectionUtils.convert(
             source.getSegment(), segmentSegmentConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {

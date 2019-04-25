@@ -23,7 +23,6 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Producer;
 import net.media.openrtb3.Data;
-import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
@@ -86,7 +85,7 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     target.setProducer(
         producerProducerConverter.map(source.getProducer(), config, converterProvider));
     target.setData(
-        CollectionToCollectionConverter.convert(
+        CollectionUtils.convert(
             source.getData(), dataDataConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {

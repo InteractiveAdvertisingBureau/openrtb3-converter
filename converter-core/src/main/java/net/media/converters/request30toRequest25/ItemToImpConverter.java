@@ -28,7 +28,6 @@ import net.media.openrtb25.request.Metric;
 import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.*;
-import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
@@ -173,7 +172,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     Pmp pmp = new Pmp();
 
     pmp.setDeals(
-        CollectionToCollectionConverter.convert(
+        CollectionUtils.convert(
             item.getDeal(), dealDealConverter, config, converterProvider));
     pmp.setPrivate_auction(item.getPriv());
     if (item.getExt() != null) {

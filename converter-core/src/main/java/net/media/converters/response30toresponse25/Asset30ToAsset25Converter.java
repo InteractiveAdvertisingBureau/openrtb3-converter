@@ -95,7 +95,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     if (isNull(nativeVideo.getExt())) {
       nativeVideo.setExt(new HashMap<>());
     }
-    nativeVideo.getExt().put("curl", videoAsset.getCurl());
+    nativeVideo.getExt().put(CommonConstants.CURL, videoAsset.getCurl());
     return nativeVideo;
   }
 

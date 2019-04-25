@@ -88,7 +88,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
         Collection<Banner> banners =
             JacksonObjectMapperUtils.getMapper()
                 .convertValue(
-                    assetFormat.getVideo().getExt().get("companionad"),
+                    assetFormat.getVideo().getExt().get(CommonConstants.COMPANIONAD),
                     javaTypeForBannerCollection);
         ArrayList<Companion> companionArrayList = new ArrayList<>();
         Converter<Banner, Companion> bannerCompanionConverter =
@@ -97,7 +97,7 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
           companionArrayList.add(bannerCompanionConverter.map(banner, config, converterProvider));
         }
         assetFormat.getVideo().setComp(companionArrayList);
-        assetFormat.getVideo().getExt().remove("companionad");
+        assetFormat.getVideo().getExt().remove(CommonConstants.COMPANIONAD);
       } catch (Exception e) {
         throw new OpenRtbConverterException("Error in setting creating companion", e);
       }
@@ -135,19 +135,19 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     imageAssetFormat.setWmin(nativeImage.getWmin());
     imageAssetFormat.setHmin(nativeImage.getHmin());
     if (nativeImage.getExt() != null) {
-      if (nativeImage.getExt().containsKey("wratio")) {
+      if (nativeImage.getExt().containsKey(CommonConstants.WRATIO)) {
         try {
-          imageAssetFormat.setWratio((Integer) nativeImage.getExt().get("wratio"));
-          nativeImage.getExt().remove("wratio");
+          imageAssetFormat.setWratio((Integer) nativeImage.getExt().get(CommonConstants.WRATIO));
+          nativeImage.getExt().remove(CommonConstants.WRATIO);
 
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException("exception in converting image asset format", e);
         }
       }
-      if (nativeImage.getExt().containsKey("hratio")) {
+      if (nativeImage.getExt().containsKey(CommonConstants.HRATIO)) {
         try {
-          imageAssetFormat.setHratio((Integer) nativeImage.getExt().get("hratio"));
-          nativeImage.getExt().remove("hratio");
+          imageAssetFormat.setHratio((Integer) nativeImage.getExt().get(CommonConstants.HRATIO));
+          nativeImage.getExt().remove(CommonConstants.HRATIO);
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException("exception in converting image asset format", e);
         }

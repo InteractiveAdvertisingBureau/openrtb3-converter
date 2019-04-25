@@ -24,7 +24,7 @@ import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.NativeFormat;
-import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
@@ -88,7 +88,7 @@ public class NativeRequestBodyToNativeFormatConverter
     Converter<Asset, AssetFormat> assetAssetFormatConverter =
         converterProvider.fetch(new Conversion<>(Asset.class, AssetFormat.class));
     nativeFormat.setAsset(
-        CollectionToCollectionConverter.convert(
+        CollectionUtils.convert(
             nativeRequestBody.getAssets(), assetAssetFormatConverter, config, converterProvider));
   }
 }

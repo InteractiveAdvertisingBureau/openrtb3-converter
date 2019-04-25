@@ -29,7 +29,6 @@ import net.media.openrtb25.request.Metric;
 import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.*;
-import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.MapUtils;
@@ -38,9 +37,7 @@ import net.media.utils.Provider;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -90,7 +87,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     item.setFlrcur(imp.getBidfloorcur());
     Collection<Deal> deals = impPmpDeals(imp);
     item.setDeal(
-        CollectionToCollectionConverter.convert(
+        CollectionUtils.convert(
             deals, dealDealConverter, config, converterProvider));
     item.setFlr(imp.getBidfloor());
     item.setId(imp.getId());
