@@ -270,6 +270,23 @@ public class ConverterTest {
   }
 
   @Test
+  public void testInvalidJson() {
+    Boolean success = false;
+    try {
+      ClassLoader classLoader = getClass().getClassLoader();
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      File file =
+              new File(classLoader.getResource("master").getPath() + "/request/INV_JSON_BANNER_SITE_30.json");
+      String jsonData = new String(Files.readAllBytes(file.toPath()));
+      String converted = openRtbConverter.convert(jsonData, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+
+    } catch (Exception e) {
+      success = true;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
   public void testInvalidKeys() {
     Boolean success = true;
     ClassLoader classLoader = getClass().getClassLoader();
