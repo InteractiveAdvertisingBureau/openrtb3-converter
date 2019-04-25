@@ -17,7 +17,6 @@
 package net.media.converters.request25toRequest30;
 
 import com.fasterxml.jackson.databind.JavaType;
-
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -30,11 +29,15 @@ import net.media.openrtb25.request.Metric;
 import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.*;
-import net.media.utils.CollectionToCollectionConverter;
-import net.media.utils.Provider;
-import net.media.utils.Utils;
+import net.media.utils.*;
 
 import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -59,7 +62,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     extraFieldsInExt.add("ctype");
     extraFieldsInExt.add("event");
   }
-  private static final JavaType javaTypeForEventSpecCollection = Utils.getMapper().getTypeFactory()
+  private static final JavaType javaTypeForEventSpecCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
     .constructCollectionType(Collection.class, EventSpec.class);
 
   @Override
@@ -165,8 +168,8 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     DisplayPlacement displayPlacement =
         bannerDisplayPlacementConverter.map(imp.getBanner(), config, converterProvider);
     if(nonNull(displayPlacement)) {
-      fetchFromExt(displayPlacement::setAmpren, imp.getExt(), "ampren", "error while mapping ampren from Imp");
-      fetchFromExt(displayPlacement::setEvent, imp.getExt(), "event", "error while mapping event from Imp", javaTypeForEventSpecCollection);
+      fetchFromExt(displayPlacement::setAmpren, imp.getExt(), CommonConstants.AMPREN, "error while mapping ampren from Imp");
+      fetchFromExt(displayPlacement::setEvent, imp.getExt(), CommonConstants.EVENT, "error while mapping event from Imp", javaTypeForEventSpecCollection);
     }
     if (isNull(displayPlacement) && nonNull(imp.getNat())) {
       displayPlacement = new DisplayPlacement();
@@ -176,7 +179,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     mappingTarget.setDisplay(displayPlacement);
     if (nonNull(mappingTarget.getDisplay())) {
       mappingTarget.getDisplay().setClktype(imp.getClickbrowser());
-      mappingTarget.getDisplay().setIfrbust(Utils.copyCollection(imp.getIframebuster(), config));
+      mappingTarget.getDisplay().setIfrbust(CollectionUtils.copyCollection(imp.getIframebuster(), config));
       mappingTarget.getDisplay().setInstl(imp.getInstl());
     }
   }
@@ -288,4 +291,5 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
       }
     }
   }
+
 }

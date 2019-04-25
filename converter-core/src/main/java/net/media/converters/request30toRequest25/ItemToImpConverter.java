@@ -31,8 +31,10 @@ import net.media.openrtb25.request.Video;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.JacksonObjectMapper;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.*;
 
@@ -76,7 +78,8 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     Converter<net.media.openrtb3.Metric, Metric> metricMetricConverter =
         converterProvider.fetch(new Conversion<>(net.media.openrtb3.Metric.class, Metric.class));
     imp.setPmp(itemToPmp(item, config, converterProvider));
-    imp.setExt(new HashMap<>(item.getExt()));
+    if(nonNull(item.getExt()))
+      imp.setExt(new HashMap<>(item.getExt()));
     fillExtMap(item, imp, config);
     imp.setBidfloor(item.getFlr());
     VideoPlacement video = itemSpecPlacementVideo(item);
@@ -88,7 +91,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     }
     if (nonNull(imp.getVideo())) {
       imp.getVideo().setSequence(item.getSeq());
-      imp.getVideo().setExt(putToExt(item::getQty, imp.getVideo().getExt(), "qty"));
+      imp.getVideo().setExt(putToExt(item::getQty, imp.getVideo().getExt(), CommonConstants.QTY));
     }
     String sdkver = itemSpecPlacementSdkver(item);
     if (sdkver != null) {
@@ -98,22 +101,22 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     if (display != null) {
       imp.setBanner(displayPlacementBannerConverter.map(display, config, converterProvider));
       if (nonNull(imp.getBanner())) {
-        imp.getBanner().setExt(putToExt(item::getSeq, imp.getBanner().getExt(), "seq"));
-        imp.getBanner().setExt(putToExt(item::getQty, imp.getBanner().getExt(), "qty"));
+        imp.getBanner().setExt(putToExt(item::getSeq, imp.getBanner().getExt(), CommonConstants.SEQ));
+        imp.getBanner().setExt(putToExt(item::getQty, imp.getBanner().getExt(), CommonConstants.QTY));
       }
       if(nonNull(display.getNativefmt())) {
         NativeRequest nativeRequest = displayPlacementNativeConverter.map(display, config, converterProvider);
         Native nat = new Native();
-        nat.setApi(Utils.copyCollection(display.getApi(), config));
+        nat.setApi(CollectionUtils.copyCollection(display.getApi(), config));
         if (nonNull(display.getExt())) {
           if (isNull(nat.getExt())) {
             nat.setExt(new HashMap<>());
           }
           nat.getExt().putAll(display.getExt());
-          fetchFromExt(nat::setVer, display.getNativefmt().getExt(), "ver", "error while mapping ver from nativefmt.ext");
+          fetchFromExt(nat::setVer, display.getNativefmt().getExt(), CommonConstants.VER, "error while mapping ver from nativefmt.ext");
         }
-        nat.setExt(putToExt(display::getPriv, nat.getExt(), "priv"));
-        nat.setExt(putToExt(display::getCtype, nat.getExt(), "ctype"));
+        nat.setExt(putToExt(display::getPriv, nat.getExt(), CommonConstants.PRIV));
+        nat.setExt(putToExt(display::getCtype, nat.getExt(), CommonConstants.CTYPE));
         if (nonNull(nativeRequest) && nonNull(nativeRequest.getNativeRequestBody())) {
           nativeRequest.getNativeRequestBody().setPlcmtcnt(item.getQty());
           nativeRequest.getNativeRequestBody().setSeq(item.getSeq());
@@ -131,7 +134,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         imp.setNat(nat);
       }
       imp.setInstl(display.getInstl());
-      imp.setIframebuster(Utils.copyCollection(display.getIfrbust(), config));
+      imp.setIframebuster(CollectionUtils.copyCollection(display.getIfrbust(), config));
       imp.setClickbrowser(display.getClktype());
     }
     imp.setBidfloorcur(item.getFlrcur());
@@ -149,7 +152,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     }
     if (nonNull(imp.getAudio())) {
       imp.getAudio().setSequence(item.getSeq());
-      imp.getAudio().setExt(putToExt(item::getQty, imp.getAudio().getExt(), "qty"));
+      imp.getAudio().setExt(putToExt(item::getQty, imp.getAudio().getExt(), CommonConstants.QTY));
     }
     imp.setId(item.getId());
     imp.setExp(item.getExp());
@@ -183,7 +186,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         CollectionToCollectionConverter.convert(
             item.getDeal(), dealDealConverter, config, converterProvider));
     pmp.setPrivate_auction(item.getPriv());
-    pmp.setExt(fetchExtFromFieldInExt(item.getExt(), "pmp", "Error in mapping pmp ext"));
+    pmp.setExt(fetchExtFromFieldInExt(item.getExt(), CommonConstants.PMP, "Error in mapping pmp ext"));
 
     return pmp;
   }
@@ -324,20 +327,20 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
   private void fillExtMap(Item item, Imp imp, Config config) {
     if (nonNull(item)) {
       if (nonNull(imp)) {
-        imp.setExt(putToExt(item::getDt, imp.getExt(), "dt"));
-        imp.setExt(putToExt(item::getDlvy, imp.getExt(), "dlvy"));
+        imp.setExt(putToExt(item::getDt, imp.getExt(), CommonConstants.DT));
+        imp.setExt(putToExt(item::getDlvy, imp.getExt(), CommonConstants.DLVY));
       }
     }
     if (nonNull(item) && nonNull(item.getSpec()) && nonNull(item.getSpec().getPlacement())) {
       if (nonNull(imp)) {
-        imp.setExt(putToExt(item.getSpec().getPlacement()::getSsai, imp.getExt(), "ssai"));
-        imp.setExt(putToExt(item.getSpec().getPlacement()::getReward, imp.getExt(), "reward"));
-        imp.setExt(putToExt(item.getSpec().getPlacement()::getAdmx, imp.getExt(), "admx"));
-        imp.setExt(putToExt(item.getSpec().getPlacement()::getCurlx, imp.getExt(), "curlx"));
+        imp.setExt(putToExt(item.getSpec().getPlacement()::getSsai, imp.getExt(), CommonConstants.SSAI));
+        imp.setExt(putToExt(item.getSpec().getPlacement()::getReward, imp.getExt(), CommonConstants.REWARD));
+        imp.setExt(putToExt(item.getSpec().getPlacement()::getAdmx, imp.getExt(), CommonConstants.ADMX));
+        imp.setExt(putToExt(item.getSpec().getPlacement()::getCurlx, imp.getExt(), CommonConstants.CURLX));
       }
       if (nonNull(item.getSpec().getPlacement().getDisplay())) {
-        imp.setExt(putToExt(item.getSpec().getPlacement().getDisplay()::getAmpren, imp.getExt(), "ampren"));
-        imp.setExt(putToExt(item.getSpec().getPlacement().getDisplay()::getEvent, imp.getExt(), "event"));
+        imp.setExt(putToExt(item.getSpec().getPlacement().getDisplay()::getAmpren, imp.getExt(), CommonConstants.AMPREN));
+        imp.setExt(putToExt(item.getSpec().getPlacement().getDisplay()::getEvent, imp.getExt(), CommonConstants.EVENT));
       }
     }
   }

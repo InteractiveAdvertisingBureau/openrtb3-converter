@@ -25,8 +25,9 @@ import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.NativeFormat;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 
@@ -62,10 +63,10 @@ public class NativeRequestBodyToNativeFormatConverter
     }
     if(nonNull(nativeRequestBody.getExt()))
       nativeFormat.setExt(new HashMap<>(nativeRequestBody.getExt()));
-    nativeFormat.setExt(putToExt(nativeRequestBody::getContextsubtype, nativeFormat.getExt(), "contextsubtype"));
-    nativeFormat.setExt(putToExt(nativeRequestBody::getAdunit, nativeFormat.getExt(), "adunit"));
-    nativeFormat.setExt(putToExt(nativeRequestBody::getLayout, nativeFormat.getExt(), "layout"));
-    nativeFormat.setExt(putToExt(nativeRequestBody::getVer, nativeFormat.getExt(), "ver"));
+    nativeFormat.setExt(putToExt(nativeRequestBody::getContextsubtype, nativeFormat.getExt(), CommonConstants.CONTEXTSUBTYPE));
+    nativeFormat.setExt(putToExt(nativeRequestBody::getAdunit, nativeFormat.getExt(), CommonConstants.ADUNIT));
+    nativeFormat.setExt(putToExt(nativeRequestBody::getLayout, nativeFormat.getExt(), CommonConstants.LAYOUT));
+    nativeFormat.setExt(putToExt(nativeRequestBody::getVer, nativeFormat.getExt(), CommonConstants.VER));
     Converter<Asset, AssetFormat> assetAssetFormatConverter =
         converterProvider.fetch(new Conversion<>(Asset.class, AssetFormat.class));
     nativeFormat.setAsset(

@@ -19,6 +19,7 @@ package net.media.converters.request30toRequest23;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Content;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -42,17 +43,17 @@ public class ContentToContentConverter
     }
     super.enhance(source, target, config, converterProvider);
 
-    target.setExt(putToExt(target::getArtist, target.getExt(), "artist"));
+    target.setExt(putToExt(target::getArtist, target.getExt(), CommonConstants.ARTIST));
     target.setArtist(null);
-    target.setExt(putToExt(target::getGenre, target.getExt(), "genre"));
+    target.setExt(putToExt(target::getGenre, target.getExt(), CommonConstants.GENRE));
     target.setGenre(null);
-    target.setExt(putToExt(target::getAlbum, target.getExt(), "album"));
+    target.setExt(putToExt(target::getAlbum, target.getExt(), CommonConstants.ALBUM));
     target.setAlbum(null);
-    target.setExt(putToExt(target::getIsrc, target.getExt(), "isrc"));
+    target.setExt(putToExt(target::getIsrc, target.getExt(), CommonConstants.ISRC));
     target.setIsrc(null);
-    target.setExt(putToExt(target::getProdq, target.getExt(), "prodq"));
+    target.setExt(putToExt(target::getProdq, target.getExt(), CommonConstants.PRODQ));
     target.setProdq(null);
-    target.setExt(putToExt(target::getData, target.getExt(), "data"));
+    target.setExt(putToExt(target::getData, target.getExt(), CommonConstants.DATA));
     target.setData(null);
   }
 }

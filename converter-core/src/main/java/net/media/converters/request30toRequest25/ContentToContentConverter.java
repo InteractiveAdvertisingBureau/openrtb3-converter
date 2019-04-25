@@ -24,8 +24,10 @@ import net.media.openrtb3.Content;
 import net.media.openrtb3.Data;
 import net.media.openrtb3.Producer;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -91,7 +93,7 @@ public class ContentToContentConverter
     target.setProducer(
         producerProducerConverter.map(source.getProducer(), config, converterProvider));
     target.setUrl(source.getUrl());
-    target.setCat(Utils.copyCollection(source.getCat(), config));
+    target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
     target.setProdq(source.getProdq());
     target.setContext(source.getContext());
     target.setKeywords(source.getKeywords());
@@ -103,8 +105,8 @@ public class ContentToContentConverter
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    target.setExt(putToExt(source::getCattax, target.getExt(),"cattax"));
-    fetchFromExt(target::setVideoquality, source.getExt(), "videoquality", "error while setting videoquality from content ext");
+    target.setExt(putToExt(source::getCattax, target.getExt(),CommonConstants.CATTAX));
+    fetchFromExt(target::setVideoquality, source.getExt(), CommonConstants.VIDEOQUALITY, "error while setting videoquality from content ext");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

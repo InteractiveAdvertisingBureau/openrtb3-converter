@@ -25,8 +25,9 @@ import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.NativeFormat;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,10 +70,10 @@ public class NativeFormatToNativeRequestBodyConverter
     if (isNull(nativeFormat) || isNull(nativeRequestBody)) {
       return;
     }
-    fetchFromExt(nativeRequestBody::setContextsubtype, nativeFormat.getExt(), "contextsubtype", "error while mapping ext for DisplayPlacement");
-    fetchFromExt(nativeRequestBody::setAdunit, nativeFormat.getExt(), "adunit", "error while mapping ext for DisplayPlacement");
-    fetchFromExt(nativeRequestBody::setLayout, nativeFormat.getExt(), "layout", "error while mapping ext for DisplayPlacement");
-    fetchFromExt(nativeRequestBody::setVer, nativeFormat.getExt(), "ver", "error while mapping ext for DisplayPlacement");
+    fetchFromExt(nativeRequestBody::setContextsubtype, nativeFormat.getExt(), CommonConstants.CONTEXTSUBTYPE, "error while mapping ext for DisplayPlacement");
+    fetchFromExt(nativeRequestBody::setAdunit, nativeFormat.getExt(), CommonConstants.ADUNIT, "error while mapping ext for DisplayPlacement");
+    fetchFromExt(nativeRequestBody::setLayout, nativeFormat.getExt(), CommonConstants.LAYOUT, "error while mapping ext for DisplayPlacement");
+    fetchFromExt(nativeRequestBody::setVer, nativeFormat.getExt(), CommonConstants.VER, "error while mapping ext for DisplayPlacement");
     nativeRequestBody.setExt(new HashMap<>(nativeFormat.getExt()));
     Converter<AssetFormat, Asset> assetFormatAssetConverter =
         converterProvider.fetch(new Conversion<>(AssetFormat.class, Asset.class));

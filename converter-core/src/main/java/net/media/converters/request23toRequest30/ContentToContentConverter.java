@@ -17,13 +17,13 @@
 package net.media.converters.request23toRequest30;
 
 import com.fasterxml.jackson.databind.JavaType;
-
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Data;
+import net.media.utils.CommonConstants;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -49,7 +49,7 @@ public class ContentToContentConverter
     extraFieldsInExt.add("data");
   }
 
-  private static final JavaType javaTypeForDataCollection = Utils.getMapper().getTypeFactory()
+  private static final JavaType javaTypeForDataCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
     .constructCollectionType(Collection.class, Data.class);
 
   public void enhance(
@@ -58,12 +58,12 @@ public class ContentToContentConverter
     if (source == null || target == null) {
       return;
     }
-    fetchFromExt(source::setArtist, source.getExt(), "artist", "Error in setting artist from content.ext.artist");
-    fetchFromExt(source::setGenre, source.getExt(), "genre", "Error in setting genre from content.ext.genre");
-    fetchFromExt(source::setAlbum, source.getExt(), "album", "Error in setting album from content.ext.album");
-    fetchFromExt(source::setIsrc, source.getExt(), "isrc", "Error in setting isrc from content.ext.isrc");
-    fetchFromExt(source::setProdq, source.getExt(), "prodq", "Error in setting prodq from content.ext.prodq");
-    fetchFromExt(source::setData, source.getExt(), "data", "Error in setting data from content.ext.data", javaTypeForDataCollection);
+    fetchFromExt(source::setArtist, source.getExt(), CommonConstants.ARTIST, "Error in setting artist from content.ext.artist");
+    fetchFromExt(source::setGenre, source.getExt(), CommonConstants.GENRE, "Error in setting genre from content.ext.genre");
+    fetchFromExt(source::setAlbum, source.getExt(), CommonConstants.ALBUM, "Error in setting album from content.ext.album");
+    fetchFromExt(source::setIsrc, source.getExt(), CommonConstants.ISRC, "Error in setting isrc from content.ext.isrc");
+    fetchFromExt(source::setProdq, source.getExt(), CommonConstants.PRODQ, "Error in setting prodq from content.ext.prodq");
+    fetchFromExt(source::setData, source.getExt(), CommonConstants.DATA, "Error in setting data from content.ext.data", javaTypeForDataCollection);
     super.enhance(source, target, config, converterProvider);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

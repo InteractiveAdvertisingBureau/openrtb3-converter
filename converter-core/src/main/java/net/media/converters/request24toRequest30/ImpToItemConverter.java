@@ -17,14 +17,14 @@
 package net.media.converters.request24toRequest30;
 
 import com.fasterxml.jackson.databind.JavaType;
-
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.Metric;
 import net.media.openrtb3.Item;
+import net.media.utils.CommonConstants;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -43,13 +43,15 @@ public class ImpToItemConverter
     extraFieldsInExt.add("metric");
   }
 
-private static final JavaType javaTypeForMetricCollection = Utils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Metric.class);  public void enhance(Imp imp, Item item, Config config, Provider converterProvider)
+private static final JavaType javaTypeForMetricCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
+    .constructCollectionType(Collection.class, Metric.class);
+
+  public void enhance(Imp imp, Item item, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
     if (imp == null || item == null) {
       return;
     }
-    fetchFromExt(imp::setMetric, imp.getExt(), "metric", "Error in setting metric from imp.ext.metric", javaTypeForMetricCollection);
+    fetchFromExt(imp::setMetric, imp.getExt(), CommonConstants.METRIC, "Error in setting metric from imp.ext.metric", javaTypeForMetricCollection);
     super.enhance(imp, item, config, converterProvider);
     removeFromExt(item.getExt(), extraFieldsInExt);
   }

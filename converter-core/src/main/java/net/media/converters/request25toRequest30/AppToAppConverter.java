@@ -23,8 +23,10 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.App;
 import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Publisher;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,7 +65,7 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
       throws OpenRtbConverterException {
     if (source == null || target == null) return;
     target.setPrivpolicy(source.getPrivacypolicy());
-    target.setSectcat(Utils.copyCollection(source.getSectioncat(), config));
+    target.setSectcat(CollectionUtils.copyCollection(source.getSectioncat(), config));
     Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter =
         converterProvider.fetch(
             new Conversion<>(Publisher.class, net.media.openrtb3.Publisher.class));
@@ -75,8 +77,8 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
     target.setName(source.getName());
     target.setContent(contentContentConverter.map(source.getContent(), config, converterProvider));
     target.setDomain(source.getDomain());
-    target.setCat(Utils.copyCollection(source.getCat(), config));
-    target.setPagecat(Utils.copyCollection(source.getPagecat(), config));
+    target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
+    target.setPagecat(CollectionUtils.copyCollection(source.getPagecat(), config));
     target.setKeywords(source.getKeywords());
     target.setBundle(source.getBundle());
     target.setStoreurl(source.getStoreurl());
@@ -84,11 +86,12 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
     target.setPaid(source.getPaid());
     Map<String, Object> map = source.getExt();
     if (map != null) {
+      target.setExt(MapUtils.copyMap(map, config));
       target.setExt(new HashMap<>(map));
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    fetchFromExt(target::setCattax, source.getExt(), "cattax", "error while typecasting ext for app");
-    fetchFromExt(target::setStoreid, source.getExt(), "storeid", "error while typecasting ext for app");
+    fetchFromExt(target::setCattax, source.getExt(), CommonConstants.CATTAX, "error while typecasting ext for app");
+    fetchFromExt(target::setStoreid, source.getExt(), CommonConstants.STOREID, "error while typecasting ext for app");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

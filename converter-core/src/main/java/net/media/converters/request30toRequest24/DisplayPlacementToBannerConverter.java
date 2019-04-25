@@ -21,6 +21,7 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -40,15 +41,15 @@ public class DisplayPlacementToBannerConverter
       return;
     }
     super.enhance(displayPlacement, banner, config, converterProvider);
-    banner.setExt(putToExt(banner::getVcm, banner.getExt(), "vcm"));
+    banner.setExt(putToExt(banner::getVcm, banner.getExt(), CommonConstants.VCM));
     banner.setVcm(null);
     if (nonNull(banner.getFormat())) {
       for (Format format : banner.getFormat()) {
-        format.setExt(putToExt(format::getWratio, format.getExt(), "wratio"));
+        format.setExt(putToExt(format::getWratio, format.getExt(), CommonConstants.WRATIO));
         format.setWratio(null);
-        format.setExt(putToExt(format::getHratio, format.getExt(), "hratio"));
+        format.setExt(putToExt(format::getHratio, format.getExt(), CommonConstants.HRATIO));
         format.setHratio(null);
-        format.setExt(putToExt(format::getWmin, format.getExt(), "wmin"));
+        format.setExt(putToExt(format::getWmin, format.getExt(), CommonConstants.WMIN));
         format.setWmin(null);
       }
     }

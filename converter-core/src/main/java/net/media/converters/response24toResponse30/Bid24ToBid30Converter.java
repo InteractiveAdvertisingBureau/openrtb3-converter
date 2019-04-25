@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.converters.response25toresponse30.Bid25ToBid30Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -48,33 +49,33 @@ public class Bid24ToBid30Converter extends Bid25ToBid30Converter {
       return;
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("burl")) {
-        source.setBurl((String) source.getExt().get("burl"));
+      if (source.getExt().containsKey(CommonConstants.BURL)) {
+        source.setBurl((String) source.getExt().get(CommonConstants.BURL));
       }
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("lurl")) {
-        source.setLurl((String) source.getExt().get("lurl"));
+      if (source.getExt().containsKey(CommonConstants.LURL)) {
+        source.setLurl((String) source.getExt().get(CommonConstants.LURL));
       }
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("tactic")) {
-        source.setTactic((String) source.getExt().get("tactic"));
+      if (source.getExt().containsKey(CommonConstants.TACTIC)) {
+        source.setTactic((String) source.getExt().get(CommonConstants.TACTIC));
       }
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("language")) {
-        source.setLanguage((String) source.getExt().get("language"));
+      if (source.getExt().containsKey(CommonConstants.LANGUAGE)) {
+        source.setLanguage((String) source.getExt().get(CommonConstants.LANGUAGE));
       }
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("wratio")) {
-        source.setWratio((Integer) source.getExt().get("wratio"));
+      if (source.getExt().containsKey(CommonConstants.WRATIO)) {
+        source.setWratio((Integer) source.getExt().get(CommonConstants.WRATIO));
       }
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("hratio")) {
-        source.setHratio((Integer) source.getExt().get("hratio"));
+      if (source.getExt().containsKey(CommonConstants.HRATIO)) {
+        source.setHratio((Integer) source.getExt().get(CommonConstants.HRATIO));
       }
     }
     super.enhance(source, target, config, converterProvider);

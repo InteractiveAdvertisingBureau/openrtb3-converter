@@ -22,9 +22,10 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Device;
 import net.media.openrtb25.request.Geo;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.OsMap;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -95,11 +96,11 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    target.setExt(putToExt(source::getFlashver, target.getExt(), "flashver"));
+    target.setExt(putToExt(source::getFlashver, target.getExt(), CommonConstants.FLASHVER));
     if (source.getExt() == null) return;
-    fetchFromExt(target::setXff, source.getExt(), "xff", "error while mapping xff for Device");
-    fetchFromExt(target::setIptr, source.getExt(), "iptr", "error while mapping iptr for Device");
-    fetchFromExt(target::setMccmncsim, source.getExt(), "mccmncsim", "error while mapping mccmncsim for Device");
+    fetchFromExt(target::setXff, source.getExt(), CommonConstants.XFF, "error while mapping xff for Device");
+    fetchFromExt(target::setIptr, source.getExt(), CommonConstants.IPTR, "error while mapping iptr for Device");
+    fetchFromExt(target::setMccmncsim, source.getExt(), CommonConstants.MCCMNCSIM, "error while mapping mccmncsim for Device");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

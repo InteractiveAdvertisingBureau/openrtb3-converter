@@ -20,8 +20,9 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Source;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,13 +70,13 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    target.setExt(putToExt(source::getFd, target.getExt(), "fd"));
+    target.setExt(putToExt(source::getFd, target.getExt(), CommonConstants.FD));
     try {
-      fetchFromExt(target::setTs, source.getExt(), "ts", "error while mapping ts from source");
-      fetchFromExt(target::setDs, source.getExt(), "ds", "error while mapping ds from source");
-      fetchFromExt(target::setDsmap, source.getExt(), "dsmap", "error while mapping dsmap from source");
-      fetchFromExt(target::setCert, source.getExt(), "cert", "error while mapping cert from source");
-      fetchFromExt(target::setDigest, source.getExt(), "digest", "error while mapping digest from source");
+      fetchFromExt(target::setTs, source.getExt(), CommonConstants.TS, "error while mapping ts from source");
+      fetchFromExt(target::setDs, source.getExt(), CommonConstants.DS, "error while mapping ds from source");
+      fetchFromExt(target::setDsmap, source.getExt(), CommonConstants.DSMAP, "error while mapping dsmap from source");
+      fetchFromExt(target::setCert, source.getExt(), CommonConstants.CERT, "error while mapping cert from source");
+      fetchFromExt(target::setDigest, source.getExt(), CommonConstants.DIGEST, "error while mapping digest from source");
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for Source", e);
     }

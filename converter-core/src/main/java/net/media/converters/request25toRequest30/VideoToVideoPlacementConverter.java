@@ -26,8 +26,9 @@ import net.media.openrtb3.Companion;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,12 +71,12 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     }
     Converter<Banner, Companion> bannerCompanionConverter =
         converterProvider.fetch(new Conversion<>(Banner.class, Companion.class));
-    videoPlacement.setComptype(Utils.copyCollection(video.getCompaniontype(), config));
+    videoPlacement.setComptype(CollectionUtils.copyCollection(video.getCompaniontype(), config));
     videoPlacement.setComp(
         CollectionToCollectionConverter.convert(
             video.getCompanionad(), bannerCompanionConverter, config, converterProvider));
     videoPlacement.setLinear(video.getLinearity());
-    videoPlacement.setMime(Utils.copyCollection(video.getMimes(), config));
+    videoPlacement.setMime(CollectionUtils.copyCollection(video.getMimes(), config));
     videoPlacement.setMinbitr(video.getMinbitrate());
     videoPlacement.setPtype(video.getPlacement());
     videoPlacement.setMaxdur(video.getMaxduration());
@@ -83,7 +84,7 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     videoPlacement.setDelay(video.getStartdelay());
     videoPlacement.setPlayend(video.getPlaybackend());
     videoPlacement.setMindur(video.getMinduration());
-    videoPlacement.setCtype(Utils.copyCollection(video.getProtocols(), config));
+    videoPlacement.setCtype(CollectionUtils.copyCollection(video.getProtocols(), config));
     videoPlacement.setBoxing(video.getBoxingallowed());
     videoPlacement.setPlaymethod(
         CollectionUtils.firstElementFromCollection(video.getPlaybackmethod()));
@@ -92,18 +93,20 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     videoPlacement.setSkip(video.getSkip());
     videoPlacement.setSkipmin(video.getSkipmin());
     videoPlacement.setSkipafter(video.getSkipafter());
-    videoPlacement.setApi(Utils.copyCollection(video.getApi(), config));
+    videoPlacement.setApi(CollectionUtils.copyCollection(video.getApi(), config));
     videoPlacement.setW(video.getW());
     videoPlacement.setH(video.getH());
-    videoPlacement.setDelivery(Utils.copyCollection(video.getDelivery(), config));
+    videoPlacement.setDelivery(CollectionUtils.copyCollection(video.getDelivery(), config));
+    if(nonNull(video.getExt()))
+      videoPlacement.setExt(new HashMap<>(video.getExt()));
     videoToVideoPlacementAfterMapping(video, config, videoPlacement);
   }
 
   private void videoToVideoPlacementAfterMapping(
       Video video, Config config, VideoPlacement videoPlacement) throws OpenRtbConverterException {
     videoPlacement.setExt(new HashMap<>(video.getExt()));
-    fetchFromExt(videoPlacement::setUnit, video.getExt(), "unit", "error while mapping unit from Video");
-    fetchFromExt(videoPlacement::setMaxseq, video.getExt(), "maxseq", "error while mapping maxseq from Video");
+    fetchFromExt(videoPlacement::setUnit, video.getExt(), CommonConstants.UNIT, "error while mapping unit from Video");
+    fetchFromExt(videoPlacement::setMaxseq, video.getExt(), CommonConstants.MAXSEQ, "error while mapping maxseq from Video");
     removeFromExt(videoPlacement.getExt(), extraFieldsInExt);
   }
 }

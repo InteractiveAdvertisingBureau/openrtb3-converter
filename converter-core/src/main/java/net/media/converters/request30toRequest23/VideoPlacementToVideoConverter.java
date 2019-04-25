@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -39,15 +40,15 @@ public class VideoPlacementToVideoConverter
       return;
     }
     super.enhance(videoPlacement, video, config, converterProvider);
-    video.setExt(putToExt(video::getPlacement, video.getExt(), "placement"));
+    video.setExt(putToExt(video::getPlacement, video.getExt(), CommonConstants.PLACEMENT));
     video.setPlacement(null);
-    video.setExt(putToExt(video::getPlaybackend, video.getExt(), "playbackend"));
+    video.setExt(putToExt(video::getPlaybackend, video.getExt(), CommonConstants.PLAYBACKEND));
     video.setPlaybackend(null);
-    video.setExt(putToExt(video::getSkip, video.getExt(), "skip"));
+    video.setExt(putToExt(video::getSkip, video.getExt(), CommonConstants.SKIP));
     video.setSkip(null);
-    video.setExt(putToExt(video::getSkipmin, video.getExt(), "skipmin"));
+    video.setExt(putToExt(video::getSkipmin, video.getExt(), CommonConstants.SKIPMIN));
     video.setSkipmin(null);
-    video.setExt(putToExt(video::getSkipafter, video.getExt(), "skipafter"));
+    video.setExt(putToExt(video::getSkipafter, video.getExt(), CommonConstants.SKIPAFTER));
     video.setSkipafter(null);
   }
 }

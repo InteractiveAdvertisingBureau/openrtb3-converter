@@ -28,7 +28,6 @@ import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.NativeFormat;
 import net.media.utils.JacksonObjectMapper;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 

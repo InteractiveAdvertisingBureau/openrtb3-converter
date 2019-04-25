@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb3.Item;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -38,7 +39,7 @@ public class ItemToImpConverter
       return;
     }
     super.enhance(item, imp, config, converterProvider);
-    imp.setExt(putToExt(imp::getMetric, imp.getExt(), "metric"));
+    imp.setExt(putToExt(imp::getMetric, imp.getExt(), CommonConstants.METRIC));
     imp.setMetric(null);
   }
 }

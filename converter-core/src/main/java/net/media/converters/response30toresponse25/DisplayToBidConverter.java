@@ -26,9 +26,9 @@ import net.media.openrtb25.response.Bid;
 import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb3.Display;
 import net.media.openrtb3.Native;
-import net.media.utils.JacksonObjectMapper;
+import net.media.utils.CommonConstants;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -54,7 +54,7 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
 
     if (isNull(source) || isNull(target) || isNull(config)) return;
 
-    ObjectMapper mapper = Utils.getMapper();
+    ObjectMapper mapper = JacksonObjectMapperUtils.getMapper();
     target.setH(source.getH());
     target.setW(source.getW());
     target.setWratio(source.getWratio());
@@ -64,15 +64,15 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
-    target.getExt().put("ctype", source.getCtype());
+    target.getExt().put(CommonConstants.CTYPE, source.getCtype());
 
-    target.getExt().put("priv", source.getPriv());
-    target.getExt().put("curl", source.getCurl());
+    target.getExt().put(CommonConstants.PRIV, source.getPriv());
+    target.getExt().put(CommonConstants.CURL, source.getCurl());
     if (isEmpty(target.getNurl())) {
       target.setNurl(source.getCurl());
     }
-    target.getExt().put("event", source.getEvent());
-    target.getExt().put("mime", source.getMime());
+    target.getExt().put(CommonConstants.EVENT, source.getEvent());
+    target.getExt().put(CommonConstants.MIME, source.getMime());
     if (nonNull(source.getExt())) target.getExt().putAll(source.getExt());
 
     if (config.getAdType(target.getId()) == AdType.NATIVE) {
@@ -81,7 +81,7 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
             nativeBidConverter.map(source.get_native(), config, converterProvider);
         if (config.getNativeResponseAsString()) {
           try {
-            target.setAdm(JacksonObjectMapper.getMapper().writeValueAsString(_native));
+            target.setAdm(JacksonObjectMapperUtils.getMapper().writeValueAsString(_native));
           } catch (IOException e) {
             throw new OpenRtbConverterException(
                 "error occured while  serializing native response", e);
@@ -89,7 +89,7 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
         } else target.setAdm(_native);
       } else if (nonNull(source.getAdm())) {
         try {
-          Native native3 = null;
+          Native native3;
           if (source.getAdm() instanceof String) {
             native3 = mapper.readValue((String) source.getAdm(), Native.class);
           } else {
@@ -102,7 +102,7 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
         }
       }
     } else {
-      target.getExt().put("banner", source.getBanner());
+      target.getExt().put(CommonConstants.BANNER, source.getBanner());
       if (nonNull(source.getAdm())) {
         target.setAdm(source.getAdm());
       }

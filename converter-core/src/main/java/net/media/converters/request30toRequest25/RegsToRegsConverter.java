@@ -19,8 +19,9 @@ package net.media.converters.request30toRequest25;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Regs;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +29,7 @@ import java.util.Map;
 import static net.media.utils.ExtUtils.putToExt;
 
 public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb25.request.Regs> {
+
   @Override
   public net.media.openrtb25.request.Regs map(
       Regs source, Config config, Provider converterProvider) {
@@ -56,6 +58,6 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb25.
     }
     if (source.getGdpr() == null) return;
     if (target.getExt() == null) target.setExt(new HashMap<>());
-    target.setExt(putToExt(source::getGdpr, target.getExt(), "gdpr"));
+    target.setExt(putToExt(source::getGdpr, target.getExt(), CommonConstants.GDPR));
   }
 }

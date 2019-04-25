@@ -24,8 +24,9 @@ import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.*;
 
@@ -68,12 +69,12 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     if (isNull(displayPlacement) || isNull(banner)) {
       return;
     }
-    banner.setMimes(Utils.copyCollection(displayPlacement.getMime(), config));
+    banner.setMimes(CollectionUtils.copyCollection(displayPlacement.getMime(), config));
     banner.setFormat(displayFormatListToFormatList(displayPlacement.getDisplayfmt(), config));
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
         if (!CollectionUtils.isEmpty(displayFormat.getExpdir())) {
-          Collection<Integer> formatExpdir = Utils.copyCollection(displayFormat.getExpdir(),
+          Collection<Integer> formatExpdir = CollectionUtils.copyCollection(displayFormat.getExpdir(),
             config);
           if (isNull(banner.getExpdir())) {
             banner.setExpdir(formatExpdir);
@@ -95,22 +96,23 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     banner.setH(displayPlacement.getH());
     banner.setPos(displayPlacement.getPos());
     banner.setTopframe(displayPlacement.getTopframe());
-    banner.setApi(Utils.copyCollection(displayPlacement.getApi(), config));
+    banner.setApi(CollectionUtils.copyCollection(displayPlacement.getApi(), config));
     Map<String, Object> map = displayPlacement.getExt();
     if (map != null) {
       banner.setExt(new HashMap<>(map));
-      fetchCollectionFromExt(banner::setBtype, map, "btype", "error while mapping btype from displayplacement.ext", config);
-      fetchFromExt(banner::setId, map, "id", "error while mapping id from displayplacement.ext");
-      fetchFromExt(banner::setHmax, map, "hmax", "error while mapping hmax from displayplacement.ext");
-      fetchFromExt(banner::setWmax, map, "wmax", "error while mapping wmax from displayplacement.ext");
-      fetchFromExt(banner::setHmin, map, "hmin", "error while mapping hmin from displayplacement.ext");
-      fetchFromExt(banner::setWmin, map, "wmin", "error while mapping wmin from displayplacement.ext");
+      fetchCollectionFromExt(banner::setBtype, map, CommonConstants.BTYPE, "error while mapping btype from displayplacement.ext", config);
+      fetchFromExt(banner::setId, map, CommonConstants.ID, "error while mapping id from displayplacement.ext");
+      fetchFromExt(banner::setHmax, map, CommonConstants.HMAX, "error while mapping hmax from displayplacement.ext");
+      fetchFromExt(banner::setWmax, map, CommonConstants.WMAX, "error while mapping wmax from displayplacement.ext");
+      fetchFromExt(banner::setHmin, map, CommonConstants.HMIN, "error while mapping hmin from displayplacement.ext");
+      fetchFromExt(banner::setWmin, map, CommonConstants.WMIN, "error while mapping wmin from displayplacement.ext");
     }
-    banner.setExt(putToExt(displayPlacement::getUnit, banner.getExt(), "unit"));
-    banner.setExt(putToExt(displayPlacement::getPtype, banner.getExt(), "ptype"));
-    banner.setExt(putToExt(displayPlacement::getContext, banner.getExt(), "context"));
-    banner.setExt(putToExt(displayPlacement::getCtype, banner.getExt(), "ctype"));
-    banner.setExt(putToExt(displayPlacement::getPriv, banner.getExt(), "priv"));
+    String s = "unit";
+    banner.setExt(putToExt(displayPlacement::getUnit, banner.getExt(), s));
+    banner.setExt(putToExt(displayPlacement::getPtype, banner.getExt(), CommonConstants.PTYPE));
+    banner.setExt(putToExt(displayPlacement::getContext, banner.getExt(), CommonConstants.CONTEXT));
+    banner.setExt(putToExt(displayPlacement::getCtype, banner.getExt(), CommonConstants.CTYPE));
+    banner.setExt(putToExt(displayPlacement::getPriv, banner.getExt(), CommonConstants.PRIV));
     removeFromExt(banner.getExt(), extraFieldsInExt);
   }
 
@@ -120,7 +122,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       return null;
     }
 
-    Collection<Format> list1 = new ArrayList<Format>(list.size());
+    Collection<Format> list1 = new ArrayList<>(list.size());
     for (DisplayFormat displayFormat : list) {
       list1.add(displayFormatToFormat(displayFormat, config));
     }
@@ -143,7 +145,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     Map<String, Object> map = displayFormat.getExt();
     if (map != null) {
       format.setExt(new HashMap<>(map));
-      fetchFromExt(format::setWmin, map, "wmin", "error while mapping wmin from displayformat.ext");
+      fetchFromExt(format::setWmin, map, CommonConstants.WMIN, "error while mapping wmin from displayformat.ext");
     }
     removeFromExt(format.getExt(), extraFieldsInFormatExt);
     return format;

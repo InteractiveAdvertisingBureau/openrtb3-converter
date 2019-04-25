@@ -24,8 +24,10 @@ import net.media.openrtb25.request.Audio;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.Companion;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -68,24 +70,24 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     if (audio == null || audioPlacement == null) {
       return;
     }
-    audioPlacement.setComptype(Utils.copyCollection(audio.getCompaniontype(), config));
+    audioPlacement.setComptype(CollectionUtils.copyCollection(audio.getCompaniontype(), config));
     if(nonNull(audio.getExt()))
       audioPlacement.setExt(new HashMap<>(audio.getExt()));
-    audioPlacement.setExt(putToExt(audio::getStitched, audioPlacement.getExt(), "stitched"));
+    audioPlacement.setExt(putToExt(audio::getStitched, audioPlacement.getExt(), CommonConstants.STITCHED));
     audioPlacement.setComp(
         bannerListToCompanionList(audio.getCompanionad(), config, converterProvider));
     audioPlacement.setMaxdur(audio.getMaxduration());
     audioPlacement.setMaxext(audio.getMaxextended());
     audioPlacement.setDelay(audio.getStartdelay());
     audioPlacement.setMindur(audio.getMinduration());
-    audioPlacement.setCtype(Utils.copyCollection(audio.getProtocols(), config));
-    audioPlacement.setMime(Utils.copyCollection(audio.getMimes(), config));
+    audioPlacement.setCtype(CollectionUtils.copyCollection(audio.getProtocols(), config));
+    audioPlacement.setMime(CollectionUtils.copyCollection(audio.getMimes(), config));
     audioPlacement.setMinbitr(audio.getMinduration());
     audioPlacement.setMaxbitr(audio.getMaxduration());
     audioPlacement.setFeed(audio.getFeed());
     audioPlacement.setNvol(audio.getNvol());
-    audioPlacement.setApi(Utils.copyCollection(audio.getApi(), config));
-    audioPlacement.setDelivery(Utils.copyCollection(audio.getDelivery(), config));
+    audioPlacement.setApi(CollectionUtils.copyCollection(audio.getApi(), config));
+    audioPlacement.setDelivery(CollectionUtils.copyCollection(audio.getDelivery(), config));
     audioPlacement.setMaxseq(audio.getMaxseq());
 
     audioToAudioPlacementAfterMapping(audio, audioPlacement);
@@ -100,7 +102,7 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     }
     Converter<Banner, net.media.openrtb3.Companion> bannerCompanionConverter =
         converterProvider.fetch(new Conversion<>(Banner.class, Companion.class));
-    Collection<Companion> list1 = new ArrayList<Companion>(list.size());
+    Collection<Companion> list1 = new ArrayList<>(list.size());
     for (Banner banner : list) {
       list1.add(bannerCompanionConverter.map(banner, config, converterProvider));
     }
@@ -110,10 +112,10 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
 
   private void audioToAudioPlacementAfterMapping(Audio audio, AudioPlacement audioPlacement)
       throws OpenRtbConverterException {
-    fetchFromExt(audioPlacement::setSkip, audio.getExt(), "skip", "Error in setting skip from Audio.ext");
-    fetchFromExt(audioPlacement::setSkipmin, audio.getExt(), "skipmin", "Error in setting skipmin from Audio.ext");
-    fetchFromExt(audioPlacement::setSkipafter, audio.getExt(), "skipafter", "Error in setting skipafter from Audio.ext");
-    fetchFromExt(audioPlacement::setPlaymethod, audio.getExt(), "playmethod", "Error in setting playmethod from Audio.ext");
-    fetchFromExt(audioPlacement::setPlayend, audio.getExt(), "playend", "Error in setting playend from Audio.ext");
+    fetchFromExt(audioPlacement::setSkip, audio.getExt(), CommonConstants.SKIP, "Error in setting skip from Audio.ext");
+    fetchFromExt(audioPlacement::setSkipmin, audio.getExt(), CommonConstants.SKIPMIN, "Error in setting skipmin from Audio.ext");
+    fetchFromExt(audioPlacement::setSkipafter, audio.getExt(), CommonConstants.SKIPAFTER, "Error in setting skipafter from Audio.ext");
+    fetchFromExt(audioPlacement::setPlaymethod, audio.getExt(), CommonConstants.PLAYMETHOD, "Error in setting playmethod from Audio.ext");
+    fetchFromExt(audioPlacement::setPlayend, audio.getExt(), CommonConstants.PLAYEND, "Error in setting playend from Audio.ext");
   }
 }

@@ -17,17 +17,18 @@
 package net.media.converters.response25toresponse30;
 
 import com.fasterxml.jackson.databind.JavaType;
-
-import net.media.driver.Conversion;
-import net.media.exceptions.OpenRtbConverterException;
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.driver.Conversion;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Macro;
 import net.media.openrtb3.Media;
 import net.media.template.MacroMapper;
+import net.media.utils.CommonConstants;
+import net.media.utils.JacksonObjectMapperUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.*;
 
@@ -55,7 +56,7 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
     extraFieldsInExt.add("dur");
   }
 
-  private static final JavaType javaTypeForMacroCollection = Utils.getMapper().getTypeFactory()
+  private static final JavaType javaTypeForMacroCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
     .constructCollectionType(Collection.class, Macro.class);
 
   @Override
@@ -80,8 +81,8 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       target.setItem(source.getImpid());
       target.setDeal(source.getDealid());
       target.setPurl(source.getNurl());
-      Converter<Bid, Media> converter = converterProvider.fetch(new Conversion<>(Bid.class, Media
-          .class));
+      Converter<Bid, Media> converter =
+          converterProvider.fetch(new Conversion<>(Bid.class, Media.class));
       target.setId(source.getId());
       target.setPrice(source.getPrice());
       target.setCid(source.getCid());
@@ -92,9 +93,9 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       target.setMid(source.getAdid());
       MacroMapper.macroReplaceThreeX(target);
       if (nonNull(source.getExt())) {
-        if (source.getExt().containsKey("macro")) {
+        if (source.getExt().containsKey(CommonConstants.MACRO)) {
           try {
-            Collection<Macro> macros = Utils.getMapper().convertValue(source.getExt().get("macro"),
+            Collection<Macro> macros = JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get(CommonConstants.MACRO),
                 javaTypeForMacroCollection);
             target.setMacro(macros);
           } catch (Exception e) {
@@ -106,7 +107,7 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
         if (isNull(target.getExt())) {
           target.setExt(new HashMap<>());
         }
-        target.getExt().put("protocol", source.getProtocol());
+        target.getExt().put(CommonConstants.PROTOCOL, source.getProtocol());
       }
       target.setMedia(converter.map(source, config, converterProvider));
       Map<String, Object> extCopy = source.getExt();

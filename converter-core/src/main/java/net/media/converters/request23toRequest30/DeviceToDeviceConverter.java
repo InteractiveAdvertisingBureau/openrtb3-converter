@@ -19,6 +19,7 @@ package net.media.converters.request23toRequest30;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Device;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -44,8 +45,8 @@ public class DeviceToDeviceConverter
     if (source == null || target == null) {
       return;
     }
-    fetchFromExt(source::setMccmnc, source.getExt(), "mccmnc", "Error in setting mccmnc from device.ext.mccmnc");
-    fetchFromExt(source::setGeofetch, source.getExt(), "geofetch", "Error in setting geofetch from device.ext.geofetch");
+    fetchFromExt(source::setMccmnc, source.getExt(), CommonConstants.MCCMNC, "Error in setting mccmnc from device.ext.mccmnc");
+    fetchFromExt(source::setGeofetch, source.getExt(), CommonConstants.GEOFETCH, "Error in setting geofetch from device.ext.geofetch");
     super.enhance(source, target, config, converterProvider);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

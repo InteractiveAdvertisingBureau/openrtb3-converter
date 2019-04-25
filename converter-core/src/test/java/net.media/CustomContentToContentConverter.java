@@ -22,8 +22,8 @@ import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Data;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Collection;
 
@@ -33,7 +33,7 @@ import static java.util.Objects.nonNull;
 public class CustomContentToContentConverter
   extends net.media.converters.request25toRequest30.ContentToContentConverter {
 
-  private static final JavaType javaTypeForDataCollection = Utils.getMapper().getTypeFactory()
+  private static final JavaType javaTypeForDataCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
     .constructCollectionType(Collection.class, Data.class);
 
   public void enhance(

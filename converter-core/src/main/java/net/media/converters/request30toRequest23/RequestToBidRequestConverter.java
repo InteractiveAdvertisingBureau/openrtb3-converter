@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb3.Request;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -39,13 +40,13 @@ public class RequestToBidRequestConverter
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    target.setExt(putToExt(target::getBseat, target.getExt(), "bseat"));
+    target.setExt(putToExt(target::getBseat, target.getExt(), CommonConstants.BSEAT));
     target.setBseat(null);
-    target.setExt(putToExt(target::getWlang, target.getExt(), "wlang"));
+    target.setExt(putToExt(target::getWlang, target.getExt(), CommonConstants.WLANG));
     target.setWlang(null);
-    target.setExt(putToExt(target::getSource, target.getExt(), "source"));
+    target.setExt(putToExt(target::getSource, target.getExt(), CommonConstants.SOURCE));
     target.setSource(null);
-    target.setExt(putToExt(target::getBapp, target.getExt(), "bapp"));
+    target.setExt(putToExt(target::getBapp, target.getExt(), CommonConstants.BAPP));
     target.setBapp(null);
   }
 }

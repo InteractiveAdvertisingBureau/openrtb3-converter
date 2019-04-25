@@ -20,8 +20,9 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Source;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -68,12 +69,12 @@ public class SourceToSourceConverter
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    target.setExt(putToExt(source::getTs, target.getExt(), "ts"));
-    target.setExt(putToExt(source::getDs, target.getExt(), "ds"));
-    target.setExt(putToExt(source::getDsmap, target.getExt(), "dsmap"));
-    target.setExt(putToExt(source::getCert, target.getExt(), "cert"));
-    target.setExt(putToExt(source::getDigest, target.getExt(), "digest"));
-    fetchFromExt(target::setFd, source.getExt(), "fd", "error while mapping fd from Source");
+    target.setExt(putToExt(source::getTs, target.getExt(), CommonConstants.TS));
+    target.setExt(putToExt(source::getDs, target.getExt(), CommonConstants.DS));
+    target.setExt(putToExt(source::getDsmap, target.getExt(), CommonConstants.DSMAP));
+    target.setExt(putToExt(source::getCert, target.getExt(), CommonConstants.CERT));
+    target.setExt(putToExt(source::getDigest, target.getExt(), CommonConstants.DIGEST));
+    fetchFromExt(target::setFd, source.getExt(), CommonConstants.FD, "error while mapping fd from Source");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

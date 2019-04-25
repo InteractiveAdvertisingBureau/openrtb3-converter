@@ -23,8 +23,9 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Media;
 import net.media.template.MacroMapper;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,7 +64,7 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
     if (source != null) {
       Map<String, Object> map = source.getExt();
       if (map != null) {
-        target.setExt(Utils.copyMap(map, config));
+        target.setExt(MapUtils.copyMap(map, config));
       }
       target.setId(source.getId());
       if (source.getPrice() != null) {
@@ -81,12 +82,12 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
         target.setExt(new HashMap<>());
       }
       target.setAdid(source.getMid());
-      target.getExt().put("macro", source.getMacro());
+      target.getExt().put(CommonConstants.MACRO, source.getMacro());
       mediaBidConverter.enhance(source.getMedia(), target, config, converterProvider);
       MacroMapper.macroReplaceTwoX(target);
       if (nonNull(source.getExt())) {
-        if (source.getExt().containsKey("protocol")) {
-          target.setProtocol((Integer) source.getExt().get("protocol"));
+        if (source.getExt().containsKey(CommonConstants.PROTOCOL)) {
+          target.setProtocol((Integer) source.getExt().get(CommonConstants.PROTOCOL));
         }
       }
     }

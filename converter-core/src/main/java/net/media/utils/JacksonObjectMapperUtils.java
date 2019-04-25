@@ -19,6 +19,7 @@ package net.media.utils;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -26,8 +27,12 @@ import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 
+import net.media.exceptions.OpenRtbConverterException;
+
+import java.io.IOException;
+
 /** Created by rajat.go on 27/12/18. */
-public class JacksonObjectMapper {
+public class JacksonObjectMapperUtils {
   private static final ObjectMapper mapper = new ObjectMapper();
 
   static {
@@ -59,5 +64,22 @@ public class JacksonObjectMapper {
 
   public static ObjectMapper getMapper() {
     return mapper;
+  }
+
+  public static <U> U convertToObject(Class<U> klass, String json)
+    throws OpenRtbConverterException {
+    try {
+      return getMapper().readValue(json, klass);
+    } catch (IOException e) {
+      throw new OpenRtbConverterException("error while converting json to object", e);
+    }
+  }
+
+  public static String convertToJson(Object object) throws OpenRtbConverterException {
+    try {
+      return getMapper().writeValueAsString(object);
+    } catch (JsonProcessingException e) {
+      throw new OpenRtbConverterException("error while converting object to json", e);
+    }
   }
 }

@@ -22,9 +22,10 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Device;
 import net.media.openrtb3.Geo;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.OsMap;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -99,10 +100,10 @@ public class DeviceToDeviceConverter
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    fetchFromExt(target::setFlashver, source.getExt(), "flashver", "error while mapping flashver from device.ext");
-    target.setExt(putToExt(source::getXff, target.getExt(),"xff"));
-    target.setExt(putToExt(source::getIptr, target.getExt(),"iptr"));
-    target.setExt(putToExt(source::getMccmncsim, target.getExt(),"mccmncsim"));
+    fetchFromExt(target::setFlashver, source.getExt(), CommonConstants.FLASHVER, "error while mapping flashver from device.ext");
+    target.setExt(putToExt(source::getXff, target.getExt(),CommonConstants.XFF));
+    target.setExt(putToExt(source::getIptr, target.getExt(),CommonConstants.IPTR));
+    target.setExt(putToExt(source::getMccmncsim, target.getExt(),CommonConstants.MCCMNCSIM));
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

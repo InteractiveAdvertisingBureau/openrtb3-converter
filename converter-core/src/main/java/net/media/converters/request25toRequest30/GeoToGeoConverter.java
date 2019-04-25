@@ -20,8 +20,9 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Geo;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +30,7 @@ import java.util.Map;
 import static net.media.utils.ExtUtils.putToExt;
 
 public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo> {
+
   @Override
   public net.media.openrtb3.Geo map(Geo source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -64,6 +66,6 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo>
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    target.setExt(putToExt(source::getRegionfips104, target.getExt(), "regionfips104"));
+    target.setExt(putToExt(source::getRegionfips104, target.getExt(), CommonConstants.REGIONFIPS_104));
   }
 }

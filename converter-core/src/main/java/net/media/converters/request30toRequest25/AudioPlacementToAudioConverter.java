@@ -24,8 +24,10 @@ import net.media.openrtb25.request.Audio;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.Companion;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.*;
 
@@ -62,8 +64,8 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     if (isNull(audioPlacement) || isNull(audio)) {
       return;
     }
-    audio.setDelivery(Utils.copyCollection(audioPlacement.getDelivery(), config));
-    audio.setApi(Utils.copyCollection(audioPlacement.getApi(), config));
+    audio.setDelivery(CollectionUtils.copyCollection(audioPlacement.getDelivery(), config));
+    audio.setApi(CollectionUtils.copyCollection(audioPlacement.getApi(), config));
     audio.setMaxseq(audioPlacement.getMaxseq());
     audio.setFeed(audioPlacement.getFeed());
     audio.setNvol(audioPlacement.getNvol());
@@ -80,7 +82,7 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     if (map != null) {
       audio.setExt(new HashMap<>(map));
     }
-    fetchFromExt(audio::setStitched, map, "stitched", "error while mapping stitched from audioplacement ext");
+    fetchFromExt(audio::setStitched, map, CommonConstants.STITCHED, "error while mapping stitched from audioplacement ext");
     audio.setCompanionad(
         companionListToBannerList(audioPlacement.getComp(), config, converterProvider));
     audioPlacementToAudioAfterMapping(audioPlacement, audio);
@@ -89,11 +91,11 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
 
   private void audioPlacementToAudioAfterMapping(AudioPlacement audioPlacement, Audio audio) {
     if (nonNull(audioPlacement) && nonNull(audioPlacement.getExt()) && nonNull(audio)) {
-      audio.setExt(putToExt(audioPlacement::getSkip, audio.getExt(), "skip"));
-      audio.setExt(putToExt(audioPlacement::getSkipmin, audio.getExt(), "skipmin"));
-      audio.setExt(putToExt(audioPlacement::getSkipafter, audio.getExt(), "skipafter"));
-      audio.setExt(putToExt(audioPlacement::getPlaymethod, audio.getExt(), "playmethod"));
-      audio.setExt(putToExt(audioPlacement::getPlayend, audio.getExt(), "playend"));
+      audio.setExt(putToExt(audioPlacement::getSkip, audio.getExt(), CommonConstants.SKIP));
+      audio.setExt(putToExt(audioPlacement::getSkipmin, audio.getExt(), CommonConstants.SKIPMIN));
+      audio.setExt(putToExt(audioPlacement::getSkipafter, audio.getExt(), CommonConstants.SKIPAFTER));
+      audio.setExt(putToExt(audioPlacement::getPlaymethod, audio.getExt(), CommonConstants.PLAYMETHOD));
+      audio.setExt(putToExt(audioPlacement::getPlayend, audio.getExt(), CommonConstants.PLAYEND));
     }
   }
 

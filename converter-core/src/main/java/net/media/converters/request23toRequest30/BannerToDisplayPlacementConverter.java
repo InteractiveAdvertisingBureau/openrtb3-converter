@@ -17,15 +17,15 @@
 package net.media.converters.request23toRequest30;
 
 import com.fasterxml.jackson.databind.JavaType;
-
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.utils.CommonConstants;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.openrtb3.Source;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -44,7 +44,7 @@ public class BannerToDisplayPlacementConverter
     extraFieldsInExt.add("format");
   }
 
-	private static final JavaType javaTypeForFormatCollection = Utils.getMapper().getTypeFactory()
+	private static final JavaType javaTypeForFormatCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
 			.constructCollectionType(Collection.class, Format.class);
 
   public void enhance(
@@ -53,8 +53,8 @@ public class BannerToDisplayPlacementConverter
     if (banner == null || displayPlacement == null) {
       return;
     }
-    fetchFromExt(banner::setVcm, banner.getExt(), "vcm", "Error in setting vcm from banner.ext.vcm");
-    fetchFromExt(banner::setFormat, banner.getExt(), "format", "Error in setting banner.format from banner.ext" + ".format", javaTypeForFormatCollection);
+    fetchFromExt(banner::setVcm, banner.getExt(), CommonConstants.VCM, "Error in setting vcm from banner.ext.vcm");
+    fetchFromExt(banner::setFormat, banner.getExt(), CommonConstants.FORMAT, "Error in setting banner.format from banner.ext" + ".format", javaTypeForFormatCollection);
     super.enhance(banner, displayPlacement, config, converterProvider);
     removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
   }

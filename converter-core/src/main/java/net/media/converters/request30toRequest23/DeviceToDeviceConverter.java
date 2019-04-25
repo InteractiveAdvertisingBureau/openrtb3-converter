@@ -19,6 +19,7 @@ package net.media.converters.request30toRequest23;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Device;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -41,9 +42,9 @@ public class DeviceToDeviceConverter
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    target.setExt(putToExt(target::getMccmnc, target.getExt(), "mccmnc"));
+    target.setExt(putToExt(target::getMccmnc, target.getExt(), CommonConstants.MCCMNC));
     target.setMccmnc(null);
-    target.setExt(putToExt(target::getGeofetch, target.getExt(), "geofetch"));
+    target.setExt(putToExt(target::getGeofetch, target.getExt(), CommonConstants.GEOFETCH));
     target.setGeofetch(null);
   }
 }

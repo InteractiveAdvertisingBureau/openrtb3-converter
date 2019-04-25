@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -39,9 +40,9 @@ public class DisplayPlacementToBannerConverter
       return;
     }
     super.enhance(displayPlacement, banner, config, converterProvider);
-    banner.setExt(putToExt(banner::getVcm, banner.getExt(), "vcm"));
+    banner.setExt(putToExt(banner::getVcm, banner.getExt(), CommonConstants.VCM));
     banner.setVcm(null);
-    banner.setExt(putToExt(banner::getFormat, banner.getExt(), "format"));
+    banner.setExt(putToExt(banner::getFormat, banner.getExt(), CommonConstants.FORMAT));
     banner.setFormat(null);
   }
 }

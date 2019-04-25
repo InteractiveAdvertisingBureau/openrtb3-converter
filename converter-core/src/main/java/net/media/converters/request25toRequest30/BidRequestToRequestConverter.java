@@ -27,8 +27,9 @@ import net.media.openrtb25.request.User;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -100,7 +101,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
     target.setTest(source.getTest());
     target.setTmax(source.getTmax());
     target.setAt(source.getAt());
-    target.setCur(Utils.copyCollection(source.getCur(), config));
+    target.setCur(CollectionUtils.copyCollection(source.getCur(), config));
     Converter<Source, net.media.openrtb3.Source> source25Source3Converter =
         converterProvider.fetch(new Conversion<>(Source.class, net.media.openrtb3.Source.class));
     target.setSource(source25Source3Converter.map(source.source, config, converterProvider));
@@ -119,15 +120,16 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
     }
     if (source.getWseat() != null && source.getWseat().size() > 0) {
       target.setWseat(1);
-      target.setSeat(Utils.copyCollection(source.getWseat(), config));
+      target.setSeat(CollectionUtils.copyCollection(source.getWseat(), config));
     } else {
       target.setWseat(0);
-      target.setSeat(Utils.copyCollection(source.getBseat(), config));
+      target.setSeat(CollectionUtils.copyCollection(source.getBseat(), config));
     }
     if (target.getExt() == null) return;
     if (source.getExt() == null) return;
     if (target.getContext() == null) target.setContext(new Context());
-    fetchFromExt(target.getContext()::setDooh, source.getExt(), "dooh", "error while typecasting ext for BidRequest2_X", Dooh.class);
+    fetchFromExt(target.getContext()::setDooh, source.getExt(), CommonConstants.DOOH, "error while typecasting ext for BidRequest2_X", Dooh.class);
+
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 
@@ -148,6 +150,6 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
       return;
     }
 
-    mappingTarget.setWlang(Utils.copyCollection(bidRequest.getWlang(), config));
+    mappingTarget.setWlang(CollectionUtils.copyCollection(bidRequest.getWlang(), config));
   }
 }

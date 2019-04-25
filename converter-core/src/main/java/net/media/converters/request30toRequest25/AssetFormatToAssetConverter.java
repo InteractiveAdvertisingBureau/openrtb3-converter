@@ -24,12 +24,15 @@ import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.*;
 import net.media.openrtb3.*;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.*;
 
+import static java.util.Objects.compare;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.putListFromSingleObjectToExt;
@@ -37,6 +40,7 @@ import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 04/01/19. */
 public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset> {
+
   @Override
   public Asset map(AssetFormat assetFormat, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -63,12 +67,12 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     asset.setData(dataAssetFormatToNativeData(assetFormat.getData(), config));
     if(nonNull(assetFormat.getExt()))
       asset.setExt(new HashMap<>(assetFormat.getExt()));
-    asset.setExt(putToExt(assetFormat.getVideo()::getClktype, asset.getExt(), "clickbrowser"));
+    asset.setExt(putToExt(assetFormat.getVideo()::getClktype, asset.getExt(), CommonConstants.CLICKBROWSER));
     if (assetFormat.getVideo().getComp() != null) {
       Converter<Companion, Banner> companionToBannerConverter =
           converterProvider.fetch(new Conversion<>(Companion.class, Banner.class));
       Collection<Banner> banners = CollectionToCollectionConverter.convert(assetFormat.getVideo().getComp(), companionToBannerConverter, config, converterProvider);
-      asset.getVideo().setExt(putToExt(banners, asset.getVideo().getExt(), "companionad"));
+      asset.getVideo().setExt(putToExt(banners, asset.getVideo().getExt(), CommonConstants.COMPANIONAD));
     }
   }
 
@@ -81,7 +85,8 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     NativeTitle nativeTitle = new NativeTitle();
 
     nativeTitle.setLen(titleAssetFormat.getLen());
-    nativeTitle.setExt(new HashMap<>(titleAssetFormat.getExt()));
+    if(nonNull(titleAssetFormat.getExt()))
+      nativeTitle.setExt(new HashMap<>(titleAssetFormat.getExt()));
 
     return nativeTitle;
   }
@@ -94,7 +99,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
 
     NativeImage nativeImage = new NativeImage();
 
-    nativeImage.setMimes(Utils.copyCollection(imageAssetFormat.getMime(), config));
+    nativeImage.setMimes(CollectionUtils.copyCollection(imageAssetFormat.getMime(), config));
     nativeImage.setType(imageAssetFormat.getType());
     nativeImage.setW(imageAssetFormat.getW());
     nativeImage.setWmin(imageAssetFormat.getWmin());
@@ -104,8 +109,8 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     if (map != null) {
       nativeImage.setExt(new HashMap<>(map));
     }
-    nativeImage.setExt(putToExt(imageAssetFormat::getHratio, nativeImage.getExt(),"hratio"));
-    nativeImage.setExt(putToExt(imageAssetFormat::getWratio, nativeImage.getExt(),"wratio"));
+    nativeImage.setExt(putToExt(imageAssetFormat::getHratio, nativeImage.getExt(),CommonConstants.HRATIO));
+    nativeImage.setExt(putToExt(imageAssetFormat::getWratio, nativeImage.getExt(),CommonConstants.WRATIO));
     return nativeImage;
   }
 
@@ -116,32 +121,32 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
 
     NativeVideo nativeVideo = new NativeVideo();
 
-    nativeVideo.setProtocols(Utils.copyCollection(videoPlacement.getCtype(), config));
+    nativeVideo.setProtocols(CollectionUtils.copyCollection(videoPlacement.getCtype(), config));
     nativeVideo.setMinduration(videoPlacement.getMindur());
     nativeVideo.setMaxduration(videoPlacement.getMaxdur());
-    nativeVideo.setMimes(Utils.copyCollection(videoPlacement.getMime(), config));
+    nativeVideo.setMimes(CollectionUtils.copyCollection(videoPlacement.getMime(), config));
     if(nonNull(videoPlacement.getExt()))
       nativeVideo.setExt(new HashMap<>(videoPlacement.getExt()));
-    nativeVideo.setExt(putToExt(videoPlacement::getBoxing, nativeVideo.getExt(),"boxingallowed"));
-    nativeVideo.setExt(putToExt(videoPlacement::getPtype, nativeVideo.getExt(),"ptype"));
-    nativeVideo.setExt(putToExt(videoPlacement::getPos, nativeVideo.getExt(),"pos"));
-    nativeVideo.setExt(putToExt(videoPlacement::getDelay, nativeVideo.getExt(),"startdelay"));
-    nativeVideo.setExt(putToExt(videoPlacement::getSkip, nativeVideo.getExt(),"skip"));
-    nativeVideo.setExt(putToExt(videoPlacement::getSkipmin, nativeVideo.getExt(),"skipmin"));
-    nativeVideo.setExt(putToExt(videoPlacement::getSkipafter, nativeVideo.getExt(),"skipafter"));
-    nativeVideo.setExt(putListFromSingleObjectToExt(videoPlacement::getPlaymethod, nativeVideo.getExt(),"playbackmethod"));
-    nativeVideo.setExt(putToExt(videoPlacement::getPlayend, nativeVideo.getExt(),"playbackend"));
-    nativeVideo.setExt(putToExt(videoPlacement::getApi, nativeVideo.getExt(),"api"));
-    nativeVideo.setExt(putToExt(videoPlacement::getW, nativeVideo.getExt(),"w"));
-    nativeVideo.setExt(putToExt(videoPlacement::getH, nativeVideo.getExt(),"h"));
-    nativeVideo.setExt(putToExt(videoPlacement::getUnit, nativeVideo.getExt(),"unit"));
-    nativeVideo.setExt(putToExt(videoPlacement::getMaxext, nativeVideo.getExt(),"maxextended"));
-    nativeVideo.setExt(putToExt(videoPlacement::getMinbitr, nativeVideo.getExt(),"minbitrate"));
-    nativeVideo.setExt(putToExt(videoPlacement::getMaxbitr, nativeVideo.getExt(),"maxbitrate"));
-    nativeVideo.setExt(putToExt(videoPlacement::getDelivery, nativeVideo.getExt(),"delivery"));
-    nativeVideo.setExt(putToExt(videoPlacement::getMaxseq, nativeVideo.getExt(),"maxseq"));
-    nativeVideo.setExt(putToExt(videoPlacement::getLinear, nativeVideo.getExt(),"linearity"));
-    nativeVideo.setExt(putToExt(videoPlacement::getComptype, nativeVideo.getExt(),"companiontype"));
+    nativeVideo.setExt(putToExt(videoPlacement::getBoxing, nativeVideo.getExt(),CommonConstants.BOXINGALLOWED));
+    nativeVideo.setExt(putToExt(videoPlacement::getPtype, nativeVideo.getExt(),CommonConstants.PTYPE));
+    nativeVideo.setExt(putToExt(videoPlacement::getPos, nativeVideo.getExt(),CommonConstants.POS));
+    nativeVideo.setExt(putToExt(videoPlacement::getDelay, nativeVideo.getExt(),CommonConstants.STARTDELAY));
+    nativeVideo.setExt(putToExt(videoPlacement::getSkip, nativeVideo.getExt(),CommonConstants.SKIP));
+    nativeVideo.setExt(putToExt(videoPlacement::getSkipmin, nativeVideo.getExt(),CommonConstants.SKIPMIN));
+    nativeVideo.setExt(putToExt(videoPlacement::getSkipafter, nativeVideo.getExt(),CommonConstants.SKIPAFTER));
+    nativeVideo.setExt(putListFromSingleObjectToExt(videoPlacement::getPlaymethod, nativeVideo.getExt(),CommonConstants.PLAYBACKMETHOD));
+    nativeVideo.setExt(putToExt(videoPlacement::getPlayend, nativeVideo.getExt(), CommonConstants.PLAYBACKEND));
+    nativeVideo.setExt(putToExt(videoPlacement::getApi, nativeVideo.getExt(),CommonConstants.API));
+    nativeVideo.setExt(putToExt(videoPlacement::getW, nativeVideo.getExt(),CommonConstants.W));
+    nativeVideo.setExt(putToExt(videoPlacement::getH, nativeVideo.getExt(),CommonConstants.H));
+    nativeVideo.setExt(putToExt(videoPlacement::getUnit, nativeVideo.getExt(),CommonConstants.UNIT));
+    nativeVideo.setExt(putToExt(videoPlacement::getMaxext, nativeVideo.getExt(),CommonConstants.MAXEXTENDED));
+    nativeVideo.setExt(putToExt(videoPlacement::getMinbitr, nativeVideo.getExt(),CommonConstants.MINBITRATE));
+    nativeVideo.setExt(putToExt(videoPlacement::getMaxbitr, nativeVideo.getExt(),CommonConstants.MAXBITRATE));
+    nativeVideo.setExt(putToExt(videoPlacement::getDelivery, nativeVideo.getExt(),CommonConstants.DELIVERY));
+    nativeVideo.setExt(putToExt(videoPlacement::getMaxseq, nativeVideo.getExt(),CommonConstants.MAXSEQ));
+    nativeVideo.setExt(putToExt(videoPlacement::getLinear, nativeVideo.getExt(),CommonConstants.LINEARITY));
+    nativeVideo.setExt(putToExt(videoPlacement::getComptype, nativeVideo.getExt(),CommonConstants.COMPANIONTYPE));
     return nativeVideo;
   }
 

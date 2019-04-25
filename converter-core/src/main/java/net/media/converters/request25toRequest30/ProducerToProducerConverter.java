@@ -20,8 +20,10 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Producer;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,14 +67,14 @@ public class ProducerToProducerConverter
     target.setId(source.getId());
     target.setName(source.getName());
     target.setDomain(source.getDomain());
-    target.setCat(Utils.copyCollection(source.getCat(), config));
+    target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
     Map<String, Object> map = source.getExt();
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
     if (source.getExt() == null) return;
-    fetchFromExt(target::setCattax, source.getExt(), "cattax", "error while mapping cattax from Producer");
+    fetchFromExt(target::setCattax, source.getExt(), CommonConstants.CATTAX, "error while mapping cattax from Producer");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

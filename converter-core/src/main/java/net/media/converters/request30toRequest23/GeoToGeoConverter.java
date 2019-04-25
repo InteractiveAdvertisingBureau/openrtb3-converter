@@ -19,6 +19,7 @@ package net.media.converters.request30toRequest23;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Geo;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -37,11 +38,11 @@ public class GeoToGeoConverter extends net.media.converters.request30toRequest25
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    target.setExt(putToExt(target::getAccuracy, target.getExt(), "accuracy"));
+    target.setExt(putToExt(target::getAccuracy, target.getExt(), CommonConstants.ACCURACY));
     target.setAccuracy(null);
-    target.setExt(putToExt(target::getLastfix, target.getExt(), "lastfix"));
+    target.setExt(putToExt(target::getLastfix, target.getExt(), CommonConstants.LASTFIX));
     target.setLastfix(null);
-    target.setExt(putToExt(target::getIpservice, target.getExt(), "ipservice"));
+    target.setExt(putToExt(target::getIpservice, target.getExt(), CommonConstants.IPSERVICE));
     target.setIpservice(null);
   }
 }

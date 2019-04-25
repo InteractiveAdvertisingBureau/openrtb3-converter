@@ -31,7 +31,7 @@ public class ConverterApplication {
     ctx.addServletMapping("/*", "converter");
   }
 
-  public static void main(String[] args) throws LifecycleException, ServletException {
+  public static void main(String[] args) throws LifecycleException {
     Tomcat tomcat = new Tomcat();
     tomcat.setPort(8080);
     String webappDirLocation = ".";

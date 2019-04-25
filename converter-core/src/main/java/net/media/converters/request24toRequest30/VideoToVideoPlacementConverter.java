@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -45,8 +46,8 @@ public class VideoToVideoPlacementConverter
     if (video == null || videoPlacement == null) {
       return;
     }
-    fetchFromExt(video::setPlacement, video.getExt(), "placement", "Error in setting placement from video.ext.placement");
-    fetchFromExt(video::setPlaybackend, video.getExt(), "playbackend", "Error in setting playbackend from video.ext.playbackend");
+    fetchFromExt(video::setPlacement, video.getExt(), CommonConstants.PLACEMENT, "Error in setting placement from video.ext.placement");
+    fetchFromExt(video::setPlaybackend, video.getExt(), CommonConstants.PLAYBACKEND, "Error in setting playbackend from video.ext.playbackend");
     super.enhance(video, videoPlacement, config, converterProvider);
     removeFromExt(videoPlacement.getExt(), extraFieldsInExt);
   }

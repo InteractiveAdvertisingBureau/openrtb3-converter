@@ -17,14 +17,14 @@
 package net.media.converters.request23toRequest30;
 
 import com.fasterxml.jackson.databind.JavaType;
-
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.Metric;
 import net.media.openrtb3.Item;
+import net.media.utils.CommonConstants;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -45,7 +45,7 @@ public class ImpToItemConverter
     extraFieldsInExt.add("exp");
   }
 
-  private static final JavaType javaTypeForMetricCollection = Utils.getMapper().getTypeFactory()
+  private static final JavaType javaTypeForMetricCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
     .constructCollectionType(Collection.class, Metric.class);
 
   public void enhance(Imp imp, Item item, Config config, Provider converterProvider)
@@ -53,34 +53,9 @@ public class ImpToItemConverter
     if (imp == null || item == null) {
       return;
     }
-    fetchFromExt(imp::setMetric, imp.getExt(), "metric", "Error in setting metric from imp.ext.metric", javaTypeForMetricCollection);
-    fetchFromExt(imp::setClickbrowser, imp.getExt(), "clickbrowser", "Error in setting clickbrowser from imp.ext.clickbrowser");
-    fetchFromExt(imp::setExp, imp.getExt(), "exp", "Error in setting exp from imp.ext.exp");
-    /*if (nonNull(imp.getExt())) {
-      if (imp.getExt().containsKey("metric")) {
-        try {
-          imp.setMetric(Utils.getMapper().convertValue(imp.getExt().get("metric"),
-            javaTypeForMetricCollection));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting metric from imp.ext.accuracy", e);
-        }
-      }
-      if (imp.getExt().containsKey("clickbrowser")) {
-        try {
-          imp.setClickbrowser((Integer) imp.getExt().get("clickbrowser"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting clickbrowser from imp.ext" + ".clickbrowser", e);
-        }
-      }
-      if (imp.getExt().containsKey("exp")) {
-        try {
-          imp.setExp((Integer) imp.getExt().get("exp"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting exp from imp.ext" + ".exp", e);
-        }
-      }
-    }*/
+    fetchFromExt(imp::setMetric, imp.getExt(), CommonConstants.METRIC, "Error in setting metric from imp.ext.metric", javaTypeForMetricCollection);
+    fetchFromExt(imp::setClickbrowser, imp.getExt(), CommonConstants.CLICKBROWSER, "Error in setting clickbrowser from imp.ext.clickbrowser");
+    fetchFromExt(imp::setExp, imp.getExt(), CommonConstants.EXP, "Error in setting exp from imp.ext.exp");
     super.enhance(imp, item, config, converterProvider);
     removeFromExt(item.getExt(), extraFieldsInExt);
   }

@@ -1,4 +1,5 @@
-{"openrtb": {
+{
+  "openrtb": {
     "domainSpec": "adcom",
     "ver": "3.0",
     "domainVer": "1.0",
@@ -35,13 +36,15 @@
               "mid": "123",
               "cid": "campaign-xyz.123",
               "exp": 1,
-              "macro": [{
-                "key": "macro1",
-                "value": "duck",
-                "ext": {
-                  "customdata": "pyaz"
+              "macro": [
+                {
+                  "key": "macro1",
+                  "value": "duck",
+                  "ext": {
+                    "customdata": "pyaz"
+                  }
                 }
-              }],
+              ],
               "media": {
                 "ad": {
                   "id": "d0bcb39723af87c2bb00942afee5710e",
@@ -78,8 +81,8 @@
                     "dur": 120,
                     "adm": "video ka adm",
                     "curl": "http://www.example.com/",
-                    "ext" : {
-                      "videokey" : "video.ext"
+                    "ext": {
+                      "videokey": "video.ext"
                     }
                   },
                   "audit": {
@@ -90,13 +93,12 @@
                     ],
                     "init": 56,
                     "lastmod": 45,
-
                     "ext": {
                       "auditkaext": "audit.txt"
                     }
                   },
-                  "ext" : {
-                    "adkey" : "ad.ext"
+                  "ext": {
+                    "adkey": "ad.ext"
                   }
                 }
               },

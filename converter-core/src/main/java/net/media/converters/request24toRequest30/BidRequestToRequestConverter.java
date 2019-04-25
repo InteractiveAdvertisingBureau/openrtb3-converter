@@ -21,8 +21,9 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Source;
 import net.media.openrtb3.Request;
+import net.media.utils.CommonConstants;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -50,9 +51,9 @@ public class BidRequestToRequestConverter
     if (source == null || target == null) {
       return;
     }
-    fetchFromExt(source::setBseat, source.getExt(), "bseat", "Error in setting bseat from bidRequest.ext.bseat");
-    fetchFromExt(source::setWlang, source.getExt(), "wlang", "Error in setting wlang from bidRequest.ext.wlang");
-    fetchFromExt(source::setSource, source.getExt(), "source", "Error in setting source from bidRequest.ext.source", Source.class);
+    fetchFromExt(source::setBseat, source.getExt(), CommonConstants.BSEAT, "Error in setting bseat from bidRequest.ext.bseat");
+    fetchFromExt(source::setWlang, source.getExt(), CommonConstants.WLANG, "Error in setting wlang from bidRequest.ext.wlang");
+    fetchFromExt(source::setSource, source.getExt(), CommonConstants.SOURCE, "Error in setting source from bidRequest.ext.source", Source.class);
     super.enhance(source, target, config, converterProvider);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

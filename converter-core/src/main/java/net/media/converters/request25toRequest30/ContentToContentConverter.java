@@ -24,8 +24,10 @@ import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Producer;
 import net.media.openrtb3.Data;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -86,7 +88,7 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     target.setAlbum(source.getAlbum());
     target.setIsrc(source.getIsrc());
     target.setUrl(source.getUrl());
-    target.setCat(Utils.copyCollection(source.getCat(), config));
+    target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
     target.setProdq(source.getProdq());
     target.setContext(source.getContext());
     target.setKeywords(source.getKeywords());
@@ -102,8 +104,8 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
     if (source.getExt() == null) return;
-    fetchFromExt(target::setCattax, source.getExt(), "cattax", "error while typecasting ext for Content");
-    target.setExt(putToExt(source::getVideoquality, target.getExt(), "videoquality"));
+    fetchFromExt(target::setCattax, source.getExt(), CommonConstants.CATTAX, "error while typecasting ext for Content");
+    target.setExt(putToExt(source::getVideoquality, target.getExt(), CommonConstants.VIDEOQUALITY));
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

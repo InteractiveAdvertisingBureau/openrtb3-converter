@@ -19,8 +19,9 @@ package net.media.converters.request25toRequest30;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.Deal;
+import net.media.utils.CollectionUtils;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 
@@ -49,8 +50,8 @@ public class DealToDealConverter implements Converter<Deal, net.media.openrtb3.D
     deal1.setFlr(deal.getBidFloor());
     deal1.setId(deal.getId());
     deal1.setAt(deal.getAt());
-    deal1.setWseat(Utils.copyCollection(deal.getWseat(), config));
-    deal1.setWadomain(Utils.copyCollection(deal.getWadomain(), config));
+    deal1.setWseat(CollectionUtils.copyCollection(deal.getWseat(), config));
+    deal1.setWadomain(CollectionUtils.copyCollection(deal.getWadomain(), config));
     if(nonNull(deal.getExt()))
       deal1.setExt(new HashMap<>(deal.getExt()));
   }

@@ -54,7 +54,7 @@ public class ExtUtils {
     if(nonNull(ext)) {
       if (ext.containsKey(field)) {
         try {
-          consumer.accept(Utils.getMapper().convertValue(ext.get(field),javaType));
+          consumer.accept(JacksonObjectMapperUtils.getMapper().convertValue(ext.get(field),javaType));
         } catch (Exception e) {
           throw new OpenRtbConverterException(message, e);
         }
@@ -66,7 +66,7 @@ public class ExtUtils {
     if(nonNull(ext)) {
       if (ext.containsKey(field)) {
         try {
-          consumer.accept(Utils.getMapper().convertValue(ext.get(field),toValueType));
+          consumer.accept(JacksonObjectMapperUtils.getMapper().convertValue(ext.get(field),toValueType));
         } catch (Exception e) {
           throw new OpenRtbConverterException(message, e);
         }
@@ -90,7 +90,7 @@ public class ExtUtils {
     if(nonNull(ext)) {
       if (ext.containsKey(field)) {
         try {
-          consumer.accept(Utils.copyCollection((Collection<X>) ext.get(field), config));
+          consumer.accept(CollectionUtils.copyCollection((Collection<X>) ext.get(field), config));
         } catch (Exception e) {
           throw new OpenRtbConverterException(message, e);
         }
@@ -102,7 +102,7 @@ public class ExtUtils {
     if(nonNull(ext)) {
       if (ext.containsKey(field)) {
         try {
-          consumer.accept((X) CollectionToCollectionConverter.convert(Utils.getMapper().convertValue(ext.get(field),javaType), converter, config, provider));
+          consumer.accept((X) CollectionToCollectionConverter.convert(JacksonObjectMapperUtils.getMapper().convertValue(ext.get(field),javaType), converter, config, provider));
         } catch (Exception e) {
           throw new OpenRtbConverterException(message, e);
         }
