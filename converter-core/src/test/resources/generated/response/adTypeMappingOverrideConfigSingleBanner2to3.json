@@ -218,12 +218,12 @@
   "purpose" : "adTypeMappingOverrideConfigSingleBanner2to3",
   "params" : {
     "adTypeMapping" : {
-      "yaddayadda" : "BANNER"
+      "1" : "BANNER"
     }
   },
   "config" : {
     "adTypeMapping" : {
-      "yaddayadda" : "VIDEO"
+      "1" : "VIDEO"
     }
   },
   "overRidingMap" : null,

@@ -227,12 +227,12 @@
   "purpose" : "adTypeMappingOverrideConfigSingleBanner",
   "params" : {
     "adTypeMapping" : {
-      "yaddayadda" : "BANNER"
+      "1" : "BANNER"
     }
   },
   "config" : {
     "adTypeMapping" : {
-      "yaddayadda" : "NATIVE"
+      "1" : "NATIVE"
     }
   },
   "overRidingMap" : null,

@@ -75,7 +75,7 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     }
     Converter<NativeResponse, Native> converter =
         converterProvider.fetch(new Conversion<>(NativeResponse.class, Native.class));
-    if (config.getAdType(source.getId()) == AdType.NATIVE) {
+    if (config.getAdType(source.getImpid()) == AdType.NATIVE) {
       if (source.getAdm() instanceof String) {
         try {
           NativeResponse nativeResponse =
@@ -102,7 +102,7 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
           throw new OpenRtbConverterException("error while casting adm to native response", e);
         }
       }
-    } else if (config.getAdType(source.getId()) == AdType.BANNER) {
+    } else if (config.getAdType(source.getImpid()) == AdType.BANNER) {
       target.setAdm(source.getAdm());
     }
     fetchFromExt(
@@ -120,14 +120,14 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
       source.getExt(),
       CommonConstants.MIME,
       "Error while mapping mime from Bid.ext");
-    if (config.getAdType(source.getId()) == AdType.BANNER) {
+    if (config.getAdType(source.getImpid()) == AdType.BANNER) {
       fetchFromExt(
         target::setBanner,
         source.getExt(),
         CommonConstants.BANNER,
         "error while mapping banner from bid.ext",
         Banner.class);
-    } else if (config.getAdType(source.getId()) == AdType.NATIVE) {
+    } else if (config.getAdType(source.getImpid()) == AdType.NATIVE) {
       fetchFromExt(
         target::set_native,
         source.getExt(),

@@ -113,7 +113,7 @@
             }
           }, {
             "id" : "yaddayadda1",
-            "item" : "1",
+            "item" : "2",
             "deal" : "667fdf7",
             "price" : 4.5,
             "tactic" : "testtactic",
@@ -306,7 +306,7 @@
         }
       }, {
         "id" : "yaddayadda1",
-        "impid" : "1",
+        "impid" : "2",
         "price" : 4.5,
         "bundle" : "testbundle",
         "nurl" : "http://www.example.com/",
@@ -404,8 +404,8 @@
   },
   "config" : {
     "adTypeMapping" : {
-      "yaddayadda" : "BANNER",
-      "yaddayadda1" : "BANNER"
+      "1" : "BANNER",
+      "2" : "BANNER"
     }
   },
   "overRidingMap" : null,
