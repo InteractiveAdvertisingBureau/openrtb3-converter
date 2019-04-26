@@ -43,6 +43,8 @@ public class TestPojo {
 
   private Integer inputAsString;
 
+  private Integer testEnhance;
+
   public String getInputType() {
     return this.inputType;
   }
@@ -121,5 +123,13 @@ public class TestPojo {
 
   public void setInputAsString(Integer inputAsString) {
     this.inputAsString = inputAsString;
+  }
+
+  public Integer getTestEnhance() {
+    return testEnhance;
+  }
+
+  public void setTestEnhance(Integer testEnhance) {
+    this.testEnhance = testEnhance;
   }
 }

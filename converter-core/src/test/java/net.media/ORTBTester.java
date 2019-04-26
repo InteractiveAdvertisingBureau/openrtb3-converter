@@ -26,6 +26,8 @@ import org.skyscreamer.jsonassert.JSONAssert;
 
 import java.util.Map;
 
+import static org.junit.Assert.assertEquals;
+
 /** Created by rajat.go on 09/01/19. */
 public class ORTBTester<U, V> {
 
@@ -66,7 +68,14 @@ public class ORTBTester<U, V> {
       }
        if(inputPojo.getInputAsString() == null) {
          bidRequest = JacksonObjectMapperUtils.getMapper().convertValue(source, sourceClass);
-         converted = tempOpenRtbConverter.convert(config, bidRequest, sourceClass, targetClass,overRider);
+         if(inputPojo.getTestEnhance()==null) {
+           converted = tempOpenRtbConverter.convert(config, bidRequest, sourceClass, targetClass, overRider);
+         }
+         else {
+            converted = targetClass.newInstance();
+            tempOpenRtbConverter.enhance(config,bidRequest,converted,sourceClass,targetClass,overRider);
+
+         }
       } else {
          String stringInput = source.toString();
          String stringOutput = tempOpenRtbConverter.convert(config, stringInput, sourceClass, targetClass, overRider).replaceAll("\\s+","");
