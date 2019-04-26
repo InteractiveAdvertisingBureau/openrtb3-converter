@@ -696,5 +696,7 @@
       "targetClass" : "net.media.openrtb25.request.User",
       "converterClass" : "net.media.CustomUsertoUserConverter"
     }
-  }
+  },
+  "inputAsString" : null,
+  "testEnhance" : null
 }

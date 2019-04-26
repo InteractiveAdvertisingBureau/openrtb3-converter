@@ -25,6 +25,7 @@ import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Publisher;
 import net.media.utils.CollectionUtils;
 import net.media.utils.MapUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.Map;
@@ -76,17 +77,15 @@ public class CustomApptoAppConverter2to3 implements Converter<App, net.media.ope
     if (map != null) {
       target.setExt(MapUtils.copyMap(map, config));
     }
-
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
     if (source.getExt() == null) return;
     try {
-      if (source.getExt().containsKey("cattax")) {
-        target.setCattax((Integer) source.getExt().get("cattax"));
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
+      if (source.getExt().containsKey(CommonConstants.CATTAX)) {
+        target.setCattax((Integer) source.getExt().get(CommonConstants.CATTAX));
       }
-      target.setStoreid((String) source.getExt().get("storeid"));
-      target.getExt().remove("cattax");
-      target.getExt().remove("storeid");
+      target.setStoreid((String) source.getExt().get(CommonConstants.STOREID));
+      target.getExt().remove(CommonConstants.CATTAX);
+      target.getExt().remove(CommonConstants.STOREID);
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for app", e);
     }

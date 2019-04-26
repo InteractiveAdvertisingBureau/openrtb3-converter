@@ -229,5 +229,7 @@
   "config" : {
     "openRtbVersion2_XVersion" : "TWO_DOT_THREE"
   },
-  "overRidingMap" : null
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
 }

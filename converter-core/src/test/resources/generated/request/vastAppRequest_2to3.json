@@ -689,5 +689,7 @@
   "purpose" : "vastAppRequest_2to3",
   "params" : null,
   "config" : null,
-  "overRidingMap" : null
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
 }

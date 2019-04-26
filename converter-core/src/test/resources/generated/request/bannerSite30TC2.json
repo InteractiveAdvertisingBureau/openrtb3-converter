@@ -358,5 +358,7 @@
   "purpose" : "bannerSite30TC2",
   "params" : null,
   "config" : null,
-  "overRidingMap" : null
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
 }

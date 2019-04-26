@@ -388,5 +388,7 @@
     }
   },
   "config" : null,
-  "overRidingMap" : null
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
 }

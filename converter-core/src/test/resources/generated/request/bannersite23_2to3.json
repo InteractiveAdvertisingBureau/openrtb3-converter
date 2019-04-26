@@ -686,5 +686,7 @@
     "openRtbVersion2_XVersion" : "TWO_DOT_THREE"
   },
   "config" : null,
-  "overRidingMap" : null
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
 }

@@ -19,6 +19,18 @@ cases:
      openrtb.request.id: "\"1\""
    purpose: bannerAppRequest_2to3
 
+
+ - inputFile: NATIVE_SITE_25_WL.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: NATIVE_SITE_30_2to3_WL.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.id: "\"1\""
+   purpose: nativeSietWhitelist_2to3
+
+
  - inputFile: NATIVE_SITE_25.json
    inputType: "REQUEST25"
    inputEdits:
@@ -103,4 +115,6 @@ cases:
    purpose: bannersite24_2to3
    params:
     openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+
 

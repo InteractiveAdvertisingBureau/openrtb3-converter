@@ -119,6 +119,8 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
         target.setSite(siteSiteConverter.map(site, config, converterProvider));
       }
 
+      if (target.getExt() == null) target.setExt(new HashMap<>());
+      target.getExt().put(CommonConstants.CATTAX, source.getContext().getRestrictions().getCattax());
       if (source.getContext().getRestrictions() != null) {
         target.setBapp(
           CollectionUtils.copyCollection(

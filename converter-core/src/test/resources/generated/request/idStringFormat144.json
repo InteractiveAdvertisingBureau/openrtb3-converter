@@ -684,5 +684,7 @@
   "purpose" : "idStringFormat144",
   "params" : null,
   "config" : null,
-  "overRidingMap" : null
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
 }

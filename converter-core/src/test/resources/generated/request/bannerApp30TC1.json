@@ -684,5 +684,7 @@
   "purpose" : "bannerApp30TC1",
   "params" : null,
   "config" : null,
-  "overRidingMap" : null
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
 }

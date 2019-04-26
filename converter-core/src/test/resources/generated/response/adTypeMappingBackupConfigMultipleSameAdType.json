@@ -408,5 +408,7 @@
       "yaddayadda1" : "BANNER"
     }
   },
-  "overRidingMap" : null
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
 }

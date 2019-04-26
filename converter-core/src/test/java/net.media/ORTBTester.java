@@ -16,17 +16,18 @@
 
 package net.media;
 
-import com.fasterxml.jackson.databind.SerializationFeature;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
 import net.media.driver.OpenRtbConverter;
-import net.media.utils.JacksonObjectMapper;
+import net.media.utils.JacksonObjectMapperUtils;
+
 import org.skyscreamer.jsonassert.JSONAssert;
 
 import java.util.Map;
 
-/** Created by rajat.go on 09/01/19. */
+import static org.junit.Assert.assertEquals;
+
 /** Created by rajat.go on 09/01/19. */
 public class ORTBTester<U, V> {
 
@@ -61,24 +62,29 @@ public class ORTBTester<U, V> {
     U bidRequest;
     V converted = null;
     try {
-      if (initconfig != null) {
-        OpenRtbConverter tempOpenRtbConverter = new OpenRtbConverter(initconfig);
-        bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
-        converted =
-          tempOpenRtbConverter.convert(config, bidRequest, sourceClass, targetClass, overRider);
-        JSONAssert.assertEquals(
-          JacksonObjectMapper.getMapper().writeValueAsString(target),
-          JacksonObjectMapper.getMapper().writeValueAsString(converted),
-          true);
-      } else {
-        bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
-        converted =
-          openRtbConverter.convert(config, bidRequest, sourceClass, targetClass, overRider);
-        JSONAssert.assertEquals(
-          JacksonObjectMapper.getMapper().writeValueAsString(target),
-          JacksonObjectMapper.getMapper().writeValueAsString(converted),
-          true);
+      OpenRtbConverter tempOpenRtbConverter = openRtbConverter;
+      if(initconfig != null) {
+          tempOpenRtbConverter = new OpenRtbConverter(initconfig);
       }
+       if(inputPojo.getInputAsString() == null) {
+         bidRequest = JacksonObjectMapperUtils.getMapper().convertValue(source, sourceClass);
+         if(inputPojo.getTestEnhance()==null) {
+           converted = tempOpenRtbConverter.convert(config, bidRequest, sourceClass, targetClass, overRider);
+         }
+         else {
+            converted = targetClass.newInstance();
+            tempOpenRtbConverter.enhance(config,bidRequest,converted,sourceClass,targetClass,overRider);
+
+         }
+      } else {
+         String stringInput = source.toString();
+         String stringOutput = tempOpenRtbConverter.convert(config, stringInput, sourceClass, targetClass, overRider).replaceAll("\\s+","");
+         converted = JacksonObjectMapperUtils.getMapper().readValue(stringOutput, targetClass);
+      }
+        JSONAssert.assertEquals(
+        JacksonObjectMapperUtils.getMapper().writeValueAsString(target).replaceAll("\\s+",""),
+        JacksonObjectMapperUtils.getMapper().writeValueAsString(converted).replaceAll("\\s+",""),
+        true);
 
     } catch (Exception | AssertionError e) {
 
@@ -91,10 +97,6 @@ public class ORTBTester<U, V> {
 
       if (!inputPojo.getOutputEdits().containsKey("status")
           || !inputPojo.getOutputEdits().get("status").equals("ERROR")) {
-        System.out.println(
-          JacksonObjectMapper.getMapper().writeValueAsString(target));
-        System.out.println(
-          JacksonObjectMapper.getMapper().writeValueAsString(converted));
         testOutput.getFailedTestList().add(outputTestPojo);
       }
     }

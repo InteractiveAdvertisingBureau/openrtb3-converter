@@ -25,7 +25,9 @@ import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
 import net.media.utils.JacksonObjectMapper;
+import org.json.JSONException;
 import net.media.utils.JacksonObjectMapperUtils;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -42,10 +44,8 @@ public class ConverterTest {
 
   @Test
   public void run() throws Exception {
-
-    ClassLoader classLoader = getClass().getClassLoader();
     OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
-
+    ClassLoader classLoader = getClass().getClassLoader();
     ORTBTester ortbTester = new ORTBTester(openRtbConverter);
     TestOutput testOutput = new TestOutput();
 
@@ -60,9 +60,8 @@ public class ConverterTest {
       for (File files : innerFolder) {
         totalFiles += files.listFiles().length;
         for (File file : files.listFiles()) {
-          //          if(file.getName().equals("nativeResponseStringInitConfigTrue.json")==false)
-          //            continue;
-          // System.out.println("file: " + file );
+          if(file.getName().equals("ResponseStringInput_3to2.json")==false)
+            continue;
           Exception exception = new Exception();
           byte[] jsonData = Files.readAllBytes(file.toPath());
           TestPojo testPojo = null;
@@ -74,14 +73,9 @@ public class ConverterTest {
           if (isNull(testPojo)
               || isNull(testPojo.getInputType())
               || isNull(testPojo.getOutputType())) {
-            /*OutputTestPojo outputTestPojo = new OutputTestPojo();
-            outputTestPojo.setInputFile(file.getName());
-            outputTestPojo.setStatus("FAILURE");
-            outputTestPojo.setException("Test file = " + file.getName() + " is incorrect");
-            testOutput.getFailedTestList().add(outputTestPojo);*/
             OutputTestPojo outputTestPojo = new OutputTestPojo();
             Map<String, Object> inputPojo =
-              JacksonObjectMapper.getMapper().readValue(jsonData, Map.class);
+              JacksonObjectMapperUtils.getMapper().readValue(jsonData, Map.class);
             outputTestPojo.setInputFile(null);
             outputTestPojo.setStatus("FAILURE");
             outputTestPojo.setInputType((String) inputPojo.get("inputType"));
@@ -111,7 +105,7 @@ public class ConverterTest {
                 overRider.put(new Conversion<>(src, target), converter1);
               }
             } catch (Exception e) {
-              System.out.println("Wrong Converter name provided");
+              System.out.println("Wrong Converter name or class provided");
             }
           }
 
@@ -167,14 +161,11 @@ public class ConverterTest {
               file.getName(),
               overRider,
                 testPojo.getConfig());
-          } else {
-            OutputTestPojo outputTestPojo = new OutputTestPojo();
-            outputTestPojo.setInputFile(file.getName());
-            outputTestPojo.setStatus("FAILURE");
-            outputTestPojo.setInputType(testPojo.getInputType());
-            outputTestPojo.setOutputType(testPojo.getOutputType());
-            outputTestPojo.setException("Test file is incorrect");
-            testOutput.getFailedTestList().add(outputTestPojo);
+          }
+          else {
+            Class<?> src = Class.forName(testPojo.getInputType());
+            Class<?> target = Class.forName(testPojo.getOutputType());
+            ortbTester.test(testPojo.getInputJson(),src,testPojo.getOutputJson(),target,testPojo.getParams(),testPojo,testOutput,file.getName(),overRider,testPojo.getConfig());
           }
         }
       }

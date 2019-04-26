@@ -72,6 +72,8 @@ public class PublisherToPublisherConverter
     target.setDomain(source.getDomain());
     target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
     Map<String, Object> map = source.getExt();
+
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }

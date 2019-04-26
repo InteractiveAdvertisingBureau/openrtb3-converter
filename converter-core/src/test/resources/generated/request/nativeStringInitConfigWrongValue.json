@@ -426,5 +426,7 @@
   "config" : {
     "nativeRequestAsString" : "random"
   },
-  "overRidingMap" : null
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
 }

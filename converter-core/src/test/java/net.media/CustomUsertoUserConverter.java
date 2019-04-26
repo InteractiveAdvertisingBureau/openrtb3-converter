@@ -26,6 +26,7 @@ import net.media.openrtb3.User;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
+import net.media.utils.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -75,7 +76,7 @@ public class CustomUsertoUserConverter
     }
     if (source.getConsent() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("consent", source.getConsent());
+      target.getExt().put(CommonConstants.CONSENT, source.getConsent());
     }
   }
 }

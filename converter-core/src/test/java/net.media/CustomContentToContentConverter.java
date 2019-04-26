@@ -21,6 +21,7 @@ import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Data;
+import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
@@ -44,56 +45,47 @@ public class CustomContentToContentConverter
       return;
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("artist")) {
+      if (source.getExt().containsKey(CommonConstants.ARTIST)) {
         try {
-          source.setArtist((String) source.getExt().get("artist"));
+          source.setArtist((String) source.getExt().get(CommonConstants.ARTIST));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting artist from content.ext.artist", e);
         }
-        source.getExt().remove("artist");
+        source.getExt().remove(CommonConstants.ARTIST);
       }
-      if (source.getExt().containsKey("genre")) {
+      if (source.getExt().containsKey(CommonConstants.GENRE)) {
         try {
-          source.setGenre((String) source.getExt().get("genre"));
+          source.setGenre((String) source.getExt().get(CommonConstants.GENRE));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting genre from content.ext.genre", e);
         }
-        source.getExt().remove("genre");
+        source.getExt().remove(CommonConstants.GENRE);
       }
-      if (source.getExt().containsKey("album")) {
+      if (source.getExt().containsKey(CommonConstants.ALBUM)) {
         try {
-          source.setAlbum((String) source.getExt().get("album"));
+          source.setAlbum((String) source.getExt().get(CommonConstants.ALBUM));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting album from content.ext.album", e);
         }
-        source.getExt().remove("album");
+        source.getExt().remove(CommonConstants.ALBUM);
       }
-      if (source.getExt().containsKey("isrc")) {
+      if (source.getExt().containsKey(CommonConstants.ISRC)) {
         try {
-          source.setIsrc((String) source.getExt().get("isrc"));
+          source.setIsrc((String) source.getExt().get(CommonConstants.ISRC));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting isrc from content.ext.isrc", e);
         }
-        source.getExt().remove("isrc");
+        source.getExt().remove(CommonConstants.ISRC);
       }
-      if (source.getExt().containsKey("prodq")) {
+      if (source.getExt().containsKey(CommonConstants.PRODQ)) {
         try {
-          source.setProdq((Integer) source.getExt().get("prodq"));
+          source.setProdq((Integer) source.getExt().get(CommonConstants.PRODQ));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting prodq from content.ext.prodq", e);
         }
-        source.getExt().remove("prodq");
+        source.getExt().remove(CommonConstants.PRODQ);
       }
-      //      if (source.getExt().containsKey("data")) {
-      //        try {
-      //          source.setData(Utils.getMapper().convertValue(source.getExt().get("data"),
-      //            javaTypeForDataCollection));
-      //        } catch (Exception e) {
-      //          throw new OpenRtbConverterException("Error in setting data from content.ext.data",
-      // e);
-      //        }
-      source.getExt().remove("data");
-      //      }
+        source.getExt().remove(CommonConstants.DATA);
     }
     super.enhance(source, target, config, converterProvider);
   }

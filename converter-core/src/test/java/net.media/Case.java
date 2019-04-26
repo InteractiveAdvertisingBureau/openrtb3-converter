@@ -24,7 +24,7 @@ public class Case {
   private String inputFile;
   private String inputType;
   private Map<String, String> inputEdits;
-  private JsonNode inputJson;
+  private Object inputJson;
   private String outputFile;
   private String outputType;
   private Map<String, String> outputEdits;
@@ -33,6 +33,8 @@ public class Case {
   private Map<String, Object> params;
   private Map<String, Object> config;
   private Map<String, Object> overRidingMap;
+  private Integer inputAsString;
+  private Integer testEnhance;
 
   public Case() {}
 
@@ -68,11 +70,11 @@ public class Case {
     this.inputEdits = inputEdits;
   }
 
-  public JsonNode getInputJson() {
+  public Object getInputJson() {
     return this.inputJson;
   }
 
-  public void setInputJson(JsonNode inputJson) {
+  public void setInputJson(Object inputJson) {
     this.inputJson = inputJson;
   }
 
@@ -130,5 +132,21 @@ public class Case {
 
   public void setOverRidingMap(Map<String, Object> overRidingMap) {
     this.overRidingMap = overRidingMap;
+  }
+
+  public Integer getInputAsString() {
+    return inputAsString;
+  }
+
+  public void setInputAsString(Integer inputAsString) {
+    this.inputAsString = inputAsString;
+  }
+
+  public Integer getTestEnhance() {
+    return testEnhance;
+  }
+
+  public void setTestEnhance(Integer testEnhance) {
+    this.testEnhance = testEnhance;
   }
 }

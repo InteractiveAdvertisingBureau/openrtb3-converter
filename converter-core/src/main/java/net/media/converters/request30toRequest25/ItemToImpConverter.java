@@ -30,6 +30,8 @@ import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.*;
 import net.media.utils.*;
+import net.media.utils.*;
+import net.media.utils.JacksonObjectMapper;
 
 import java.util.ArrayList;
 import java.util.Collection;

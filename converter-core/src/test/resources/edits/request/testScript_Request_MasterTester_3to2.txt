@@ -19,6 +19,20 @@ cases:
      id: "\"1\""
    purpose: bannerAppRequest_3to2
 
+ - inputFile: NATIVE_SITE_30_3to2_WL.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.id: "\"1\""
+   outputFile: NATIVE_SITE_25_WL.json
+   outputType: "REQUEST25"
+   outputEdits:
+     id: "\"1\""
+   params:
+     nativeRequestAsString : false
+   purpose: nativeSiteWhitelisted_3to2
+
+
+
  - inputFile: NATIVE_SITE_30_3to2.json
    inputType: "REQUEST30"
    inputEdits:

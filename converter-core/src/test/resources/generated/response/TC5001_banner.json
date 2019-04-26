@@ -218,5 +218,7 @@
   "purpose" : "TC5001_banner",
   "params" : null,
   "config" : null,
-  "overRidingMap" : null
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
 }

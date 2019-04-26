@@ -16,6 +16,8 @@
 
 package net.media.driver;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -91,7 +93,6 @@ public class OpenRtbConverter {
     }
     Provider converterProvider =
         converterManager.getConverterProvider(overridenMap, overridingConfig);
-
     Converter<U, V> converter = converterProvider.fetch(new Conversion<>(sourceClass, targetClass));
     return converter.map(source, overridingConfig, converterProvider);
   }
@@ -193,4 +194,5 @@ public class OpenRtbConverter {
   private boolean shouldValidate(Config overridingConfig) {
     return overridingConfig.getValidate();
   }
+
 }

@@ -645,5 +645,7 @@
       "targetClass" : "net.media.openrtb3.Publisher",
       "converterClass" : "net.media.CustomPublisherToPublisherConverter2to3"
     }
-  }
+  },
+  "inputAsString" : null,
+  "testEnhance" : null
 }
