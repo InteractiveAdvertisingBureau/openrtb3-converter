@@ -22,9 +22,10 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Device;
 import net.media.openrtb3.Geo;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.OsMap;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -86,27 +87,27 @@ public class DeviceToDeviceConverter
     target.setMccmnc(source.getMccmnc());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      if (map.containsKey("flashver")) {
+      if (map.containsKey(CommonConstants.FLASHVER)) {
         try {
-          target.setFlashver((String) source.getExt().get("flashver"));
-          map.remove("flashver");
+          target.setFlashver((String) source.getExt().get(CommonConstants.FLASHVER));
+          map.remove(CommonConstants.FLASHVER);
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException("error while typecasting ext for Device", e);
         }
       }
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getXff() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("xff", source.getXff());
+      target.getExt().put(CommonConstants.XFF, source.getXff());
     }
     if (source.getIptr() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("iptr", source.getIptr());
+      target.getExt().put(CommonConstants.IPTR, source.getIptr());
     }
     if (source.getMccmncsim() != null) {
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("mccmncsim", source.getMccmncsim());
+      target.getExt().put(CommonConstants.MCCMNCSIM, source.getMccmncsim());
     }
   }
 }

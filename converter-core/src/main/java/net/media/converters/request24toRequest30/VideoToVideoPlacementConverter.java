@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.VideoPlacement;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import static java.util.Objects.nonNull;
@@ -35,23 +36,23 @@ public class VideoToVideoPlacementConverter
       return;
     }
     if (nonNull(video.getExt())) {
-      if (video.getExt().containsKey("placement")) {
+      if (video.getExt().containsKey(CommonConstants.PLACEMENT)) {
         try {
-          video.setPlacement((Integer) video.getExt().get("placement"));
+          video.setPlacement((Integer) video.getExt().get(CommonConstants.PLACEMENT));
         } catch (Exception e) {
           throw new OpenRtbConverterException(
               "Error in setting placement from video.ext.placement", e);
         }
-        video.getExt().remove("placement");
+        video.getExt().remove(CommonConstants.PLACEMENT);
       }
-      if (video.getExt().containsKey("playbackend")) {
+      if (video.getExt().containsKey(CommonConstants.PLAYBACKEND)) {
         try {
-          video.setPlaybackend((Integer) video.getExt().get("playbackend"));
+          video.setPlaybackend((Integer) video.getExt().get(CommonConstants.PLAYBACKEND));
         } catch (Exception e) {
           throw new OpenRtbConverterException(
               "Error in setting playbackend from video.ext" + ".playbackend", e);
         }
-        video.getExt().remove("playbackend");
+        video.getExt().remove(CommonConstants.PLAYBACKEND);
       }
     }
     super.enhance(video, videoPlacement, config, converterProvider);

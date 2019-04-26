@@ -16,7 +16,14 @@
 
 package net.media.utils;
 
+import net.media.config.Config;
+
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
+import static java.util.Objects.nonNull;
 
 /** Created by rajat.go on 04/01/19. */
 public class CollectionUtils {
@@ -31,5 +38,19 @@ public class CollectionUtils {
 
   public static boolean isEmpty(Collection collection) {
     return (collection == null || collection.isEmpty());
+  }
+
+  public static <T> Collection<T> copyCollection(Collection<T> input, Config config) {
+    if (config.isCloningDisabled()) {
+      return input;
+    }
+    if (nonNull(input)) {
+      if (input instanceof Set) {
+        return new HashSet<T>(input);
+      } else {
+        return new ArrayList<T>(input);
+      }
+    }
+    return null;
   }
 }

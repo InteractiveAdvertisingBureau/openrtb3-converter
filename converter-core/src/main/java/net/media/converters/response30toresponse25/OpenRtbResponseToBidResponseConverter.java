@@ -25,8 +25,8 @@ import net.media.openrtb25.response.SeatBid;
 import net.media.openrtb3.OpenRTB3_X;
 import net.media.openrtb3.Response;
 import net.media.openrtb3.Seatbid;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +52,7 @@ public class OpenRtbResponseToBidResponseConverter
       throws OpenRtbConverterException {
 
     Converter<Seatbid, SeatBid> seatBid30ToSeatBid25Converter =
-        converterProvider.fetch(new Conversion(Seatbid.class, SeatBid.class));
+        converterProvider.fetch(new Conversion<>(Seatbid.class, SeatBid.class));
     if (isNull(source) || isNull(target) || isNull(config)) return;
     Response response = source.getResponse();
     if (response == null) return;
@@ -68,7 +68,7 @@ public class OpenRtbResponseToBidResponseConverter
     target.setBidid(response.getBidid());
     target.setCur(response.getCur());
     target.setNbr(response.getNbr());
-    target.setExt(Utils.copyMap(response.getExt(), config));
+    target.setExt(MapUtils.copyMap(response.getExt(), config));
     target.setCustomdata(response.getCdata());
   }
 }

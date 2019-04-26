@@ -16,21 +16,20 @@
 
 package net.media.api.servlets;
 
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import com.google.inject.Inject;
+import net.media.api.models.Request2xPayload;
+import net.media.api.models.RequestResponse3xPayload;
+import net.media.api.models.Response2xPayload;
 import net.media.config.Config;
 import net.media.driver.OpenRtbConverter;
-import net.media.enums.AdType;
-import net.media.enums.OpenRtbVersion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
+import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
-import net.media.utils.JacksonObjectMapper;
-import org.apache.commons.io.IOUtils;
-import org.apache.logging.log4j.util.TriConsumer;
+import net.media.utils.JacksonObjectMapperUtils;
+
 import org.slf4j.Logger;
 
 import javax.naming.ConfigurationException;
@@ -42,7 +41,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Objects;
-import java.util.function.Function;
+import java.util.function.BiConsumer;
 
 import static java.util.Objects.isNull;
 
@@ -55,77 +54,90 @@ public class ConverterServlet extends HttpServlet {
   private static final String THREEXTOTHREEX = "3xTo2x";
   private static final String TYPE = "type";
   private static final String CONVERSIONTYPE = "conversiontype";
-  private static final ObjectMapper mapper = JacksonObjectMapper.getMapper();
-  private static final JavaType javaTypeForAdTypeMapping = mapper.getTypeFactory()
-    .constructMapType(Map.class, String.class, AdType.class);
   @Inject private OpenRtbConverter openRtbConverter;
-  private Table<String, String, TriConsumer<HttpServletRequest, HttpServletResponse, Config>> queryActionMap;
-  private TriConsumer<HttpServletRequest, HttpServletResponse, Config> get2xto3xRequest =
-      (request, response, config) -> {
+  private Table<String, String, BiConsumer<HttpServletRequest, HttpServletResponse>> queryActionMap;
+  private BiConsumer<HttpServletRequest, HttpServletResponse> get2xto3xRequest =
+      (request, response) -> {
         try {
-          mapper.writeValue(
-            response.getWriter(),
-            openRtbConverter
-              .convert(
-                config,
-                IOUtils.toString(request.getInputStream(), "UTF-8"),
-                BidRequest2_X.class,
-                OpenRTBWrapper3_X.class));
+          Request2xPayload request2xPayload =
+              JacksonObjectMapperUtils.getMapper()
+                  .readValue(request.getInputStream(), Request2xPayload.class);
+          JacksonObjectMapperUtils.getMapper()
+              .writerWithDefaultPrettyPrinter()
+              .writeValue(
+                  response.getWriter(),
+                  openRtbConverter.convert(
+                      request2xPayload.getConfig(),
+                      request2xPayload.getBidRequest(),
+                      BidRequest2_X.class,
+                      OpenRTBWrapper3_X.class));
         } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
           log.error("Error while sending 2xto3x request ", e);
           response.setStatus(500);
         }
       };
-  private TriConsumer<HttpServletRequest, HttpServletResponse, Config> get3xto2xRequest =
-      (request, response, config) -> {
+  private BiConsumer<HttpServletRequest, HttpServletResponse> get3xto2xRequest =
+      (request, response) -> {
         try {
-          mapper.writeValue(
-            response.getWriter(),
-            openRtbConverter
-              .convert(
-                config,
-                IOUtils.toString(request.getInputStream(), "UTF-8"),
-                OpenRTBWrapper3_X.class,
-                BidRequest2_X.class));
+          RequestResponse3xPayload requestResponse3xPayload =
+              JacksonObjectMapperUtils.getMapper()
+                  .readValue(request.getInputStream(), RequestResponse3xPayload.class);
+          JacksonObjectMapperUtils.getMapper()
+              .writerWithDefaultPrettyPrinter()
+              .writeValue(
+                  response.getWriter(),
+                  openRtbConverter.convert(
+                      requestResponse3xPayload.getConfig(),
+                      requestResponse3xPayload.getOpenRTB(),
+                      OpenRTBWrapper3_X.class,
+                      BidRequest2_X.class));
         } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
           log.error("Error while sending 2xto3x request ", e);
           response.setStatus(500);
         }
       };
-  private TriConsumer<HttpServletRequest, HttpServletResponse, Config> get2xto3xResponse =
-      (request, response, config) -> {
+  private BiConsumer<HttpServletRequest, HttpServletResponse> get2xto3xResponse =
+      (request, response) -> {
         try {
-          mapper.writeValue(
-            response.getWriter(),
-            openRtbConverter
-              .convert(
-                config,
-                IOUtils.toString(request.getInputStream(), "UTF-8"),
-                BidRequest2_X.class,
-                OpenRTBWrapper3_X.class));
+          Response2xPayload response2xPayload =
+              JacksonObjectMapperUtils.getMapper()
+                  .readValue(request.getInputStream(), Response2xPayload.class);
+          JacksonObjectMapperUtils.getMapper()
+              .writerWithDefaultPrettyPrinter()
+              .writeValue(
+                  response.getWriter(),
+                  openRtbConverter.convert(
+                      response2xPayload.getConfig(),
+                      response2xPayload.getResponse(),
+                      BidResponse2_X.class,
+                      OpenRTBWrapper3_X.class));
         } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
           log.error("Error while sending 2xto3x request ", e);
           response.setStatus(500);
         }
       };
-  private TriConsumer<HttpServletRequest, HttpServletResponse, Config> get3xto2xResponse =
-      (request, response, config) -> {
+  private BiConsumer<HttpServletRequest, HttpServletResponse> get3xto2xResponse =
+      (request, response) -> {
         try {
-          mapper.writeValue(
-            response.getWriter(),
-            openRtbConverter
-              .convert(
-                config,
-                IOUtils.toString(request.getInputStream(), "UTF-8"),
-                BidRequest2_X.class,
-                OpenRTBWrapper3_X.class));
+          RequestResponse3xPayload requestResponse3xPayload =
+              JacksonObjectMapperUtils.getMapper()
+                  .readValue(request.getInputStream(), RequestResponse3xPayload.class);
+          JacksonObjectMapperUtils.getMapper()
+              .writerWithDefaultPrettyPrinter()
+              .writeValue(
+                  response.getWriter(),
+                  openRtbConverter.convert(
+                      requestResponse3xPayload.getConfig(),
+                      requestResponse3xPayload.getOpenRTB(),
+                      OpenRTBWrapper3_X.class,
+                      BidResponse2_X.class));
         } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
           log.error("Error while sending 2xto3x request ", e);
           response.setStatus(500);
         }
       };
-  private TriConsumer<HttpServletRequest, HttpServletResponse, Config> illegalAction =
-      (request, response, config) -> {
+  private BiConsumer<HttpServletRequest, HttpServletResponse> illegalAction =
+      (request, response) -> {
         try {
           response.getWriter().write("No such query exists");
         } catch (IOException e) {
@@ -152,45 +164,13 @@ public class ConverterServlet extends HttpServlet {
     queryActionMap.put(RESPONSE, THREEXTOTHREEX, get3xto2xResponse);
   }
 
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) {
     Map<String, String[]> queryMap = request.getParameterMap();
-    Config config = null;
-    TriConsumer<HttpServletRequest, HttpServletResponse, Config> queryConsumer = getQueryValues(queryMap);
-    if(!queryConsumer.equals(illegalAction))
-      config = getConfig.apply(request);
-    queryConsumer.accept(request, response, config);
+    BiConsumer<HttpServletRequest, HttpServletResponse> queryConsumer = getQueryValues(queryMap);
+    queryConsumer.accept(request, response);
   }
 
-  private Function<HttpServletRequest, Config> getConfig = request -> {
-    Map<String, String[]> queryMap = request.getParameterMap();
-    String nativeRequestAsString = getParamValue("nativeRequestAsString", queryMap);
-    String nativeResponseAsString = getParamValue("nativeResponseAsString", queryMap);
-    String adTypeMapping = getParamValue("adTypeMapping", queryMap);
-    String disableCloning = getParamValue("disableCloning", queryMap);
-    String validate = getParamValue("validate", queryMap);
-    String openRtbVersion2_XVersion = getParamValue("openRtbVersion2_XVersion", queryMap);
-    Config config = new Config();
-    try {
-      if(nativeRequestAsString != null)
-        config.setNativeRequestAsString(Boolean.getBoolean(nativeRequestAsString));
-      if(nativeResponseAsString != null)
-        config.setNativeResponseAsString(Boolean.getBoolean(nativeResponseAsString));
-      if(adTypeMapping != null)
-        config.setAdTypeMapping(mapper.readValue(adTypeMapping, javaTypeForAdTypeMapping));
-      if(disableCloning != null)
-        config.setDisableCloning(Boolean.getBoolean(disableCloning));
-      if(validate != null)
-        config.setValidate(Boolean.getBoolean(validate));
-      if(openRtbVersion2_XVersion != null)
-        config.setOpenRtbVersion2_XVersion(OpenRtbVersion.valueOf(openRtbVersion2_XVersion));
-    } catch (Exception e) {
-      log.error("Could not convert config params ", e);
-    }
-    return config;
-  };
-
-  private TriConsumer<HttpServletRequest, HttpServletResponse, Config> getQueryValues(
+  private BiConsumer<HttpServletRequest, HttpServletResponse> getQueryValues(
       Map<String, String[]> query) {
     String type = getParamValue(TYPE, query);
     String conversionType = getParamValue(CONVERSIONTYPE, query);

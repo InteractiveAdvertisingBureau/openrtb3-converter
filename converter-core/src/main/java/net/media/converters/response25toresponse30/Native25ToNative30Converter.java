@@ -26,8 +26,9 @@ import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb3.Asset;
 import net.media.openrtb3.LinkAsset;
 import net.media.openrtb3.Native;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,17 +59,19 @@ public class Native25ToNative30Converter implements Converter<NativeResponse, Na
     if (source == null || target == null || source.getNativeResponseBody() == null) {
       return;
     }
-    target.setExt(Utils.copyMap(source.getNativeResponseBody().getExt(), config));
+    target.setExt(MapUtils.copyMap(source.getNativeResponseBody().getExt(), config));
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
-    target.getExt().put("jsTracker", source.getNativeResponseBody().getJstracker());
-    target.getExt().put("impTrackers", source.getNativeResponseBody().getImptrackers());
+    target.getExt().put(CommonConstants.JS_TRACKER, source.getNativeResponseBody().getJstracker());
+    target.getExt().put(CommonConstants.IMP_TRACKERS, source.getNativeResponseBody().getImptrackers());
     Converter<Link, LinkAsset> linkLinkAssetConverter =
         converterProvider.fetch(new Conversion<>(Link.class, LinkAsset.class));
     Converter<AssetResponse, Asset> assetResponseAssetConverter =
         converterProvider.fetch(new Conversion<>(AssetResponse.class, Asset.class));
-    LinkAsset linkAsset = linkLinkAssetConverter.map(source.getNativeResponseBody().getLink(), config, converterProvider);
+    LinkAsset linkAsset =
+        linkLinkAssetConverter.map(
+            source.getNativeResponseBody().getLink(), config, converterProvider);
     target.setLink(linkAsset);
     if (!isEmpty(source.getNativeResponseBody().getAsset())) {
       List<Asset> assetList = new ArrayList<>();

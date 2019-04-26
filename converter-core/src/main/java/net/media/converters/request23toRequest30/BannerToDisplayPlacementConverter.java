@@ -17,14 +17,14 @@
 package net.media.converters.request23toRequest30;
 
 import com.fasterxml.jackson.databind.JavaType;
-
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.utils.CommonConstants;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Collection;
 
@@ -34,7 +34,7 @@ import static java.util.Objects.nonNull;
 public class BannerToDisplayPlacementConverter
     extends net.media.converters.request25toRequest30.BannerToDisplayPlacementConverter {
 
-	private static final JavaType javaTypeForFormatCollection = Utils.getMapper().getTypeFactory()
+  private static final JavaType javaTypeForFormatCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
 			.constructCollectionType(Collection.class, Format.class);
 
   public void enhance(
@@ -44,19 +44,19 @@ public class BannerToDisplayPlacementConverter
       return;
     }
     if (nonNull(banner.getExt())) {
-      if (banner.getExt().containsKey("vcm")) {
-        banner.setVcm((Integer) banner.getExt().get("vcm"));
-        banner.getExt().remove("vcm");
+      if (banner.getExt().containsKey(CommonConstants.VCM)) {
+        banner.setVcm((Integer) banner.getExt().get(CommonConstants.VCM));
+        banner.getExt().remove(CommonConstants.VCM);
       }
-      if (banner.getExt().containsKey("format")) {
+      if (banner.getExt().containsKey(CommonConstants.FORMAT)) {
         try {
-          banner.setFormat(Utils.getMapper().convertValue(banner.getExt().get("format"),
+          banner.setFormat(JacksonObjectMapperUtils.getMapper().convertValue(banner.getExt().get(CommonConstants.FORMAT),
             javaTypeForFormatCollection));
         } catch (Exception e) {
           throw new OpenRtbConverterException(
               "Error in setting banner.format from banner.ext" + ".format", e);
         }
-        banner.getExt().remove("format");
+        banner.getExt().remove(CommonConstants.FORMAT);
       }
     }
     super.enhance(banner, displayPlacement, config, converterProvider);
