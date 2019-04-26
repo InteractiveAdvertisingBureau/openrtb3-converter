@@ -60,7 +60,7 @@ public class ConverterTest {
       for (File files : innerFolder) {
         totalFiles += files.listFiles().length;
         for (File file : files.listFiles()) {
-          if(file.getName().equals("ResponseStringInput_3to2.json")==false)
+          if(file.getName().equals("audioSiteRESPONSE_2to3.json")==false)
             continue;
           Exception exception = new Exception();
           byte[] jsonData = Files.readAllBytes(file.toPath());
