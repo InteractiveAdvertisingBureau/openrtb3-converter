@@ -12,21 +12,25 @@ public class RemoveFiles {
 
     try {
       for (String basePath : basePaths) {
-        File directory = new File(basePath);
+        try {
+          File directory = new File(basePath);
 
-        File[] files = directory.listFiles();
-        for (File file : files) {
-          System.out.println(file.getPath().toString());
-          if (!file.delete()) {
-            System.out.println("Failed to delete " + file);
+          File[] files = directory.listFiles();
+          for (File file : files) {
+            System.out.println(file.getPath().toString());
+            if (!file.delete()) {
+              System.out.println("Failed to delete " + file);
 
-          }
+            }
 //        break;
 
+          }
+        }catch (Exception e) {
+          //ignore
         }
       }
     } catch (Exception e) {
-
+      System.out.println(e.getMessage());
     }
   }
 }
