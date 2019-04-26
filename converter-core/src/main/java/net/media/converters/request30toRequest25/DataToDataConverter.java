@@ -23,8 +23,8 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Data;
 import net.media.openrtb3.Segment;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Map;
 
@@ -63,7 +63,7 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb25.
             source.getSegment(), segmentSegmentConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(MapUtils.copyMap(map, config));
     }
   }
 }

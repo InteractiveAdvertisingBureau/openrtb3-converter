@@ -21,9 +21,13 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Audio;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -60,17 +64,17 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
     if (nonNull(source.getExt())) {
       try {
         Map<String, Object> ext = source.getExt();
-        if (ext.containsKey("ctype")) {
-          target.setCtype((Integer) ext.get("ctype"));
-          source.getExt().remove("ctype");
+        if (ext.containsKey(CommonConstants.CTYPE)) {
+          target.setCtype((Integer) ext.get(CommonConstants.CTYPE));
+          source.getExt().remove(CommonConstants.CTYPE);
         }
-        if (ext.containsKey("dur")) {
-          target.setDur((Integer) ext.get("dur"));
-          source.getExt().remove("dur");
+        if (ext.containsKey(CommonConstants.DUR)) {
+          target.setDur((Integer) ext.get(CommonConstants.DUR));
+          source.getExt().remove(CommonConstants.DUR);
         }
-        if (ext.containsKey("mime")) {
-          target.setMime((Collection<String>) ext.get("mime"));
-          source.getExt().remove("mime");
+        if (ext.containsKey(CommonConstants.MIME)) {
+          target.setMime((Collection<String>) ext.get(CommonConstants.MIME));
+          source.getExt().remove(CommonConstants.MIME);
         }
       } catch (Exception e) {
         throw new OpenRtbConverterException("error while type casting in bid.ext", e);

@@ -23,8 +23,8 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb3.Companion;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Map;
 
@@ -58,10 +58,10 @@ public class CompanionToBannerConverter implements Converter<Companion, Banner> 
     banner.setId(companion.getId());
     Map<String, Object> map = companion.getExt();
     if (map != null) {
-      if (banner.getExt() == null) banner.setExt(Utils.copyMap(map, config));
+      if (banner.getExt() == null) banner.setExt(MapUtils.copyMap(map, config));
       else
         try {
-          Map<String, Object> copyMap = Utils.copyMap(map, config);
+          Map<String, Object> copyMap = MapUtils.copyMap(map, config);
           if (nonNull(copyMap)) {
             banner.getExt().putAll(copyMap);
           }

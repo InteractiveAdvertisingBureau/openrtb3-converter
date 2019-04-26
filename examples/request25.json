@@ -3,178 +3,255 @@
   "at": 1,
   "test": 1,
   "tmax": 100,
-  "wseat": ["a"],
+  "wseat": [
+    "a"
+  ],
   "source": {
     "fd": 1,
     "tid": "dd",
     "pchain": "dd",
     "ext": {
-      "ts" : 1,
-      "ds" : "ds",
-      "dsmap" : "abcdefghij",
-      "cert" : "abc.com/xyz/efg",
-      "digest" : "digest:digest, abcde:efg",
-      "dummy" : "ff"
-
+      "ts": 1,
+      "ds": "ds",
+      "dsmap": "abcdefghij",
+      "cert": "abc.com/xyz/efg",
+      "digest": "digest:digest, abcde:efg",
+      "dummy": "ff"
     }
   },
   "regs": {
     "coppa": 1,
     "ext": {
-      "gdpr" : 1,
-      "dummy" :"ff"
+      "gdpr": 1,
+      "dummy": "ff"
     }
   },
   "ext": {
-    "cattax" : 2,
-    "dummy" : "ff",
+    "cattax": 2,
+    "dummy": "ff",
     "restrictions": {
       "ext": {
         "dummy": "ff"
       }
     }
   },
-  "cur": ["USD"],
+  "cur": [
+    "USD"
+  ],
   "allimps": 0,
-  "wlang": ["en"],
-  "bcat": ["bb"],
-  "badv": ["cc"],
-  "bapp": ["nn"],
-  "imp": [{
-    "id": "1",
-    "metric": [{
-      "type": "dd",
-      "value": 1.0,
-      "vendor": "dssf",
-      "ext": {
-        "dummy": "ff"
-      }
-    }],
-    "bidfloor": 0.03,
-    "bidfloorcur": "USD",
-    "pmp": {
-      "private_auction": 1,
-      "deals": [{
-        "id": "ww",
-        "bidfloor": 0.0,
-        "bidfloorcur": "USD",
-        "at": 1,
-        "wseat": ["dd", "as"],
-        "wadomain": ["ss.com", "abc.com"],
+  "wlang": [
+    "en"
+  ],
+  "bcat": [
+    "bb"
+  ],
+  "badv": [
+    "cc"
+  ],
+  "bapp": [
+    "nn"
+  ],
+  "imp": [
+    {
+      "id": "1",
+      "metric": [
+        {
+          "type": "dd",
+          "value": 1.0,
+          "vendor": "dssf",
+          "ext": {
+            "dummy": "ff"
+          }
+        }
+      ],
+      "bidfloor": 0.03,
+      "bidfloorcur": "USD",
+      "pmp": {
+        "private_auction": 1,
+        "deals": [
+          {
+            "id": "ww",
+            "bidfloor": 0.0,
+            "bidfloorcur": "USD",
+            "at": 1,
+            "wseat": [
+              "dd",
+              "as"
+            ],
+            "wadomain": [
+              "ss.com",
+              "abc.com"
+            ],
+            "ext": {
+              "dummy": "ff"
+            }
+          }
+        ],
         "ext": {
           "dummy": "ff"
         }
-      }],
-      "ext": {
-        "dummy": "ff"
-      }
-    },
-    "displaymanager": "dd",
-    "displaymanagerver": "22",
-    "clickbrowser": 1,
-    "secure": 1,
-    "iframebuster": ["abc","def"],
-    "instl": 0,
-    "tagid": "re",
-    "exp": 1,
-    "banner": {
-      "id": "dd",
-      "format": [
-        {
-          "w": 200,
-          "h": 20,
-          "wratio": 200,
-          "hratio": 30,
-          "wmin":3,
-          "ext": {
-            "dummy": "ffaa"
-          }
-        },
-        {
-          "w": 33,
-          "h": 11,
-          "wratio": 200,
-          "hratio": 30,
-          "wmin":3,
-          "ext": {
-            "dummy": "ffaa"
-          }
-        }],
-      "h": 250,
-      "w": 300,
-      "btype": [3, 4],
-      "battr": [1, 2],
-      "topframe": 22,
-      "expdir": [3, 9],
-      "api": [3, 2],
-      "mimes": ["application/x-shockwave-flash",
-        "image/jpg"
+      },
+      "displaymanager": "dd",
+      "displaymanagerver": "22",
+      "clickbrowser": 1,
+      "secure": 1,
+      "iframebuster": [
+        "abc",
+        "def"
       ],
-      "pos": 0,
-      "ext": {
-        "qty" : 1,
-        "seq" : 1,
-        "context" : 2,
-        "ctype" : [1],
-        "unit" : 1,
-        "priv" :0,
-        "ptype" : 1,
-        "dummy": "ffaa"
-      }
-    },
-    "ext": {
-      "ssai": 1,
-      "reward" : 1,
-      "admx" :  1,
-      "dt" : 1,
-      "dlvy": 1,
-      "sequence" :1,
-      "curlx" : 0,
-      "ampren" : 1,
-      "event": [{
-        "type": 1,
-        "method": [1],
-        "api": [1,2],
-        "jstrk": ["abc", "Def"],
-        "wjs": 1,
-        "pxtrk": ["abc", "def"],
-        "wpx": 1,
+      "instl": 0,
+      "tagid": "re",
+      "exp": 1,
+      "banner": {
+        "id": "dd",
+        "format": [
+          {
+            "w": 200,
+            "h": 20,
+            "wratio": 200,
+            "hratio": 30,
+            "wmin": 3,
+            "ext": {
+              "dummy": "ffaa"
+            }
+          },
+          {
+            "w": 33,
+            "h": 11,
+            "wratio": 200,
+            "hratio": 30,
+            "wmin": 3,
+            "ext": {
+              "dummy": "ffaa"
+            }
+          }
+        ],
+        "h": 250,
+        "w": 300,
+        "btype": [
+          3,
+          4
+        ],
+        "battr": [
+          1,
+          2
+        ],
+        "topframe": 22,
+        "expdir": [
+          3,
+          9
+        ],
+        "api": [
+          3,
+          2
+        ],
+        "mimes": [
+          "application/x-shockwave-flash",
+          "image/jpg"
+        ],
+        "pos": 0,
         "ext": {
+          "qty": 1,
+          "seq": 1,
+          "context": 2,
+          "ctype": [
+            1
+          ],
+          "unit": 1,
+          "priv": 0,
+          "ptype": 1,
           "dummy": "ffaa"
         }
       },
-        {
-          "type": 1,
-          "method": [1],
-          "api": [1,2],
-          "jstrk": ["abc", "Def"],
-          "wjs": 1,
-          "pxtrk": ["abc", "def"],
-          "wpx": 1,
-          "ext": {
-            "dummy": "ffaa"
+      "ext": {
+        "ssai": 1,
+        "reward": 1,
+        "admx": 1,
+        "dt": 1,
+        "dlvy": 1,
+        "sequence": 1,
+        "curlx": 0,
+        "ampren": 1,
+        "event": [
+          {
+            "type": 1,
+            "method": [
+              1
+            ],
+            "api": [
+              1,
+              2
+            ],
+            "jstrk": [
+              "abc",
+              "Def"
+            ],
+            "wjs": 1,
+            "pxtrk": [
+              "abc",
+              "def"
+            ],
+            "wpx": 1,
+            "ext": {
+              "dummy": "ffaa"
+            }
+          },
+          {
+            "type": 1,
+            "method": [
+              1
+            ],
+            "api": [
+              1,
+              2
+            ],
+            "jstrk": [
+              "abc",
+              "Def"
+            ],
+            "wjs": 1,
+            "pxtrk": [
+              "abc",
+              "def"
+            ],
+            "wpx": 1,
+            "ext": {
+              "dummy": "ffaa"
+            }
           }
-        }
-      ],
-      "dummy": "ff"
+        ],
+        "dummy": "ff"
+      }
     }
-  }],
+  ],
   "app": {
     "id": "abcde2345",
     "name": "android app",
     "bundle": "com.media.net",
     "domain": "www.foobar.com",
     "storeurl": "axcdabc.com/test123",
-    "cat": ["IAB3-1", "IAB3-2"],
-    "sectioncat": ["zz", "dd"],
-    "pagecat": ["ss", "as"],
+    "cat": [
+      "IAB3-1",
+      "IAB3-2"
+    ],
+    "sectioncat": [
+      "zz",
+      "dd"
+    ],
+    "pagecat": [
+      "ss",
+      "as"
+    ],
     "ver": "123",
     "privacypolicy": 1,
     "paid": 0,
     "publisher": {
       "id": "8953",
       "name": "foobar.com",
-      "cat": ["IAB3-1", "IAB3-2"],
+      "cat": [
+        "IAB3-1",
+        "IAB3-2"
+      ],
       "domain": "foobar.com",
       "ext": {
         "cattax": 2,
@@ -194,7 +271,10 @@
       "producer": {
         "id": "eew",
         "name": "edew",
-        "cat": ["IAB3-1", "IAB3-2"],
+        "cat": [
+          "IAB3-1",
+          "IAB3-2"
+        ],
         "domain": "abc.com",
         "ext": {
           "cattax": 2,
@@ -202,7 +282,10 @@
         }
       },
       "url": "ewfe.com",
-      "cat": ["IAB3-1", "IAB3-2"],
+      "cat": [
+        "IAB3-1",
+        "IAB3-2"
+      ],
       "prodq": 1,
       "videoquality": 2,
       "context": 1,
@@ -215,21 +298,25 @@
       "len": 2,
       "language": "en",
       "embeddable": 1,
-      "data": [{
-        "id": "1",
-        "name": "Abcdef",
-        "segment": [{
-          "id": "bcdef",
-          "name": "name123",
-          "value": "acde",
+      "data": [
+        {
+          "id": "1",
+          "name": "Abcdef",
+          "segment": [
+            {
+              "id": "bcdef",
+              "name": "name123",
+              "value": "acde",
+              "ext": {
+                "dummy": "ff"
+              }
+            }
+          ],
           "ext": {
             "dummy": "ff"
           }
-        }],
-        "ext": {
-          "dummy": "ff"
         }
-      }],
+      ],
       "ext": {
         "cattax": 2,
         "dummy": "ff"
@@ -260,7 +347,7 @@
       "zip": "ewe",
       "utcoffset": 1,
       "ext": {
-        "dummy" : "ff"
+        "dummy": "ff"
       }
     },
     "dnt": 1,
@@ -284,9 +371,9 @@
     "mccmnc": "ewew",
     "connectiontype": 2,
     "ext": {
-      "xff" : "1.2.3.4",
-      "iptr" : 1,
-      "dummy" : "ff"
+      "xff": "1.2.3.4",
+      "iptr": 1,
+      "dummy": "ff"
     }
   },
   "user": {
@@ -311,26 +398,30 @@
       "zip": "ewe",
       "utcoffset": 1,
       "ext": {
-        "dummy" :"ff"
+        "dummy": "ff"
       }
     },
-    "data": [{
-      "id": "wwe",
-      "name": "ee",
-      "segment": [{
-        "id": "ew",
-        "name": "rewfe",
-        "value": "ew",
+    "data": [
+      {
+        "id": "wwe",
+        "name": "ee",
+        "segment": [
+          {
+            "id": "ew",
+            "name": "rewfe",
+            "value": "ew",
+            "ext": {
+              "dummy": "ff"
+            }
+          }
+        ],
         "ext": {
-          "dummy" : "ff"
-        }      }],
-      "ext": {
-        "dummy" : "ff"
+          "dummy": "ff"
+        }
       }
-    }],
+    ],
     "ext": {
-      "consent" : "abcdef"
+      "consent": "abcdef"
     }
-
   }
 }

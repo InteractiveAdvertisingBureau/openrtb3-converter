@@ -23,8 +23,10 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.App;
 import net.media.openrtb25.request.Content;
 import net.media.openrtb25.request.Publisher;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Map;
 
@@ -52,7 +54,7 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
       throws OpenRtbConverterException {
     if (source == null || target == null) return;
     target.setPrivpolicy(source.getPrivacypolicy());
-    target.setSectcat(Utils.copyCollection(source.getSectioncat(), config));
+    target.setSectcat(CollectionUtils.copyCollection(source.getSectioncat(), config));
     Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter =
         converterProvider.fetch(
             new Conversion<>(Publisher.class, net.media.openrtb3.Publisher.class));
@@ -64,8 +66,8 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
     target.setName(source.getName());
     target.setContent(contentContentConverter.map(source.getContent(), config, converterProvider));
     target.setDomain(source.getDomain());
-    target.setCat(Utils.copyCollection(source.getCat(), config));
-    target.setPagecat(Utils.copyCollection(source.getPagecat(), config));
+    target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
+    target.setPagecat(CollectionUtils.copyCollection(source.getPagecat(), config));
     target.setKeywords(source.getKeywords());
     target.setBundle(source.getBundle());
     target.setStoreurl(source.getStoreurl());
@@ -73,19 +75,19 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
     target.setPaid(source.getPaid());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(MapUtils.copyMap(map, config));
     }
 
     if (source.getExt() == null) return;
     try {
-      if (source.getExt().containsKey("cattax")) {
-        target.setCattax((Integer) source.getExt().get("cattax"));
+      if (source.getExt().containsKey(CommonConstants.CATTAX)) {
+        target.setCattax((Integer) source.getExt().get(CommonConstants.CATTAX));
       } else {
         target.setCattax(DEFAULT_CATTAX_TWODOTX);
       }
-      target.setStoreid((String) source.getExt().get("storeid"));
-      target.getExt().remove("cattax");
-      target.getExt().remove("storeid");
+      target.setStoreid((String) source.getExt().get(CommonConstants.STOREID));
+      target.getExt().remove(CommonConstants.CATTAX);
+      target.getExt().remove(CommonConstants.STOREID);
     } catch (ClassCastException e) {
       throw new OpenRtbConverterException("error while typecasting ext for app", e);
     }

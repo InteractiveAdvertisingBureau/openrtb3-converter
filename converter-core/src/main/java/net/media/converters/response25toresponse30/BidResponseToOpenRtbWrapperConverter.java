@@ -47,6 +47,5 @@ public class BidResponseToOpenRtbWrapperConverter
 
   @Override
   public void enhance(
-      BidResponse2_X source, OpenRTBWrapper3_X target, Config config, Provider converterProvider)
-      throws OpenRtbConverterException {}
+      BidResponse2_X source, OpenRTBWrapper3_X target, Config config, Provider converterProvider) {}
 }

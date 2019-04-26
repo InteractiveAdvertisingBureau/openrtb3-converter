@@ -16,19 +16,16 @@
 
 package net.media.converters.request23toRequest30;
 
-import com.fasterxml.jackson.databind.JavaType;
-
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
-import net.media.openrtb25.request.Format;
 import net.media.openrtb25.request.Source;
 import net.media.openrtb3.Request;
+import net.media.utils.CommonConstants;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Collection;
-import java.util.Map;
 
 import static java.util.Objects.nonNull;
 
@@ -43,44 +40,43 @@ public class BidRequestToRequestConverter
       return;
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("bseat")) {
+      if (source.getExt().containsKey(CommonConstants.BSEAT)) {
         try {
-          source.setBseat((Collection<String>) source.getExt().get("bseat"));
+          source.setBseat((Collection<String>) source.getExt().get(CommonConstants.BSEAT));
         } catch (Exception e) {
           throw new OpenRtbConverterException(
               "Error in setting bseat from bidRequest.ext.bseat", e);
         }
-        source.getExt().remove("bseat");
+        source.getExt().remove(CommonConstants.BSEAT);
       }
-      if (source.getExt().containsKey("wlang")) {
+      if (source.getExt().containsKey(CommonConstants.WLANG)) {
         try {
-          source.setWlang((Collection<String>) source.getExt().get("wlang"));
+          source.setWlang((Collection<String>) source.getExt().get(CommonConstants.WLANG));
         } catch (Exception e) {
           throw new OpenRtbConverterException(
               "Error in setting wlang from bidRequest.ext.wlang", e);
         }
-        source.getExt().remove("wlang");
+        source.getExt().remove(CommonConstants.WLANG);
       }
-      if (source.getExt().containsKey("source")) {
+      if (source.getExt().containsKey(CommonConstants.SOURCE)) {
         try {
-          source.setSource(Utils.getMapper().convertValue(source.getExt().get("source"), Source
+          source.setSource(JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get(CommonConstants.SOURCE), Source
             .class));
         } catch (Exception e) {
           throw new OpenRtbConverterException(
               "Error in setting source from bidRequest.ext.source", e);
         }
-        source.getExt().remove("source");
+        source.getExt().remove(CommonConstants.SOURCE);
       }
-      if (source.getExt().containsKey("bapp")) {
+      if (source.getExt().containsKey(CommonConstants.BAPP)) {
         try {
-          source.setBapp((Collection<String>) source.getExt().get("bapp"));
+          source.setBapp((Collection<String>) source.getExt().get(CommonConstants.BAPP));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting bapp from bidRequest.ext.bapp", e);
         }
-        source.getExt().remove("bapp");
+        source.getExt().remove(CommonConstants.BAPP);
       }
     }
     super.enhance(source, target, config, converterProvider);
   }
-
 }

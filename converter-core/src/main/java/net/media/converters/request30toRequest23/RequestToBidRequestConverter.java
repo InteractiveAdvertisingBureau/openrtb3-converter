@@ -20,6 +20,7 @@ import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb3.Request;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -42,28 +43,28 @@ public class RequestToBidRequestConverter
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("bseat", target.getBseat());
+      target.getExt().put(CommonConstants.BSEAT, target.getBseat());
       target.setBseat(null);
     }
     if (nonNull(target.getWlang())) {
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("wlang", target.getWlang());
+      target.getExt().put(CommonConstants.WLANG, target.getWlang());
       target.setWlang(null);
     }
     if (nonNull(target.getSource())) {
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("source", target.getSource());
+      target.getExt().put(CommonConstants.SOURCE, target.getSource());
       target.setSource(null);
     }
     if (nonNull(target.getBapp())) {
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      target.getExt().put("bapp", target.getBapp());
+      target.getExt().put(CommonConstants.BAPP, target.getBapp());
       target.setBseat(null);
     }
   }

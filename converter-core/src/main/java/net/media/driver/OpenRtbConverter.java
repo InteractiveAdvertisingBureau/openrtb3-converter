@@ -19,8 +19,9 @@ package net.media.driver;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
+import net.media.utils.validator.ValidatorUtils;
 
 import javax.naming.ConfigurationException;
 import java.util.HashMap;
@@ -32,6 +33,8 @@ import static java.util.Objects.isNull;
  * Interface for interacting with openRtb Converter. {@link #config} default converter config {@link
  * Config} {@link #converterManager} contains the pipeline for converter dependencies {@link
  * ConverterManager} initialised while calling {@link OpenRtbConverter(Config)}
+ *
+ * <p>
  *
  * <ul>
  *   <li>{@link OpenRtbConverter(Config)} : instantiates OpenRtb converter object single object
@@ -46,7 +49,7 @@ import static java.util.Objects.isNull;
  *       {@link #config} for that particular call
  *   <li>{@link #enhance(Object, Object, Class, Class)} uses {@link #enhance(Config, Object, Object,
  *       Class, Class)} without overriding config
- *       <ul/>
+ *  </ul>
  *
  * @author shiva.b
  * @since 1.0
@@ -66,15 +69,7 @@ public class OpenRtbConverter {
     converterManager = new ConverterManager(overridenMap, config);
   }
 
-  /**
-   * @param overridingConfig
-   * @param source
-   * @param sourceClass
-   * @param targetClass
-   * @param <U> source class type
-   * @param <V> target class type
-   * @return <class>V</class> target class
-   */
+
   public <U, V> V convert(
       Config overridingConfig, U source, Class<U> sourceClass, Class<V> targetClass)
       throws ConfigurationException, OpenRtbConverterException {
@@ -84,9 +79,9 @@ public class OpenRtbConverter {
   public <U, V> String convert(
       Config overridingConfig, String source, Class<U> sourceClass, Class<V> targetClass)
       throws ConfigurationException, OpenRtbConverterException {
-    U sourceObject = Utils.convertToObject(sourceClass, source);
+    U sourceObject = JacksonObjectMapperUtils.convertToObject(sourceClass, source);
     V targetObject = convert(overridingConfig, sourceObject, sourceClass, targetClass, null);
-    return Utils.convertToJson(targetObject);
+    return JacksonObjectMapperUtils.convertToJson(targetObject);
   }
 
   public <U, V> V convert(
@@ -98,7 +93,7 @@ public class OpenRtbConverter {
       throws ConfigurationException, OpenRtbConverterException {
     overridingConfig = enhanceConfig(overridingConfig);
     if (shouldValidate(overridingConfig)) {
-      Utils.validate(source);
+      ValidatorUtils.validate(source);
     }
     Provider converterProvider =
         converterManager.getConverterProvider(overridenMap, overridingConfig);
@@ -113,10 +108,10 @@ public class OpenRtbConverter {
       Class<V> targetClass,
       Map<Conversion, Converter> overridenMap)
       throws ConfigurationException, OpenRtbConverterException {
-    U sourceObject = Utils.convertToObject(sourceClass, source);
+    U sourceObject = JacksonObjectMapperUtils.convertToObject(sourceClass, source);
     V targetObject =
         convert(overridingConfig, sourceObject, sourceClass, targetClass, overridenMap);
-    return Utils.convertToJson(targetObject);
+    return JacksonObjectMapperUtils.convertToJson(targetObject);
   }
 
   public <U, V> V convert(
@@ -131,19 +126,11 @@ public class OpenRtbConverter {
       Class<V> targetClass,
       Map<Conversion, Converter> overridenMap)
       throws ConfigurationException, OpenRtbConverterException {
-    U sourceObject = Utils.convertToObject(sourceClass, source);
+    U sourceObject = JacksonObjectMapperUtils.convertToObject(sourceClass, source);
     V targetObject = convert(null, sourceObject, sourceClass, targetClass, overridenMap);
-    return Utils.convertToJson(targetObject);
+    return JacksonObjectMapperUtils.convertToJson(targetObject);
   }
 
-  /**
-   * @param source
-   * @param sourceClass source object
-   * @param targetClass target object
-   * @param <U> source class type
-   * @param <V> target class type
-   * @return <class>V</class> target class
-   */
   public <U, V> V convert(U source, Class<U> sourceClass, Class<V> targetClass)
       throws ConfigurationException, OpenRtbConverterException {
     return convert(null, source, sourceClass, targetClass, null);
@@ -151,38 +138,17 @@ public class OpenRtbConverter {
 
   public <U, V> String convert(String source, Class<U> sourceClass, Class<V> targetClass)
       throws ConfigurationException, OpenRtbConverterException {
-    U sourceObject = Utils.convertToObject(sourceClass, source);
+    U sourceObject = JacksonObjectMapperUtils.convertToObject(sourceClass, source);
     V targetObject = convert(null, sourceObject, sourceClass, targetClass, null);
-    return Utils.convertToJson(targetObject);
+    return JacksonObjectMapperUtils.convertToJson(targetObject);
   }
 
-  /**
-   * @param overridingConfig
-   * @param source
-   * @param target
-   * @param sourceClass
-   * @param targetClass
-   * @param <U> source class type
-   * @param <V> target class type
-   * @throws ConfigurationException
-   * @throws OpenRtbConverterException
-   */
   public <U, V> void enhance(
       Config overridingConfig, U source, V target, Class<U> sourceClass, Class<V> targetClass)
       throws ConfigurationException, OpenRtbConverterException {
     enhance(overridingConfig, source, target, sourceClass, targetClass, null);
   }
 
-  /**
-   * @param source
-   * @param target
-   * @param sourceClass
-   * @param targetClass
-   * @param <U> source class type
-   * @param <V> target class type
-   * @throws ConfigurationException
-   * @throws OpenRtbConverterException
-   */
   public <U, V> void enhance(U source, V target, Class<U> sourceClass, Class<V> targetClass)
       throws OpenRtbConverterException, ConfigurationException {
     enhance(null, source, target, sourceClass, targetClass, null);
@@ -208,7 +174,7 @@ public class OpenRtbConverter {
       throws ConfigurationException, OpenRtbConverterException {
     overridingConfig = enhanceConfig(overridingConfig);
     if (shouldValidate(overridingConfig)) {
-      Utils.validate(source);
+      ValidatorUtils.validate(source);
     }
     Converter<U, V> converter = converterManager.getConverter(sourceClass, targetClass);
     converter.enhance(
@@ -218,10 +184,6 @@ public class OpenRtbConverter {
         converterManager.getConverterProvider(overridenMap, overridingConfig));
   }
 
-  /**
-   * @param overridingConfig
-   * @return
-   */
   private Config enhanceConfig(Config overridingConfig) {
     if (isNull(overridingConfig)) {
       overridingConfig = new Config(config);

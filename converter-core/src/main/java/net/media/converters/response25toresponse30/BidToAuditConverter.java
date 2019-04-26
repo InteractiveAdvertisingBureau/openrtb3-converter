@@ -21,8 +21,9 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Audit;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Collection;
 import java.util.Map;
@@ -31,6 +32,7 @@ import static java.util.Objects.isNull;
 
 /** @author shiva.b */
 public class BidToAuditConverter implements Converter<Bid, Audit> {
+
   @Override
   public Audit map(Bid source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -51,21 +53,21 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
     Map<String, Object> map = source.getExt();
     if (map != null) {
       try {
-        target.setExt(Utils.copyMap(map, config));
-        if (map.containsKey("corr")) {
-          target.setCorr((Map<String, Object>) map.get("corr"));
+        target.setExt(MapUtils.copyMap(map, config));
+        if (map.containsKey(CommonConstants.CORR)) {
+          target.setCorr((Map<String, Object>) map.get(CommonConstants.CORR));
         }
-        if (map.containsKey("status")) {
-          target.setStatus((Integer) map.get("status"));
+        if (map.containsKey(CommonConstants.STATUS)) {
+          target.setStatus((Integer) map.get(CommonConstants.STATUS));
         }
-        if (map.containsKey("audit")) {
-          target.setInit(((Audit) map.get("audit")).getInit());
+        if (map.containsKey(CommonConstants.AUDIT)) {
+          target.setInit(((Audit) map.get(CommonConstants.AUDIT)).getInit());
         }
-        if (map.containsKey("lastmod")) {
-          target.setLastmod((Integer) map.get("lastmod"));
+        if (map.containsKey(CommonConstants.LASTMOD)) {
+          target.setLastmod((Integer) map.get(CommonConstants.LASTMOD));
         }
-        if (map.containsKey("feedback")) {
-          target.setFeedback((Collection<String>) map.get("feedback"));
+        if (map.containsKey(CommonConstants.FEEDBACK)) {
+          target.setFeedback((Collection<String>) map.get(CommonConstants.FEEDBACK));
         }
       } catch (Exception e) {
         throw new OpenRtbConverterException("error while type casting in bid.ext", e);

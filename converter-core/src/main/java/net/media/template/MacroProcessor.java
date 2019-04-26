@@ -36,7 +36,7 @@ public class MacroProcessor {
         OPEN_RTB_TOKEN_PATTERN,
         TOKEN_PROVIDER,
         ENCODER_PROVIDER,
-        token -> token.getTextValue());
+      Template.Token::getTextValue);
   }
 
   public static final Template.TokenValue getTwoXToken() {

@@ -19,6 +19,7 @@ package net.media.converters.request23toRequest30;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Device;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import static java.util.Objects.nonNull;
@@ -34,22 +35,22 @@ public class DeviceToDeviceConverter
       return;
     }
     if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("mccmnc")) {
+      if (source.getExt().containsKey(CommonConstants.MCCMNC)) {
         try {
-          source.setMccmnc((String) source.getExt().get("mccmnc"));
+          source.setMccmnc((String) source.getExt().get(CommonConstants.MCCMNC));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting mccmnc from device.ext.mccmnc", e);
         }
-        source.getExt().remove("mccmnc");
+        source.getExt().remove(CommonConstants.MCCMNC);
       }
-      if (source.getExt().containsKey("geofetch")) {
+      if (source.getExt().containsKey(CommonConstants.GEOFETCH)) {
         try {
-          source.setGeofetch((Integer) source.getExt().get("geofetch"));
+          source.setGeofetch((Integer) source.getExt().get(CommonConstants.GEOFETCH));
         } catch (Exception e) {
           throw new OpenRtbConverterException(
               "Error in setting geofetch from device.ext.geofetch", e);
         }
-        source.getExt().remove("geofetch");
+        source.getExt().remove(CommonConstants.GEOFETCH);
       }
     }
     super.enhance(source, target, config, converterProvider);
