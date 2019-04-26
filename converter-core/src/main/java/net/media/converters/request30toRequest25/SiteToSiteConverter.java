@@ -25,11 +25,12 @@ import net.media.openrtb3.Publisher;
 import net.media.openrtb3.Site;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static net.media.utils.ExtUtils.putToExt;
 
 public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.request.Site> {
 
@@ -54,7 +55,9 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Publisher, net.media.openrtb25.request.Publisher> publisherPublisherConverter =
         converterProvider.fetch(
             new Conversion<>(Publisher.class, net.media.openrtb25.request.Publisher.class));
@@ -80,15 +83,9 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.
     target.setKeywords(source.getKeywords());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(MapUtils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
-    if (source.getCattax() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put(CommonConstants.CATTAX, source.getCattax());
-    }
-    if (source.getAmp() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put(CommonConstants.AMP, source.getAmp());
-    }
+    putToExt(source::getCattax, target.getExt(), CommonConstants.CATTAX, target::setExt);
+    putToExt(source::getAmp, target.getExt(), CommonConstants.AMP, target::setExt);
   }
 }

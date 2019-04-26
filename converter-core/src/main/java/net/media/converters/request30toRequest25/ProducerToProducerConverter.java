@@ -21,11 +21,12 @@ import net.media.converters.Converter;
 import net.media.openrtb3.Producer;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static net.media.utils.ExtUtils.putToExt;
 
 public class ProducerToProducerConverter
     implements Converter<Producer, net.media.openrtb25.request.Producer> {
@@ -50,18 +51,17 @@ public class ProducerToProducerConverter
       net.media.openrtb25.request.Producer target,
       Config config,
       Provider converterProvider) {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setId(source.getId());
     target.setName(source.getName());
     target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
     target.setDomain(source.getDomain());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(MapUtils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
-    if (source.getCattax() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put(CommonConstants.CATTAX, source.getCattax());
-    }
+    putToExt(source::getCattax, target.getExt(), CommonConstants.CATTAX, target::setExt);
   }
 }

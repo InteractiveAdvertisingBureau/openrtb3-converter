@@ -1,0 +1,15 @@
+{
+
+    "id": "8953",
+    "name": "foobar.com",
+    "domain": "foobar.com",
+    "cat": [
+      "IAB3-1",
+      "IAB3-2"
+    ],
+    "cattax": 2,
+    "ext": {
+      "dummy": "ff"
+
+  }
+}

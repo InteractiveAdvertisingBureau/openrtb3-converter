@@ -22,16 +22,26 @@ import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Source;
 import net.media.openrtb3.Request;
 import net.media.utils.CommonConstants;
-import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 02/04/19. */
 public class BidRequestToRequestConverter
     extends net.media.converters.request25toRequest30.BidRequestToRequestConverter {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.BSEAT);
+    extraFieldsInExt.add(CommonConstants.WLANG);
+    extraFieldsInExt.add(CommonConstants.SOURCE);
+    extraFieldsInExt.add(CommonConstants.WMIN);
+  }
 
   public void enhance(
       BidRequest2_X source, Request target, Config config, Provider converterProvider)
@@ -39,37 +49,23 @@ public class BidRequestToRequestConverter
     if (source == null || target == null) {
       return;
     }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.BSEAT)) {
-        try {
-          source.setBseat((Collection<String>) source.getExt().get(CommonConstants.BSEAT));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting bseat from bidRequest.ext.bseat", e);
-        }
-        source.getExt().remove(CommonConstants.BSEAT);
-      }
-      if (source.getExt().containsKey(CommonConstants.WLANG)) {
-        try {
-          source.setWlang((Collection<String>) source.getExt().get(CommonConstants.WLANG));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting wlang from bidRequest.ext.wlang", e);
-        }
-        source.getExt().remove(CommonConstants.WLANG);
-      }
-      if (source.getExt().containsKey(CommonConstants.SOURCE)) {
-        try {
-          Source source1 =
-              JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get(CommonConstants.SOURCE), Source.class);
-          source.setSource(source1);
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting source from bidRequest.ext.source", e);
-        }
-        source.getExt().remove(CommonConstants.SOURCE);
-      }
-    }
+    fetchFromExt(
+      source::setBseat,
+      source.getExt(),
+      CommonConstants.BSEAT,
+      "Error in setting bseat from bidRequest.ext.bseat");
+    fetchFromExt(
+      source::setWlang,
+      source.getExt(),
+      CommonConstants.WLANG,
+      "Error in setting wlang from bidRequest.ext.wlang");
+    fetchFromExt(
+      source::setSource,
+      source.getExt(),
+      CommonConstants.SOURCE,
+      "Error in setting source from bidRequest.ext.source",
+      Source.class);
     super.enhance(source, target, config, converterProvider);
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

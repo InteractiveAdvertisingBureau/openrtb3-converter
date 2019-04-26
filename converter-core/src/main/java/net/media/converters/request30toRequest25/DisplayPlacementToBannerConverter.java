@@ -25,18 +25,28 @@ import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.*;
 
 public class DisplayPlacementToBannerConverter implements Converter<DisplayPlacement, Banner> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  static List<String> extraFieldsInFormatExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.BTYPE);
+    extraFieldsInExt.add(CommonConstants.ID);
+    extraFieldsInExt.add(CommonConstants.HMAX);
+    extraFieldsInExt.add(CommonConstants.WMAX);
+    extraFieldsInExt.add(CommonConstants.HMIN);
+    extraFieldsInExt.add(CommonConstants.WMIN);
+    extraFieldsInFormatExt.add(CommonConstants.WMIN);
+  }
 
   @Override
   public Banner map(DisplayPlacement displayPlacement, Config config, Provider converterProvider)
@@ -64,8 +74,8 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
         if (!CollectionUtils.isEmpty(displayFormat.getExpdir())) {
-          Collection<Integer> formatExpdir = CollectionUtils.copyCollection(displayFormat.getExpdir(),
-            config);
+          Collection<Integer> formatExpdir =
+            CollectionUtils.copyCollection(displayFormat.getExpdir(), config);
           if (isNull(banner.getExpdir())) {
             banner.setExpdir(formatExpdir);
           } else {
@@ -89,92 +99,46 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     banner.setApi(CollectionUtils.copyCollection(displayPlacement.getApi(), config));
     Map<String, Object> map = displayPlacement.getExt();
     if (map != null) {
-      banner.setExt(MapUtils.copyMap(map, config));
-      if (map.containsKey(CommonConstants.BTYPE)) {
-        try {
-          banner.setBtype(CollectionUtils.copyCollection((Collection<Integer>) map.get(CommonConstants.BTYPE), config));
-          banner.getExt().remove(CommonConstants.BTYPE);
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (map.containsKey(CommonConstants.ID)) {
-        try {
-          banner.setId((String) map.get(CommonConstants.ID));
-          banner.getExt().remove(CommonConstants.ID);
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (map.containsKey(CommonConstants.HMAX)) {
-        try {
-          banner.setHmax((Integer) map.get(CommonConstants.HMAX));
-          banner.getExt().remove(CommonConstants.HMAX);
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (map.containsKey(CommonConstants.WMAX)) {
-        try {
-          banner.setWmax((Integer) map.get(CommonConstants.WMAX));
-          banner.getExt().remove(CommonConstants.WMAX);
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (map.containsKey(CommonConstants.HMIN)) {
-        try {
-          banner.setHmin((Integer) map.get(CommonConstants.HMIN));
-          banner.getExt().remove(CommonConstants.HMIN);
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (map.containsKey(CommonConstants.WMIN)) {
-        try {
-          banner.setWmin((Integer) map.get(CommonConstants.WMIN));
-          banner.getExt().remove(CommonConstants.WMIN);
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
+      banner.setExt(new HashMap<>(map));
+      fetchCollectionFromExt(
+        banner::setBtype,
+        map,
+        CommonConstants.BTYPE,
+        "error while mapping btype from displayplacement.ext",
+        config);
+      fetchFromExt(
+        banner::setId,
+        map,
+        CommonConstants.ID,
+        "error while mapping id from displayplacement.ext");
+      fetchFromExt(
+        banner::setHmax,
+        map,
+        CommonConstants.HMAX,
+        "error while mapping hmax from displayplacement.ext");
+      fetchFromExt(
+        banner::setWmax,
+        map,
+        CommonConstants.WMAX,
+        "error while mapping wmax from displayplacement.ext");
+      fetchFromExt(
+        banner::setHmin,
+        map,
+        CommonConstants.HMIN,
+        "error while mapping hmin from displayplacement.ext");
+      fetchFromExt(
+        banner::setWmin,
+        map,
+        CommonConstants.WMIN,
+        "error while mapping wmin from displayplacement.ext");
     }
-    if (nonNull(displayPlacement.getUnit())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put(CommonConstants.UNIT, displayPlacement.getUnit());
-    }
-    if (nonNull(displayPlacement.getPtype())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put(CommonConstants.PTYPE, displayPlacement.getPtype());
-    }
-    if (nonNull(displayPlacement.getContext())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put(CommonConstants.CONTEXT, displayPlacement.getContext());
-    }
-    if (nonNull(displayPlacement.getCtype())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put(CommonConstants.CTYPE, displayPlacement.getCtype());
-    }
-    if (nonNull(displayPlacement.getPriv())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put(CommonConstants.PRIV, displayPlacement.getPriv());
-    }
+    putToExt(displayPlacement::getUnit, banner.getExt(), CommonConstants.UNIT, banner::setExt);
+    putToExt(displayPlacement::getPtype, banner.getExt(), CommonConstants.PTYPE, banner::setExt);
+    putToExt(
+      displayPlacement::getContext, banner.getExt(), CommonConstants.CONTEXT, banner::setExt);
+    putToExt(displayPlacement::getCtype, banner.getExt(), CommonConstants.CTYPE, banner::setExt);
+    putToExt(displayPlacement::getPriv, banner.getExt(), CommonConstants.PRIV, banner::setExt);
+    removeFromExt(banner.getExt(), extraFieldsInExt);
   }
 
   private Collection<Format> displayFormatListToFormatList(
@@ -205,17 +169,14 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     format.setHratio(displayFormat.getHratio());
     Map<String, Object> map = displayFormat.getExt();
     if (map != null) {
-      format.setExt(MapUtils.copyMap(map, config));
-      try {
-        if (map.containsKey(CommonConstants.WMIN)) {
-          format.setWmin((Integer) map.get(CommonConstants.WMIN));
-          format.getExt().remove(CommonConstants.WMIN);
-        }
-      } catch (ClassCastException e) {
-        throw new OpenRtbConverterException("error while typecasting ext for DisplayPlacement", e);
-      }
+      format.setExt(new HashMap<>(map));
+      fetchFromExt(
+        format::setWmin,
+        map,
+        CommonConstants.WMIN,
+        "error while mapping wmin from displayformat.ext");
     }
-
+    removeFromExt(format.getExt(), extraFieldsInFormatExt);
     return format;
   }
 }

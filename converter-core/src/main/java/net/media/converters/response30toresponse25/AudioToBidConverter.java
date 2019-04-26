@@ -28,34 +28,42 @@ import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 public class AudioToBidConverter implements Converter<Audio, Bid> {
 
   public Bid map(Audio source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(config)) return null;
+    if (isNull(source) || isNull(config)) {
+      return null;
+    }
     Bid bid = new Bid();
     enhance(source, bid, config, converterProvider);
     return bid;
   }
 
   public void enhance(Audio source, Bid target, Config config, Provider converterProvider) {
-    if (isNull(source) || isNull(target) || isNull(config)) return;
+    if (isNull(source) || isNull(target) || isNull(config)) {
+      return;
+    }
 
     target.setAdm(source.getAdm());
-    if (nonNull(source.getApi()) && source.getApi().size() > 0)
+    if (nonNull(source.getApi()) && source.getApi().size() > 0) {
       target.setApi(source.getApi().iterator().next());
+    }
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
-    target.getExt().put(CommonConstants.CTYPE, source.getCtype());
-    target.getExt().put(CommonConstants.DUR, source.getDur());
-    target.getExt().put(CommonConstants.CURL, source.getCurl());
+    putToExt(source::getCtype, target.getExt(), CommonConstants.CTYPE, target::setExt);
+    putToExt(source::getDur, target.getExt(), CommonConstants.DUR, target::setExt);
+    putToExt(source::getCurl, target.getExt(), CommonConstants.CURL, target::setExt);
+    putToExt(source::getMime, target.getExt(), CommonConstants.MIME, target::setExt);
     if (isEmpty(target.getNurl())) {
       target.setNurl(source.getCurl());
     }
-    target.getExt().put(CommonConstants.MIME, source.getMime());
-    if (nonNull(source.getExt())) target.getExt().putAll(source.getExt());
+    if (nonNull(source.getExt())) {
+      target.getExt().putAll(source.getExt());
+    }
   }
 }

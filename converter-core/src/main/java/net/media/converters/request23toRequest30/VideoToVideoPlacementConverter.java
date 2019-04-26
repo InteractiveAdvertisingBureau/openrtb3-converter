@@ -23,11 +23,25 @@ import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import static java.util.Objects.nonNull;
+import java.util.ArrayList;
+import java.util.List;
+
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class VideoToVideoPlacementConverter
     extends net.media.converters.request25toRequest30.VideoToVideoPlacementConverter {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.PLACEMENT);
+    extraFieldsInExt.add(CommonConstants.PLAYBACKEND);
+    extraFieldsInExt.add(CommonConstants.SKIP);
+    extraFieldsInExt.add(CommonConstants.SKIPMIN);
+    extraFieldsInExt.add(CommonConstants.SKIPAFTER);
+  }
 
   public void enhance(
       Video video, VideoPlacement videoPlacement, Config config, Provider converterProvider)
@@ -35,51 +49,32 @@ public class VideoToVideoPlacementConverter
     if (video == null || videoPlacement == null) {
       return;
     }
-    if (nonNull(video.getExt())) {
-      if (video.getExt().containsKey(CommonConstants.PLACEMENT)) {
-        try {
-          video.setPlacement((Integer) video.getExt().get(CommonConstants.PLACEMENT));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting placement from video.ext.placement", e);
-        }
-        video.getExt().remove(CommonConstants.PLACEMENT);
-      }
-      if (video.getExt().containsKey(CommonConstants.PLAYBACKEND)) {
-        try {
-          video.setPlaybackend((Integer) video.getExt().get(CommonConstants.PLAYBACKEND));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting playbackend from imp.ext" + ".playbackend", e);
-        }
-        video.getExt().remove(CommonConstants.PLAYBACKEND);
-      }
-      if (video.getExt().containsKey(CommonConstants.SKIP)) {
-        try {
-          video.setSkip((Integer) video.getExt().get(CommonConstants.SKIP));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting skip from video.ext.skip", e);
-        }
-        video.getExt().remove(CommonConstants.SKIP);
-      }
-      if (video.getExt().containsKey(CommonConstants.SKIPMIN)) {
-        try {
-          video.setSkipmin((Integer) video.getExt().get(CommonConstants.SKIPMIN));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting skipmin from video.ext.skipmin", e);
-        }
-        video.getExt().remove(CommonConstants.SKIPMIN);
-      }
-      if (video.getExt().containsKey(CommonConstants.SKIPAFTER)) {
-        try {
-          video.setSkipafter((Integer) video.getExt().get(CommonConstants.SKIPAFTER));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting skipafter from video.ext.skipafter", e);
-        }
-        video.getExt().remove(CommonConstants.SKIPAFTER);
-      }
-    }
+    fetchFromExt(
+      video::setPlacement,
+      video.getExt(),
+      CommonConstants.PLACEMENT,
+      "Error in setting placement from video.ext.placement");
+    fetchFromExt(
+      video::setPlaybackend,
+      video.getExt(),
+      CommonConstants.PLAYBACKEND,
+      "Error in setting playbackend from video.ext.playbackend");
+    fetchFromExt(
+      video::setSkip,
+      video.getExt(),
+      CommonConstants.SKIP,
+      "Error in setting skip from video.ext.skip");
+    fetchFromExt(
+      video::setSkipmin,
+      video.getExt(),
+      CommonConstants.SKIPMIN,
+      "Error in setting skipmin from video.ext.skipmin");
+    fetchFromExt(
+      video::setSkipafter,
+      video.getExt(),
+      CommonConstants.SKIPAFTER,
+      "Error in setting skipafter from video.ext.skipafter");
     super.enhance(video, videoPlacement, config, converterProvider);
+    removeFromExt(videoPlacement.getExt(), extraFieldsInExt);
   }
 }

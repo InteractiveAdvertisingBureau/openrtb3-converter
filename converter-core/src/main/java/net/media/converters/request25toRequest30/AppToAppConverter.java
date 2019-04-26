@@ -28,11 +28,23 @@ import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class AppToAppConverter implements Converter<App, net.media.openrtb3.App> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.CATTAX);
+    extraFieldsInExt.add(CommonConstants.STOREID);
+  }
 
   @Override
   public net.media.openrtb3.App map(App source, Config config, Provider converterProvider)
@@ -52,7 +64,9 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
   public void enhance(
       App source, net.media.openrtb3.App target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setPrivpolicy(source.getPrivacypolicy());
     target.setSectcat(CollectionUtils.copyCollection(source.getSectioncat(), config));
     Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter =
@@ -76,20 +90,19 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
     Map<String, Object> map = source.getExt();
     if (map != null) {
       target.setExt(MapUtils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
-
-    if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey(CommonConstants.CATTAX)) {
-        target.setCattax((Integer) source.getExt().get(CommonConstants.CATTAX));
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
-      }
-      target.setStoreid((String) source.getExt().get(CommonConstants.STOREID));
-      target.getExt().remove(CommonConstants.CATTAX);
-      target.getExt().remove(CommonConstants.STOREID);
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for app", e);
-    }
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "error while typecasting ext for app");
+    fetchFromExt(
+      target::setStoreid,
+      source.getExt(),
+      CommonConstants.STOREID,
+      "error while typecasting ext for app");
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

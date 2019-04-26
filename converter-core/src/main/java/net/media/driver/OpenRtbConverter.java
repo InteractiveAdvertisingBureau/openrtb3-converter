@@ -16,6 +16,8 @@
 
 package net.media.driver;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -24,7 +26,6 @@ import net.media.utils.Provider;
 import net.media.utils.validator.ValidatorUtils;
 
 import javax.naming.ConfigurationException;
-import java.util.HashMap;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
@@ -49,7 +50,7 @@ import static java.util.Objects.isNull;
  *       {@link #config} for that particular call
  *   <li>{@link #enhance(Object, Object, Class, Class)} uses {@link #enhance(Config, Object, Object,
  *       Class, Class)} without overriding config
- *  </ul>
+ * </ul>
  *
  * @author shiva.b
  * @since 1.0
@@ -61,14 +62,9 @@ public class OpenRtbConverter {
   private ConverterManager converterManager;
 
   public OpenRtbConverter(Config config) {
-    this(config, new HashMap<>());
-  }
-
-  public OpenRtbConverter(Config config, Map<Conversion, Converter> overridenMap) {
     this.config = config;
-    converterManager = new ConverterManager(overridenMap, config);
+    converterManager = new ConverterManager();
   }
-
 
   public <U, V> V convert(
       Config overridingConfig, U source, Class<U> sourceClass, Class<V> targetClass)
@@ -176,7 +172,9 @@ public class OpenRtbConverter {
     if (shouldValidate(overridingConfig)) {
       ValidatorUtils.validate(source);
     }
-    Converter<U, V> converter = converterManager.getConverter(sourceClass, targetClass);
+    Provider converterProvider =
+      converterManager.getConverterProvider(overridenMap, overridingConfig);
+    Converter<U, V> converter = converterProvider.fetch(new Conversion<>(sourceClass, targetClass));
     converter.enhance(
         source,
         target,
@@ -196,4 +194,5 @@ public class OpenRtbConverter {
   private boolean shouldValidate(Config overridingConfig) {
     return overridingConfig.getValidate();
   }
+
 }

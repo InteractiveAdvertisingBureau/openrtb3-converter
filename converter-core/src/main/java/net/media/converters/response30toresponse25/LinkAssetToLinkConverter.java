@@ -21,27 +21,35 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.nativeresponse.Link;
 import net.media.openrtb3.LinkAsset;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
+import java.util.HashMap;
+
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 public class LinkAssetToLinkConverter implements Converter<LinkAsset, Link> {
 
   public Link map(LinkAsset source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(config)) return null;
+    if (isNull(source) || isNull(config)) {
+      return null;
+    }
     Link link = new Link();
     enhance(source, link, config, converterProvider);
     return link;
   }
 
   public void enhance(LinkAsset source, Link target, Config config, Provider converterProvider) {
-    if (isNull(source) || isNull(target) || isNull(config)) return;
+    if (isNull(source) || isNull(target) || isNull(config)) {
+      return;
+    }
 
     target.setUrl(source.getUrl());
     target.setFallback(source.getUrlfb());
     target.setClicktrackers(source.getTrkr());
-    target.setExt(MapUtils.copyMap(source.getExt(), config));
+    if (nonNull(source.getExt())) {
+      target.setExt(new HashMap<>(source.getExt()));
+    }
   }
 }

@@ -26,18 +26,29 @@ import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.Companion;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
-import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.*;
 
 /** Created by rajat.go on 03/01/19. */
 public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPlacement> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.SKIP);
+    extraFieldsInExt.add(CommonConstants.SKIPMIN);
+    extraFieldsInExt.add(CommonConstants.SKIPAFTER);
+    extraFieldsInExt.add(CommonConstants.PLAYMETHOD);
+    extraFieldsInExt.add(CommonConstants.PLAYEND);
+    extraFieldsInExt.add(CommonConstants.QTY);
+  }
 
   @Override
   public AudioPlacement map(Audio audio, Config config, Provider converterProvider)
@@ -60,13 +71,14 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
       return;
     }
     audioPlacement.setComptype(CollectionUtils.copyCollection(audio.getCompaniontype(), config));
-    audioPlacement.setExt(MapUtils.copyMap(audio.getExt(), config));
-    if (nonNull(audio.getStitched())) {
-      if (isNull(audioPlacement.getExt())) {
-        audioPlacement.setExt(new HashMap<>());
-      }
-      audioPlacement.getExt().put(CommonConstants.STITCHED, audio.getStitched());
+    if (nonNull(audio.getExt())) {
+      audioPlacement.setExt(new HashMap<>(audio.getExt()));
     }
+    putToExt(
+      audio::getStitched,
+      audioPlacement.getExt(),
+      CommonConstants.STITCHED,
+      audioPlacement::setExt);
     audioPlacement.setComp(
         bannerListToCompanionList(audio.getCompanionad(), config, converterProvider));
     audioPlacement.setMaxdur(audio.getMaxduration());
@@ -84,6 +96,7 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     audioPlacement.setMaxseq(audio.getMaxseq());
 
     audioToAudioPlacementAfterMapping(audio, audioPlacement);
+    removeFromExt(audioPlacement.getExt(), extraFieldsInExt);
   }
 
   private Collection<Companion> bannerListToCompanionList(
@@ -104,38 +117,30 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
 
   private void audioToAudioPlacementAfterMapping(Audio audio, AudioPlacement audioPlacement)
       throws OpenRtbConverterException {
-    try {
-      if (nonNull(audio) && nonNull(audio.getExt()) && nonNull(audioPlacement)) {
-        if (audio.getExt().containsKey(CommonConstants.SKIP)) {
-          audioPlacement.setSkip((Integer) audio.getExt().get(CommonConstants.SKIP));
-          audioPlacement.getExt().remove(CommonConstants.SKIP);
-        }
-        if (audio.getExt().containsKey(CommonConstants.SKIPMIN)) {
-          audioPlacement.setSkipmin((Integer) audio.getExt().get(CommonConstants.SKIPMIN));
-          audioPlacement.getExt().remove(CommonConstants.SKIPMIN);
-        }
-        if (audio.getExt().containsKey(CommonConstants.SKIPAFTER)) {
-          audioPlacement.setSkipafter((Integer) audio.getExt().get(CommonConstants.SKIPAFTER));
-          audioPlacement.getExt().remove(CommonConstants.SKIPAFTER);
-        }
-        if (audio.getExt().containsKey(CommonConstants.PLAYMETHOD)) {
-          audioPlacement.setPlaymethod((Integer) audio.getExt().get(CommonConstants.PLAYMETHOD));
-          audioPlacement.getExt().remove(CommonConstants.PLAYMETHOD);
-        }
-        if (audio.getExt().containsKey(CommonConstants.PLAYEND)) {
-          audioPlacement.setPlayend((Integer) audio.getExt().get(CommonConstants.PLAYEND));
-          audioPlacement.getExt().remove(CommonConstants.PLAYEND);
-        }
-        if (audio.getExt().containsKey(CommonConstants.DELAY)) {
-          audioPlacement.setSkip((Integer) audio.getExt().get(CommonConstants.DELAY));
-          audioPlacement.getExt().remove(CommonConstants.DELAY);
-        }
-        if (audioPlacement.getExt().containsKey(CommonConstants.QTY)) {
-          audioPlacement.getExt().remove(CommonConstants.QTY);
-        }
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Audio", e);
-    }
+    fetchFromExt(
+      audioPlacement::setSkip,
+      audio.getExt(),
+      CommonConstants.SKIP,
+      "Error in setting skip from Audio.ext");
+    fetchFromExt(
+      audioPlacement::setSkipmin,
+      audio.getExt(),
+      CommonConstants.SKIPMIN,
+      "Error in setting skipmin from Audio.ext");
+    fetchFromExt(
+      audioPlacement::setSkipafter,
+      audio.getExt(),
+      CommonConstants.SKIPAFTER,
+      "Error in setting skipafter from Audio.ext");
+    fetchFromExt(
+      audioPlacement::setPlaymethod,
+      audio.getExt(),
+      CommonConstants.PLAYMETHOD,
+      "Error in setting playmethod from Audio.ext");
+    fetchFromExt(
+      audioPlacement::setPlayend,
+      audio.getExt(),
+      CommonConstants.PLAYEND,
+      "Error in setting playend from Audio.ext");
   }
 }

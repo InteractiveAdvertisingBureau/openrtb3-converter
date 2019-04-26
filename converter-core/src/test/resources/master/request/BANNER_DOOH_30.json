@@ -101,9 +101,7 @@
                   3,
                   2
                 ],
-                "ctype": [
-                  1
-                ],
+                "ctype": 1,
                 "w": 300,
                 "h": 250,
                 "unit": 1,
@@ -119,8 +117,7 @@
                       9
                     ],
                     "ext": {
-                      "dummy": "ffaa",
-                      "wmin": 3
+                      "dummy": "ffaa"
                     }
                   },
                   {
@@ -133,8 +130,7 @@
                       9
                     ],
                     "ext": {
-                      "dummy": "ffaa",
-                      "wmin": 3
+                      "dummy": "ffaa"
                     }
                   }
                 ],
@@ -188,24 +184,17 @@
                 ],
                 "ext": {
                   "dummy": "ffaa",
-                  "qty": 1,
                   "btype": [
                     3,
                     4
-                  ],
-                  "id": "dd"
+                  ]
                 }
               }
             }
           },
           "ext": {
             "dummy": "ff",
-            "sequence": 1,
-            "pmp": {
-              "ext": {
-                "dummy": "ff"
-              }
-            }
+            "sequence": 1
           },
           "private": 1
         }
@@ -213,16 +202,18 @@
       "context": {
         "dooh": {
           "venue": 1,
-          "fixed": 1,
-          "etime": 2,
-          "dpi": 1,
-          "ext": {
+          "venuefixed": 1,
+          "venuefixedetime": 2,
+          "venuefixedetimedpi": {
+            "dummy": "entry"
+          },
+          "venuefixedetimedpiext": {
             "dummy": "entry"
           },
           "id": "3.0",
           "name": "dummyname",
           "pub": {
-            "name": "entry"
+            "dummy": "entry"
           }
         },
         "user": {

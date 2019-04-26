@@ -26,18 +26,21 @@ import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.Companion;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.*;
 
 public class AudioPlacementToAudioConverter implements Converter<AudioPlacement, Audio> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.STITCHED);
+  }
 
   @Override
   public Audio map(AudioPlacement audioPlacement, Config config, Provider converterProvider)
@@ -75,31 +78,28 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     audio.setProtocols(audioPlacement.getCtype());
     Map<String, Object> map = audioPlacement.getExt();
     if (map != null) {
-      audio.setExt(MapUtils.copyMap(map, config));
-      try {
-        if (map.containsKey(CommonConstants.STITCHED)) {
-          audio.setStitched((Integer) map.get(CommonConstants.STITCHED));
-          audio.getExt().remove(CommonConstants.STITCHED);
-        }
-      } catch (ClassCastException e) {
-        throw new OpenRtbConverterException("error while typecasting ext for Audio", e);
-      }
+      audio.setExt(new HashMap<>(map));
     }
+    fetchFromExt(
+      audio::setStitched,
+      map,
+      CommonConstants.STITCHED,
+      "error while mapping stitched from audioplacement ext");
     audio.setCompanionad(
         companionListToBannerList(audioPlacement.getComp(), config, converterProvider));
     audioPlacementToAudioAfterMapping(audioPlacement, audio);
+    removeFromExt(audio.getExt(), extraFieldsInExt);
   }
 
   private void audioPlacementToAudioAfterMapping(AudioPlacement audioPlacement, Audio audio) {
     if (nonNull(audioPlacement) && nonNull(audioPlacement.getExt()) && nonNull(audio)) {
-      if (isNull(audio.getExt())) {
-        audio.setExt(new HashMap<>());
-      }
-      audio.getExt().put(CommonConstants.SKIP, audioPlacement.getSkip());
-      audio.getExt().put(CommonConstants.SKIPMIN, audioPlacement.getSkipmin());
-      audio.getExt().put(CommonConstants.SKIPAFTER, audioPlacement.getSkipafter());
-      audio.getExt().put(CommonConstants.PLAYMETHOD, audioPlacement.getPlaymethod());
-      audio.getExt().put(CommonConstants.PLAYEND, audioPlacement.getPlayend());
+      putToExt(audioPlacement::getSkip, audio.getExt(), CommonConstants.SKIP, audio::setExt);
+      putToExt(audioPlacement::getSkipmin, audio.getExt(), CommonConstants.SKIPMIN, audio::setExt);
+      putToExt(
+        audioPlacement::getSkipafter, audio.getExt(), CommonConstants.SKIPAFTER, audio::setExt);
+      putToExt(
+        audioPlacement::getPlaymethod, audio.getExt(), CommonConstants.PLAYMETHOD, audio::setExt);
+      putToExt(audioPlacement::getPlayend, audio.getExt(), CommonConstants.PLAYEND, audio::setExt);
     }
   }
 

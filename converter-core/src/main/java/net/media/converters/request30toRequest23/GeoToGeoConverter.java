@@ -22,10 +22,7 @@ import net.media.openrtb3.Geo;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class GeoToGeoConverter extends net.media.converters.request30toRequest25.GeoToGeoConverter {
@@ -37,26 +34,11 @@ public class GeoToGeoConverter extends net.media.converters.request30toRequest25
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    if (nonNull(target.getAccuracy())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.ACCURACY, target.getAccuracy());
-      target.setAccuracy(null);
-    }
-    if (nonNull(target.getLastfix())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.LASTFIX, target.getLastfix());
-      target.setLastfix(null);
-    }
-    if (nonNull(target.getIpservice())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.IPSERVICE, target.getIpservice());
-      target.setIpservice(null);
-    }
+    putToExt(target::getAccuracy, target.getExt(), CommonConstants.ACCURACY, target::setExt);
+    target.setAccuracy(null);
+    putToExt(target::getLastfix, target.getExt(), CommonConstants.LASTFIX, target::setExt);
+    target.setLastfix(null);
+    putToExt(target::getIpservice, target.getExt(), CommonConstants.IPSERVICE, target::setExt);
+    target.setIpservice(null);
   }
 }

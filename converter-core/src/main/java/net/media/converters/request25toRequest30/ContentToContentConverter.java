@@ -26,15 +26,23 @@ import net.media.openrtb3.Data;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.*;
 
 public class ContentToContentConverter implements Converter<Content, net.media.openrtb3.Content> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.CATTAX);
+  }
 
   @Override
   public net.media.openrtb3.Content map(Content source, Config config, Provider converterProvider)
@@ -54,7 +62,9 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
   public void enhance(
       Content source, net.media.openrtb3.Content target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Producer, net.media.openrtb3.Producer> producerProducerConverter =
         converterProvider.fetch(
             new Conversion<>(Producer.class, net.media.openrtb3.Producer.class));
@@ -90,23 +100,16 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
             source.getData(), dataDataConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(MapUtils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
-
-    if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey(CommonConstants.CATTAX)) {
-        target.setCattax((Integer) source.getExt().get(CommonConstants.CATTAX));
-        target.getExt().remove(CommonConstants.CATTAX);
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Content", e);
-    }
-    if (source.getVideoquality() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put(CommonConstants.VIDEOQUALITY, source.getVideoquality());
-    }
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "error while typecasting ext for Content");
+    putToExt(
+      source::getVideoquality, target.getExt(), CommonConstants.VIDEOQUALITY, target::setExt);
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

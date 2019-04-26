@@ -25,12 +25,11 @@ import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
 
 /** @author shiva.b */
 public class BidToAudioConverter implements Converter<Bid, Audio> {
@@ -60,25 +59,20 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
       target.setApi(new ArrayList<>(Collections.singletonList(source.getApi())));
     }
     target.setCurl(source.getNurl());
-
-    if (nonNull(source.getExt())) {
-      try {
-        Map<String, Object> ext = source.getExt();
-        if (ext.containsKey(CommonConstants.CTYPE)) {
-          target.setCtype((Integer) ext.get(CommonConstants.CTYPE));
-          source.getExt().remove(CommonConstants.CTYPE);
-        }
-        if (ext.containsKey(CommonConstants.DUR)) {
-          target.setDur((Integer) ext.get(CommonConstants.DUR));
-          source.getExt().remove(CommonConstants.DUR);
-        }
-        if (ext.containsKey(CommonConstants.MIME)) {
-          target.setMime((Collection<String>) ext.get(CommonConstants.MIME));
-          source.getExt().remove(CommonConstants.MIME);
-        }
-      } catch (Exception e) {
-        throw new OpenRtbConverterException("error while type casting in bid.ext", e);
-      }
-    }
+    fetchFromExt(
+      target::setCtype,
+      source.getExt(),
+      CommonConstants.CTYPE,
+      "Error while mapping ctype from bid.ext");
+    fetchFromExt(
+      target::setDur,
+      source.getExt(),
+      CommonConstants.DUR,
+      "Error while mapping dur from bid.ext");
+    fetchFromExt(
+      target::setMime,
+      source.getExt(),
+      CommonConstants.MIME,
+      "Error while mapping mime from bid.ext");
   }
 }
