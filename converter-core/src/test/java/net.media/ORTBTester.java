@@ -78,12 +78,12 @@ public class ORTBTester<U, V> {
          }
       } else {
          String stringInput = source.toString();
-         String stringOutput = tempOpenRtbConverter.convert(config, stringInput, sourceClass, targetClass, overRider).replaceAll("\\s+","");
+         String stringOutput = tempOpenRtbConverter.convert(config, stringInput, sourceClass, targetClass, overRider);
          converted = JacksonObjectMapperUtils.getMapper().readValue(stringOutput, targetClass);
       }
         JSONAssert.assertEquals(
-        JacksonObjectMapperUtils.getMapper().writeValueAsString(target).replaceAll("\\s+",""),
-        JacksonObjectMapperUtils.getMapper().writeValueAsString(converted).replaceAll("\\s+",""),
+        JacksonObjectMapperUtils.getMapper().writeValueAsString(target),
+        JacksonObjectMapperUtils.getMapper().writeValueAsString(converted),
         true);
 
     } catch (Exception | AssertionError e) {
