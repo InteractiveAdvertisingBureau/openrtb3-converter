@@ -21,6 +21,7 @@ import com.google.common.collect.HashBiMap;
 
 @SuppressWarnings("ResultOfMethodCallIgnored")
 public class OsMap {
+
   public static BiMap<String, Integer> osMap;
 
   static {

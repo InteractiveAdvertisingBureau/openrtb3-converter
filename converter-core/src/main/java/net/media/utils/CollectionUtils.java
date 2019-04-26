@@ -16,16 +16,17 @@
 
 package net.media.utils;
 
-import net.media.config.Config;
+import static java.util.Objects.nonNull;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import net.media.config.Config;
 
-import static java.util.Objects.nonNull;
-
-/** Created by rajat.go on 04/01/19. */
+/**
+ * Created by rajat.go on 04/01/19.
+ */
 public class CollectionUtils {
 
   public static <T> T firstElementFromCollection(Collection<T> in) {

@@ -17,13 +17,14 @@
 package net.media.template;
 
 import com.google.common.base.Charsets;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Base64;
 import java.util.function.Function;
 
-/** Created by shiva.b on 02/01/19. */
+/**
+ * Created by shiva.b on 02/01/19.
+ */
 public enum StaticEncoder implements Function<String, String> {
   B64(source -> Base64.getEncoder().encodeToString(source.getBytes())),
   UTF8(

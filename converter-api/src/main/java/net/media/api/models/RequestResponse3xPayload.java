@@ -20,10 +20,12 @@ import net.media.config.Config;
 import net.media.openrtb3.OpenRTBWrapper3_X;
 
 public class RequestResponse3xPayload {
+
   private OpenRTBWrapper3_X openRTB;
   private Config config;
 
-  public RequestResponse3xPayload() {}
+  public RequestResponse3xPayload() {
+  }
 
   public OpenRTBWrapper3_X getOpenRTB() {
     return this.openRTB;
@@ -42,14 +44,21 @@ public class RequestResponse3xPayload {
   }
 
   public boolean equals(Object o) {
-    if (o == this) return true;
-    if (!(o instanceof RequestResponse3xPayload)) return false;
+    if (o == this) {
+      return true;
+    }
+    if (!(o instanceof RequestResponse3xPayload)) {
+      return false;
+    }
     final RequestResponse3xPayload other = (RequestResponse3xPayload) o;
-    if (!other.canEqual(this)) return false;
+    if (!other.canEqual(this)) {
+      return false;
+    }
     final Object this$openRTB = this.getOpenRTB();
     final Object other$openRTB = other.getOpenRTB();
-    if (this$openRTB == null ? other$openRTB != null : !this$openRTB.equals(other$openRTB))
+    if (this$openRTB == null ? other$openRTB != null : !this$openRTB.equals(other$openRTB)) {
       return false;
+    }
     final Object this$config = this.getConfig();
     final Object other$config = other.getConfig();
     return this$config == null ? other$config == null : this$config.equals(other$config);

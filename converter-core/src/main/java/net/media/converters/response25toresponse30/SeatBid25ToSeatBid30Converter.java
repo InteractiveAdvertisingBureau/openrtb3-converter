@@ -16,6 +16,12 @@
 
 package net.media.converters.response25toresponse30;
 
+import static java.util.Objects.nonNull;
+import static org.apache.commons.collections.CollectionUtils.isEmpty;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -26,14 +32,9 @@ import net.media.openrtb3.Seatbid;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import static java.util.Objects.nonNull;
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
-
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class SeatBid25ToSeatBid30Converter implements Converter<SeatBid, Seatbid> {
 
   @Override

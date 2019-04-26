@@ -23,7 +23,9 @@ import net.media.openrtb25.response.nativeresponse.Link;
 import net.media.openrtb3.LinkAsset;
 import net.media.utils.Provider;
 
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class LinkToLinkAssetConverter implements Converter<Link, LinkAsset> {
 
   @Override

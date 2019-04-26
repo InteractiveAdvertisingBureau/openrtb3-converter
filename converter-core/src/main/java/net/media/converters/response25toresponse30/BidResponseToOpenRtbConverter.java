@@ -25,7 +25,9 @@ import net.media.openrtb3.OpenRTB3_X;
 import net.media.openrtb3.Response;
 import net.media.utils.Provider;
 
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class BidResponseToOpenRtbConverter implements Converter<BidResponse2_X, OpenRTB3_X> {
 
   @Override

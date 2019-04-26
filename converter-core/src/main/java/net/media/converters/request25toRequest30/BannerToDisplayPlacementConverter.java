@@ -16,6 +16,14 @@
 
 package net.media.converters.request25toRequest30;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -28,12 +36,9 @@ import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.*;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-
-/** Created by rajat.go on 03/01/19. */
+/**
+ * Created by rajat.go on 03/01/19.
+ */
 public class BannerToDisplayPlacementConverter implements Converter<Banner, DisplayPlacement> {
 
   @Override
@@ -81,7 +86,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
         if (bannerExt.containsKey(CommonConstants.CTYPE)) {
           displayPlacement.setCtype(
               CollectionUtils.copyCollection((Collection<Integer>) bannerExt.get(CommonConstants
-                .CTYPE), config));
+                  .CTYPE), config));
           displayPlacement.getExt().remove(CommonConstants.CTYPE);
         }
         if (bannerExt.containsKey(CommonConstants.PTYPE)) {
@@ -176,7 +181,9 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     displayFormat.setWratio(format.getWratio());
     displayFormat.setHratio(format.getHratio());
     if (nonNull(format.getWmin())) {
-      if (displayFormat.getExt() == null) displayFormat.setExt(new HashMap<>());
+      if (displayFormat.getExt() == null) {
+        displayFormat.setExt(new HashMap<>());
+      }
       displayFormat.getExt().put(CommonConstants.WMIN, format.getWmin());
     }
 

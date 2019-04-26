@@ -16,6 +16,13 @@
 
 package net.media.converters.request30toRequest25;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -27,14 +34,6 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 
 public class DisplayPlacementToBannerConverter implements Converter<DisplayPlacement, Banner> {
 
@@ -64,8 +63,9 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
         if (!CollectionUtils.isEmpty(displayFormat.getExpdir())) {
-          Collection<Integer> formatExpdir = CollectionUtils.copyCollection(displayFormat.getExpdir(),
-            config);
+          Collection<Integer> formatExpdir = CollectionUtils
+              .copyCollection(displayFormat.getExpdir(),
+                  config);
           if (isNull(banner.getExpdir())) {
             banner.setExpdir(formatExpdir);
           } else {
@@ -92,7 +92,8 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       banner.setExt(MapUtils.copyMap(map, config));
       if (map.containsKey(CommonConstants.BTYPE)) {
         try {
-          banner.setBtype(CollectionUtils.copyCollection((Collection<Integer>) map.get(CommonConstants.BTYPE), config));
+          banner.setBtype(CollectionUtils
+              .copyCollection((Collection<Integer>) map.get(CommonConstants.BTYPE), config));
           banner.getExt().remove(CommonConstants.BTYPE);
         } catch (ClassCastException e) {
           throw new OpenRtbConverterException(

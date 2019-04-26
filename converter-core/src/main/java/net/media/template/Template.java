@@ -22,8 +22,11 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 
-/** Created by shiva.b on 02/01/19. */
+/**
+ * Created by shiva.b on 02/01/19.
+ */
 public interface Template {
+
   static Template.TokenProvider getTokenProviderByGroupNames(List<String> groupNames) {
     return matcher -> {
       Map<String, String> groups = new HashMap<>(groupNames.size());
@@ -48,20 +51,24 @@ public interface Template {
 
   @FunctionalInterface
   interface TokenValue {
+
     String get(Token token);
   }
 
   @FunctionalInterface
   interface TokenProvider {
+
     Token getToken(Matcher matcher);
   }
 
   @FunctionalInterface
   interface DefaultValueProvider {
+
     String getDefaultValue(Token token);
   }
 
   class Token {
+
     final String textValue;
     private final Map<String, String> groups;
 
@@ -84,15 +91,23 @@ public interface Template {
     }
 
     public boolean equals(Object o) {
-      if (o == this) return true;
-      if (!(o instanceof Token)) return false;
+      if (o == this) {
+        return true;
+      }
+      if (!(o instanceof Token)) {
+        return false;
+      }
       final Token other = (Token) o;
-      if (!other.canEqual(this)) return false;
+      if (!other.canEqual(this)) {
+        return false;
+      }
       final Object this$textValue = this.getTextValue();
       final Object other$textValue = other.getTextValue();
       if (this$textValue == null
           ? other$textValue != null
-          : !this$textValue.equals(other$textValue)) return false;
+          : !this$textValue.equals(other$textValue)) {
+        return false;
+      }
       final Object this$groups = this.getGroups();
       final Object other$groups = other.getGroups();
       return this$groups == null ? other$groups == null : this$groups.equals(other$groups);

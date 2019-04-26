@@ -16,6 +16,11 @@
 
 package net.media.converters.request30toRequest25;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
+import java.util.Collections;
+import java.util.HashMap;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -29,12 +34,6 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.Collections;
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 
 public class VideoPlacementToVideoConverter implements Converter<VideoPlacement, Video> {
 

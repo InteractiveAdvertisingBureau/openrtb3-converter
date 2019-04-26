@@ -16,8 +16,11 @@
 
 package net.media;
 
-/** Created by sourav.p on . */
+/**
+ * Created by sourav.p on .
+ */
 public class OutputTestPojo {
+
   private String inputFile;
 
   private String inputType;

@@ -16,6 +16,10 @@
 
 package net.media.converters.request30toRequest23;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
+import java.util.HashMap;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
@@ -23,12 +27,9 @@ import net.media.openrtb3.Request;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-
-/** Created by rajat.go on 03/04/19. */
+/**
+ * Created by rajat.go on 03/04/19.
+ */
 public class RequestToBidRequestConverter
     extends net.media.converters.request30toRequest25.RequestToBidRequestConverter {
 

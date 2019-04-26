@@ -16,6 +16,11 @@
 
 package net.media.converters.response30toresponse25;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
+import java.util.ArrayList;
+import java.util.List;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -28,19 +33,15 @@ import net.media.openrtb3.Seatbid;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-
 public class OpenRtbResponseToBidResponseConverter
     implements Converter<OpenRTB3_X, BidResponse2_X> {
 
   @Override
   public BidResponse2_X map(OpenRTB3_X source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(config)) return null;
+    if (isNull(source) || isNull(config)) {
+      return null;
+    }
     BidResponse2_X bidResponse = new BidResponse2_X();
     enhance(source, bidResponse, config, converterProvider);
     return bidResponse;
@@ -53,9 +54,13 @@ public class OpenRtbResponseToBidResponseConverter
 
     Converter<Seatbid, SeatBid> seatBid30ToSeatBid25Converter =
         converterProvider.fetch(new Conversion<>(Seatbid.class, SeatBid.class));
-    if (isNull(source) || isNull(target) || isNull(config)) return;
+    if (isNull(source) || isNull(target) || isNull(config)) {
+      return;
+    }
     Response response = source.getResponse();
-    if (response == null) return;
+    if (response == null) {
+      return;
+    }
 
     target.setId(response.getId());
     List<SeatBid> seatBidList = new ArrayList<>();

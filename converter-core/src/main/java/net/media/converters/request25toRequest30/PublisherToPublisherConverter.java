@@ -16,6 +16,9 @@
 
 package net.media.converters.request25toRequest30;
 
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.Publisher;
@@ -23,10 +26,6 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.Map;
-
-import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
 public class PublisherToPublisherConverter
     implements Converter<Publisher, net.media.openrtb3.Publisher> {
@@ -51,7 +50,9 @@ public class PublisherToPublisherConverter
       net.media.openrtb3.Publisher target,
       Config config,
       Provider converterProvider) {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setId(source.getId());
     target.setName(source.getName());
     target.setDomain(source.getDomain());

@@ -16,6 +16,8 @@
 
 package net.media.converters.request25toRequest30;
 
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -23,9 +25,6 @@ import net.media.openrtb25.request.Geo;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo> {
 
@@ -47,7 +46,9 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo>
   public void enhance(
       Geo source, net.media.openrtb3.Geo target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setIpserv(source.getIpservice());
     target.setAccur(source.getAccuracy());
     target.setType(source.getType());

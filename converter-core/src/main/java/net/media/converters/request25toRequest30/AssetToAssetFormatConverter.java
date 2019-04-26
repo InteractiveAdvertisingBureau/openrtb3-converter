@@ -16,33 +16,43 @@
 
 package net.media.converters.request25toRequest30;
 
+import static java.util.Objects.isNull;
+
 import com.fasterxml.jackson.databind.JavaType;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.Banner;
-import net.media.openrtb25.request.*;
-import net.media.openrtb3.*;
+import net.media.openrtb25.request.NativeData;
+import net.media.openrtb25.request.NativeImage;
+import net.media.openrtb25.request.NativeTitle;
+import net.media.openrtb25.request.NativeVideo;
+import net.media.openrtb3.AssetFormat;
+import net.media.openrtb3.Companion;
+import net.media.openrtb3.DataAssetFormat;
+import net.media.openrtb3.ImageAssetFormat;
+import net.media.openrtb3.TitleAssetFormat;
+import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
-import static java.util.Objects.isNull;
-
-/** Created by rajat.go on 03/01/19. */
+/**
+ * Created by rajat.go on 03/01/19.
+ */
 public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat> {
 
   private static final JavaType javaTypeForBannerCollection =
-      JacksonObjectMapperUtils.getMapper().getTypeFactory().constructCollectionType(Collection.class, Banner.class);
+      JacksonObjectMapperUtils.getMapper().getTypeFactory()
+          .constructCollectionType(Collection.class, Banner.class);
 
   @Override
   public AssetFormat map(Asset asset, Config config, Provider converterProvider)
@@ -74,7 +84,8 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
 
       try {
         if (assetFormat.getExt().containsKey(CommonConstants.CLICKBROWSER)) {
-          assetFormat.getVideo().setClktype((Integer) assetFormat.getExt().get(CommonConstants.CLICKBROWSER));
+          assetFormat.getVideo()
+              .setClktype((Integer) assetFormat.getExt().get(CommonConstants.CLICKBROWSER));
           assetFormat.getExt().remove(CommonConstants.CLICKBROWSER);
         }
       } catch (Exception e) {
@@ -197,7 +208,8 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
           videoPlacement.getExt().remove(CommonConstants.SKIPMIN);
         }
         if (nativeVideo.getExt().containsKey(CommonConstants.SKIPAFTER)) {
-          videoPlacement.setSkipafter((Integer) nativeVideo.getExt().get(CommonConstants.SKIPAFTER));
+          videoPlacement
+              .setSkipafter((Integer) nativeVideo.getExt().get(CommonConstants.SKIPAFTER));
           videoPlacement.getExt().remove(CommonConstants.SKIPAFTER);
         }
         if (nativeVideo.getExt().containsKey(CommonConstants.PLAYBACKMETHOD)) {
@@ -234,7 +246,8 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
           videoPlacement.getExt().remove(CommonConstants.MAXBITRATE);
         }
         if (nativeVideo.getExt().containsKey(CommonConstants.DELIVERY)) {
-          videoPlacement.setDelivery((List<Integer>) nativeVideo.getExt().get(CommonConstants.DELIVERY));
+          videoPlacement
+              .setDelivery((List<Integer>) nativeVideo.getExt().get(CommonConstants.DELIVERY));
           videoPlacement.getExt().remove(CommonConstants.DELIVERY);
         }
         if (nativeVideo.getExt().containsKey(CommonConstants.MAXSEQ)) {
@@ -246,16 +259,19 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
           videoPlacement.getExt().remove(CommonConstants.LINEARITY);
         }
         if (nativeVideo.getExt().containsKey(CommonConstants.BOXINGALLOWED)) {
-          videoPlacement.setBoxing((Integer) nativeVideo.getExt().get(CommonConstants.BOXINGALLOWED));
+          videoPlacement
+              .setBoxing((Integer) nativeVideo.getExt().get(CommonConstants.BOXINGALLOWED));
           videoPlacement.getExt().remove(CommonConstants.BOXINGALLOWED);
         }
         if (nativeVideo.getExt().containsKey(CommonConstants.PLAYBACKEND)) {
-          videoPlacement.setPlayend((Integer) nativeVideo.getExt().get(CommonConstants.PLAYBACKEND));
+          videoPlacement
+              .setPlayend((Integer) nativeVideo.getExt().get(CommonConstants.PLAYBACKEND));
           videoPlacement.getExt().remove(CommonConstants.PLAYBACKEND);
         }
 
         if (nativeVideo.getExt().containsKey(CommonConstants.COMPANIONTYPE)) {
-          videoPlacement.setComptype((List<Integer>) nativeVideo.getExt().get(CommonConstants.COMPANIONTYPE));
+          videoPlacement
+              .setComptype((List<Integer>) nativeVideo.getExt().get(CommonConstants.COMPANIONTYPE));
           videoPlacement.getExt().remove(CommonConstants.COMPANIONTYPE);
         }
 

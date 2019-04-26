@@ -20,10 +20,12 @@ import net.media.config.Config;
 import net.media.openrtb25.response.BidResponse2_X;
 
 public class Response2xPayload {
+
   private BidResponse2_X response;
   private Config config;
 
-  public Response2xPayload() {}
+  public Response2xPayload() {
+  }
 
   public BidResponse2_X getResponse() {
     return this.response;
@@ -42,14 +44,21 @@ public class Response2xPayload {
   }
 
   public boolean equals(Object o) {
-    if (o == this) return true;
-    if (!(o instanceof Response2xPayload)) return false;
+    if (o == this) {
+      return true;
+    }
+    if (!(o instanceof Response2xPayload)) {
+      return false;
+    }
     final Response2xPayload other = (Response2xPayload) o;
-    if (!other.canEqual(this)) return false;
+    if (!other.canEqual(this)) {
+      return false;
+    }
     final Object this$response = this.getResponse();
     final Object other$response = other.getResponse();
-    if (this$response == null ? other$response != null : !this$response.equals(other$response))
+    if (this$response == null ? other$response != null : !this$response.equals(other$response)) {
       return false;
+    }
     final Object this$config = this.getConfig();
     final Object other$config = other.getConfig();
     return this$config == null ? other$config == null : this$config.equals(other$config);

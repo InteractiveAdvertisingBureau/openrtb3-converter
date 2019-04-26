@@ -25,7 +25,9 @@ import net.media.openrtb3.Ad;
 import net.media.openrtb3.Media;
 import net.media.utils.Provider;
 
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class Bid25ToMediaConverter implements Converter<Bid, Media> {
 
   @Override

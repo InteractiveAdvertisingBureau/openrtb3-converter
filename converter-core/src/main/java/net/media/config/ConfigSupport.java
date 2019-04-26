@@ -26,14 +26,15 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 import java.net.URL;
 
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class ConfigSupport {
 
   private ObjectMapper jsonMapper = createMapper(null, null);
@@ -42,7 +43,7 @@ public class ConfigSupport {
   public <T> T fromJSON(String content, Class<T> configType) throws IOException {
     return jsonMapper.readValue(content, configType);
   }
-  
+
   public <T> T fromJSON(File file, Class<T> configType) throws IOException {
     return fromJSON(file, configType, null);
   }
@@ -116,10 +117,13 @@ public class ConfigSupport {
   }
 
   @JsonFilter("classFilter")
-  public static class ClassMixIn {}
+  public static class ClassMixIn {
+
+  }
 
   public static class ConfigMixIn {
 
-    @JsonProperty String bannerTemplate;
+    @JsonProperty
+    String bannerTemplate;
   }
 }

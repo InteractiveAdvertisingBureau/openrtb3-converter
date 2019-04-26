@@ -16,7 +16,9 @@
 
 package net.media.enums;
 
-/** Created by vishnu on 9/5/16. */
+/**
+ * Created by vishnu on 9/5/16.
+ */
 public enum AdType {
   BANNER(1),
   VIDEO(2),
@@ -32,7 +34,9 @@ public enum AdType {
 
   public static AdType getAdType(int value) {
     for (AdType adType : values()) {
-      if (adType.getValue() == value) return adType;
+      if (adType.getValue() == value) {
+        return adType;
+      }
     }
     throw new IllegalArgumentException("Invalid adtype value '" + value + "' provided");
   }

@@ -16,13 +16,12 @@
 
 package net.media.utils;
 
-import net.media.converters.Converter;
-import net.media.driver.Conversion;
+import static java.util.Objects.isNull;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
-import static java.util.Objects.isNull;
+import net.media.converters.Converter;
+import net.media.driver.Conversion;
 
 /**
  * Generic Provider maintains a one to one mapping of a key to a value.
@@ -67,7 +66,9 @@ public class Provider {
     return !(isNull(key) || !providerMap.containsKey(key));
   }
 
-  /** clears the entire map */
+  /**
+   * clears the entire map
+   */
   public void clear() {
     providerMap.clear();
   }

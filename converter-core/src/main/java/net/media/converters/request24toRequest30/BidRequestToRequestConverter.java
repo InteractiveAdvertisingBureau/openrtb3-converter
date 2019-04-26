@@ -16,6 +16,9 @@
 
 package net.media.converters.request24toRequest30;
 
+import static java.util.Objects.nonNull;
+
+import java.util.Collection;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
@@ -25,11 +28,9 @@ import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
-import java.util.Collection;
-
-import static java.util.Objects.nonNull;
-
-/** Created by rajat.go on 02/04/19. */
+/**
+ * Created by rajat.go on 02/04/19.
+ */
 public class BidRequestToRequestConverter
     extends net.media.converters.request25toRequest30.BidRequestToRequestConverter {
 
@@ -61,7 +62,8 @@ public class BidRequestToRequestConverter
       if (source.getExt().containsKey(CommonConstants.SOURCE)) {
         try {
           Source source1 =
-              JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get(CommonConstants.SOURCE), Source.class);
+              JacksonObjectMapperUtils.getMapper()
+                  .convertValue(source.getExt().get(CommonConstants.SOURCE), Source.class);
           source.setSource(source1);
         } catch (Exception e) {
           throw new OpenRtbConverterException(

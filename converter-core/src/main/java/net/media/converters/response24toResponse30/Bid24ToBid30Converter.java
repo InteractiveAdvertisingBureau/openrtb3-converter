@@ -16,6 +16,8 @@
 
 package net.media.converters.response24toResponse30;
 
+import static java.util.Objects.nonNull;
+
 import net.media.config.Config;
 import net.media.converters.response25toresponse30.Bid25ToBid30Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -23,9 +25,9 @@ import net.media.openrtb25.response.Bid;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import static java.util.Objects.nonNull;
-
-/** Created by rajat.go on 03/04/19. */
+/**
+ * Created by rajat.go on 03/04/19.
+ */
 public class Bid24ToBid30Converter extends Bid25ToBid30Converter {
 
   public void enhance(

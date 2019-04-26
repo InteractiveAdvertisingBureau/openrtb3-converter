@@ -16,23 +16,23 @@
 
 package net.media;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
+import java.io.File;
+import java.nio.file.Files;
 import net.media.config.Config;
 import net.media.driver.OpenRtbConverter;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
 import net.media.utils.JacksonObjectMapperUtils;
-
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.File;
-import java.nio.file.Files;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-
-/** Created by rajat.go on 09/01/19. */
+/**
+ * Created by rajat.go on 09/01/19.
+ */
 public class ConverterTest {
 
   @Test

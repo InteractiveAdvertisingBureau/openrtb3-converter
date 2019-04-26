@@ -16,6 +16,8 @@
 
 package net.media.converters.request30toRequest25;
 
+import static java.util.Objects.isNull;
+
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Deal;
@@ -23,9 +25,8 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import static java.util.Objects.isNull;
-
 public class DealToDealConverter implements Converter<Deal, net.media.openrtb25.request.Deal> {
+
   @Override
   public net.media.openrtb25.request.Deal map(
       Deal deal, Config config, Provider converterProvider) {

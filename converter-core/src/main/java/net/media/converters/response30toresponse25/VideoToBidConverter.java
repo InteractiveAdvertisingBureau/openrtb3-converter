@@ -16,6 +16,11 @@
 
 package net.media.converters.response30toresponse25;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+
+import java.util.HashMap;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -24,28 +29,27 @@ import net.media.openrtb3.Video;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-import static org.apache.commons.lang3.StringUtils.isEmpty;
-
 public class VideoToBidConverter implements Converter<Video, Bid> {
 
   public Bid map(Video source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(config)) return null;
+    if (isNull(source) || isNull(config)) {
+      return null;
+    }
     Bid bid = new Bid();
     enhance(source, bid, config, converterProvider);
     return bid;
   }
 
   public void enhance(Video source, Bid target, Config config, Provider converterProvider) {
-    if (isNull(source) || isNull(target) || isNull(config)) return;
+    if (isNull(source) || isNull(target) || isNull(config)) {
+      return;
+    }
 
     target.setAdm(source.getAdm());
-    if (nonNull(source.getApi()) && source.getApi().size() > 0)
+    if (nonNull(source.getApi()) && source.getApi().size() > 0) {
       target.setApi(source.getApi().iterator().next());
+    }
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
@@ -56,6 +60,8 @@ public class VideoToBidConverter implements Converter<Video, Bid> {
       target.setNurl(source.getCurl());
     }
     target.getExt().put(CommonConstants.MIME, source.getMime());
-    if (nonNull(source.getExt())) target.getExt().putAll(source.getExt());
+    if (nonNull(source.getExt())) {
+      target.getExt().putAll(source.getExt());
+    }
   }
 }

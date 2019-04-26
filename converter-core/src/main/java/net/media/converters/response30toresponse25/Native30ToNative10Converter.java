@@ -16,6 +16,12 @@
 
 package net.media.converters.response30toresponse25;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -30,18 +36,13 @@ import net.media.openrtb3.Native;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-
 public class Native30ToNative10Converter implements Converter<Native, NativeResponse> {
 
   public NativeResponse map(Native source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(config)) return null;
+    if (isNull(source) || isNull(config)) {
+      return null;
+    }
     NativeResponse nativeResponse = new NativeResponse();
     NativeResponseBody nativeResponseBody = new NativeResponseBody();
     nativeResponse.setNativeResponseBody(nativeResponseBody);
@@ -58,7 +59,9 @@ public class Native30ToNative10Converter implements Converter<Native, NativeResp
     Converter<LinkAsset, Link> linkAssetLinkConverter =
         converterProvider.fetch(new Conversion<>(LinkAsset.class, Link.class));
 
-    if (isNull(source) || isNull(target) || isNull(config)) return;
+    if (isNull(source) || isNull(target) || isNull(config)) {
+      return;
+    }
 
     NativeResponseBody nativeResponseBody = target.getNativeResponseBody();
     List<AssetResponse> assetResponseList = new ArrayList<>();
@@ -75,7 +78,8 @@ public class Native30ToNative10Converter implements Converter<Native, NativeResp
       if (nonNull(source.getExt())) {
         nativeResponseBody.setJstracker((String) source.getExt().get(CommonConstants.JS_TRACKER));
         nativeResponseBody.getExt().remove(CommonConstants.JS_TRACKER);
-        nativeResponseBody.setImptrackers((Collection<String>) source.getExt().get(CommonConstants.IMP_TRACKERS));
+        nativeResponseBody
+            .setImptrackers((Collection<String>) source.getExt().get(CommonConstants.IMP_TRACKERS));
         nativeResponseBody.getExt().remove(CommonConstants.IMP_TRACKERS);
       }
     } catch (Exception e) {

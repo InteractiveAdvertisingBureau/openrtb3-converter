@@ -16,20 +16,24 @@
 
 package net.media.utils.validator;
 
-import org.apache.commons.beanutils.PropertyUtils;
-
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import java.util.Arrays;
 import javax.validation.Constraint;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.Payload;
-import java.lang.annotation.*;
-import java.util.Arrays;
+import org.apache.commons.beanutils.PropertyUtils;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
 @Constraint(validatedBy = CheckExactlyOneNotNull.CheckExactlyOneNotNullValidator.class)
 @Documented
 public @interface CheckExactlyOneNotNull {
+
   String message() default "";
 
   Class<?>[] groups() default {};
@@ -40,6 +44,7 @@ public @interface CheckExactlyOneNotNull {
 
   class CheckExactlyOneNotNullValidator
       implements ConstraintValidator<CheckExactlyOneNotNull, Object> {
+
     private String[] fieldNames;
 
     public void initialize(CheckExactlyOneNotNull constraint) {

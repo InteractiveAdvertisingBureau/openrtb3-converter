@@ -16,7 +16,10 @@
 
 package net.media.converters.request23toRequest30;
 
+import static java.util.Objects.nonNull;
+
 import com.fasterxml.jackson.databind.JavaType;
+import java.util.Collection;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Imp;
@@ -26,16 +29,15 @@ import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
-import java.util.Collection;
-
-import static java.util.Objects.nonNull;
-
-/** Created by rajat.go on 03/04/19. */
+/**
+ * Created by rajat.go on 03/04/19.
+ */
 public class ImpToItemConverter
     extends net.media.converters.request25toRequest30.ImpToItemConverter {
 
-  private static final JavaType javaTypeForMetricCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Metric.class);
+  private static final JavaType javaTypeForMetricCollection = JacksonObjectMapperUtils.getMapper()
+      .getTypeFactory()
+      .constructCollectionType(Collection.class, Metric.class);
 
   public void enhance(Imp imp, Item item, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -45,8 +47,9 @@ public class ImpToItemConverter
     if (nonNull(imp.getExt())) {
       if (imp.getExt().containsKey(CommonConstants.METRIC)) {
         try {
-          imp.setMetric(JacksonObjectMapperUtils.getMapper().convertValue(imp.getExt().get(CommonConstants.METRIC),
-            javaTypeForMetricCollection));
+          imp.setMetric(JacksonObjectMapperUtils.getMapper()
+              .convertValue(imp.getExt().get(CommonConstants.METRIC),
+                  javaTypeForMetricCollection));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting metric from imp.ext.accuracy", e);
         }

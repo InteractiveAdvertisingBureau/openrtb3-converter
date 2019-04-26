@@ -16,6 +16,8 @@
 
 package net.media.converters.request30toRequest25;
 
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -23,9 +25,6 @@ import net.media.openrtb3.Source;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class SourceToSourceConverter
     implements Converter<Source, net.media.openrtb25.request.Source> {
@@ -51,7 +50,9 @@ public class SourceToSourceConverter
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setTid(source.getTid());
     target.setPchain(source.getPchain());
     Map<String, Object> map = source.getExt();
@@ -59,27 +60,39 @@ public class SourceToSourceConverter
       target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getTs() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.TS, source.getTs());
     }
     if (source.getDs() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.DS, source.getDs());
     }
     if (source.getDsmap() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.DSMAP, source.getDsmap());
     }
     if (source.getCert() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.CERT, source.getCert());
     }
     if (source.getDigest() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.DIGEST, source.getDigest());
     }
 
-    if (source.getExt() == null) return;
+    if (source.getExt() == null) {
+      return;
+    }
     if (source.getExt().containsKey(CommonConstants.FD)) {
       try {
         target.setFd((Integer) source.getExt().get(CommonConstants.FD));

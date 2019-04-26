@@ -16,6 +16,12 @@
 
 package net.media.converters.request25toRequest30;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -29,14 +35,9 @@ import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-
-/** Created by rajat.go on 03/01/19. */
+/**
+ * Created by rajat.go on 03/01/19.
+ */
 public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPlacement> {
 
   @Override

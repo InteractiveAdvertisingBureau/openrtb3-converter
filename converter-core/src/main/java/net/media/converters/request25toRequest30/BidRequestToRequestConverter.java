@@ -16,6 +16,8 @@
 
 package net.media.converters.request25toRequest30;
 
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -24,17 +26,21 @@ import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.Source;
 import net.media.openrtb25.request.User;
-import net.media.openrtb3.*;
+import net.media.openrtb3.Context;
+import net.media.openrtb3.Dooh;
+import net.media.openrtb3.Item;
+import net.media.openrtb3.Placement;
+import net.media.openrtb3.Request;
+import net.media.openrtb3.Spec;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-import java.util.Map;
-
-/** Created by rajat.go on 03/01/19. */
+/**
+ * Created by rajat.go on 03/01/19.
+ */
 public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Request> {
 
   private String bidRequestUserCustomdata(BidRequest2_X bidRequest) {
@@ -114,19 +120,26 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
       target.setWseat(0);
       target.setSeat(CollectionUtils.copyCollection(source.getBseat(), config));
     }
-    if (target.getExt() == null) return;
+    if (target.getExt() == null) {
+      return;
+    }
     if (target.getExt().containsKey(CommonConstants.CATTAX)) {
       target.getExt().remove(CommonConstants.CATTAX);
     }
     if (target.getExt().containsKey(CommonConstants.RESTRICTIONS)) {
       target.getExt().remove(CommonConstants.RESTRICTIONS);
     }
-    if (source.getExt() == null) return;
+    if (source.getExt() == null) {
+      return;
+    }
     if (source.getExt().containsKey(CommonConstants.DOOH)) {
-      if (target.getContext() == null) target.setContext(new Context());
+      if (target.getContext() == null) {
+        target.setContext(new Context());
+      }
       try {
-        target.getContext().setDooh(JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get(CommonConstants.DOOH),
-          Dooh.class));
+        target.getContext().setDooh(JacksonObjectMapperUtils.getMapper()
+            .convertValue(source.getExt().get(CommonConstants.DOOH),
+                Dooh.class));
         target.getExt().remove(CommonConstants.DOOH);
       } catch (ClassCastException e) {
         throw new OpenRtbConverterException("error while typecasting ext for BidRequest2_X", e);

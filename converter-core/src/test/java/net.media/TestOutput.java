@@ -19,8 +19,11 @@ package net.media;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Created by sourav.p on . */
+/**
+ * Created by sourav.p on .
+ */
 public class TestOutput {
+
   private Long totalTestCases;
   private Integer failedTestCases;
   private List<OutputTestPojo> failedTestList = new ArrayList<>();

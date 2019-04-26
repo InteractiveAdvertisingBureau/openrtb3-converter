@@ -16,6 +16,10 @@
 
 package net.media.converters.response30toresponse25;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
+import java.util.HashMap;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -30,16 +34,13 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-
 public class AdToBidConverter implements Converter<Ad, Bid> {
 
   public Bid map(Ad source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(config)) return null;
+    if (isNull(source) || isNull(config)) {
+      return null;
+    }
     Bid bid = new Bid();
     enhance(source, bid, config, converterProvider);
     return bid;
@@ -47,7 +48,9 @@ public class AdToBidConverter implements Converter<Ad, Bid> {
 
   public void enhance(Ad source, Bid target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(target) || isNull(config)) return;
+    if (isNull(source) || isNull(target) || isNull(config)) {
+      return;
+    }
     Converter<Display, Bid> displayBidConverter =
         converterProvider.fetch(new Conversion<>(Display.class, Bid.class));
     Converter<Video, Bid> videoBidConverter =
@@ -58,14 +61,17 @@ public class AdToBidConverter implements Converter<Ad, Bid> {
     target.setCrid(source.getId());
 
     target.setAdomain(CollectionUtils.copyCollection(source.getAdomain(), config));
-    if (nonNull(source.getBundle()) && source.getBundle().size() > 0)
+    if (nonNull(source.getBundle()) && source.getBundle().size() > 0) {
       target.setBundle(source.getBundle().iterator().next());
+    }
     target.setIurl(source.getIurl());
     target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
     target.setAttr(CollectionUtils.copyCollection(source.getAttr(), config));
     target.setLanguage(source.getLang());
 
-    if (isNull(target.getExt())) target.setExt(new HashMap<>());
+    if (isNull(target.getExt())) {
+      target.setExt(new HashMap<>());
+    }
     if (nonNull(source.getExt())) {
       target.getExt().putAll(source.getExt());
     }

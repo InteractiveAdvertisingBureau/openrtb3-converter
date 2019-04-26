@@ -16,6 +16,7 @@
 
 package net.media.converters.request25toRequest30;
 
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -23,8 +24,6 @@ import net.media.openrtb25.request.Regs;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.Map;
 
 public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.Regs> {
 
@@ -46,13 +45,17 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.R
   public void enhance(
       Regs source, net.media.openrtb3.Regs target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setCoppa(source.getCoppa());
     Map<String, Object> map = source.getExt();
     if (map != null) {
       target.setExt(MapUtils.copyMap(map, config));
     }
-    if (source.getExt() == null) return;
+    if (source.getExt() == null) {
+      return;
+    }
     try {
       if (source.getExt().containsKey(CommonConstants.GDPR)) {
         target.setGdpr((Integer) source.getExt().get(CommonConstants.GDPR));

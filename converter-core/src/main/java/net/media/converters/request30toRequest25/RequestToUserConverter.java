@@ -23,6 +23,7 @@ import net.media.openrtb3.Request;
 import net.media.utils.Provider;
 
 public class RequestToUserConverter implements Converter<Request, User> {
+
   @Override
   public User map(Request source, Config config, Provider converterProvider) {
     return null;

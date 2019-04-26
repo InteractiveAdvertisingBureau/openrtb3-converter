@@ -20,7 +20,12 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
-import net.media.openrtb25.request.*;
+import net.media.openrtb25.request.App;
+import net.media.openrtb25.request.BidRequest2_X;
+import net.media.openrtb25.request.Device;
+import net.media.openrtb25.request.Regs;
+import net.media.openrtb25.request.Site;
+import net.media.openrtb25.request.User;
 import net.media.openrtb3.Context;
 import net.media.openrtb3.Restrictions;
 import net.media.utils.Provider;
@@ -45,7 +50,9 @@ public class BidRequestToContextConverter implements Converter<BidRequest2_X, Co
   public void enhance(
       BidRequest2_X source, Context target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Regs, net.media.openrtb3.Regs> regsRegsConverter =
         converterProvider.fetch(new Conversion<>(Regs.class, net.media.openrtb3.Regs.class));
     Converter<Site, net.media.openrtb3.Site> siteSiteConverter =

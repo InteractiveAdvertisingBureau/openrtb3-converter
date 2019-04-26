@@ -16,6 +16,11 @@
 
 package net.media.converters.response30toresponse25;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -26,12 +31,6 @@ import net.media.template.MacroMapper;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 
 public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, Bid> {
 

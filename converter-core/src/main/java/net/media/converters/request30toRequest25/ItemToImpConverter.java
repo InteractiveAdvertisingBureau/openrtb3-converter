@@ -16,6 +16,13 @@
 
 package net.media.converters.request30toRequest25;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -23,24 +30,22 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Audio;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Deal;
-import net.media.openrtb25.request.*;
+import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.Metric;
 import net.media.openrtb25.request.Native;
+import net.media.openrtb25.request.Pmp;
 import net.media.openrtb25.request.Video;
-import net.media.openrtb3.*;
+import net.media.openrtb3.AudioPlacement;
+import net.media.openrtb3.DisplayPlacement;
+import net.media.openrtb3.Item;
+import net.media.openrtb3.Placement;
+import net.media.openrtb3.Spec;
+import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 
 public class ItemToImpConverter implements Converter<Item, Imp> {
 
@@ -341,20 +346,28 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         if (isNull(imp.getExt())) {
           imp.setExt(new HashMap<>());
         }
-        if (item.getSpec().getPlacement().getSsai() != null)
+        if (item.getSpec().getPlacement().getSsai() != null) {
           imp.getExt().put(CommonConstants.SSAI, item.getSpec().getPlacement().getSsai());
-        if (item.getSpec().getPlacement().getReward() != null)
+        }
+        if (item.getSpec().getPlacement().getReward() != null) {
           imp.getExt().put(CommonConstants.REWARD, item.getSpec().getPlacement().getReward());
-        if (item.getSpec().getPlacement().getAdmx() != null)
+        }
+        if (item.getSpec().getPlacement().getAdmx() != null) {
           imp.getExt().put(CommonConstants.ADMX, item.getSpec().getPlacement().getAdmx());
-        if (item.getSpec().getPlacement().getCurlx() != null)
+        }
+        if (item.getSpec().getPlacement().getCurlx() != null) {
           imp.getExt().put(CommonConstants.CURLX, item.getSpec().getPlacement().getCurlx());
+        }
       }
       if (nonNull(item.getSpec().getPlacement().getDisplay())) {
-        if (item.getSpec().getPlacement().getDisplay().getAmpren() != null)
-          imp.getExt().put(CommonConstants.AMPREN, item.getSpec().getPlacement().getDisplay().getAmpren());
-        if (item.getSpec().getPlacement().getDisplay().getEvent() != null)
-          imp.getExt().put(CommonConstants.EVENT, item.getSpec().getPlacement().getDisplay().getEvent());
+        if (item.getSpec().getPlacement().getDisplay().getAmpren() != null) {
+          imp.getExt()
+              .put(CommonConstants.AMPREN, item.getSpec().getPlacement().getDisplay().getAmpren());
+        }
+        if (item.getSpec().getPlacement().getDisplay().getEvent() != null) {
+          imp.getExt()
+              .put(CommonConstants.EVENT, item.getSpec().getPlacement().getDisplay().getEvent());
+        }
       }
     }
   }

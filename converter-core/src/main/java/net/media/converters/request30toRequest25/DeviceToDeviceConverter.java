@@ -16,6 +16,8 @@
 
 package net.media.converters.request30toRequest25;
 
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -26,9 +28,6 @@ import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.OsMap;
 import net.media.utils.Provider;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class DeviceToDeviceConverter
     implements Converter<Device, net.media.openrtb25.request.Device> {
@@ -54,7 +53,9 @@ public class DeviceToDeviceConverter
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter =
         converterProvider.fetch(new Conversion<>(Geo.class, net.media.openrtb25.request.Geo.class));
     target.setLanguage(source.getLang());
@@ -69,8 +70,9 @@ public class DeviceToDeviceConverter
     target.setIp(source.getIp());
     target.setIpv6(source.getIpv6());
     if (source.getOs() != null) {
-      if (OsMap.osMap.inverse().containsKey(source.getOs()))
+      if (OsMap.osMap.inverse().containsKey(source.getOs())) {
         target.setOs(OsMap.osMap.inverse().get(source.getOs()));
+      }
     }
     target.setMake(source.getMake());
     target.setModel(source.getModel());
@@ -98,15 +100,21 @@ public class DeviceToDeviceConverter
       target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getXff() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.XFF, source.getXff());
     }
     if (source.getIptr() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.IPTR, source.getIptr());
     }
     if (source.getMccmncsim() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.MCCMNCSIM, source.getMccmncsim());
     }
   }

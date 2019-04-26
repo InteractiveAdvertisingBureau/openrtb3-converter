@@ -26,13 +26,14 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
-
+import java.io.IOException;
 import net.media.exceptions.OpenRtbConverterException;
 
-import java.io.IOException;
-
-/** Created by rajat.go on 27/12/18. */
+/**
+ * Created by rajat.go on 27/12/18.
+ */
 public class JacksonObjectMapperUtils {
+
   private static final ObjectMapper mapper = new ObjectMapper();
 
   static {
@@ -67,7 +68,7 @@ public class JacksonObjectMapperUtils {
   }
 
   public static <U> U convertToObject(Class<U> klass, String json)
-    throws OpenRtbConverterException {
+      throws OpenRtbConverterException {
     try {
       return getMapper().readValue(json, klass);
     } catch (IOException e) {

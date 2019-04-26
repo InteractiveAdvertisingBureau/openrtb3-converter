@@ -16,6 +16,10 @@
 
 package net.media.converters.request30toRequest25;
 
+import static java.util.Objects.nonNull;
+
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Publisher;
@@ -23,11 +27,6 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static java.util.Objects.nonNull;
 
 public class PublisherToPublisherConverter
     implements Converter<Publisher, net.media.openrtb25.request.Publisher> {
@@ -52,7 +51,9 @@ public class PublisherToPublisherConverter
       net.media.openrtb25.request.Publisher target,
       Config config,
       Provider converterProvider) {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setId(source.getId());
     target.setName(source.getName());
     target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
@@ -62,7 +63,9 @@ public class PublisherToPublisherConverter
       target.setExt(MapUtils.copyMap(map, config));
     }
     if (nonNull(source.getCattax())) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.CATTAX, source.getCattax());
     }
   }

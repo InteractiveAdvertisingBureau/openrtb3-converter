@@ -16,18 +16,17 @@
 
 package net.media.driver;
 
+import static java.util.Objects.isNull;
+
+import java.util.HashMap;
+import java.util.Map;
+import javax.naming.ConfigurationException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 import net.media.utils.validator.ValidatorUtils;
-
-import javax.naming.ConfigurationException;
-import java.util.HashMap;
-import java.util.Map;
-
-import static java.util.Objects.isNull;
 
 /**
  * Interface for interacting with openRtb Converter. {@link #config} default converter config {@link
@@ -37,19 +36,19 @@ import static java.util.Objects.isNull;
  * <p>
  *
  * <ul>
- *   <li>{@link OpenRtbConverter(Config)} : instantiates OpenRtb converter object single object
- *       would be enough for the entire object
- *   <li>{@link #convert(Config, Object, Class, Class)} : converts source object from source class
- *       to target class, fields being passed in {@link Config} overrides the values for default
- *       {@link #config} for that particular call
- *   <li>{@link #convert(Object, Class, Class)} : uses {@link #convert(Config, Object, Class,
- *       Class)} without overriding config
- *   <li>{@link #enhance(Config, Object, Object, Class, Class)} : enhances the target object using
- *       the source object, fields being passed in {@link Config} overrides the values for default
- *       {@link #config} for that particular call
- *   <li>{@link #enhance(Object, Object, Class, Class)} uses {@link #enhance(Config, Object, Object,
- *       Class, Class)} without overriding config
- *  </ul>
+ * <li>{@link OpenRtbConverter(Config)} : instantiates OpenRtb converter object single object
+ * would be enough for the entire object
+ * <li>{@link #convert(Config, Object, Class, Class)} : converts source object from source class
+ * to target class, fields being passed in {@link Config} overrides the values for default
+ * {@link #config} for that particular call
+ * <li>{@link #convert(Object, Class, Class)} : uses {@link #convert(Config, Object, Class,
+ * Class)} without overriding config
+ * <li>{@link #enhance(Config, Object, Object, Class, Class)} : enhances the target object using
+ * the source object, fields being passed in {@link Config} overrides the values for default
+ * {@link #config} for that particular call
+ * <li>{@link #enhance(Object, Object, Class, Class)} uses {@link #enhance(Config, Object, Object,
+ * Class, Class)} without overriding config
+ * </ul>
  *
  * @author shiva.b
  * @since 1.0

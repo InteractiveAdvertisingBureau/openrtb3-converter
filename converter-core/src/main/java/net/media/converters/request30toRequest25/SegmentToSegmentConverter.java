@@ -16,16 +16,16 @@
 
 package net.media.converters.request30toRequest25;
 
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb3.Segment;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.Map;
-
 public class SegmentToSegmentConverter
     implements Converter<Segment, net.media.openrtb25.request.Segment> {
+
   @Override
   public net.media.openrtb25.request.Segment map(
       Segment source, Config config, Provider converterProvider) {
@@ -46,7 +46,9 @@ public class SegmentToSegmentConverter
       net.media.openrtb25.request.Segment target,
       Config config,
       Provider converterProvider) {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setId(source.getId());
     target.setName(source.getName());
     target.setValue(source.getValue());

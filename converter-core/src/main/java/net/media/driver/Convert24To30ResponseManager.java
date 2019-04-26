@@ -20,7 +20,9 @@ import net.media.converters.response24toResponse30.Bid24ToBid30Converter;
 import net.media.openrtb25.response.Bid;
 import net.media.utils.Provider;
 
-/** Created by rajat.go on 04/04/19. */
+/**
+ * Created by rajat.go on 04/04/19.
+ */
 @SuppressWarnings("unchecked")
 public class Convert24To30ResponseManager {
 
