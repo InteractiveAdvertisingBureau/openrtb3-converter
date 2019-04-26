@@ -16,6 +16,7 @@
 
 package net.media;
 
+import com.fasterxml.jackson.databind.SerializationFeature;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -66,16 +67,16 @@ public class ORTBTester<U, V> {
         converted =
           tempOpenRtbConverter.convert(config, bidRequest, sourceClass, targetClass, overRider);
         JSONAssert.assertEquals(
-          JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""),
-          JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""),
+          JacksonObjectMapper.getMapper().writeValueAsString(target),
+          JacksonObjectMapper.getMapper().writeValueAsString(converted),
           true);
       } else {
         bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
         converted =
           openRtbConverter.convert(config, bidRequest, sourceClass, targetClass, overRider);
         JSONAssert.assertEquals(
-          JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""),
-          JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""),
+          JacksonObjectMapper.getMapper().writeValueAsString(target),
+          JacksonObjectMapper.getMapper().writeValueAsString(converted),
           true);
       }
 
@@ -91,9 +92,9 @@ public class ORTBTester<U, V> {
       if (!inputPojo.getOutputEdits().containsKey("status")
           || !inputPojo.getOutputEdits().get("status").equals("ERROR")) {
         System.out.println(
-          JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""));
+          JacksonObjectMapper.getMapper().writeValueAsString(target));
         System.out.println(
-          JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""));
+          JacksonObjectMapper.getMapper().writeValueAsString(converted));
         testOutput.getFailedTestList().add(outputTestPojo);
       }
     }

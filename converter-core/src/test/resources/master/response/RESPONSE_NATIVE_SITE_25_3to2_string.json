@@ -17,7 +17,7 @@
       "burl":"burl",
       "lurl": "lurl",
       "adid": "123",
-      "adm": "{\"native\": { \"imptrackers\": [ \"a\", \"b\" ], \"jstracker\": \"ran\", \"ext\": { \"dummy\": \"native.ext\" } } }",
+      "adm": "{\"native\":{\"imptrackers\":[\"a\",\"b\"],\"jstracker\":\"ran\",\"ext\":{\"dummy\":\"native.ext\"}}}",
       "adomain": [
         "ford.com"
       ],
