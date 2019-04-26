@@ -23,7 +23,6 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Device;
 import net.media.openrtb3.Geo;
 import net.media.utils.CommonConstants;
-import net.media.utils.OsMap;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -80,8 +79,8 @@ public class DeviceToDeviceConverter
     target.setIp(source.getIp());
     target.setIpv6(source.getIpv6());
     if (source.getOs() != null) {
-      if (OsMap.osMap.inverse().containsKey(source.getOs())) {
-        target.setOs(OsMap.osMap.inverse().get(source.getOs()));
+      if (CommonConstants.osMap.inverse().containsKey(source.getOs())) {
+        target.setOs(CommonConstants.osMap.inverse().get(source.getOs()));
       }
     }
     target.setMake(source.getMake());

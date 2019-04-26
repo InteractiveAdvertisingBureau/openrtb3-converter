@@ -23,7 +23,6 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Device;
 import net.media.openrtb25.request.Geo;
 import net.media.utils.CommonConstants;
-import net.media.utils.OsMap;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -78,7 +77,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     target.setMake(source.getMake());
     target.setModel(source.getModel());
     if (source.getOs() != null) {
-      target.setOs(OsMap.osMap.getOrDefault(source.getOs().trim().toLowerCase(), 0));
+      target.setOs(CommonConstants.osMap.getOrDefault(source.getOs().trim().toLowerCase(), 0));
     }
     target.setOsv(source.getOsv());
     target.setHwv(source.getHwv());
