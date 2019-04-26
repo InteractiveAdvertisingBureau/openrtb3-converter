@@ -132,7 +132,7 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
           Restrictions restrictions = new Restrictions();
           restrictions.setCattax(null);
           restrictions.setExt(source.getContext().getRestrictions().getExt());
-          target.getExt().put("restrictions", restrictions);
+          target.getExt().put(CommonConstants.RESTRICTIONS, restrictions);
         }
       }
 

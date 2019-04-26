@@ -45,8 +45,6 @@ public class CustomImpToItemConverter
     if (nonNull(imp.getExt())) {
       if (imp.getExt().containsKey(CommonConstants.METRIC)) {
         try {
-//          imp.setMetric(Utils.getMapper().convertValue(imp.getExt().get("metric"),
-//            javaTypeForMetricCollection));
           imp.setMetric(null);
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting metric from imp.ext.metric", e);

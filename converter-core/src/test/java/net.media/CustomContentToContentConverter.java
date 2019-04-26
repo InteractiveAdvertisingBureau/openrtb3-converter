@@ -84,15 +84,7 @@ public class CustomContentToContentConverter
         }
         source.getExt().remove(CommonConstants.PRODQ);
       }
-//      if (source.getExt().containsKey("data")) {
-//        try {
-//          source.setData(Utils.getMapper().convertValue(source.getExt().get("data"),
-//            javaTypeForDataCollection));
-//        } catch (Exception e) {
-//          throw new OpenRtbConverterException("Error in setting data from content.ext.data", e);
-//        }
         source.getExt().remove(CommonConstants.DATA);
-//      }
     }
     super.enhance(source, target, config, converterProvider);
   }

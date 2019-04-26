@@ -168,15 +168,6 @@ public class ConverterTest {
             Class<?> target = Class.forName(testPojo.getOutputType());
             ortbTester.test(testPojo.getInputJson(),src,testPojo.getOutputJson(),target,testPojo.getParams(),testPojo,testOutput,file.getName(),overRider,testPojo.getConfig());
           }
-//          else {
-//            OutputTestPojo outputTestPojo = new OutputTestPojo();
-//            outputTestPojo.setInputFile(file.getName());
-//            outputTestPojo.setStatus("FAILURE");
-//            outputTestPojo.setInputType(testPojo.getInputType());
-//            outputTestPojo.setOutputType(testPojo.getOutputType());
-//            outputTestPojo.setException("Test file is incorrect");
-//            testOutput.getFailedTestList().add(outputTestPojo);
-//          }
         }
       }
       System.out.println("total cases : " + totalFiles);
