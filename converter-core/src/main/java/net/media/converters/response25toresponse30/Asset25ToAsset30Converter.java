@@ -69,9 +69,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     if (isNull(nativeData)) return null;
     DataAsset dataAsset = new DataAsset();
     dataAsset.setExt(Utils.copyMap(nativeData.getExt(), config));
-    List<String> value = new ArrayList<>();
-    value.add(nativeData.getValue());
-    dataAsset.setValue(value);
+    dataAsset.setValue(nativeData.getValue());
     try {
       if (nonNull(nativeData.getExt())) {
         if (nativeData.getExt().containsKey("type")) {

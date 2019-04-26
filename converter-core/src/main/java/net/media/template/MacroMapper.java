@@ -153,6 +153,9 @@ public class MacroMapper {
         .getAsset()
         .forEach(
             assetResponse -> {
+              if (assetResponse.getLink() == null) {
+                return;
+              }
               MacroProcessor.getOpenRtbMacroProcessor(assetResponse.getLink().getUrl())
                   .replace(MacroProcessor.getThreeXToken());
               MacroProcessor.getOpenRtbMacroProcessor(assetResponse.getLink().getFallback())

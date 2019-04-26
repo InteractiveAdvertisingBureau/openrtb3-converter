@@ -69,8 +69,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     if (isNull(nativeData.getExt())) nativeData.setExt(new HashMap<>());
     nativeData.getExt().put("type", data.getType());
     nativeData.getExt().put("len", data.getLen());
-    if (nonNull(data.getValue()) && data.getValue().size() > 0)
-      nativeData.setValue(data.getValue().iterator().next());
+      nativeData.setValue(data.getValue());
     return nativeData;
   }
 
