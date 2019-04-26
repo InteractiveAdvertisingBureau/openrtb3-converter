@@ -23,10 +23,7 @@ import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class VideoPlacementToVideoConverter
@@ -39,40 +36,15 @@ public class VideoPlacementToVideoConverter
       return;
     }
     super.enhance(videoPlacement, video, config, converterProvider);
-    if (nonNull(video.getPlacement())) {
-      if (isNull(video.getExt())) {
-        video.setExt(new HashMap<>());
-      }
-      video.getExt().put(CommonConstants.PLACEMENT, video.getPlacement());
-      video.setPlacement(null);
-    }
-    if (nonNull(video.getPlaybackend())) {
-      if (isNull(video.getExt())) {
-        video.setExt(new HashMap<>());
-      }
-      video.getExt().put(CommonConstants.PLAYBACKEND, video.getPlaybackend());
-      video.setPlaybackend(null);
-    }
-    if (nonNull(video.getSkip())) {
-      if (isNull(video.getExt())) {
-        video.setExt(new HashMap<>());
-      }
-      video.getExt().put(CommonConstants.SKIP, video.getSkip());
-      video.setSkip(null);
-    }
-    if (nonNull(video.getSkipmin())) {
-      if (isNull(video.getExt())) {
-        video.setExt(new HashMap<>());
-      }
-      video.getExt().put(CommonConstants.SKIPMIN, video.getSkipmin());
-      video.setSkipmin(null);
-    }
-    if (nonNull(video.getSkipafter())) {
-      if (isNull(video.getExt())) {
-        video.setExt(new HashMap<>());
-      }
-      video.getExt().put(CommonConstants.SKIPAFTER, video.getSkipafter());
-      video.setSkipafter(null);
-    }
+    putToExt(video::getPlacement, video.getExt(), CommonConstants.PLACEMENT, video::setExt);
+    video.setPlacement(null);
+    putToExt(video::getPlaybackend, video.getExt(), CommonConstants.PLAYBACKEND, video::setExt);
+    video.setPlaybackend(null);
+    putToExt(video::getSkip, video.getExt(), CommonConstants.SKIP, video::setExt);
+    video.setSkip(null);
+    putToExt(video::getSkipmin, video.getExt(), CommonConstants.SKIPMIN, video::setExt);
+    video.setSkipmin(null);
+    putToExt(video::getSkipafter, video.getExt(), CommonConstants.SKIPAFTER, video::setExt);
+    video.setSkipafter(null);
   }
 }

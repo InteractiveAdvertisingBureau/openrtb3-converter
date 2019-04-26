@@ -1,0 +1,101 @@
+{
+  "id": "0123456789ABCDEF",
+  "cur": "USD",
+  "customdata": "cdata",
+  "bidid": "0011223344AABBCC",
+  "seatbid": [{
+    "bid": [{
+      "id": "yaddayadda",
+      "impid": "1",
+      "price": 4.5,
+      "dealid": "1234",
+      "cid": "campaign-xyz.123",
+      "crid": "d0bcb39723af87c2bb00942afee5710e",
+      "tactic":"...",
+      "bundle": "1",
+      "nurl": "purl",
+      "burl":"burl",
+      "lurl": "lurl",
+      "adid": "123",
+      "adm": "{\"native\":{\"imptrackers\":[\"a\",\"b\"],\"jstracker\":\"ran\",\"ext\":{\"dummy\":\"native.ext\"}}}",
+      "adomain": [
+        "ford.com"
+      ],
+      "iurl": "Abcd.com",
+      "cat": [
+        "cat",
+        "dog"
+      ],
+      "attr": [6, 1],
+      "api" : 1,
+      "protocol": 123,
+      "qagmediarating": 5,
+      "language": "english",
+      "exp": 1,
+      "h": 50,
+      "w": 320,
+      "wratio": 1,
+      "hratio": 2,
+      "ext": {
+        "display": "ext",
+        "buyermemberid": 298,
+        "mime": "image/jpeg",
+        "curl": "http://www.example3.com/",
+        "cattax": 1,
+        "secure": 1,
+        "ctype": 3,
+        "init": 1,
+        "lastmod": 1,
+        "priv": "232",
+        "dummy": "bid.ext",
+        "audit": {
+          "status": 1,
+          "feedback": [
+            "a",
+            "bg"
+          ],
+          "init": 1,
+          "lastmod": 1,
+          "corr": {
+            "ab": "cd"
+          },
+          "ext": {
+            "dummy": "audit.ext"
+          }
+        },
+        "macro": [{
+          "key": "key",
+          "value": "duck",
+          "ext": {
+            "customdata": "macro.ext"
+          }
+        }],
+        "event": [{
+          "type": 1,
+          "method": 1,
+          "url": "https://somebuyer.com/pixel",
+          "api": [
+            1,
+            2
+          ],
+          "cdata": {
+            "acct": "123"
+          },
+          "ext": {
+            "dummy": "event.ext"
+          }
+        }]
+      }
+    }],
+    "ext": {
+      "seatbid": "ext"
+    },
+    "seat": "XYZ",
+    "group": 2
+  }],
+  "ext": {
+    "resp": "ext"
+  }
+}
+
+

@@ -23,10 +23,7 @@ import net.media.openrtb25.response.Bid;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class Bid30ToBid23Converter extends Bid30ToBid25Converter {
@@ -38,82 +35,28 @@ public class Bid30ToBid23Converter extends Bid30ToBid25Converter {
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    if (nonNull(target.getBurl())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.BURL, target.getBurl());
-      target.setBurl(null);
-    }
-    if (nonNull(target.getLurl())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.LURL, target.getLurl());
-      target.setNurl(null);
-    }
-    if (nonNull(target.getTactic())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.TACTIC, target.getTactic());
-      target.setTactic(null);
-    }
-    if (nonNull(target.getLanguage())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.LANGUAGE, target.getLanguage());
-      target.setLanguage(null);
-    }
-    if (nonNull(target.getWratio())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.WRATIO, target.getWratio());
-      target.setWratio(null);
-    }
-    if (nonNull(target.getHratio())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.HRATIO, target.getHratio());
-      target.setHratio(null);
-    }
-    if (nonNull(target.getAdid())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.ADID, target.getAdid());
-      target.setAdid(null);
-    }
-    if (nonNull(target.getApi())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.API, target.getApi());
-      target.setApi(null);
-    }
-    if (nonNull(target.getProtocol())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.PROTOCOL, target.getProtocol());
-      target.setProtocol(null);
-    }
-    if (nonNull(target.getQagmediarating())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.QAGMEDIARATING, target.getQagmediarating());
-      target.setQagmediarating(null);
-    }
-    if (nonNull(target.getExp())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.EXP, target.getExp());
-      target.setExp(null);
-    }
+    putToExt(target::getBurl, target.getExt(), CommonConstants.BURL, target::setExt);
+    target.setBurl(null);
+    putToExt(target::getLurl, target.getExt(), CommonConstants.LURL, target::setExt);
+    target.setLurl(null);
+    putToExt(target::getTactic, target.getExt(), CommonConstants.TACTIC, target::setExt);
+    target.setTactic(null);
+    putToExt(target::getLanguage, target.getExt(), CommonConstants.LANGUAGE, target::setExt);
+    target.setLanguage(null);
+    putToExt(target::getWratio, target.getExt(), CommonConstants.WRATIO, target::setExt);
+    target.setWratio(null);
+    putToExt(target::getHratio, target.getExt(), CommonConstants.HRATIO, target::setExt);
+    target.setHratio(null);
+    putToExt(target::getAdid, target.getExt(), CommonConstants.ADID, target::setExt);
+    target.setAdid(null);
+    putToExt(target::getApi, target.getExt(), CommonConstants.API, target::setExt);
+    target.setApi(null);
+    putToExt(target::getProtocol, target.getExt(), CommonConstants.PROTOCOL, target::setExt);
+    target.setProtocol(null);
+    putToExt(
+      target::getQagmediarating, target.getExt(), CommonConstants.QAGMEDIARATING, target::setExt);
+    target.setQagmediarating(null);
+    putToExt(target::getExp, target.getExt(), CommonConstants.EXP, target::setExt);
+    target.setExp(null);
   }
 }

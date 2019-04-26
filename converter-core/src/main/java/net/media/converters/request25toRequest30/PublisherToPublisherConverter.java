@@ -18,22 +18,34 @@ package net.media.converters.request25toRequest30;
 
 import net.media.config.Config;
 import net.media.converters.Converter;
+import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Publisher;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class PublisherToPublisherConverter
     implements Converter<Publisher, net.media.openrtb3.Publisher> {
 
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.CATTAX);
+  }
+
   @Override
   public net.media.openrtb3.Publisher map(
-      Publisher source, Config config, Provider converterProvider) {
+    Publisher source, Config config, Provider converterProvider)
+    throws OpenRtbConverterException {
     if (source == null) {
       return null;
     }
@@ -47,24 +59,30 @@ public class PublisherToPublisherConverter
 
   @Override
   public void enhance(
-      Publisher source,
-      net.media.openrtb3.Publisher target,
-      Config config,
-      Provider converterProvider) {
-    if (source == null || target == null) return;
+    Publisher source,
+    net.media.openrtb3.Publisher target,
+    Config config,
+    Provider converterProvider)
+    throws OpenRtbConverterException {
+    if (source == null || target == null) {
+      return;
+    }
     target.setId(source.getId());
     target.setName(source.getName());
     target.setDomain(source.getDomain());
     target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
     Map<String, Object> map = source.getExt();
+
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
     if (map != null) {
-      target.setExt(MapUtils.copyMap(map, config));
-      if (map.containsKey(CommonConstants.CATTAX)) {
-        target.setCattax((Integer) map.get(CommonConstants.CATTAX));
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
-      }
-      target.getExt().remove(CommonConstants.CATTAX);
+      target.setExt(new HashMap<>(map));
     }
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "error while mapping cattax from publisher");
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

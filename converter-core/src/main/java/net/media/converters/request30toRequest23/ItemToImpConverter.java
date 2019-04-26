@@ -23,10 +23,7 @@ import net.media.openrtb3.Item;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class ItemToImpConverter
@@ -38,26 +35,11 @@ public class ItemToImpConverter
       return;
     }
     super.enhance(item, imp, config, converterProvider);
-    if (nonNull(imp.getMetric())) {
-      if (isNull(imp.getExt())) {
-        imp.setExt(new HashMap<>());
-      }
-      imp.getExt().put(CommonConstants.METRIC, imp.getMetric());
-      imp.setMetric(null);
-    }
-    if (nonNull(imp.getClickbrowser())) {
-      if (isNull(imp.getExt())) {
-        imp.setExt(new HashMap<>());
-      }
-      imp.getExt().put(CommonConstants.CLICKBROWSER, imp.getClickbrowser());
-      imp.setClickbrowser(null);
-    }
-    if (nonNull(imp.getExp())) {
-      if (isNull(imp.getExt())) {
-        imp.setExt(new HashMap<>());
-      }
-      imp.getExt().put(CommonConstants.EXP, imp.getExp());
-      imp.setExp(null);
-    }
+    putToExt(imp::getMetric, imp.getExt(), CommonConstants.METRIC, imp::setExt);
+    imp.setMetric(null);
+    putToExt(imp::getClickbrowser, imp.getExt(), CommonConstants.CLICKBROWSER, imp::setExt);
+    imp.setClickbrowser(null);
+    putToExt(imp::getExp, imp.getExt(), CommonConstants.EXP, imp::setExt);
+    imp.setExp(null);
   }
 }

@@ -17,10 +17,16 @@
 package net.media;
 
 import net.media.config.Config;
+import net.media.converters.Converter;
+import net.media.driver.Conversion;
 import net.media.driver.OpenRtbConverter;
 import net.media.utils.JacksonObjectMapperUtils;
 
 import org.skyscreamer.jsonassert.JSONAssert;
+
+import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
 
 /** Created by rajat.go on 09/01/19. */
 public class ORTBTester<U, V> {
@@ -47,19 +53,41 @@ public class ORTBTester<U, V> {
       Config config,
       TestPojo inputPojo,
       TestOutput testOutput,
-      String inputFile) {
+      String inputFile,
+      Map<Conversion, Converter> overRider,
+      Config initconfig)
+      throws Exception {
 
     String FAILURE = "FAILURE";
+    U bidRequest;
+    V converted = null;
     try {
-      U bidRequest = JacksonObjectMapperUtils.getMapper().convertValue(source, sourceClass);
-      V converted = openRtbConverter.convert(config, bidRequest, sourceClass, targetClass);
+      OpenRtbConverter tempOpenRtbConverter = openRtbConverter;
+      if(initconfig != null) {
+          tempOpenRtbConverter = new OpenRtbConverter(initconfig);
+      }
+       if(inputPojo.getInputAsString() == null) {
+         bidRequest = JacksonObjectMapperUtils.getMapper().convertValue(source, sourceClass);
+         if(inputPojo.getTestEnhance()==null) {
+           converted = tempOpenRtbConverter.convert(config, bidRequest, sourceClass, targetClass, overRider);
+         }
+         else {
+            converted = targetClass.newInstance();
+            tempOpenRtbConverter.enhance(config,bidRequest,converted,sourceClass,targetClass,overRider);
 
-      JSONAssert.assertEquals(
+         }
+      } else {
+         String stringInput = source.toString();
+         String stringOutput = tempOpenRtbConverter.convert(config, stringInput, sourceClass, targetClass, overRider);
+         converted = JacksonObjectMapperUtils.getMapper().readValue(stringOutput, targetClass);
+      }
+        JSONAssert.assertEquals(
         JacksonObjectMapperUtils.getMapper().writeValueAsString(target),
         JacksonObjectMapperUtils.getMapper().writeValueAsString(converted),
         true);
 
     } catch (Exception | AssertionError e) {
+
       OutputTestPojo outputTestPojo = new OutputTestPojo();
       outputTestPojo.setInputFile(inputFile);
       outputTestPojo.setStatus(FAILURE);

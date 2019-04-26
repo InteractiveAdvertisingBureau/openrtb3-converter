@@ -1,0 +1,1354 @@
+cases:
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: nativeResponseStringConfigFalse
+    params:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: nativeResponseStringConfigDefault
+    params:
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2_string.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2_string.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: nativeResponseStringConfigTrue
+    params:
+      nativeResponseAsString: true
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: empty.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      status: "ERROR"
+    purpose: nativeResponseStringConfigWrongValue
+    params:
+      nativeResponseAsString: "random"
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingSingleNative
+    params:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_VAST_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_VAST_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingSingleVideo
+    params:
+      adTypeMapping:
+        "yaddayadda": VIDEO
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingSingleBanner
+    params:
+      adTypeMapping:
+        "yaddayadda": BANNER
+
+  - inputFile: RESPONSE_AUDIO_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_AUDIO_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingSingleAudio
+    params:
+      adTypeMapping:
+        "yaddayadda": AUDIO
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingSingleDefaultValue
+
+  - inputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingMultipleSameAdType
+    params:
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": BANNER
+
+  - inputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingMultipleDifferentAdType
+    params:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingSingleNative2to3
+    params:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_VAST_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_VAST_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingSingleVideo2to3
+    params:
+      adTypeMapping:
+        "yaddayadda": VIDEO
+
+  - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingSingleBanner2to3
+    params:
+      adTypeMapping:
+        "yaddayadda": BANNER
+
+  - inputFile: RESPONSE_AUDIO_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_AUDIO_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingSingleAudio2to3
+    params:
+      adTypeMapping:
+        "yaddayadda": AUDIO
+
+  - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingSingleDefaultValue2to3
+
+  - inputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingMultipleSameAdType2to3
+    params:
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": BANNER
+
+  - inputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingMultipleDifferentAdType2to3
+    params:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": NATIVE
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_23_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponse23_3to2
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_THREE
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_24_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponse24_3to2
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponse25_3to2
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversiondefaultresponse_3to2
+
+  - inputFile: RESPONSE_BANNER_SITE_23_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponse23_2to3
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_THREE
+
+  - inputFile: RESPONSE_BANNER_SITE_24_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponse24_2to3
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+  - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponse25_2to3
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+  - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversiondefaultresponse_2to3
+
+
+
+
+
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: nativeResponseStringInitConfigFalse
+    config:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: nativeResponseStringInitConfigDefault
+    config:
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2_string.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2_string.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: nativeResponseStringInitConfigTrue
+    config:
+      nativeResponseAsString: true
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: empty.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      status: "ERROR"
+    purpose: nativeResponseStringInitConfigWrongValue
+    config:
+      nativeResponseAsString: "random"
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingInitConfigSingleNative
+    config:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_VAST_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_VAST_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingInitConfigSingleVideo
+    config:
+      adTypeMapping:
+        "yaddayadda": VIDEO
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingInitConfigSingleBanner
+    config:
+      adTypeMapping:
+        "yaddayadda": BANNER
+
+  - inputFile: RESPONSE_AUDIO_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_AUDIO_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingInitConfigSingleAudio
+    config:
+      adTypeMapping:
+        "yaddayadda": AUDIO
+
+  - inputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingInitConfigMultipleSameAdType
+    config:
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": BANNER
+
+  - inputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingInitConfigMultipleDifferentAdType
+    config:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingInitConfigSingleNative2to3
+    config:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_VAST_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_VAST_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingInitConfigSingleVideo2to3
+    config:
+      adTypeMapping:
+        "yaddayadda": VIDEO
+
+  - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingInitConfigSingleBanner2to3
+    config:
+      adTypeMapping:
+        "yaddayadda": BANNER
+
+  - inputFile: RESPONSE_AUDIO_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_AUDIO_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingInitConfigSingleAudio2to3
+    config:
+      adTypeMapping:
+        "yaddayadda": AUDIO
+
+  - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingInitConfigSingleDefaultValue2to3
+
+  - inputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingInitConfigMultipleSameAdType2to3
+    config:
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": BANNER
+
+  - inputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingInitConfigMultipleDifferentAdType2to3
+    config:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": NATIVE
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_23_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponseInitConfig23_3to2
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_THREE
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_24_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponseInitConfig24_3to2
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponseInitConfig25_3to2
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversiondefaultresponseInitConfig_3to2
+
+  - inputFile: RESPONSE_BANNER_SITE_23_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponseInitConfig23_2to3
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_THREE
+
+  - inputFile: RESPONSE_BANNER_SITE_24_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponseInitConfig24_2to3
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+  - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponseInitConfig25_2to3
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+
+
+
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: nativeResponseStringOverrideConfigFalse
+    params:
+      nativeResponseAsString: true
+      adTypeMapping:
+        "yaddayadda": BANNER
+    params:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: nativeResponseStringOverrideConfigDefault
+    config:
+      adTypeMapping:
+        "yaddayadda": BANNER
+    params:
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2_string.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2_string.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: nativeResponseStringOverrideConfigTrue
+    config:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": BANNER
+    params:
+      nativeResponseAsString: true
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: empty.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      status: "ERROR"
+    purpose: nativeResponseStringOverrideConfigWrongValue
+    config:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": NATIVE
+    params:
+      nativeResponseAsString: "random"
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingOverrideConfigSingleNative
+    config:
+      nativeResponseAsString: true
+      adTypeMapping:
+        "yaddayadda": NATIVE
+    params:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_VAST_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_VAST_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingOverrideConfigSingleVideo
+    config:
+      adTypeMapping:
+        "yaddayadda": BANNER
+    params:
+      adTypeMapping:
+        "yaddayadda": VIDEO
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingOverrideConfigSingleBanner
+    config:
+      adTypeMapping:
+        "yaddayadda": NATIVE
+    params:
+      adTypeMapping:
+        "yaddayadda": BANNER
+
+  - inputFile: RESPONSE_AUDIO_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_AUDIO_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingOverrideConfigSingleAudio
+    params:
+      adTypeMapping:
+        "yaddayadda": VIDEO
+    params:
+      adTypeMapping:
+        "yaddayadda": AUDIO
+
+  - inputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingOverrideConfigMultipleSameAdType
+    config:
+      adTypeMapping:
+        "yaddayadda": VIDEO
+        "yaddayadda1": VIDEO
+    params:
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": BANNER
+
+  - inputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingOverrideConfigMultipleDifferentAdType
+    config:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": NATIVE
+        "yaddayadda1": BANNER
+    params:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": NATIVE
+
+  - inputFile: RESPONSE_NATIVE_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingOverrideConfigSingleNative2to3
+    config:
+      nativeResponseAsString: true
+      adTypeMapping:
+        "yaddayadda": BANNER
+    params:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": NATIVE
+
+  - inputFile: RESPONSE_VAST_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_VAST_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingOverrideConfigSingleVideo2to3
+    config:
+      adTypeMapping:
+        "yaddayadda": AUDIO
+    params:
+      adTypeMapping:
+        "yaddayadda": VIDEO
+
+  - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingOverrideConfigSingleBanner2to3
+    config:
+      adTypeMapping:
+        "yaddayadda": VIDEO
+    params:
+      adTypeMapping:
+        "yaddayadda": BANNER
+
+  - inputFile: RESPONSE_AUDIO_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_AUDIO_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingOverrideConfigSingleAudio2to3
+    config:
+      adTypeMapping:
+        "yaddayadda": VIDEO
+    params:
+      adTypeMapping:
+        "yaddayadda": AUDIO
+
+  - inputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingOverrideConfigMultipleSameAdType2to3
+    config:
+      adTypeMapping:
+        "yaddayadda": NATIVE
+        "yaddayadda1": NATIVE
+    params:
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": BANNER
+
+  - inputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingOverrideConfigMultipleDifferentAdType2to3
+    config:
+      nativeResponseAsString: true
+      adTypeMapping:
+        "yaddayadda": NATIVE
+        "yaddayadda1": BANNER
+    params:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": NATIVE
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_23_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponseOverrideConfig23_3to2
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_FOUR
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_THREE
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_24_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponseOverrideConfig24_3to2
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_THREE
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponseOverrideConfig25_3to2
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_FOUR
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+  - inputFile: RESPONSE_BANNER_SITE_23_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponseOverrideConfig23_2to3
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_FOUR
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_THREE
+
+  - inputFile: RESPONSE_BANNER_SITE_24_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponseOverrideConfig24_2to3
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_FIVE
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+  - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponseOverrideConfig25_2to3
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_FOUR
+    params:
+      openRtbVersion2_XVersion: TWO_DOT_FIVE
+
+
+
+
+
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: nativeResponseStringBackupConfigFalse
+    config:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": NATIVE
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: nativeResponseStringBackupConfigDefault
+    config:
+      adTypeMapping:
+        "yaddayadda": NATIVE
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2_string.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2_string.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: nativeResponseStringBackupConfigTrue
+    config:
+      nativeResponseAsString: true
+      adTypeMapping:
+        "yaddayadda": NATIVE
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: empty.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      status: "ERROR"
+    purpose: nativeResponseStringBackupConfigWrongValue
+    config:
+      nativeResponseAsString: "random"
+      adTypeMapping:
+        "yaddayadda": NATIVE
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingBackupConfigSingleNative
+    config:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": NATIVE
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_VAST_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_VAST_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingBackupConfigSingleVideo
+    config:
+      adTypeMapping:
+        "yaddayadda": VIDEO
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingBackupConfigSingleBanner
+    config:
+      adTypeMapping:
+        "yaddayadda": BANNER
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_AUDIO_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_AUDIO_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingBackupConfigSingleAudio
+    config:
+      adTypeMapping:
+        "yaddayadda": AUDIO
+    params:
+      validate: false
+
+  - inputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingBackupConfigMultipleSameAdType
+    config:
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": BANNER
+    params:
+      validate: false
+
+  - inputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingBackupConfigMultipleDifferentAdType
+    config:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": NATIVE
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_NATIVE_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_NATIVE_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingBackupConfigSingleNative2to3
+    config:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": NATIVE
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_VAST_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_VAST_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingBackupConfigSingleVideo2to3
+    config:
+      adTypeMapping:
+        "yaddayadda": VIDEO
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingBackupConfigSingleBanner2to3
+    config:
+      adTypeMapping:
+        "yaddayadda": BANNER
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_AUDIO_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_AUDIO_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingBackupConfigSingleAudio2to3
+    config:
+      adTypeMapping:
+        "yaddayadda": AUDIO
+    params:
+      validate: false
+
+  - inputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingBackupConfigMultipleSameAdType2to3
+    config:
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": BANNER
+    params:
+      validate: false
+
+  - inputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingBackupConfigMultipleDifferentAdType2to3
+    config:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda": BANNER
+        "yaddayadda1": NATIVE
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_23_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponseBackupConfig23_3to2
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_THREE
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_24_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponseBackupConfig24_3to2
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_FOUR
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: ortbversionresponseBackupConfig25_3to2
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_FIVE
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_BANNER_SITE_23_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponseBackupConfig23_2to3
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_THREE
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_BANNER_SITE_24_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponseBackupConfig24_2to3
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_FOUR
+    params:
+      validate: false
+
+  - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_BANNER_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: ortbversionresponseBackupConfig25_2to3
+    config:
+      openRtbVersion2_XVersion: TWO_DOT_FIVE
+    params:
+      validate: false
+

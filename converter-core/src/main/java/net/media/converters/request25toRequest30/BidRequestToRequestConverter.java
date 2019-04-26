@@ -28,14 +28,26 @@ import net.media.openrtb3.*;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/01/19. */
 public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Request> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.CATTAX);
+    extraFieldsInExt.add(CommonConstants.RESTRICTIONS);
+    extraFieldsInExt.add(CommonConstants.DOOH);
+  }
 
   private String bidRequestUserCustomdata(BidRequest2_X bidRequest) {
     if (bidRequest == null) {
@@ -114,24 +126,17 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
       target.setWseat(0);
       target.setSeat(CollectionUtils.copyCollection(source.getBseat(), config));
     }
-    if (target.getExt() == null) return;
-    if (target.getExt().containsKey(CommonConstants.CATTAX)) {
-      target.getExt().remove(CommonConstants.CATTAX);
+    if (target.getContext() == null) {
+      target.setContext(new Context());
     }
-    if (target.getExt().containsKey(CommonConstants.RESTRICTIONS)) {
-      target.getExt().remove(CommonConstants.RESTRICTIONS);
-    }
-    if (source.getExt() == null) return;
-    if (source.getExt().containsKey(CommonConstants.DOOH)) {
-      if (target.getContext() == null) target.setContext(new Context());
-      try {
-        target.getContext().setDooh(JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get(CommonConstants.DOOH),
-          Dooh.class));
-        target.getExt().remove(CommonConstants.DOOH);
-      } catch (ClassCastException e) {
-        throw new OpenRtbConverterException("error while typecasting ext for BidRequest2_X", e);
-      }
-    }
+    fetchFromExt(
+      target.getContext()::setDooh,
+      source.getExt(),
+      CommonConstants.DOOH,
+      "error while typecasting ext for BidRequest2_X",
+      Dooh.class);
+
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 
   private void bidRequestToSpec(BidRequest2_X bidRequest, Spec mappingTarget, Config config) {

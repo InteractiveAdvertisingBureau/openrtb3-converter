@@ -39,6 +39,12 @@ public class TestPojo {
 
   private Config params;
 
+  private Map<String, Object> overRidingMap;
+
+  private Integer inputAsString;
+
+  private Integer testEnhance;
+
   public String getInputType() {
     return this.inputType;
   }
@@ -101,5 +107,29 @@ public class TestPojo {
 
   public void setParams(Config params) {
     this.params = params;
+  }
+
+  public Map<String, Object> getOverRidingMap() {
+    return overRidingMap;
+  }
+
+  public void setOverRidingMap(Map<String, Object> overridingMap) {
+    this.overRidingMap = overridingMap;
+  }
+
+  public Integer getInputAsString() {
+    return inputAsString;
+  }
+
+  public void setInputAsString(Integer inputAsString) {
+    this.inputAsString = inputAsString;
+  }
+
+  public Integer getTestEnhance() {
+    return testEnhance;
+  }
+
+  public void setTestEnhance(Integer testEnhance) {
+    this.testEnhance = testEnhance;
   }
 }

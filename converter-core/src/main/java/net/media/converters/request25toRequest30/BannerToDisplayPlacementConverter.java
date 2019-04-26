@@ -25,16 +25,27 @@ import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.*;
 
 /** Created by rajat.go on 03/01/19. */
 public class BannerToDisplayPlacementConverter implements Converter<Banner, DisplayPlacement> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.UNIT);
+    extraFieldsInExt.add(CommonConstants.CTYPE);
+    extraFieldsInExt.add(CommonConstants.PTYPE);
+    extraFieldsInExt.add(CommonConstants.CONTEXT);
+    extraFieldsInExt.add(CommonConstants.PRIV);
+    extraFieldsInExt.add(CommonConstants.SEQ);
+  }
 
   @Override
   public DisplayPlacement map(Banner banner, Config config, Provider converterProvider)
@@ -68,77 +79,55 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     displayPlacement.setW(banner.getW());
     displayPlacement.setH(banner.getH());
     Map<String, Object> bannerExt = banner.getExt();
-    try {
-      if (nonNull(bannerExt)) {
-        if (isNull(displayPlacement.getExt())) {
-          displayPlacement.setExt(new HashMap<>());
-        }
-        displayPlacement.getExt().putAll(bannerExt);
-        if (bannerExt.containsKey(CommonConstants.UNIT)) {
-          displayPlacement.setUnit((Integer) bannerExt.get(CommonConstants.UNIT));
-          displayPlacement.getExt().remove(CommonConstants.UNIT);
-        }
-        if (bannerExt.containsKey(CommonConstants.CTYPE)) {
-          displayPlacement.setCtype(
-              CollectionUtils.copyCollection((Collection<Integer>) bannerExt.get(CommonConstants
-                .CTYPE), config));
-          displayPlacement.getExt().remove(CommonConstants.CTYPE);
-        }
-        if (bannerExt.containsKey(CommonConstants.PTYPE)) {
-          displayPlacement.setPtype((Integer) bannerExt.get(CommonConstants.PTYPE));
-          displayPlacement.getExt().remove(CommonConstants.PTYPE);
-        }
-        if (bannerExt.containsKey(CommonConstants.CONTEXT)) {
-          displayPlacement.setContext((Integer) bannerExt.get(CommonConstants.CONTEXT));
-          displayPlacement.getExt().remove(CommonConstants.CONTEXT);
-        }
-        if (bannerExt.containsKey(CommonConstants.PRIV)) {
-          displayPlacement.setPriv((Integer) bannerExt.get(CommonConstants.PRIV));
-          displayPlacement.getExt().remove(CommonConstants.PRIV);
-        }
-        if (bannerExt.containsKey(CommonConstants.SEQ)) {
-          displayPlacement.getExt().remove(CommonConstants.SEQ);
-        }
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Banner", e);
+    fetchFromExt(
+      displayPlacement::setUnit,
+      bannerExt,
+      CommonConstants.UNIT,
+      "error while setting unit from Banner.ext");
+    fetchCollectionFromExt(
+      displayPlacement::setCtype,
+      bannerExt,
+      CommonConstants.CTYPE,
+      "error while setting ctype from Banner.ext",
+      config);
+    fetchFromExt(
+      displayPlacement::setPtype,
+      bannerExt,
+      CommonConstants.PTYPE,
+      "error while setting ptype from Banner.ext");
+    fetchFromExt(
+      displayPlacement::setContext,
+      bannerExt,
+      CommonConstants.CONTEXT,
+      "error while setting context from Banner.ext");
+    fetchFromExt(
+      displayPlacement::setPriv,
+      bannerExt,
+      CommonConstants.PRIV,
+      "error while setting priv from Banner.ext");
+
+    if (isNull(displayPlacement.getExt())) {
+      displayPlacement.setExt(new HashMap<>(bannerExt));
     }
-    if (!CollectionUtils.isEmpty(banner.getBtype())) {
-      if (isNull(displayPlacement.getExt())) {
-        displayPlacement.setExt(new HashMap<>());
-      }
-      displayPlacement.getExt().put(CommonConstants.BTYPE, new ArrayList<>(banner.getBtype()));
+    if (nonNull(bannerExt)) {
+      displayPlacement.getExt().putAll(bannerExt);
     }
-    if (banner.getId() != null) {
-      if (isNull(displayPlacement.getExt())) {
-        displayPlacement.setExt(new HashMap<>());
-      }
-      displayPlacement.getExt().put(CommonConstants.ID, banner.getId());
-    }
-    if (banner.getHmax() != null) {
-      if (isNull(displayPlacement.getExt())) {
-        displayPlacement.setExt(new HashMap<>());
-      }
-      displayPlacement.getExt().put(CommonConstants.HMAX, banner.getHmax());
-    }
-    if (banner.getHmin() != null) {
-      if (isNull(displayPlacement.getExt())) {
-        displayPlacement.setExt(new HashMap<>());
-      }
-      displayPlacement.getExt().put(CommonConstants.HMIN, banner.getHmin());
-    }
-    if (banner.getWmax() != null) {
-      if (isNull(displayPlacement.getExt())) {
-        displayPlacement.setExt(new HashMap<>());
-      }
-      displayPlacement.getExt().put(CommonConstants.WMAX, banner.getWmax());
-    }
-    if (banner.getWmin() != null) {
-      if (isNull(displayPlacement.getExt())) {
-        displayPlacement.setExt(new HashMap<>());
-      }
-      displayPlacement.getExt().put(CommonConstants.WMIN, banner.getWmin());
-    }
+    putToExt(
+      banner::getBtype,
+      displayPlacement.getExt(),
+      CommonConstants.BTYPE,
+      displayPlacement::setExt);
+    putToExt(
+      banner::getId, displayPlacement.getExt(), CommonConstants.ID, displayPlacement::setExt);
+    putToExt(
+      banner::getHmax, displayPlacement.getExt(), CommonConstants.HMAX, displayPlacement::setExt);
+    putToExt(
+      banner::getHmin, displayPlacement.getExt(), CommonConstants.HMIN, displayPlacement::setExt);
+    putToExt(
+      banner::getWmax, displayPlacement.getExt(), CommonConstants.WMAX, displayPlacement::setExt);
+    putToExt(
+      banner::getWmin, displayPlacement.getExt(), CommonConstants.WMIN, displayPlacement::setExt);
+    removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
   }
 
   private Collection<Integer> impBannerExpdir(Banner banner) {
@@ -169,16 +158,20 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     }
 
     DisplayFormat displayFormat = new DisplayFormat();
-
-    displayFormat.setExt(MapUtils.copyMap(format.getExt(), config));
+    if (nonNull(format.getExt())) {
+      displayFormat.setExt(new HashMap<>(format.getExt()));
+    }
     displayFormat.setW(format.getW());
     displayFormat.setH(format.getH());
     displayFormat.setWratio(format.getWratio());
     displayFormat.setHratio(format.getHratio());
     if (nonNull(format.getWmin())) {
-      if (displayFormat.getExt() == null) displayFormat.setExt(new HashMap<>());
+      if (displayFormat.getExt() == null) {
+        displayFormat.setExt(new HashMap<>());
+      }
       displayFormat.getExt().put(CommonConstants.WMIN, format.getWmin());
     }
+    putToExt(format::getWmin, displayFormat.getExt(), CommonConstants.WMIN, displayFormat::setExt);
 
     return displayFormat;
   }

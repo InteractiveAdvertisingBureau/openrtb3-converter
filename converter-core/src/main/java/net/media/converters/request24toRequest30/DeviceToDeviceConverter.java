@@ -22,11 +22,21 @@ import net.media.openrtb25.request.Device;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import static java.util.Objects.nonNull;
+import java.util.ArrayList;
+import java.util.List;
+
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class DeviceToDeviceConverter
     extends net.media.converters.request25toRequest30.DeviceToDeviceConverter {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.MCCMNC);
+  }
 
   public void enhance(
       Device source, net.media.openrtb3.Device target, Config config, Provider converterProvider)
@@ -34,16 +44,12 @@ public class DeviceToDeviceConverter
     if (source == null || target == null) {
       return;
     }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.MCCMNC)) {
-        try {
-          source.setMccmnc((String) source.getExt().get(CommonConstants.MCCMNC));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting mccmnc from device.ext.mccmnc", e);
-        }
-        source.getExt().remove(CommonConstants.MCCMNC);
-      }
-    }
+    fetchFromExt(
+      source::setMccmnc,
+      source.getExt(),
+      CommonConstants.MCCMNC,
+      "Error in setting mccmnc from device.ext.mccmnc");
     super.enhance(source, target, config, converterProvider);
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

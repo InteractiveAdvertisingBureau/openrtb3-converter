@@ -1,0 +1,34 @@
+cases:
+  - inputFile: RESPONSE_ALL_SITE_25_2to3.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      cur: "\"USD\""
+    outputFile: RESPONSE_ALL_SITE_30_2to3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.cur: "\"USD\""
+    purpose: adTypeMappingAllAdTypesResponse2to3
+    params:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda1": AUDIO
+        "yaddayadda2": BANNER
+        "yaddayadda3": NATIVE
+        "yaddayadda4": VIDEO
+
+  - inputFile: RESPONSE_ALL_SITE_30_3to2.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.cur: "\"USD\""
+    outputFile: RESPONSE_ALL_SITE_25_3to2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      cur: "\"USD\""
+    purpose: adTypeMappingAllAdTypesResponse3to2
+    params:
+      nativeResponseAsString: false
+      adTypeMapping:
+        "yaddayadda1": AUDIO
+        "yaddayadda2": BANNER
+        "yaddayadda3": NATIVE
+        "yaddayadda4": VIDEO
