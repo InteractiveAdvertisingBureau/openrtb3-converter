@@ -97,8 +97,6 @@ public class ORTBTester<U, V> {
 
       if (!inputPojo.getOutputEdits().containsKey("status")
           || !inputPojo.getOutputEdits().get("status").equals("ERROR")) {
-        System.out.println(JacksonObjectMapperUtils.getMapper().writeValueAsString(target).replaceAll("\\s+", ""));
-        System.out.println(JacksonObjectMapperUtils.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""));
         testOutput.getFailedTestList().add(outputTestPojo);
       }
     }
