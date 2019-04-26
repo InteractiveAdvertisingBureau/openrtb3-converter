@@ -28,7 +28,7 @@ import net.media.enums.OpenRtbVersion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
-import net.media.utils.JacksonObjectMapper;
+import net.media.utils.JacksonObjectMapperUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.util.TriConsumer;
 import org.slf4j.Logger;
@@ -55,7 +55,7 @@ public class ConverterServlet extends HttpServlet {
   private static final String THREEXTOTHREEX = "3xTo2x";
   private static final String TYPE = "type";
   private static final String CONVERSIONTYPE = "conversiontype";
-  private static final ObjectMapper mapper = JacksonObjectMapper.getMapper();
+  private static final ObjectMapper mapper = JacksonObjectMapperUtils.getMapper();
   private static final JavaType javaTypeForAdTypeMapping = mapper.getTypeFactory()
     .constructMapType(Map.class, String.class, AdType.class);
   @Inject private OpenRtbConverter openRtbConverter;
