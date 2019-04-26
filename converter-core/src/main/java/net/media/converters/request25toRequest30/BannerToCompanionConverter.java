@@ -26,7 +26,9 @@ import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-/** Created by rajat.go on 03/01/19. */
+/**
+ * Created by rajat.go on 03/01/19.
+ */
 public class BannerToCompanionConverter implements Converter<Banner, Companion> {
 
   @Override

@@ -16,24 +16,37 @@
 
 package net.media.converters.request30toRequest25;
 
+import static java.util.Objects.isNull;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.Banner;
-import net.media.openrtb25.request.*;
-import net.media.openrtb3.*;
+import net.media.openrtb25.request.NativeData;
+import net.media.openrtb25.request.NativeImage;
+import net.media.openrtb25.request.NativeTitle;
+import net.media.openrtb25.request.NativeVideo;
+import net.media.openrtb3.AssetFormat;
+import net.media.openrtb3.Companion;
+import net.media.openrtb3.DataAssetFormat;
+import net.media.openrtb3.ImageAssetFormat;
+import net.media.openrtb3.TitleAssetFormat;
+import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.*;
-
-import static java.util.Objects.isNull;
-
-/** Created by rajat.go on 04/01/19. */
+/**
+ * Created by rajat.go on 04/01/19.
+ */
 public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset> {
 
   @Override
@@ -119,11 +132,15 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     }
     try {
       if (imageAssetFormat.getHratio() != null) {
-        if (nativeImage.getExt() == null) nativeImage.setExt(new HashMap<>());
+        if (nativeImage.getExt() == null) {
+          nativeImage.setExt(new HashMap<>());
+        }
         nativeImage.getExt().put(CommonConstants.HRATIO, imageAssetFormat.getHratio());
       }
       if (imageAssetFormat.getWratio() != null) {
-        if (nativeImage.getExt() == null) nativeImage.setExt(new HashMap<>());
+        if (nativeImage.getExt() == null) {
+          nativeImage.setExt(new HashMap<>());
+        }
         nativeImage.getExt().put(CommonConstants.WRATIO, imageAssetFormat.getWratio());
       }
     } catch (ClassCastException e) {
@@ -153,7 +170,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     nativeVideo.getExt().put(CommonConstants.SKIPMIN, videoPlacement.getSkipmin());
     nativeVideo.getExt().put(CommonConstants.SKIPAFTER, videoPlacement.getSkipafter());
     nativeVideo.getExt().put(CommonConstants.PLAYBACKMETHOD, Collections.singletonList
-      (videoPlacement.getPlaymethod()));
+        (videoPlacement.getPlaymethod()));
     nativeVideo.getExt().put(CommonConstants.PLAYBACKEND, videoPlacement.getPlayend());
     nativeVideo.getExt().put(CommonConstants.API, videoPlacement.getApi());
     nativeVideo.getExt().put(CommonConstants.W, videoPlacement.getW());

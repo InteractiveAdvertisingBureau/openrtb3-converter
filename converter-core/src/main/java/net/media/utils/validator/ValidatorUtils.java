@@ -1,12 +1,11 @@
 package net.media.utils.validator;
 
-import java.util.Set;
+import static javax.validation.Validation.buildDefaultValidatorFactory;
 
+import java.util.Set;
 import javax.naming.ConfigurationException;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
-
-import static javax.validation.Validation.buildDefaultValidatorFactory;
 
 /**
  * Created by rajat.go on 21/04/19.
@@ -20,10 +19,12 @@ public class ValidatorUtils {
     StringBuilder sb = new StringBuilder("Following violations has been violated: \n");
     for (ConstraintViolation<T> constrainViolation : invalids) {
       sb.append(constrainViolation.getPropertyPath())
-        .append("=>")
-        .append(constrainViolation.getMessage())
-        .append('\n');
+          .append("=>")
+          .append(constrainViolation.getMessage())
+          .append('\n');
     }
-    if (!invalids.isEmpty()) throw new ConfigurationException(sb.toString());
+    if (!invalids.isEmpty()) {
+      throw new ConfigurationException(sb.toString());
+    }
   }
 }

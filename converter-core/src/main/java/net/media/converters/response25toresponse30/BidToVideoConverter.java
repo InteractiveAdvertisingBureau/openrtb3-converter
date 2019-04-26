@@ -16,6 +16,12 @@
 
 package net.media.converters.response25toresponse30;
 
+import static java.util.Objects.nonNull;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -24,14 +30,9 @@ import net.media.openrtb3.Video;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
-import static java.util.Objects.nonNull;
-
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class BidToVideoConverter implements Converter<Bid, Video> {
 
   @Override
@@ -68,8 +69,7 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
         source.getExt().remove(CommonConstants.DUR);
         target.setMime((Collection<String>) ext.get(CommonConstants.MIME));
         source.getExt().remove(CommonConstants.MIME);
-      }
-      catch (Exception e) {
+      } catch (Exception e) {
         throw new OpenRtbConverterException("error while type casting bid.ext content", e);
       }
     }

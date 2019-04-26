@@ -16,6 +16,8 @@
 
 package net.media.converters.request25toRequest30;
 
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -24,10 +26,9 @@ import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-import java.util.Map;
-
-/** Created by rajat.go on 03/01/19. */
+/**
+ * Created by rajat.go on 03/01/19.
+ */
 public class SourceToSourceConverter implements Converter<Source, net.media.openrtb3.Source> {
 
   @Override
@@ -48,7 +49,9 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
   public void enhance(
       Source source, net.media.openrtb3.Source target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setTid(source.getTid());
     target.setPchain(source.getPchain());
     Map<String, Object> map = source.getExt();
@@ -56,10 +59,14 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
       target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getFd() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.FD, source.getFd());
     }
-    if (source.getExt() == null) return;
+    if (source.getExt() == null) {
+      return;
+    }
     try {
       target.setTs((Integer) source.getExt().get(CommonConstants.TS));
       target.setDs((String) source.getExt().get(CommonConstants.DS));

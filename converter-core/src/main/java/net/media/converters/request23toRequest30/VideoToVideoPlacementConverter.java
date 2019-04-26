@@ -16,6 +16,8 @@
 
 package net.media.converters.request23toRequest30;
 
+import static java.util.Objects.nonNull;
+
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Video;
@@ -23,9 +25,9 @@ import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import static java.util.Objects.nonNull;
-
-/** Created by rajat.go on 03/04/19. */
+/**
+ * Created by rajat.go on 03/04/19.
+ */
 public class VideoToVideoPlacementConverter
     extends net.media.converters.request25toRequest30.VideoToVideoPlacementConverter {
 

@@ -16,6 +16,8 @@
 
 package net.media.converters.request25toRequest30;
 
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -26,9 +28,6 @@ import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.OsMap;
 import net.media.utils.Provider;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class DeviceToDeviceConverter implements Converter<Device, net.media.openrtb3.Device> {
 
@@ -50,7 +49,9 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
   public void enhance(
       Device source, net.media.openrtb3.Device target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter =
         converterProvider.fetch(new Conversion<>(Geo.class, net.media.openrtb3.Geo.class));
     target.setContype(source.getConnectiontype());
@@ -85,10 +86,14 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
       target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getFlashver() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.FLASHVER, source.getFlashver());
     }
-    if (source.getExt() == null) return;
+    if (source.getExt() == null) {
+      return;
+    }
     try {
       if (source.getExt().containsKey(CommonConstants.XFF)) {
         target.setXff((String) source.getExt().get(CommonConstants.XFF));

@@ -16,6 +16,12 @@
 
 package net.media.converters.request25toRequest30;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -30,14 +36,9 @@ import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
-import java.io.IOException;
-import java.util.Collection;
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-
-/** Created by rajat.go on 03/01/19. */
+/**
+ * Created by rajat.go on 03/01/19.
+ */
 public class NativeToDisplayPlacementConverter implements Converter<Native, DisplayPlacement> {
 
   @Override
@@ -68,14 +69,16 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
         String nativeRequestString = (String) nat.getRequest();
         try {
           nativeRequest =
-              JacksonObjectMapperUtils.getMapper().readValue(nativeRequestString, NativeRequest.class);
+              JacksonObjectMapperUtils.getMapper()
+                  .readValue(nativeRequestString, NativeRequest.class);
         } catch (IOException e) {
           throw new OpenRtbConverterException(e);
         }
       } else {
         try {
           nativeRequest =
-              JacksonObjectMapperUtils.getMapper().convertValue(nat.getRequest(), NativeRequest.class);
+              JacksonObjectMapperUtils.getMapper()
+                  .convertValue(nat.getRequest(), NativeRequest.class);
         } catch (IllegalArgumentException e) {
           throw new OpenRtbConverterException(e);
         }
@@ -96,8 +99,9 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
         if (nonNull(nat.getExt())) {
           if (nat.getExt().containsKey(CommonConstants.CTYPE)) {
             try {
-              displayPlacement.setCtype(CollectionUtils.copyCollection((Collection<Integer>) nat.getExt().get
-                (CommonConstants.CTYPE), config));
+              displayPlacement
+                  .setCtype(CollectionUtils.copyCollection((Collection<Integer>) nat.getExt().get
+                      (CommonConstants.CTYPE), config));
             } catch (ClassCastException e) {
               throw new OpenRtbConverterException("error while typecasting ext for Native", e);
             }

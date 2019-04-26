@@ -16,6 +16,7 @@
 
 package net.media.converters.request25toRequest30;
 
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -27,8 +28,6 @@ import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.Map;
 
 public class UserToUserConverter implements Converter<User, net.media.openrtb3.User> {
 
@@ -50,7 +49,9 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
   public void enhance(
       User source, net.media.openrtb3.User target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter =
         converterProvider.fetch(new Conversion<>(Geo.class, net.media.openrtb3.Geo.class));
     Converter<Data, net.media.openrtb3.Data> dataDataConverter =
@@ -68,7 +69,9 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
     if (map != null) {
       target.setExt(MapUtils.copyMap(map, config));
     }
-    if (source.getExt() == null) return;
+    if (source.getExt() == null) {
+      return;
+    }
     try {
       if (source.getExt().containsKey(CommonConstants.CONSENT)) {
         target.setConsent((String) source.getExt().get(CommonConstants.CONSENT));

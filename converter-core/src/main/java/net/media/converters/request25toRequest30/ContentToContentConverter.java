@@ -16,6 +16,10 @@
 
 package net.media.converters.request25toRequest30;
 
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -28,11 +32,6 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
 public class ContentToContentConverter implements Converter<Content, net.media.openrtb3.Content> {
 
@@ -54,7 +53,9 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
   public void enhance(
       Content source, net.media.openrtb3.Content target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Producer, net.media.openrtb3.Producer> producerProducerConverter =
         converterProvider.fetch(
             new Conversion<>(Producer.class, net.media.openrtb3.Producer.class));
@@ -93,7 +94,9 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
       target.setExt(MapUtils.copyMap(map, config));
     }
 
-    if (source.getExt() == null) return;
+    if (source.getExt() == null) {
+      return;
+    }
     try {
       if (source.getExt().containsKey(CommonConstants.CATTAX)) {
         target.setCattax((Integer) source.getExt().get(CommonConstants.CATTAX));
@@ -105,7 +108,9 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
       throw new OpenRtbConverterException("error while typecasting ext for Content", e);
     }
     if (source.getVideoquality() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.VIDEOQUALITY, source.getVideoquality());
     }
   }

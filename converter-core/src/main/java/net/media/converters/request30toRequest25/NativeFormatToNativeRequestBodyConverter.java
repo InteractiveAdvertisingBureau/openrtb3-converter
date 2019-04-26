@@ -16,6 +16,9 @@
 
 package net.media.converters.request30toRequest25;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -28,9 +31,6 @@ import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 
 public class NativeFormatToNativeRequestBodyConverter
     implements Converter<NativeFormat, NativeRequestBody> {

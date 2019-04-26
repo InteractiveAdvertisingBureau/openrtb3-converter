@@ -16,7 +16,11 @@
 
 package net.media.converters.request30toRequest25;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.HashMap;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -30,11 +34,6 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 
 public class DisplayPlacementToNativeConverter implements Converter<DisplayPlacement, Native> {
 
@@ -100,11 +99,15 @@ public class DisplayPlacementToNativeConverter implements Converter<DisplayPlace
     }
     try {
       if (displayPlacement.getPriv() != null) {
-        if (nat.getExt() == null) nat.setExt(new HashMap<>());
+        if (nat.getExt() == null) {
+          nat.setExt(new HashMap<>());
+        }
         nat.getExt().put(CommonConstants.PRIV, displayPlacement.getPriv());
       }
       if (displayPlacement.getCtype() != null) {
-        if (nat.getExt() == null) nat.setExt(new HashMap<>());
+        if (nat.getExt() == null) {
+          nat.setExt(new HashMap<>());
+        }
         nat.getExt().put(CommonConstants.CTYPE, displayPlacement.getCtype());
       }
     } catch (ClassCastException e) {

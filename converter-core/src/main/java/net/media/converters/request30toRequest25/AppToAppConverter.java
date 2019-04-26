@@ -16,6 +16,8 @@
 
 package net.media.converters.request30toRequest25;
 
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -27,9 +29,6 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class AppToAppConverter implements Converter<App, net.media.openrtb25.request.App> {
 
@@ -51,7 +50,9 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb25.req
   public void enhance(
       App source, net.media.openrtb25.request.App target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setSectioncat(CollectionUtils.copyCollection(source.getSectcat(), config));
     target.setPrivacypolicy(source.getPrivpolicy());
     Converter<Publisher, net.media.openrtb25.request.Publisher> publisherPublisherConverter =
@@ -78,11 +79,15 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb25.req
       target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getCattax() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.CATTAX, source.getCattax());
     }
     if (source.getStoreid() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.STOREID, source.getStoreid());
     }
   }

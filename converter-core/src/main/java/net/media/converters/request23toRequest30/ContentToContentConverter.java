@@ -16,7 +16,10 @@
 
 package net.media.converters.request23toRequest30;
 
+import static java.util.Objects.nonNull;
+
 import com.fasterxml.jackson.databind.JavaType;
+import java.util.Collection;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Content;
@@ -25,16 +28,15 @@ import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
-import java.util.Collection;
-
-import static java.util.Objects.nonNull;
-
-/** Created by rajat.go on 03/04/19. */
+/**
+ * Created by rajat.go on 03/04/19.
+ */
 public class ContentToContentConverter
     extends net.media.converters.request25toRequest30.ContentToContentConverter {
 
-  private static final JavaType javaTypeForDataCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Data.class);
+  private static final JavaType javaTypeForDataCollection = JacksonObjectMapperUtils.getMapper()
+      .getTypeFactory()
+      .constructCollectionType(Collection.class, Data.class);
 
   public void enhance(
       Content source, net.media.openrtb3.Content target, Config config, Provider converterProvider)
@@ -85,8 +87,9 @@ public class ContentToContentConverter
       }
       if (source.getExt().containsKey(CommonConstants.DATA)) {
         try {
-          source.setData(JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get(CommonConstants.DATA),
-            javaTypeForDataCollection));
+          source.setData(JacksonObjectMapperUtils.getMapper()
+              .convertValue(source.getExt().get(CommonConstants.DATA),
+                  javaTypeForDataCollection));
         } catch (Exception e) {
           throw new OpenRtbConverterException("Error in setting data from content.ext.data", e);
         }

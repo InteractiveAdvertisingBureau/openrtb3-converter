@@ -16,14 +16,13 @@
 
 package net.media.driver;
 
+import static java.util.Objects.nonNull;
+
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.enums.OpenRtbVersion;
 import net.media.utils.Provider;
-
-import java.util.Map;
-
-import static java.util.Objects.nonNull;
 
 /**
  * Stores and manages {@link Converter} implementations that can be used for various transformation
@@ -89,7 +88,7 @@ public class ConverterManager {
     add2_XConverters(provider, config);
     if (nonNull(overrideMap)) {
       overrideMap.forEach(
-        provider::register);
+          provider::register);
     }
     return provider;
   }

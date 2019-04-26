@@ -20,7 +20,9 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 
-/** Created by shiva.b on 02/01/19. */
+/**
+ * Created by shiva.b on 02/01/19.
+ */
 public class EncodeTemplate extends SimpleTemplate {
 
   EncoderProvider encoderProvider;
@@ -81,6 +83,7 @@ public class EncodeTemplate extends SimpleTemplate {
 
   @FunctionalInterface
   public interface EncoderProvider {
+
     Function<String, String> getEncoder(Token token);
   }
 }

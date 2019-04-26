@@ -16,26 +16,31 @@
 
 package net.media.converters.response25toresponse30;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
-import net.media.openrtb3.*;
+import net.media.openrtb3.Ad;
+import net.media.openrtb3.Audio;
+import net.media.openrtb3.Audit;
+import net.media.openrtb3.Display;
+import net.media.openrtb3.Video;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
-
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class BidToAdConverter implements Converter<Bid, Ad> {
 
   @Override
@@ -90,7 +95,8 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
         }
 
         if (source.getExt().containsKey(CommonConstants.AUDIT)) {
-          target.setAudit(JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get(CommonConstants.AUDIT), Audit.class));
+          target.setAudit(JacksonObjectMapperUtils.getMapper()
+              .convertValue(source.getExt().get(CommonConstants.AUDIT), Audit.class));
           source.getExt().remove(CommonConstants.AUDIT);
         }
       }

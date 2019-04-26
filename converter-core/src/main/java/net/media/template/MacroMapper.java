@@ -16,16 +16,22 @@
 
 package net.media.template;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb25.response.nativeresponse.NativeResponseBody;
-import net.media.openrtb3.*;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+import net.media.openrtb3.Audio;
+import net.media.openrtb3.Banner;
+import net.media.openrtb3.Bid;
+import net.media.openrtb3.Display;
+import net.media.openrtb3.Native;
+import net.media.openrtb3.Video;
 
 public class MacroMapper {
+
   public static BiMap<String, String> macrosTwoXToThreeX;
 
   static {
@@ -69,19 +75,24 @@ public class MacroMapper {
     bid.setBurl(MacroMapper.macroReplaceTwoX(bid.getBurl()));
     bid.setLurl(MacroMapper.macroReplaceTwoX(bid.getLurl()));
     bid.setNurl(MacroMapper.macroReplaceTwoX(bid.getNurl()));
-    if (bid.getAdm() instanceof NativeResponse)
+    if (bid.getAdm() instanceof NativeResponse) {
       MacroMapper.macroReplaceTwoX((NativeResponse) bid.getAdm());
-    else if (bid.getAdm() instanceof String) MacroMapper.macroReplaceTwoX((String) bid.getAdm());
+    } else if (bid.getAdm() instanceof String) {
+      MacroMapper.macroReplaceTwoX((String) bid.getAdm());
+    }
   }
 
   public static void macroReplaceThreeX(Display display) {
-    if (isNull(display)) return;
-    if (display.getAdm() instanceof Banner)
+    if (isNull(display)) {
+      return;
+    }
+    if (display.getAdm() instanceof Banner) {
       MacroMapper.macroReplaceThreeX((Banner) display.getAdm());
-    else if (display.getAdm() instanceof Native)
+    } else if (display.getAdm() instanceof Native) {
       MacroMapper.macroReplaceThreeX((Native) display.getAdm());
-    else if (display.getAdm() instanceof String)
+    } else if (display.getAdm() instanceof String) {
       MacroMapper.macroReplaceThreeX((String) display.getAdm());
+    }
 
     MacroMapper.macroReplaceThreeX(display.getBanner());
     MacroMapper.macroReplaceThreeX(display.get_native());
@@ -89,7 +100,9 @@ public class MacroMapper {
   }
 
   public static void macroReplaceThreeX(Banner banner) {
-    if (isNull(banner)) return;
+    if (isNull(banner)) {
+      return;
+    }
     MacroProcessor.getOpenRtbMacroProcessor(banner.getImg())
         .replace(MacroProcessor.getThreeXToken());
     if (nonNull(banner.getLink())) {
@@ -101,7 +114,9 @@ public class MacroMapper {
   }
 
   public static void macroReplaceThreeX(Native _native) {
-    if (isNull(_native)) return;
+    if (isNull(_native)) {
+      return;
+    }
     if (nonNull(_native.getLink())) {
       MacroProcessor.getOpenRtbMacroProcessor(_native.getLink().getUrl())
           .replace(MacroProcessor.getThreeXToken());
@@ -123,7 +138,9 @@ public class MacroMapper {
   }
 
   public static void macroReplaceThreeX(Video video) {
-    if (isNull(video)) return;
+    if (isNull(video)) {
+      return;
+    }
     MacroProcessor.getOpenRtbMacroProcessor((String) video.getAdm())
         .replace(MacroProcessor.getThreeXToken());
     MacroProcessor.getOpenRtbMacroProcessor(video.getCurl())
@@ -131,7 +148,9 @@ public class MacroMapper {
   }
 
   public static void macroReplaceThreeX(Audio audio) {
-    if (isNull(audio)) return;
+    if (isNull(audio)) {
+      return;
+    }
     MacroProcessor.getOpenRtbMacroProcessor((String) audio.getAdm())
         .replace(MacroProcessor.getThreeXToken());
     MacroProcessor.getOpenRtbMacroProcessor(audio.getCurl())
@@ -147,7 +166,9 @@ public class MacroMapper {
   }
 
   public static void macroReplaceTwoX(NativeResponse nativeResponse) {
-    if (isNull(nativeResponse)) return;
+    if (isNull(nativeResponse)) {
+      return;
+    }
     NativeResponseBody nativeResponseBody = nativeResponse.getNativeResponseBody();
     nativeResponseBody
         .getAsset()

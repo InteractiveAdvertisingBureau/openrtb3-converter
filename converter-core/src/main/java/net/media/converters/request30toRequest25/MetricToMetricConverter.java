@@ -16,6 +16,8 @@
 
 package net.media.converters.request30toRequest25;
 
+import static java.util.Objects.isNull;
+
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -23,10 +25,9 @@ import net.media.openrtb3.Metric;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import static java.util.Objects.isNull;
-
 public class MetricToMetricConverter
     implements Converter<Metric, net.media.openrtb25.request.Metric> {
+
   @Override
   public net.media.openrtb25.request.Metric map(
       Metric metric, Config config, Provider converterProvider) throws OpenRtbConverterException {

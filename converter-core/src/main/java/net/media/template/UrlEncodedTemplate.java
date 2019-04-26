@@ -20,7 +20,9 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 
-/** Created by shiva.b on 02/01/19. */
+/**
+ * Created by shiva.b on 02/01/19.
+ */
 public class UrlEncodedTemplate extends EncodeTemplate {
 
   public UrlEncodedTemplate(
@@ -66,7 +68,9 @@ public class UrlEncodedTemplate extends EncodeTemplate {
             appendedTail = true;
         }
       }
-      if (!appendedTail) res.append(tail);
+      if (!appendedTail) {
+        res.append(tail);
+      }
       return res.toString();
     } catch (Exception e) {
       throw exceptionSupplier.apply(e);
@@ -79,7 +83,9 @@ public class UrlEncodedTemplate extends EncodeTemplate {
       res.append(tail);
 
     } else {
-      if (!appendedTail) res.append(tail);
+      if (!appendedTail) {
+        res.append(tail);
+      }
       res.append(group.prefix).append(getMacroReplacement(value, group.token));
     }
   }

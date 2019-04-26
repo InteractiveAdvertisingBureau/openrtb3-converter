@@ -16,6 +16,13 @@
 
 package net.media.converters.response25toresponse30;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+import static org.apache.commons.collections.CollectionUtils.isEmpty;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -30,15 +37,9 @@ import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
-
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class Native25ToNative30Converter implements Converter<NativeResponse, Native> {
 
   @Override
@@ -64,7 +65,8 @@ public class Native25ToNative30Converter implements Converter<NativeResponse, Na
       target.setExt(new HashMap<>());
     }
     target.getExt().put(CommonConstants.JS_TRACKER, source.getNativeResponseBody().getJstracker());
-    target.getExt().put(CommonConstants.IMP_TRACKERS, source.getNativeResponseBody().getImptrackers());
+    target.getExt()
+        .put(CommonConstants.IMP_TRACKERS, source.getNativeResponseBody().getImptrackers());
     Converter<Link, LinkAsset> linkLinkAssetConverter =
         converterProvider.fetch(new Conversion<>(Link.class, LinkAsset.class));
     Converter<AssetResponse, Asset> assetResponseAssetConverter =

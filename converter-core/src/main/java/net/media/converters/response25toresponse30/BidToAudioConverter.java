@@ -16,6 +16,13 @@
 
 package net.media.converters.response25toresponse30;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -24,15 +31,9 @@ import net.media.openrtb3.Audio;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Map;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class BidToAudioConverter implements Converter<Bid, Audio> {
 
   @Override

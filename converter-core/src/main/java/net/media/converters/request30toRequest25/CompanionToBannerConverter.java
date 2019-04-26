@@ -16,6 +16,10 @@
 
 package net.media.converters.request30toRequest25;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -25,11 +29,6 @@ import net.media.openrtb3.Companion;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.Map;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 
 public class CompanionToBannerConverter implements Converter<Companion, Banner> {
 
@@ -58,8 +57,9 @@ public class CompanionToBannerConverter implements Converter<Companion, Banner> 
     banner.setId(companion.getId());
     Map<String, Object> map = companion.getExt();
     if (map != null) {
-      if (banner.getExt() == null) banner.setExt(MapUtils.copyMap(map, config));
-      else
+      if (banner.getExt() == null) {
+        banner.setExt(MapUtils.copyMap(map, config));
+      } else {
         try {
           Map<String, Object> copyMap = MapUtils.copyMap(map, config);
           if (nonNull(copyMap)) {
@@ -68,6 +68,7 @@ public class CompanionToBannerConverter implements Converter<Companion, Banner> 
         } catch (Exception e) {
           throw new OpenRtbConverterException("companion to banner conversion failed ", e);
         }
+      }
     }
   }
 }

@@ -16,6 +16,8 @@
 
 package net.media.converters.request30toRequest25;
 
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -27,9 +29,6 @@ import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class UserToUserConverter implements Converter<User, net.media.openrtb25.request.User> {
 
@@ -54,7 +53,9 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb25.
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter =
         converterProvider.fetch(new Conversion<>(Geo.class, net.media.openrtb25.request.Geo.class));
     Converter<Data, net.media.openrtb25.request.Data> dataDataConverter =
@@ -74,7 +75,9 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb25.
       target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getConsent() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.CONSENT, source.getConsent());
     }
   }

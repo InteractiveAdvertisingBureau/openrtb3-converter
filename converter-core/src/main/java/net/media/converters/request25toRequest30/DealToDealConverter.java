@@ -23,8 +23,11 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-/** Created by rajat.go on 03/01/19. */
+/**
+ * Created by rajat.go on 03/01/19.
+ */
 public class DealToDealConverter implements Converter<Deal, net.media.openrtb3.Deal> {
+
   @Override
   public net.media.openrtb3.Deal map(Deal deal, Config config, Provider converterProvider) {
     if (deal == null) {

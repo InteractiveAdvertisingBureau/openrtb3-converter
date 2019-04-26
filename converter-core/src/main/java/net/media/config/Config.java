@@ -16,8 +16,8 @@
 
 package net.media.config;
 
-import net.media.enums.AdType;
-import net.media.enums.OpenRtbVersion;
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,9 +25,8 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.net.URL;
 import java.util.Map;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+import net.media.enums.AdType;
+import net.media.enums.OpenRtbVersion;
 
 /**
  * Provides a handle to read configuration from several data formats.
@@ -81,10 +80,14 @@ public class Config {
    */
   private Map<String, AdType> adTypeMapping;
 
-  /** Whether to clone object references or not while conversion. Only used for collections. */
+  /**
+   * Whether to clone object references or not while conversion. Only used for collections.
+   */
   private Boolean disableCloning;
 
-  /** Determines whether the input request or response needs to be v alidated or not. */
+  /**
+   * Determines whether the input request or response needs to be v alidated or not.
+   */
   private Boolean validate;
 
   /**
@@ -108,7 +111,8 @@ public class Config {
     }
   }
 
-  public Config() {}
+  public Config() {
+  }
 
   /**
    * Creates config object from JSON string.
@@ -363,26 +367,40 @@ public class Config {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (!(o instanceof Config)) return false;
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof Config)) {
+      return false;
+    }
 
     Config config = (Config) o;
 
     if (getNativeRequestAsString() != null
         ? !getNativeRequestAsString().equals(config.getNativeRequestAsString())
-        : config.getNativeRequestAsString() != null) return false;
+        : config.getNativeRequestAsString() != null) {
+      return false;
+    }
     if (getNativeResponseAsString() != null
         ? !getNativeResponseAsString().equals(config.getNativeResponseAsString())
-        : config.getNativeResponseAsString() != null) return false;
+        : config.getNativeResponseAsString() != null) {
+      return false;
+    }
     if (adTypeMapping != null
         ? !adTypeMapping.equals(config.adTypeMapping)
-        : config.adTypeMapping != null) return false;
+        : config.adTypeMapping != null) {
+      return false;
+    }
     if (getDisableCloning() != null
         ? !getDisableCloning().equals(config.getDisableCloning())
-        : config.getDisableCloning() != null) return false;
+        : config.getDisableCloning() != null) {
+      return false;
+    }
     if (getValidate() != null
         ? !getValidate().equals(config.getValidate())
-        : config.getValidate() != null) return false;
+        : config.getValidate() != null) {
+      return false;
+    }
     return getOpenRtbVersion2_XVersion() == config.getOpenRtbVersion2_XVersion();
   }
 
@@ -398,8 +416,8 @@ public class Config {
     result =
         31 * result
             + (getOpenRtbVersion2_XVersion() != null
-                ? getOpenRtbVersion2_XVersion().hashCode()
-                : 0);
+            ? getOpenRtbVersion2_XVersion().hashCode()
+            : 0);
     return result;
   }
 

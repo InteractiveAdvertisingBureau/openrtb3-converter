@@ -16,6 +16,8 @@
 
 package net.media.converters.request30toRequest25;
 
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -28,9 +30,6 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class ContentToContentConverter
     implements Converter<Content, net.media.openrtb25.request.Content> {
@@ -56,7 +55,9 @@ public class ContentToContentConverter
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Producer, net.media.openrtb25.request.Producer> producerProducerConverter =
         converterProvider.fetch(
             new Conversion<>(Producer.class, net.media.openrtb25.request.Producer.class));
@@ -95,7 +96,9 @@ public class ContentToContentConverter
       target.setExt(MapUtils.copyMap(map, config));
     }
     if (source.getCattax() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
+      if (target.getExt() == null) {
+        target.setExt(new HashMap<>());
+      }
       target.getExt().put(CommonConstants.CATTAX, source.getCattax());
     }
     if (source.getExt() != null) {

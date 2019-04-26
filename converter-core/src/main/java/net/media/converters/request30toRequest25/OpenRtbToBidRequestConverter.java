@@ -16,6 +16,8 @@
 
 package net.media.converters.request30toRequest25;
 
+import static java.util.Objects.isNull;
+
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -24,8 +26,6 @@ import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb3.OpenRTB3_X;
 import net.media.openrtb3.Request;
 import net.media.utils.Provider;
-
-import static java.util.Objects.isNull;
 
 public class OpenRtbToBidRequestConverter implements Converter<OpenRTB3_X, BidRequest2_X> {
 
@@ -45,5 +45,6 @@ public class OpenRtbToBidRequestConverter implements Converter<OpenRTB3_X, BidRe
 
   @Override
   public void enhance(
-      OpenRTB3_X source, BidRequest2_X target, Config config, Provider converterProvider) {}
+      OpenRTB3_X source, BidRequest2_X target, Config config, Provider converterProvider) {
+  }
 }

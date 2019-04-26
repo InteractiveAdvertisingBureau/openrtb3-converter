@@ -16,9 +16,20 @@
 
 package net.media.api.servlets;
 
+import static java.util.Objects.isNull;
+
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import com.google.inject.Inject;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Objects;
+import java.util.function.BiConsumer;
+import javax.naming.ConfigurationException;
+import javax.servlet.ServletConfig;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import net.media.api.models.Request2xPayload;
 import net.media.api.models.RequestResponse3xPayload;
 import net.media.api.models.Response2xPayload;
@@ -29,21 +40,7 @@ import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
 import net.media.utils.JacksonObjectMapperUtils;
-
 import org.slf4j.Logger;
-
-import javax.naming.ConfigurationException;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.Map;
-import java.util.Objects;
-import java.util.function.BiConsumer;
-
-import static java.util.Objects.isNull;
 
 public class ConverterServlet extends HttpServlet {
 
@@ -54,7 +51,8 @@ public class ConverterServlet extends HttpServlet {
   private static final String THREEXTOTHREEX = "3xTo2x";
   private static final String TYPE = "type";
   private static final String CONVERSIONTYPE = "conversiontype";
-  @Inject private OpenRtbConverter openRtbConverter;
+  @Inject
+  private OpenRtbConverter openRtbConverter;
   private Table<String, String, BiConsumer<HttpServletRequest, HttpServletResponse>> queryActionMap;
   private BiConsumer<HttpServletRequest, HttpServletResponse> get2xto3xRequest =
       (request, response) -> {
@@ -176,7 +174,9 @@ public class ConverterServlet extends HttpServlet {
     String conversionType = getParamValue(CONVERSIONTYPE, query);
     if (Objects.isNull(type)
         || Objects.isNull(conversionType)
-        || !queryActionMap.contains(type, conversionType)) return illegalAction;
+        || !queryActionMap.contains(type, conversionType)) {
+      return illegalAction;
+    }
     return queryActionMap.get(type, conversionType);
   }
 }

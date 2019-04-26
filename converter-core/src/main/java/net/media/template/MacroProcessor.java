@@ -20,8 +20,11 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class MacroProcessor {
+
   public static final Pattern OPEN_RTB_TOKEN_PATTERN =
       Pattern.compile("\\$\\{(?<macro>.*?)(:(?<algo>.*?)){0,1}\\}");
   public static Template.TokenProvider TOKEN_PROVIDER =
@@ -30,13 +33,15 @@ public class MacroProcessor {
       EncodeTemplate.getEncoderProviderByGroupName("algo");
 
   public static Template getOpenRtbMacroProcessor(String text) {
-    if (Objects.isNull(text)) return tokenValue -> "";
+    if (Objects.isNull(text)) {
+      return tokenValue -> "";
+    }
     return new EncodeTemplate(
         text,
         OPEN_RTB_TOKEN_PATTERN,
         TOKEN_PROVIDER,
         ENCODER_PROVIDER,
-      Template.Token::getTextValue);
+        Template.Token::getTextValue);
   }
 
   public static final Template.TokenValue getTwoXToken() {

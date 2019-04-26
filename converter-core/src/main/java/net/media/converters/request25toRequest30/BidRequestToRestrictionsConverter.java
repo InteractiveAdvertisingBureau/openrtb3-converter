@@ -16,6 +16,11 @@
 
 package net.media.converters.request25toRequest30;
 
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
@@ -25,12 +30,6 @@ import net.media.openrtb3.Restrictions;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Map;
-
-import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
 public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_X, Restrictions> {
 
@@ -52,12 +51,18 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_
   public void enhance(
       BidRequest2_X source, Restrictions target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setBapp(CollectionUtils.copyCollection(source.getBapp(), config));
     target.setBcat(CollectionUtils.copyCollection(source.getBcat(), config));
     target.setBadv(CollectionUtils.copyCollection(source.getBadv(), config));
-    if (source.getImp() == null) return;
-    if (source.getImp().size() == 0) return;
+    if (source.getImp() == null) {
+      return;
+    }
+    if (source.getImp().size() == 0) {
+      return;
+    }
     Collection<Integer> battr = new HashSet<>();
     for (Imp imp : source.getImp()) {
       if (imp.getBanner() != null && imp.getBanner().getBattr() != null) {
@@ -73,7 +78,9 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_
     if (battr.size() > 0) {
       target.setBattr(CollectionUtils.copyCollection(battr, config));
     }
-    if (source.getExt() == null) return;
+    if (source.getExt() == null) {
+      return;
+    }
     try {
       if (source.getExt().containsKey(CommonConstants.CATTAX)) {
         target.setCattax((Integer) source.getExt().get(CommonConstants.CATTAX));

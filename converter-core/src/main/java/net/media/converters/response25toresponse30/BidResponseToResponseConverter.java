@@ -16,6 +16,10 @@
 
 package net.media.converters.response25toresponse30;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -27,12 +31,9 @@ import net.media.openrtb3.Seatbid;
 import net.media.utils.CollectionUtils;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class BidResponseToResponseConverter implements Converter<BidResponse2_X, Response> {
 
   /**

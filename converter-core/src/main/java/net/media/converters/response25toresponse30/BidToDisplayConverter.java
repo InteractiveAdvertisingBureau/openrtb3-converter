@@ -16,7 +16,14 @@
 
 package net.media.converters.response25toresponse30;
 
+import static java.util.Objects.nonNull;
+
 import com.fasterxml.jackson.databind.JavaType;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -32,19 +39,14 @@ import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Map;
-
-import static java.util.Objects.nonNull;
-
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class BidToDisplayConverter implements Converter<Bid, Display> {
 
-  private static final JavaType javaTypeForEventCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Event.class);
+  private static final JavaType javaTypeForEventCollection = JacksonObjectMapperUtils.getMapper()
+      .getTypeFactory()
+      .constructCollectionType(Collection.class, Event.class);
 
   @Override
   public Display map(Bid source, Config config, Provider converterProvider)
@@ -83,10 +85,14 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
       if (source.getAdm() instanceof String) {
         try {
           NativeResponse nativeResponse =
-              JacksonObjectMapperUtils.getMapper().readValue((String) source.getAdm(), NativeResponse.class);
+              JacksonObjectMapperUtils.getMapper()
+                  .readValue((String) source.getAdm(), NativeResponse.class);
           Native _native = converter.map(nativeResponse, config, converterProvider);
-          if (config.getNativeResponseAsString()) target.setAdm(_native);
-          else target.set_native(_native);
+          if (config.getNativeResponseAsString()) {
+            target.setAdm(_native);
+          } else {
+            target.set_native(_native);
+          }
         } catch (IOException e) {
           throw new OpenRtbConverterException(
               "error while deserializing native response object", e);
@@ -95,11 +101,15 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
         try {
           Native _native =
               converter.map(
-                JacksonObjectMapperUtils.getMapper().convertValue(source.getAdm(), NativeResponse.class),
+                  JacksonObjectMapperUtils.getMapper()
+                      .convertValue(source.getAdm(), NativeResponse.class),
                   config,
                   converterProvider);
-          if (config.getNativeResponseAsString()) target.setAdm(_native);
-          else target.set_native(_native);
+          if (config.getNativeResponseAsString()) {
+            target.setAdm(_native);
+          } else {
+            target.set_native(_native);
+          }
         } catch (Exception e) {
           throw new OpenRtbConverterException("error while casting adm to native response", e);
         }
@@ -119,14 +129,16 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
 
         if (config.getAdType(source.getId()) == AdType.BANNER) {
           if (ext.containsKey(CommonConstants.BANNER)) {
-            target.setBanner(JacksonObjectMapperUtils.getMapper().convertValue(ext.get(CommonConstants.BANNER), Banner.class));
+            target.setBanner(JacksonObjectMapperUtils.getMapper()
+                .convertValue(ext.get(CommonConstants.BANNER), Banner.class));
             source.getExt().remove(CommonConstants.BANNER);
           }
         } else if (config.getAdType(source.getId()) == AdType.NATIVE) {
           if (ext.containsKey(CommonConstants.NATIVE)) {
             Native _native;
             try {
-              _native = JacksonObjectMapperUtils.getMapper().convertValue(ext.get(CommonConstants.NATIVE), Native.class);
+              _native = JacksonObjectMapperUtils.getMapper()
+                  .convertValue(ext.get(CommonConstants.NATIVE), Native.class);
               target.set_native(_native);
             } catch (Exception e) {
               throw new OpenRtbConverterException(
@@ -137,7 +149,8 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
         }
         try {
           target.setEvent(
-            JacksonObjectMapperUtils.getMapper().convertValue(ext.get(CommonConstants.EVENT), javaTypeForEventCollection));
+              JacksonObjectMapperUtils.getMapper()
+                  .convertValue(ext.get(CommonConstants.EVENT), javaTypeForEventCollection));
         } catch (IllegalArgumentException e) {
           throw new OpenRtbConverterException(
               "error while setting display.event from bid.ext" + ".event", e);

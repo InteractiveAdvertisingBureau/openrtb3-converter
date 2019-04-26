@@ -21,8 +21,11 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/** Created by shiva.b on 02/01/19. */
+/**
+ * Created by shiva.b on 02/01/19.
+ */
 public class SimpleTemplate implements Template {
+
   final LinkedList<Group> groupPrefix = new LinkedList<>();
   String tail;
   private Template.DefaultValueProvider defaultValueProvider;
@@ -58,7 +61,9 @@ public class SimpleTemplate implements Template {
       Template.TokenProvider tokenProvider,
       Template.DefaultValueProvider defaultValueProvider) {
     int queryParamCount = 0;
-    if (template.contains("?")) queryParamCount++;
+    if (template.contains("?")) {
+      queryParamCount++;
+    }
     final Matcher matcher = pattern.matcher(template);
     int prev = 0;
     while (matcher.find()) {
@@ -70,8 +75,9 @@ public class SimpleTemplate implements Template {
       String macro = token.getValue();
       char delimiter = (queryParamCount == 0) ? '?' : '&';
       Matcher matcher1 = pattern.matcher(macro);
-      if (matcher1.find())
+      if (matcher1.find()) {
         groupPrefix.add(new Group(tokenProvider.getToken(matcher1), delimiter + token.getKey()));
+      }
       queryParamCount++;
     }
     tail = template.substring(prev);
@@ -93,6 +99,7 @@ public class SimpleTemplate implements Template {
   }
 
   static class Group {
+
     Token token;
     String prefix;
 

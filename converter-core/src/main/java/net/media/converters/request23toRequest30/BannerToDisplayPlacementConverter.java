@@ -16,7 +16,10 @@
 
 package net.media.converters.request23toRequest30;
 
+import static java.util.Objects.nonNull;
+
 import com.fasterxml.jackson.databind.JavaType;
+import java.util.Collection;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
@@ -26,16 +29,15 @@ import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
-import java.util.Collection;
-
-import static java.util.Objects.nonNull;
-
-/** Created by rajat.go on 03/04/19. */
+/**
+ * Created by rajat.go on 03/04/19.
+ */
 public class BannerToDisplayPlacementConverter
     extends net.media.converters.request25toRequest30.BannerToDisplayPlacementConverter {
 
-  private static final JavaType javaTypeForFormatCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
-			.constructCollectionType(Collection.class, Format.class);
+  private static final JavaType javaTypeForFormatCollection = JacksonObjectMapperUtils.getMapper()
+      .getTypeFactory()
+      .constructCollectionType(Collection.class, Format.class);
 
   public void enhance(
       Banner banner, DisplayPlacement displayPlacement, Config config, Provider converterProvider)
@@ -50,8 +52,9 @@ public class BannerToDisplayPlacementConverter
       }
       if (banner.getExt().containsKey(CommonConstants.FORMAT)) {
         try {
-          banner.setFormat(JacksonObjectMapperUtils.getMapper().convertValue(banner.getExt().get(CommonConstants.FORMAT),
-            javaTypeForFormatCollection));
+          banner.setFormat(JacksonObjectMapperUtils.getMapper()
+              .convertValue(banner.getExt().get(CommonConstants.FORMAT),
+                  javaTypeForFormatCollection));
         } catch (Exception e) {
           throw new OpenRtbConverterException(
               "Error in setting banner.format from banner.ext" + ".format", e);

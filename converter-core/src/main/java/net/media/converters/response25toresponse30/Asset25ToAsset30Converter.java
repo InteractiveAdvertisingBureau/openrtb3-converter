@@ -16,24 +16,35 @@
 
 package net.media.converters.response25toresponse30;
 
-import net.media.config.Config;
-import net.media.converters.Converter;
-import net.media.driver.Conversion;
-import net.media.exceptions.OpenRtbConverterException;
-import net.media.openrtb25.response.nativeresponse.*;
-import net.media.openrtb3.*;
-import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
-import net.media.utils.Provider;
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import net.media.config.Config;
+import net.media.converters.Converter;
+import net.media.driver.Conversion;
+import net.media.exceptions.OpenRtbConverterException;
+import net.media.openrtb25.response.nativeresponse.AssetResponse;
+import net.media.openrtb25.response.nativeresponse.Link;
+import net.media.openrtb25.response.nativeresponse.NativeData;
+import net.media.openrtb25.response.nativeresponse.NativeImage;
+import net.media.openrtb25.response.nativeresponse.NativeTitle;
+import net.media.openrtb25.response.nativeresponse.NativeVideo;
+import net.media.openrtb3.Asset;
+import net.media.openrtb3.DataAsset;
+import net.media.openrtb3.ImageAsset;
+import net.media.openrtb3.LinkAsset;
+import net.media.openrtb3.TitleAsset;
+import net.media.openrtb3.VideoAsset;
+import net.media.utils.CommonConstants;
+import net.media.utils.MapUtils;
+import net.media.utils.Provider;
 
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset> {
 
   @Override
@@ -67,7 +78,9 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
 
   private DataAsset nativeDataToData(NativeData nativeData, Config config)
       throws OpenRtbConverterException {
-    if (isNull(nativeData)) return null;
+    if (isNull(nativeData)) {
+      return null;
+    }
     DataAsset dataAsset = new DataAsset();
     dataAsset.setExt(MapUtils.copyMap(nativeData.getExt(), config));
     List<String> value = new ArrayList<>();
@@ -87,7 +100,9 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     } catch (Exception e) {
       throw new OpenRtbConverterException("error while typecasting ext for nativeData", e);
     }
-    if (isNull(dataAsset.getExt())) dataAsset.setExt(new HashMap<>());
+    if (isNull(dataAsset.getExt())) {
+      dataAsset.setExt(new HashMap<>());
+    }
     dataAsset.getExt().put(CommonConstants.LABEL, nativeData.getLabel());
     return dataAsset;
   }
@@ -117,7 +132,9 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
 
   private TitleAsset nativeTittleToTittleAsset(NativeTitle nativeTitle, Config config)
       throws OpenRtbConverterException {
-    if (isNull(nativeTitle)) return null;
+    if (isNull(nativeTitle)) {
+      return null;
+    }
     TitleAsset titleAsset = new TitleAsset();
     titleAsset.setExt(MapUtils.copyMap(nativeTitle.getExt(), config));
     titleAsset.setText(nativeTitle.getText());
@@ -136,7 +153,9 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
 
   private VideoAsset nativeVideoToVideoAsset(NativeVideo nativeVideo, Config config)
       throws OpenRtbConverterException {
-    if (isNull(nativeVideo)) return null;
+    if (isNull(nativeVideo)) {
+      return null;
+    }
     VideoAsset videoAsset = new VideoAsset();
     videoAsset.setAdm(nativeVideo.getVasttag());
     videoAsset.setExt(MapUtils.copyMap(nativeVideo.getExt(), config));

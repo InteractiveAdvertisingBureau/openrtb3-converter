@@ -17,10 +17,10 @@
 package net.media;
 
 import com.fasterxml.jackson.databind.JsonNode;
-
 import java.util.Map;
 
 public class Case {
+
   private String inputFile;
   private String inputType;
   private Map<String, String> inputEdits;
@@ -32,7 +32,8 @@ public class Case {
   private String purpose;
   private Map<String, String> params;
 
-  public Case() {}
+  public Case() {
+  }
 
   public String getInputFile() {
     return this.inputFile;

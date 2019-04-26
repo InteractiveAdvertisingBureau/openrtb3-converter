@@ -16,7 +16,13 @@
 
 package net.media.converters.response25toresponse30;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
 import com.fasterxml.jackson.databind.JavaType;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -30,18 +36,14 @@ import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.Bid> {
 
-  private static final JavaType javaTypeForMacroCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Macro.class);
+  private static final JavaType javaTypeForMacroCollection = JacksonObjectMapperUtils.getMapper()
+      .getTypeFactory()
+      .constructCollectionType(Collection.class, Macro.class);
 
   @Override
   public net.media.openrtb3.Bid map(Bid source, Config config, Provider converterProvider)
@@ -81,8 +83,9 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       if (nonNull(source.getExt())) {
         if (source.getExt().containsKey(CommonConstants.MACRO)) {
           try {
-            Collection<Macro> macros = JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get(CommonConstants.MACRO),
-                javaTypeForMacroCollection);
+            Collection<Macro> macros = JacksonObjectMapperUtils.getMapper()
+                .convertValue(source.getExt().get(CommonConstants.MACRO),
+                    javaTypeForMacroCollection);
             target.setMacro(macros);
           } catch (Exception e) {
             throw new OpenRtbConverterException("Error in setting bid.macro from bid.ext.macro", e);

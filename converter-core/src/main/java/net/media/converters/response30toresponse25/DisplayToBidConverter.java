@@ -16,7 +16,13 @@
 
 package net.media.converters.response30toresponse25;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
+import java.util.HashMap;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -30,18 +36,13 @@ import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
-import java.io.IOException;
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-import static org.apache.commons.lang3.StringUtils.isEmpty;
-
 public class DisplayToBidConverter implements Converter<Display, Bid> {
 
   public Bid map(Display source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(config)) return null;
+    if (isNull(source) || isNull(config)) {
+      return null;
+    }
     Bid bid = new Bid();
     enhance(source, bid, config, converterProvider);
     return bid;
@@ -52,15 +53,18 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
     Converter<Native, NativeResponse> nativeBidConverter =
         converterProvider.fetch(new Conversion<>(Native.class, NativeResponse.class));
 
-    if (isNull(source) || isNull(target) || isNull(config)) return;
+    if (isNull(source) || isNull(target) || isNull(config)) {
+      return;
+    }
 
     ObjectMapper mapper = JacksonObjectMapperUtils.getMapper();
     target.setH(source.getH());
     target.setW(source.getW());
     target.setWratio(source.getWratio());
     target.setHratio(source.getHratio());
-    if (nonNull(source.getApi()) && source.getApi().size() > 0)
+    if (nonNull(source.getApi()) && source.getApi().size() > 0) {
       target.setApi(source.getApi().iterator().next());
+    }
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
@@ -73,7 +77,9 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
     }
     target.getExt().put(CommonConstants.EVENT, source.getEvent());
     target.getExt().put(CommonConstants.MIME, source.getMime());
-    if (nonNull(source.getExt())) target.getExt().putAll(source.getExt());
+    if (nonNull(source.getExt())) {
+      target.getExt().putAll(source.getExt());
+    }
 
     if (config.getAdType(target.getId()) == AdType.NATIVE) {
       target.getExt().put(CommonConstants.NATIVE, source.get_native());
@@ -87,7 +93,9 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
             throw new OpenRtbConverterException(
                 "error occured while  serializing native response", e);
           }
-        } else target.setAdm(_native);
+        } else {
+          target.setAdm(_native);
+        }
       } else if (nonNull(source.getAdm())) {
         try {
           Native native3;

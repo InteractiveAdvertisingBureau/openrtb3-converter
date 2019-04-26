@@ -16,6 +16,7 @@
 
 package net.media.converters.request25toRequest30;
 
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -25,8 +26,6 @@ import net.media.openrtb3.Segment;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.Map;
 
 public class DataToDataConverter implements Converter<Data, net.media.openrtb3.Data> {
 
@@ -48,7 +47,9 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb3.D
   public void enhance(
       Data source, net.media.openrtb3.Data target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<net.media.openrtb25.request.Segment, Segment> segmentSegmentConverter =
         converterProvider.fetch(
             new Conversion<>(net.media.openrtb25.request.Segment.class, Segment.class));

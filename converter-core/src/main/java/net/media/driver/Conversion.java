@@ -16,7 +16,9 @@
 
 package net.media.driver;
 
-/** @author shiva.b */
+/**
+ * @author shiva.b
+ */
 public class Conversion<U, V> {
 
   private Class<U> source;
@@ -46,14 +48,21 @@ public class Conversion<U, V> {
   }
 
   public boolean equals(Object o) {
-    if (o == this) return true;
-    if (!(o instanceof Conversion)) return false;
+    if (o == this) {
+      return true;
+    }
+    if (!(o instanceof Conversion)) {
+      return false;
+    }
     final Conversion other = (Conversion) o;
-    if (!other.canEqual(this)) return false;
+    if (!other.canEqual(this)) {
+      return false;
+    }
     final Object this$source = this.getSource();
     final Object other$source = other.getSource();
-    if (this$source == null ? other$source != null : !this$source.equals(other$source))
+    if (this$source == null ? other$source != null : !this$source.equals(other$source)) {
       return false;
+    }
     final Object this$target = this.getTarget();
     final Object other$target = other.getTarget();
     return this$target == null ? other$target == null : this$target.equals(other$target);

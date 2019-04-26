@@ -16,11 +16,12 @@
 
 package net.media;
 
+import java.util.Map;
 import net.media.config.Config;
 
-import java.util.Map;
-
-/** Created by rajat.go on 09/01/19. */
+/**
+ * Created by rajat.go on 09/01/19.
+ */
 public class TestPojo {
 
   private String inputType;

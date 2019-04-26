@@ -16,6 +16,9 @@
 
 package net.media.converters.request25toRequest30;
 
+import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -27,10 +30,6 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
-
-import java.util.Map;
-
-import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 
 public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.Site> {
 
@@ -52,7 +51,9 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
   public void enhance(
       Site source, net.media.openrtb3.Site target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter =
         converterProvider.fetch(
             new Conversion<>(Publisher.class, net.media.openrtb3.Publisher.class));
@@ -79,7 +80,9 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
     if (map != null) {
       target.setExt(MapUtils.copyMap(map, config));
     }
-    if (source.getExt() == null) return;
+    if (source.getExt() == null) {
+      return;
+    }
     try {
       if (source.getExt().containsKey(CommonConstants.CATTAX)) {
         target.setCattax((Integer) source.getExt().get(CommonConstants.CATTAX));

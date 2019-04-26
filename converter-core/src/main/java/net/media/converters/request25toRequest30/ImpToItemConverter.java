@@ -16,7 +16,14 @@
 
 package net.media.converters.request25toRequest30;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
 import com.fasterxml.jackson.databind.JavaType;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
@@ -24,32 +31,32 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Audio;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Deal;
-import net.media.openrtb25.request.*;
+import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.Metric;
 import net.media.openrtb25.request.Native;
+import net.media.openrtb25.request.Pmp;
 import net.media.openrtb25.request.Video;
-import net.media.openrtb3.*;
+import net.media.openrtb3.AudioPlacement;
+import net.media.openrtb3.DisplayPlacement;
+import net.media.openrtb3.EventSpec;
+import net.media.openrtb3.Item;
+import net.media.openrtb3.Placement;
+import net.media.openrtb3.Spec;
+import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.TreeMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-
-/** Created by rajat.go on 03/01/19. */
+/**
+ * Created by rajat.go on 03/01/19.
+ */
 public class ImpToItemConverter implements Converter<Imp, Item> {
 
-  private static final JavaType javaTypeForEventSpecCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, EventSpec.class);
+  private static final JavaType javaTypeForEventSpecCollection = JacksonObjectMapperUtils
+      .getMapper().getTypeFactory()
+      .constructCollectionType(Collection.class, EventSpec.class);
 
   @Override
   public Item map(Imp imp, Config config, Provider converterProvider)
@@ -166,8 +173,9 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
           displayPlacement.setAmpren((Integer) imp.getExt().get("ampren"));
         }
         if (imp.getExt().containsKey("event")) {
-          displayPlacement.setEvent(JacksonObjectMapperUtils.getMapper().convertValue(imp.getExt().get("event"),
-            javaTypeForEventSpecCollection));
+          displayPlacement
+              .setEvent(JacksonObjectMapperUtils.getMapper().convertValue(imp.getExt().get("event"),
+                  javaTypeForEventSpecCollection));
         }
       }
     } catch (ClassCastException e) {
@@ -181,7 +189,8 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     mappingTarget.setDisplay(displayPlacement);
     if (nonNull(mappingTarget.getDisplay())) {
       mappingTarget.getDisplay().setClktype(imp.getClickbrowser());
-      mappingTarget.getDisplay().setIfrbust(CollectionUtils.copyCollection(imp.getIframebuster(), config));
+      mappingTarget.getDisplay()
+          .setIfrbust(CollectionUtils.copyCollection(imp.getIframebuster(), config));
       mappingTarget.getDisplay().setInstl(imp.getInstl());
     }
   }
