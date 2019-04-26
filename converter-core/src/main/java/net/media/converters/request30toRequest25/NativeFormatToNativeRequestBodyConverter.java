@@ -26,7 +26,6 @@ import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.NativeFormat;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -34,7 +33,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.fetchFromExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
@@ -71,10 +69,26 @@ public class NativeFormatToNativeRequestBodyConverter
     if (isNull(nativeFormat) || isNull(nativeRequestBody)) {
       return;
     }
-    fetchFromExt(nativeRequestBody::setContextsubtype, nativeFormat.getExt(), CommonConstants.CONTEXTSUBTYPE, "error while mapping ext for DisplayPlacement");
-    fetchFromExt(nativeRequestBody::setAdunit, nativeFormat.getExt(), CommonConstants.ADUNIT, "error while mapping ext for DisplayPlacement");
-    fetchFromExt(nativeRequestBody::setLayout, nativeFormat.getExt(), CommonConstants.LAYOUT, "error while mapping ext for DisplayPlacement");
-    fetchFromExt(nativeRequestBody::setVer, nativeFormat.getExt(), CommonConstants.VER, "error while mapping ext for DisplayPlacement");
+    fetchFromExt(
+      nativeRequestBody::setContextsubtype,
+      nativeFormat.getExt(),
+      CommonConstants.CONTEXTSUBTYPE,
+      "error while mapping ext for DisplayPlacement");
+    fetchFromExt(
+      nativeRequestBody::setAdunit,
+      nativeFormat.getExt(),
+      CommonConstants.ADUNIT,
+      "error while mapping ext for DisplayPlacement");
+    fetchFromExt(
+      nativeRequestBody::setLayout,
+      nativeFormat.getExt(),
+      CommonConstants.LAYOUT,
+      "error while mapping ext for DisplayPlacement");
+    fetchFromExt(
+      nativeRequestBody::setVer,
+      nativeFormat.getExt(),
+      CommonConstants.VER,
+      "error while mapping ext for DisplayPlacement");
     nativeRequestBody.setExt(new HashMap<>(nativeFormat.getExt()));
     Converter<AssetFormat, Asset> assetFormatAssetConverter =
         converterProvider.fetch(new Conversion<>(AssetFormat.class, Asset.class));

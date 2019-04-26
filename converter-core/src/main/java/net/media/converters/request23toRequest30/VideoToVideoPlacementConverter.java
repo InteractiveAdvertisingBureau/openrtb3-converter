@@ -26,7 +26,6 @@ import net.media.utils.Provider;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.fetchFromExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
@@ -50,11 +49,31 @@ public class VideoToVideoPlacementConverter
     if (video == null || videoPlacement == null) {
       return;
     }
-    fetchFromExt(video::setPlacement, video.getExt(), CommonConstants.PLACEMENT, "Error in setting placement from video.ext.placement");
-    fetchFromExt(video::setPlaybackend, video.getExt(), CommonConstants.PLAYBACKEND, "Error in setting playbackend from video.ext.playbackend");
-    fetchFromExt(video::setSkip, video.getExt(), CommonConstants.SKIP, "Error in setting skip from video.ext.skip");
-    fetchFromExt(video::setSkipmin, video.getExt(), CommonConstants.SKIPMIN, "Error in setting skipmin from video.ext.skipmin");
-    fetchFromExt(video::setSkipafter, video.getExt(), CommonConstants.SKIPAFTER, "Error in setting skipafter from video.ext.skipafter");
+    fetchFromExt(
+      video::setPlacement,
+      video.getExt(),
+      CommonConstants.PLACEMENT,
+      "Error in setting placement from video.ext.placement");
+    fetchFromExt(
+      video::setPlaybackend,
+      video.getExt(),
+      CommonConstants.PLAYBACKEND,
+      "Error in setting playbackend from video.ext.playbackend");
+    fetchFromExt(
+      video::setSkip,
+      video.getExt(),
+      CommonConstants.SKIP,
+      "Error in setting skip from video.ext.skip");
+    fetchFromExt(
+      video::setSkipmin,
+      video.getExt(),
+      CommonConstants.SKIPMIN,
+      "Error in setting skipmin from video.ext.skipmin");
+    fetchFromExt(
+      video::setSkipafter,
+      video.getExt(),
+      CommonConstants.SKIPAFTER,
+      "Error in setting skipafter from video.ext.skipafter");
     super.enhance(video, videoPlacement, config, converterProvider);
     removeFromExt(videoPlacement.getExt(), extraFieldsInExt);
   }

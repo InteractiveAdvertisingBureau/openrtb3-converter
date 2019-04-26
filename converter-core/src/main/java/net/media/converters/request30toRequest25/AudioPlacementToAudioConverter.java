@@ -26,16 +26,13 @@ import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.Companion;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
-import static net.media.utils.ExtUtils.fetchFromExt;
-import static net.media.utils.ExtUtils.putToExt;
-import static net.media.utils.ExtUtils.removeFromExt;
+import static net.media.utils.ExtUtils.*;
 
 public class AudioPlacementToAudioConverter implements Converter<AudioPlacement, Audio> {
 
@@ -83,7 +80,11 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     if (map != null) {
       audio.setExt(new HashMap<>(map));
     }
-    fetchFromExt(audio::setStitched, map, CommonConstants.STITCHED, "error while mapping stitched from audioplacement ext");
+    fetchFromExt(
+      audio::setStitched,
+      map,
+      CommonConstants.STITCHED,
+      "error while mapping stitched from audioplacement ext");
     audio.setCompanionad(
         companionListToBannerList(audioPlacement.getComp(), config, converterProvider));
     audioPlacementToAudioAfterMapping(audioPlacement, audio);
@@ -94,8 +95,10 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     if (nonNull(audioPlacement) && nonNull(audioPlacement.getExt()) && nonNull(audio)) {
       putToExt(audioPlacement::getSkip, audio.getExt(), CommonConstants.SKIP, audio::setExt);
       putToExt(audioPlacement::getSkipmin, audio.getExt(), CommonConstants.SKIPMIN, audio::setExt);
-      putToExt(audioPlacement::getSkipafter, audio.getExt(), CommonConstants.SKIPAFTER, audio::setExt);
-      putToExt(audioPlacement::getPlaymethod, audio.getExt(), CommonConstants.PLAYMETHOD, audio::setExt);
+      putToExt(
+        audioPlacement::getSkipafter, audio.getExt(), CommonConstants.SKIPAFTER, audio::setExt);
+      putToExt(
+        audioPlacement::getPlaymethod, audio.getExt(), CommonConstants.PLAYMETHOD, audio::setExt);
       putToExt(audioPlacement::getPlayend, audio.getExt(), CommonConstants.PLAYEND, audio::setExt);
     }
   }

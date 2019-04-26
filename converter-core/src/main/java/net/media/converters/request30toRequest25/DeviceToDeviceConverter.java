@@ -23,7 +23,6 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Device;
 import net.media.openrtb3.Geo;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.OsMap;
 import net.media.utils.Provider;
 
@@ -32,9 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static net.media.utils.ExtUtils.fetchFromExt;
-import static net.media.utils.ExtUtils.putToExt;
-import static net.media.utils.ExtUtils.removeFromExt;
+import static net.media.utils.ExtUtils.*;
 
 public class DeviceToDeviceConverter
     implements Converter<Device, net.media.openrtb25.request.Device> {
@@ -104,10 +101,14 @@ public class DeviceToDeviceConverter
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    fetchFromExt(target::setFlashver, source.getExt(), CommonConstants.FLASHVER, "error while mapping flashver from device.ext");
-    putToExt(source::getXff, target.getExt(),CommonConstants.XFF, target::setExt);
-    putToExt(source::getIptr, target.getExt(),CommonConstants.IPTR, target::setExt);
-    putToExt(source::getMccmncsim, target.getExt(),CommonConstants.MCCMNCSIM, target::setExt);
+    fetchFromExt(
+      target::setFlashver,
+      source.getExt(),
+      CommonConstants.FLASHVER,
+      "error while mapping flashver from device.ext");
+    putToExt(source::getXff, target.getExt(), CommonConstants.XFF, target::setExt);
+    putToExt(source::getIptr, target.getExt(), CommonConstants.IPTR, target::setExt);
+    putToExt(source::getMccmncsim, target.getExt(), CommonConstants.MCCMNCSIM, target::setExt);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

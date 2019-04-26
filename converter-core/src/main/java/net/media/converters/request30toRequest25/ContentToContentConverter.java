@@ -26,7 +26,6 @@ import net.media.openrtb3.Producer;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -34,9 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static net.media.utils.ExtUtils.fetchFromExt;
-import static net.media.utils.ExtUtils.putToExt;
-import static net.media.utils.ExtUtils.removeFromExt;
+import static net.media.utils.ExtUtils.*;
 
 public class ContentToContentConverter
     implements Converter<Content, net.media.openrtb25.request.Content> {
@@ -108,8 +105,12 @@ public class ContentToContentConverter
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    putToExt(source::getCattax, target.getExt(),CommonConstants.CATTAX, target::setExt);
-    fetchFromExt(target::setVideoquality, source.getExt(), CommonConstants.VIDEOQUALITY, "error while setting videoquality from content ext");
+    putToExt(source::getCattax, target.getExt(), CommonConstants.CATTAX, target::setExt);
+    fetchFromExt(
+      target::setVideoquality,
+      source.getExt(),
+      CommonConstants.VIDEOQUALITY,
+      "error while setting videoquality from content ext");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

@@ -25,7 +25,6 @@ import net.media.openrtb25.request.Publisher;
 import net.media.openrtb25.request.Site;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -94,8 +93,13 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
       target.setExt(new HashMap<>(map));
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    fetchFromExt(target::setCattax, source.getExt(), CommonConstants.CATTAX, "error while mapping cattax from site");
-    fetchFromExt(target::setAmp, source.getExt(), CommonConstants.AMP, "error while mapping amp from site");
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "error while mapping cattax from site");
+    fetchFromExt(
+      target::setAmp, source.getExt(), CommonConstants.AMP, "error while mapping amp from site");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

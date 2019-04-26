@@ -27,21 +27,25 @@ import net.media.openrtb3.Media;
 import net.media.template.MacroMapper;
 import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
-import static net.media.utils.ExtUtils.fetchFromExt;
-import static net.media.utils.ExtUtils.putToExt;
-import static net.media.utils.ExtUtils.removeFromExt;
+import static net.media.utils.ExtUtils.*;
 
 /** @author shiva.b */
 public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.Bid> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+  private static final JavaType javaTypeForMacroCollection =
+    JacksonObjectMapperUtils.getMapper()
+      .getTypeFactory()
+      .constructCollectionType(Collection.class, Macro.class);
 
   static {
     extraFieldsInExt.add(CommonConstants.MACRO);
@@ -58,9 +62,6 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
     extraFieldsInExt.add(CommonConstants.EVENT);
     extraFieldsInExt.add(CommonConstants.DUR);
   }
-
-  private static final JavaType javaTypeForMacroCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Macro.class);
 
   @Override
   public net.media.openrtb3.Bid map(Bid source, Config config, Provider converterProvider)
@@ -95,7 +96,12 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       target.setExp(source.getExp());
       target.setMid(source.getAdid());
       MacroMapper.macroReplaceThreeX(target);
-      fetchFromExt(target::setMacro, source.getExt(), CommonConstants.MACRO, "Error while mapping macro from bid.ext", javaTypeForMacroCollection);
+      fetchFromExt(
+        target::setMacro,
+        source.getExt(),
+        CommonConstants.MACRO,
+        "Error while mapping macro from bid.ext",
+        javaTypeForMacroCollection);
       putToExt(source::getProtocol, target.getExt(), CommonConstants.PROTOCOL, target::setExt);
       target.setMedia(converter.map(source, config, converterProvider));
       Map<String, Object> map = source.getExt();

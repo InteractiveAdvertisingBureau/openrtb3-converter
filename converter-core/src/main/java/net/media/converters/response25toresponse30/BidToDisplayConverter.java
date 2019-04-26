@@ -36,7 +36,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Map;
 
 import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.fetchFromExt;
@@ -44,8 +43,10 @@ import static net.media.utils.ExtUtils.fetchFromExt;
 /** @author shiva.b */
 public class BidToDisplayConverter implements Converter<Bid, Display> {
 
-  private static final JavaType javaTypeForEventCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Event.class);
+  private static final JavaType javaTypeForEventCollection =
+    JacksonObjectMapperUtils.getMapper()
+      .getTypeFactory()
+      .constructCollectionType(Collection.class, Event.class);
 
   @Override
   public Display map(Bid source, Config config, Provider converterProvider)
@@ -78,7 +79,8 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
       if (source.getAdm() instanceof String) {
         try {
           NativeResponse nativeResponse =
-              JacksonObjectMapperUtils.getMapper().readValue((String) source.getAdm(), NativeResponse.class);
+            JacksonObjectMapperUtils.getMapper()
+              .readValue((String) source.getAdm(), NativeResponse.class);
           Native _native = converter.map(nativeResponse, config, converterProvider);
           if (config.getNativeResponseAsString()) target.setAdm(_native);
           else target.set_native(_native);
@@ -90,7 +92,8 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
         try {
           Native _native =
               converter.map(
-                JacksonObjectMapperUtils.getMapper().convertValue(source.getAdm(), NativeResponse.class),
+                JacksonObjectMapperUtils.getMapper()
+                  .convertValue(source.getAdm(), NativeResponse.class),
                   config,
                   converterProvider);
           if (config.getNativeResponseAsString()) target.setAdm(_native);
@@ -102,14 +105,41 @@ public class BidToDisplayConverter implements Converter<Bid, Display> {
     } else if (config.getAdType(source.getId()) == AdType.BANNER) {
       target.setAdm(source.getAdm());
     }
-    fetchFromExt(target::setCtype, source.getExt(), CommonConstants.CTYPE, "Error while mapping Ctype from Bid.ext");
-    fetchFromExt(target::setPriv, source.getExt(), CommonConstants.PRIV, "Error while mapping priv from Bid.ext");
-    fetchFromExt(target::setMime, source.getExt(), CommonConstants.MIME, "Error while mapping mime from Bid.ext");
+    fetchFromExt(
+      target::setCtype,
+      source.getExt(),
+      CommonConstants.CTYPE,
+      "Error while mapping Ctype from Bid.ext");
+    fetchFromExt(
+      target::setPriv,
+      source.getExt(),
+      CommonConstants.PRIV,
+      "Error while mapping priv from Bid.ext");
+    fetchFromExt(
+      target::setMime,
+      source.getExt(),
+      CommonConstants.MIME,
+      "Error while mapping mime from Bid.ext");
     if (config.getAdType(source.getId()) == AdType.BANNER) {
-      fetchFromExt(target::setBanner, source.getExt(), CommonConstants.BANNER, "error while mapping banner from bid.ext", Banner.class);
+      fetchFromExt(
+        target::setBanner,
+        source.getExt(),
+        CommonConstants.BANNER,
+        "error while mapping banner from bid.ext",
+        Banner.class);
     } else if (config.getAdType(source.getId()) == AdType.NATIVE) {
-      fetchFromExt(target::set_native, source.getExt(), CommonConstants.NATIVE, "error while mapping native from bid.ext", Native.class);
+      fetchFromExt(
+        target::set_native,
+        source.getExt(),
+        CommonConstants.NATIVE,
+        "error while mapping native from bid.ext",
+        Native.class);
     }
-    fetchFromExt(target::setEvent, source.getExt(), CommonConstants.EVENT, "error while mapping event from bid.ext", javaTypeForEventCollection);
+    fetchFromExt(
+      target::setEvent,
+      source.getExt(),
+      CommonConstants.EVENT,
+      "error while mapping event from bid.ext",
+      javaTypeForEventCollection);
   }
 }

@@ -26,7 +26,6 @@ import net.media.utils.Provider;
 
 import java.util.HashMap;
 
-import static java.util.Objects.compare;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.putToExt;

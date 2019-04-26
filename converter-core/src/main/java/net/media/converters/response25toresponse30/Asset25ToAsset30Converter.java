@@ -31,9 +31,7 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
-import static net.media.utils.ExtUtils.fetchFromExt;
-import static net.media.utils.ExtUtils.putToExt;
-import static net.media.utils.ExtUtils.removeFromExt;
+import static net.media.utils.ExtUtils.*;
 
 /** @author shiva.b */
 public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset> {
@@ -77,7 +75,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     Converter<Link, LinkAsset> converter =
         converterProvider.fetch(new Conversion<>(Link.class, LinkAsset.class));
     target.setLink(converter.map(source.getLink(), config, converterProvider));
-    if(nonNull(source.getExt())) {
+    if (nonNull(source.getExt())) {
       target.setExt(new HashMap<>(source.getExt()));
     }
   }
@@ -88,15 +86,23 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
       return null;
     }
     DataAsset dataAsset = new DataAsset();
-    if(nonNull(nativeData.getExt())) {
+    if (nonNull(nativeData.getExt())) {
       dataAsset.setExt(new HashMap<>(nativeData.getExt()));
     }
     List<String> value = new ArrayList<>();
     value.add(nativeData.getValue());
     dataAsset.setValue(value);
-    fetchFromExt(dataAsset::setType, nativeData.getExt(), CommonConstants.TYPE, "Error while mapping type from nativedata");
-    fetchFromExt(dataAsset::setLen, nativeData.getExt(), CommonConstants.LEN, "Error while mapping len from nativedata");
-    if(isNull(dataAsset.getExt())) {
+    fetchFromExt(
+      dataAsset::setType,
+      nativeData.getExt(),
+      CommonConstants.TYPE,
+      "Error while mapping type from nativedata");
+    fetchFromExt(
+      dataAsset::setLen,
+      nativeData.getExt(),
+      CommonConstants.LEN,
+      "Error while mapping len from nativedata");
+    if (isNull(dataAsset.getExt())) {
       dataAsset.setExt(new HashMap<>());
     }
     putToExt(nativeData::getLabel, dataAsset.getExt(), CommonConstants.LABEL, dataAsset::setExt);
@@ -113,10 +119,14 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     imageAsset.setH(nativeImage.getH());
     imageAsset.setW(nativeImage.getW());
     imageAsset.setUrl(nativeImage.getUrl());
-    if(nonNull(nativeImage.getExt())) {
+    if (nonNull(nativeImage.getExt())) {
       imageAsset.setExt(new HashMap<>(nativeImage.getExt()));
     }
-    fetchFromExt(imageAsset::setType, nativeImage.getExt(), CommonConstants.TYPE, "Error while mapping type from nativeimage");
+    fetchFromExt(
+      imageAsset::setType,
+      nativeImage.getExt(),
+      CommonConstants.TYPE,
+      "Error while mapping type from nativeimage");
     removeFromExt(imageAsset.getExt(), extraFieldsInImageAssetExt);
     return imageAsset;
   }
@@ -127,11 +137,15 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
       return null;
     }
     TitleAsset titleAsset = new TitleAsset();
-    if(nonNull(nativeTitle.getExt())) {
+    if (nonNull(nativeTitle.getExt())) {
       titleAsset.setExt(new HashMap<>(nativeTitle.getExt()));
     }
     titleAsset.setText(nativeTitle.getText());
-    fetchFromExt(titleAsset::setLen, nativeTitle.getExt(), CommonConstants.LEN, "Error while mapping len from nativetitle");
+    fetchFromExt(
+      titleAsset::setLen,
+      nativeTitle.getExt(),
+      CommonConstants.LEN,
+      "Error while mapping len from nativetitle");
     removeFromExt(titleAsset.getExt(), extraFieldsInTitleAssetExt);
     return titleAsset;
   }
@@ -143,10 +157,14 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     }
     VideoAsset videoAsset = new VideoAsset();
     videoAsset.setAdm(nativeVideo.getVasttag());
-    if(nonNull(nativeVideo.getExt())) {
+    if (nonNull(nativeVideo.getExt())) {
       videoAsset.setExt(new HashMap<>(nativeVideo.getExt()));
     }
-    fetchFromExt(videoAsset::setCurl, nativeVideo.getExt(), CommonConstants.CURL, "Error while mapping curl from nativevideo");
+    fetchFromExt(
+      videoAsset::setCurl,
+      nativeVideo.getExt(),
+      CommonConstants.CURL,
+      "Error while mapping curl from nativevideo");
     removeFromExt(videoAsset.getExt(), extraFieldsInVideoAssetExt);
     return videoAsset;
   }

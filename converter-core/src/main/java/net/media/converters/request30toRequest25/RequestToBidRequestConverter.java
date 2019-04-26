@@ -27,7 +27,6 @@ import net.media.openrtb3.*;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.Collection;
@@ -122,18 +121,26 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
 
       if (source.getContext().getRestrictions() != null) {
         target.setBapp(
-            CollectionUtils.copyCollection(source.getContext().getRestrictions().getBapp(), config));
+          CollectionUtils.copyCollection(
+            source.getContext().getRestrictions().getBapp(), config));
         target.setBcat(
-            CollectionUtils.copyCollection(source.getContext().getRestrictions().getBcat(), config));
+          CollectionUtils.copyCollection(
+            source.getContext().getRestrictions().getBcat(), config));
         target.setBadv(
-            CollectionUtils.copyCollection(source.getContext().getRestrictions().getBadv(), config));
-        putToExt(source.getContext().getRestrictions()::getCattax, target.getExt(), CommonConstants.CATTAX, target::setExt);
+          CollectionUtils.copyCollection(
+            source.getContext().getRestrictions().getBadv(), config));
+        putToExt(
+          source.getContext().getRestrictions()::getCattax,
+          target.getExt(),
+          CommonConstants.CATTAX,
+          target::setExt);
         if (source.getContext().getRestrictions().getExt() != null) {
           if (target.getExt() == null) target.setExt(new HashMap<>());
           Restrictions restrictions = new Restrictions();
           restrictions.setCattax(null);
           restrictions.setExt(source.getContext().getRestrictions().getExt());
-          putToExt(restrictions, target.getExt(), CommonConstants.RESTRICTIONS, target::setExt);
+          putToExt(
+            () -> restrictions, target.getExt(), CommonConstants.RESTRICTIONS, target::setExt);
         }
       }
 

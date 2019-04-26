@@ -93,8 +93,16 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
       target.setExt(new HashMap<>(map));
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    fetchFromExt(target::setCattax, source.getExt(), CommonConstants.CATTAX, "error while typecasting ext for app");
-    fetchFromExt(target::setStoreid, source.getExt(), CommonConstants.STOREID, "error while typecasting ext for app");
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "error while typecasting ext for app");
+    fetchFromExt(
+      target::setStoreid,
+      source.getExt(),
+      CommonConstants.STOREID,
+      "error while typecasting ext for app");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

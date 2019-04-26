@@ -39,7 +39,7 @@ public class TestPojo {
 
   private Config params;
 
-  private Map<String,Object> overRidingMap;
+  private Map<String, Object> overRidingMap;
 
   public String getInputType() {
     return this.inputType;

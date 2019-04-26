@@ -21,8 +21,6 @@ import net.media.converters.Converter;
 import net.media.driver.Conversion;
 import net.media.driver.OpenRtbConverter;
 import net.media.utils.JacksonObjectMapper;
-import net.media.utils.JacksonObjectMapperUtils;
-
 import org.skyscreamer.jsonassert.JSONAssert;
 
 import java.util.Map;
@@ -62,17 +60,19 @@ public class ORTBTester<U, V> {
     U bidRequest;
     V converted = null;
     try {
-      if(initconfig != null) {
+      if (initconfig != null) {
         OpenRtbConverter tempOpenRtbConverter = new OpenRtbConverter(initconfig);
         bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
-        converted = tempOpenRtbConverter.convert(config, bidRequest, sourceClass, targetClass,overRider);
+        converted =
+          tempOpenRtbConverter.convert(config, bidRequest, sourceClass, targetClass, overRider);
         JSONAssert.assertEquals(
-          JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+",""),
-          JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+",""),
+          JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""),
+          JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""),
           true);
       } else {
         bidRequest = JacksonObjectMapper.getMapper().convertValue(source, sourceClass);
-        converted = openRtbConverter.convert(config, bidRequest, sourceClass, targetClass,overRider);
+        converted =
+          openRtbConverter.convert(config, bidRequest, sourceClass, targetClass, overRider);
         JSONAssert.assertEquals(
           JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""),
           JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""),
@@ -90,8 +90,10 @@ public class ORTBTester<U, V> {
 
       if (!inputPojo.getOutputEdits().containsKey("status")
           || !inputPojo.getOutputEdits().get("status").equals("ERROR")) {
-        System.out.println(JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""));
-        System.out.println(JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""));
+        System.out.println(
+          JacksonObjectMapper.getMapper().writeValueAsString(target).replaceAll("\\s+", ""));
+        System.out.println(
+          JacksonObjectMapper.getMapper().writeValueAsString(converted).replaceAll("\\s+", ""));
         testOutput.getFailedTestList().add(outputTestPojo);
       }
     }

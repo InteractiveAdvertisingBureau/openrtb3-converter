@@ -19,14 +19,11 @@ package net.media.driver;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
-import net.media.openrtb3.App;
-import net.media.openrtb3.Publisher;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 import net.media.utils.validator.ValidatorUtils;
 
 import javax.naming.ConfigurationException;
-import java.util.HashMap;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
@@ -51,7 +48,7 @@ import static java.util.Objects.isNull;
  *       {@link #config} for that particular call
  *   <li>{@link #enhance(Object, Object, Class, Class)} uses {@link #enhance(Config, Object, Object,
  *       Class, Class)} without overriding config
- *  </ul>
+ * </ul>
  *
  * @author shiva.b
  * @since 1.0
@@ -66,7 +63,6 @@ public class OpenRtbConverter {
     this.config = config;
     converterManager = new ConverterManager();
   }
-
 
   public <U, V> V convert(
       Config overridingConfig, U source, Class<U> sourceClass, Class<V> targetClass)

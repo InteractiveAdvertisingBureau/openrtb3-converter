@@ -21,7 +21,6 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Geo;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -75,8 +74,12 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.req
     target.setUtcoffset(source.getUtcoffset());
     target.setLastfix(source.getLastfix());
     Map<String, Object> map = source.getExt();
-    fetchFromExt(target::setRegionfips104, source.getExt(), CommonConstants.REGIONFIPS_104, "error while mapping regionfips104 from geo.ext");
-    if(nonNull(map)){
+    fetchFromExt(
+      target::setRegionfips104,
+      source.getExt(),
+      CommonConstants.REGIONFIPS_104,
+      "error while mapping regionfips104 from geo.ext");
+    if (nonNull(map)) {
       target.setExt(new HashMap<>(map));
     }
     removeFromExt(target.getExt(), extraFieldsInExt);

@@ -21,7 +21,6 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Source;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -29,9 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static net.media.utils.ExtUtils.fetchFromExt;
-import static net.media.utils.ExtUtils.putToExt;
-import static net.media.utils.ExtUtils.removeFromExt;
+import static net.media.utils.ExtUtils.*;
 
 public class SourceToSourceConverter
     implements Converter<Source, net.media.openrtb25.request.Source> {
@@ -77,7 +74,8 @@ public class SourceToSourceConverter
     putToExt(source::getDsmap, target.getExt(), CommonConstants.DSMAP, target::setExt);
     putToExt(source::getCert, target.getExt(), CommonConstants.CERT, target::setExt);
     putToExt(source::getDigest, target.getExt(), CommonConstants.DIGEST, target::setExt);
-    fetchFromExt(target::setFd, source.getExt(), CommonConstants.FD, "error while mapping fd from Source");
+    fetchFromExt(
+      target::setFd, source.getExt(), CommonConstants.FD, "error while mapping fd from Source");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

@@ -21,7 +21,6 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Regs;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -66,7 +65,11 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.R
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    fetchFromExt(target::setGdpr, source.getExt(), CommonConstants.GDPR, "error while mapping gdpr from Regs");
+    fetchFromExt(
+      target::setGdpr,
+      source.getExt(),
+      CommonConstants.GDPR,
+      "error while mapping gdpr from Regs");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

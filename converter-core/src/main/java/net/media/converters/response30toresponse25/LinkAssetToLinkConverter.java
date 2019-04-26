@@ -21,7 +21,6 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.nativeresponse.Link;
 import net.media.openrtb3.LinkAsset;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -49,7 +48,7 @@ public class LinkAssetToLinkConverter implements Converter<LinkAsset, Link> {
     target.setUrl(source.getUrl());
     target.setFallback(source.getUrlfb());
     target.setClicktrackers(source.getTrkr());
-    if(nonNull(source.getExt())) {
+    if (nonNull(source.getExt())) {
       target.setExt(new HashMap<>(source.getExt()));
     }
   }

@@ -25,7 +25,6 @@ import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.*;
@@ -75,8 +74,8 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
         if (!CollectionUtils.isEmpty(displayFormat.getExpdir())) {
-          Collection<Integer> formatExpdir = CollectionUtils.copyCollection(displayFormat.getExpdir(),
-            config);
+          Collection<Integer> formatExpdir =
+            CollectionUtils.copyCollection(displayFormat.getExpdir(), config);
           if (isNull(banner.getExpdir())) {
             banner.setExpdir(formatExpdir);
           } else {
@@ -101,16 +100,42 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     Map<String, Object> map = displayPlacement.getExt();
     if (map != null) {
       banner.setExt(new HashMap<>(map));
-      fetchCollectionFromExt(banner::setBtype, map, CommonConstants.BTYPE, "error while mapping btype from displayplacement.ext", config);
-      fetchFromExt(banner::setId, map, CommonConstants.ID, "error while mapping id from displayplacement.ext");
-      fetchFromExt(banner::setHmax, map, CommonConstants.HMAX, "error while mapping hmax from displayplacement.ext");
-      fetchFromExt(banner::setWmax, map, CommonConstants.WMAX, "error while mapping wmax from displayplacement.ext");
-      fetchFromExt(banner::setHmin, map, CommonConstants.HMIN, "error while mapping hmin from displayplacement.ext");
-      fetchFromExt(banner::setWmin, map, CommonConstants.WMIN, "error while mapping wmin from displayplacement.ext");
+      fetchCollectionFromExt(
+        banner::setBtype,
+        map,
+        CommonConstants.BTYPE,
+        "error while mapping btype from displayplacement.ext",
+        config);
+      fetchFromExt(
+        banner::setId,
+        map,
+        CommonConstants.ID,
+        "error while mapping id from displayplacement.ext");
+      fetchFromExt(
+        banner::setHmax,
+        map,
+        CommonConstants.HMAX,
+        "error while mapping hmax from displayplacement.ext");
+      fetchFromExt(
+        banner::setWmax,
+        map,
+        CommonConstants.WMAX,
+        "error while mapping wmax from displayplacement.ext");
+      fetchFromExt(
+        banner::setHmin,
+        map,
+        CommonConstants.HMIN,
+        "error while mapping hmin from displayplacement.ext");
+      fetchFromExt(
+        banner::setWmin,
+        map,
+        CommonConstants.WMIN,
+        "error while mapping wmin from displayplacement.ext");
     }
     putToExt(displayPlacement::getUnit, banner.getExt(), CommonConstants.UNIT, banner::setExt);
     putToExt(displayPlacement::getPtype, banner.getExt(), CommonConstants.PTYPE, banner::setExt);
-    putToExt(displayPlacement::getContext, banner.getExt(), CommonConstants.CONTEXT, banner::setExt);
+    putToExt(
+      displayPlacement::getContext, banner.getExt(), CommonConstants.CONTEXT, banner::setExt);
     putToExt(displayPlacement::getCtype, banner.getExt(), CommonConstants.CTYPE, banner::setExt);
     putToExt(displayPlacement::getPriv, banner.getExt(), CommonConstants.PRIV, banner::setExt);
     removeFromExt(banner.getExt(), extraFieldsInExt);
@@ -145,7 +170,11 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     Map<String, Object> map = displayFormat.getExt();
     if (map != null) {
       format.setExt(new HashMap<>(map));
-      fetchFromExt(format::setWmin, map, CommonConstants.WMIN, "error while mapping wmin from displayformat.ext");
+      fetchFromExt(
+        format::setWmin,
+        map,
+        CommonConstants.WMIN,
+        "error while mapping wmin from displayformat.ext");
     }
     removeFromExt(format.getExt(), extraFieldsInFormatExt);
     return format;

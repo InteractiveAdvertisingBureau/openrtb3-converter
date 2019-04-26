@@ -16,28 +16,25 @@
 
 package net.media.converters.request30toRequest25;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
-import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.NativeRequest;
 import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.openrtb3.NativeFormat;
-import net.media.utils.JacksonObjectMapper;
 import net.media.utils.Provider;
-
-import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-public class DisplayPlacementToNativeRequestConverter implements Converter<DisplayPlacement, NativeRequest> {
+public class DisplayPlacementToNativeRequestConverter
+  implements Converter<DisplayPlacement, NativeRequest> {
 
   @Override
-  public NativeRequest map(DisplayPlacement displayPlacement, Config config, Provider converterProvider)
+  public NativeRequest map(
+    DisplayPlacement displayPlacement, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
     if (displayPlacement == null) {
       return null;
@@ -51,7 +48,12 @@ public class DisplayPlacementToNativeRequestConverter implements Converter<Displ
   }
 
   @Override
-  public void enhance(DisplayPlacement displayPlacement, NativeRequest nat, Config config, Provider converterProvider) throws OpenRtbConverterException {
+  public void enhance(
+    DisplayPlacement displayPlacement,
+    NativeRequest nat,
+    Config config,
+    Provider converterProvider)
+    throws OpenRtbConverterException {
     if (isNull(displayPlacement) || isNull(nat)) {
       return;
     }

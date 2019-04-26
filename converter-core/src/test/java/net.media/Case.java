@@ -32,8 +32,7 @@ public class Case {
   private String purpose;
   private Map<String, Object> params;
   private Map<String, Object> config;
-  private Map<String,Object> overRidingMap;
-
+  private Map<String, Object> overRidingMap;
 
   public Case() {}
 

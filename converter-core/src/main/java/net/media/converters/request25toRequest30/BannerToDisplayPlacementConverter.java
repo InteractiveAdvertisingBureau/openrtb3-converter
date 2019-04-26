@@ -25,7 +25,6 @@ import net.media.openrtb3.DisplayFormat;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.*;
@@ -80,24 +79,54 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     displayPlacement.setW(banner.getW());
     displayPlacement.setH(banner.getH());
     Map<String, Object> bannerExt = banner.getExt();
-    fetchFromExt(displayPlacement::setUnit, bannerExt, CommonConstants.UNIT, "error while setting unit from Banner.ext");
-    fetchCollectionFromExt(displayPlacement::setCtype, bannerExt, CommonConstants.CTYPE, "error while setting ctype from Banner.ext", config);
-    fetchFromExt(displayPlacement::setPtype, bannerExt, CommonConstants.PTYPE, "error while setting ptype from Banner.ext");
-    fetchFromExt(displayPlacement::setContext, bannerExt, CommonConstants.CONTEXT, "error while setting context from Banner.ext");
-    fetchFromExt(displayPlacement::setPriv, bannerExt, CommonConstants.PRIV, "error while setting priv from Banner.ext");
+    fetchFromExt(
+      displayPlacement::setUnit,
+      bannerExt,
+      CommonConstants.UNIT,
+      "error while setting unit from Banner.ext");
+    fetchCollectionFromExt(
+      displayPlacement::setCtype,
+      bannerExt,
+      CommonConstants.CTYPE,
+      "error while setting ctype from Banner.ext",
+      config);
+    fetchFromExt(
+      displayPlacement::setPtype,
+      bannerExt,
+      CommonConstants.PTYPE,
+      "error while setting ptype from Banner.ext");
+    fetchFromExt(
+      displayPlacement::setContext,
+      bannerExt,
+      CommonConstants.CONTEXT,
+      "error while setting context from Banner.ext");
+    fetchFromExt(
+      displayPlacement::setPriv,
+      bannerExt,
+      CommonConstants.PRIV,
+      "error while setting priv from Banner.ext");
 
     if (isNull(displayPlacement.getExt())) {
       displayPlacement.setExt(new HashMap<>(bannerExt));
     }
-    if (nonNull(bannerExt)){
+    if (nonNull(bannerExt)) {
       displayPlacement.getExt().putAll(bannerExt);
     }
-    putToExt(banner::getBtype,displayPlacement.getExt(),CommonConstants.BTYPE, displayPlacement::setExt);
-    putToExt(banner::getId,displayPlacement.getExt(),CommonConstants.ID, displayPlacement::setExt);
-    putToExt(banner::getHmax,displayPlacement.getExt(),CommonConstants.HMAX, displayPlacement::setExt);
-    putToExt(banner::getHmin,displayPlacement.getExt(),CommonConstants.HMIN, displayPlacement::setExt);
-    putToExt(banner::getWmax,displayPlacement.getExt(),CommonConstants.WMAX, displayPlacement::setExt);
-    putToExt(banner::getWmin,displayPlacement.getExt(),CommonConstants.WMIN, displayPlacement::setExt);
+    putToExt(
+      banner::getBtype,
+      displayPlacement.getExt(),
+      CommonConstants.BTYPE,
+      displayPlacement::setExt);
+    putToExt(
+      banner::getId, displayPlacement.getExt(), CommonConstants.ID, displayPlacement::setExt);
+    putToExt(
+      banner::getHmax, displayPlacement.getExt(), CommonConstants.HMAX, displayPlacement::setExt);
+    putToExt(
+      banner::getHmin, displayPlacement.getExt(), CommonConstants.HMIN, displayPlacement::setExt);
+    putToExt(
+      banner::getWmax, displayPlacement.getExt(), CommonConstants.WMAX, displayPlacement::setExt);
+    putToExt(
+      banner::getWmin, displayPlacement.getExt(), CommonConstants.WMIN, displayPlacement::setExt);
     removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
   }
 
@@ -129,7 +158,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     }
 
     DisplayFormat displayFormat = new DisplayFormat();
-    if(nonNull(format.getExt())) {
+    if (nonNull(format.getExt())) {
       displayFormat.setExt(new HashMap<>(format.getExt()));
     }
     displayFormat.setW(format.getW());
@@ -142,7 +171,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
       }
       displayFormat.getExt().put(CommonConstants.WMIN, format.getWmin());
     }
-    putToExt(format::getWmin,displayFormat.getExt(),CommonConstants.WMIN, displayFormat::setExt);
+    putToExt(format::getWmin, displayFormat.getExt(), CommonConstants.WMIN, displayFormat::setExt);
 
     return displayFormat;
   }

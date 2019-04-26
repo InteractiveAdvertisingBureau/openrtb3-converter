@@ -23,7 +23,6 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Device;
 import net.media.openrtb25.request.Geo;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.OsMap;
 import net.media.utils.Provider;
 
@@ -32,9 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static net.media.utils.ExtUtils.fetchFromExt;
-import static net.media.utils.ExtUtils.putToExt;
-import static net.media.utils.ExtUtils.removeFromExt;
+import static net.media.utils.ExtUtils.*;
 
 public class DeviceToDeviceConverter implements Converter<Device, net.media.openrtb3.Device> {
 
@@ -45,6 +42,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     extraFieldsInExt.add(CommonConstants.IPTR);
     extraFieldsInExt.add(CommonConstants.MCCMNCSIM);
   }
+
   @Override
   public net.media.openrtb3.Device map(Device source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -103,9 +101,18 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     if (source.getExt() == null) {
       return;
     }
-    fetchFromExt(target::setXff, source.getExt(), CommonConstants.XFF, "error while mapping xff for Device");
-    fetchFromExt(target::setIptr, source.getExt(), CommonConstants.IPTR, "error while mapping iptr for Device");
-    fetchFromExt(target::setMccmncsim, source.getExt(), CommonConstants.MCCMNCSIM, "error while mapping mccmncsim for Device");
+    fetchFromExt(
+      target::setXff, source.getExt(), CommonConstants.XFF, "error while mapping xff for Device");
+    fetchFromExt(
+      target::setIptr,
+      source.getExt(),
+      CommonConstants.IPTR,
+      "error while mapping iptr for Device");
+    fetchFromExt(
+      target::setMccmncsim,
+      source.getExt(),
+      CommonConstants.MCCMNCSIM,
+      "error while mapping mccmncsim for Device");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

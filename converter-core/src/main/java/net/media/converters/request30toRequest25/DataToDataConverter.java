@@ -23,7 +23,6 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Data;
 import net.media.openrtb3.Segment;
 import net.media.utils.CollectionToCollectionConverter;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.HashMap;

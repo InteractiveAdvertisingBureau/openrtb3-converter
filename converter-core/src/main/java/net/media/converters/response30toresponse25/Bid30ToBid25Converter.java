@@ -24,7 +24,6 @@ import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Media;
 import net.media.template.MacroMapper;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -33,10 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-import static net.media.utils.ExtUtils.fetchFromExt;
-import static net.media.utils.ExtUtils.putToExt;
-import static net.media.utils.ExtUtils.removeFromExt;
+import static net.media.utils.ExtUtils.*;
 
 public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, Bid> {
 
@@ -88,7 +84,11 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
       putToExt(source::getMacro, target.getExt(), CommonConstants.MACRO, target::setExt);
       mediaBidConverter.enhance(source.getMedia(), target, config, converterProvider);
       MacroMapper.macroReplaceTwoX(target);
-      fetchFromExt(target::setProtocol, source.getExt(), CommonConstants.PROTOCOL, "error while mapping protocol from Bid.ext");
+      fetchFromExt(
+        target::setProtocol,
+        source.getExt(),
+        CommonConstants.PROTOCOL,
+        "error while mapping protocol from Bid.ext");
     }
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

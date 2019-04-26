@@ -25,7 +25,6 @@ import net.media.openrtb3.Geo;
 import net.media.openrtb3.User;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.HashMap;

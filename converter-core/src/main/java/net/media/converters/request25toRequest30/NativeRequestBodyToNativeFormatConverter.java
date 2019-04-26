@@ -26,12 +26,10 @@ import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.NativeFormat;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
 
-import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.putToExt;
 
@@ -61,13 +59,29 @@ public class NativeRequestBodyToNativeFormatConverter
     if (nativeRequestBody == null || nativeFormat == null) {
       return;
     }
-    if(nonNull(nativeRequestBody.getExt())) {
+    if (nonNull(nativeRequestBody.getExt())) {
       nativeFormat.setExt(new HashMap<>(nativeRequestBody.getExt()));
     }
-    putToExt(nativeRequestBody::getContextsubtype, nativeFormat.getExt(), CommonConstants.CONTEXTSUBTYPE, nativeFormat::setExt);
-    putToExt(nativeRequestBody::getAdunit, nativeFormat.getExt(), CommonConstants.ADUNIT, nativeFormat::setExt);
-    putToExt(nativeRequestBody::getLayout, nativeFormat.getExt(), CommonConstants.LAYOUT, nativeFormat::setExt);
-    putToExt(nativeRequestBody::getVer, nativeFormat.getExt(), CommonConstants.VER, nativeFormat::setExt);
+    putToExt(
+      nativeRequestBody::getContextsubtype,
+      nativeFormat.getExt(),
+      CommonConstants.CONTEXTSUBTYPE,
+      nativeFormat::setExt);
+    putToExt(
+      nativeRequestBody::getAdunit,
+      nativeFormat.getExt(),
+      CommonConstants.ADUNIT,
+      nativeFormat::setExt);
+    putToExt(
+      nativeRequestBody::getLayout,
+      nativeFormat.getExt(),
+      CommonConstants.LAYOUT,
+      nativeFormat::setExt);
+    putToExt(
+      nativeRequestBody::getVer,
+      nativeFormat.getExt(),
+      CommonConstants.VER,
+      nativeFormat::setExt);
     Converter<Asset, AssetFormat> assetAssetFormatConverter =
         converterProvider.fetch(new Conversion<>(Asset.class, AssetFormat.class));
     nativeFormat.setAsset(

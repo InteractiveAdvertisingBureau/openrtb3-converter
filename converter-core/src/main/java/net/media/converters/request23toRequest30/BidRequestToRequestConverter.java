@@ -22,12 +22,10 @@ import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Source;
 import net.media.openrtb3.Request;
 import net.media.utils.CommonConstants;
-import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Collection;
 
 import static net.media.utils.ExtUtils.fetchFromExt;
 import static net.media.utils.ExtUtils.removeFromExt;
@@ -51,10 +49,27 @@ public class BidRequestToRequestConverter
     if (source == null || target == null) {
       return;
     }
-    fetchFromExt(source::setBseat, source.getExt(), CommonConstants.BSEAT, "Error in setting bseat from bidRequest.ext.bseat");
-    fetchFromExt(source::setWlang, source.getExt(), CommonConstants.WLANG, "Error in setting wlang from bidRequest.ext.wlang");
-    fetchFromExt(source::setSource, source.getExt(), CommonConstants.SOURCE, "Error in setting source from bidRequest.ext.source", Source.class);
-    fetchFromExt(source::setBapp, source.getExt(), CommonConstants.BAPP, "Error in setting bapp from bidRequest.ext.bapp");
+    fetchFromExt(
+      source::setBseat,
+      source.getExt(),
+      CommonConstants.BSEAT,
+      "Error in setting bseat from bidRequest.ext.bseat");
+    fetchFromExt(
+      source::setWlang,
+      source.getExt(),
+      CommonConstants.WLANG,
+      "Error in setting wlang from bidRequest.ext.wlang");
+    fetchFromExt(
+      source::setSource,
+      source.getExt(),
+      CommonConstants.SOURCE,
+      "Error in setting source from bidRequest.ext.source",
+      Source.class);
+    fetchFromExt(
+      source::setBapp,
+      source.getExt(),
+      CommonConstants.BAPP,
+      "Error in setting bapp from bidRequest.ext.bapp");
     super.enhance(source, target, config, converterProvider);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

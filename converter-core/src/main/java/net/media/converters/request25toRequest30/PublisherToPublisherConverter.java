@@ -22,7 +22,6 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Publisher;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -45,7 +44,8 @@ public class PublisherToPublisherConverter
 
   @Override
   public net.media.openrtb3.Publisher map(
-      Publisher source, Config config, Provider converterProvider) throws OpenRtbConverterException {
+    Publisher source, Config config, Provider converterProvider)
+    throws OpenRtbConverterException {
     if (source == null) {
       return null;
     }
@@ -59,10 +59,11 @@ public class PublisherToPublisherConverter
 
   @Override
   public void enhance(
-      Publisher source,
-      net.media.openrtb3.Publisher target,
-      Config config,
-      Provider converterProvider) throws OpenRtbConverterException {
+    Publisher source,
+    net.media.openrtb3.Publisher target,
+    Config config,
+    Provider converterProvider)
+    throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }
@@ -75,7 +76,11 @@ public class PublisherToPublisherConverter
       target.setExt(new HashMap<>(map));
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    fetchFromExt(target::setCattax, source.getExt(), CommonConstants.CATTAX, "error while mapping cattax from publisher");
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "error while mapping cattax from publisher");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

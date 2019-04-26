@@ -31,7 +31,6 @@ import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -84,13 +83,21 @@ public class Native30ToNative10Converter implements Converter<Native, NativeResp
     nativeResponseBody.setAsset(assetResponseList);
     nativeResponseBody.setLink(
         linkAssetLinkConverter.map(source.getLink(), config, converterProvider));
-    if(isNull(source.getExt())) {
+    if (isNull(source.getExt())) {
       nativeResponseBody.setExt(new HashMap<>());
     } else {
       nativeResponseBody.setExt(new HashMap<>(source.getExt()));
     }
-    fetchFromExt(nativeResponseBody::setJstracker, source.getExt(), CommonConstants.JS_TRACKER, "error while mapping jstracker from native.ext");
-    fetchFromExt(nativeResponseBody::setImptrackers, source.getExt(), CommonConstants.IMP_TRACKERS, "error while mapping imptrackers from native.ext");
+    fetchFromExt(
+      nativeResponseBody::setJstracker,
+      source.getExt(),
+      CommonConstants.JS_TRACKER,
+      "error while mapping jstracker from native.ext");
+    fetchFromExt(
+      nativeResponseBody::setImptrackers,
+      source.getExt(),
+      CommonConstants.IMP_TRACKERS,
+      "error while mapping imptrackers from native.ext");
     removeFromExt(nativeResponseBody.getExt(), extraFieldsInNativeResponseBodyExt);
     target.setNativeResponseBody(nativeResponseBody);
   }

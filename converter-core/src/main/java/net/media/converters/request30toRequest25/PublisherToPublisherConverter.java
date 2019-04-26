@@ -21,13 +21,11 @@ import net.media.converters.Converter;
 import net.media.openrtb3.Publisher;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.putToExt;
 
 public class PublisherToPublisherConverter

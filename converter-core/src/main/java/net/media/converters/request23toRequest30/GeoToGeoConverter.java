@@ -25,7 +25,6 @@ import net.media.utils.Provider;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.fetchFromExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
@@ -46,9 +45,21 @@ public class GeoToGeoConverter extends net.media.converters.request25toRequest30
     if (source == null || target == null) {
       return;
     }
-    fetchFromExt(source::setAccuracy, source.getExt(), CommonConstants.ACCURACY, "Error in setting accuracy from geo.ext.accuracy");
-    fetchFromExt(source::setLastfix, source.getExt(), CommonConstants.LASTFIX, "Error in setting lastfix from geo.ext.lastfix");
-    fetchFromExt(source::setIpservice, source.getExt(), CommonConstants.IPSERVICE, "Error in setting ipservice from geo.ext.ipservice");
+    fetchFromExt(
+      source::setAccuracy,
+      source.getExt(),
+      CommonConstants.ACCURACY,
+      "Error in setting accuracy from geo.ext.accuracy");
+    fetchFromExt(
+      source::setLastfix,
+      source.getExt(),
+      CommonConstants.LASTFIX,
+      "Error in setting lastfix from geo.ext.lastfix");
+    fetchFromExt(
+      source::setIpservice,
+      source.getExt(),
+      CommonConstants.IPSERVICE,
+      "Error in setting ipservice from geo.ext.ipservice");
     super.enhance(source, target, config, converterProvider);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

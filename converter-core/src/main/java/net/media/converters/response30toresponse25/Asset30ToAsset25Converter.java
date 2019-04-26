@@ -23,7 +23,6 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.nativeresponse.*;
 import net.media.openrtb3.*;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -32,9 +31,7 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
-import static net.media.utils.ExtUtils.fetchFromExt;
-import static net.media.utils.ExtUtils.putToExt;
-import static net.media.utils.ExtUtils.removeFromExt;
+import static net.media.utils.ExtUtils.*;
 
 public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse> {
 
@@ -71,7 +68,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     target.setVideo(videoAssetToNativeVideo(source.getVideo()));
     target.setTitle(tittleAssetToNativeTittle(source.getTitle()));
     target.setLink(linkAssetLinkConverter.map(source.getLink(), config, converterProvider));
-    if(nonNull(source.getExt())) {
+    if (nonNull(source.getExt())) {
       target.setExt(new HashMap<>(source.getExt()));
     }
   }
@@ -81,10 +78,14 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
       return null;
     }
     NativeData nativeData = new NativeData();
-    if(nonNull(data.getExt())){
+    if (nonNull(data.getExt())) {
       nativeData.setExt(new HashMap<>(data.getExt()));
     }
-    fetchFromExt(nativeData::setLabel, data.getExt(), CommonConstants.LABEL, "error while mapping label from data.ext");
+    fetchFromExt(
+      nativeData::setLabel,
+      data.getExt(),
+      CommonConstants.LABEL,
+      "error while mapping label from data.ext");
     if (isNull(nativeData.getExt())) {
       nativeData.setExt(new HashMap<>());
     }
@@ -102,7 +103,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
       return null;
     }
     NativeImage nativeImage = new NativeImage();
-    if(nonNull(imageAsset.getExt())) {
+    if (nonNull(imageAsset.getExt())) {
       nativeImage.setExt(new HashMap<>(imageAsset.getExt()));
     }
     nativeImage.setH(imageAsset.getH());
@@ -120,7 +121,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
       return null;
     }
     NativeVideo nativeVideo = new NativeVideo();
-    if(nonNull(videoAsset.getExt())) {
+    if (nonNull(videoAsset.getExt())) {
       nativeVideo.setExt(new HashMap<>(videoAsset.getExt()));
     }
     nativeVideo.setVasttag(videoAsset.getAdm());
@@ -136,7 +137,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
       return null;
     }
     NativeTitle nativeTitle = new NativeTitle();
-    if(nonNull(titleAsset.getExt())) {
+    if (nonNull(titleAsset.getExt())) {
       nativeTitle.setExt(new HashMap<>(titleAsset.getExt()));
     }
     nativeTitle.setText(titleAsset.getText());

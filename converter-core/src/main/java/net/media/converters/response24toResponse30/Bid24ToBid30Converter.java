@@ -26,7 +26,6 @@ import net.media.utils.Provider;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.fetchFromExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
@@ -51,12 +50,36 @@ public class Bid24ToBid30Converter extends Bid25ToBid30Converter {
       return;
     }
 
-    fetchFromExt(source::setBurl, source.getExt(), CommonConstants.BURL, "Failed while mapping burl from bid");
-    fetchFromExt(source::setLurl, source.getExt(), CommonConstants.LURL, "Failed while mapping lurl from bid");
-    fetchFromExt(source::setTactic, source.getExt(), CommonConstants.TACTIC, "Failed while mapping tactic from bid");
-    fetchFromExt(source::setLanguage, source.getExt(), CommonConstants.LANGUAGE, "Failed while mapping language from bid");
-    fetchFromExt(source::setWratio, source.getExt(), CommonConstants.WRATIO, "Failed while mapping wratio from bid");
-    fetchFromExt(source::setHratio, source.getExt(), CommonConstants.HRATIO, "Failed while mapping hratio from bid");
+    fetchFromExt(
+      source::setBurl,
+      source.getExt(),
+      CommonConstants.BURL,
+      "Failed while mapping burl from bid");
+    fetchFromExt(
+      source::setLurl,
+      source.getExt(),
+      CommonConstants.LURL,
+      "Failed while mapping lurl from bid");
+    fetchFromExt(
+      source::setTactic,
+      source.getExt(),
+      CommonConstants.TACTIC,
+      "Failed while mapping tactic from bid");
+    fetchFromExt(
+      source::setLanguage,
+      source.getExt(),
+      CommonConstants.LANGUAGE,
+      "Failed while mapping language from bid");
+    fetchFromExt(
+      source::setWratio,
+      source.getExt(),
+      CommonConstants.WRATIO,
+      "Failed while mapping wratio from bid");
+    fetchFromExt(
+      source::setHratio,
+      source.getExt(),
+      CommonConstants.HRATIO,
+      "Failed while mapping hratio from bid");
     super.enhance(source, target, config, converterProvider);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

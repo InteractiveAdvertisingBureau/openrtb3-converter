@@ -25,9 +25,7 @@ import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -61,8 +59,20 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
       target.setApi(new ArrayList<>(Collections.singletonList(source.getApi())));
     }
     target.setCurl(source.getNurl());
-    fetchFromExt(target::setCtype, source.getExt(), CommonConstants.CTYPE, "Error while mapping ctype from bid.ext");
-    fetchFromExt(target::setDur, source.getExt(), CommonConstants.DUR, "Error while mapping dur from bid.ext");
-    fetchFromExt(target::setMime, source.getExt(), CommonConstants.MIME, "Error while mapping mime from bid.ext");
+    fetchFromExt(
+      target::setCtype,
+      source.getExt(),
+      CommonConstants.CTYPE,
+      "Error while mapping ctype from bid.ext");
+    fetchFromExt(
+      target::setDur,
+      source.getExt(),
+      CommonConstants.DUR,
+      "Error while mapping dur from bid.ext");
+    fetchFromExt(
+      target::setMime,
+      source.getExt(),
+      CommonConstants.MIME,
+      "Error while mapping mime from bid.ext");
   }
 }

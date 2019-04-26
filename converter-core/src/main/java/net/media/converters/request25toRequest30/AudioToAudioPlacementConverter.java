@@ -26,7 +26,6 @@ import net.media.openrtb3.AudioPlacement;
 import net.media.openrtb3.Companion;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -34,7 +33,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.*;
 
@@ -73,10 +71,14 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
       return;
     }
     audioPlacement.setComptype(CollectionUtils.copyCollection(audio.getCompaniontype(), config));
-    if(nonNull(audio.getExt())) {
+    if (nonNull(audio.getExt())) {
       audioPlacement.setExt(new HashMap<>(audio.getExt()));
     }
-    putToExt(audio::getStitched, audioPlacement.getExt(), CommonConstants.STITCHED, audioPlacement::setExt);
+    putToExt(
+      audio::getStitched,
+      audioPlacement.getExt(),
+      CommonConstants.STITCHED,
+      audioPlacement::setExt);
     audioPlacement.setComp(
         bannerListToCompanionList(audio.getCompanionad(), config, converterProvider));
     audioPlacement.setMaxdur(audio.getMaxduration());
@@ -115,10 +117,30 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
 
   private void audioToAudioPlacementAfterMapping(Audio audio, AudioPlacement audioPlacement)
       throws OpenRtbConverterException {
-    fetchFromExt(audioPlacement::setSkip, audio.getExt(), CommonConstants.SKIP, "Error in setting skip from Audio.ext");
-    fetchFromExt(audioPlacement::setSkipmin, audio.getExt(), CommonConstants.SKIPMIN, "Error in setting skipmin from Audio.ext");
-    fetchFromExt(audioPlacement::setSkipafter, audio.getExt(), CommonConstants.SKIPAFTER, "Error in setting skipafter from Audio.ext");
-    fetchFromExt(audioPlacement::setPlaymethod, audio.getExt(), CommonConstants.PLAYMETHOD, "Error in setting playmethod from Audio.ext");
-    fetchFromExt(audioPlacement::setPlayend, audio.getExt(), CommonConstants.PLAYEND, "Error in setting playend from Audio.ext");
+    fetchFromExt(
+      audioPlacement::setSkip,
+      audio.getExt(),
+      CommonConstants.SKIP,
+      "Error in setting skip from Audio.ext");
+    fetchFromExt(
+      audioPlacement::setSkipmin,
+      audio.getExt(),
+      CommonConstants.SKIPMIN,
+      "Error in setting skipmin from Audio.ext");
+    fetchFromExt(
+      audioPlacement::setSkipafter,
+      audio.getExt(),
+      CommonConstants.SKIPAFTER,
+      "Error in setting skipafter from Audio.ext");
+    fetchFromExt(
+      audioPlacement::setPlaymethod,
+      audio.getExt(),
+      CommonConstants.PLAYMETHOD,
+      "Error in setting playmethod from Audio.ext");
+    fetchFromExt(
+      audioPlacement::setPlayend,
+      audio.getExt(),
+      CommonConstants.PLAYEND,
+      "Error in setting playend from Audio.ext");
   }
 }

@@ -42,7 +42,7 @@ public class ConfigSupport {
   public <T> T fromJSON(String content, Class<T> configType) throws IOException {
     return jsonMapper.readValue(content, configType);
   }
-  
+
   public <T> T fromJSON(File file, Class<T> configType) throws IOException {
     return fromJSON(file, configType, null);
   }

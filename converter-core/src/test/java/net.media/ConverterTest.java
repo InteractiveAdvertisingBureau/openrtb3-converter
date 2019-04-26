@@ -20,23 +20,16 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
 import net.media.driver.OpenRtbConverter;
-import net.media.enums.OpenRtbVersion;
-import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.App;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
 import net.media.utils.JacksonObjectMapper;
-import org.json.JSONException;
 import net.media.utils.JacksonObjectMapperUtils;
-
 import org.junit.Assert;
 import org.junit.Test;
-import org.skyscreamer.jsonassert.JSONAssert;
 
-import javax.naming.ConfigurationException;
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
@@ -67,9 +60,9 @@ public class ConverterTest {
       for (File files : innerFolder) {
         totalFiles += files.listFiles().length;
         for (File file : files.listFiles()) {
-//          if(file.getName().equals("nativeResponseStringInitConfigTrue.json")==false)
-//            continue;
-          //System.out.println("file: " + file );
+          //          if(file.getName().equals("nativeResponseStringInitConfigTrue.json")==false)
+          //            continue;
+          // System.out.println("file: " + file );
           Exception exception = new Exception();
           byte[] jsonData = Files.readAllBytes(file.toPath());
           TestPojo testPojo = null;
@@ -87,15 +80,16 @@ public class ConverterTest {
             outputTestPojo.setException("Test file = " + file.getName() + " is incorrect");
             testOutput.getFailedTestList().add(outputTestPojo);*/
             OutputTestPojo outputTestPojo = new OutputTestPojo();
-            Map<String, Object> inputPojo = JacksonObjectMapper.getMapper().readValue(jsonData, Map.class);
+            Map<String, Object> inputPojo =
+              JacksonObjectMapper.getMapper().readValue(jsonData, Map.class);
             outputTestPojo.setInputFile(null);
             outputTestPojo.setStatus("FAILURE");
             outputTestPojo.setInputType((String) inputPojo.get("inputType"));
             outputTestPojo.setOutputType((String) inputPojo.get("outputType"));
             outputTestPojo.setException(exception.getMessage());
 
-            if (!((Map)inputPojo.get("outputEdits")).containsKey("status")
-              || !((Map)inputPojo.get("outputEdits")).get("status").equals("ERROR")) {
+            if (!((Map) inputPojo.get("outputEdits")).containsKey("status")
+              || !((Map) inputPojo.get("outputEdits")).get("status").equals("ERROR")) {
               testOutput.getFailedTestList().add(outputTestPojo);
             }
             continue;
@@ -103,7 +97,7 @@ public class ConverterTest {
 
           Map<Conversion, Converter> overRider = null;
 
-          if(testPojo.getOverRidingMap() != null) {
+          if (testPojo.getOverRidingMap() != null) {
             try {
               overRider = new HashMap<>();
               Map<String, Object> overRidingMap = testPojo.getOverRidingMap();
@@ -111,18 +105,15 @@ public class ConverterTest {
                 Map<String, String> tempMap = (Map<String, String>) over;
                 Class<?> src = Class.forName(tempMap.get("sourceClass"));
                 Class<?> target = Class.forName(tempMap.get("targetClass"));
-                Class<?> customConverter =Class.forName(tempMap.get("converterClass"));
-                Converter<App, App> converter1 = (Converter<App,App>)customConverter.newInstance();
+                Class<?> customConverter = Class.forName(tempMap.get("converterClass"));
+                Converter<App, App> converter1 =
+                  (Converter<App, App>) customConverter.newInstance();
                 overRider.put(new Conversion<>(src, target), converter1);
               }
-            }
-            catch(Exception e) {
+            } catch (Exception e) {
               System.out.println("Wrong Converter name provided");
             }
           }
-
-
-
 
           if (testPojo.getInputType().equalsIgnoreCase("REQUEST25")
               && testPojo.getOutputType().equalsIgnoreCase("REQUEST30")) {
@@ -134,7 +125,8 @@ public class ConverterTest {
                 testPojo.getParams(),
                 testPojo,
                 testOutput,
-                file.getName(),overRider,
+              file.getName(),
+              overRider,
                 testPojo.getConfig());
           } else if (testPojo.getInputType().equalsIgnoreCase("REQUEST30")
               && testPojo.getOutputType().equalsIgnoreCase("REQUEST25")) {
@@ -146,7 +138,8 @@ public class ConverterTest {
                 testPojo.getParams(),
                 testPojo,
                 testOutput,
-                file.getName(),overRider,
+              file.getName(),
+              overRider,
                 testPojo.getConfig());
           } else if (testPojo.getInputType().equalsIgnoreCase("RESPONSE25")
               && testPojo.getOutputType().equalsIgnoreCase("RESPONSE30")) {
@@ -158,7 +151,8 @@ public class ConverterTest {
                 testPojo.getParams(),
                 testPojo,
                 testOutput,
-                file.getName(),overRider,
+              file.getName(),
+              overRider,
                 testPojo.getConfig());
           } else if (testPojo.getInputType().equalsIgnoreCase("RESPONSE30")
               && testPojo.getOutputType().equalsIgnoreCase("RESPONSE25")) {
@@ -170,7 +164,8 @@ public class ConverterTest {
                 testPojo.getParams(),
                 testPojo,
                 testOutput,
-                file.getName(),overRider,
+              file.getName(),
+              overRider,
                 testPojo.getConfig());
           } else {
             OutputTestPojo outputTestPojo = new OutputTestPojo();

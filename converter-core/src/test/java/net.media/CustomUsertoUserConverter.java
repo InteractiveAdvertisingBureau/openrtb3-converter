@@ -30,7 +30,8 @@ import net.media.utils.Provider;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CustomUsertoUserConverter implements Converter<User, net.media.openrtb25.request.User> {
+public class CustomUsertoUserConverter
+  implements Converter<User, net.media.openrtb25.request.User> {
 
   @Override
   public net.media.openrtb25.request.User map(

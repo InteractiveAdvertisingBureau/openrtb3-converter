@@ -25,9 +25,7 @@ import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.fetchFromExt;
@@ -59,8 +57,20 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
       target.setApi(api);
     }
     target.setCurl(source.getNurl());
-    fetchFromExt(target::setCtype, source.getExt(), CommonConstants.CTYPE, "error while mapping ctype from bid.ext");
-    fetchFromExt(target::setDur, source.getExt(), CommonConstants.DUR, "error while mapping dur from bid.ext");
-    fetchFromExt(target::setMime, source.getExt(), CommonConstants.MIME, "error while mapping mime from bid.ext");
+    fetchFromExt(
+      target::setCtype,
+      source.getExt(),
+      CommonConstants.CTYPE,
+      "error while mapping ctype from bid.ext");
+    fetchFromExt(
+      target::setDur,
+      source.getExt(),
+      CommonConstants.DUR,
+      "error while mapping dur from bid.ext");
+    fetchFromExt(
+      target::setMime,
+      source.getExt(),
+      CommonConstants.MIME,
+      "error while mapping mime from bid.ext");
   }
 }

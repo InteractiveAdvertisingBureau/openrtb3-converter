@@ -28,7 +28,6 @@ import net.media.utils.Provider;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
 import static net.media.utils.ExtUtils.fetchExtFromFieldInExt;
@@ -82,7 +81,13 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_
       target.setBattr(CollectionUtils.copyCollection(battr, config));
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    fetchFromExt(target::setCattax, source.getExt(), CommonConstants.CATTAX, "error while typecasting ext for BidRequest2_X");
-    target.setExt(fetchExtFromFieldInExt(source.getExt(), CommonConstants.RESTRICTIONS, "Error in mapping ext of restriction"));
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "error while typecasting ext for BidRequest2_X");
+    target.setExt(
+      fetchExtFromFieldInExt(
+        source.getExt(), CommonConstants.RESTRICTIONS, "Error in mapping ext of restriction"));
   }
 }

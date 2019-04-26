@@ -27,7 +27,6 @@ import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.Collections;
@@ -85,7 +84,7 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     video.setDelivery(CollectionUtils.copyCollection(videoPlacement.getDelivery(), config));
     video.setPos(videoPlacement.getPos());
     video.setApi(CollectionUtils.copyCollection(videoPlacement.getApi(), config));
-    if(isNull(videoPlacement.getExt())){
+    if (isNull(videoPlacement.getExt())) {
       video.setExt(new HashMap<>());
     } else {
       video.setExt(new HashMap<>(videoPlacement.getExt()));

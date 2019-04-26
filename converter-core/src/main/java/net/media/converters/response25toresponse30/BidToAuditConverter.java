@@ -22,10 +22,10 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Audit;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.util.Objects.isNull;
 import static net.media.utils.ExtUtils.fetchFromExt;
@@ -43,6 +43,7 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
     extraFieldsInExt.add(CommonConstants.LASTMOD);
     extraFieldsInExt.add(CommonConstants.FEEDBACK);
   }
+
   @Override
   public Audit map(Bid source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -60,11 +61,31 @@ public class BidToAuditConverter implements Converter<Bid, Audit> {
     if (isNull(source) || isNull(target)) {
       return;
     }
-    fetchFromExt(target::setCorr, source.getExt(), CommonConstants.CORR, "Error while mapping corr from bid.ext");
-    fetchFromExt(target::setStatus, source.getExt(), CommonConstants.STATUS, "Error while mapping status from bid.ext");
-    fetchFromExt(target::setInit, source.getExt(), CommonConstants.INIT, "Error while mapping init from bid.ext");
-    fetchFromExt(target::setLastmod, source.getExt(), CommonConstants.LASTMOD, "Error while mapping lastmod from bid.ext");
-    fetchFromExt(target::setFeedback, source.getExt(), CommonConstants.FEEDBACK, "Error while mapping feedback from bid.ext");
+    fetchFromExt(
+      target::setCorr,
+      source.getExt(),
+      CommonConstants.CORR,
+      "Error while mapping corr from bid.ext");
+    fetchFromExt(
+      target::setStatus,
+      source.getExt(),
+      CommonConstants.STATUS,
+      "Error while mapping status from bid.ext");
+    fetchFromExt(
+      target::setInit,
+      source.getExt(),
+      CommonConstants.INIT,
+      "Error while mapping init from bid.ext");
+    fetchFromExt(
+      target::setLastmod,
+      source.getExt(),
+      CommonConstants.LASTMOD,
+      "Error while mapping lastmod from bid.ext");
+    fetchFromExt(
+      target::setFeedback,
+      source.getExt(),
+      CommonConstants.FEEDBACK,
+      "Error while mapping feedback from bid.ext");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

@@ -25,7 +25,6 @@ import net.media.utils.Provider;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.fetchFromExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
@@ -46,8 +45,16 @@ public class DeviceToDeviceConverter
     if (source == null || target == null) {
       return;
     }
-    fetchFromExt(source::setMccmnc, source.getExt(), CommonConstants.MCCMNC, "Error in setting mccmnc from device.ext.mccmnc");
-    fetchFromExt(source::setGeofetch, source.getExt(), CommonConstants.GEOFETCH, "Error in setting geofetch from device.ext.geofetch");
+    fetchFromExt(
+      source::setMccmnc,
+      source.getExt(),
+      CommonConstants.MCCMNC,
+      "Error in setting mccmnc from device.ext.mccmnc");
+    fetchFromExt(
+      source::setGeofetch,
+      source.getExt(),
+      CommonConstants.GEOFETCH,
+      "Error in setting geofetch from device.ext.geofetch");
     super.enhance(source, target, config, converterProvider);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

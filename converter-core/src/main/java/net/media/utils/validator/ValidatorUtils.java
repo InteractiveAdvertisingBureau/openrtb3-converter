@@ -1,10 +1,9 @@
 package net.media.utils.validator;
 
-import java.util.Set;
-
 import javax.naming.ConfigurationException;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
+import java.util.Set;
 
 import static javax.validation.Validation.buildDefaultValidatorFactory;
 

@@ -26,7 +26,6 @@ import net.media.utils.Provider;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.fetchFromExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
@@ -47,23 +46,62 @@ public class Bid23ToBid30Converter extends Bid25ToBid30Converter {
     extraFieldsInExt.add(CommonConstants.QAGMEDIARATING);
     extraFieldsInExt.add(CommonConstants.EXP);
   }
+
   public void enhance(
       Bid source, net.media.openrtb3.Bid target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
     if (source == null || target == null) {
       return;
     }
-    fetchFromExt(source::setBurl, source.getExt(), CommonConstants.BURL, "Failed while mapping burl from bid");
-    fetchFromExt(source::setLurl, source.getExt(), CommonConstants.LURL, "Failed while mapping lurl from bid");
-    fetchFromExt(source::setTactic, source.getExt(), CommonConstants.TACTIC, "Failed while mapping tactic from bid");
-    fetchFromExt(source::setLanguage, source.getExt(), CommonConstants.LANGUAGE, "Failed while mapping language from bid");
-    fetchFromExt(source::setWratio, source.getExt(), CommonConstants.WRATIO, "Failed while mapping wratio from bid");
-    fetchFromExt(source::setHratio, source.getExt(), CommonConstants.HRATIO, "Failed while mapping hratio from bid");
-    fetchFromExt(source::setAdid, source.getExt(), CommonConstants.ADID, "Failed while mapping adid from bid");
-    fetchFromExt(source::setApi, source.getExt(), CommonConstants.API, "Failed while mapping api from bid");
-    fetchFromExt(source::setProtocol, source.getExt(), CommonConstants.PROTOCOL, "Failed while mapping protocol from bid");
-    fetchFromExt(source::setQagmediarating, source.getExt(), CommonConstants.QAGMEDIARATING, "Failed while mapping qagmediarating from bid");
-    fetchFromExt(source::setExp, source.getExt(), CommonConstants.EXP, "Failed while mapping exp from bid");
+    fetchFromExt(
+      source::setBurl,
+      source.getExt(),
+      CommonConstants.BURL,
+      "Failed while mapping burl from bid");
+    fetchFromExt(
+      source::setLurl,
+      source.getExt(),
+      CommonConstants.LURL,
+      "Failed while mapping lurl from bid");
+    fetchFromExt(
+      source::setTactic,
+      source.getExt(),
+      CommonConstants.TACTIC,
+      "Failed while mapping tactic from bid");
+    fetchFromExt(
+      source::setLanguage,
+      source.getExt(),
+      CommonConstants.LANGUAGE,
+      "Failed while mapping language from bid");
+    fetchFromExt(
+      source::setWratio,
+      source.getExt(),
+      CommonConstants.WRATIO,
+      "Failed while mapping wratio from bid");
+    fetchFromExt(
+      source::setHratio,
+      source.getExt(),
+      CommonConstants.HRATIO,
+      "Failed while mapping hratio from bid");
+    fetchFromExt(
+      source::setAdid,
+      source.getExt(),
+      CommonConstants.ADID,
+      "Failed while mapping adid from bid");
+    fetchFromExt(
+      source::setApi, source.getExt(), CommonConstants.API, "Failed while mapping api from bid");
+    fetchFromExt(
+      source::setProtocol,
+      source.getExt(),
+      CommonConstants.PROTOCOL,
+      "Failed while mapping protocol from bid");
+    fetchFromExt(
+      source::setQagmediarating,
+      source.getExt(),
+      CommonConstants.QAGMEDIARATING,
+      "Failed while mapping qagmediarating from bid");
+    fetchFromExt(
+      source::setExp, source.getExt(), CommonConstants.EXP, "Failed while mapping exp from bid");
     super.enhance(source, target, config, converterProvider);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

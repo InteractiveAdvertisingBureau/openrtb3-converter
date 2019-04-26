@@ -28,7 +28,6 @@ import net.media.openrtb3.*;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -49,6 +48,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
     extraFieldsInExt.add(CommonConstants.RESTRICTIONS);
     extraFieldsInExt.add(CommonConstants.DOOH);
   }
+
   private String bidRequestUserCustomdata(BidRequest2_X bidRequest) {
     if (bidRequest == null) {
       return null;
@@ -129,7 +129,12 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
     if (target.getContext() == null) {
       target.setContext(new Context());
     }
-    fetchFromExt(target.getContext()::setDooh, source.getExt(), CommonConstants.DOOH, "error while typecasting ext for BidRequest2_X", Dooh.class);
+    fetchFromExt(
+      target.getContext()::setDooh,
+      source.getExt(),
+      CommonConstants.DOOH,
+      "error while typecasting ext for BidRequest2_X",
+      Dooh.class);
 
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

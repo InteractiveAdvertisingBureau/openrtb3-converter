@@ -52,17 +52,33 @@ public class BannerToDisplayPlacementConverter
     if (banner == null || displayPlacement == null) {
       return;
     }
-    fetchFromExt(banner::setVcm, banner.getExt(), CommonConstants.VCM, "Error in setting vcm from banner.ext.vcm");
+    fetchFromExt(
+      banner::setVcm,
+      banner.getExt(),
+      CommonConstants.VCM,
+      "Error in setting vcm from banner.ext.vcm");
     if (nonNull(banner.getFormat())) {
       for (Format format : banner.getFormat()) {
-        fetchFromExt(format::setWratio, format.getExt(), CommonConstants.WRATIO, "Error in setting wratio from banner.format.ext.wratio");
-        fetchFromExt(format::setHratio, format.getExt(), CommonConstants.HRATIO, "Error in setting hratio from banner.format.ext.hratio");
-        fetchFromExt(format::setWmin, format.getExt(), CommonConstants.WMIN, "Error in setting wmin from banner.format.ext.wmin");
+        fetchFromExt(
+          format::setWratio,
+          format.getExt(),
+          CommonConstants.WRATIO,
+          "Error in setting wratio from banner.format.ext.wratio");
+        fetchFromExt(
+          format::setHratio,
+          format.getExt(),
+          CommonConstants.HRATIO,
+          "Error in setting hratio from banner.format.ext.hratio");
+        fetchFromExt(
+          format::setWmin,
+          format.getExt(),
+          CommonConstants.WMIN,
+          "Error in setting wmin from banner.format.ext.wmin");
       }
     }
     super.enhance(banner, displayPlacement, config, converterProvider);
     removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
-    for(DisplayFormat displayFormat:displayPlacement.getDisplayfmt()) {
+    for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
       removeFromExt(displayFormat.getExt(), extraFieldsInDisplayFormatExt);
     }
   }

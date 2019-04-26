@@ -32,15 +32,12 @@ import net.media.utils.Provider;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
-import static net.media.utils.ExtUtils.fetchCollectionFromExt;
-import static net.media.utils.ExtUtils.fetchFromExt;
-import static net.media.utils.ExtUtils.removeFromExt;
+import static net.media.utils.ExtUtils.*;
 
 /** Created by rajat.go on 03/01/19. */
 public class NativeToDisplayPlacementConverter implements Converter<Native, DisplayPlacement> {
@@ -51,6 +48,7 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
     extraFieldsInExt.add(CommonConstants.CTYPE);
     extraFieldsInExt.add(CommonConstants.PRIV);
   }
+
   @Override
   public DisplayPlacement map(Native nat, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -79,14 +77,16 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
         String nativeRequestString = (String) nat.getRequest();
         try {
           nativeRequest =
-              JacksonObjectMapperUtils.getMapper().readValue(nativeRequestString, NativeRequest.class);
+            JacksonObjectMapperUtils.getMapper()
+              .readValue(nativeRequestString, NativeRequest.class);
         } catch (IOException e) {
           throw new OpenRtbConverterException(e);
         }
       } else {
         try {
           nativeRequest =
-              JacksonObjectMapperUtils.getMapper().convertValue(nat.getRequest(), NativeRequest.class);
+            JacksonObjectMapperUtils.getMapper()
+              .convertValue(nat.getRequest(), NativeRequest.class);
         } catch (IllegalArgumentException e) {
           throw new OpenRtbConverterException(e);
         }
@@ -104,8 +104,17 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
           }
           displayPlacement.getExt().putAll(nat.getExt());
         }
-        fetchCollectionFromExt(displayPlacement::setCtype, nat.getExt(), CommonConstants.CTYPE, "error while mapping ctype from Native", config);
-        fetchFromExt(displayPlacement::setPriv, nat.getExt(), CommonConstants.PRIV, "error while mapping priv from Native");
+        fetchCollectionFromExt(
+          displayPlacement::setCtype,
+          nat.getExt(),
+          CommonConstants.CTYPE,
+          "error while mapping ctype from Native",
+          config);
+        fetchFromExt(
+          displayPlacement::setPriv,
+          nat.getExt(),
+          CommonConstants.PRIV,
+          "error while mapping priv from Native");
       }
     }
     removeFromExt(displayPlacement.getExt(), extraFieldsInExt);

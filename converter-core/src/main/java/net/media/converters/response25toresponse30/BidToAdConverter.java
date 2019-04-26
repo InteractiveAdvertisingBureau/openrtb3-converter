@@ -24,12 +24,10 @@ import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -69,11 +67,32 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
     target.setAttr(CollectionUtils.copyCollection(source.getAttr(), config));
     target.setMrating(source.getQagmediarating());
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    fetchFromExt(target::setSecure, source.getExt(), CommonConstants.SECURE, "Error while mapping secure from bid.ext");
-    fetchFromExt(target::setInit, source.getExt(), CommonConstants.INIT, "Error while mapping init from bid.ext");
-    fetchFromExt(target::setLastmod, source.getExt(), CommonConstants.LASTMOD, "Error while mapping lastmod from bid.ext");
-    fetchFromExt(target::setCattax, source.getExt(), CommonConstants.CATTAX, "Error while mapping cattax from bid.ext");
-    fetchFromExt(target::setAudit, source.getExt(), CommonConstants.AUDIT, "Error while mapping audit from bid.ext", Audit.class);
+    fetchFromExt(
+      target::setSecure,
+      source.getExt(),
+      CommonConstants.SECURE,
+      "Error while mapping secure from bid.ext");
+    fetchFromExt(
+      target::setInit,
+      source.getExt(),
+      CommonConstants.INIT,
+      "Error while mapping init from bid.ext");
+    fetchFromExt(
+      target::setLastmod,
+      source.getExt(),
+      CommonConstants.LASTMOD,
+      "Error while mapping lastmod from bid.ext");
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "Error while mapping cattax from bid.ext");
+    fetchFromExt(
+      target::setAudit,
+      source.getExt(),
+      CommonConstants.AUDIT,
+      "Error while mapping audit from bid.ext",
+      Audit.class);
     switch (config.getAdType(source.getId())) {
       case BANNER:
       case NATIVE:

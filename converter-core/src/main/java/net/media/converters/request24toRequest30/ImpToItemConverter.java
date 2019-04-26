@@ -30,7 +30,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.fetchFromExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
@@ -39,20 +38,26 @@ public class ImpToItemConverter
     extends net.media.converters.request25toRequest30.ImpToItemConverter {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+  private static final JavaType javaTypeForMetricCollection =
+    JacksonObjectMapperUtils.getMapper()
+      .getTypeFactory()
+      .constructCollectionType(Collection.class, Metric.class);
 
   static {
     extraFieldsInExt.add(CommonConstants.METRIC);
   }
-
-private static final JavaType javaTypeForMetricCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Metric.class);
 
   public void enhance(Imp imp, Item item, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
     if (imp == null || item == null) {
       return;
     }
-    fetchFromExt(imp::setMetric, imp.getExt(), CommonConstants.METRIC, "Error in setting metric from imp.ext.metric", javaTypeForMetricCollection);
+    fetchFromExt(
+      imp::setMetric,
+      imp.getExt(),
+      CommonConstants.METRIC,
+      "Error in setting metric from imp.ext.metric",
+      javaTypeForMetricCollection);
     super.enhance(imp, item, config, converterProvider);
     removeFromExt(item.getExt(), extraFieldsInExt);
   }

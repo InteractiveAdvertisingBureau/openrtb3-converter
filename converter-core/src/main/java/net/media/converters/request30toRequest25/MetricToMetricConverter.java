@@ -20,7 +20,6 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Metric;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
@@ -51,7 +50,7 @@ public class MetricToMetricConverter
       metric1.setType(metric.getType());
       metric1.setVendor(metric.getVendor());
       metric1.setValue(metric.getValue());
-      if(nonNull(metric.getExt())) {
+      if (nonNull(metric.getExt())) {
         metric1.setExt(new HashMap<>(metric.getExt()));
       }
     }

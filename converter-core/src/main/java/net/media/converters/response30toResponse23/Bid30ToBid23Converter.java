@@ -23,10 +23,6 @@ import net.media.openrtb25.response.Bid;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
@@ -57,7 +53,8 @@ public class Bid30ToBid23Converter extends Bid30ToBid25Converter {
     target.setApi(null);
     putToExt(target::getProtocol, target.getExt(), CommonConstants.PROTOCOL, target::setExt);
     target.setProtocol(null);
-    putToExt(target::getQagmediarating, target.getExt(), CommonConstants.QAGMEDIARATING, target::setExt);
+    putToExt(
+      target::getQagmediarating, target.getExt(), CommonConstants.QAGMEDIARATING, target::setExt);
     target.setQagmediarating(null);
     putToExt(target::getExp, target.getExt(), CommonConstants.EXP, target::setExt);
     target.setExp(null);

@@ -27,7 +27,6 @@ import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -98,7 +97,7 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     videoPlacement.setW(video.getW());
     videoPlacement.setH(video.getH());
     videoPlacement.setDelivery(CollectionUtils.copyCollection(video.getDelivery(), config));
-    if(nonNull(video.getExt())) {
+    if (nonNull(video.getExt())) {
       videoPlacement.setExt(new HashMap<>(video.getExt()));
     }
     videoToVideoPlacementAfterMapping(video, config, videoPlacement);
@@ -107,8 +106,16 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
   private void videoToVideoPlacementAfterMapping(
       Video video, Config config, VideoPlacement videoPlacement) throws OpenRtbConverterException {
     videoPlacement.setExt(new HashMap<>(video.getExt()));
-    fetchFromExt(videoPlacement::setUnit, video.getExt(), CommonConstants.UNIT, "error while mapping unit from Video");
-    fetchFromExt(videoPlacement::setMaxseq, video.getExt(), CommonConstants.MAXSEQ, "error while mapping maxseq from Video");
+    fetchFromExt(
+      videoPlacement::setUnit,
+      video.getExt(),
+      CommonConstants.UNIT,
+      "error while mapping unit from Video");
+    fetchFromExt(
+      videoPlacement::setMaxseq,
+      video.getExt(),
+      CommonConstants.MAXSEQ,
+      "error while mapping maxseq from Video");
     removeFromExt(videoPlacement.getExt(), extraFieldsInExt);
   }
 }

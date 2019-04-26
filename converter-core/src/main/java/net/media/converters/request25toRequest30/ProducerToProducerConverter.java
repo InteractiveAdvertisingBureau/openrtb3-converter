@@ -22,7 +22,6 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Producer;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -76,7 +75,11 @@ public class ProducerToProducerConverter
       target.setExt(new HashMap<>(map));
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    fetchFromExt(target::setCattax, source.getExt(), CommonConstants.CATTAX, "error while mapping cattax from Producer");
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "error while mapping cattax from Producer");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

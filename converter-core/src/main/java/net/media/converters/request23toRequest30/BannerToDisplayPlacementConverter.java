@@ -24,7 +24,6 @@ import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
-import net.media.openrtb3.Source;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -39,14 +38,15 @@ public class BannerToDisplayPlacementConverter
     extends net.media.converters.request25toRequest30.BannerToDisplayPlacementConverter {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
+  private static final JavaType javaTypeForFormatCollection =
+    JacksonObjectMapperUtils.getMapper()
+      .getTypeFactory()
+      .constructCollectionType(Collection.class, Format.class);
 
   static {
     extraFieldsInExt.add(CommonConstants.VCM);
     extraFieldsInExt.add(CommonConstants.FORMAT);
   }
-
-	private static final JavaType javaTypeForFormatCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
-			.constructCollectionType(Collection.class, Format.class);
 
   public void enhance(
       Banner banner, DisplayPlacement displayPlacement, Config config, Provider converterProvider)
@@ -54,8 +54,17 @@ public class BannerToDisplayPlacementConverter
     if (banner == null || displayPlacement == null) {
       return;
     }
-    fetchFromExt(banner::setVcm, banner.getExt(), CommonConstants.VCM, "Error in setting vcm from banner.ext.vcm");
-    fetchFromExt(banner::setFormat, banner.getExt(), CommonConstants.FORMAT, "Error in setting banner.format from banner.ext.format", javaTypeForFormatCollection);
+    fetchFromExt(
+      banner::setVcm,
+      banner.getExt(),
+      CommonConstants.VCM,
+      "Error in setting vcm from banner.ext.vcm");
+    fetchFromExt(
+      banner::setFormat,
+      banner.getExt(),
+      CommonConstants.FORMAT,
+      "Error in setting banner.format from banner.ext.format",
+      javaTypeForFormatCollection);
     super.enhance(banner, displayPlacement, config, converterProvider);
     removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
   }

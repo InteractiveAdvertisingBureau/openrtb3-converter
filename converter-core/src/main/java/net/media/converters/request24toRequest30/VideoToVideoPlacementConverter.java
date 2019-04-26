@@ -26,7 +26,6 @@ import net.media.utils.Provider;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.fetchFromExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
@@ -47,8 +46,16 @@ public class VideoToVideoPlacementConverter
     if (video == null || videoPlacement == null) {
       return;
     }
-    fetchFromExt(video::setPlacement, video.getExt(), CommonConstants.PLACEMENT, "Error in setting placement from video.ext.placement");
-    fetchFromExt(video::setPlaybackend, video.getExt(), CommonConstants.PLAYBACKEND, "Error in setting playbackend from video.ext.playbackend");
+    fetchFromExt(
+      video::setPlacement,
+      video.getExt(),
+      CommonConstants.PLACEMENT,
+      "Error in setting placement from video.ext.placement");
+    fetchFromExt(
+      video::setPlaybackend,
+      video.getExt(),
+      CommonConstants.PLAYBACKEND,
+      "Error in setting playbackend from video.ext.playbackend");
     super.enhance(video, videoPlacement, config, converterProvider);
     removeFromExt(videoPlacement.getExt(), extraFieldsInExt);
   }

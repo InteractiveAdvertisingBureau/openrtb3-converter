@@ -25,7 +25,6 @@ import net.media.openrtb25.response.SeatBid;
 import net.media.openrtb3.OpenRTB3_X;
 import net.media.openrtb3.Response;
 import net.media.openrtb3.Seatbid;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
@@ -75,7 +74,7 @@ public class OpenRtbResponseToBidResponseConverter
     target.setBidid(response.getBidid());
     target.setCur(response.getCur());
     target.setNbr(response.getNbr());
-    if(nonNull(response.getExt())) {
+    if (nonNull(response.getExt())) {
       target.setExt(new HashMap<>(response.getExt()));
     }
     target.setCustomdata(response.getCdata());

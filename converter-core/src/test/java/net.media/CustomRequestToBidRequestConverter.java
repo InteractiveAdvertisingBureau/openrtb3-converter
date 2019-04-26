@@ -118,11 +118,14 @@ public class CustomRequestToBidRequestConverter implements Converter<Request, Bi
 
       if (source.getContext().getRestrictions() != null) {
         target.setBapp(
-          CollectionUtils.copyCollection(source.getContext().getRestrictions().getBapp(), config));
+          CollectionUtils.copyCollection(
+            source.getContext().getRestrictions().getBapp(), config));
         target.setBcat(
-          CollectionUtils.copyCollection(source.getContext().getRestrictions().getBcat(), config));
+          CollectionUtils.copyCollection(
+            source.getContext().getRestrictions().getBcat(), config));
         target.setBadv(
-          CollectionUtils.copyCollection(source.getContext().getRestrictions().getBadv(), config));
+          CollectionUtils.copyCollection(
+            source.getContext().getRestrictions().getBadv(), config));
         if (source.getContext().getRestrictions().getCattax() != null) {
           if (target.getExt() == null) target.setExt(new HashMap<>());
           target.getExt().put("cattax", source.getContext().getRestrictions().getCattax());
@@ -228,13 +231,12 @@ public class CustomRequestToBidRequestConverter implements Converter<Request, Bi
           imp.getAudio().setBattr(source.getContext().getRestrictions().getBattr());
       }
     }
-    if(target.getExt() == null) target.setExt(new HashMap<>());
-    target.getExt().put("dummy","userIDhere");
+    if (target.getExt() == null) target.setExt(new HashMap<>());
+    target.getExt().put("dummy", "userIDhere");
 
     if (source.getContext().getDooh() == null) return;
 
     if (target.getExt() == null) target.setExt(new HashMap<>());
     target.getExt().put("dooh", source.getContext().getDooh());
   }
-
 }

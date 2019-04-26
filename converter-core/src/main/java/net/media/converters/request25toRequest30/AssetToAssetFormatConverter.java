@@ -24,18 +24,13 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.*;
-import net.media.openrtb25.request.Segment;
 import net.media.openrtb3.*;
-import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
-import net.media.utils.MapUtils;
-import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.*;
-import java.util.zip.CheckedOutputStream;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -47,6 +42,10 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
   private static final List<String> extraFieldsInExt = new ArrayList<>();
   private static final List<String> extraFieldsInVideoExt = new ArrayList<>();
   private static final List<String> extraFieldsInImageExt = new ArrayList<>();
+  private static final JavaType javaTypeForBannerCollection =
+    JacksonObjectMapperUtils.getMapper()
+      .getTypeFactory()
+      .constructCollectionType(Collection.class, Banner.class);
 
   static {
     extraFieldsInExt.add(CommonConstants.CLICKBROWSER);
@@ -74,9 +73,6 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     extraFieldsInVideoExt.add(CommonConstants.PLAYBACKEND);
     extraFieldsInVideoExt.add(CommonConstants.COMPANIONTYPE);
   }
-
-  private static final JavaType javaTypeForBannerCollection =
-      JacksonObjectMapperUtils.getMapper().getTypeFactory().constructCollectionType(Collection.class, Banner.class);
 
   @Override
   public AssetFormat map(Asset asset, Config config, Provider converterProvider)
@@ -106,9 +102,21 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     if (map != null) {
       assetFormat.setExt(new HashMap<>(map));
     }
-    if(nonNull(assetFormat.getVideo())) {
-      fetchFromExt(assetFormat.getVideo()::setClktype, assetFormat.getExt(), CommonConstants.CLICKBROWSER, "Error in setting clktype from asset.ext.clickbrowser");
-      fetchCollectionFromExt(assetFormat.getVideo()::setComp, assetFormat.getVideo().getExt(), CommonConstants.COMPANIONAD, "Error in setting creating companion", converterProvider.fetch(new Conversion<>(Banner.class, Companion.class)), config, converterProvider, javaTypeForBannerCollection);
+    if (nonNull(assetFormat.getVideo())) {
+      fetchFromExt(
+        assetFormat.getVideo()::setClktype,
+        assetFormat.getExt(),
+        CommonConstants.CLICKBROWSER,
+        "Error in setting clktype from asset.ext.clickbrowser");
+      fetchCollectionFromExt(
+        assetFormat.getVideo()::setComp,
+        assetFormat.getVideo().getExt(),
+        CommonConstants.COMPANIONAD,
+        "Error in setting creating companion",
+        converterProvider.fetch(new Conversion<>(Banner.class, Companion.class)),
+        config,
+        converterProvider,
+        javaTypeForBannerCollection);
     }
     removeFromExt(assetFormat.getExt(), extraFieldsInExt);
     removeFromExt(assetFormat.getVideo().getExt(), extraFieldsInVideoExt);
@@ -145,8 +153,16 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     imageAssetFormat.setH(nativeImage.getH());
     imageAssetFormat.setWmin(nativeImage.getWmin());
     imageAssetFormat.setHmin(nativeImage.getHmin());
-    fetchFromExt(imageAssetFormat::setWratio, nativeImage.getExt(), CommonConstants.WRATIO, "exception in converting image asset format");
-    fetchFromExt(imageAssetFormat::setHratio, nativeImage.getExt(), CommonConstants.HRATIO, "exception in converting image asset format");
+    fetchFromExt(
+      imageAssetFormat::setWratio,
+      nativeImage.getExt(),
+      CommonConstants.WRATIO,
+      "exception in converting image asset format");
+    fetchFromExt(
+      imageAssetFormat::setHratio,
+      nativeImage.getExt(),
+      CommonConstants.HRATIO,
+      "exception in converting image asset format");
     Map<String, Object> map = nativeImage.getExt();
     if (map != null) {
       imageAssetFormat.setExt(new HashMap<>(map));
@@ -166,29 +182,109 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     videoPlacement.setMindur(nativeVideo.getMinduration());
     videoPlacement.setCtype(CollectionUtils.copyCollection(nativeVideo.getProtocols(), config));
     videoPlacement.setMime(CollectionUtils.copyCollection(nativeVideo.getMimes(), config));
-    if(nonNull(nativeVideo.getExt())) {
+    if (nonNull(nativeVideo.getExt())) {
       videoPlacement.setExt(new HashMap<>(nativeVideo.getExt()));
     }
-    fetchFromExt(videoPlacement::setPtype, nativeVideo.getExt(), CommonConstants.PTYPE, "Error in setting ptype from asset.video.ext");
-    fetchFromExt(videoPlacement::setPos, nativeVideo.getExt(), CommonConstants.POS, "Error in setting pos from asset.video.ext");
-    fetchFromExt(videoPlacement::setDelay, nativeVideo.getExt(), CommonConstants.STARTDELAY, "Error in setting startdelay from asset.video.ext");
-    fetchFromExt(videoPlacement::setSkip, nativeVideo.getExt(), CommonConstants.SKIP, "Error in setting skip from asset.video.ext");
-    fetchFromExt(videoPlacement::setSkipmin, nativeVideo.getExt(), CommonConstants.SKIPMIN, "Error in setting skipmin from asset.video.ext");
-    fetchFromExt(videoPlacement::setSkipafter, nativeVideo.getExt(), CommonConstants.SKIPAFTER, "Error in setting skipafter from asset.video.ext");
-    fetchElementFromListInExt(videoPlacement::setPlaymethod, nativeVideo.getExt(), CommonConstants.PLAYBACKMETHOD, "Error in setting playbackmethod from asset.video.ext");
-    fetchFromExt(videoPlacement::setApi, nativeVideo.getExt(), CommonConstants.API, "Error in setting api from asset.video.ext");
-    fetchFromExt(videoPlacement::setW, nativeVideo.getExt(), CommonConstants.W, "Error in setting w from asset.video.ext");
-    fetchFromExt(videoPlacement::setH, nativeVideo.getExt(), CommonConstants.H, "Error in setting h from asset.video.ext");
-    fetchFromExt(videoPlacement::setUnit, nativeVideo.getExt(), CommonConstants.UNIT, "Error in setting unit from asset.video.ext");
-    fetchFromExt(videoPlacement::setMaxext, nativeVideo.getExt(), CommonConstants.MAXEXTENDED, "Error in setting maxextended from asset.video.ext");
-    fetchFromExt(videoPlacement::setMinbitr, nativeVideo.getExt(), CommonConstants.MINBITRATE, "Error in setting minbitrate from asset.video.ext");
-    fetchFromExt(videoPlacement::setMaxbitr, nativeVideo.getExt(), CommonConstants.MAXBITRATE, "Error in setting maxbitrate from asset.video.ext");
-    fetchFromExt(videoPlacement::setDelivery, nativeVideo.getExt(), CommonConstants.DELIVERY, "Error in setting delivery from asset.video.ext");
-    fetchFromExt(videoPlacement::setMaxseq, nativeVideo.getExt(), CommonConstants.MAXSEQ, "Error in setting maxseq from asset.video.ext");
-    fetchFromExt(videoPlacement::setLinear, nativeVideo.getExt(), CommonConstants.LINEARITY, "Error in setting linearity from asset.video.ext");
-    fetchFromExt(videoPlacement::setBoxing, nativeVideo.getExt(), CommonConstants.BOXINGALLOWED, "Error in setting boxingallowed from asset.video.ext");
-    fetchFromExt(videoPlacement::setPlayend, nativeVideo.getExt(), CommonConstants.PLAYBACKEND, "Error in setting playbackend from asset.video.ext");
-    fetchFromExt(videoPlacement::setComptype, nativeVideo.getExt(), CommonConstants.COMPANIONTYPE, "Error in setting companiontype from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setPtype,
+      nativeVideo.getExt(),
+      CommonConstants.PTYPE,
+      "Error in setting ptype from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setPos,
+      nativeVideo.getExt(),
+      CommonConstants.POS,
+      "Error in setting pos from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setDelay,
+      nativeVideo.getExt(),
+      CommonConstants.STARTDELAY,
+      "Error in setting startdelay from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setSkip,
+      nativeVideo.getExt(),
+      CommonConstants.SKIP,
+      "Error in setting skip from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setSkipmin,
+      nativeVideo.getExt(),
+      CommonConstants.SKIPMIN,
+      "Error in setting skipmin from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setSkipafter,
+      nativeVideo.getExt(),
+      CommonConstants.SKIPAFTER,
+      "Error in setting skipafter from asset.video.ext");
+    fetchElementFromListInExt(
+      videoPlacement::setPlaymethod,
+      nativeVideo.getExt(),
+      CommonConstants.PLAYBACKMETHOD,
+      "Error in setting playbackmethod from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setApi,
+      nativeVideo.getExt(),
+      CommonConstants.API,
+      "Error in setting api from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setW,
+      nativeVideo.getExt(),
+      CommonConstants.W,
+      "Error in setting w from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setH,
+      nativeVideo.getExt(),
+      CommonConstants.H,
+      "Error in setting h from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setUnit,
+      nativeVideo.getExt(),
+      CommonConstants.UNIT,
+      "Error in setting unit from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setMaxext,
+      nativeVideo.getExt(),
+      CommonConstants.MAXEXTENDED,
+      "Error in setting maxextended from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setMinbitr,
+      nativeVideo.getExt(),
+      CommonConstants.MINBITRATE,
+      "Error in setting minbitrate from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setMaxbitr,
+      nativeVideo.getExt(),
+      CommonConstants.MAXBITRATE,
+      "Error in setting maxbitrate from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setDelivery,
+      nativeVideo.getExt(),
+      CommonConstants.DELIVERY,
+      "Error in setting delivery from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setMaxseq,
+      nativeVideo.getExt(),
+      CommonConstants.MAXSEQ,
+      "Error in setting maxseq from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setLinear,
+      nativeVideo.getExt(),
+      CommonConstants.LINEARITY,
+      "Error in setting linearity from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setBoxing,
+      nativeVideo.getExt(),
+      CommonConstants.BOXINGALLOWED,
+      "Error in setting boxingallowed from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setPlayend,
+      nativeVideo.getExt(),
+      CommonConstants.PLAYBACKEND,
+      "Error in setting playbackend from asset.video.ext");
+    fetchFromExt(
+      videoPlacement::setComptype,
+      nativeVideo.getExt(),
+      CommonConstants.COMPANIONTYPE,
+      "Error in setting companiontype from asset.video.ext");
     videoPlacement.setComp(new ArrayList<>());
     return videoPlacement;
   }
