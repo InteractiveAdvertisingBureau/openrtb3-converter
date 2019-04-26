@@ -178,7 +178,7 @@
   "purpose" : "adTypeMappingSingleAudio2to3",
   "params" : {
     "adTypeMapping" : {
-      "yaddayadda" : "AUDIO"
+      "1" : "AUDIO"
     }
   },
   "config" : null,

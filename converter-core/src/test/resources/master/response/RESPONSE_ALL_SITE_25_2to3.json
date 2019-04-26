@@ -64,7 +64,7 @@
     },
       {
       "id": "yaddayadda2",
-      "impid": "1",
+      "impid": "2",
       "price": 4.5,
       "bundle": "testbundle",
       "nurl": "http://www.example.com/",
@@ -148,7 +148,7 @@
     },
       {
       "id": "yaddayadda3",
-      "impid": "1",
+      "impid": "3",
       "price": 4.5,
       "dealid": "1234",
       "cid": "campaign-xyz.123",
@@ -302,7 +302,7 @@
       {
       "adm":"video ka adm",
       "id": "yaddayadda4",
-      "impid": "1",
+      "impid": "4",
       "price": 1.50,
       "bundle": "chocho",
       "nurl": "http://www.example.com/",

@@ -22,7 +22,7 @@ cases:
    purpose: nativeSiteRESPONSE_2to3
    params:
       adTypeMapping :
-          yaddayadda : NATIVE
+          1 : NATIVE
 
  - inputFile: RESPONSE_VAST_SITE_25_2to3.json
    inputType: "RESPONSE25"

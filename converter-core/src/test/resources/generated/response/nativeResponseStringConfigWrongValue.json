@@ -178,7 +178,7 @@
   "params" : {
     "nativeResponseAsString" : "random",
     "adTypeMapping" : {
-      "yaddayadda" : "NATIVE"
+      "1" : "NATIVE"
     }
   },
   "config" : null,

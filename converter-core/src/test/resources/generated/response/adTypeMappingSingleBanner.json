@@ -227,7 +227,7 @@
   "purpose" : "adTypeMappingSingleBanner",
   "params" : {
     "adTypeMapping" : {
-      "yaddayadda" : "BANNER"
+      "1" : "BANNER"
     }
   },
   "config" : null,

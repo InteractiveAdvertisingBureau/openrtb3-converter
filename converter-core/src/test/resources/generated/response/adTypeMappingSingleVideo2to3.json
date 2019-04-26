@@ -178,7 +178,7 @@
   "purpose" : "adTypeMappingSingleVideo2to3",
   "params" : {
     "adTypeMapping" : {
-      "yaddayadda" : "VIDEO"
+      "1" : "VIDEO"
     }
   },
   "config" : null,

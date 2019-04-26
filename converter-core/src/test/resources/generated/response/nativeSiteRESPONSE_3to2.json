@@ -325,7 +325,7 @@
   "purpose" : "nativeSiteRESPONSE_3to2",
   "params" : {
     "adTypeMapping" : {
-      "yaddayadda" : "NATIVE"
+      "1" : "NATIVE"
     }
   },
   "config" : null,

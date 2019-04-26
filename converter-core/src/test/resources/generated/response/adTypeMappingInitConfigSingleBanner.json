@@ -228,7 +228,7 @@
   "params" : null,
   "config" : {
     "adTypeMapping" : {
-      "yaddayadda" : "BANNER"
+      "1" : "BANNER"
     }
   },
   "overRidingMap" : null,
