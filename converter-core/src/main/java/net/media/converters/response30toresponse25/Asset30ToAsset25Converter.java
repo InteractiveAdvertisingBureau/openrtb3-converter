@@ -88,8 +88,8 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     if (isNull(nativeData.getExt())) {
       nativeData.setExt(new HashMap<>());
     }
-    nativeData.setExt(putToExt(data::getType, nativeData.getExt(), CommonConstants.TYPE));
-    nativeData.setExt(putToExt(data::getLen, nativeData.getExt(), CommonConstants.LEN));
+    putToExt(data::getType, nativeData.getExt(), CommonConstants.TYPE, nativeData::setExt);
+    putToExt(data::getLen, nativeData.getExt(), CommonConstants.LEN, nativeData::setExt);
     if (nonNull(data.getValue()) && data.getValue().size() > 0) {
       nativeData.setValue(data.getValue().iterator().next());
     }
@@ -111,7 +111,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     if (isNull(nativeImage.getExt())) {
       nativeImage.setExt(new HashMap<>());
     }
-    nativeImage.setExt(putToExt(imageAsset::getType, nativeImage.getExt(), CommonConstants.TYPE));
+    putToExt(imageAsset::getType, nativeImage.getExt(), CommonConstants.TYPE, nativeImage::setExt);
     return nativeImage;
   }
 
@@ -127,7 +127,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     if (isNull(nativeVideo.getExt())) {
       nativeVideo.setExt(new HashMap<>());
     }
-    nativeVideo.setExt(putToExt(videoAsset::getCurl, nativeVideo.getExt(), CommonConstants.CURL));
+    putToExt(videoAsset::getCurl, nativeVideo.getExt(), CommonConstants.CURL, nativeVideo::setExt);
     return nativeVideo;
   }
 
@@ -143,7 +143,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     if (isNull(nativeTitle.getExt())) {
       nativeTitle.setExt(new HashMap<>());
     }
-    nativeTitle.setExt(putToExt(titleAsset::getLen, nativeTitle.getExt(), CommonConstants.LEN));
+    putToExt(titleAsset::getLen, nativeTitle.getExt(), CommonConstants.LEN, nativeTitle::setExt);
     return nativeTitle;
   }
 }

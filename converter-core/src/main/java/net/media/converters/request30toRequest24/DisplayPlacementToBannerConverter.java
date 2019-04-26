@@ -41,15 +41,15 @@ public class DisplayPlacementToBannerConverter
       return;
     }
     super.enhance(displayPlacement, banner, config, converterProvider);
-    banner.setExt(putToExt(banner::getVcm, banner.getExt(), CommonConstants.VCM));
+    putToExt(banner::getVcm, banner.getExt(), CommonConstants.VCM, banner::setExt);
     banner.setVcm(null);
     if (nonNull(banner.getFormat())) {
       for (Format format : banner.getFormat()) {
-        format.setExt(putToExt(format::getWratio, format.getExt(), CommonConstants.WRATIO));
+        putToExt(format::getWratio, format.getExt(), CommonConstants.WRATIO, format::setExt);
         format.setWratio(null);
-        format.setExt(putToExt(format::getHratio, format.getExt(), CommonConstants.HRATIO));
+        putToExt(format::getHratio, format.getExt(), CommonConstants.HRATIO, format::setExt);
         format.setHratio(null);
-        format.setExt(putToExt(format::getWmin, format.getExt(), CommonConstants.WMIN));
+        putToExt(format::getWmin, format.getExt(), CommonConstants.WMIN, format::setExt);
         format.setWmin(null);
       }
     }

@@ -68,6 +68,6 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo>
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    target.setExt(putToExt(source::getRegionfips104, target.getExt(), CommonConstants.REGIONFIPS_104));
+    putToExt(source::getRegionfips104, target.getExt(), CommonConstants.REGIONFIPS_104, target::setExt);
   }
 }

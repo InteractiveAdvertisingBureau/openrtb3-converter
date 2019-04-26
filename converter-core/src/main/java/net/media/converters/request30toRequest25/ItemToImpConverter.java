@@ -93,7 +93,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     }
     if (nonNull(imp.getVideo())) {
       imp.getVideo().setSequence(item.getSeq());
-      imp.getVideo().setExt(putToExt(item::getQty, imp.getVideo().getExt(), CommonConstants.QTY));
+      putToExt(item::getQty, imp.getVideo().getExt(), CommonConstants.QTY, imp.getVideo()::setExt);
     }
     String sdkver = itemSpecPlacementSdkver(item);
     if (sdkver != null) {
@@ -103,8 +103,8 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     if (display != null) {
       imp.setBanner(displayPlacementBannerConverter.map(display, config, converterProvider));
       if (nonNull(imp.getBanner())) {
-        imp.getBanner().setExt(putToExt(item::getSeq, imp.getBanner().getExt(), CommonConstants.SEQ));
-        imp.getBanner().setExt(putToExt(item::getQty, imp.getBanner().getExt(), CommonConstants.QTY));
+        putToExt(item::getSeq, imp.getBanner().getExt(), CommonConstants.SEQ, imp.getBanner()::setExt);
+        putToExt(item::getQty, imp.getBanner().getExt(), CommonConstants.QTY, imp.getBanner()::setExt);
       }
       if(nonNull(display.getNativefmt())) {
         NativeRequest nativeRequest = displayPlacementNativeConverter.map(display, config, converterProvider);
@@ -117,8 +117,8 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
           nat.getExt().putAll(display.getExt());
           fetchFromExt(nat::setVer, display.getNativefmt().getExt(), CommonConstants.VER, "error while mapping ver from nativefmt.ext");
         }
-        nat.setExt(putToExt(display::getPriv, nat.getExt(), CommonConstants.PRIV));
-        nat.setExt(putToExt(display::getCtype, nat.getExt(), CommonConstants.CTYPE));
+        putToExt(display::getPriv, nat.getExt(), CommonConstants.PRIV, nat::setExt);
+        putToExt(display::getCtype, nat.getExt(), CommonConstants.CTYPE, nat::setExt);
         if (nonNull(nativeRequest) && nonNull(nativeRequest.getNativeRequestBody())) {
           nativeRequest.getNativeRequestBody().setPlcmtcnt(item.getQty());
           nativeRequest.getNativeRequestBody().setSeq(item.getSeq());
@@ -154,7 +154,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     }
     if (nonNull(imp.getAudio())) {
       imp.getAudio().setSequence(item.getSeq());
-      imp.getAudio().setExt(putToExt(item::getQty, imp.getAudio().getExt(), CommonConstants.QTY));
+      putToExt(item::getQty, imp.getAudio().getExt(), CommonConstants.QTY, imp.getAudio()::setExt);
     }
     imp.setId(item.getId());
     imp.setExp(item.getExp());
@@ -329,20 +329,20 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
   private void fillExtMap(Item item, Imp imp, Config config) {
     if (nonNull(item)) {
       if (nonNull(imp)) {
-        imp.setExt(putToExt(item::getDt, imp.getExt(), CommonConstants.DT));
-        imp.setExt(putToExt(item::getDlvy, imp.getExt(), CommonConstants.DLVY));
+        putToExt(item::getDt, imp.getExt(), CommonConstants.DT, imp::setExt);
+        putToExt(item::getDlvy, imp.getExt(), CommonConstants.DLVY, imp::setExt);
       }
     }
     if (nonNull(item) && nonNull(item.getSpec()) && nonNull(item.getSpec().getPlacement())) {
       if (nonNull(imp)) {
-        imp.setExt(putToExt(item.getSpec().getPlacement()::getSsai, imp.getExt(), CommonConstants.SSAI));
-        imp.setExt(putToExt(item.getSpec().getPlacement()::getReward, imp.getExt(), CommonConstants.REWARD));
-        imp.setExt(putToExt(item.getSpec().getPlacement()::getAdmx, imp.getExt(), CommonConstants.ADMX));
-        imp.setExt(putToExt(item.getSpec().getPlacement()::getCurlx, imp.getExt(), CommonConstants.CURLX));
+        putToExt(item.getSpec().getPlacement()::getSsai, imp.getExt(), CommonConstants.SSAI, imp::setExt);
+        putToExt(item.getSpec().getPlacement()::getReward, imp.getExt(), CommonConstants.REWARD, imp::setExt);
+        putToExt(item.getSpec().getPlacement()::getAdmx, imp.getExt(), CommonConstants.ADMX, imp::setExt);
+        putToExt(item.getSpec().getPlacement()::getCurlx, imp.getExt(), CommonConstants.CURLX, imp::setExt);
       }
       if (nonNull(item.getSpec().getPlacement().getDisplay())) {
-        imp.setExt(putToExt(item.getSpec().getPlacement().getDisplay()::getAmpren, imp.getExt(), CommonConstants.AMPREN));
-        imp.setExt(putToExt(item.getSpec().getPlacement().getDisplay()::getEvent, imp.getExt(), CommonConstants.EVENT));
+        putToExt(item.getSpec().getPlacement().getDisplay()::getAmpren, imp.getExt(), CommonConstants.AMPREN, imp::setExt);
+        putToExt(item.getSpec().getPlacement().getDisplay()::getEvent, imp.getExt(), CommonConstants.EVENT, imp::setExt);
       }
     }
   }

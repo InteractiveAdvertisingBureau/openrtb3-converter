@@ -99,7 +99,7 @@ public class DeviceToDeviceConverter implements Converter<Device, net.media.open
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    target.setExt(putToExt(source::getFlashver, target.getExt(), CommonConstants.FLASHVER));
+    putToExt(source::getFlashver, target.getExt(), CommonConstants.FLASHVER, target::setExt);
     if (source.getExt() == null) {
       return;
     }

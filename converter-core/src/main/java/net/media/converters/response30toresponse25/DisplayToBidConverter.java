@@ -70,11 +70,11 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
-    target.setExt(putToExt(source::getCtype, target.getExt(), CommonConstants.CTYPE));
-    target.setExt(putToExt(source::getPriv, target.getExt(), CommonConstants.PRIV));
-    target.setExt(putToExt(source::getCurl, target.getExt(), CommonConstants.CURL));
-    target.setExt(putToExt(source::getEvent, target.getExt(), CommonConstants.EVENT));
-    target.setExt(putToExt(source::getMime, target.getExt(), CommonConstants.MIME));
+    putToExt(source::getCtype, target.getExt(), CommonConstants.CTYPE, target::setExt);
+    putToExt(source::getPriv, target.getExt(), CommonConstants.PRIV, target::setExt);
+    putToExt(source::getCurl, target.getExt(), CommonConstants.CURL, target::setExt);
+    putToExt(source::getEvent, target.getExt(), CommonConstants.EVENT, target::setExt);
+    putToExt(source::getMime, target.getExt(), CommonConstants.MIME, target::setExt);
 
     if (isEmpty(target.getNurl())) {
       target.setNurl(source.getCurl());
@@ -110,7 +110,7 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
         }
       }
     } else {
-      target.setExt(putToExt(source::getBanner, target.getExt(), CommonConstants.BANNER));
+      putToExt(source::getBanner, target.getExt(), CommonConstants.BANNER, target::setExt);
       if (nonNull(source.getAdm())) {
         target.setAdm(source.getAdm());
       }

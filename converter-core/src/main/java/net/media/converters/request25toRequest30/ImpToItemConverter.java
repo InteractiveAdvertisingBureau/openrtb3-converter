@@ -100,7 +100,7 @@ public class ImpToItemConverter implements Converter<Imp, Item> {
     if (imp.getPmp() != null && imp.getPmp().getExt() != null) {
       Pmp pmp = new Pmp();
       pmp.setExt(imp.getPmp().getExt());
-      item.setExt(putToExt(pmp, item.getExt(), CommonConstants.PMP));
+      putToExt(pmp, item.getExt(), CommonConstants.PMP, item::setExt);
     }
     item.setFlrcur(imp.getBidfloorcur());
     Collection<Deal> deals = impPmpDeals(imp);

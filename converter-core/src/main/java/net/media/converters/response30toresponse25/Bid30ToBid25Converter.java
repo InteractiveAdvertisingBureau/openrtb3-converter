@@ -85,7 +85,7 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
         target.setExt(new HashMap<>());
       }
       target.setAdid(source.getMid());
-      target.setExt(putToExt(source::getMacro, target.getExt(), CommonConstants.MACRO));
+      putToExt(source::getMacro, target.getExt(), CommonConstants.MACRO, target::setExt);
       mediaBidConverter.enhance(source.getMedia(), target, config, converterProvider);
       MacroMapper.macroReplaceTwoX(target);
       fetchFromExt(target::setProtocol, source.getExt(), CommonConstants.PROTOCOL, "error while mapping protocol from Bid.ext");

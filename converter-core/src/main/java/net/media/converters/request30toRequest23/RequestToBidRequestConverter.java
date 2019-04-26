@@ -40,13 +40,13 @@ public class RequestToBidRequestConverter
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    target.setExt(putToExt(target::getBseat, target.getExt(), CommonConstants.BSEAT));
+    putToExt(target::getBseat, target.getExt(), CommonConstants.BSEAT, target::setExt);
     target.setBseat(null);
-    target.setExt(putToExt(target::getWlang, target.getExt(), CommonConstants.WLANG));
+    putToExt(target::getWlang, target.getExt(), CommonConstants.WLANG, target::setExt);
     target.setWlang(null);
-    target.setExt(putToExt(target::getSource, target.getExt(), CommonConstants.SOURCE));
+    putToExt(target::getSource, target.getExt(), CommonConstants.SOURCE, target::setExt);
     target.setSource(null);
-    target.setExt(putToExt(target::getBapp, target.getExt(), CommonConstants.BAPP));
+    putToExt(target::getBapp, target.getExt(), CommonConstants.BAPP, target::setExt);
     target.setBapp(null);
   }
 }

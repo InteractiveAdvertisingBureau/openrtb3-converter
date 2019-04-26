@@ -73,7 +73,7 @@ public class SourceToSourceConverter implements Converter<Source, net.media.open
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    target.setExt(putToExt(source::getFd, target.getExt(), CommonConstants.FD));
+    putToExt(source::getFd, target.getExt(), CommonConstants.FD, target::setExt);
     fetchFromExt(target::setTs, source.getExt(), CommonConstants.TS, "error while mapping ts from source");
     fetchFromExt(target::setDs, source.getExt(), CommonConstants.DS, "error while mapping ds from source");
     fetchFromExt(target::setDsmap, source.getExt(), CommonConstants.DSMAP, "error while mapping dsmap from source");

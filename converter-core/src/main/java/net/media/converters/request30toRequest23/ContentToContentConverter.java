@@ -43,17 +43,17 @@ public class ContentToContentConverter
     }
     super.enhance(source, target, config, converterProvider);
 
-    target.setExt(putToExt(target::getArtist, target.getExt(), CommonConstants.ARTIST));
+    putToExt(target::getArtist, target.getExt(), CommonConstants.ARTIST, target::setExt);
     target.setArtist(null);
-    target.setExt(putToExt(target::getGenre, target.getExt(), CommonConstants.GENRE));
+    putToExt(target::getGenre, target.getExt(), CommonConstants.GENRE, target::setExt);
     target.setGenre(null);
-    target.setExt(putToExt(target::getAlbum, target.getExt(), CommonConstants.ALBUM));
+    putToExt(target::getAlbum, target.getExt(), CommonConstants.ALBUM, target::setExt);
     target.setAlbum(null);
-    target.setExt(putToExt(target::getIsrc, target.getExt(), CommonConstants.ISRC));
+    putToExt(target::getIsrc, target.getExt(), CommonConstants.ISRC, target::setExt);
     target.setIsrc(null);
-    target.setExt(putToExt(target::getProdq, target.getExt(), CommonConstants.PRODQ));
+    putToExt(target::getProdq, target.getExt(), CommonConstants.PRODQ, target::setExt);
     target.setProdq(null);
-    target.setExt(putToExt(target::getData, target.getExt(), CommonConstants.DATA));
+    putToExt(target::getData, target.getExt(), CommonConstants.DATA, target::setExt);
     target.setData(null);
   }
 }

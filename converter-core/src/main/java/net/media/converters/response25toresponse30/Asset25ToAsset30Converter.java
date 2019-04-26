@@ -99,7 +99,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     if(isNull(dataAsset.getExt())) {
       dataAsset.setExt(new HashMap<>());
     }
-    dataAsset.setExt(putToExt(nativeData::getLabel, dataAsset.getExt(), CommonConstants.LABEL));
+    putToExt(nativeData::getLabel, dataAsset.getExt(), CommonConstants.LABEL, dataAsset::setExt);
     removeFromExt(dataAsset.getExt(), extraFieldsInDataExt);
     return dataAsset;
   }

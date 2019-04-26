@@ -55,10 +55,10 @@ public class VideoToBidConverter implements Converter<Video, Bid> {
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
-    target.setExt(putToExt(source::getCtype, target.getExt(), CommonConstants.CTYPE));
-    target.setExt(putToExt(source::getDur, target.getExt(), CommonConstants.DUR));
-    target.setExt(putToExt(source::getCurl, target.getExt(), CommonConstants.CURL));
-    target.setExt(putToExt(source::getMime, target.getExt(), CommonConstants.MIME));
+    putToExt(source::getCtype, target.getExt(), CommonConstants.CTYPE, target::setExt);
+    putToExt(source::getDur, target.getExt(), CommonConstants.DUR, target::setExt);
+    putToExt(source::getCurl, target.getExt(), CommonConstants.CURL, target::setExt);
+    putToExt(source::getMime, target.getExt(), CommonConstants.MIME, target::setExt);
     if (isEmpty(target.getNurl())) {
       target.setNurl(source.getCurl());
     }

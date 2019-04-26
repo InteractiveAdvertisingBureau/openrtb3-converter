@@ -96,7 +96,7 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       target.setMid(source.getAdid());
       MacroMapper.macroReplaceThreeX(target);
       fetchFromExt(target::setMacro, source.getExt(), CommonConstants.MACRO, "Error while mapping macro from bid.ext", javaTypeForMacroCollection);
-      target.setExt(putToExt(source::getProtocol, target.getExt(), CommonConstants.PROTOCOL));
+      putToExt(source::getProtocol, target.getExt(), CommonConstants.PROTOCOL, target::setExt);
       target.setMedia(converter.map(source, config, converterProvider));
       Map<String, Object> map = source.getExt();
       if (nonNull(map)) {

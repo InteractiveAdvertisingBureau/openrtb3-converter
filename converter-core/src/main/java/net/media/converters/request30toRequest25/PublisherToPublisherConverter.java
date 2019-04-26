@@ -64,6 +64,6 @@ public class PublisherToPublisherConverter
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    target.setExt(putToExt(source::getCattax, target.getExt(), CommonConstants.CATTAX));
+    putToExt(source::getCattax, target.getExt(), CommonConstants.CATTAX, target::setExt);
   }
 }

@@ -39,27 +39,27 @@ public class Bid30ToBid23Converter extends Bid30ToBid25Converter {
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    target.setExt(putToExt(target::getBurl, target.getExt(), CommonConstants.BURL));
+    putToExt(target::getBurl, target.getExt(), CommonConstants.BURL, target::setExt);
     target.setBurl(null);
-    target.setExt(putToExt(target::getLurl, target.getExt(), CommonConstants.LURL));
+    putToExt(target::getLurl, target.getExt(), CommonConstants.LURL, target::setExt);
     target.setLurl(null);
-    target.setExt(putToExt(target::getTactic, target.getExt(), CommonConstants.TACTIC));
+    putToExt(target::getTactic, target.getExt(), CommonConstants.TACTIC, target::setExt);
     target.setTactic(null);
-    target.setExt(putToExt(target::getLanguage, target.getExt(), CommonConstants.LANGUAGE));
+    putToExt(target::getLanguage, target.getExt(), CommonConstants.LANGUAGE, target::setExt);
     target.setLanguage(null);
-    target.setExt(putToExt(target::getWratio, target.getExt(), CommonConstants.WRATIO));
+    putToExt(target::getWratio, target.getExt(), CommonConstants.WRATIO, target::setExt);
     target.setWratio(null);
-    target.setExt(putToExt(target::getHratio, target.getExt(), CommonConstants.HRATIO));
+    putToExt(target::getHratio, target.getExt(), CommonConstants.HRATIO, target::setExt);
     target.setHratio(null);
-    target.setExt(putToExt(target::getAdid, target.getExt(), CommonConstants.ADID));
+    putToExt(target::getAdid, target.getExt(), CommonConstants.ADID, target::setExt);
     target.setAdid(null);
-    target.setExt(putToExt(target::getApi, target.getExt(), CommonConstants.API));
+    putToExt(target::getApi, target.getExt(), CommonConstants.API, target::setExt);
     target.setApi(null);
-    target.setExt(putToExt(target::getProtocol, target.getExt(), CommonConstants.PROTOCOL));
+    putToExt(target::getProtocol, target.getExt(), CommonConstants.PROTOCOL, target::setExt);
     target.setProtocol(null);
-    target.setExt(putToExt(target::getQagmediarating, target.getExt(), CommonConstants.QAGMEDIARATING));
+    putToExt(target::getQagmediarating, target.getExt(), CommonConstants.QAGMEDIARATING, target::setExt);
     target.setQagmediarating(null);
-    target.setExt(putToExt(target::getExp, target.getExt(), CommonConstants.EXP));
+    putToExt(target::getExp, target.getExt(), CommonConstants.EXP, target::setExt);
     target.setExp(null);
   }
 }

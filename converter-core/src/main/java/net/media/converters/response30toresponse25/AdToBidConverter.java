@@ -77,11 +77,11 @@ public class AdToBidConverter implements Converter<Ad, Bid> {
     if (nonNull(source.getExt())) {
       target.getExt().putAll(source.getExt());
     }
-    target.setExt(putToExt(source::getSecure, target.getExt(), CommonConstants.SECURE));
-    target.setExt(putToExt(source::getInit, target.getExt(), CommonConstants.INIT));
-    target.setExt(putToExt(source::getLastmod, target.getExt(), CommonConstants.LASTMOD));
-    target.setExt(putToExt(source::getCattax, target.getExt(), CommonConstants.CATTAX));
-    target.setExt(putToExt(source::getAudit, target.getExt(), CommonConstants.AUDIT));
+    putToExt(source::getSecure, target.getExt(), CommonConstants.SECURE, target::setExt);
+    putToExt(source::getInit, target.getExt(), CommonConstants.INIT, target::setExt);
+    putToExt(source::getLastmod, target.getExt(), CommonConstants.LASTMOD, target::setExt);
+    putToExt(source::getCattax, target.getExt(), CommonConstants.CATTAX, target::setExt);
+    putToExt(source::getAudit, target.getExt(), CommonConstants.AUDIT, target::setExt);
     target.setQagmediarating(source.getMrating());
     AdType adType = config.getAdType(target.getId());
     switch (adType) {

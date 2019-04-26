@@ -72,11 +72,11 @@ public class SourceToSourceConverter
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    target.setExt(putToExt(source::getTs, target.getExt(), CommonConstants.TS));
-    target.setExt(putToExt(source::getDs, target.getExt(), CommonConstants.DS));
-    target.setExt(putToExt(source::getDsmap, target.getExt(), CommonConstants.DSMAP));
-    target.setExt(putToExt(source::getCert, target.getExt(), CommonConstants.CERT));
-    target.setExt(putToExt(source::getDigest, target.getExt(), CommonConstants.DIGEST));
+    putToExt(source::getTs, target.getExt(), CommonConstants.TS, target::setExt);
+    putToExt(source::getDs, target.getExt(), CommonConstants.DS, target::setExt);
+    putToExt(source::getDsmap, target.getExt(), CommonConstants.DSMAP, target::setExt);
+    putToExt(source::getCert, target.getExt(), CommonConstants.CERT, target::setExt);
+    putToExt(source::getDigest, target.getExt(), CommonConstants.DIGEST, target::setExt);
     fetchFromExt(target::setFd, source.getExt(), CommonConstants.FD, "error while mapping fd from Source");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

@@ -40,9 +40,9 @@ public class DisplayPlacementToBannerConverter
       return;
     }
     super.enhance(displayPlacement, banner, config, converterProvider);
-    banner.setExt(putToExt(banner::getVcm, banner.getExt(), CommonConstants.VCM));
+    putToExt(banner::getVcm, banner.getExt(), CommonConstants.VCM, banner::setExt);
     banner.setVcm(null);
-    banner.setExt(putToExt(banner::getFormat, banner.getExt(), CommonConstants.FORMAT));
+    putToExt(banner::getFormat, banner.getExt(), CommonConstants.FORMAT, banner::setExt);
     banner.setFormat(null);
   }
 }

@@ -92,12 +92,12 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     if (nonNull(bannerExt)){
       displayPlacement.getExt().putAll(bannerExt);
     }
-    displayPlacement.setExt(putToExt(banner::getBtype,displayPlacement.getExt(),CommonConstants.BTYPE));
-    displayPlacement.setExt(putToExt(banner::getId,displayPlacement.getExt(),CommonConstants.ID));
-    displayPlacement.setExt(putToExt(banner::getHmax,displayPlacement.getExt(),CommonConstants.HMAX));
-    displayPlacement.setExt(putToExt(banner::getHmin,displayPlacement.getExt(),CommonConstants.HMIN));
-    displayPlacement.setExt(putToExt(banner::getWmax,displayPlacement.getExt(),CommonConstants.WMAX));
-    displayPlacement.setExt(putToExt(banner::getWmin,displayPlacement.getExt(),CommonConstants.WMIN));
+    putToExt(banner::getBtype,displayPlacement.getExt(),CommonConstants.BTYPE, displayPlacement::setExt);
+    putToExt(banner::getId,displayPlacement.getExt(),CommonConstants.ID, displayPlacement::setExt);
+    putToExt(banner::getHmax,displayPlacement.getExt(),CommonConstants.HMAX, displayPlacement::setExt);
+    putToExt(banner::getHmin,displayPlacement.getExt(),CommonConstants.HMIN, displayPlacement::setExt);
+    putToExt(banner::getWmax,displayPlacement.getExt(),CommonConstants.WMAX, displayPlacement::setExt);
+    putToExt(banner::getWmin,displayPlacement.getExt(),CommonConstants.WMIN, displayPlacement::setExt);
     removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
   }
 
@@ -142,7 +142,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
       }
       displayFormat.getExt().put(CommonConstants.WMIN, format.getWmin());
     }
-    displayFormat.setExt(putToExt(format::getWmin,displayFormat.getExt(),CommonConstants.WMIN));
+    putToExt(format::getWmin,displayFormat.getExt(),CommonConstants.WMIN, displayFormat::setExt);
 
     return displayFormat;
   }

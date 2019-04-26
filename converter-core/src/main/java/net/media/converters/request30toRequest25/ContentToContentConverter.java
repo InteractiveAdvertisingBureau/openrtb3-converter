@@ -108,7 +108,7 @@ public class ContentToContentConverter
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    target.setExt(putToExt(source::getCattax, target.getExt(),CommonConstants.CATTAX));
+    putToExt(source::getCattax, target.getExt(),CommonConstants.CATTAX, target::setExt);
     fetchFromExt(target::setVideoquality, source.getExt(), CommonConstants.VIDEOQUALITY, "error while setting videoquality from content ext");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }

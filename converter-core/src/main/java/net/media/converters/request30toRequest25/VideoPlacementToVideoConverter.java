@@ -99,7 +99,7 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
         video.setPlaybackmethod(Collections.singletonList(videoPlacement.getPlaymethod()));
       }
     }
-    video.setExt(putToExt(videoPlacement::getUnit, video.getExt(), CommonConstants.UNIT));
-    video.setExt(putToExt(videoPlacement::getMaxseq, video.getExt(), CommonConstants.MAXSEQ));
+    putToExt(videoPlacement::getUnit, video.getExt(), CommonConstants.UNIT, video::setExt);
+    putToExt(videoPlacement::getMaxseq, video.getExt(), CommonConstants.MAXSEQ, video::setExt);
   }
 }

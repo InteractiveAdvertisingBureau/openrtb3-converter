@@ -92,11 +92,11 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
 
   private void audioPlacementToAudioAfterMapping(AudioPlacement audioPlacement, Audio audio) {
     if (nonNull(audioPlacement) && nonNull(audioPlacement.getExt()) && nonNull(audio)) {
-      audio.setExt(putToExt(audioPlacement::getSkip, audio.getExt(), CommonConstants.SKIP));
-      audio.setExt(putToExt(audioPlacement::getSkipmin, audio.getExt(), CommonConstants.SKIPMIN));
-      audio.setExt(putToExt(audioPlacement::getSkipafter, audio.getExt(), CommonConstants.SKIPAFTER));
-      audio.setExt(putToExt(audioPlacement::getPlaymethod, audio.getExt(), CommonConstants.PLAYMETHOD));
-      audio.setExt(putToExt(audioPlacement::getPlayend, audio.getExt(), CommonConstants.PLAYEND));
+      putToExt(audioPlacement::getSkip, audio.getExt(), CommonConstants.SKIP, audio::setExt);
+      putToExt(audioPlacement::getSkipmin, audio.getExt(), CommonConstants.SKIPMIN, audio::setExt);
+      putToExt(audioPlacement::getSkipafter, audio.getExt(), CommonConstants.SKIPAFTER, audio::setExt);
+      putToExt(audioPlacement::getPlaymethod, audio.getExt(), CommonConstants.PLAYMETHOD, audio::setExt);
+      putToExt(audioPlacement::getPlayend, audio.getExt(), CommonConstants.PLAYEND, audio::setExt);
     }
   }
 

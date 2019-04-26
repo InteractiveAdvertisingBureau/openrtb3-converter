@@ -40,9 +40,9 @@ public class VideoPlacementToVideoConverter
       return;
     }
     super.enhance(videoPlacement, video, config, converterProvider);
-    video.setExt(putToExt(video::getPlacement, video.getExt(), CommonConstants.PLACEMENT));
+    putToExt(video::getPlacement, video.getExt(), CommonConstants.PLACEMENT, video::setExt);
     video.setPlacement(null);
-    video.setExt(putToExt(video::getPlaybackend, video.getExt(), CommonConstants.PLAYBACKEND));
+    putToExt(video::getPlaybackend, video.getExt(), CommonConstants.PLAYBACKEND, video::setExt);
     video.setPlaybackend(null);
   }
 }

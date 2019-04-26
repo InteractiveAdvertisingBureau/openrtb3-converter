@@ -38,11 +38,11 @@ public class GeoToGeoConverter extends net.media.converters.request30toRequest25
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    target.setExt(putToExt(target::getAccuracy, target.getExt(), CommonConstants.ACCURACY));
+    putToExt(target::getAccuracy, target.getExt(), CommonConstants.ACCURACY, target::setExt);
     target.setAccuracy(null);
-    target.setExt(putToExt(target::getLastfix, target.getExt(), CommonConstants.LASTFIX));
+    putToExt(target::getLastfix, target.getExt(), CommonConstants.LASTFIX, target::setExt);
     target.setLastfix(null);
-    target.setExt(putToExt(target::getIpservice, target.getExt(), CommonConstants.IPSERVICE));
+    putToExt(target::getIpservice, target.getExt(), CommonConstants.IPSERVICE, target::setExt);
     target.setIpservice(null);
   }
 }

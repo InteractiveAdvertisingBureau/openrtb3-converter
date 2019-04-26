@@ -40,15 +40,15 @@ public class VideoPlacementToVideoConverter
       return;
     }
     super.enhance(videoPlacement, video, config, converterProvider);
-    video.setExt(putToExt(video::getPlacement, video.getExt(), CommonConstants.PLACEMENT));
+    putToExt(video::getPlacement, video.getExt(), CommonConstants.PLACEMENT, video::setExt);
     video.setPlacement(null);
-    video.setExt(putToExt(video::getPlaybackend, video.getExt(), CommonConstants.PLAYBACKEND));
+    putToExt(video::getPlaybackend, video.getExt(), CommonConstants.PLAYBACKEND, video::setExt);
     video.setPlaybackend(null);
-    video.setExt(putToExt(video::getSkip, video.getExt(), CommonConstants.SKIP));
+    putToExt(video::getSkip, video.getExt(), CommonConstants.SKIP, video::setExt);
     video.setSkip(null);
-    video.setExt(putToExt(video::getSkipmin, video.getExt(), CommonConstants.SKIPMIN));
+    putToExt(video::getSkipmin, video.getExt(), CommonConstants.SKIPMIN, video::setExt);
     video.setSkipmin(null);
-    video.setExt(putToExt(video::getSkipafter, video.getExt(), CommonConstants.SKIPAFTER));
+    putToExt(video::getSkipafter, video.getExt(), CommonConstants.SKIPAFTER, video::setExt);
     video.setSkipafter(null);
   }
 }

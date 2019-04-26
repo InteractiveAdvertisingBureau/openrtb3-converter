@@ -105,9 +105,9 @@ public class DeviceToDeviceConverter
       target.setExt(new HashMap<>(map));
     }
     fetchFromExt(target::setFlashver, source.getExt(), CommonConstants.FLASHVER, "error while mapping flashver from device.ext");
-    target.setExt(putToExt(source::getXff, target.getExt(),CommonConstants.XFF));
-    target.setExt(putToExt(source::getIptr, target.getExt(),CommonConstants.IPTR));
-    target.setExt(putToExt(source::getMccmncsim, target.getExt(),CommonConstants.MCCMNCSIM));
+    putToExt(source::getXff, target.getExt(),CommonConstants.XFF, target::setExt);
+    putToExt(source::getIptr, target.getExt(),CommonConstants.IPTR, target::setExt);
+    putToExt(source::getMccmncsim, target.getExt(),CommonConstants.MCCMNCSIM, target::setExt);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

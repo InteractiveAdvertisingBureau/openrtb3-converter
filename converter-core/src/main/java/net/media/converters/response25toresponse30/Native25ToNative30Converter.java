@@ -66,8 +66,8 @@ public class Native25ToNative30Converter implements Converter<NativeResponse, Na
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
-    target.setExt(putToExt(source.getNativeResponseBody()::getJstracker, target.getExt(), CommonConstants.JS_TRACKER));
-    target.setExt(putToExt(source.getNativeResponseBody()::getImptrackers, target.getExt(), CommonConstants.IMP_TRACKERS));
+    putToExt(source.getNativeResponseBody()::getJstracker, target.getExt(), CommonConstants.JS_TRACKER, target::setExt);
+    putToExt(source.getNativeResponseBody()::getImptrackers, target.getExt(), CommonConstants.IMP_TRACKERS, target::setExt);
 
     Converter<Link, LinkAsset> linkLinkAssetConverter =
         converterProvider.fetch(new Conversion<>(Link.class, LinkAsset.class));

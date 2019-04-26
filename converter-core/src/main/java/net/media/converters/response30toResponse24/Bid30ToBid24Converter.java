@@ -39,17 +39,17 @@ public class Bid30ToBid24Converter extends Bid30ToBid25Converter {
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    target.setExt(putToExt(target::getBurl, target.getExt(), CommonConstants.BURL));
+    putToExt(target::getBurl, target.getExt(), CommonConstants.BURL, target::setExt);
     target.setBurl(null);
-    target.setExt(putToExt(target::getLurl, target.getExt(), CommonConstants.LURL));
+    putToExt(target::getLurl, target.getExt(), CommonConstants.LURL, target::setExt);
     target.setLurl(null);
-    target.setExt(putToExt(target::getTactic, target.getExt(), CommonConstants.TACTIC));
+    putToExt(target::getTactic, target.getExt(), CommonConstants.TACTIC, target::setExt);
     target.setTactic(null);
-    target.setExt(putToExt(target::getLanguage, target.getExt(), CommonConstants.LANGUAGE));
+    putToExt(target::getLanguage, target.getExt(), CommonConstants.LANGUAGE, target::setExt);
     target.setLanguage(null);
-    target.setExt(putToExt(target::getWratio, target.getExt(), CommonConstants.WRATIO));
+    putToExt(target::getWratio, target.getExt(), CommonConstants.WRATIO, target::setExt);
     target.setWratio(null);
-    target.setExt(putToExt(target::getHratio, target.getExt(), CommonConstants.HRATIO));
+    putToExt(target::getHratio, target.getExt(), CommonConstants.HRATIO, target::setExt);
     target.setHratio(null);
   }
 }

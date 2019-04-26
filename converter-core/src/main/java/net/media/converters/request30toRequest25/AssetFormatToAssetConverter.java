@@ -68,12 +68,12 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     if(nonNull(assetFormat.getExt())) {
       asset.setExt(new HashMap<>(assetFormat.getExt()));
     }
-    asset.setExt(putToExt(assetFormat.getVideo()::getClktype, asset.getExt(), CommonConstants.CLICKBROWSER));
+    putToExt(assetFormat.getVideo()::getClktype, asset.getExt(), CommonConstants.CLICKBROWSER, asset::setExt);
     if (assetFormat.getVideo().getComp() != null) {
       Converter<Companion, Banner> companionToBannerConverter =
           converterProvider.fetch(new Conversion<>(Companion.class, Banner.class));
       Collection<Banner> banners = CollectionToCollectionConverter.convert(assetFormat.getVideo().getComp(), companionToBannerConverter, config, converterProvider);
-      asset.getVideo().setExt(putToExt(banners, asset.getVideo().getExt(), CommonConstants.COMPANIONAD));
+      putToExt(banners, asset.getVideo().getExt(), CommonConstants.COMPANIONAD, asset.getVideo()::setExt);
     }
   }
 
@@ -110,8 +110,8 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     if (map != null) {
       nativeImage.setExt(new HashMap<>(map));
     }
-    nativeImage.setExt(putToExt(imageAssetFormat::getHratio, nativeImage.getExt(),CommonConstants.HRATIO));
-    nativeImage.setExt(putToExt(imageAssetFormat::getWratio, nativeImage.getExt(),CommonConstants.WRATIO));
+    putToExt(imageAssetFormat::getHratio, nativeImage.getExt(),CommonConstants.HRATIO, nativeImage::setExt);
+    putToExt(imageAssetFormat::getWratio, nativeImage.getExt(),CommonConstants.WRATIO, nativeImage::setExt);
     return nativeImage;
   }
 
@@ -129,26 +129,26 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     if(nonNull(videoPlacement.getExt())) {
       nativeVideo.setExt(new HashMap<>(videoPlacement.getExt()));
     }
-    nativeVideo.setExt(putToExt(videoPlacement::getBoxing, nativeVideo.getExt(),CommonConstants.BOXINGALLOWED));
-    nativeVideo.setExt(putToExt(videoPlacement::getPtype, nativeVideo.getExt(),CommonConstants.PTYPE));
-    nativeVideo.setExt(putToExt(videoPlacement::getPos, nativeVideo.getExt(),CommonConstants.POS));
-    nativeVideo.setExt(putToExt(videoPlacement::getDelay, nativeVideo.getExt(),CommonConstants.STARTDELAY));
-    nativeVideo.setExt(putToExt(videoPlacement::getSkip, nativeVideo.getExt(),CommonConstants.SKIP));
-    nativeVideo.setExt(putToExt(videoPlacement::getSkipmin, nativeVideo.getExt(),CommonConstants.SKIPMIN));
-    nativeVideo.setExt(putToExt(videoPlacement::getSkipafter, nativeVideo.getExt(),CommonConstants.SKIPAFTER));
-    nativeVideo.setExt(putListFromSingleObjectToExt(videoPlacement::getPlaymethod, nativeVideo.getExt(),CommonConstants.PLAYBACKMETHOD));
-    nativeVideo.setExt(putToExt(videoPlacement::getPlayend, nativeVideo.getExt(), CommonConstants.PLAYBACKEND));
-    nativeVideo.setExt(putToExt(videoPlacement::getApi, nativeVideo.getExt(),CommonConstants.API));
-    nativeVideo.setExt(putToExt(videoPlacement::getW, nativeVideo.getExt(),CommonConstants.W));
-    nativeVideo.setExt(putToExt(videoPlacement::getH, nativeVideo.getExt(),CommonConstants.H));
-    nativeVideo.setExt(putToExt(videoPlacement::getUnit, nativeVideo.getExt(),CommonConstants.UNIT));
-    nativeVideo.setExt(putToExt(videoPlacement::getMaxext, nativeVideo.getExt(),CommonConstants.MAXEXTENDED));
-    nativeVideo.setExt(putToExt(videoPlacement::getMinbitr, nativeVideo.getExt(),CommonConstants.MINBITRATE));
-    nativeVideo.setExt(putToExt(videoPlacement::getMaxbitr, nativeVideo.getExt(),CommonConstants.MAXBITRATE));
-    nativeVideo.setExt(putToExt(videoPlacement::getDelivery, nativeVideo.getExt(),CommonConstants.DELIVERY));
-    nativeVideo.setExt(putToExt(videoPlacement::getMaxseq, nativeVideo.getExt(),CommonConstants.MAXSEQ));
-    nativeVideo.setExt(putToExt(videoPlacement::getLinear, nativeVideo.getExt(),CommonConstants.LINEARITY));
-    nativeVideo.setExt(putToExt(videoPlacement::getComptype, nativeVideo.getExt(),CommonConstants.COMPANIONTYPE));
+    putToExt(videoPlacement::getBoxing, nativeVideo.getExt(),CommonConstants.BOXINGALLOWED, nativeVideo::setExt);
+    putToExt(videoPlacement::getPtype, nativeVideo.getExt(),CommonConstants.PTYPE, nativeVideo::setExt);
+    putToExt(videoPlacement::getPos, nativeVideo.getExt(),CommonConstants.POS, nativeVideo::setExt);
+    putToExt(videoPlacement::getDelay, nativeVideo.getExt(),CommonConstants.STARTDELAY, nativeVideo::setExt);
+    putToExt(videoPlacement::getSkip, nativeVideo.getExt(),CommonConstants.SKIP, nativeVideo::setExt);
+    putToExt(videoPlacement::getSkipmin, nativeVideo.getExt(),CommonConstants.SKIPMIN, nativeVideo::setExt);
+    putToExt(videoPlacement::getSkipafter, nativeVideo.getExt(),CommonConstants.SKIPAFTER, nativeVideo::setExt);
+    putListFromSingleObjectToExt(videoPlacement::getPlaymethod, nativeVideo.getExt(),CommonConstants.PLAYBACKMETHOD, nativeVideo::setExt);
+    putToExt(videoPlacement::getPlayend, nativeVideo.getExt(), CommonConstants.PLAYBACKEND, nativeVideo::setExt);
+    putToExt(videoPlacement::getApi, nativeVideo.getExt(),CommonConstants.API, nativeVideo::setExt);
+    putToExt(videoPlacement::getW, nativeVideo.getExt(),CommonConstants.W, nativeVideo::setExt);
+    putToExt(videoPlacement::getH, nativeVideo.getExt(),CommonConstants.H, nativeVideo::setExt);
+    putToExt(videoPlacement::getUnit, nativeVideo.getExt(),CommonConstants.UNIT, nativeVideo::setExt);
+    putToExt(videoPlacement::getMaxext, nativeVideo.getExt(),CommonConstants.MAXEXTENDED, nativeVideo::setExt);
+    putToExt(videoPlacement::getMinbitr, nativeVideo.getExt(),CommonConstants.MINBITRATE, nativeVideo::setExt);
+    putToExt(videoPlacement::getMaxbitr, nativeVideo.getExt(),CommonConstants.MAXBITRATE, nativeVideo::setExt);
+    putToExt(videoPlacement::getDelivery, nativeVideo.getExt(),CommonConstants.DELIVERY, nativeVideo::setExt);
+    putToExt(videoPlacement::getMaxseq, nativeVideo.getExt(),CommonConstants.MAXSEQ, nativeVideo::setExt);
+    putToExt(videoPlacement::getLinear, nativeVideo.getExt(),CommonConstants.LINEARITY, nativeVideo::setExt);
+    putToExt(videoPlacement::getComptype, nativeVideo.getExt(),CommonConstants.COMPANIONTYPE, nativeVideo::setExt);
     return nativeVideo;
   }
 

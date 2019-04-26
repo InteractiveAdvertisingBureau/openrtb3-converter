@@ -110,31 +110,31 @@ public class ExtUtils {
     }
   }
 
-  public static <X> Map<String, Object> putToExt(Supplier<X> supplier, Map<String, Object> ext, String field) {
+  public static <X> void putToExt(Supplier<X> supplier, Map<String, Object> ext, String field, Consumer<Map> consumer) {
     if (nonNull(supplier.get())) {
       if(isNull(ext))
         ext = new HashMap<>();
       ext.put(field, supplier.get());
     }
-    return ext;
+    consumer.accept(ext);
   }
 
-  public static <X> Map<String, Object> putToExt(X value, Map<String, Object> ext, String field) {
+  public static <X> void putToExt(X value, Map<String, Object> ext, String field, Consumer<Map> consumer) {
     if (nonNull(value)) {
       if(isNull(ext))
         ext = new HashMap<>();
       ext.put(field, value);
     }
-    return ext;
+    consumer.accept(ext);
   }
 
-  public static <X> Map<String, Object> putListFromSingleObjectToExt(Supplier<X> supplier, Map<String, Object> ext, String field) {
+  public static <X> void putListFromSingleObjectToExt(Supplier<X> supplier, Map<String, Object> ext, String field, Consumer<Map> consumer) {
     if (nonNull(supplier.get())) {
       if(isNull(ext))
         ext = new HashMap<>();
       ext.put(field, Collections.singletonList(supplier.get()));
     }
-    return ext;
+    consumer.accept(ext);
   }
 
   public static <X> Map<String, Object> fetchExtFromFieldInExt(Map<String, Object> ext, String field, String message) throws OpenRtbConverterException {

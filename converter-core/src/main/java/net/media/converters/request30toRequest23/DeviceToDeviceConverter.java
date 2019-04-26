@@ -42,9 +42,9 @@ public class DeviceToDeviceConverter
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    target.setExt(putToExt(target::getMccmnc, target.getExt(), CommonConstants.MCCMNC));
+    putToExt(target::getMccmnc, target.getExt(), CommonConstants.MCCMNC, target::setExt);
     target.setMccmnc(null);
-    target.setExt(putToExt(target::getGeofetch, target.getExt(), CommonConstants.GEOFETCH));
+    putToExt(target::getGeofetch, target.getExt(), CommonConstants.GEOFETCH, target::setExt);
     target.setGeofetch(null);
   }
 }

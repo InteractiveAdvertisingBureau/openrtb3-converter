@@ -39,7 +39,7 @@ public class ItemToImpConverter
       return;
     }
     super.enhance(item, imp, config, converterProvider);
-    imp.setExt(putToExt(imp::getMetric, imp.getExt(), CommonConstants.METRIC));
+    putToExt(imp::getMetric, imp.getExt(), CommonConstants.METRIC, imp::setExt);
     imp.setMetric(null);
   }
 }

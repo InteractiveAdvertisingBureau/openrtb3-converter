@@ -77,6 +77,6 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb25.
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    target.setExt(putToExt(source::getConsent, target.getExt(), CommonConstants.CONSENT));
+    putToExt(source::getConsent, target.getExt(), CommonConstants.CONSENT, target::setExt);
   }
 }

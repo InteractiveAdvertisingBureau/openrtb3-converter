@@ -86,7 +86,7 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb25.
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    target.setExt(putToExt(source::getCattax, target.getExt(), CommonConstants.CATTAX));
-    target.setExt(putToExt(source::getAmp, target.getExt(), CommonConstants.AMP));
+    putToExt(source::getCattax, target.getExt(), CommonConstants.CATTAX, target::setExt);
+    putToExt(source::getAmp, target.getExt(), CommonConstants.AMP, target::setExt);
   }
 }

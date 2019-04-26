@@ -76,7 +76,7 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     if(nonNull(audio.getExt())) {
       audioPlacement.setExt(new HashMap<>(audio.getExt()));
     }
-    audioPlacement.setExt(putToExt(audio::getStitched, audioPlacement.getExt(), CommonConstants.STITCHED));
+    putToExt(audio::getStitched, audioPlacement.getExt(), CommonConstants.STITCHED, audioPlacement::setExt);
     audioPlacement.setComp(
         bannerListToCompanionList(audio.getCompanionad(), config, converterProvider));
     audioPlacement.setMaxdur(audio.getMaxduration());

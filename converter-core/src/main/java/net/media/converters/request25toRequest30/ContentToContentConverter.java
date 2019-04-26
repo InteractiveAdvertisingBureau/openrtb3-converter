@@ -107,7 +107,7 @@ public class ContentToContentConverter implements Converter<Content, net.media.o
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
     fetchFromExt(target::setCattax, source.getExt(), CommonConstants.CATTAX, "error while typecasting ext for Content");
-    target.setExt(putToExt(source::getVideoquality, target.getExt(), CommonConstants.VIDEOQUALITY));
+    putToExt(source::getVideoquality, target.getExt(), CommonConstants.VIDEOQUALITY, target::setExt);
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

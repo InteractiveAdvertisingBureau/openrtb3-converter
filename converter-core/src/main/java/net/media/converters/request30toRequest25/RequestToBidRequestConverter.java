@@ -127,13 +127,13 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
             CollectionUtils.copyCollection(source.getContext().getRestrictions().getBcat(), config));
         target.setBadv(
             CollectionUtils.copyCollection(source.getContext().getRestrictions().getBadv(), config));
-        target.setExt(putToExt(source.getContext().getRestrictions()::getCattax, target.getExt(), CommonConstants.CATTAX));
+        putToExt(source.getContext().getRestrictions()::getCattax, target.getExt(), CommonConstants.CATTAX, target::setExt);
         if (source.getContext().getRestrictions().getExt() != null) {
           if (target.getExt() == null) target.setExt(new HashMap<>());
           Restrictions restrictions = new Restrictions();
           restrictions.setCattax(null);
           restrictions.setExt(source.getContext().getRestrictions().getExt());
-          target.setExt(putToExt(restrictions, target.getExt(), CommonConstants.RESTRICTIONS));
+          putToExt(restrictions, target.getExt(), CommonConstants.RESTRICTIONS, target::setExt);
         }
       }
 
@@ -236,6 +236,6 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     if (target.getExt() == null) {
       target.setExt(new HashMap<>());
     }
-    target.setExt(putToExt(source.getContext()::getDooh, target.getExt(), CommonConstants.DOOH));
+    putToExt(source.getContext()::getDooh, target.getExt(), CommonConstants.DOOH, target::setExt);
   }
 }

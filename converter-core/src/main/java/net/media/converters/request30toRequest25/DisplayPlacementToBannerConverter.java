@@ -108,11 +108,11 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
       fetchFromExt(banner::setHmin, map, CommonConstants.HMIN, "error while mapping hmin from displayplacement.ext");
       fetchFromExt(banner::setWmin, map, CommonConstants.WMIN, "error while mapping wmin from displayplacement.ext");
     }
-    banner.setExt(putToExt(displayPlacement::getUnit, banner.getExt(), CommonConstants.UNIT));
-    banner.setExt(putToExt(displayPlacement::getPtype, banner.getExt(), CommonConstants.PTYPE));
-    banner.setExt(putToExt(displayPlacement::getContext, banner.getExt(), CommonConstants.CONTEXT));
-    banner.setExt(putToExt(displayPlacement::getCtype, banner.getExt(), CommonConstants.CTYPE));
-    banner.setExt(putToExt(displayPlacement::getPriv, banner.getExt(), CommonConstants.PRIV));
+    putToExt(displayPlacement::getUnit, banner.getExt(), CommonConstants.UNIT, banner::setExt);
+    putToExt(displayPlacement::getPtype, banner.getExt(), CommonConstants.PTYPE, banner::setExt);
+    putToExt(displayPlacement::getContext, banner.getExt(), CommonConstants.CONTEXT, banner::setExt);
+    putToExt(displayPlacement::getCtype, banner.getExt(), CommonConstants.CTYPE, banner::setExt);
+    putToExt(displayPlacement::getPriv, banner.getExt(), CommonConstants.PRIV, banner::setExt);
     removeFromExt(banner.getExt(), extraFieldsInExt);
   }
 

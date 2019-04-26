@@ -39,11 +39,11 @@ public class ItemToImpConverter
       return;
     }
     super.enhance(item, imp, config, converterProvider);
-    imp.setExt(putToExt(imp::getMetric, imp.getExt(), CommonConstants.METRIC));
+    putToExt(imp::getMetric, imp.getExt(), CommonConstants.METRIC, imp::setExt);
     imp.setMetric(null);
-    imp.setExt(putToExt(imp::getClickbrowser, imp.getExt(), CommonConstants.CLICKBROWSER));
+    putToExt(imp::getClickbrowser, imp.getExt(), CommonConstants.CLICKBROWSER, imp::setExt);
     imp.setClickbrowser(null);
-    imp.setExt(putToExt(imp::getExp, imp.getExt(), CommonConstants.EXP));
+    putToExt(imp::getExp, imp.getExt(), CommonConstants.EXP, imp::setExt);
     imp.setExp(null);
   }
 }

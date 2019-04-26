@@ -64,10 +64,10 @@ public class NativeRequestBodyToNativeFormatConverter
     if(nonNull(nativeRequestBody.getExt())) {
       nativeFormat.setExt(new HashMap<>(nativeRequestBody.getExt()));
     }
-    nativeFormat.setExt(putToExt(nativeRequestBody::getContextsubtype, nativeFormat.getExt(), CommonConstants.CONTEXTSUBTYPE));
-    nativeFormat.setExt(putToExt(nativeRequestBody::getAdunit, nativeFormat.getExt(), CommonConstants.ADUNIT));
-    nativeFormat.setExt(putToExt(nativeRequestBody::getLayout, nativeFormat.getExt(), CommonConstants.LAYOUT));
-    nativeFormat.setExt(putToExt(nativeRequestBody::getVer, nativeFormat.getExt(), CommonConstants.VER));
+    putToExt(nativeRequestBody::getContextsubtype, nativeFormat.getExt(), CommonConstants.CONTEXTSUBTYPE, nativeFormat::setExt);
+    putToExt(nativeRequestBody::getAdunit, nativeFormat.getExt(), CommonConstants.ADUNIT, nativeFormat::setExt);
+    putToExt(nativeRequestBody::getLayout, nativeFormat.getExt(), CommonConstants.LAYOUT, nativeFormat::setExt);
+    putToExt(nativeRequestBody::getVer, nativeFormat.getExt(), CommonConstants.VER, nativeFormat::setExt);
     Converter<Asset, AssetFormat> assetAssetFormatConverter =
         converterProvider.fetch(new Conversion<>(Asset.class, AssetFormat.class));
     nativeFormat.setAsset(

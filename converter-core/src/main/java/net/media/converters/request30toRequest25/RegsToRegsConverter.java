@@ -64,6 +64,6 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb25.
     if (target.getExt() == null) {
       target.setExt(new HashMap<>());
     }
-    target.setExt(putToExt(source::getGdpr, target.getExt(), CommonConstants.GDPR));
+    putToExt(source::getGdpr, target.getExt(), CommonConstants.GDPR, target::setExt);
   }
 }
