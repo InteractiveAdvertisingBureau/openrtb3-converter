@@ -497,7 +497,7 @@
       "tagid" : "re",
       "exp" : 1,
       "native" : {
-        "ver" : "1.1",
+        "ver" : "1.2",
         "api" : [ 3, 2 ],
         "battr" : [ 2, 5, 8 ],
         "ext" : {

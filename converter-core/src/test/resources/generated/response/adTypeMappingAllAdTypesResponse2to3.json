@@ -60,7 +60,7 @@
         }
       }, {
         "id" : "yaddayadda2",
-        "impid" : "1",
+        "impid" : "2",
         "price" : 4.5,
         "bundle" : "testbundle",
         "nurl" : "http://www.example.com/",
@@ -139,7 +139,7 @@
         }
       }, {
         "id" : "yaddayadda3",
-        "impid" : "1",
+        "impid" : "3",
         "price" : 4.5,
         "dealid" : "1234",
         "cid" : "campaign-xyz.123",
@@ -273,7 +273,7 @@
       }, {
         "adm" : "video ka adm",
         "id" : "yaddayadda4",
-        "impid" : "1",
+        "impid" : "4",
         "price" : 1.5,
         "bundle" : "chocho",
         "nurl" : "http://www.example.com/",
@@ -426,7 +426,7 @@
             }
           }, {
             "id" : "yaddayadda2",
-            "item" : "1",
+            "item" : "2",
             "deal" : "667fdf7",
             "price" : 4.5,
             "tactic" : "testtactic",
@@ -518,7 +518,7 @@
               "dummy" : "bid.ext"
             },
             "id" : "yaddayadda3",
-            "item" : "1",
+            "item" : "3",
             "deal" : "1234",
             "price" : 4.5,
             "tactic" : "...",
@@ -650,7 +650,7 @@
             }
           }, {
             "id" : "yaddayadda4",
-            "item" : "1",
+            "item" : "4",
             "deal" : "1234",
             "price" : 1.5,
             "tactic" : "...",
@@ -720,10 +720,10 @@
   "params" : {
     "nativeResponseAsString" : false,
     "adTypeMapping" : {
-      "yaddayadda1" : "AUDIO",
-      "yaddayadda2" : "BANNER",
-      "yaddayadda3" : "NATIVE",
-      "yaddayadda4" : "VIDEO"
+      "1" : "AUDIO",
+      "2" : "BANNER",
+      "3" : "NATIVE",
+      "4" : "VIDEO"
     }
   },
   "config" : null,

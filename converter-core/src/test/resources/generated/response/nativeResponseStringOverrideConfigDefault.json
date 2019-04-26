@@ -325,12 +325,12 @@
   "purpose" : "nativeResponseStringOverrideConfigDefault",
   "params" : {
     "adTypeMapping" : {
-      "yaddayadda" : "NATIVE"
+      "1" : "NATIVE"
     }
   },
   "config" : {
     "adTypeMapping" : {
-      "yaddayadda" : "BANNER"
+      "1" : "BANNER"
     }
   },
   "overRidingMap" : null,

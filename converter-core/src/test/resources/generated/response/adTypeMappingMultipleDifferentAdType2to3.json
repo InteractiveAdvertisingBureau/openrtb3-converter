@@ -90,7 +90,7 @@
         }
       }, {
         "id" : "yaddayadda1",
-        "impid" : "1",
+        "impid" : "2",
         "price" : 4.5,
         "dealid" : "1234",
         "cid" : "campaign-xyz.123",
@@ -347,7 +347,7 @@
               "dummy" : "bid.ext"
             },
             "id" : "yaddayadda1",
-            "item" : "1",
+            "item" : "2",
             "deal" : "1234",
             "price" : 4.5,
             "tactic" : "...",
@@ -490,8 +490,8 @@
   "params" : {
     "nativeResponseAsString" : false,
     "adTypeMapping" : {
-      "yaddayadda" : "BANNER",
-      "yaddayadda1" : "NATIVE"
+      "1" : "BANNER",
+      "2" : "NATIVE"
     }
   },
   "config" : null,

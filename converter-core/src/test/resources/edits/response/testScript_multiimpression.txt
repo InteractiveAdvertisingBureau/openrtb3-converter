@@ -11,10 +11,10 @@ cases:
     params:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda1": AUDIO
-        "yaddayadda2": BANNER
-        "yaddayadda3": NATIVE
-        "yaddayadda4": VIDEO
+        "1": AUDIO
+        "2": BANNER
+        "3": NATIVE
+        "4": VIDEO
 
   - inputFile: RESPONSE_ALL_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -28,7 +28,7 @@ cases:
     params:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda1": AUDIO
-        "yaddayadda2": BANNER
-        "yaddayadda3": NATIVE
-        "yaddayadda4": VIDEO
+        "1": AUDIO
+        "2": BANNER
+        "3": NATIVE
+        "4": VIDEO

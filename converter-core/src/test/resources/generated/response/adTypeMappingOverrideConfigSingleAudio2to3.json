@@ -178,12 +178,12 @@
   "purpose" : "adTypeMappingOverrideConfigSingleAudio2to3",
   "params" : {
     "adTypeMapping" : {
-      "yaddayadda" : "AUDIO"
+      "1" : "AUDIO"
     }
   },
   "config" : {
     "adTypeMapping" : {
-      "yaddayadda" : "VIDEO"
+      "1" : "VIDEO"
     }
   },
   "overRidingMap" : null,

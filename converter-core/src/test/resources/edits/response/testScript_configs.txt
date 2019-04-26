@@ -11,7 +11,7 @@ cases:
     params:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -24,7 +24,7 @@ cases:
     purpose: nativeResponseStringConfigDefault
     params:
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2_string.json
     inputType: "RESPONSE30"
@@ -38,7 +38,7 @@ cases:
     params:
       nativeResponseAsString: true
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -52,7 +52,7 @@ cases:
     params:
       nativeResponseAsString: "random"
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -66,7 +66,7 @@ cases:
     params:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_VAST_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -79,7 +79,7 @@ cases:
     purpose: adTypeMappingSingleVideo
     params:
       adTypeMapping:
-        "yaddayadda": VIDEO
+        "1": VIDEO
 
   - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -92,7 +92,7 @@ cases:
     purpose: adTypeMappingSingleBanner
     params:
       adTypeMapping:
-        "yaddayadda": BANNER
+        "1": BANNER
 
   - inputFile: RESPONSE_AUDIO_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -105,7 +105,7 @@ cases:
     purpose: adTypeMappingSingleAudio
     params:
       adTypeMapping:
-        "yaddayadda": AUDIO
+        "1": AUDIO
 
   - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -128,8 +128,8 @@ cases:
     purpose: adTypeMappingMultipleSameAdType
     params:
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": BANNER
+        "1": BANNER
+        "2": BANNER
 
   - inputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_30_3to2.json
     inputType: "RESPONSE30"
@@ -143,8 +143,8 @@ cases:
     params:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": NATIVE
+        "1": BANNER
+        "2": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_25_2to3.json
     inputType: "RESPONSE25"
@@ -158,7 +158,7 @@ cases:
     params:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_VAST_SITE_25_2to3.json
     inputType: "RESPONSE25"
@@ -171,7 +171,7 @@ cases:
     purpose: adTypeMappingSingleVideo2to3
     params:
       adTypeMapping:
-        "yaddayadda": VIDEO
+        "1": VIDEO
 
   - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
     inputType: "RESPONSE25"
@@ -184,7 +184,7 @@ cases:
     purpose: adTypeMappingSingleBanner2to3
     params:
       adTypeMapping:
-        "yaddayadda": BANNER
+        "1": BANNER
 
   - inputFile: RESPONSE_AUDIO_SITE_25_2to3.json
     inputType: "RESPONSE25"
@@ -197,7 +197,7 @@ cases:
     purpose: adTypeMappingSingleAudio2to3
     params:
       adTypeMapping:
-        "yaddayadda": AUDIO
+        "1": AUDIO
 
   - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
     inputType: "RESPONSE25"
@@ -220,8 +220,8 @@ cases:
     purpose: adTypeMappingMultipleSameAdType2to3
     params:
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": BANNER
+        "1": BANNER
+        "2": BANNER
 
   - inputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_25_2to3.json
     inputType: "RESPONSE25"
@@ -235,8 +235,8 @@ cases:
     params:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": NATIVE
+        "1": BANNER
+        "2": NATIVE
 
   - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -347,7 +347,7 @@ cases:
     config:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -360,7 +360,7 @@ cases:
     purpose: nativeResponseStringInitConfigDefault
     config:
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2_string.json
     inputType: "RESPONSE30"
@@ -374,7 +374,7 @@ cases:
     config:
       nativeResponseAsString: true
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -388,7 +388,7 @@ cases:
     config:
       nativeResponseAsString: "random"
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -402,7 +402,7 @@ cases:
     config:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_VAST_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -415,7 +415,7 @@ cases:
     purpose: adTypeMappingInitConfigSingleVideo
     config:
       adTypeMapping:
-        "yaddayadda": VIDEO
+        "1": VIDEO
 
   - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -428,7 +428,7 @@ cases:
     purpose: adTypeMappingInitConfigSingleBanner
     config:
       adTypeMapping:
-        "yaddayadda": BANNER
+        "1": BANNER
 
   - inputFile: RESPONSE_AUDIO_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -441,7 +441,7 @@ cases:
     purpose: adTypeMappingInitConfigSingleAudio
     config:
       adTypeMapping:
-        "yaddayadda": AUDIO
+        "1": AUDIO
 
   - inputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_30_3to2.json
     inputType: "RESPONSE30"
@@ -454,8 +454,8 @@ cases:
     purpose: adTypeMappingInitConfigMultipleSameAdType
     config:
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": BANNER
+        "1": BANNER
+        "2": BANNER
 
   - inputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_30_3to2.json
     inputType: "RESPONSE30"
@@ -469,8 +469,8 @@ cases:
     config:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": NATIVE
+        "1": BANNER
+        "2": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_25_2to3.json
     inputType: "RESPONSE25"
@@ -484,7 +484,7 @@ cases:
     config:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_VAST_SITE_25_2to3.json
     inputType: "RESPONSE25"
@@ -497,7 +497,7 @@ cases:
     purpose: adTypeMappingInitConfigSingleVideo2to3
     config:
       adTypeMapping:
-        "yaddayadda": VIDEO
+        "1": VIDEO
 
   - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
     inputType: "RESPONSE25"
@@ -510,7 +510,7 @@ cases:
     purpose: adTypeMappingInitConfigSingleBanner2to3
     config:
       adTypeMapping:
-        "yaddayadda": BANNER
+        "1": BANNER
 
   - inputFile: RESPONSE_AUDIO_SITE_25_2to3.json
     inputType: "RESPONSE25"
@@ -523,7 +523,7 @@ cases:
     purpose: adTypeMappingInitConfigSingleAudio2to3
     config:
       adTypeMapping:
-        "yaddayadda": AUDIO
+        "1": AUDIO
 
   - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
     inputType: "RESPONSE25"
@@ -546,8 +546,8 @@ cases:
     purpose: adTypeMappingInitConfigMultipleSameAdType2to3
     config:
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": BANNER
+        "1": BANNER
+        "2": BANNER
 
   - inputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_25_2to3.json
     inputType: "RESPONSE25"
@@ -561,8 +561,8 @@ cases:
     config:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": NATIVE
+        "1": BANNER
+        "2": NATIVE
 
   - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -662,11 +662,11 @@ cases:
     params:
       nativeResponseAsString: true
       adTypeMapping:
-        "yaddayadda": BANNER
+        "1": BANNER
     params:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -679,10 +679,10 @@ cases:
     purpose: nativeResponseStringOverrideConfigDefault
     config:
       adTypeMapping:
-        "yaddayadda": BANNER
+        "1": BANNER
     params:
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2_string.json
     inputType: "RESPONSE30"
@@ -696,11 +696,11 @@ cases:
     config:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": BANNER
+        "1": BANNER
     params:
       nativeResponseAsString: true
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -714,11 +714,11 @@ cases:
     config:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
     params:
       nativeResponseAsString: "random"
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -732,11 +732,11 @@ cases:
     config:
       nativeResponseAsString: true
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
     params:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_VAST_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -749,10 +749,10 @@ cases:
     purpose: adTypeMappingOverrideConfigSingleVideo
     config:
       adTypeMapping:
-        "yaddayadda": BANNER
+        "1": BANNER
     params:
       adTypeMapping:
-        "yaddayadda": VIDEO
+        "1": VIDEO
 
   - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -765,10 +765,10 @@ cases:
     purpose: adTypeMappingOverrideConfigSingleBanner
     config:
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
     params:
       adTypeMapping:
-        "yaddayadda": BANNER
+        "1": BANNER
 
   - inputFile: RESPONSE_AUDIO_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -781,10 +781,10 @@ cases:
     purpose: adTypeMappingOverrideConfigSingleAudio
     params:
       adTypeMapping:
-        "yaddayadda": VIDEO
+        "1": VIDEO
     params:
       adTypeMapping:
-        "yaddayadda": AUDIO
+        "1": AUDIO
 
   - inputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_30_3to2.json
     inputType: "RESPONSE30"
@@ -797,12 +797,12 @@ cases:
     purpose: adTypeMappingOverrideConfigMultipleSameAdType
     config:
       adTypeMapping:
-        "yaddayadda": VIDEO
-        "yaddayadda1": VIDEO
+        "1": VIDEO
+        "2": VIDEO
     params:
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": BANNER
+        "1": BANNER
+        "2": BANNER
 
   - inputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_30_3to2.json
     inputType: "RESPONSE30"
@@ -816,13 +816,13 @@ cases:
     config:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": NATIVE
-        "yaddayadda1": BANNER
+        "1": NATIVE
+        "2": BANNER
     params:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": NATIVE
+        "1": BANNER
+        "2": NATIVE
 
   - inputFile: RESPONSE_NATIVE_SITE_25_2to3.json
     inputType: "RESPONSE25"
@@ -836,11 +836,11 @@ cases:
     config:
       nativeResponseAsString: true
       adTypeMapping:
-        "yaddayadda": BANNER
+        "1": BANNER
     params:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
 
   - inputFile: RESPONSE_VAST_SITE_25_2to3.json
     inputType: "RESPONSE25"
@@ -853,10 +853,10 @@ cases:
     purpose: adTypeMappingOverrideConfigSingleVideo2to3
     config:
       adTypeMapping:
-        "yaddayadda": AUDIO
+        "1": AUDIO
     params:
       adTypeMapping:
-        "yaddayadda": VIDEO
+        "1": VIDEO
 
   - inputFile: RESPONSE_BANNER_SITE_25_2to3.json
     inputType: "RESPONSE25"
@@ -869,10 +869,10 @@ cases:
     purpose: adTypeMappingOverrideConfigSingleBanner2to3
     config:
       adTypeMapping:
-        "yaddayadda": VIDEO
+        "1": VIDEO
     params:
       adTypeMapping:
-        "yaddayadda": BANNER
+        "1": BANNER
 
   - inputFile: RESPONSE_AUDIO_SITE_25_2to3.json
     inputType: "RESPONSE25"
@@ -885,10 +885,10 @@ cases:
     purpose: adTypeMappingOverrideConfigSingleAudio2to3
     config:
       adTypeMapping:
-        "yaddayadda": VIDEO
+        "1": VIDEO
     params:
       adTypeMapping:
-        "yaddayadda": AUDIO
+        "1": AUDIO
 
   - inputFile: MULTIIMPRESSION_SITE_SAMEADTYPE_25_2to3.json
     inputType: "RESPONSE25"
@@ -901,12 +901,12 @@ cases:
     purpose: adTypeMappingOverrideConfigMultipleSameAdType2to3
     config:
       adTypeMapping:
-        "yaddayadda": NATIVE
-        "yaddayadda1": NATIVE
+        "1": NATIVE
+        "2": NATIVE
     params:
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": BANNER
+        "1": BANNER
+        "2": BANNER
 
   - inputFile: MULTIIMPRESSION_SITE_DIFFERENTADTYPE_25_2to3.json
     inputType: "RESPONSE25"
@@ -920,13 +920,13 @@ cases:
     config:
       nativeResponseAsString: true
       adTypeMapping:
-        "yaddayadda": NATIVE
-        "yaddayadda1": BANNER
+        "1": NATIVE
+        "2": BANNER
     params:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": NATIVE
+        "1": BANNER
+        "2": NATIVE
 
   - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -1029,7 +1029,7 @@ cases:
     config:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
     params:
       validate: false
 
@@ -1044,7 +1044,7 @@ cases:
     purpose: nativeResponseStringBackupConfigDefault
     config:
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
     params:
       validate: false
 
@@ -1060,7 +1060,7 @@ cases:
     config:
       nativeResponseAsString: true
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
     params:
       validate: false
 
@@ -1076,7 +1076,7 @@ cases:
     config:
       nativeResponseAsString: "random"
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
     params:
       validate: false
 
@@ -1092,7 +1092,7 @@ cases:
     config:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
     params:
       validate: false
 
@@ -1107,7 +1107,7 @@ cases:
     purpose: adTypeMappingBackupConfigSingleVideo
     config:
       adTypeMapping:
-        "yaddayadda": VIDEO
+        "1": VIDEO
     params:
       validate: false
 
@@ -1122,7 +1122,7 @@ cases:
     purpose: adTypeMappingBackupConfigSingleBanner
     config:
       adTypeMapping:
-        "yaddayadda": BANNER
+        "1": BANNER
     params:
       validate: false
 
@@ -1137,7 +1137,7 @@ cases:
     purpose: adTypeMappingBackupConfigSingleAudio
     config:
       adTypeMapping:
-        "yaddayadda": AUDIO
+        "1": AUDIO
     params:
       validate: false
 
@@ -1152,8 +1152,8 @@ cases:
     purpose: adTypeMappingBackupConfigMultipleSameAdType
     config:
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": BANNER
+        "1": BANNER
+        "2": BANNER
     params:
       validate: false
 
@@ -1169,8 +1169,8 @@ cases:
     config:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": NATIVE
+        "1": BANNER
+        "2": NATIVE
     params:
       validate: false
 
@@ -1186,7 +1186,7 @@ cases:
     config:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": NATIVE
+        "1": NATIVE
     params:
       validate: false
 
@@ -1201,7 +1201,7 @@ cases:
     purpose: adTypeMappingBackupConfigSingleVideo2to3
     config:
       adTypeMapping:
-        "yaddayadda": VIDEO
+        "1": VIDEO
     params:
       validate: false
 
@@ -1216,7 +1216,7 @@ cases:
     purpose: adTypeMappingBackupConfigSingleBanner2to3
     config:
       adTypeMapping:
-        "yaddayadda": BANNER
+        "1": BANNER
     params:
       validate: false
 
@@ -1231,7 +1231,7 @@ cases:
     purpose: adTypeMappingBackupConfigSingleAudio2to3
     config:
       adTypeMapping:
-        "yaddayadda": AUDIO
+        "1": AUDIO
     params:
       validate: false
 
@@ -1246,8 +1246,8 @@ cases:
     purpose: adTypeMappingBackupConfigMultipleSameAdType2to3
     config:
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": BANNER
+        "1": BANNER
+        "2": BANNER
     params:
       validate: false
 
@@ -1263,8 +1263,8 @@ cases:
     config:
       nativeResponseAsString: false
       adTypeMapping:
-        "yaddayadda": BANNER
-        "yaddayadda1": NATIVE
+        "1": BANNER
+        "2": NATIVE
     params:
       validate: false
 

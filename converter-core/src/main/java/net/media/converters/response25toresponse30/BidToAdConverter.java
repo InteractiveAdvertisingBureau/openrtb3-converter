@@ -93,7 +93,7 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
       CommonConstants.AUDIT,
       "Error while mapping audit from bid.ext",
       Audit.class);
-    switch (config.getAdType(source.getId())) {
+    switch (config.getAdType(source.getImpid())) {
       case BANNER:
       case NATIVE:
         Converter<Bid, Display> bidDisplayConverter =

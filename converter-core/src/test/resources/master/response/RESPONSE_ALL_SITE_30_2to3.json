@@ -102,7 +102,7 @@
             },
             {
               "id": "yaddayadda2",
-              "item": "1",
+              "item": "2",
               "deal": "667fdf7",
               "price": 4.5,
               "tactic": "testtactic",
@@ -218,7 +218,7 @@
                 "dummy": "bid.ext"
               },
               "id": "yaddayadda3",
-              "item": "1",
+              "item": "3",
               "deal": "1234",
               "price": 4.5,
               "tactic": "...",
@@ -386,7 +386,7 @@
             },
             {
               "id": "yaddayadda4",
-              "item": "1",
+              "item": "4",
               "deal": "1234",
               "price": 1.50,
               "tactic": "...",
