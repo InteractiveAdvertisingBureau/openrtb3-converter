@@ -24,10 +24,7 @@ import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.User;
 import net.media.openrtb3.*;
-import net.media.utils.CollectionToCollectionConverter;
-import net.media.utils.CollectionUtils;
-import net.media.utils.MapUtils;
-import net.media.utils.Provider;
+import net.media.utils.*;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -116,7 +113,7 @@ public class CustomRequestToBidRequestConverter implements Converter<Request, Bi
         target.setSite(siteSiteConverter.map(site, config, converterProvider));
       }
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("cattax", source.getContext().getRestrictions().getCattax());
+      target.getExt().put(CommonConstants.CATTAX, source.getContext().getRestrictions().getCattax());
       if (source.getContext().getRestrictions() != null) {
         target.setBapp(
           CollectionUtils.copyCollection(source.getContext().getRestrictions().getBapp(), config));
@@ -130,7 +127,7 @@ public class CustomRequestToBidRequestConverter implements Converter<Request, Bi
           Restrictions restrictions = new Restrictions();
           restrictions.setCattax(null);
           restrictions.setExt(source.getContext().getRestrictions().getExt());
-          target.getExt().put("restrictions", restrictions);
+          target.getExt().put(CommonConstants.RESTRICTIONS, restrictions);
         }
       }
 
