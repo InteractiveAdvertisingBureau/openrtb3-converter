@@ -30,13 +30,13 @@ The calls made to the server are POST calls. The servlet accepts eight query par
 ## POST Body
 All the post bodies are json strings
 #### Request 2x To 3x
-1. bidRequest - The bidRequest of ORTB 2.x
+ - bidRequest - The bidRequest of ORTB 2.x
 #### Request 3x To 2x
-1. openRTB - The ortb request of ORTB 3.0
+ - openRTB - The ortb request of ORTB 3.0
 #### Response 2x To 3x
-1. response - The response of ORTB 2.x 
+ - response - The response of ORTB 2.x 
 #### Response 3x To 2x
-1. openRTB - The ortb response of ORTB 3.0
+ - openRTB - The ortb response of ORTB 3.0
 
 ## Examples
 
