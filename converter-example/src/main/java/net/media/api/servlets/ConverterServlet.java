@@ -27,6 +27,7 @@ import net.media.enums.AdType;
 import net.media.enums.OpenRtbVersion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
+import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
 import net.media.utils.JacksonObjectMapperUtils;
 import org.apache.commons.io.IOUtils;
@@ -101,10 +102,10 @@ public class ConverterServlet extends HttpServlet {
               .convert(
                 config,
                 IOUtils.toString(request.getInputStream(), "UTF-8"),
-                BidRequest2_X.class,
+                BidResponse2_X.class,
                 OpenRTBWrapper3_X.class));
         } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
-          log.error("Error while sending 2xto3x request ", e);
+          log.error("Error while sending 2xto3x response ", e);
           response.setStatus(500);
         }
       };
@@ -117,10 +118,10 @@ public class ConverterServlet extends HttpServlet {
               .convert(
                 config,
                 IOUtils.toString(request.getInputStream(), "UTF-8"),
-                BidRequest2_X.class,
-                OpenRTBWrapper3_X.class));
+                OpenRTBWrapper3_X.class,
+                BidResponse2_X.class));
         } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
-          log.error("Error while sending 2xto3x request ", e);
+          log.error("Error while sending 2xto3x response ", e);
           response.setStatus(500);
         }
       };
@@ -173,15 +174,15 @@ public class ConverterServlet extends HttpServlet {
     Config config = new Config();
     try {
       if(nativeRequestAsString != null)
-        config.setNativeRequestAsString(Boolean.getBoolean(nativeRequestAsString));
+        config.setNativeRequestAsString(Boolean.parseBoolean(nativeRequestAsString));
       if(nativeResponseAsString != null)
-        config.setNativeResponseAsString(Boolean.getBoolean(nativeResponseAsString));
+        config.setNativeResponseAsString(Boolean.parseBoolean(nativeResponseAsString));
       if(adTypeMapping != null)
         config.setAdTypeMapping(mapper.readValue(adTypeMapping, javaTypeForAdTypeMapping));
       if(disableCloning != null)
-        config.setDisableCloning(Boolean.getBoolean(disableCloning));
+        config.setDisableCloning(Boolean.parseBoolean(disableCloning));
       if(validate != null)
-        config.setValidate(Boolean.getBoolean(validate));
+        config.setValidate(Boolean.parseBoolean(validate));
       if(openRtbVersion2_XVersion != null)
         config.setOpenRtbVersion2_XVersion(OpenRtbVersion.valueOf(openRtbVersion2_XVersion));
     } catch (Exception e) {
