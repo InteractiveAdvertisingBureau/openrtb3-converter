@@ -548,3 +548,77 @@ cases:
       validate: true
       adTypeMapping:
         "ad12": NATIVE
+
+
+  - inputFile: MINIMUM_RESPONSE_25.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      t: null
+    outputFile: MINIMUM_RESPONSE_BANNER_30_2TO3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      t: null
+    purpose: Response25MinimumConversion
+    params:
+      validate: true
+
+  - inputFile: MINIMUM_RESPONSE_25.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      id: null
+    outputFile: empty.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      status: ERROR
+    purpose: Response25IdRequired
+    params:
+      validate: true
+
+  - inputFile: MINIMUM_RESPONSE_25.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      seatbid: null
+    outputFile: MINIMUM_RESPONSE_BANNER_30_2TO3.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      openrtb.response.seatbid: null
+    purpose: Response25SeatbidAllowedNull
+    params:
+      validate: true
+
+  - inputFile: MINIMUM_RESPONSE_25.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      id: null
+    outputFile: empty.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      status: ERROR
+    purpose: Response25BidIdRequired
+    params:
+      validate: true
+
+  - inputFile: MINIMUM_RESPONSE_25.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      id: null
+    outputFile: empty.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      status: ERROR
+    purpose: Response25BidPriceRequired
+    params:
+      validate: true
+
+  - inputFile: MINIMUM_RESPONSE_25.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      id: null
+    outputFile: empty.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      status: ERROR
+    purpose: Response25BidImpidRequired
+    params:
+      validate: true
+
