@@ -21,7 +21,7 @@ cases:
    purpose: nativeSiteRESPONSE_3to2
    params:
       adTypeMapping :
-          yaddayadda : NATIVE
+          "1" : NATIVE
 
  - inputFile: RESPONSE_VAST_SITE_30_3to2.json
    inputType: "RESPONSE30"
@@ -34,7 +34,7 @@ cases:
    purpose: vastSiteRESPONSE_3to2
    params:
          adTypeMapping :
-             yaddayadda : VIDEO
+             "1" : VIDEO
 
  - inputFile: RESPONSE_AUDIO_SITE_30_3to2.json
    inputType: "RESPONSE30"
@@ -47,4 +47,4 @@ cases:
    purpose: audioSiteRESPONSE_3to2
    params:
      adTypeMapping :
-        yaddayadda : AUDIO
+        "1" : AUDIO

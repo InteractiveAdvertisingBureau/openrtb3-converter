@@ -190,7 +190,7 @@
   },
   "config" : {
     "adTypeMapping" : {
-      "yaddayadda" : "VIDEO"
+      "1" : "VIDEO"
     }
   },
   "overRidingMap" : null,

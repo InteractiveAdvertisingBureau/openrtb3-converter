@@ -181,7 +181,7 @@
   },
   "config" : {
     "adTypeMapping" : {
-      "yaddayadda" : "AUDIO"
+      "1" : "AUDIO"
     }
   },
   "overRidingMap" : null,

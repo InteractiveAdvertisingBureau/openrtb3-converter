@@ -329,7 +329,7 @@
   "config" : {
     "nativeResponseAsString" : false,
     "adTypeMapping" : {
-      "yaddayadda" : "NATIVE"
+      "1" : "NATIVE"
     }
   },
   "overRidingMap" : null,

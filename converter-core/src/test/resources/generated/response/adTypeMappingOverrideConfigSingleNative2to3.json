@@ -325,13 +325,13 @@
   "params" : {
     "nativeResponseAsString" : false,
     "adTypeMapping" : {
-      "yaddayadda" : "NATIVE"
+      "1" : "NATIVE"
     }
   },
   "config" : {
     "nativeResponseAsString" : true,
     "adTypeMapping" : {
-      "yaddayadda" : "BANNER"
+      "1" : "BANNER"
     }
   },
   "overRidingMap" : null,
