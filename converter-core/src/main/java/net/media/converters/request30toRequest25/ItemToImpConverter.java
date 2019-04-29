@@ -131,7 +131,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         }
         if (config.getNativeRequestAsString()) {
           try {
-            nat.setRequest(JacksonObjectMapper.getMapper().writeValueAsString(nativeRequest));
+            nat.setRequest(JacksonObjectMapperUtils.getMapper().writeValueAsString(nativeRequest));
           } catch (JsonProcessingException e) {
             throw new OpenRtbConverterException(e);
           }

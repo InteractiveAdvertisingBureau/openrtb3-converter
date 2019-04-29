@@ -24,7 +24,6 @@ import net.media.openrtb25.request.App;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
-import net.media.utils.JacksonObjectMapper;
 import org.json.JSONException;
 import net.media.utils.JacksonObjectMapperUtils;
 
