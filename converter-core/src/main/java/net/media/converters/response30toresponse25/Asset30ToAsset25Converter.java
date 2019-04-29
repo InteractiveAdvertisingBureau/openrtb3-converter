@@ -35,7 +35,7 @@ import static net.media.utils.ExtUtils.*;
 
 public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse> {
 
-  static List<String> extraFieldsInNativeDataExt = new ArrayList<>();
+  private static List<String> extraFieldsInNativeDataExt = new ArrayList<>();
 
   static {
     extraFieldsInNativeDataExt.add(CommonConstants.LABEL);
@@ -61,7 +61,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
       return;
     }
 
-    target.setData(dataTonativeData(source.getData()));
+    target.setData(dataToNativeData(source.getData()));
     target.setId(source.getId());
     target.setRequired(source.getReq());
     target.setImg(imageAssetToNativeImage(source.getImage()));
@@ -73,7 +73,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     }
   }
 
-  private NativeData dataTonativeData(DataAsset data) throws OpenRtbConverterException {
+  private NativeData dataToNativeData(DataAsset data) throws OpenRtbConverterException {
     if (isNull(data)) {
       return null;
     }

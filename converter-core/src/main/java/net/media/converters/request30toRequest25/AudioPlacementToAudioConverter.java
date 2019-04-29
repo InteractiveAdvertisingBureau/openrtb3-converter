@@ -103,7 +103,7 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     }
   }
 
-  protected Collection<Banner> companionListToBannerList(
+  private Collection<Banner> companionListToBannerList(
       Collection<Companion> list, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
     if (list == null) {

@@ -36,10 +36,10 @@ import static net.media.utils.ExtUtils.*;
 /** @author shiva.b */
 public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset> {
 
-  static List<String> extraFieldsInDataExt = new ArrayList<>();
-  static List<String> extraFieldsInImageAssetExt = new ArrayList<>();
-  static List<String> extraFieldsInTitleAssetExt = new ArrayList<>();
-  static List<String> extraFieldsInVideoAssetExt = new ArrayList<>();
+  private static List<String> extraFieldsInDataExt = new ArrayList<>();
+  private static List<String> extraFieldsInImageAssetExt = new ArrayList<>();
+  private static List<String> extraFieldsInTitleAssetExt = new ArrayList<>();
+  private static List<String> extraFieldsInVideoAssetExt = new ArrayList<>();
 
   static {
     extraFieldsInDataExt.add(CommonConstants.TYPE);

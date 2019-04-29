@@ -26,7 +26,7 @@ import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 public class MacroMapper {
-  public static BiMap<String, String> macrosTwoXToThreeX;
+  private static BiMap<String, String> macrosTwoXToThreeX;
 
   static {
     macrosTwoXToThreeX = HashBiMap.create();

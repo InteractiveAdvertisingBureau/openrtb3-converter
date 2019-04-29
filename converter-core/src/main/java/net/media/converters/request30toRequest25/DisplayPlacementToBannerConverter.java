@@ -36,7 +36,7 @@ import static net.media.utils.ExtUtils.*;
 public class DisplayPlacementToBannerConverter implements Converter<DisplayPlacement, Banner> {
 
   private static final List<String> extraFieldsInExt = new ArrayList<>();
-  static List<String> extraFieldsInFormatExt = new ArrayList<>();
+  private static List<String> extraFieldsInFormatExt = new ArrayList<>();
 
   static {
     extraFieldsInExt.add(CommonConstants.BTYPE);

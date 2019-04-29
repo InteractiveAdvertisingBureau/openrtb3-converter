@@ -22,9 +22,9 @@ import java.util.regex.Pattern;
 
 /** @author shiva.b */
 public class MacroProcessor {
-  public static final Pattern OPEN_RTB_TOKEN_PATTERN =
+  private static final Pattern OPEN_RTB_TOKEN_PATTERN =
       Pattern.compile("\\$\\{(?<macro>.*?)(:(?<algo>.*?)){0,1}\\}");
-  public static Template.TokenProvider TOKEN_PROVIDER =
+  private static Template.TokenProvider TOKEN_PROVIDER =
       Template.getTokenProviderByGroupNames(Arrays.asList("macro", "algo"));
   private static EncodeTemplate.EncoderProvider ENCODER_PROVIDER =
       EncodeTemplate.getEncoderProviderByGroupName("algo");

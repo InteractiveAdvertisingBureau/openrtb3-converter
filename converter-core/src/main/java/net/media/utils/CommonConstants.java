@@ -19,12 +19,12 @@ package net.media.utils;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class CommonConstants {
 
   public static final Integer DEFAULT_CATTAX_THREEDOTX = 2;
   public static final Integer DEFAULT_CATTAX_TWODOTX = 1;
 
-  public static final String DELAY = "delay";
   public static final String RESTRICTIONS = "restrictions";
   public static final String EXT = "ext";
   public static final String ARTIST = "artist";
@@ -142,7 +142,7 @@ public class CommonConstants {
   public static final String COMPANIONTYPE = "companiontype";
   public static final String BAPP = "bapp";
 
-  public static BiMap<String, Integer> osMap;
+  public static final BiMap<String, Integer> osMap;
 
   static {
     osMap = HashBiMap.create();

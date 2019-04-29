@@ -57,39 +57,37 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
     Converter<Media, Bid> mediaBidConverter =
         converterProvider.fetch(new Conversion<>(Media.class, Bid.class));
 
-    if (source == null && target == null && config == null) {
+    if (source == null || target == null || config == null) {
       return;
     }
-    if (source != null) {
-      Map<String, Object> map = source.getExt();
-      if (map != null) {
-        target.setExt(new HashMap<>(map));
-      }
-      target.setId(source.getId());
-      if (source.getPrice() != null) {
-        target.setPrice(source.getPrice());
-      }
-      target.setImpid(source.getItem());
-      target.setDealid(source.getDeal());
-      target.setNurl(source.getPurl());
-      target.setCid(source.getCid());
-      target.setExp(source.getExp());
-      target.setBurl(source.getBurl());
-      target.setLurl(source.getLurl());
-      target.setTactic(source.getTactic());
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.setAdid(source.getMid());
-      putToExt(source::getMacro, target.getExt(), CommonConstants.MACRO, target::setExt);
-      mediaBidConverter.enhance(source.getMedia(), target, config, converterProvider);
-      MacroMapper.macroReplaceTwoX(target);
-      fetchFromExt(
-        target::setProtocol,
-        source.getExt(),
-        CommonConstants.PROTOCOL,
-        "error while mapping protocol from Bid.ext");
+    Map<String, Object> map = source.getExt();
+    if (map != null) {
+      target.setExt(new HashMap<>(map));
     }
+    target.setId(source.getId());
+    if (source.getPrice() != null) {
+      target.setPrice(source.getPrice());
+    }
+    target.setImpid(source.getItem());
+    target.setDealid(source.getDeal());
+    target.setNurl(source.getPurl());
+    target.setCid(source.getCid());
+    target.setExp(source.getExp());
+    target.setBurl(source.getBurl());
+    target.setLurl(source.getLurl());
+    target.setTactic(source.getTactic());
+    if (isNull(target.getExt())) {
+      target.setExt(new HashMap<>());
+    }
+    target.setAdid(source.getMid());
+    putToExt(source::getMacro, target.getExt(), CommonConstants.MACRO, target::setExt);
+    mediaBidConverter.enhance(source.getMedia(), target, config, converterProvider);
+    MacroMapper.macroReplaceTwoX(target);
+    fetchFromExt(
+      target::setProtocol,
+      source.getExt(),
+      CommonConstants.PROTOCOL,
+      "error while mapping protocol from Bid.ext");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }
