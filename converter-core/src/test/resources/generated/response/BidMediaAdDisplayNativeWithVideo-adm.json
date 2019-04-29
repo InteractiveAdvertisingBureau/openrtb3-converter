@@ -5,7 +5,9 @@
     "openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].title" : null,
     "openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].image" : null,
     "openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].link" : null,
-    "openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].data" : null
+    "openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].data" : null,
+    "openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].video.adm" : "\"adm\"",
+    "openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].video.curl" : null
   },
   "inputJson" : {
     "openrtb" : {
@@ -25,7 +27,7 @@
                     },
                     "asset" : [ {
                       "video" : {
-                        "curl" : "curl.com"
+                        "adm" : "adm"
                       }
                     } ]
                   }
@@ -44,7 +46,8 @@
     "seatbid[0].bid[0].adm.native.asset[0].img" : null,
     "seatbid[0].bid[0].adm.native.asset[0].link" : null,
     "seatbid[0].bid[0].adm.native.asset[0].data" : null,
-    "seatbid[0].bid[0].adm.native.asset[0].video.vasttag" : null
+    "seatbid[0].bid[0].adm.native.asset[0].video.ext.curl" : null,
+    "seatbid[0].bid[0].adm.native.asset[0].video.ext" : null
   },
   "outputJson" : {
     "id" : "0123456789ABCDEF",
@@ -63,9 +66,7 @@
             },
             "asset" : [ {
               "video" : {
-                "ext" : {
-                  "curl" : "curl.com"
-                }
+                "vasttag" : "adm"
               }
             } ]
           }
@@ -73,7 +74,7 @@
       } ]
     } ]
   },
-  "purpose" : "BidMediaAdDisplayNativeWithVideo",
+  "purpose" : "BidMediaAdDisplayNativeWithVideo-adm",
   "params" : {
     "validate" : true,
     "adTypeMapping" : {

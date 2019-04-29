@@ -353,6 +353,23 @@ cases:
       adTypeMapping:
         "ad12": NATIVE
 
+  - inputFile: MINIMUM_RESPONSE_NATIVE_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].title: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].image: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].video: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].data: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].link.url: null
+    outputFile: empty.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      status: ERROR
+    purpose: BidMediaAdDisplayNativeLinkUrlRequired
+    params:
+      validate: true
+      adTypeMapping:
+        "ad12": NATIVE
 
   - inputFile: MINIMUM_RESPONSE_NATIVE_30.json
     inputType: "RESPONSE30"
@@ -374,6 +391,23 @@ cases:
       adTypeMapping:
         "ad12": NATIVE
 
+  - inputFile: MINIMUM_RESPONSE_NATIVE_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].link: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].image: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].video: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].data: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].title.text: null
+    outputFile: empty.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      status: ERROR
+    purpose: BidMediaAdDisplayNativeTitleTextRequired
+    params:
+      validate: true
+      adTypeMapping:
+        "ad12": NATIVE
 
   - inputFile: MINIMUM_RESPONSE_NATIVE_30.json
     inputType: "RESPONSE30"
@@ -395,28 +429,23 @@ cases:
       adTypeMapping:
         "ad12": NATIVE
 
-
   - inputFile: MINIMUM_RESPONSE_NATIVE_30.json
     inputType: "RESPONSE30"
     inputEdits:
       openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].title: null
-      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].image: null
       openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].link: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].video: null
       openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].data: null
-    outputFile: MINIMUM_RESPONSE_NATIVE_25_3TO2.json
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].image.url: null
+    outputFile: empty.json
     outputType: "RESPONSE25"
     outputEdits:
-      seatbid[0].bid[0].adm.native.asset[0].title: null
-      seatbid[0].bid[0].adm.native.asset[0].img: null
-      seatbid[0].bid[0].adm.native.asset[0].link: null
-      seatbid[0].bid[0].adm.native.asset[0].data: null
-      seatbid[0].bid[0].adm.native.asset[0].video.vasttag: null
-    purpose: BidMediaAdDisplayNativeWithVideo
+      status: ERROR
+    purpose: BidMediaAdDisplayNativeImageUrlRequired
     params:
       validate: true
       adTypeMapping:
         "ad12": NATIVE
-
 
   - inputFile: MINIMUM_RESPONSE_NATIVE_30.json
     inputType: "RESPONSE30"
@@ -438,3 +467,84 @@ cases:
       adTypeMapping:
         "ad12": NATIVE
 
+  - inputFile: MINIMUM_RESPONSE_NATIVE_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].title: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].image: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].video: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].link: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].data.value: null
+    outputFile: empty.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      status: ERROR
+    purpose: BidMediaAdDisplayNativeDataValueRequired
+    params:
+      validate: true
+      adTypeMapping:
+        "ad12": NATIVE
+
+  - inputFile: MINIMUM_RESPONSE_NATIVE_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].title: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].image: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].link: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].data: null
+    outputFile: MINIMUM_RESPONSE_NATIVE_25_3TO2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      seatbid[0].bid[0].adm.native.asset[0].title: null
+      seatbid[0].bid[0].adm.native.asset[0].img: null
+      seatbid[0].bid[0].adm.native.asset[0].link: null
+      seatbid[0].bid[0].adm.native.asset[0].data: null
+      seatbid[0].bid[0].adm.native.asset[0].video.vasttag: null
+    purpose: BidMediaAdDisplayNativeWithVideo-curl
+    params:
+      validate: true
+      adTypeMapping:
+        "ad12": NATIVE
+
+  - inputFile: MINIMUM_RESPONSE_NATIVE_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].title: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].image: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].link: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].data: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].video.adm : "\"adm\""
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].video.curl : null
+    outputFile: MINIMUM_RESPONSE_NATIVE_25_3TO2.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      seatbid[0].bid[0].adm.native.asset[0].title: null
+      seatbid[0].bid[0].adm.native.asset[0].img: null
+      seatbid[0].bid[0].adm.native.asset[0].link: null
+      seatbid[0].bid[0].adm.native.asset[0].data: null
+      seatbid[0].bid[0].adm.native.asset[0].video.ext.curl: null
+      seatbid[0].bid[0].adm.native.asset[0].video.ext: null
+    purpose: BidMediaAdDisplayNativeWithVideo-adm
+    params:
+      validate: true
+      adTypeMapping:
+        "ad12": NATIVE
+
+  - inputFile: MINIMUM_RESPONSE_NATIVE_30.json
+    inputType: "RESPONSE30"
+    inputEdits:
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].title: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].image: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].link: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].data: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].video.curl: null
+      openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].video.adm: null
+    outputFile: empty.json
+    outputType: "RESPONSE25"
+    outputEdits:
+      status: ERROR
+    purpose: BidMediaAdDisplayNativeVideo-admOrCurlRequired
+    params:
+      validate: true
+      adTypeMapping:
+        "ad12": NATIVE
