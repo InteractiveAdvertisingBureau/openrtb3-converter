@@ -1,0 +1,81 @@
+{
+  "inputFile" : "MINIMUM_RESPONSE_BANNER_30.json",
+  "inputType" : "RESPONSE30",
+  "inputEdits" : {
+    "openrtb.response.id" : "\"testResponse1\""
+  },
+  "inputJson" : {
+    "openrtb" : {
+      "response" : {
+        "id" : "testResponse1",
+        "seatbid" : [ {
+          "bid" : [ {
+            "item" : "12",
+            "price" : 1.6,
+            "macro" : [ {
+              "key" : 7
+            } ],
+            "media" : {
+              "ad" : {
+                "id" : "ad1",
+                "display" : {
+                  "banner" : {
+                    "img" : "https://somebuyer.com/creative",
+                    "link" : {
+                      "url" : "https://somebuyer.com/click"
+                    }
+                  },
+                  "event" : [ {
+                    "type" : 1,
+                    "method" : 1,
+                    "url" : "https://somebuyer.com/pixel"
+                  } ]
+                }
+              }
+            }
+          } ]
+        } ]
+      }
+    }
+  },
+  "outputFile" : "MINIMUM_RESPONSE_BANNER_25_3TO2.json",
+  "outputType" : "RESPONSE25",
+  "outputEdits" : {
+    "id" : "\"testResponse1\""
+  },
+  "outputJson" : {
+    "id" : "testResponse1",
+    "seatbid" : [ {
+      "bid" : [ {
+        "impid" : "12",
+        "price" : 1.6,
+        "crid" : "ad1",
+        "ext" : {
+          "macro" : [ {
+            "key" : "7"
+          } ],
+          "cattax" : 2,
+          "banner" : {
+            "img" : "https://somebuyer.com/creative",
+            "link" : {
+              "url" : "https://somebuyer.com/click"
+            }
+          },
+          "event" : [ {
+            "type" : 1,
+            "method" : 1,
+            "url" : "https://somebuyer.com/pixel"
+          } ]
+        }
+      } ]
+    } ]
+  },
+  "purpose" : "ValidateResponseRequiredFields",
+  "params" : {
+    "validate" : true
+  },
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}

@@ -1,0 +1,26 @@
+{
+  "inputFile" : "MINIMUM_RESPONSE_BANNER_30.json",
+  "inputType" : "RESPONSE30",
+  "inputEdits" : {
+    "openrtb.response" : null
+  },
+  "inputJson" : {
+    "openrtb" : { }
+  },
+  "outputFile" : "empty.json",
+  "outputType" : "RESPONSE25",
+  "outputEdits" : {
+    "status" : "ERROR"
+  },
+  "outputJson" : {
+    "status" : "RRO"
+  },
+  "purpose" : "RequestOrResponseRequired",
+  "params" : {
+    "validate" : true
+  },
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}

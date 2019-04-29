@@ -1,0 +1,87 @@
+{
+  "inputFile" : "MINIMUM_RESPONSE_NATIVE_30.json",
+  "inputType" : "RESPONSE30",
+  "inputEdits" : {
+    "openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].title" : null,
+    "openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].image" : null,
+    "openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].link" : null,
+    "openrtb.response.seatbid[0].bid[0].media.ad.display.native.asset[0].data" : null
+  },
+  "inputJson" : {
+    "openrtb" : {
+      "response" : {
+        "id" : "0123456789ABCDEF",
+        "seatbid" : [ {
+          "bid" : [ {
+            "item" : "ad12",
+            "price" : 1.6,
+            "media" : {
+              "ad" : {
+                "id" : "ad1",
+                "display" : {
+                  "native" : {
+                    "link" : {
+                      "url" : "abc"
+                    },
+                    "asset" : [ {
+                      "video" : {
+                        "curl" : "curl.com"
+                      }
+                    } ]
+                  }
+                }
+              }
+            }
+          } ]
+        } ]
+      }
+    }
+  },
+  "outputFile" : "MINIMUM_RESPONSE_NATIVE_25_3TO2.json",
+  "outputType" : "RESPONSE25",
+  "outputEdits" : {
+    "seatbid[0].bid[0].adm.native.asset[0].title" : null,
+    "seatbid[0].bid[0].adm.native.asset[0].img" : null,
+    "seatbid[0].bid[0].adm.native.asset[0].link" : null,
+    "seatbid[0].bid[0].adm.native.asset[0].data" : null,
+    "seatbid[0].bid[0].adm.native.asset[0].video.vasttag" : null
+  },
+  "outputJson" : {
+    "id" : "0123456789ABCDEF",
+    "seatbid" : [ {
+      "bid" : [ {
+        "impid" : "ad12",
+        "price" : 1.6,
+        "crid" : "ad1",
+        "ext" : {
+          "cattax" : 2
+        },
+        "adm" : {
+          "native" : {
+            "link" : {
+              "url" : "abc"
+            },
+            "asset" : [ {
+              "video" : {
+                "ext" : {
+                  "curl" : "curl.com"
+                }
+              }
+            } ]
+          }
+        }
+      } ]
+    } ]
+  },
+  "purpose" : "BidMediaAdDisplayNativeWithVideo",
+  "params" : {
+    "validate" : true,
+    "adTypeMapping" : {
+      "ad12" : "NATIVE"
+    }
+  },
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}

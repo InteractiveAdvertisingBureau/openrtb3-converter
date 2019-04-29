@@ -410,6 +410,7 @@ cases:
       seatbid[0].bid[0].adm.native.asset[0].img: null
       seatbid[0].bid[0].adm.native.asset[0].link: null
       seatbid[0].bid[0].adm.native.asset[0].data: null
+      seatbid[0].bid[0].adm.native.asset[0].video.vasttag: null
     purpose: BidMediaAdDisplayNativeWithVideo
     params:
       validate: true

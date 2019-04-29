@@ -1,0 +1,31 @@
+{
+  "inputFile" : "MINIMUM_RESPONSE_BANNER_30.json",
+  "inputType" : "RESPONSE30",
+  "inputEdits" : {
+    "openrtb.response.seatbid[0].bid" : null
+  },
+  "inputJson" : {
+    "openrtb" : {
+      "response" : {
+        "id" : "0123456789ABCDEF",
+        "seatbid" : [ { } ]
+      }
+    }
+  },
+  "outputFile" : "empty.json",
+  "outputType" : "RESPONSE25",
+  "outputEdits" : {
+    "status" : "ERROR"
+  },
+  "outputJson" : {
+    "status" : "RRO"
+  },
+  "purpose" : "BidRequired",
+  "params" : {
+    "validate" : true
+  },
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}
