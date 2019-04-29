@@ -20,16 +20,19 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.driver.Conversion;
 import net.media.driver.OpenRtbConverter;
+import net.media.enums.OpenRtbVersion;
 import net.media.openrtb25.request.App;
 import net.media.openrtb25.request.BidRequest2_X;
+import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.response.BidResponse2_X;
-import net.media.openrtb3.OpenRTBWrapper3_X;
+import net.media.openrtb3.*;
 import net.media.utils.JacksonObjectMapper;
 import org.json.JSONException;
 import net.media.utils.JacksonObjectMapperUtils;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.skyscreamer.jsonassert.JSONAssert;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -179,5 +182,2045 @@ public class ConverterTest {
           0,
           testOutput.getFailedTestList().size());
     }
+  }
+
+  @Test
+  public void testCloningEnabledRequestBannerSite3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_30.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(config, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() != ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getMime() != ((Imp) converted.getImp().toArray()[i]).getBanner().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getApi() != ((Imp) converted.getImp().toArray()[i]).getBanner().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getCtype() != ((Imp) converted.getImp().toArray()[i]).getBanner().getExt().get("ctype"))
+          success = false;
+      }
+      if(request.getContext().getSite().getPub().getCat() != converted.getSite().getPublisher().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getCat() != converted.getSite().getContent().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getProducer().getCat() != converted.getSite().getContent().getProducer().getCat())
+        success = false;
+      if(request.getContext().getSite().getCat() != converted.getSite().getCat())
+        success = false;
+      if(request.getContext().getSite().getSectcat() != converted.getSite().getSectioncat())
+        success = false;
+      if(request.getContext().getSite().getPagecat() != converted.getSite().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningEnabledRequestNativeApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(config, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() != ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+            success = false;
+        }
+      }
+      if(request.getContext().getApp().getCat() != converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() != converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() != converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningEnabledRequestVideoApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(config, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getMime()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getApi()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getCtype()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getDelivery()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() != converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() != converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() != converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningEnabledRequestAudioApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(config, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getMime()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getApi()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getCtype()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getDelivery()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() != converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() != converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() != converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningDisabledRequestBannerSite3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_30.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(config, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() == ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getMime() == ((Imp) converted.getImp().toArray()[i]).getBanner().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getApi() == ((Imp) converted.getImp().toArray()[i]).getBanner().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getCtype() == ((Imp) converted.getImp().toArray()[i]).getBanner().getExt().get("ctype"))
+          success = false;
+      }
+      if(request.getContext().getSite().getPub().getCat() == converted.getSite().getPublisher().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getCat() == converted.getSite().getContent().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getProducer().getCat() == converted.getSite().getContent().getProducer().getCat())
+        success = false;
+      if(request.getContext().getSite().getCat() == converted.getSite().getCat())
+        success = false;
+      if(request.getContext().getSite().getSectcat() == converted.getSite().getSectioncat())
+        success = false;
+      if(request.getContext().getSite().getPagecat() == converted.getSite().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningDisabledRequestNativeApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(config, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() == ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+            success = false;
+        }
+      }
+      if(request.getContext().getApp().getCat() == converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() == converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() == converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningDisabledRequestVideoApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(config, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getMime()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getApi()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getCtype()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getDelivery()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() == converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() == converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() == converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningDisabledRequestAudioApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(new Config());
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(config, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getMime()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getApi()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getCtype()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getDelivery()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() == converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() == converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() == converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningInitEnabledRequestBannerSite3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_30.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(new Config(), ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() != ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getMime() != ((Imp) converted.getImp().toArray()[i]).getBanner().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getApi() != ((Imp) converted.getImp().toArray()[i]).getBanner().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getCtype() != ((Imp) converted.getImp().toArray()[i]).getBanner().getExt().get("ctype"))
+          success = false;
+      }
+      if(request.getContext().getSite().getPub().getCat() != converted.getSite().getPublisher().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getCat() != converted.getSite().getContent().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getProducer().getCat() != converted.getSite().getContent().getProducer().getCat())
+        success = false;
+      if(request.getContext().getSite().getCat() != converted.getSite().getCat())
+        success = false;
+      if(request.getContext().getSite().getSectcat() != converted.getSite().getSectioncat())
+        success = false;
+      if(request.getContext().getSite().getPagecat() != converted.getSite().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningInitEnabledRequestNativeApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(new Config(), ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() != ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+            success = false;
+        }
+      }
+      if(request.getContext().getApp().getCat() != converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() != converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() != converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningInitEnabledRequestVideoApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(new Config(), ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getMime()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getApi()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getCtype()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getDelivery()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() != converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() != converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() != converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningInitEnabledRequestAudioApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(new Config(), ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getMime()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getApi()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getCtype()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getDelivery()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() != converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() != converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() != converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningInitDisabledRequestBannerSite3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_30.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(new Config(), ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() == ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getMime() == ((Imp) converted.getImp().toArray()[i]).getBanner().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getApi() == ((Imp) converted.getImp().toArray()[i]).getBanner().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getCtype() == ((Imp) converted.getImp().toArray()[i]).getBanner().getExt().get("ctype"))
+          success = false;
+      }
+      if(request.getContext().getSite().getPub().getCat() == converted.getSite().getPublisher().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getCat() == converted.getSite().getContent().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getProducer().getCat() == converted.getSite().getContent().getProducer().getCat())
+        success = false;
+      if(request.getContext().getSite().getCat() == converted.getSite().getCat())
+        success = false;
+      if(request.getContext().getSite().getSectcat() == converted.getSite().getSectioncat())
+        success = false;
+      if(request.getContext().getSite().getPagecat() == converted.getSite().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningInitDisabledRequestNativeApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(new Config(), ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() == ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+            success = false;
+        }
+      }
+      if(request.getContext().getApp().getCat() == converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() == converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() == converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningInitDisabledRequestVideoApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(new Config(), ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getMime()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getApi()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getCtype()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getDelivery()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() == converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() == converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() == converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningInitDisabledRequestAudioApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+
+      BidRequest2_X converted = openRtbConverter.convert(new Config(), ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getMime()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getApi()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getCtype()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getDelivery()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() == converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() == converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() == converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningOverrideEnabledRequestBannerSite3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_30.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setDisableCloning(true);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() != ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getMime() != ((Imp) converted.getImp().toArray()[i]).getBanner().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getApi() != ((Imp) converted.getImp().toArray()[i]).getBanner().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getCtype() != ((Imp) converted.getImp().toArray()[i]).getBanner().getExt().get("ctype"))
+          success = false;
+      }
+      if(request.getContext().getSite().getPub().getCat() != converted.getSite().getPublisher().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getCat() != converted.getSite().getContent().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getProducer().getCat() != converted.getSite().getContent().getProducer().getCat())
+        success = false;
+      if(request.getContext().getSite().getCat() != converted.getSite().getCat())
+        success = false;
+      if(request.getContext().getSite().getSectcat() != converted.getSite().getSectioncat())
+        success = false;
+      if(request.getContext().getSite().getPagecat() != converted.getSite().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningOverrideEnabledRequestNativeApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setDisableCloning(true);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() != ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+            success = false;
+        }
+      }
+      if(request.getContext().getApp().getCat() != converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() != converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() != converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningOverrideEnabledRequestVideoApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setDisableCloning(true);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getMime()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getApi()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getCtype()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getDelivery()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() != converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() != converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() != converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningOverrideEnabledRequestAudioApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setDisableCloning(true);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getMime()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getApi()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getCtype()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getDelivery()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() != converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() != converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() != converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningOverrideDisabledRequestBannerSite3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_30.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setDisableCloning(false);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() == ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getMime() == ((Imp) converted.getImp().toArray()[i]).getBanner().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getApi() == ((Imp) converted.getImp().toArray()[i]).getBanner().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getCtype() == ((Imp) converted.getImp().toArray()[i]).getBanner().getExt().get("ctype"))
+          success = false;
+      }
+      if(request.getContext().getSite().getPub().getCat() == converted.getSite().getPublisher().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getCat() == converted.getSite().getContent().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getProducer().getCat() == converted.getSite().getContent().getProducer().getCat())
+        success = false;
+      if(request.getContext().getSite().getCat() == converted.getSite().getCat())
+        success = false;
+      if(request.getContext().getSite().getSectcat() == converted.getSite().getSectioncat())
+        success = false;
+      if(request.getContext().getSite().getPagecat() == converted.getSite().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningOverrideDisabledRequestNativeApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setDisableCloning(false);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() == ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+            success = false;
+        }
+      }
+      if(request.getContext().getApp().getCat() == converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() == converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() == converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningOverrideDisabledRequestVideoApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setDisableCloning(false);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getMime()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getApi()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getCtype()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getDelivery()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() == converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() == converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() == converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningOverrideDisabledRequestAudioApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setDisableCloning(false);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getMime()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getApi()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getCtype()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getDelivery()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() == converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() == converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() == converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningBackupEnabledRequestBannerSite3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_30.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setValidate(false);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() != ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getMime() != ((Imp) converted.getImp().toArray()[i]).getBanner().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getApi() != ((Imp) converted.getImp().toArray()[i]).getBanner().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getCtype() != ((Imp) converted.getImp().toArray()[i]).getBanner().getExt().get("ctype"))
+          success = false;
+      }
+      if(request.getContext().getSite().getPub().getCat() != converted.getSite().getPublisher().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getCat() != converted.getSite().getContent().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getProducer().getCat() != converted.getSite().getContent().getProducer().getCat())
+        success = false;
+      if(request.getContext().getSite().getCat() != converted.getSite().getCat())
+        success = false;
+      if(request.getContext().getSite().getSectcat() != converted.getSite().getSectioncat())
+        success = false;
+      if(request.getContext().getSite().getPagecat() != converted.getSite().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningBackupEnabledRequestNativeApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setValidate(false);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() != ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+            success = false;
+        }
+      }
+      if(request.getContext().getApp().getCat() != converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() != converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() != converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningBackupEnabledRequestVideoApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setValidate(false);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getMime()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getApi()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getCtype()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getDelivery()!=  ((Imp) converted.getImp().toArray()[i]).getVideo().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() != converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() != converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() != converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningBackupEnabledRequestAudioApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(true);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setValidate(false);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()!=converted.getCur())
+        success = false;
+      if(request.getSeat()!=converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() != ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getMime()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getApi()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getCtype()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getDelivery()!=  ((Imp) converted.getImp().toArray()[i]).getAudio().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() != converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() != converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() != converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() != converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() != converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() != converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningBackupDisabledRequestBannerSite3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_30.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setValidate(false);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/BANNER_SITE_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() == ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getMime() == ((Imp) converted.getImp().toArray()[i]).getBanner().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getApi() == ((Imp) converted.getImp().toArray()[i]).getBanner().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getCtype() == ((Imp) converted.getImp().toArray()[i]).getBanner().getExt().get("ctype"))
+          success = false;
+      }
+      if(request.getContext().getSite().getPub().getCat() == converted.getSite().getPublisher().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getCat() == converted.getSite().getContent().getCat())
+        success = false;
+      if(request.getContext().getSite().getContent().getProducer().getCat() == converted.getSite().getContent().getProducer().getCat())
+        success = false;
+      if(request.getContext().getSite().getCat() == converted.getSite().getCat())
+        success = false;
+      if(request.getContext().getSite().getSectcat() == converted.getSite().getSectioncat())
+        success = false;
+      if(request.getContext().getSite().getPagecat() == converted.getSite().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningBackupDisabledRequestNativeApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setValidate(false);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/NATIVE_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() == ((Imp) converted.getImp().toArray()[i]).getIframebuster())
+          success = false;
+        for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+            success = false;
+          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+            success = false;
+        }
+      }
+      if(request.getContext().getApp().getCat() == converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() == converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() == converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningBackupDisabledRequestVideoApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setValidate(false);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/VAST_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getMime()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getApi()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getCtype()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getVideo().getDelivery()==  ((Imp) converted.getImp().toArray()[i]).getVideo().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() == converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() == converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() == converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
+  }
+
+  @Test
+  public void testCloningBackupDisabledRequestAudioApp3to2() {
+    Boolean success = true;
+    try {
+      Config config = new Config();
+      config.setDisableCloning(false);
+      config.setNativeRequestAsString(false);
+      OpenRtbConverter openRtbConverter = new OpenRtbConverter(config);
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file =
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_30_3to2.json");
+      byte[] jsonData = Files.readAllBytes(file.toPath());
+      OpenRTBWrapper3_X ortb3_x = JacksonObjectMapper.getMapper().readValue(jsonData, OpenRTBWrapper3_X.class);
+      Config overrideConfig = new Config();
+      overrideConfig.setValidate(false);
+      BidRequest2_X converted = openRtbConverter.convert(overrideConfig, ortb3_x, OpenRTBWrapper3_X.class, BidRequest2_X.class);
+      BidRequest2_X target = JacksonObjectMapper.getMapper().readValue(Files.readAllBytes(
+        new File(classLoader.getResource("master").getPath() + "/request/AUDIO_APP_25.json").toPath()), BidRequest2_X.class);
+      JSONAssert.assertEquals(
+        JacksonObjectMapper.getMapper().writeValueAsString(target),
+        JacksonObjectMapper.getMapper().writeValueAsString(converted),
+        true);
+      Request request = ortb3_x.getOpenrtb().getRequest();
+      if(request.getCur()==converted.getCur())
+        success = false;
+      if(request.getSeat()==converted.getWseat())
+        success = false;
+      for(int i=0;i<request.getItem().size();i++) {
+        for(int j=0;j<((Item)request.getItem().toArray()[i]).getDeal().size();j++) {
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWseat() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWseat())
+            success = false;
+          if (((Deal) ((Item) request.getItem().toArray()[i]).getDeal().toArray()[j]).getWadomain() == ((net.media.openrtb25.request.Deal) ((Imp) converted.getImp().toArray()[i]).getPmp().getDeals().toArray()[j]).getWadomain())
+            success = false;
+        }
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getMime()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getMimes())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getApi()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getApi())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getCtype()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getProtocols())
+          success = false;
+        if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getAudio().getDelivery()==  ((Imp) converted.getImp().toArray()[i]).getAudio().getDelivery())
+          success = false;
+      }
+      if(request.getContext().getApp().getCat() == converted.getApp().getCat())
+        success = false;
+      if(request.getContext().getApp().getSectcat() == converted.getApp().getSectioncat())
+        success = false;
+      if(request.getContext().getApp().getPagecat() == converted.getApp().getPagecat())
+        success = false;
+      if(request.getContext().getRestrictions().getBcat() == converted.getBcat())
+        success = false;
+      if(request.getContext().getRestrictions().getBadv() == converted.getBadv())
+        success = false;
+      if(request.getContext().getRestrictions().getBapp() == converted.getBapp())
+        success = false;
+    } catch (Exception | AssertionError e) {
+      success = false;
+    }
+    Assert.assertTrue(success);
   }
 }
