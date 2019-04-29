@@ -19,12 +19,10 @@ package net.media.converters.request30toRequest23;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Content;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class ContentToContentConverter
@@ -40,47 +38,18 @@ public class ContentToContentConverter
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    if (nonNull(target.getArtist())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("artist", target.getArtist());
-      target.setArtist(null);
-    }
-    if (nonNull(target.getGenre())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("genre", target.getGenre());
-      target.setGenre(null);
-    }
-    if (nonNull(target.getAlbum())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("album", target.getAlbum());
-      target.setAlbum(null);
-    }
-    if (nonNull(target.getIsrc())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("isrc", target.getIsrc());
-      target.setIsrc(null);
-    }
-    if (nonNull(target.getProdq())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("prodq", target.getProdq());
-      target.setProdq(null);
-    }
-    if (nonNull(target.getData())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("data", target.getData());
-      target.setData(null);
-    }
+
+    putToExt(target::getArtist, target.getExt(), CommonConstants.ARTIST, target::setExt);
+    target.setArtist(null);
+    putToExt(target::getGenre, target.getExt(), CommonConstants.GENRE, target::setExt);
+    target.setGenre(null);
+    putToExt(target::getAlbum, target.getExt(), CommonConstants.ALBUM, target::setExt);
+    target.setAlbum(null);
+    putToExt(target::getIsrc, target.getExt(), CommonConstants.ISRC, target::setExt);
+    target.setIsrc(null);
+    putToExt(target::getProdq, target.getExt(), CommonConstants.PRODQ, target::setExt);
+    target.setProdq(null);
+    putToExt(target::getData, target.getExt(), CommonConstants.DATA, target::setExt);
+    target.setData(null);
   }
 }

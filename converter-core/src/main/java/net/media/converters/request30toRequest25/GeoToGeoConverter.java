@@ -20,12 +20,26 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Geo;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
+
 public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.request.Geo> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.REGIONFIPS_104);
+  }
+
   @Override
   public net.media.openrtb25.request.Geo map(Geo source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -44,7 +58,9 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.req
   public void enhance(
       Geo source, net.media.openrtb25.request.Geo target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setIpservice(source.getIpserv());
     target.setAccuracy(source.getAccur());
     target.setType(source.getType());
@@ -58,15 +74,14 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb25.req
     target.setUtcoffset(source.getUtcoffset());
     target.setLastfix(source.getLastfix());
     Map<String, Object> map = source.getExt();
-    if (map == null) return;
-    if (source.getExt().containsKey("regionfips104")) {
-      try {
-        target.setRegionfips104((String) source.getExt().get("regionfips104"));
-        source.getExt().remove("regionfips104");
-      } catch (ClassCastException e) {
-        throw new OpenRtbConverterException("error while typecasting ext for Geo", e);
-      }
+    fetchFromExt(
+      target::setRegionfips104,
+      source.getExt(),
+      CommonConstants.REGIONFIPS_104,
+      "error while mapping regionfips104 from geo.ext");
+    if (nonNull(map)) {
+      target.setExt(new HashMap<>(map));
     }
-    target.setExt(Utils.copyMap(map, config));
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

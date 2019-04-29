@@ -19,12 +19,10 @@ package net.media.converters.request30toRequest24;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Device;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class DeviceToDeviceConverter
@@ -40,12 +38,7 @@ public class DeviceToDeviceConverter
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    if (nonNull(target.getMccmnc())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("mccmnc", target.getMccmnc());
-      target.setMccmnc(null);
-    }
+    putToExt(target::getMccmnc, target.getExt(), CommonConstants.MCCMNC, target::setExt);
+    target.setMccmnc(null);
   }
 }

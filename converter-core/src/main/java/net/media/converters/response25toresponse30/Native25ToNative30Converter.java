@@ -26,8 +26,8 @@ import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb3.Asset;
 import net.media.openrtb3.LinkAsset;
 import net.media.openrtb3.Native;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,6 +35,7 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 import static org.apache.commons.collections.CollectionUtils.isEmpty;
 
 /** @author shiva.b */
@@ -58,12 +59,23 @@ public class Native25ToNative30Converter implements Converter<NativeResponse, Na
     if (source == null || target == null || source.getNativeResponseBody() == null) {
       return;
     }
-    target.setExt(Utils.copyMap(source.getNativeResponseBody().getExt(), config));
+    if (nonNull(source.getNativeResponseBody().getExt())) {
+      target.setExt(new HashMap<>(source.getNativeResponseBody().getExt()));
+    }
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
-    target.getExt().put("jsTracker", source.getNativeResponseBody().getJstracker());
-    target.getExt().put("impTrackers", source.getNativeResponseBody().getImptrackers());
+    putToExt(
+      source.getNativeResponseBody()::getJstracker,
+      target.getExt(),
+      CommonConstants.JS_TRACKER,
+      target::setExt);
+    putToExt(
+      source.getNativeResponseBody()::getImptrackers,
+      target.getExt(),
+      CommonConstants.IMP_TRACKERS,
+      target::setExt);
+
     Converter<Link, LinkAsset> linkLinkAssetConverter =
         converterProvider.fetch(new Conversion<>(Link.class, LinkAsset.class));
     Converter<AssetResponse, Asset> assetResponseAssetConverter =

@@ -28,12 +28,11 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
-import net.media.utils.JacksonObjectMapper;
+import net.media.utils.JacksonObjectMapperUtils;
 import org.slf4j.Logger;
 
 import javax.naming.ConfigurationException;
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -59,9 +58,9 @@ public class ConverterServlet extends HttpServlet {
       (request, response) -> {
         try {
           Request2xPayload request2xPayload =
-              JacksonObjectMapper.getMapper()
+              JacksonObjectMapperUtils.getMapper()
                   .readValue(request.getInputStream(), Request2xPayload.class);
-          JacksonObjectMapper.getMapper()
+          JacksonObjectMapperUtils.getMapper()
               .writerWithDefaultPrettyPrinter()
               .writeValue(
                   response.getWriter(),
@@ -79,9 +78,9 @@ public class ConverterServlet extends HttpServlet {
       (request, response) -> {
         try {
           RequestResponse3xPayload requestResponse3xPayload =
-              JacksonObjectMapper.getMapper()
+              JacksonObjectMapperUtils.getMapper()
                   .readValue(request.getInputStream(), RequestResponse3xPayload.class);
-          JacksonObjectMapper.getMapper()
+          JacksonObjectMapperUtils.getMapper()
               .writerWithDefaultPrettyPrinter()
               .writeValue(
                   response.getWriter(),
@@ -99,9 +98,9 @@ public class ConverterServlet extends HttpServlet {
       (request, response) -> {
         try {
           Response2xPayload response2xPayload =
-              JacksonObjectMapper.getMapper()
+              JacksonObjectMapperUtils.getMapper()
                   .readValue(request.getInputStream(), Response2xPayload.class);
-          JacksonObjectMapper.getMapper()
+          JacksonObjectMapperUtils.getMapper()
               .writerWithDefaultPrettyPrinter()
               .writeValue(
                   response.getWriter(),
@@ -119,9 +118,9 @@ public class ConverterServlet extends HttpServlet {
       (request, response) -> {
         try {
           RequestResponse3xPayload requestResponse3xPayload =
-              JacksonObjectMapper.getMapper()
+              JacksonObjectMapperUtils.getMapper()
                   .readValue(request.getInputStream(), RequestResponse3xPayload.class);
-          JacksonObjectMapper.getMapper()
+          JacksonObjectMapperUtils.getMapper()
               .writerWithDefaultPrettyPrinter()
               .writeValue(
                   response.getWriter(),

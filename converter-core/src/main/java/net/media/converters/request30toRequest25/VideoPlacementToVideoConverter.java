@@ -25,14 +25,16 @@ import net.media.openrtb25.request.Video;
 import net.media.openrtb3.Companion;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Collections;
 import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 public class VideoPlacementToVideoConverter implements Converter<VideoPlacement, Video> {
 
@@ -60,16 +62,16 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
         converterProvider.fetch(new Conversion<>(Companion.class, Banner.class));
     video.setMinbitrate(videoPlacement.getMinbitr());
     video.setMaxbitrate(videoPlacement.getMaxbitr());
-    video.setProtocols(Utils.copyCollection(videoPlacement.getCtype(), config));
+    video.setProtocols(CollectionUtils.copyCollection(videoPlacement.getCtype(), config));
     video.setBoxingallowed(videoPlacement.getBoxing());
     video.setPlacement(videoPlacement.getPtype());
     video.setPlaybackend(videoPlacement.getPlayend());
     video.setMinduration(videoPlacement.getMindur());
-    video.setCompaniontype(Utils.copyCollection(videoPlacement.getComptype(), config));
+    video.setCompaniontype(CollectionUtils.copyCollection(videoPlacement.getComptype(), config));
     video.setCompanionad(
         CollectionToCollectionConverter.convert(
             videoPlacement.getComp(), companionBannerConverter, config, converterProvider));
-    video.setMimes(Utils.copyCollection(videoPlacement.getMime(), config));
+    video.setMimes(CollectionUtils.copyCollection(videoPlacement.getMime(), config));
     video.setMaxduration(videoPlacement.getMaxdur());
     video.setMaxextended(videoPlacement.getMaxext());
     video.setStartdelay(videoPlacement.getDelay());
@@ -79,11 +81,14 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     video.setSkip(videoPlacement.getSkip());
     video.setSkipmin(videoPlacement.getSkipmin());
     video.setSkipafter(videoPlacement.getSkipafter());
-    video.setDelivery(Utils.copyCollection(videoPlacement.getDelivery(), config));
+    video.setDelivery(CollectionUtils.copyCollection(videoPlacement.getDelivery(), config));
     video.setPos(videoPlacement.getPos());
-    video.setApi(Utils.copyCollection(videoPlacement.getApi(), config));
-    video.setExt(Utils.copyMap(videoPlacement.getExt(), config));
-
+    video.setApi(CollectionUtils.copyCollection(videoPlacement.getApi(), config));
+    if (isNull(videoPlacement.getExt())) {
+      video.setExt(new HashMap<>());
+    } else {
+      video.setExt(new HashMap<>(videoPlacement.getExt()));
+    }
     videoPlacementToVideoAfterMapping(videoPlacement, video);
   }
 
@@ -93,17 +98,7 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
         video.setPlaybackmethod(Collections.singletonList(videoPlacement.getPlaymethod()));
       }
     }
-    if (nonNull(videoPlacement.getUnit())) {
-      if (isNull(video.getExt())) {
-        video.setExt(new HashMap<>());
-      }
-      video.getExt().put("unit", videoPlacement.getUnit());
-    }
-    if (nonNull(videoPlacement.getMaxseq())) {
-      if (isNull(video.getExt())) {
-        video.setExt(new HashMap<>());
-      }
-      video.getExt().put("maxseq", videoPlacement.getMaxseq());
-    }
+    putToExt(videoPlacement::getUnit, video.getExt(), CommonConstants.UNIT, video::setExt);
+    putToExt(videoPlacement::getMaxseq, video.getExt(), CommonConstants.MAXSEQ, video::setExt);
   }
 }

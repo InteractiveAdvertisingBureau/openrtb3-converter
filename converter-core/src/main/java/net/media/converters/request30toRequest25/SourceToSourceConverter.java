@@ -20,14 +20,25 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Source;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import static net.media.utils.ExtUtils.*;
 
 public class SourceToSourceConverter
     implements Converter<Source, net.media.openrtb25.request.Source> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.FD);
+  }
+
   @Override
   public net.media.openrtb25.request.Source map(
       Source source, Config config, Provider converterProvider) throws OpenRtbConverterException {
@@ -49,42 +60,22 @@ public class SourceToSourceConverter
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setTid(source.getTid());
     target.setPchain(source.getPchain());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
-    if (source.getTs() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("ts", source.getTs());
-    }
-    if (source.getDs() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("ds", source.getDs());
-    }
-    if (source.getDsmap() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("dsmap", source.getDsmap());
-    }
-    if (source.getCert() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("cert", source.getCert());
-    }
-    if (source.getDigest() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put("digest", source.getDigest());
-    }
-
-    if (source.getExt() == null) return;
-    if (source.getExt().containsKey("fd")) {
-      try {
-        target.setFd((Integer) source.getExt().get("fd"));
-        target.getExt().remove("fd");
-      } catch (ClassCastException e) {
-        throw new OpenRtbConverterException("error while typecasting ext for Source", e);
-      }
-    }
+    putToExt(source::getTs, target.getExt(), CommonConstants.TS, target::setExt);
+    putToExt(source::getDs, target.getExt(), CommonConstants.DS, target::setExt);
+    putToExt(source::getDsmap, target.getExt(), CommonConstants.DSMAP, target::setExt);
+    putToExt(source::getCert, target.getExt(), CommonConstants.CERT, target::setExt);
+    putToExt(source::getDigest, target.getExt(), CommonConstants.DIGEST, target::setExt);
+    fetchFromExt(
+      target::setFd, source.getExt(), CommonConstants.FD, "error while mapping fd from Source");
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

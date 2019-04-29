@@ -22,19 +22,31 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Format;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.utils.CommonConstants;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class BannerToDisplayPlacementConverter
     extends net.media.converters.request25toRequest30.BannerToDisplayPlacementConverter {
 
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
   private static final JavaType javaTypeForFormatCollection =
-      Utils.getMapper().getTypeFactory().constructCollectionType(Collection.class, Format.class);
+    JacksonObjectMapperUtils.getMapper()
+      .getTypeFactory()
+      .constructCollectionType(Collection.class, Format.class);
+
+  static {
+    extraFieldsInExt.add(CommonConstants.VCM);
+    extraFieldsInExt.add(CommonConstants.FORMAT);
+  }
 
   public void enhance(
       Banner banner, DisplayPlacement displayPlacement, Config config, Provider converterProvider)
@@ -42,23 +54,18 @@ public class BannerToDisplayPlacementConverter
     if (banner == null || displayPlacement == null) {
       return;
     }
-    if (nonNull(banner.getExt())) {
-      if (banner.getExt().containsKey("vcm")) {
-        banner.setVcm((Integer) banner.getExt().get("vcm"));
-        banner.getExt().remove("vcm");
-      }
-      if (banner.getExt().containsKey("format")) {
-        try {
-          banner.setFormat(
-              Utils.getMapper()
-                  .convertValue(banner.getExt().get("format"), javaTypeForFormatCollection));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting banner.format from banner.ext" + ".format", e);
-        }
-        banner.getExt().remove("format");
-      }
-    }
+    fetchFromExt(
+      banner::setVcm,
+      banner.getExt(),
+      CommonConstants.VCM,
+      "Error in setting vcm from banner.ext.vcm");
+    fetchFromExt(
+      banner::setFormat,
+      banner.getExt(),
+      CommonConstants.FORMAT,
+      "Error in setting banner.format from banner.ext.format",
+      javaTypeForFormatCollection);
     super.enhance(banner, displayPlacement, config, converterProvider);
+    removeFromExt(displayPlacement.getExt(), extraFieldsInExt);
   }
 }

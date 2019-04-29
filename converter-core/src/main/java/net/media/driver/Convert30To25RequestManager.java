@@ -21,7 +21,6 @@ import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.Audio;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.*;
-import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.App;
 import net.media.openrtb3.*;

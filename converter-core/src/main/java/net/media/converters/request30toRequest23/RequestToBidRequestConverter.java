@@ -20,12 +20,10 @@ import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb3.Request;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class RequestToBidRequestConverter
@@ -38,33 +36,13 @@ public class RequestToBidRequestConverter
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    if (nonNull(target.getBseat())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("bseat", target.getBseat());
-      target.setBseat(null);
-    }
-    if (nonNull(target.getWlang())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("wlang", target.getWlang());
-      target.setWlang(null);
-    }
-    if (nonNull(target.getSource())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("source", target.getSource());
-      target.setSource(null);
-    }
-    if (nonNull(target.getBapp())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("bapp", target.getBapp());
-      target.setBapp(null);
-    }
+    putToExt(target::getBseat, target.getExt(), CommonConstants.BSEAT, target::setExt);
+    target.setBseat(null);
+    putToExt(target::getWlang, target.getExt(), CommonConstants.WLANG, target::setExt);
+    target.setWlang(null);
+    putToExt(target::getSource, target.getExt(), CommonConstants.SOURCE, target::setExt);
+    target.setSource(null);
+    putToExt(target::getBapp, target.getExt(), CommonConstants.BAPP, target::setExt);
+    target.setBapp(null);
   }
 }

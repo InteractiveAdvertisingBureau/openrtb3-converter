@@ -21,26 +21,32 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Video;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 public class VideoToBidConverter implements Converter<Video, Bid> {
 
   public Bid map(Video source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(config)) return null;
+    if (isNull(source) || isNull(config)) {
+      return null;
+    }
     Bid bid = new Bid();
     enhance(source, bid, config, converterProvider);
     return bid;
   }
 
   public void enhance(Video source, Bid target, Config config, Provider converterProvider) {
-    if (isNull(source) || isNull(target) || isNull(config)) return;
+    if (isNull(source) || isNull(target) || isNull(config)) {
+      return;
+    }
 
     target.setAdm(source.getAdm());
     if (nonNull(source.getApi()) && source.getApi().size() > 0)
@@ -48,13 +54,15 @@ public class VideoToBidConverter implements Converter<Video, Bid> {
     if (isNull(target.getExt())) {
       target.setExt(new HashMap<>());
     }
-    target.getExt().put("ctype", source.getCtype());
-    target.getExt().put("dur", source.getDur());
-    target.getExt().put("curl", source.getCurl());
+    putToExt(source::getCtype, target.getExt(), CommonConstants.CTYPE, target::setExt);
+    putToExt(source::getDur, target.getExt(), CommonConstants.DUR, target::setExt);
+    putToExt(source::getCurl, target.getExt(), CommonConstants.CURL, target::setExt);
+    putToExt(source::getMime, target.getExt(), CommonConstants.MIME, target::setExt);
     if (isEmpty(target.getNurl())) {
       target.setNurl(source.getCurl());
     }
-    target.getExt().put("mime", source.getMime());
-    if (nonNull(source.getExt())) target.getExt().putAll(source.getExt());
+    if (nonNull(source.getExt())) {
+      target.getExt().putAll(source.getExt());
+    }
   }
 }

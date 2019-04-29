@@ -20,13 +20,16 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Geo;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.putToExt;
+
 public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo> {
+
   @Override
   public net.media.openrtb3.Geo map(Geo source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -45,7 +48,9 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo>
   public void enhance(
       Geo source, net.media.openrtb3.Geo target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setIpserv(source.getIpservice());
     target.setAccur(source.getAccuracy());
     target.setType(source.getType());
@@ -60,14 +65,9 @@ public class GeoToGeoConverter implements Converter<Geo, net.media.openrtb3.Geo>
     target.setZip(source.getZip());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
-
-    if (source.getRegionfips104() != null) {
-      if (target.getExt() == null) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("regionfips104", source.getRegionfips104());
-    }
+    putToExt(
+      source::getRegionfips104, target.getExt(), CommonConstants.REGIONFIPS_104, target::setExt);
   }
 }

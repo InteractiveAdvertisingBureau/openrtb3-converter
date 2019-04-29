@@ -19,12 +19,25 @@ package net.media.converters.request23toRequest30;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Geo;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import static java.util.Objects.nonNull;
+import java.util.ArrayList;
+import java.util.List;
+
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class GeoToGeoConverter extends net.media.converters.request25toRequest30.GeoToGeoConverter {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.ACCURACY);
+    extraFieldsInExt.add(CommonConstants.LASTFIX);
+    extraFieldsInExt.add(CommonConstants.IPSERVICE);
+  }
 
   public void enhance(
       Geo source, net.media.openrtb3.Geo target, Config config, Provider converterProvider)
@@ -32,33 +45,22 @@ public class GeoToGeoConverter extends net.media.converters.request25toRequest30
     if (source == null || target == null) {
       return;
     }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey("accuracy")) {
-        try {
-          source.setAccuracy((Integer) source.getExt().get("accuracy"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting accuracy from geo.ext.accuracy", e);
-        }
-        source.getExt().remove("accuracy");
-      }
-      if (source.getExt().containsKey("lastfix")) {
-        try {
-          source.setLastfix((Integer) source.getExt().get("lastfix"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting lastfix from geo.ext.lastfix", e);
-        }
-        source.getExt().remove("lastfix");
-      }
-      if (source.getExt().containsKey("ipservice")) {
-        try {
-          source.setIpservice((Integer) source.getExt().get("ipservice"));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException(
-              "Error in setting ipservice from geo.ext.ipservice", e);
-        }
-        source.getExt().remove("ipservice");
-      }
-    }
+    fetchFromExt(
+      source::setAccuracy,
+      source.getExt(),
+      CommonConstants.ACCURACY,
+      "Error in setting accuracy from geo.ext.accuracy");
+    fetchFromExt(
+      source::setLastfix,
+      source.getExt(),
+      CommonConstants.LASTFIX,
+      "Error in setting lastfix from geo.ext.lastfix");
+    fetchFromExt(
+      source::setIpservice,
+      source.getExt(),
+      CommonConstants.IPSERVICE,
+      "Error in setting ipservice from geo.ext.ipservice");
     super.enhance(source, target, config, converterProvider);
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

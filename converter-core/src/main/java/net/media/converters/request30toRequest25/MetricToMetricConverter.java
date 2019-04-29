@@ -21,9 +21,11 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Metric;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
+
+import java.util.HashMap;
 
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 public class MetricToMetricConverter
     implements Converter<Metric, net.media.openrtb25.request.Metric> {
@@ -48,7 +50,9 @@ public class MetricToMetricConverter
       metric1.setType(metric.getType());
       metric1.setVendor(metric.getVendor());
       metric1.setValue(metric.getValue());
-      metric1.setExt(Utils.copyMap(metric.getExt(), config));
+      if (nonNull(metric.getExt())) {
+        metric1.setExt(new HashMap<>(metric.getExt()));
+      }
     }
   }
 }

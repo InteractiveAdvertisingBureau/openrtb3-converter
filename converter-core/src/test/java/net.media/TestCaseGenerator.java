@@ -41,14 +41,9 @@ public class TestCaseGenerator {
 
   public static void main(String[] args) throws IOException {
     final ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-    /*mapper.registerModule(new ParameterNamesModule())
-    .registerModule(new Jdk8Module())
-    .registerModule(new JavaTimeModule());*/
     mapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
     for (Path rootPath : Files.list(Paths.get(basePath + "edits")).collect(Collectors.toList())) {
       for (Path path : Files.list(rootPath).collect(Collectors.toList())) {
-//        if(path.getFileName().toString().equals("testScript_Response_null_check_Validations.txt") == false)
-//          continue;
         System.out.println(path.getFileName().toString());
         String json2 = new String(Files.readAllBytes(path));
         final Test test = mapper.readValue(json2, Test.class);
@@ -67,9 +62,6 @@ public class TestCaseGenerator {
                             + aCase.getPurpose()
                             + ".json"),
                     aCase);
-            /*try (FileWriter writer = new FileWriter(new File(basePath + "request/" + aCase.getPurpose() + ".yaml"))) {
-              new Yaml().dump(map, writer);
-            }*/
           } catch (Exception e) {
             StringWriter writer = new StringWriter();
             PrintWriter writer1 = new PrintWriter(writer);
@@ -141,15 +133,12 @@ public class TestCaseGenerator {
       int newIndex = index + 1;
       if (!fieldName.contains("[")) {
         if (index == path.length - 1) {
-          if(nodeToSet == NullNode.getInstance()) {
-            ((ObjectNode)master).remove(fieldName);
-//            jsonNode = NullNode.getInstance();
+          if (nodeToSet == NullNode.getInstance()) {
+            ((ObjectNode) master).remove(fieldName);
+            //            jsonNode = NullNode.getInstance();
 
             return;
           }
-          /*if (request.get(fieldName).isContainerNode()) {
-            throw new RuntimeException("Unexpected Container Node found.");
-          }*/
           ((ObjectNode) master).replace(fieldName, nodeToSet);
         } else {
           modify(master.get(fieldName), nodeToSet, path, newIndex);

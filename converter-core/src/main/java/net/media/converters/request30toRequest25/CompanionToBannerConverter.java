@@ -24,12 +24,11 @@ import net.media.openrtb25.request.Banner;
 import net.media.openrtb3.Companion;
 import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 
 public class CompanionToBannerConverter implements Converter<Companion, Banner> {
 
@@ -58,16 +57,11 @@ public class CompanionToBannerConverter implements Converter<Companion, Banner> 
     banner.setId(companion.getId());
     Map<String, Object> map = companion.getExt();
     if (map != null) {
-      if (banner.getExt() == null) banner.setExt(Utils.copyMap(map, config));
-      else
-        try {
-          Map<String, Object> copyMap = Utils.copyMap(map, config);
-          if (nonNull(copyMap)) {
-            banner.getExt().putAll(copyMap);
-          }
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("companion to banner conversion failed ", e);
-        }
+      if (banner.getExt() == null) {
+        banner.setExt(new HashMap<>(map));
+      } else {
+        banner.getExt().putAll(map);
+      }
     }
   }
 }

@@ -20,12 +20,24 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Regs;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
+
 public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.Regs> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.GDPR);
+  }
 
   @Override
   public net.media.openrtb3.Regs map(Regs source, Config config, Provider converterProvider)
@@ -45,20 +57,19 @@ public class RegsToRegsConverter implements Converter<Regs, net.media.openrtb3.R
   public void enhance(
       Regs source, net.media.openrtb3.Regs target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setCoppa(source.getCoppa());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
-    if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey("gdpr")) {
-        target.setGdpr((Integer) source.getExt().get("gdpr"));
-        target.getExt().remove("gdpr");
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Regs", e);
-    }
+    fetchFromExt(
+      target::setGdpr,
+      source.getExt(),
+      CommonConstants.GDPR,
+      "error while mapping gdpr from Regs");
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

@@ -1,0 +1,31 @@
+cases:
+ - inputFile: Publisher25.json
+   inputType: "net.media.openrtb25.request.Publisher"
+   inputEdits:
+    id : "\"pub1\""
+   outputFile: Publisher30.json
+   outputType: "net.media.openrtb3.Publisher"
+   outputEdits:
+    id : "\"pub1\""
+   purpose: publisherEnhance23
+   testEnhance : 1
+
+ - inputFile: Publisher25.json
+   inputType: "net.media.openrtb25.request.Publisher"
+   inputEdits:
+     id : "\"pub1\""
+   outputFile: Publisher30.json
+   outputType: "net.media.openrtb3.Publisher"
+   outputEdits:
+     id : "\"customConverterID\""
+     domain : "\"myCustomDomain\""
+     cat : null
+
+
+   purpose: publisherEnhanceOverrideConverter23
+   overRidingMap:
+     CustomPublisherConverter :
+        sourceClass : net.media.openrtb25.request.Publisher
+        targetClass : net.media.openrtb3.Publisher
+        converterClass: net.media.CustomPublisherToPublisherConverter2to3
+

@@ -25,13 +25,13 @@ import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.NativeFormat;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.HashMap;
 
-import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/01/19. */
 public class NativeRequestBodyToNativeFormatConverter
@@ -59,31 +59,29 @@ public class NativeRequestBodyToNativeFormatConverter
     if (nativeRequestBody == null || nativeFormat == null) {
       return;
     }
-    nativeFormat.setExt(Utils.copyMap(nativeRequestBody.getExt(), config));
-    if (nonNull(nativeRequestBody.getContextsubtype())) {
-      if (isNull(nativeFormat.getExt())) {
-        nativeFormat.setExt(new HashMap<>());
-      }
-      nativeFormat.getExt().put("contextsubtype", nativeRequestBody.getContextsubtype());
+    if (nonNull(nativeRequestBody.getExt())) {
+      nativeFormat.setExt(new HashMap<>(nativeRequestBody.getExt()));
     }
-    if (nonNull(nativeRequestBody.getAdunit())) {
-      if (isNull(nativeFormat.getExt())) {
-        nativeFormat.setExt(new HashMap<>());
-      }
-      nativeFormat.getExt().put("adunit", nativeRequestBody.getAdunit());
-    }
-    if (nonNull(nativeRequestBody.getLayout())) {
-      if (isNull(nativeFormat.getExt())) {
-        nativeFormat.setExt(new HashMap<>());
-      }
-      nativeFormat.getExt().put("layout", nativeRequestBody.getLayout());
-    }
-    if (nonNull(nativeRequestBody.getVer())) {
-      if (isNull(nativeFormat.getExt())) {
-        nativeFormat.setExt(new HashMap<>());
-      }
-      nativeFormat.getExt().put("ver", nativeRequestBody.getVer());
-    }
+    putToExt(
+      nativeRequestBody::getContextsubtype,
+      nativeFormat.getExt(),
+      CommonConstants.CONTEXTSUBTYPE,
+      nativeFormat::setExt);
+    putToExt(
+      nativeRequestBody::getAdunit,
+      nativeFormat.getExt(),
+      CommonConstants.ADUNIT,
+      nativeFormat::setExt);
+    putToExt(
+      nativeRequestBody::getLayout,
+      nativeFormat.getExt(),
+      CommonConstants.LAYOUT,
+      nativeFormat::setExt);
+    putToExt(
+      nativeRequestBody::getVer,
+      nativeFormat.getExt(),
+      CommonConstants.VER,
+      nativeFormat::setExt);
     Converter<Asset, AssetFormat> assetAssetFormatConverter =
         converterProvider.fetch(new Conversion<>(Asset.class, AssetFormat.class));
     nativeFormat.setAsset(

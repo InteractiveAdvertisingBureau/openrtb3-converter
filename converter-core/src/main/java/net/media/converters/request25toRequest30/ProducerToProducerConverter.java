@@ -20,15 +20,28 @@ import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Producer;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class ProducerToProducerConverter
     implements Converter<Producer, net.media.openrtb3.Producer> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.CATTAX);
+  }
+
   @Override
   public net.media.openrtb3.Producer map(Producer source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -50,24 +63,23 @@ public class ProducerToProducerConverter
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setId(source.getId());
     target.setName(source.getName());
     target.setDomain(source.getDomain());
-    target.setCat(Utils.copyCollection(source.getCat(), config));
+    target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey("cattax")) {
-        target.setCattax((Integer) source.getExt().get("cattax"));
-      }
-      target.getExt().remove("cattax");
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Producer", e);
-    }
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "error while mapping cattax from Producer");
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

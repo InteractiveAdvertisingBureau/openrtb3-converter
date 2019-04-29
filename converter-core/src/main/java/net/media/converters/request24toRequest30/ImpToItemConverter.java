@@ -22,37 +22,43 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.Metric;
 import net.media.openrtb3.Item;
+import net.media.utils.CommonConstants;
+import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class ImpToItemConverter
     extends net.media.converters.request25toRequest30.ImpToItemConverter {
 
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
   private static final JavaType javaTypeForMetricCollection =
-      Utils.getMapper().getTypeFactory().constructCollectionType(Collection.class, Metric.class);
+    JacksonObjectMapperUtils.getMapper()
+      .getTypeFactory()
+      .constructCollectionType(Collection.class, Metric.class);
+
+  static {
+    extraFieldsInExt.add(CommonConstants.METRIC);
+  }
 
   public void enhance(Imp imp, Item item, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
     if (imp == null || item == null) {
       return;
     }
-    if (nonNull(imp.getExt())) {
-      if (imp.getExt().containsKey("metric")) {
-        try {
-          imp.setMetric(
-              Utils.getMapper()
-                  .convertValue(imp.getExt().get("metric"), javaTypeForMetricCollection));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting metric from imp.ext.metric", e);
-        }
-        imp.getExt().remove("metric");
-      }
-    }
+    fetchFromExt(
+      imp::setMetric,
+      imp.getExt(),
+      CommonConstants.METRIC,
+      "Error in setting metric from imp.ext.metric",
+      javaTypeForMetricCollection);
     super.enhance(imp, item, config, converterProvider);
+    removeFromExt(item.getExt(), extraFieldsInExt);
   }
 }

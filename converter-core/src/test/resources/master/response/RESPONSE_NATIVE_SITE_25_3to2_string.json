@@ -17,7 +17,7 @@
       "burl":"burl",
       "lurl": "lurl",
       "adid": "123",
-      "adm": "{\"native\": { \"imptrackers\": [ \"a\", \"b\" ], \"jstracker\": \"ran\", \"ext\": { \"dummy\": \"native.ext\" } } }",
+      "adm": "{\"native\":{\"imptrackers\":[\"a\",\"b\"],\"jstracker\":\"ran\",\"ext\":{\"dummy\":\"native.ext\"}}}",
       "adomain": [
         "ford.com"
       ],
@@ -37,11 +37,6 @@
       "wratio": 1,
       "hratio": 2,
       "ext": {
-        "native": {
-          "ext": {
-            "dummy": "native.ext"
-          }
-        },
         "display": "ext",
         "buyermemberid": 298,
         "mime": "image/jpeg",

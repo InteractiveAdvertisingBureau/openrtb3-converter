@@ -21,14 +21,14 @@ import net.media.converters.Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Video;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
 
 /** @author shiva.b */
 public class BidToVideoConverter implements Converter<Bid, Video> {
@@ -57,19 +57,20 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
       target.setApi(api);
     }
     target.setCurl(source.getNurl());
-
-    if (nonNull(source.getExt())) {
-      Map<String, Object> ext = source.getExt();
-      try {
-        target.setCtype((Integer) ext.get("ctype"));
-        source.getExt().remove("ctype");
-        target.setDur((Integer) ext.get("dur"));
-        source.getExt().remove("dur");
-        target.setMime((Collection<String>) ext.get("mime"));
-        source.getExt().remove("mime");
-      } catch (Exception e) {
-        throw new OpenRtbConverterException("error while type casting bid.ext content", e);
-      }
-    }
+    fetchFromExt(
+      target::setCtype,
+      source.getExt(),
+      CommonConstants.CTYPE,
+      "error while mapping ctype from bid.ext");
+    fetchFromExt(
+      target::setDur,
+      source.getExt(),
+      CommonConstants.DUR,
+      "error while mapping dur from bid.ext");
+    fetchFromExt(
+      target::setMime,
+      source.getExt(),
+      CommonConstants.MIME,
+      "error while mapping mime from bid.ext");
   }
 }

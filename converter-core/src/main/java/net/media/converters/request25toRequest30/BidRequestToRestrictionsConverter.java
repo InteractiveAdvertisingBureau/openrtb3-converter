@@ -22,16 +22,19 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb3.Restrictions;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.fetchExtFromFieldInExt;
+import static net.media.utils.ExtUtils.fetchFromExt;
 
 public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_X, Restrictions> {
+
   @Override
   public Restrictions map(BidRequest2_X source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
@@ -50,12 +53,18 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_
   public void enhance(
       BidRequest2_X source, Restrictions target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
-    target.setBapp(Utils.copyCollection(source.getBapp(), config));
-    target.setBcat(Utils.copyCollection(source.getBcat(), config));
-    target.setBadv(Utils.copyCollection(source.getBadv(), config));
-    if (source.getImp() == null) return;
-    if (source.getImp().size() == 0) return;
+    if (source == null || target == null) {
+      return;
+    }
+    target.setBapp(CollectionUtils.copyCollection(source.getBapp(), config));
+    target.setBcat(CollectionUtils.copyCollection(source.getBcat(), config));
+    target.setBadv(CollectionUtils.copyCollection(source.getBadv(), config));
+    if (source.getImp() == null) {
+      return;
+    }
+    if (source.getImp().size() == 0) {
+      return;
+    }
     Collection<Integer> battr = new HashSet<>();
     for (Imp imp : source.getImp()) {
       if (imp.getBanner() != null && imp.getBanner().getBattr() != null) {
@@ -69,29 +78,16 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_
       }
     }
     if (battr.size() > 0) {
-      target.setBattr(Utils.copyCollection(battr, config));
+      target.setBattr(CollectionUtils.copyCollection(battr, config));
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey("cattax")) {
-        target.setCattax((Integer) source.getExt().get("cattax"));
-        source.getExt().remove("cattax");
-      }
-      if (source.getExt().containsKey("restrictions")) {
-        try {
-          Map<String, Object> restrictions =
-              (Map<String, Object>) source.getExt().get("restrictions");
-          if (restrictions.containsKey("ext")) {
-            target.setExt((Map<String, Object>) restrictions.get("ext"));
-          }
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException("Error in converting pmp ext ", e);
-        }
-        source.getExt().remove("restrictions");
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for BidRequest2_X", e);
-    }
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "error while typecasting ext for BidRequest2_X");
+    target.setExt(
+      fetchExtFromFieldInExt(
+        source.getExt(), CommonConstants.RESTRICTIONS, "Error in mapping ext of restriction"));
   }
 }

@@ -22,16 +22,17 @@ import net.media.driver.Conversion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.*;
+import net.media.utils.CollectionUtils;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.fetchFromExt;
 
 /** @author shiva.b */
 public class BidToAdConverter implements Converter<Bid, Ad> {
@@ -54,49 +55,45 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
       return;
     }
     target.setId(source.getCrid());
-    target.setAdomain(Utils.copyCollection(source.getAdomain(), config));
+    target.setAdomain(CollectionUtils.copyCollection(source.getAdomain(), config));
     if (nonNull(source.getBundle())) {
       List<String> bundle = new ArrayList<>();
       bundle.add(source.getBundle());
       target.setBundle(bundle);
     }
     target.setIurl(source.getIurl());
-    target.setCat(Utils.copyCollection(source.getCat(), config));
+    target.setCat(CollectionUtils.copyCollection(source.getCat(), config));
     target.setLang(source.getLanguage());
-    target.setAttr(Utils.copyCollection(source.getAttr(), config));
+    target.setAttr(CollectionUtils.copyCollection(source.getAttr(), config));
     target.setMrating(source.getQagmediarating());
     target.setCattax(DEFAULT_CATTAX_TWODOTX);
-    try {
-      if (nonNull(source.getExt())) {
-        Map<String, Object> ext = source.getExt();
-        if (ext.containsKey("secure")) {
-          target.setSecure((Integer) ext.get("secure"));
-          source.getExt().remove("secure");
-        }
-        if (ext.containsKey("init")) {
-          target.setInit((Integer) ext.get("init"));
-          source.getExt().remove("init");
-        }
-        if (ext.containsKey("lastmod")) {
-          target.setLastmod((Integer) ext.get("lastmod"));
-          source.getExt().remove("lastmod");
-        }
-        if (ext.containsKey("cattax")) {
-          target.setCattax((Integer) ext.get("cattax"));
-          source.getExt().remove("cattax");
-        }
-
-        if (source.getExt().containsKey("audit")) {
-          target.setAudit(
-              Utils.getMapper().convertValue(source.getExt().get("audit"), Audit.class));
-          source.getExt().remove("audit");
-        }
-      }
-    } catch (Exception e) {
-      throw new OpenRtbConverterException("error while type casting ext in bid", e);
-    }
-
-    switch (config.getAdType(source.getImpid())) {
+    fetchFromExt(
+      target::setSecure,
+      source.getExt(),
+      CommonConstants.SECURE,
+      "Error while mapping secure from bid.ext");
+    fetchFromExt(
+      target::setInit,
+      source.getExt(),
+      CommonConstants.INIT,
+      "Error while mapping init from bid.ext");
+    fetchFromExt(
+      target::setLastmod,
+      source.getExt(),
+      CommonConstants.LASTMOD,
+      "Error while mapping lastmod from bid.ext");
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "Error while mapping cattax from bid.ext");
+    fetchFromExt(
+      target::setAudit,
+      source.getExt(),
+      CommonConstants.AUDIT,
+      "Error while mapping audit from bid.ext",
+      Audit.class);
+    switch (config.getAdType(source.getImpId())) {
       case BANNER:
       case NATIVE:
         Converter<Bid, Display> bidDisplayConverter =

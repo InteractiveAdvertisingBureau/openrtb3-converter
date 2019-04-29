@@ -27,20 +27,32 @@ import net.media.openrtb25.response.nativeresponse.NativeResponseBody;
 import net.media.openrtb3.Asset;
 import net.media.openrtb3.LinkAsset;
 import net.media.openrtb3.Native;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class Native30ToNative10Converter implements Converter<Native, NativeResponse> {
 
+  static List<String> extraFieldsInNativeResponseBodyExt = new ArrayList<>();
+
+  static {
+    extraFieldsInNativeResponseBodyExt.add(CommonConstants.JS_TRACKER);
+    extraFieldsInNativeResponseBodyExt.add(CommonConstants.IMP_TRACKERS);
+  }
+
   public NativeResponse map(Native source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(config)) return null;
+    if (isNull(source) || isNull(config)) {
+      return null;
+    }
     NativeResponse nativeResponse = new NativeResponse();
     NativeResponseBody nativeResponseBody = new NativeResponseBody();
     nativeResponse.setNativeResponseBody(nativeResponseBody);
@@ -57,7 +69,9 @@ public class Native30ToNative10Converter implements Converter<Native, NativeResp
     Converter<LinkAsset, Link> linkAssetLinkConverter =
         converterProvider.fetch(new Conversion<>(LinkAsset.class, Link.class));
 
-    if (isNull(source) || isNull(target) || isNull(config)) return;
+    if (isNull(source) || isNull(target) || isNull(config)) {
+      return;
+    }
 
     NativeResponseBody nativeResponseBody = target.getNativeResponseBody();
     List<AssetResponse> assetResponseList = new ArrayList<>();
@@ -69,17 +83,22 @@ public class Native30ToNative10Converter implements Converter<Native, NativeResp
     nativeResponseBody.setAsset(assetResponseList);
     nativeResponseBody.setLink(
         linkAssetLinkConverter.map(source.getLink(), config, converterProvider));
-    nativeResponseBody.setExt(source.getExt());
-    try {
-      if (nonNull(source.getExt())) {
-        nativeResponseBody.setJstracker((String) source.getExt().get("jsTracker"));
-        nativeResponseBody.getExt().remove("jsTracker");
-        nativeResponseBody.setImptrackers((Collection<String>) source.getExt().get("impTrackers"));
-        nativeResponseBody.getExt().remove("impTrackers");
-      }
-    } catch (Exception e) {
-      throw new OpenRtbConverterException("error while type casting ext objects in native", e);
+    if (isNull(source.getExt())) {
+      nativeResponseBody.setExt(new HashMap<>());
+    } else {
+      nativeResponseBody.setExt(new HashMap<>(source.getExt()));
     }
+    fetchFromExt(
+      nativeResponseBody::setJstracker,
+      source.getExt(),
+      CommonConstants.JS_TRACKER,
+      "error while mapping jstracker from native.ext");
+    fetchFromExt(
+      nativeResponseBody::setImptrackers,
+      source.getExt(),
+      CommonConstants.IMP_TRACKERS,
+      "error while mapping imptrackers from native.ext");
+    removeFromExt(nativeResponseBody.getExt(), extraFieldsInNativeResponseBodyExt);
     target.setNativeResponseBody(nativeResponseBody);
   }
 }

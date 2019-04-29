@@ -15,18 +15,21 @@
   ~ limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>net.media</groupId>
         <artifactId>openrtb3-converter</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.4-SNAPSHOT</version>
     </parent>
 
     <artifactId>openrtb3-converter-core</artifactId>
     <name>openrtb3-converter-core</name>
-    <description>Core library offering transformation support between requests and responses of various OpenRTB versions: 2.3, 2.4, 2.5 and 3.0 </description>
+    <description>Core library offering transformation support between requests and responses of various OpenRTB
+        versions: 2.3, 2.4, 2.5 and 3.0
+    </description>
     <url>https://github.com/media-net/openrtb3-converter/tree/master/converter-core</url>
 
     <build>
@@ -242,12 +245,16 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>net.media</groupId>
+            <artifactId>openrtb-model</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
             <groupId>org.skyscreamer</groupId>
             <artifactId>jsonassert</artifactId>
             <version>1.2.3</version>
             <scope>test</scope>
         </dependency>
-
 
     </dependencies>
 

@@ -20,12 +20,10 @@ import net.media.config.Config;
 import net.media.converters.response30toresponse25.Bid30ToBid25Converter;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class Bid30ToBid24Converter extends Bid30ToBid25Converter {
@@ -37,47 +35,17 @@ public class Bid30ToBid24Converter extends Bid30ToBid25Converter {
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    if (nonNull(target.getBurl())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("burl", target.getBurl());
-      target.setBurl(null);
-    }
-    if (nonNull(target.getLurl())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("lurl", target.getLurl());
-      target.setLurl(null);
-    }
-    if (nonNull(target.getTactic())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("tactic", target.getTactic());
-      target.setTactic(null);
-    }
-    if (nonNull(target.getLanguage())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("language", target.getLanguage());
-      target.setLanguage(null);
-    }
-    if (nonNull(target.getWratio())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("wratio", target.getWratio());
-      target.setWratio(null);
-    }
-    if (nonNull(target.getHratio())) {
-      if (isNull(target.getExt())) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put("hratio", target.getHratio());
-      target.setHratio(null);
-    }
+    putToExt(target::getBurl, target.getExt(), CommonConstants.BURL, target::setExt);
+    target.setBurl(null);
+    putToExt(target::getLurl, target.getExt(), CommonConstants.LURL, target::setExt);
+    target.setLurl(null);
+    putToExt(target::getTactic, target.getExt(), CommonConstants.TACTIC, target::setExt);
+    target.setTactic(null);
+    putToExt(target::getLanguage, target.getExt(), CommonConstants.LANGUAGE, target::setExt);
+    target.setLanguage(null);
+    putToExt(target::getWratio, target.getExt(), CommonConstants.WRATIO, target::setExt);
+    target.setWratio(null);
+    putToExt(target::getHratio, target.getExt(), CommonConstants.HRATIO, target::setExt);
+    target.setHratio(null);
   }
 }

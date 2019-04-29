@@ -25,14 +25,28 @@ import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.NativeFormat;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class NativeFormatToNativeRequestBodyConverter
     implements Converter<NativeFormat, NativeRequestBody> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.CONTEXTSUBTYPE);
+    extraFieldsInExt.add(CommonConstants.ADUNIT);
+    extraFieldsInExt.add(CommonConstants.LAYOUT);
+    extraFieldsInExt.add(CommonConstants.VER);
+  }
 
   @Override
   public NativeRequestBody map(NativeFormat nativeFormat, Config config, Provider converterProvider)
@@ -55,50 +69,32 @@ public class NativeFormatToNativeRequestBodyConverter
     if (isNull(nativeFormat) || isNull(nativeRequestBody)) {
       return;
     }
-    if (nonNull(nativeFormat.getExt())) {
-      if (nativeFormat.getExt().containsKey("contextsubtype")) {
-        try {
-          nativeRequestBody.setContextsubtype(
-              (Integer) nativeFormat.getExt().get("contextsubtype"));
-          nativeFormat.getExt().remove("contextsubtype");
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (nativeFormat.getExt().containsKey("adunit")) {
-        try {
-          nativeRequestBody.setAdunit((Integer) nativeFormat.getExt().get("adunit"));
-          nativeFormat.getExt().remove("adunit");
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (nativeFormat.getExt().containsKey("layout")) {
-        try {
-          nativeRequestBody.setLayout((Integer) nativeFormat.getExt().get("layout"));
-          nativeFormat.getExt().remove("layout");
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-      if (nativeFormat.getExt().containsKey("ver")) {
-        try {
-          nativeRequestBody.setVer((String) nativeFormat.getExt().get("ver"));
-          nativeFormat.getExt().remove("ver");
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException(
-              "error while typecasting ext for DisplayPlacement", e);
-        }
-      }
-    }
-    nativeRequestBody.setExt(Utils.copyMap(nativeFormat.getExt(), config));
+    fetchFromExt(
+      nativeRequestBody::setContextsubtype,
+      nativeFormat.getExt(),
+      CommonConstants.CONTEXTSUBTYPE,
+      "error while mapping ext for DisplayPlacement");
+    fetchFromExt(
+      nativeRequestBody::setAdunit,
+      nativeFormat.getExt(),
+      CommonConstants.ADUNIT,
+      "error while mapping ext for DisplayPlacement");
+    fetchFromExt(
+      nativeRequestBody::setLayout,
+      nativeFormat.getExt(),
+      CommonConstants.LAYOUT,
+      "error while mapping ext for DisplayPlacement");
+    fetchFromExt(
+      nativeRequestBody::setVer,
+      nativeFormat.getExt(),
+      CommonConstants.VER,
+      "error while mapping ext for DisplayPlacement");
+    nativeRequestBody.setExt(new HashMap<>(nativeFormat.getExt()));
     Converter<AssetFormat, Asset> assetFormatAssetConverter =
         converterProvider.fetch(new Conversion<>(AssetFormat.class, Asset.class));
     nativeRequestBody.setAssets(
         CollectionToCollectionConverter.convert(
             nativeFormat.getAsset(), assetFormatAssetConverter, config, converterProvider));
+    removeFromExt(nativeRequestBody.getExt(), extraFieldsInExt);
   }
 }

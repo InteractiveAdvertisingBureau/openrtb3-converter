@@ -24,12 +24,24 @@ import net.media.openrtb25.request.Data;
 import net.media.openrtb25.request.Geo;
 import net.media.openrtb25.request.User;
 import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
-import net.media.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
+
 public class UserToUserConverter implements Converter<User, net.media.openrtb3.User> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.CONSENT);
+  }
 
   @Override
   public net.media.openrtb3.User map(User source, Config config, Provider converterProvider)
@@ -49,7 +61,9 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
   public void enhance(
       User source, net.media.openrtb3.User target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Geo, net.media.openrtb3.Geo> geoToGeoConverter =
         converterProvider.fetch(new Conversion<>(Geo.class, net.media.openrtb3.Geo.class));
     Converter<Data, net.media.openrtb3.Data> dataDataConverter =
@@ -65,16 +79,13 @@ public class UserToUserConverter implements Converter<User, net.media.openrtb3.U
             source.getData(), dataDataConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(Utils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
-    if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey("consent")) {
-        target.setConsent((String) source.getExt().get("consent"));
-        target.getExt().remove("consent");
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for User", e);
-    }
+    fetchFromExt(
+      target::setConsent,
+      source.getExt(),
+      CommonConstants.CONSENT,
+      "error while mapping consent from user");
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

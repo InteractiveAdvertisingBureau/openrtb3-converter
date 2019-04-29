@@ -32,9 +32,9 @@ public class Case {
   private String purpose;
   private Map<String, Object> params;
   private Map<String, Object> config;
-  private Map<String,Object> overRidingMap;
+  private Map<String, Object> overRidingMap;
   private Integer inputAsString;
-
+  private Integer testEnhance;
 
   public Case() {}
 
@@ -140,5 +140,13 @@ public class Case {
 
   public void setInputAsString(Integer inputAsString) {
     this.inputAsString = inputAsString;
+  }
+
+  public Integer getTestEnhance() {
+    return testEnhance;
+  }
+
+  public void setTestEnhance(Integer testEnhance) {
+    this.testEnhance = testEnhance;
   }
 }

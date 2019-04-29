@@ -23,7 +23,7 @@ package net.media.exceptions;
  * @see java.lang.Exception
  * @since 1.0
  */
-public class OpenRtbConverterException extends Exception {
+public class OpenRtbConverterException extends RuntimeException {
 
   /**
    * @param message - error message

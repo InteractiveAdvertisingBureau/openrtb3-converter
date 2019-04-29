@@ -23,10 +23,22 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb3.Companion;
 import net.media.openrtb3.DisplayPlacement;
+import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/01/19. */
 public class BannerToCompanionConverter implements Converter<Banner, Companion> {
+
+  static List<String> extraFieldsInDisplay = new ArrayList<>();
+
+  static {
+    extraFieldsInDisplay.add(CommonConstants.ID);
+  }
 
   @Override
   public Companion map(Banner banner, Config config, Provider converterProvider)
@@ -54,11 +66,7 @@ public class BannerToCompanionConverter implements Converter<Banner, Companion> 
     companion.setId(banner.getId());
     if (companion.getDisplay() != null) {
       companion.getDisplay().setClktype(null); // remove clktype for companion
-      if (companion.getDisplay().getExt() != null) {
-        if (companion.getDisplay().getExt().containsKey("id")) {
-          companion.getDisplay().getExt().remove("id");
-        }
-      }
+      removeFromExt(companion.getDisplay().getExt(), extraFieldsInDisplay);
     }
   }
 }
