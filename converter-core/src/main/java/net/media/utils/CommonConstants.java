@@ -19,7 +19,6 @@ package net.media.utils;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
-@SuppressWarnings("ResultOfMethodCallIgnored")
 public class CommonConstants {
 
   public static final Integer DEFAULT_CATTAX_THREEDOTX = 2;
@@ -146,7 +145,7 @@ public class CommonConstants {
 
   static {
     osMap = HashBiMap.create();
-    osMap.put("other not listed\n", 0);
+    osMap.put("other not listed", 0);
     osMap.put("3ds system software", 1);
     osMap.put("android", 2);
     osMap.put("apple tv software", 3);
