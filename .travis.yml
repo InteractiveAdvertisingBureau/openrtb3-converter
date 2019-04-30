@@ -2,7 +2,8 @@ before_install:
     - echo $GPG_SECRET_KEYS | openssl base64 -d | $GPG_EXECUTABLE --import
     - echo $GPG_OWNERTRUST | openssl base64 -d | $GPG_EXECUTABLE --import-ownertrust
 language: java
-script: mvn clean install
+install:
+    mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
 sudo: disable
 git:
   depth: 500
