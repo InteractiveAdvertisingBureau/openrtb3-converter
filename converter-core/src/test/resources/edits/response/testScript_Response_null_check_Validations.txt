@@ -589,7 +589,19 @@ cases:
   - inputFile: MINIMUM_RESPONSE_25.json
     inputType: "RESPONSE25"
     inputEdits:
-      id: null
+      seatbid[0].bid: null
+    outputFile: empty.json
+    outputType: "RESPONSE30"
+    outputEdits:
+      status: ERROR
+    purpose: Response25BidRequired
+    params:
+      validate: true
+
+  - inputFile: MINIMUM_RESPONSE_25.json
+    inputType: "RESPONSE25"
+    inputEdits:
+      seatbid[0].bid[0].id: null
     outputFile: empty.json
     outputType: "RESPONSE30"
     outputEdits:
@@ -601,7 +613,7 @@ cases:
   - inputFile: MINIMUM_RESPONSE_25.json
     inputType: "RESPONSE25"
     inputEdits:
-      id: null
+      seatbid[0].bid[0].price: null
     outputFile: empty.json
     outputType: "RESPONSE30"
     outputEdits:
@@ -613,7 +625,7 @@ cases:
   - inputFile: MINIMUM_RESPONSE_25.json
     inputType: "RESPONSE25"
     inputEdits:
-      id: null
+      seatbid[0].bid[0].impid: null
     outputFile: empty.json
     outputType: "RESPONSE30"
     outputEdits:

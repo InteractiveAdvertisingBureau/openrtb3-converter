@@ -2,16 +2,11 @@
   "inputFile" : "MINIMUM_RESPONSE_25.json",
   "inputType" : "RESPONSE25",
   "inputEdits" : {
-    "seatbid[0].bid[0].id" : null
+    "seatbid[0].bid" : null
   },
   "inputJson" : {
     "id" : "0123456789ABCDEF",
-    "seatbid" : [ {
-      "bid" : [ {
-        "impid" : "12",
-        "price" : 1.6
-      } ]
-    } ]
+    "seatbid" : [ { } ]
   },
   "outputFile" : "empty.json",
   "outputType" : "RESPONSE30",
@@ -21,7 +16,7 @@
   "outputJson" : {
     "status" : "RRO"
   },
-  "purpose" : "Response25BidIdRequired",
+  "purpose" : "Response25BidRequired",
   "params" : {
     "validate" : true
   },

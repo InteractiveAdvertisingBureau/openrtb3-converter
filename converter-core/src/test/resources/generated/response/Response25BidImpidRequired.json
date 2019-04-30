@@ -2,13 +2,13 @@
   "inputFile" : "MINIMUM_RESPONSE_25.json",
   "inputType" : "RESPONSE25",
   "inputEdits" : {
-    "id" : null
+    "seatbid[0].bid[0].impid" : null
   },
   "inputJson" : {
+    "id" : "0123456789ABCDEF",
     "seatbid" : [ {
       "bid" : [ {
         "id" : "123",
-        "impid" : "12",
         "price" : 1.6
       } ]
     } ]
