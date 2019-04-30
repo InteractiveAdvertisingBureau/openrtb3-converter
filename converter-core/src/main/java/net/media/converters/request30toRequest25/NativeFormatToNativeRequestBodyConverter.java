@@ -33,6 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.fetchFromExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
@@ -89,7 +90,8 @@ public class NativeFormatToNativeRequestBodyConverter
       nativeFormat.getExt(),
       CommonConstants.VER,
       "error while mapping ext for DisplayPlacement");
-    nativeRequestBody.setExt(new HashMap<>(nativeFormat.getExt()));
+    if(nonNull(nativeFormat.getExt()))
+      nativeRequestBody.setExt(new HashMap<>(nativeFormat.getExt()));
     Converter<AssetFormat, Asset> assetFormatAssetConverter =
         converterProvider.fetch(new Conversion<>(AssetFormat.class, Asset.class));
     nativeRequestBody.setAssets(
