@@ -3,3 +3,5 @@ script: mvn clean install
 sudo: disable
 git:
   depth: 500
+on:
+  tags: true
