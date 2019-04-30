@@ -35,6 +35,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.CollectionUtils.copyObject;
 import static net.media.utils.ExtUtils.putToExt;
 
 public class RequestToBidRequestConverter implements Converter<Request, BidRequest2_X> {
@@ -246,6 +247,6 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     if (target.getExt() == null) {
       target.setExt(new HashMap<>());
     }
-    putToExt(source.getContext()::getDooh, target.getExt(), CommonConstants.DOOH, target::setExt);
+    putToExt(() -> copyObject(source.getContext().getDooh(), Dooh.class, config), target.getExt(), CommonConstants.DOOH, target::setExt);
   }
 }

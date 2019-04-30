@@ -31,6 +31,7 @@ import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.CollectionUtils.copyCollection;
 import static net.media.utils.ExtUtils.*;
 
 /** Created by rajat.go on 03/01/19. */
@@ -69,13 +70,13 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
         Collection<Integer> expdir = impBannerExpdir(banner);
-        displayFormat.setExpdir(CollectionUtils.copyCollection(expdir, config));
+        displayFormat.setExpdir(copyCollection(expdir, config));
       }
     }
-    displayPlacement.setMime(CollectionUtils.copyCollection(banner.getMimes(), config));
+    displayPlacement.setMime(copyCollection(banner.getMimes(), config));
     displayPlacement.setPos(banner.getPos());
     displayPlacement.setTopframe(banner.getTopframe());
-    displayPlacement.setApi(CollectionUtils.copyCollection(banner.getApi(), config));
+    displayPlacement.setApi(copyCollection(banner.getApi(), config));
     displayPlacement.setW(banner.getW());
     displayPlacement.setH(banner.getH());
     Map<String, Object> bannerExt = banner.getExt();
@@ -113,7 +114,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
       displayPlacement.getExt().putAll(bannerExt);
     }
     putToExt(
-      banner::getBtype,
+      () -> copyCollection(banner.getBtype(), config),
       displayPlacement.getExt(),
       CommonConstants.BTYPE,
       displayPlacement::setExt);
@@ -169,7 +170,6 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
       if (displayFormat.getExt() == null) {
         displayFormat.setExt(new HashMap<>());
       }
-      displayFormat.getExt().put(CommonConstants.WMIN, format.getWmin());
     }
     putToExt(format::getWmin, displayFormat.getExt(), CommonConstants.WMIN, displayFormat::setExt);
 
