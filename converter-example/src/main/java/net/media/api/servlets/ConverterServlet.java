@@ -27,6 +27,7 @@ import net.media.enums.AdType;
 import net.media.enums.OpenRtbVersion;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
+import net.media.openrtb25.response.BidResponse2_X;
 import net.media.openrtb3.OpenRTBWrapper3_X;
 import net.media.utils.JacksonObjectMapperUtils;
 import org.apache.commons.io.IOUtils;
@@ -101,7 +102,7 @@ public class ConverterServlet extends HttpServlet {
               .convert(
                 config,
                 IOUtils.toString(request.getInputStream(), "UTF-8"),
-                BidRequest2_X.class,
+                BidResponse2_X.class,
                 OpenRTBWrapper3_X.class));
         } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
           log.error("Error while sending 2xto3x request ", e);
@@ -117,8 +118,7 @@ public class ConverterServlet extends HttpServlet {
               .convert(
                 config,
                 IOUtils.toString(request.getInputStream(), "UTF-8"),
-                BidRequest2_X.class,
-                OpenRTBWrapper3_X.class));
+                OpenRTBWrapper3_X.class,BidResponse2_X.class));
         } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
           log.error("Error while sending 2xto3x request ", e);
           response.setStatus(500);

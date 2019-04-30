@@ -119,8 +119,10 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
         javaTypeForBannerCollection);
     }
     removeFromExt(assetFormat.getExt(), extraFieldsInExt);
-
-
+    if(assetFormat.getVideo() != null)
+      removeFromExt(assetFormat.getVideo().getExt(), extraFieldsInVideoExt);
+    if(assetFormat.getImg() != null)
+      removeFromExt(assetFormat.getImg().getExt(), extraFieldsInImageExt);
   }
 
   private TitleAssetFormat nativeTitleToTitleAssetFormat(NativeTitle nativeTitle, Config config) {
@@ -167,7 +169,6 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
     if (map != null) {
       imageAssetFormat.setExt(new HashMap<>(map));
     }
-    removeFromExt(imageAssetFormat.getExt(), extraFieldsInImageExt);
     return imageAssetFormat;
   }
 
@@ -287,9 +288,6 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
       CommonConstants.COMPANIONTYPE,
       "Error in setting companiontype from asset.video.ext");
     videoPlacement.setComp(new ArrayList<>());
-
-    removeFromExt(videoPlacement.getExt(), extraFieldsInVideoExt);
-
     return videoPlacement;
   }
 

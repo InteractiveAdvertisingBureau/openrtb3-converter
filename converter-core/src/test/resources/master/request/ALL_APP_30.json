@@ -463,6 +463,13 @@
                           "dummy": "title.ext"
                         }
                       },
+                      "ext": {
+                        "dummy": "asset.ext"
+                      }
+                    },
+                    {
+                      "id": 2,
+                      "req": 0,
                       "img": {
                         "type": 1,
                         "mime": [
@@ -480,6 +487,13 @@
                           "dummy": "img.ext"
                         }
                       },
+                      "ext": {
+                        "dummy": "asset.ext"
+                      }
+                    },
+                    {
+                      "id": 3,
+                      "req": 0,
                       "video": {
                         "comptype": [
                           1,
@@ -591,6 +605,13 @@
                           }
                         ]
                       },
+                      "ext": {
+                        "dummy": "asset.ext"
+                      }
+                    },
+                    {
+                      "id": 4,
+                      "req": 0,
                       "data": {
                         "type": 1,
                         "len": 1,

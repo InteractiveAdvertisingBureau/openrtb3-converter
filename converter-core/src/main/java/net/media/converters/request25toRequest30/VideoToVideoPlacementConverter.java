@@ -107,7 +107,7 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
       Video video, Config config, VideoPlacement videoPlacement) throws OpenRtbConverterException {
     videoPlacement.setExt(new HashMap<>());
     if(video.getExt() != null) {
-      videoPlacement.getExt().putAll(video.getExt());
+      videoPlacement.setExt(new HashMap<>(video.getExt()));
     }
     fetchFromExt(
       videoPlacement::setUnit,

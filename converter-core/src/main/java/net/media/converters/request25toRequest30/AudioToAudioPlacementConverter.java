@@ -117,12 +117,6 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
 
   private void audioToAudioPlacementAfterMapping(Audio audio, AudioPlacement audioPlacement)
       throws OpenRtbConverterException {
-
-    audioPlacement.setExt(new HashMap<>());
-    if(audio.getExt() != null) {
-      audioPlacement.getExt().putAll(audio.getExt());
-    }
-
     fetchFromExt(
       audioPlacement::setSkip,
       audio.getExt(),

@@ -133,57 +133,170 @@
             "ext": {
               "dummy": "object"
             },
-            "asset": [
+            "assets": [
               {
                 "id": 1,
                 "required": 0,
                 "title": {
-                  "len": 20,
+                  "len": 1,
                   "ext": {
-                    "dummy": "entry"
+                    "dummy": "title.ext"
                   }
                 },
+                "ext": {
+                  "dummy": "asset.ext"
+                }
+              },
+              {
+                "id": 2,
+                "required": 0,
                 "img": {
                   "type": 1,
-                  "mimes": [
-                    "abc",
-                    "def"
-                  ],
-                  "w": 20,
-                  "h": 20,
-                  "wmin": 20,
-                  "hmin": 20,
-                  "ext": {
-                    "wratio": 20,
-                    "hratio": 20
-                  }
-                },
-                "video": {
                   "mimes": [
                     "a",
                     "bc",
                     "def"
                   ],
-                  "minduration": 1,
-                  "maxduration": 2,
-                  "protocols": [
-                    2,
-                    3,
-                    4
-                  ],
+                  "w": 1,
+                  "h": 2,
+                  "wmin": 2,
+                  "hmin": 3,
                   "ext": {
-                    "dummy": "entry"
-                  }
-                },
-                "data": {
-                  "type": 1,
-                  "len": 2,
-                  "ext": {
-                    "dummy": "entry"
+                    "wratio": 4,
+                    "hratio": 5,
+                    "dummy": "img.ext"
                   }
                 },
                 "ext": {
-                  "dummy": "entry"
+                  "dummy": "asset.ext"
+                }
+              },
+              {
+                "id": 3,
+                "required": 0,
+                "video": {
+                  "protocols": [
+                    2,
+                    3
+                  ],
+                  "mimes": [
+                    "abc",
+                    "def"
+                  ],
+                  "minduration": 1,
+                  "maxduration": 1,
+                  "ext": {
+                    "companionad": [
+                      {
+                        "id": "4.0",
+                        "vcm": 1,
+                        "pos": 0,
+                        "topframe": 22,
+                        "expdir": [
+                          3,
+                          4
+                        ],
+                        "mimes": [
+                          "application/x-shockwave-flash",
+                          "image/jpg"
+                        ],
+                        "api": [
+                          3,
+                          2
+                        ],
+                        "w": 300,
+                        "h": 250,
+                        "btype": [
+                          3,
+                          4
+                        ],
+                        "hmin": 1,
+                        "wmin": 1,
+                        "hmax": 1,
+                        "wmax": 1,
+                        "format": [
+                          {
+                            "ext": {
+                              "dummy": "f1.ext"
+                            },
+                            "h": 20,
+                            "hratio": 30,
+                            "w": 200,
+                            "wratio": 200
+                          },
+                          {
+                            "ext": {
+                              "dummy": "f2.ext"
+                            },
+                            "h": 11,
+                            "hratio": 30,
+                            "w": 33,
+                            "wratio": 200
+                          }
+                        ],
+                        "ext": {
+                          "ptype": 1,
+                          "context": 2,
+                          "unit": 1,
+                          "priv": 0,
+                          "dummy": "innerdisplay.ext",
+                          "ctype": [
+                            1
+                          ]
+                        }
+                      }
+                    ],
+                    "unit": 2,
+                    "maxseq": 1,
+                    "dummy": "video.ext",
+                    "ptype": 1,
+                    "pos": 1,
+                    "startdelay": 1,
+                    "skip": 1,
+                    "skipmin": 1,
+                    "skipafter": 1,
+                    "playbackmethod": [
+                      1
+                    ],
+                    "playbackend": 1,
+                    "maxextended": 1,
+                    "minbitrate": 2,
+                    "maxbitrate": 2,
+                    "linearity": 1,
+                    "boxingallowed": 1,
+                    "companiontype": [
+                      1,
+                      2
+                    ],
+                    "w": 1,
+                    "h": 1,
+                    "api": [
+                      2,
+                      3
+                    ],
+                    "delivery": [
+                      1,
+                      2
+                    ]
+                  }
+                },
+                "ext": {
+                  "dummy": "asset.ext",
+                  "clickbrowser": 1
+                }
+              },
+              {
+                "id": 4,
+                "required": 0,
+                "data": {
+                  "type": 1,
+                  "len": 1,
+                  "ext": {
+                    "dummy": "data.ext"
+                  }
+                },
+                "ext": {
+                  "dummy": "asset.ext"
                 }
               }
             ]

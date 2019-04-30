@@ -68,25 +68,29 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     if (nonNull(assetFormat.getExt())) {
       asset.setExt(new HashMap<>(assetFormat.getExt()));
     }
-    putToExt(
-      assetFormat.getVideo()::getClktype,
-      asset.getExt(),
-      CommonConstants.CLICKBROWSER,
-      asset::setExt);
-    if (assetFormat.getVideo().getComp() != null) {
-      Converter<Companion, Banner> companionToBannerConverter =
-          converterProvider.fetch(new Conversion<>(Companion.class, Banner.class));
-      Collection<Banner> banners =
-        CollectionToCollectionConverter.convert(
-          assetFormat.getVideo().getComp(),
-          companionToBannerConverter,
-          config,
-          converterProvider);
+    if(nonNull(assetFormat.getVideo())) {
       putToExt(
-        () -> banners,
-        asset.getVideo().getExt(),
-        CommonConstants.COMPANIONAD,
-        asset.getVideo()::setExt);
+        assetFormat.getVideo()::getClktype,
+        asset.getExt(),
+        CommonConstants.CLICKBROWSER,
+        asset::setExt);
+
+      if (assetFormat.getVideo().getComp() != null) {
+        Converter<Companion, Banner> companionToBannerConverter =
+          converterProvider.fetch(new Conversion<>(Companion.class, Banner.class));
+        Collection<Banner> banners =
+          CollectionToCollectionConverter.convert(
+            assetFormat.getVideo().getComp(),
+            companionToBannerConverter,
+            config,
+            converterProvider);
+        if(nonNull(asset.getVideo()))
+        putToExt(
+          () -> banners,
+          asset.getVideo().getExt(),
+          CommonConstants.COMPANIONAD,
+          asset.getVideo()::setExt);
+      }
     }
   }
 
