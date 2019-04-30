@@ -1,0 +1,10 @@
+cases:
+ - inputFile: SiteAppDooh_Min_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id : "\"request1234\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: siteappdooh_present_2to3

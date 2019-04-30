@@ -107,7 +107,7 @@ public class BannerToDisplayPlacementConverter implements Converter<Banner, Disp
       "error while setting priv from Banner.ext");
 
     if (isNull(displayPlacement.getExt())) {
-      displayPlacement.setExt(new HashMap<>(bannerExt));
+      displayPlacement.setExt(new HashMap<>());
     }
     if (nonNull(bannerExt)) {
       displayPlacement.getExt().putAll(bannerExt);

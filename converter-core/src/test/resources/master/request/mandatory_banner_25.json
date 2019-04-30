@@ -1,0 +1,282 @@
+{
+  "id":"request123",
+  "imp": [
+    {
+      "id": "1",
+      "metric": [
+        {
+          "type": "dd",
+          "value": 1.0,
+          "vendor": "dssf",
+          "ext": {
+            "dummy": "ff"
+          }
+        }
+      ],
+      "bidfloor": 0.03,
+      "bidfloorcur": "USD",
+      "pmp": {
+        "private_auction": 1,
+        "deals": [
+          {
+            "id": "ww",
+            "bidfloor": 0.0,
+            "bidfloorcur": "USD",
+            "at": 1,
+            "wseat": [
+              "dd",
+              "as"
+            ],
+            "wadomain": [
+              "ss.com",
+              "abc.com"
+            ],
+            "ext": {
+              "dummy": "ff"
+            }
+          }
+        ],
+        "ext": {
+          "dummy": "ff"
+        }
+      },
+      "displaymanager": "dd",
+      "displaymanagerver": "22",
+      "clickbrowser": 1,
+      "secure": 1,
+      "iframebuster": [
+        "abc",
+        "def"
+      ],
+      "instl": 0,
+      "tagid": "re",
+      "exp": 1,
+      "banner": {
+        "id": "dd",
+        "format": [
+          {
+            "w": 200,
+            "h": 20,
+            "wratio": 200,
+            "hratio": 30,
+            "wmin": 3,
+            "ext": {
+              "dummy": "ffaa"
+            }
+          },
+          {
+            "w": 33,
+            "h": 11,
+            "wratio": 200,
+            "hratio": 30,
+            "wmin": 3,
+            "ext": {
+              "dummy": "ffaa"
+            }
+          }
+        ],
+        "h": 250,
+        "w": 300,
+        "btype": [
+          3,
+          4
+        ],
+        "battr": [
+          1,
+          2
+        ],
+        "topframe": 22,
+        "expdir": [
+          3,
+          9
+        ],
+        "api": [
+          3,
+          2
+        ],
+        "mimes": [
+          "application/x-shockwave-flash",
+          "image/jpg"
+        ],
+        "pos": 0,
+        "ext": {
+          "qty": 1,
+          "seq": 1,
+          "context": 2,
+          "ctype": [
+            1
+          ],
+          "unit": 1,
+          "priv": 0,
+          "ptype": 1,
+          "dummy": "ffaa"
+        }
+      },
+      "ext": {
+        "ssai": 1,
+        "reward": 1,
+        "admx": 1,
+        "dt": 1,
+        "dlvy": 1,
+        "sequence": 1,
+        "curlx": 0,
+        "ampren": 1,
+        "event": [
+          {
+            "type": 1,
+            "method": [
+              1
+            ],
+            "api": [
+              1,
+              2
+            ],
+            "jstrk": [
+              "abc",
+              "Def"
+            ],
+            "wjs": 1,
+            "pxtrk": [
+              "abc",
+              "def"
+            ],
+            "wpx": 1,
+            "ext": {
+              "dummy": "ffaa"
+            }
+          },
+          {
+            "type": 1,
+            "method": [
+              1
+            ],
+            "api": [
+              1,
+              2
+            ],
+            "jstrk": [
+              "abc",
+              "Def"
+            ],
+            "wjs": 1,
+            "pxtrk": [
+              "abc",
+              "def"
+            ],
+            "wpx": 1,
+            "ext": {
+              "dummy": "ffaa"
+            }
+          }
+        ],
+        "dummy": "ff"
+      }
+    }
+  ],
+  "site": {
+    "id": "102855",
+    "name": "abdk",
+    "sectioncat": [
+      "zz",
+      "dd"
+    ],
+    "pagecat": [
+      "ss",
+      "as"
+    ],
+    "cat": [
+      "IAB3-1",
+      "IAB3-2"
+    ],
+    "ref": "sdfe",
+    "search": "eded",
+    "mobile": 1,
+    "privacypolicy": 1,
+    "keywords": "ewew",
+    "domain": "www.foobar.com",
+    "page": "http://www.foobar.com/1234.html ",
+    "publisher": {
+      "id": "8953",
+      "name": "foobar.com",
+      "cat": [
+        "IAB3-1",
+        "IAB3-2"
+      ],
+      "domain": "foobar.com",
+      "ext": {
+        "cattax": 2,
+        "dummy": "ff"
+      }
+    },
+    "content": {
+      "id": "rfewa",
+      "episode": 1,
+      "title": "sf",
+      "series": "rf",
+      "season": "wed",
+      "genre": "sefw",
+      "album": "edwe",
+      "artist": "we",
+      "isrc": "ewde",
+      "producer": {
+        "id": "eew",
+        "name": "edew",
+        "cat": [
+          "IAB3-1",
+          "IAB3-2"
+        ],
+        "domain": "abc.com",
+        "ext": {
+          "cattax": 2,
+          "dummy": "ff"
+        }
+      },
+      "url": "ewfe.com",
+      "cat": [
+        "IAB3-1",
+        "IAB3-2"
+      ],
+      "prodq": 1,
+      "videoquality": 2,
+      "context": 2,
+      "contentrating": "wqewq",
+      "userrating": "ewew",
+      "qagmediarating": 1,
+      "keywords": "efea",
+      "livestream": 1,
+      "sourcerelationship": 1,
+      "len": 2,
+      "language": "en",
+      "embeddable": 1,
+      "data": [
+        {
+          "id": "1",
+          "name": "Abcdef",
+          "segment": [
+            {
+              "id": "bcdef",
+              "name": "name123",
+              "value": "acde",
+              "ext": {
+                "dummy": "ff"
+              }
+            }
+          ],
+          "ext": {
+            "dummy": "ff"
+          }
+        }
+      ],
+      "ext": {
+        "cattax": 2,
+        "dummy": "ff"
+      }
+    },
+    "ext": {
+      "cattax": 2,
+      "dummy": "ff",
+      "amp": 2
+    }
+  }
+
+}

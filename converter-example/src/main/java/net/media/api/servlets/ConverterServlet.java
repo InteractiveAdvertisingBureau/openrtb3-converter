@@ -173,15 +173,15 @@ public class ConverterServlet extends HttpServlet {
     Config config = new Config();
     try {
       if(nativeRequestAsString != null)
-        config.setNativeRequestAsString(Boolean.getBoolean(nativeRequestAsString));
+        config.setNativeRequestAsString(Boolean.parseBoolean(nativeRequestAsString));
       if(nativeResponseAsString != null)
-        config.setNativeResponseAsString(Boolean.getBoolean(nativeResponseAsString));
+        config.setNativeResponseAsString(Boolean.parseBoolean(nativeResponseAsString));
       if(adTypeMapping != null)
         config.setAdTypeMapping(mapper.readValue(adTypeMapping, javaTypeForAdTypeMapping));
       if(disableCloning != null)
-        config.setDisableCloning(Boolean.getBoolean(disableCloning));
+        config.setDisableCloning(Boolean.parseBoolean(disableCloning));
       if(validate != null)
-        config.setValidate(Boolean.getBoolean(validate));
+        config.setValidate(Boolean.parseBoolean(validate));
       if(openRtbVersion2_XVersion != null)
         config.setOpenRtbVersion2_XVersion(OpenRtbVersion.valueOf(openRtbVersion2_XVersion));
     } catch (Exception e) {
