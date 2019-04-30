@@ -1,0 +1,60 @@
+{
+  "inputFile" : "MINIMUM_RESPONSE_BANNER_30.json",
+  "inputType" : "RESPONSE30",
+  "inputEdits" : {
+    "openrtb.response.seatbid[0].bid[0].media.ad.display.curl" : "\"somelink.com/ad\"",
+    "openrtb.response.seatbid[0].bid[0].media.ad.display.adm" : "\"sample-adm/ad\""
+  },
+  "inputJson" : {
+    "openrtb" : {
+      "response" : {
+        "id" : "0123456789ABCDEF",
+        "seatbid" : [ {
+          "bid" : [ {
+            "item" : "12",
+            "price" : 1.6,
+            "macro" : [ {
+              "key" : 7
+            } ],
+            "media" : {
+              "ad" : {
+                "id" : "ad1",
+                "display" : {
+                  "banner" : {
+                    "img" : "https://somebuyer.com/creative",
+                    "link" : {
+                      "url" : "https://somebuyer.com/click"
+                    }
+                  },
+                  "event" : [ {
+                    "type" : 1,
+                    "method" : 1,
+                    "url" : "https://somebuyer.com/pixel"
+                  } ],
+                  "curl" : "somelink.com/ad",
+                  "adm" : "sample-adm/ad"
+                }
+              }
+            }
+          } ]
+        } ]
+      }
+    }
+  },
+  "outputFile" : "empty.json",
+  "outputType" : "RESPONSE25",
+  "outputEdits" : {
+    "status" : "ERROR"
+  },
+  "outputJson" : {
+    "status" : "RRO"
+  },
+  "purpose" : "BidMediaAdDisplay-BannerCurlAdmNotAllowedTogether",
+  "params" : {
+    "validate" : true
+  },
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}

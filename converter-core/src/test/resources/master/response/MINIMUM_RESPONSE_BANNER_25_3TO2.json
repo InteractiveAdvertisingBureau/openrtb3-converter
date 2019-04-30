@@ -1,0 +1,27 @@
+{
+  "id" : "0123456789ABCDEF",
+  "seatbid" : [ {
+    "bid" : [ {
+      "impid" : "12",
+      "price" : 1.6,
+      "crid" : "ad1",
+      "ext" : {
+        "macro" : [ {
+          "key" : "7"
+        } ],
+        "cattax" : 2,
+        "banner" : {
+          "img" : "https://somebuyer.com/creative",
+          "link" : {
+            "url" : "https://somebuyer.com/click"
+          }
+        },
+        "event" : [ {
+          "type" : 1,
+          "method" : 1,
+          "url" : "https://somebuyer.com/pixel"
+        } ]
+      }
+    } ]
+  } ]
+}
