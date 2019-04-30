@@ -24,26 +24,28 @@ import net.media.openrtb3.Request;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.Provider;
 
-/** Created by rajat.go on 04/04/19. */
-@SuppressWarnings("unchecked")
-public class Convert23To30RequestManager {
+import java.util.function.Consumer;
 
-  public Convert23To30RequestManager(Provider converterProvider) {
+/** Created by rajat.go on 04/04/19. */
+public class Convert23To30RequestManager implements Consumer<Provider> {
+
+  @Override
+  public void accept(Provider converterProvider) {
     converterProvider.register(
-        new Conversion<>(Banner.class, DisplayPlacement.class),
-        new BannerToDisplayPlacementConverter());
+      new Conversion<>(Banner.class, DisplayPlacement.class),
+      new BannerToDisplayPlacementConverter());
     converterProvider.register(
-        new Conversion<>(BidRequest2_X.class, Request.class), new BidRequestToRequestConverter());
+      new Conversion<>(BidRequest2_X.class, Request.class), new BidRequestToRequestConverter());
     converterProvider.register(
-        new Conversion<>(Device.class, net.media.openrtb3.Device.class),
-        new DeviceToDeviceConverter());
+      new Conversion<>(Device.class, net.media.openrtb3.Device.class),
+      new DeviceToDeviceConverter());
     converterProvider.register(new Conversion<>(Imp.class, Item.class), new ImpToItemConverter());
     converterProvider.register(
-        new Conversion<>(Video.class, VideoPlacement.class), new VideoToVideoPlacementConverter());
+      new Conversion<>(Video.class, VideoPlacement.class), new VideoToVideoPlacementConverter());
     converterProvider.register(
-        new Conversion<>(Content.class, net.media.openrtb3.Content.class),
-        new ContentToContentConverter());
+      new Conversion<>(Content.class, net.media.openrtb3.Content.class),
+      new ContentToContentConverter());
     converterProvider.register(
-        new Conversion<>(Geo.class, net.media.openrtb3.Geo.class), new GeoToGeoConverter());
+      new Conversion<>(Geo.class, net.media.openrtb3.Geo.class), new GeoToGeoConverter());
   }
 }

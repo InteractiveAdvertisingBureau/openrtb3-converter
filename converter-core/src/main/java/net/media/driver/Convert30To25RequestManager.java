@@ -39,80 +39,82 @@ import net.media.openrtb3.Source;
 import net.media.openrtb3.User;
 import net.media.utils.Provider;
 
-@SuppressWarnings("unchecked")
-public class Convert30To25RequestManager {
+import java.util.function.Consumer;
 
-  public Convert30To25RequestManager(Provider converterProvider) {
+public class Convert30To25RequestManager implements Consumer<Provider> {
+
+  @Override
+  public void accept(Provider converterProvider) {
     converterProvider.register(
-        new Conversion<>(AssetFormat.class, Asset.class), new AssetFormatToAssetConverter());
+      new Conversion<>(AssetFormat.class, Asset.class), new AssetFormatToAssetConverter());
     converterProvider.register(
-        new Conversion<>(NativeFormat.class, NativeRequestBody.class),
-        new NativeFormatToNativeRequestBodyConverter());
+      new Conversion<>(NativeFormat.class, NativeRequestBody.class),
+      new NativeFormatToNativeRequestBodyConverter());
     converterProvider.register(
-        new Conversion<>(DisplayPlacement.class, NativeRequest.class),
-        new DisplayPlacementToNativeRequestConverter());
+      new Conversion<>(DisplayPlacement.class, NativeRequest.class),
+      new DisplayPlacementToNativeRequestConverter());
     converterProvider.register(
-        new Conversion<>(DisplayPlacement.class, Banner.class),
-        new DisplayPlacementToBannerConverter());
+      new Conversion<>(DisplayPlacement.class, Banner.class),
+      new DisplayPlacementToBannerConverter());
     converterProvider.register(
-        new Conversion<>(Companion.class, Banner.class), new CompanionToBannerConverter());
+      new Conversion<>(Companion.class, Banner.class), new CompanionToBannerConverter());
     converterProvider.register(
-        new Conversion<>(VideoPlacement.class, Video.class), new VideoPlacementToVideoConverter());
+      new Conversion<>(VideoPlacement.class, Video.class), new VideoPlacementToVideoConverter());
     converterProvider.register(
-        new Conversion<>(AudioPlacement.class, Audio.class), new AudioPlacementToAudioConverter());
+      new Conversion<>(AudioPlacement.class, Audio.class), new AudioPlacementToAudioConverter());
     converterProvider.register(
-        new Conversion<>(Metric.class, net.media.openrtb25.request.Metric.class),
-        new net.media.converters.request30toRequest25.MetricToMetricConverter());
+      new Conversion<>(Metric.class, net.media.openrtb25.request.Metric.class),
+      new net.media.converters.request30toRequest25.MetricToMetricConverter());
     converterProvider.register(
-        new Conversion<>(Deal.class, net.media.openrtb25.request.Deal.class),
-        new DealToDealConverter());
+      new Conversion<>(Deal.class, net.media.openrtb25.request.Deal.class),
+      new DealToDealConverter());
     converterProvider.register(new Conversion<>(Item.class, Imp.class), new ItemToImpConverter());
     converterProvider.register(
-        new Conversion<>(Geo.class, net.media.openrtb25.request.Geo.class),
-        new GeoToGeoConverter());
+      new Conversion<>(Geo.class, net.media.openrtb25.request.Geo.class),
+      new GeoToGeoConverter());
     converterProvider.register(
-        new Conversion<>(Device.class, net.media.openrtb25.request.Device.class),
-        new DeviceToDeviceConverter());
+      new Conversion<>(Device.class, net.media.openrtb25.request.Device.class),
+      new DeviceToDeviceConverter());
     converterProvider.register(
-        new Conversion<>(Producer.class, net.media.openrtb25.request.Producer.class),
-        new ProducerToProducerConverter());
+      new Conversion<>(Producer.class, net.media.openrtb25.request.Producer.class),
+      new ProducerToProducerConverter());
     converterProvider.register(
-        new Conversion<>(Segment.class, net.media.openrtb25.request.Segment.class),
-        new SegmentToSegmentConverter());
+      new Conversion<>(Segment.class, net.media.openrtb25.request.Segment.class),
+      new SegmentToSegmentConverter());
     converterProvider.register(
-        new Conversion<>(Data.class, net.media.openrtb25.request.Data.class),
-        new DataToDataConverter());
+      new Conversion<>(Data.class, net.media.openrtb25.request.Data.class),
+      new DataToDataConverter());
     converterProvider.register(
-        new Conversion<>(Content.class, net.media.openrtb25.request.Content.class),
-        new ContentToContentConverter());
+      new Conversion<>(Content.class, net.media.openrtb25.request.Content.class),
+      new ContentToContentConverter());
     converterProvider.register(
-        new Conversion<>(Publisher.class, net.media.openrtb25.request.Publisher.class),
-        new PublisherToPublisherConverter());
+      new Conversion<>(Publisher.class, net.media.openrtb25.request.Publisher.class),
+      new PublisherToPublisherConverter());
     converterProvider.register(
-        new Conversion<>(Site.class, net.media.openrtb25.request.Site.class),
-        new SiteToSiteConverter());
+      new Conversion<>(Site.class, net.media.openrtb25.request.Site.class),
+      new SiteToSiteConverter());
     converterProvider.register(
-        new Conversion<>(App.class, net.media.openrtb25.request.App.class),
-        new AppToAppConverter());
+      new Conversion<>(App.class, net.media.openrtb25.request.App.class),
+      new AppToAppConverter());
     converterProvider.register(
-        new Conversion<>(User.class, net.media.openrtb25.request.User.class),
-        new UserToUserConverter());
+      new Conversion<>(User.class, net.media.openrtb25.request.User.class),
+      new UserToUserConverter());
     converterProvider.register(
-        new Conversion<>(Request.class, net.media.openrtb25.request.User.class),
-        new RequestToUserConverter());
+      new Conversion<>(Request.class, net.media.openrtb25.request.User.class),
+      new RequestToUserConverter());
     converterProvider.register(
-        new Conversion<>(Regs.class, net.media.openrtb25.request.Regs.class),
-        new RegsToRegsConverter());
+      new Conversion<>(Regs.class, net.media.openrtb25.request.Regs.class),
+      new RegsToRegsConverter());
     converterProvider.register(
-        new Conversion<>(Source.class, net.media.openrtb25.request.Source.class),
-        new SourceToSourceConverter());
+      new Conversion<>(Source.class, net.media.openrtb25.request.Source.class),
+      new SourceToSourceConverter());
     converterProvider.register(
-        new Conversion<>(Request.class, BidRequest2_X.class), new RequestToBidRequestConverter());
+      new Conversion<>(Request.class, BidRequest2_X.class), new RequestToBidRequestConverter());
     converterProvider.register(
-        new Conversion<>(OpenRTB3_X.class, BidRequest2_X.class),
-        new OpenRtbToBidRequestConverter());
+      new Conversion<>(OpenRTB3_X.class, BidRequest2_X.class),
+      new OpenRtbToBidRequestConverter());
     converterProvider.register(
-        new Conversion<>(OpenRTBWrapper3_X.class, BidRequest2_X.class),
-        new OpenRtbWrapperToBidRequestConverter());
+      new Conversion<>(OpenRTBWrapper3_X.class, BidRequest2_X.class),
+      new OpenRtbWrapperToBidRequestConverter());
   }
 }

@@ -25,47 +25,49 @@ import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb3.*;
 import net.media.utils.Provider;
 
-/** Created by shiva.b on 28/03/19. */
-@SuppressWarnings("unchecked")
-public class Convert25To30ResponseManager {
+import java.util.function.Consumer;
 
-  public Convert25To30ResponseManager(Provider converterProvider) {
+/** Created by shiva.b on 28/03/19. */
+public class Convert25To30ResponseManager implements Consumer<Provider> {
+
+  @Override
+  public void accept(Provider converterProvider) {
     converterProvider.register(
-        new Conversion<>(Link.class, LinkAsset.class), new LinkToLinkAssetConverter());
+      new Conversion<>(Link.class, LinkAsset.class), new LinkToLinkAssetConverter());
     converterProvider.register(
-        new Conversion<>(AssetResponse.class, Asset.class), new Asset25ToAsset30Converter());
+      new Conversion<>(AssetResponse.class, Asset.class), new Asset25ToAsset30Converter());
     converterProvider.register(
-        new Conversion<>(NativeResponse.class, Native.class), new Native25ToNative30Converter());
+      new Conversion<>(NativeResponse.class, Native.class), new Native25ToNative30Converter());
     converterProvider.register(
-        new Conversion<>(net.media.openrtb25.response.Bid.class, Display.class),
-        new BidToDisplayConverter());
+      new Conversion<>(net.media.openrtb25.response.Bid.class, Display.class),
+      new BidToDisplayConverter());
     converterProvider.register(
-        new Conversion<>(net.media.openrtb25.response.Bid.class, Audit.class),
-        new BidToAuditConverter());
+      new Conversion<>(net.media.openrtb25.response.Bid.class, Audit.class),
+      new BidToAuditConverter());
     converterProvider.register(
-        new Conversion<>(net.media.openrtb25.response.Bid.class, Audio.class),
-        new BidToAudioConverter());
+      new Conversion<>(net.media.openrtb25.response.Bid.class, Audio.class),
+      new BidToAudioConverter());
     converterProvider.register(
-        new Conversion<>(net.media.openrtb25.response.Bid.class, Video.class),
-        new BidToVideoConverter());
+      new Conversion<>(net.media.openrtb25.response.Bid.class, Video.class),
+      new BidToVideoConverter());
     converterProvider.register(
-        new Conversion<>(net.media.openrtb25.response.Bid.class, Ad.class), new BidToAdConverter());
+      new Conversion<>(net.media.openrtb25.response.Bid.class, Ad.class), new BidToAdConverter());
     converterProvider.register(
-        new Conversion<>(net.media.openrtb25.response.Bid.class, Media.class),
-        new Bid25ToMediaConverter());
+      new Conversion<>(net.media.openrtb25.response.Bid.class, Media.class),
+      new Bid25ToMediaConverter());
     converterProvider.register(
-        new Conversion<>(net.media.openrtb25.response.Bid.class, Bid.class),
-        new Bid25ToBid30Converter());
+      new Conversion<>(net.media.openrtb25.response.Bid.class, Bid.class),
+      new Bid25ToBid30Converter());
     converterProvider.register(
-        new Conversion<>(SeatBid.class, Seatbid.class), new SeatBid25ToSeatBid30Converter());
+      new Conversion<>(SeatBid.class, Seatbid.class), new SeatBid25ToSeatBid30Converter());
     converterProvider.register(
-        new Conversion<>(BidResponse2_X.class, Response.class),
-        new BidResponseToResponseConverter());
+      new Conversion<>(BidResponse2_X.class, Response.class),
+      new BidResponseToResponseConverter());
     converterProvider.register(
-        new Conversion<>(BidResponse2_X.class, OpenRTB3_X.class),
-        new BidResponseToOpenRtbConverter());
+      new Conversion<>(BidResponse2_X.class, OpenRTB3_X.class),
+      new BidResponseToOpenRtbConverter());
     converterProvider.register(
-        new Conversion<>(BidResponse2_X.class, OpenRTBWrapper3_X.class),
-        new BidResponseToOpenRtbWrapperConverter());
+      new Conversion<>(BidResponse2_X.class, OpenRTBWrapper3_X.class),
+      new BidResponseToOpenRtbWrapperConverter());
   }
 }
