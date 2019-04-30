@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchCollectionFromExt;
 import static net.media.utils.ExtUtils.fetchFromExt;
 
 /** @author shiva.b */
@@ -67,10 +68,10 @@ public class BidToVideoConverter implements Converter<Bid, Video> {
       source.getExt(),
       CommonConstants.DUR,
       "error while mapping dur from bid.ext");
-    fetchFromExt(
+    fetchCollectionFromExt(
       target::setMime,
       source.getExt(),
       CommonConstants.MIME,
-      "error while mapping mime from bid.ext");
+      "error while mapping mime from bid.ext", config);
   }
 }

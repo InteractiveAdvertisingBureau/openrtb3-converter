@@ -120,7 +120,7 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       }
 
       if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put(CommonConstants.CATTAX, source.getContext().getRestrictions().getCattax());
+      putToExt(source.getContext().getRestrictions()::getCattax, target.getExt(), CommonConstants.CATTAX, target::setExt);
       if (source.getContext().getRestrictions() != null) {
         target.setBapp(
           CollectionUtils.copyCollection(
@@ -140,7 +140,8 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
           if (target.getExt() == null) target.setExt(new HashMap<>());
           Restrictions restrictions = new Restrictions();
           restrictions.setCattax(null);
-          restrictions.setExt(source.getContext().getRestrictions().getExt());
+          restrictions.setExt(new HashMap<>());
+          restrictions.getExt().putAll(source.getContext().getRestrictions().getExt());
           putToExt(
             () -> restrictions, target.getExt(), CommonConstants.RESTRICTIONS, target::setExt);
         }
