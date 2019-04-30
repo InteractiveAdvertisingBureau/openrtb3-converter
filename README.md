@@ -1,3 +1,5 @@
+Build status: [![build_status](https://travis-ci.org/media-net/openrtb3-converter.svg?branch=master)](https://travis-ci.org/media-net/openrtb3-converter)
+
 ## The new structure of OpenRTB 3.0
 
 Programmatic advertising has seen consistent growth over the last few years. However, due to varied requirements of different partners and the increasing complexity in the supply chain, it was felt that the underlying structure of oRTB was not scalable enough and needed to be changed.
