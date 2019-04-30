@@ -103,8 +103,9 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       target.setMedia(converter.map(source, config, converterProvider));
       Map<String, Object> map = source.getExt();
       if (nonNull(map)) {
-        if(isNull(target.getExt()))
+        if(isNull(target.getExt())) {
           target.setExt(new HashMap<>());
+        }
         target.getExt().putAll(map);
       }
     } catch (Exception e) {
