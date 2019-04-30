@@ -1,6 +1,6 @@
 before_install:
-    - echo $GPG_SECRET_KEYS | openssl base64 --decode | $GPG_EXECUTABLE --import
-    - echo $GPG_OWNERTRUST | openssl base64 --decode | $GPG_EXECUTABLE --import-ownertrust
+    - echo $GPG_SECRET_KEYS | openssl base64 -d | $GPG_EXECUTABLE --import
+    - echo $GPG_OWNERTRUST | openssl base64 -d | $GPG_EXECUTABLE --import-ownertrust
 language: java
 script: mvn clean install
 sudo: disable
