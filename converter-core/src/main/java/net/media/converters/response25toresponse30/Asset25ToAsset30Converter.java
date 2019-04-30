@@ -89,9 +89,7 @@ public class Asset25ToAsset30Converter implements Converter<AssetResponse, Asset
     if (nonNull(nativeData.getExt())) {
       dataAsset.setExt(new HashMap<>(nativeData.getExt()));
     }
-    List<String> value = new ArrayList<>();
-    value.add(nativeData.getValue());
-    dataAsset.setValue(value);
+    dataAsset.setValue(nativeData.getValue());
     fetchFromExt(
       dataAsset::setType,
       nativeData.getExt(),
