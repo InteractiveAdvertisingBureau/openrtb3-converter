@@ -49,6 +49,7 @@ public class JacksonObjectMapperUtils {
         .enable(JsonParser.Feature.ALLOW_NON_NUMERIC_NUMBERS)
         .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
         .configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true)
+        .disable(SerializationFeature.WRITE_NULL_MAP_VALUES)
         .setVisibility(
             mapper
                 .getSerializationConfig()

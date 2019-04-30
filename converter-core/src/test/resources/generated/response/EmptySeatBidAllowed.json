@@ -1,0 +1,30 @@
+{
+  "inputFile" : "MINIMUM_RESPONSE_BANNER_30.json",
+  "inputType" : "RESPONSE30",
+  "inputEdits" : {
+    "openrtb.response.seatbid" : null
+  },
+  "inputJson" : {
+    "openrtb" : {
+      "response" : {
+        "id" : "0123456789ABCDEF"
+      }
+    }
+  },
+  "outputFile" : "MINIMUM_RESPONSE_BANNER_25_3TO2.json",
+  "outputType" : "RESPONSE25",
+  "outputEdits" : {
+    "seatbid" : null
+  },
+  "outputJson" : {
+    "id" : "0123456789ABCDEF"
+  },
+  "purpose" : "EmptySeatBidAllowed",
+  "params" : {
+    "validate" : true
+  },
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}

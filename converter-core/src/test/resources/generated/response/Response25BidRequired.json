@@ -1,0 +1,27 @@
+{
+  "inputFile" : "MINIMUM_RESPONSE_25.json",
+  "inputType" : "RESPONSE25",
+  "inputEdits" : {
+    "seatbid[0].bid" : null
+  },
+  "inputJson" : {
+    "id" : "0123456789ABCDEF",
+    "seatbid" : [ { } ]
+  },
+  "outputFile" : "empty.json",
+  "outputType" : "RESPONSE30",
+  "outputEdits" : {
+    "status" : "ERROR"
+  },
+  "outputJson" : {
+    "status" : "RRO"
+  },
+  "purpose" : "Response25BidRequired",
+  "params" : {
+    "validate" : true
+  },
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}

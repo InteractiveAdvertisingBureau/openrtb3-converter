@@ -1,0 +1,53 @@
+{
+  "inputFile" : "MINIMUM_RESPONSE_25.json",
+  "inputType" : "RESPONSE25",
+  "inputEdits" : {
+    "t" : null
+  },
+  "inputJson" : {
+    "id" : "0123456789ABCDEF",
+    "seatbid" : [ {
+      "bid" : [ {
+        "id" : "123",
+        "impid" : "12",
+        "price" : 1.6
+      } ]
+    } ]
+  },
+  "outputFile" : "MINIMUM_RESPONSE_BANNER_30_2TO3.json",
+  "outputType" : "RESPONSE30",
+  "outputEdits" : {
+    "t" : null
+  },
+  "outputJson" : {
+    "openrtb" : {
+      "ver" : "3.0",
+      "domainSpec" : "adcom",
+      "domainVer" : "1.0",
+      "response" : {
+        "id" : "0123456789ABCDEF",
+        "seatbid" : [ {
+          "bid" : [ {
+            "id" : "123",
+            "item" : "12",
+            "price" : 1.6,
+            "media" : {
+              "ad" : {
+                "cattax" : 1,
+                "display" : { }
+              }
+            }
+          } ]
+        } ]
+      }
+    }
+  },
+  "purpose" : "Response25MinimumConversion",
+  "params" : {
+    "validate" : true
+  },
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}

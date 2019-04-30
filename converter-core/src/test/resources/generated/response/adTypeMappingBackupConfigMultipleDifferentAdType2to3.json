@@ -433,7 +433,7 @@
                         }
                       },
                       "data" : {
-                        "value" : [ "value" ],
+                        "value" : "value",
                         "len" : 5,
                         "type" : 1,
                         "ext" : {
