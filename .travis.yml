@@ -1,3 +1,3 @@
 before_install:
-  openssl aes-256-cbc -K
+  openssl aes-256-cbc -K $encrypted_a1a988587fdc_key -iv $encrypted_a1a988587fdc_iv -in my.travis.gpg.enc -out my.travis.gpg -d
 language: java
