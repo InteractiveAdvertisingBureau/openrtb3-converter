@@ -8,6 +8,3 @@ git:
   depth: 500
 on:
   tags: true
-branches:
-  only: 
-    - master
