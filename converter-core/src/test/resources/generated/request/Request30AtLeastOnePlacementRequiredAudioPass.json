@@ -1,0 +1,77 @@
+{
+  "inputFile" : "MINIMUM_REQUEST_30.json",
+  "inputType" : "REQUEST30",
+  "inputEdits" : {
+    "openrtb.request.item[0].spec.placement.display" : null,
+    "openrtb.request.item[0].spec.placement.video" : null
+  },
+  "inputJson" : {
+    "openrtb" : {
+      "domainVer" : "1.0",
+      "request" : {
+        "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
+        "item" : [ {
+          "id" : "1",
+          "metric" : [ {
+            "type" : "dd",
+            "value" : 1.0
+          } ],
+          "deal" : [ {
+            "id" : "ww"
+          } ],
+          "spec" : {
+            "placement" : {
+              "audio" : {
+                "mime" : [ "audio/mp4" ]
+              }
+            }
+          }
+        } ]
+      }
+    }
+  },
+  "outputFile" : "MINIMUM_REQUEST_25_3TO2.json",
+  "outputType" : "REQUEST25",
+  "outputEdits" : {
+    "imp[0].video" : null,
+    "imp[0].native" : null,
+    "imp[0].banner" : null,
+    "imp[0].clickbrowser" : null,
+    "imp[0].ext.event" : null
+  },
+  "outputJson" : {
+    "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
+    "imp" : [ {
+      "id" : "1",
+      "audio" : {
+        "mimes" : [ "audio/mp4" ],
+        "ext" : {
+          "qty" : 1
+        }
+      },
+      "bidfloor" : 0.0,
+      "pmp" : {
+        "deals" : [ {
+          "id" : "ww",
+          "bidfloor" : 0.0
+        } ]
+      },
+      "metric" : [ {
+        "type" : "dd",
+        "value" : 1.0
+      } ],
+      "ext" : {
+        "reward" : 0,
+        "dlvy" : 0,
+        "ssai" : 0
+      }
+    } ],
+    "cur" : [ "USD" ]
+  },
+  "purpose" : "Request30AtLeastOnePlacementRequiredAudioPass",
+  "params" : null,
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}

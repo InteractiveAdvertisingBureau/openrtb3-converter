@@ -63,30 +63,32 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     asset.setId(assetFormat.getId());
     asset.setTitle(titleAssetFormatToNativeTitle(assetFormat.getTitle(), config));
     asset.setImg(imageAssetFormatToNativeImage(assetFormat.getImg(), config));
-    asset.setVideo(videoAssetFormatToVideoImage(assetFormat.getVideo(), config));
+    asset.setVideo(videoAssetFormatToNativeVideo(assetFormat.getVideo(), config));
     asset.setData(dataAssetFormatToNativeData(assetFormat.getData(), config));
     if (nonNull(assetFormat.getExt())) {
       asset.setExt(new HashMap<>(assetFormat.getExt()));
     }
-    putToExt(
-      assetFormat.getVideo()::getClktype,
-      asset.getExt(),
-      CommonConstants.CLICKBROWSER,
-      asset::setExt);
-    if (assetFormat.getVideo().getComp() != null) {
-      Converter<Companion, Banner> companionToBannerConverter =
-          converterProvider.fetch(new Conversion<>(Companion.class, Banner.class));
-      Collection<Banner> banners =
-        CollectionToCollectionConverter.convert(
-          assetFormat.getVideo().getComp(),
-          companionToBannerConverter,
-          config,
-          converterProvider);
+    if (assetFormat.getVideo() != null) {
       putToExt(
-        () -> banners,
-        asset.getVideo().getExt(),
-        CommonConstants.COMPANIONAD,
-        asset.getVideo()::setExt);
+        assetFormat.getVideo()::getClktype,
+        asset.getExt(),
+        CommonConstants.CLICKBROWSER,
+        asset::setExt);
+      if (assetFormat.getVideo().getComp() != null) {
+        Converter<Companion, Banner> companionToBannerConverter =
+            converterProvider.fetch(new Conversion<>(Companion.class, Banner.class));
+        Collection<Banner> banners =
+          CollectionToCollectionConverter.convert(
+            assetFormat.getVideo().getComp(),
+            companionToBannerConverter,
+            config,
+            converterProvider);
+        putToExt(
+          () -> banners,
+          asset.getVideo().getExt(),
+          CommonConstants.COMPANIONAD,
+          asset.getVideo()::setExt);
+      }
     }
   }
 
@@ -136,7 +138,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     return nativeImage;
   }
 
-  private NativeVideo videoAssetFormatToVideoImage(VideoPlacement videoPlacement, Config config) {
+  private NativeVideo videoAssetFormatToNativeVideo(VideoPlacement videoPlacement, Config config) {
     if (videoPlacement == null) {
       return null;
     }
