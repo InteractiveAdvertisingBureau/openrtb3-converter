@@ -1303,18 +1303,24 @@ public class ConverterTest {
         if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() != ((Imp) converted.getImp().toArray()[i]).getIframebuster())
           success = false;
         for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
-            success = false;
+          ImageAssetFormat img = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg();
+          if(nonNull(img)) {
+            if (img.getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+              success = false;
+          }
+          VideoPlacement video = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo();
+          if(nonNull(video)) {
+            if (video.getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+              success = false;
+            if (video.getApi() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+              success = false;
+            if (video.getCtype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+              success = false;
+            if (video.getDelivery() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+              success = false;
+            if (video.getComptype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+              success = false;
+          }
         }
       }
       if(request.getContext().getApp().getCat() != converted.getApp().getCat())
@@ -1560,18 +1566,24 @@ public class ConverterTest {
         if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() == ((Imp) converted.getImp().toArray()[i]).getIframebuster())
           success = false;
         for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
-            success = false;
+          ImageAssetFormat img = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg();
+          if(nonNull(img)) {
+            if (img.getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+              success = false;
+          }
+          VideoPlacement video = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo();
+          if(nonNull(video)) {
+            if (video.getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+              success = false;
+            if (video.getApi() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+              success = false;
+            if (video.getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+              success = false;
+            if (video.getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+              success = false;
+            if (video.getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+              success = false;
+          }
         }
       }
       if(request.getContext().getApp().getCat() == converted.getApp().getCat())
@@ -1817,18 +1829,24 @@ public class ConverterTest {
         if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() != ((Imp) converted.getImp().toArray()[i]).getIframebuster())
           success = false;
         for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
-            success = false;
+          ImageAssetFormat img = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg();
+          if(nonNull(img)) {
+            if (img.getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+              success = false;
+          }
+          VideoPlacement video = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo();
+          if(nonNull(video)) {
+            if (video.getMime() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+              success = false;
+            if (video.getApi() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+              success = false;
+            if (video.getCtype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+              success = false;
+            if (video.getDelivery() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+              success = false;
+            if (video.getComptype() != ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+              success = false;
+          }
         }
       }
       if(request.getContext().getApp().getCat() != converted.getApp().getCat())
@@ -2074,18 +2092,24 @@ public class ConverterTest {
         if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() == ((Imp) converted.getImp().toArray()[i]).getIframebuster())
           success = false;
         for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
-            success = false;
+          ImageAssetFormat img = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg();
+          if(nonNull(img)) {
+            if (img.getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+              success = false;
+          }
+          VideoPlacement video = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo();
+          if(nonNull(video)) {
+            if (video.getMime() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+              success = false;
+            if (video.getApi() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+              success = false;
+            if (video.getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+              success = false;
+            if (video.getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+              success = false;
+            if (video.getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) converted.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+              success = false;
+          }
         }
       }
       if(request.getContext().getApp().getCat() == converted.getApp().getCat())
@@ -2904,8 +2928,10 @@ public class ConverterTest {
           if(((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getLink().getTrkr() == ((NativeResponse)((net.media.openrtb25.response.Bid)((SeatBid) converted.getSeatbid().toArray()[i]).getBid().toArray()[j]).getAdm()).getNativeResponseBody().getLink().getClicktrackers())
             success = false;
           for(int k=0;k<((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getAsset().size();k++) {
-            if (((Asset)((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getAsset().toArray()[k]).getLink().getTrkr() == ((AssetResponse)((NativeResponse) ((net.media.openrtb25.response.Bid) ((SeatBid) converted.getSeatbid().toArray()[i]).getBid().toArray()[j]).getAdm()).getNativeResponseBody().getAsset().toArray()[k]).getLink().getClicktrackers())
-              success = false;
+            if(nonNull(((Asset)((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getAsset().toArray()[k]).getLink())) {
+              if (((Asset) ((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getAsset().toArray()[k]).getLink().getTrkr() == ((AssetResponse) ((NativeResponse) ((net.media.openrtb25.response.Bid) ((SeatBid) converted.getSeatbid().toArray()[i]).getBid().toArray()[j]).getAdm()).getNativeResponseBody().getAsset().toArray()[k]).getLink().getClicktrackers())
+                success = false;
+            }
           }
           //if(((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getAudit().getFeedback()==((Audit)((net.media.openrtb25.response.Bid)((SeatBid) converted.getSeatbid().toArray()[i]).getBid().toArray()[j]).getExt().get("audit")).getFeedback())
           // success = false;
@@ -4139,18 +4165,24 @@ public class ConverterTest {
         if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() == ((Imp) bidRequest2_x.getImp().toArray()[i]).getIframebuster())
           success = false;
         for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
-            success = false;
+          ImageAssetFormat img = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg();
+          if(nonNull(img)) {
+            if (img.getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+              success = false;
+          }
+          VideoPlacement video = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo();
+          if(nonNull(video)) {
+            if (video.getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+              success = false;
+            if (video.getApi() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+              success = false;
+            if (video.getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+              success = false;
+            if (video.getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+              success = false;
+            if (video.getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+              success = false;
+          }
         }
       }
       if(request.getContext().getApp().getCat() == bidRequest2_x.getApp().getCat())
@@ -4631,18 +4663,24 @@ public class ConverterTest {
         if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() == ((Imp) bidRequest2_x.getImp().toArray()[i]).getIframebuster())
           success = false;
         for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
-            success = false;
+          ImageAssetFormat img = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg();
+          if(nonNull(img)) {
+            if (img.getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+              success = false;
+          }
+          VideoPlacement video = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo();
+          if(nonNull(video)) {
+            if (video.getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+              success = false;
+            if (video.getApi() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+              success = false;
+            if (video.getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+              success = false;
+            if (video.getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+              success = false;
+            if (video.getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+              success = false;
+          }
         }
       }
       if(request.getContext().getApp().getCat() == bidRequest2_x.getApp().getCat())
@@ -5129,18 +5167,24 @@ public class ConverterTest {
         if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() == ((Imp) bidRequest2_x.getImp().toArray()[i]).getIframebuster())
           success = false;
         for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
-            success = false;
+          ImageAssetFormat img = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg();
+          if(nonNull(img)) {
+            if (img.getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+              success = false;
+          }
+          VideoPlacement video = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo();
+          if(nonNull(video)) {
+            if (video.getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+              success = false;
+            if (video.getApi() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+              success = false;
+            if (video.getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+              success = false;
+            if (video.getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+              success = false;
+            if (video.getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+              success = false;
+          }
         }
       }
       if(request.getContext().getApp().getCat() == bidRequest2_x.getApp().getCat())
@@ -5629,18 +5673,24 @@ public class ConverterTest {
         if(((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getIfrbust() == ((Imp) bidRequest2_x.getImp().toArray()[i]).getIframebuster())
           success = false;
         for(int j=0;j<((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().size();j++) {
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getApi() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
-            success = false;
-          if (((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo().getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
-            success = false;
+          ImageAssetFormat img = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getImg();
+          if(nonNull(img)) {
+            if (img.getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getImg().getMimes())
+              success = false;
+          }
+          VideoPlacement video = ((AssetFormat) ((Item) request.getItem().toArray()[i]).getSpec().getPlacement().getDisplay().getNativefmt().getAsset().toArray()[j]).getVideo();
+          if(nonNull(video)) {
+            if (video.getMime() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getMimes())
+              success = false;
+            if (video.getApi() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("api"))
+              success = false;
+            if (video.getCtype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getProtocols())
+              success = false;
+            if (video.getDelivery() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("delivery"))
+              success = false;
+            if (video.getComptype() == ((net.media.openrtb25.request.Asset) ((Imp) bidRequest2_x.getImp().toArray()[i]).getNat().getNativeRequestBody().getAssets().toArray()[j]).getVideo().getExt().get("companiontype"))
+              success = false;
+          }
         }
       }
       if(request.getContext().getApp().getCat() == bidRequest2_x.getApp().getCat())
