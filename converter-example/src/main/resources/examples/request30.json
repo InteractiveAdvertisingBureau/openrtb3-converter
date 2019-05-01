@@ -15,18 +15,17 @@
         "a"
       ],
       "wseat": 1,
-      "cdata": "ewew",
+      "cdata": "561234",
       "source": {
-        "tid": "dd",
+        "tid": "A1234",
         "ts": 1,
-        "ds": "ds",
-        "dsmap": "abcdefghij",
-        "cert": "abc.com/xyz/efg",
-        "digest": "digest:digest, abcde:efg",
-        "pchain": "dd",
+        "ds": "d624a837eccc8531dcebc416a90be14af72abd998a22da702ca8ed46556f3ab4",
+        "dsmap": "domain=&ip=&",
+        "cert": "abc.com/ads-cert1.txt",
+        "digest": "domaain=abc.com&ip=172.133.143.23",
+        "pchain": "c234a2",
         "ext": {
-          "dummy": "ff",
-          "fd": 1
+          "fd": 0
         }
       },
       "item": [
@@ -36,44 +35,44 @@
           "seq": 1,
           "flr": 0.03,
           "flrcur": "USD",
-          "exp": 1,
+          "exp": 2,
           "dt": 1,
           "dlvy": 1,
           "metric": [
             {
-              "type": "dd",
+              "type": "a12",
               "value": 1.0,
-              "vendor": "dssf",
+              "vendor": "vendor1",
               "ext": {
-                "dummy": "ff"
+                "dummy": "dummy"
               }
             }
           ],
           "deal": [
             {
-              "id": "ww",
-              "flr": 0.0,
+              "id": "deal1",
+              "flr": 0.1,
               "flrcur": "USD",
               "at": 1,
               "wseat": [
-                "dd",
-                "as"
+                "seat1",
+                "seat2"
               ],
               "wadomain": [
-                "ss.com",
-                "abc.com"
+                "adv1.com",
+                "adv2.com"
               ],
               "ext": {
-                "dummy": "ff"
+                "dummy": "dummy"
               }
             }
           ],
           "spec": {
             "placement": {
-              "tagid": "re",
+              "tagid": "8cu56",
               "ssai": 1,
-              "sdk": "dd",
-              "sdkver": "22",
+              "sdk": "OpenSDK",
+              "sdkver": "2.2",
               "reward": 1,
               "wlang": [
                 "en"
@@ -86,8 +85,8 @@
                 "instl": 0,
                 "topframe": 22,
                 "ifrbust": [
-                  "abc",
-                  "def"
+                  "if2",
+                  "if2"
                 ],
                 "clktype": 1,
                 "ampren": 1,
@@ -119,7 +118,7 @@
                       9
                     ],
                     "ext": {
-                      "dummy": "ffaa",
+                      "dummy": "dummy",
                       "wmin": 3
                     }
                   },
@@ -133,7 +132,7 @@
                       9
                     ],
                     "ext": {
-                      "dummy": "ffaa",
+                      "dummy": "dummy",
                       "wmin": 3
                     }
                   }
@@ -149,17 +148,17 @@
                       2
                     ],
                     "jstrk": [
-                      "abc",
-                      "Def"
+                      "tracker1.com",
+                      "tracker2.com"
                     ],
                     "wjs": 1,
                     "pxtrk": [
-                      "abc",
-                      "def"
+                      "tracker3.com",
+                      "tracker4.com"
                     ],
                     "wpx": 1,
                     "ext": {
-                      "dummy": "ffaa"
+                      "dummy": "dummy"
                     }
                   },
                   {
@@ -172,38 +171,38 @@
                       2
                     ],
                     "jstrk": [
-                      "abc",
-                      "Def"
+                      "tracker1.com",
+                      "tracker2.com"
                     ],
                     "wjs": 1,
                     "pxtrk": [
-                      "abc",
-                      "def"
+                      "tracker3.com",
+                      "tracker4.com"
                     ],
                     "wpx": 1,
                     "ext": {
-                      "dummy": "ffaa"
+                      "dummy": "dummy"
                     }
                   }
                 ],
                 "ext": {
-                  "dummy": "ffaa",
+                  "dummy": "dummy",
                   "qty": 1,
                   "btype": [
                     3,
                     4
                   ],
-                  "id": "dd"
+                  "id": "12"
                 }
               }
             }
           },
           "ext": {
-            "dummy": "ff",
+            "dummy": "dummy",
             "sequence": 1,
             "pmp": {
               "ext": {
-                "dummy": "ff"
+                "dummy": "dummy"
               }
             }
           },
