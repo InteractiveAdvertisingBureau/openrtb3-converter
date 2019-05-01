@@ -1,0 +1,61 @@
+{
+  "openrtb": {
+    "ver":"3.0",
+    "domainSpec":"adcom",
+    "domainVer":"1.0",
+    "response": {
+      "id": "0123456789ABCDEF",
+      "seatbid": [
+        {
+          "bid": [
+            {
+              "id" : "bid1",
+            "item": "12",
+            "price" : 1.6,
+            "purl" : "purl of bid.com",
+            "media" : {
+              "ad" : {
+                "id" : "ad1",
+                "cattax" :2,
+                "display": {
+                  "curl" : "purl of bid.com"
+                }
+              }
+            }
+          },
+            {
+              "id" : "bid2",
+              "item": "13",
+              "price" : 1.6,
+              "purl" : "purl of bid.com",
+              "media" : {
+                "ad" : {
+                  "id" : "ad2",
+                  "cattax" :2,
+                  "video": {
+                    "curl" : "purl of bid.com"
+                  }
+                }
+              }
+            },
+            {
+              "id" : "bid3",
+              "item": "14",
+              "price" : 1.6,
+              "purl" : "purl of bid.com",
+              "media" : {
+                "ad" : {
+                  "id" : "ad3",
+                  "cattax" :2,
+                  "audio": {
+                    "curl" : "purl of bid.com"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

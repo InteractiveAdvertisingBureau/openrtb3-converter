@@ -29,10 +29,7 @@ import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -106,6 +103,8 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       target.setMedia(converter.map(source, config, converterProvider));
       Map<String, Object> map = source.getExt();
       if (nonNull(map)) {
+        if(isNull(target.getExt()))
+          target.setExt(new HashMap<>());
         target.getExt().putAll(map);
       }
     } catch (Exception e) {

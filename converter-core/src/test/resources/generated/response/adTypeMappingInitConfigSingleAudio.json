@@ -1,0 +1,197 @@
+{
+  "inputFile" : "RESPONSE_AUDIO_SITE_30_3to2.json",
+  "inputType" : "RESPONSE30",
+  "inputEdits" : {
+    "openrtb.response.cur" : "\"USD\""
+  },
+  "inputJson" : {
+    "openrtb" : {
+      "domainSpec" : "adcom",
+      "ver" : "3.0",
+      "domainVer" : "1.0",
+      "response" : {
+        "id" : "0123456789ABCDEF",
+        "bidid" : "0011223344AABBCC",
+        "cur" : "USD",
+        "cdata" : "cdata",
+        "ext" : {
+          "buyermemberid" : 298,
+          "landingpageurl" : "www.livelife.best",
+          "brandid" : [ null ],
+          "originalSize" : {
+            "width" : 728,
+            "height" : 90
+          },
+          "admwrapped" : false
+        },
+        "seatbid" : [ {
+          "seat" : "XYZ",
+          "bid" : [ {
+            "id" : "yaddayadda",
+            "item" : "1",
+            "deal" : "1234",
+            "price" : 1.5,
+            "tactic" : "...",
+            "purl" : "http://www.example.com/",
+            "burl" : "http://www.example1.com/",
+            "lurl" : "http://www.example2.com/",
+            "mid" : "123",
+            "cid" : "campaign-xyz.123",
+            "exp" : 1,
+            "macro" : [ {
+              "key" : "macro1",
+              "value" : "duck",
+              "ext" : {
+                "customdata" : "pyaz"
+              }
+            } ],
+            "media" : {
+              "ad" : {
+                "id" : "d0bcb39723af87c2bb00942afee5710e",
+                "adomain" : [ "ford.com" ],
+                "bundle" : [ "chocho" ],
+                "iurl" : "Abcd.com",
+                "cat" : [ "cat", "dog" ],
+                "cattax" : 1,
+                "lang" : "english",
+                "attr" : [ 6, 1 ],
+                "secure" : 1,
+                "mrating" : 5,
+                "init" : 1,
+                "lastmod" : 1,
+                "audio" : {
+                  "mime" : [ "mime1", "mime2" ],
+                  "api" : [ 3 ],
+                  "ctype" : 5,
+                  "dur" : 120,
+                  "adm" : "video ka adm",
+                  "curl" : "http://www.example.com/",
+                  "ext" : {
+                    "videokey" : "video.ext"
+                  }
+                },
+                "audit" : {
+                  "status" : 4,
+                  "feedback" : [ "feedback1", "feedback2" ],
+                  "init" : 56,
+                  "lastmod" : 45,
+                  "ext" : {
+                    "auditkaext" : "audit.txt"
+                  }
+                },
+                "ext" : {
+                  "adkey" : "ad.ext"
+                }
+              }
+            },
+            "ext" : {
+              "bidkaext" : "bid.ext",
+              "protocol" : 98
+            }
+          } ],
+          "package" : 2,
+          "ext" : {
+            "aloo3" : "pyaz",
+            "test4" : {
+              "test5" : "seatbid.ext"
+            }
+          }
+        } ]
+      }
+    }
+  },
+  "outputFile" : "RESPONSE_AUDIO_SITE_25_3to2.json",
+  "outputType" : "RESPONSE25",
+  "outputEdits" : {
+    "cur" : "\"USD\""
+  },
+  "outputJson" : {
+    "id" : "0123456789ABCDEF",
+    "cur" : "USD",
+    "customdata" : "cdata",
+    "seatbid" : [ {
+      "bid" : [ {
+        "adm" : "video ka adm",
+        "id" : "yaddayadda",
+        "impid" : "1",
+        "price" : 1.5,
+        "bundle" : "chocho",
+        "nurl" : "http://www.example.com/",
+        "burl" : "http://www.example1.com/",
+        "lurl" : "http://www.example2.com/",
+        "adid" : "123",
+        "adomain" : [ "ford.com" ],
+        "api" : 3,
+        "iurl" : "Abcd.com",
+        "cid" : "campaign-xyz.123",
+        "crid" : "d0bcb39723af87c2bb00942afee5710e",
+        "tactic" : "...",
+        "cat" : [ "cat", "dog" ],
+        "attr" : [ 6, 1 ],
+        "protocol" : 98,
+        "qagmediarating" : 5,
+        "language" : "english",
+        "exp" : 1,
+        "dealid" : "1234",
+        "ext" : {
+          "bidkaext" : "bid.ext",
+          "audit" : {
+            "status" : 4,
+            "feedback" : [ "feedback1", "feedback2" ],
+            "init" : 56,
+            "lastmod" : 45,
+            "ext" : {
+              "auditkaext" : "audit.txt"
+            }
+          },
+          "mime" : [ "mime1", "mime2" ],
+          "ctype" : 5,
+          "dur" : 120,
+          "init" : 1,
+          "lastmod" : 1,
+          "secure" : 1,
+          "cattax" : 1,
+          "macro" : [ {
+            "key" : "macro1",
+            "value" : "duck",
+            "ext" : {
+              "customdata" : "pyaz"
+            }
+          } ],
+          "curl" : "http://www.example.com/",
+          "adkey" : "ad.ext",
+          "videokey" : "video.ext"
+        }
+      } ],
+      "ext" : {
+        "aloo3" : "pyaz",
+        "test4" : {
+          "test5" : "seatbid.ext"
+        }
+      },
+      "seat" : "XYZ",
+      "group" : 2
+    } ],
+    "ext" : {
+      "buyermemberid" : 298,
+      "landingpageurl" : "www.livelife.best",
+      "brandid" : [ null ],
+      "originalSize" : {
+        "width" : 728,
+        "height" : 90
+      },
+      "admwrapped" : false
+    },
+    "bidid" : "0011223344AABBCC"
+  },
+  "purpose" : "adTypeMappingInitConfigSingleAudio",
+  "params" : null,
+  "config" : {
+    "adTypeMapping" : {
+      "1" : "AUDIO"
+    }
+  },
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}
