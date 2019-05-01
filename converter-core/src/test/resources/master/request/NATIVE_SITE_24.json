@@ -6,63 +6,44 @@
   "wseat": [
     "a"
   ],
+
   "regs": {
     "coppa": 1,
     "ext": {
-      "object": {
-        "a": "dsd",
-        "arraySample": [
-          "a"
-        ],
-        "jsonArraySample": [
-          {
-            "id": 1
-          }
-        ],
-        "obj": {
-          "a": 1
-        }
-      },
-      "arraySample": [
-        "a"
-      ],
-      "jsonArraySample": [
-        {
-          "id": 1
-        }
-      ],
-      "Key": "value"
+      "gdpr": 1,
+      "dummy": "ff"
     }
   },
   "ext": {
-    "object": {
-      "a": "dsd",
-      "arraySample": [
-        "a"
-      ],
-      "jsonArraySample": [
-        {
-          "id": 1
-        }
-      ],
-      "obj": {
-        "a": 1
+    "wlang": [
+      "en"
+    ],
+    "source": {
+      "fd": 1,
+      "tid": "dd",
+      "pchain": "dd",
+      "ext": {
+        "ts": 1,
+        "ds": "ds",
+        "dsmap": "abcdefghij",
+        "cert": "abc.com/xyz/efg",
+        "digest": "digest:digest, abcde:efg",
+        "dummy": "ff"
       }
     },
-    "arraySample": [
-      "a"
-    ],
-    "jsonArraySample": [
-      {
-        "id": 1
+    "cattax": 2,
+    "dummy": "ff",
+    "restrictions": {
+      "ext": {
+        "dummy": "ff"
       }
-    ],
-    "Key": "value"
+    }
   },
   "cur": [
     "USD"
   ],
   "allimps": 0,
+
   "bcat": [
     "bb"
   ],
@@ -78,11 +59,11 @@
       "bidfloor": 0.03,
       "bidfloorcur": "USD",
       "pmp": {
-        "private_auction": 0,
+        "private_auction": 1,
         "deals": [
           {
             "id": "ww",
-            "bidfloor": 0.1,
+            "bidfloor": 0.0,
             "bidfloorcur": "USD",
             "at": 1,
             "wseat": [
@@ -104,21 +85,14 @@
       },
       "displaymanager": "dd",
       "displaymanagerver": "22",
-      "clickbrowser": 1,
       "secure": 1,
-      "iframebuster": [
-        "ss",
-        "abc"
-      ],
-      "instl": 0,
       "tagid": "re",
       "exp": 1,
       "native": {
-        "ver": "1.1",
+        "ver": "1.2",
         "api": [
-          1,
-          2,
-          3
+          3,
+          2
         ],
         "battr": [
           2,
@@ -126,18 +100,22 @@
           8
         ],
         "ext": {
-          "dummy": "entry"
+          "dummy": "entry",
+          "priv": 0,
+          "ctype": [
+            1
+          ]
         },
         "request": {
           "native": {
-            "ver": "1.1",
-            "layout": 0,
+            "ver": "1.2",
+            "layout": 1,
             "adunit": 1,
-            "context": 1,
+            "context": 2,
             "contextsubtype": 2,
-            "plcmttype": 3,
-            "plcmtcnt": 4,
-            "seq": 5,
+            "plcmttype": 1,
+            "plcmtcnt": 1,
+            "seq": 1,
             "ext": {
               "dummy": "object"
             },
@@ -304,7 +282,8 @@
                   }
                 },
                 "ext": {
-                  "dummy": "asset.ext"
+                  "dummy": "asset.ext",
+                  "clickbrowser": 1
                 }
               }
             ]
@@ -312,6 +291,23 @@
         }
       },
       "ext": {
+        "metric": [
+          {
+            "type": "dd",
+            "value": 1.0,
+            "vendor": "dssf",
+            "ext": {
+              "dummy": "ff"
+            }
+          }
+        ],
+        "ssai": 1,
+        "reward": 1,
+        "admx": 1,
+        "dt": 1,
+        "dlvy": 1,
+        "sequence": 1,
+        "curlx": 0,
         "dummy": "ff"
       }
     }
@@ -324,8 +320,8 @@
       "dd"
     ],
     "pagecat": [
-      "as",
-      "ss"
+      "ss",
+      "as"
     ],
     "cat": [
       "IAB3-1",
@@ -347,29 +343,8 @@
       ],
       "domain": "foobar.com",
       "ext": {
-        "object": {
-          "a": "dsd",
-          "arraySample": [
-            "a"
-          ],
-          "jsonArraySample": [
-            {
-              "id": 1
-            }
-          ],
-          "obj": {
-            "a": 1
-          }
-        },
-        "arraySample": [
-          "a"
-        ],
-        "jsonArraySample": [
-          {
-            "id": 1
-          }
-        ],
-        "Key": "value"
+        "cattax": 2,
+        "dummy": "ff"
       }
     },
     "content": {
@@ -391,29 +366,8 @@
         ],
         "domain": "abc.com",
         "ext": {
-          "object": {
-            "a": "dsd",
-            "arraySample": [
-              "a"
-            ],
-            "jsonArraySample": [
-              {
-                "id": 1
-              }
-            ],
-            "obj": {
-              "a": 1
-            }
-          },
-          "arraySample": [
-            "a"
-          ],
-          "jsonArraySample": [
-            {
-              "id": 1
-            }
-          ],
-          "Key": "value"
+          "cattax": 2,
+          "dummy": "ff"
         }
       },
       "url": "ewfe.com",
@@ -423,7 +377,7 @@
       ],
       "prodq": 1,
       "videoquality": 2,
-      "context": 1,
+      "context": 2,
       "contentrating": "wqewq",
       "userrating": "ewew",
       "qagmediarating": 1,
@@ -435,117 +389,32 @@
       "embeddable": 1,
       "data": [
         {
-          "id": "wwe",
-          "name": "ee",
+          "id": "1",
+          "name": "Abcdef",
           "segment": [
             {
-              "id": "ew",
-              "name": "rewfe",
-              "value": "ew",
+              "id": "bcdef",
+              "name": "name123",
+              "value": "acde",
               "ext": {
-                "object": {
-                  "a": "dsd",
-                  "arraySample": [
-                    "a"
-                  ],
-                  "jsonArraySample": [
-                    {
-                      "id": 1
-                    }
-                  ],
-                  "obj": {
-                    "a": 1
-                  }
-                },
-                "arraySample": [
-                  "a"
-                ],
-                "jsonArraySample": [
-                  {
-                    "id": 1
-                  }
-                ],
-                "Key": "value"
+                "dummy": "ff"
               }
             }
           ],
           "ext": {
-            "object": {
-              "a": "dsd",
-              "arraySample": [
-                "a"
-              ],
-              "jsonArraySample": [
-                {
-                  "id": 1
-                }
-              ],
-              "obj": {
-                "a": 1
-              }
-            },
-            "arraySample": [
-              "a"
-            ],
-            "jsonArraySample": [
-              {
-                "id": 1
-              }
-            ],
-            "Key": "value"
+            "dummy": "ff"
           }
         }
       ],
       "ext": {
-        "object": {
-          "a": "dsd",
-          "arraySample": [
-            "a"
-          ],
-          "jsonArraySample": [
-            {
-              "id": 1
-            }
-          ],
-          "obj": {
-            "a": 1
-          }
-        },
-        "arraySample": [
-          "a"
-        ],
-        "jsonArraySample": [
-          {
-            "id": 1
-          }
-        ],
-        "Key": "value"
+        "cattax": 2,
+        "dummy": "ff"
       }
     },
     "ext": {
-      "object": {
-        "a": "dsd",
-        "arraySample": [
-          "a"
-        ],
-        "jsonArraySample": [
-          {
-            "id": 1
-          }
-        ],
-        "obj": {
-          "a": 1
-        }
-      },
-      "arraySample": [
-        "a"
-      ],
-      "jsonArraySample": [
-        {
-          "id": 1
-        }
-      ],
-      "Key": "value"
+      "cattax": 2,
+      "dummy": "ff",
+      "amp": 2
     }
   },
   "device": {
@@ -566,29 +435,7 @@
       "zip": "ewe",
       "utcoffset": 1,
       "ext": {
-        "object": {
-          "a": "dsd",
-          "arraySample": [
-            "a"
-          ],
-          "jsonArraySample": [
-            {
-              "id": 1
-            }
-          ],
-          "obj": {
-            "a": 1
-          }
-        },
-        "arraySample": [
-          "a"
-        ],
-        "jsonArraySample": [
-          {
-            "id": 1
-          }
-        ],
-        "Key": "value"
+        "dummy": "ff"
       }
     },
     "dnt": 1,
@@ -597,7 +444,7 @@
     "devicetype": 2,
     "make": "weew",
     "model": "edew",
-    "os": "ede",
+    "os": "android",
     "osv": "hwv",
     "hwv": "ww",
     "h": 2,
@@ -611,29 +458,10 @@
     "carrier": "weew",
     "connectiontype": 2,
     "ext": {
-      "object": {
-        "a": "dsd",
-        "arraySample": [
-          "a"
-        ],
-        "jsonArraySample": [
-          {
-            "id": 1
-          }
-        ],
-        "obj": {
-          "a": 1
-        }
-      },
-      "arraySample": [
-        "a"
-      ],
-      "jsonArraySample": [
-        {
-          "id": 1
-        }
-      ],
-      "Key": "value"
+      "xff": "1.2.3.4",
+      "iptr": 1,
+      "dummy": "ff",
+      "mccmnc": "ewew"
     }
   },
   "user": {
@@ -658,29 +486,7 @@
       "zip": "ewe",
       "utcoffset": 1,
       "ext": {
-        "object": {
-          "a": "dsd",
-          "arraySample": [
-            "a"
-          ],
-          "jsonArraySample": [
-            {
-              "id": 1
-            }
-          ],
-          "obj": {
-            "a": 1
-          }
-        },
-        "arraySample": [
-          "a"
-        ],
-        "jsonArraySample": [
-          {
-            "id": 1
-          }
-        ],
-        "Key": "value"
+        "dummy": "ff"
       }
     },
     "data": [
@@ -693,83 +499,17 @@
             "name": "rewfe",
             "value": "ew",
             "ext": {
-              "object": {
-                "a": "dsd",
-                "arraySample": [
-                  "a"
-                ],
-                "jsonArraySample": [
-                  {
-                    "id": 1
-                  }
-                ],
-                "obj": {
-                  "a": 1
-                }
-              },
-              "arraySample": [
-                "a"
-              ],
-              "jsonArraySample": [
-                {
-                  "id": 1
-                }
-              ],
-              "Key": "value"
+              "dummy": "ff"
             }
           }
         ],
         "ext": {
-          "object": {
-            "a": "dsd",
-            "arraySample": [
-              "a"
-            ],
-            "jsonArraySample": [
-              {
-                "id": 1
-              }
-            ],
-            "obj": {
-              "a": 1
-            }
-          },
-          "arraySample": [
-            "a"
-          ],
-          "jsonArraySample": [
-            {
-              "id": 1
-            }
-          ],
-          "Key": "value"
+          "dummy": "ff"
         }
       }
     ],
     "ext": {
-      "object": {
-        "a": "dsd",
-        "arraySample": [
-          "a"
-        ],
-        "jsonArraySample": [
-          {
-            "id": 1
-          }
-        ],
-        "obj": {
-          "a": 1
-        }
-      },
-      "arraySample": [
-        "a"
-      ],
-      "jsonArraySample": [
-        {
-          "id": 1
-        }
-      ],
-      "Key": "value"
+      "consent": "abcdef"
     }
   }
 }

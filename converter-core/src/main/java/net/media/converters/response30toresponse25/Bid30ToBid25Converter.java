@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
+import static net.media.utils.CollectionUtils.copyCollection;
 import static net.media.utils.ExtUtils.*;
 
 public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, Bid> {
@@ -81,7 +82,7 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
         target.setExt(new HashMap<>());
       }
       target.setAdid(source.getMid());
-      putToExt(source::getMacro, target.getExt(), CommonConstants.MACRO, target::setExt);
+      putToExt(() -> copyCollection(source.getMacro(), config), target.getExt(), CommonConstants.MACRO, target::setExt);
       mediaBidConverter.enhance(source.getMedia(), target, config, converterProvider);
       MacroMapper.macroReplaceTwoX(target);
       fetchFromExt(
