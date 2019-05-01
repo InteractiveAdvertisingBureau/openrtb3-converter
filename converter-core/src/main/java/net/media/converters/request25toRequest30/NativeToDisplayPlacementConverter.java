@@ -29,6 +29,7 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
+import net.media.utils.validator.ValidatorUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -79,14 +80,17 @@ public class NativeToDisplayPlacementConverter implements Converter<Native, Disp
           nativeRequest =
             JacksonObjectMapperUtils.getMapper()
               .readValue(nativeRequestString, NativeRequest.class);
+          ValidatorUtils.validate(nativeRequest);
         } catch (IOException e) {
           throw new OpenRtbConverterException(e);
         }
+
       } else {
         try {
           nativeRequest =
             JacksonObjectMapperUtils.getMapper()
               .convertValue(nat.getRequest(), NativeRequest.class);
+          ValidatorUtils.validate(nativeRequest);
         } catch (IllegalArgumentException e) {
           throw new OpenRtbConverterException(e);
         }
