@@ -1,0 +1,103 @@
+{
+  "inputFile" : "RESPONSE_URLSCHECK_30_3to2.json",
+  "inputType" : "RESPONSE30",
+  "inputEdits" : {
+    "openrtb.response.id" : "\"1\""
+  },
+  "inputJson" : {
+    "openrtb" : {
+      "response" : {
+        "id" : "1",
+        "seatbid" : [ {
+          "bid" : [ {
+            "item" : "12",
+            "price" : 1.6,
+            "purl" : "purl of bid.com",
+            "media" : {
+              "ad" : {
+                "id" : "ad1",
+                "display" : {
+                  "curl" : "curl of display.com"
+                }
+              }
+            }
+          }, {
+            "item" : "13",
+            "price" : 1.6,
+            "purl" : "purl of bid.com",
+            "media" : {
+              "ad" : {
+                "id" : "ad2",
+                "video" : {
+                  "curl" : "curl of video.com"
+                }
+              }
+            }
+          }, {
+            "item" : "14",
+            "price" : 1.6,
+            "purl" : "purl of bid.com",
+            "media" : {
+              "ad" : {
+                "id" : "ad3",
+                "audio" : {
+                  "curl" : "curl of audio.com"
+                }
+              }
+            }
+          } ]
+        } ]
+      }
+    }
+  },
+  "outputFile" : "RESPONSE_URLSCHECK_25_3to2.json",
+  "outputType" : "RESPONSE25",
+  "outputEdits" : {
+    "id" : "\"1\""
+  },
+  "outputJson" : {
+    "id" : "1",
+    "seatbid" : [ {
+      "bid" : [ {
+        "impid" : "12",
+        "price" : 1.6,
+        "nurl" : "purl of bid.com",
+        "crid" : "ad1",
+        "ext" : {
+          "curl" : "curl of display.com",
+          "cattax" : 2
+        }
+      }, {
+        "impid" : "13",
+        "price" : 1.6,
+        "nurl" : "purl of bid.com",
+        "crid" : "ad2",
+        "ext" : {
+          "curl" : "curl of video.com",
+          "cattax" : 2
+        }
+      }, {
+        "impid" : "14",
+        "price" : 1.6,
+        "nurl" : "purl of bid.com",
+        "crid" : "ad3",
+        "ext" : {
+          "curl" : "curl of audio.com",
+          "cattax" : 2
+        }
+      } ]
+    } ]
+  },
+  "purpose" : "nurlCheck_3to2",
+  "params" : {
+    "adTypeMapping" : {
+      "12" : "BANNER",
+      "13" : "VIDEO",
+      "14" : "AUDIO"
+    }
+  },
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}

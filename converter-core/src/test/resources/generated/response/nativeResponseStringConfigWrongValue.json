@@ -1,0 +1,222 @@
+{
+  "inputFile" : "RESPONSE_NATIVE_SITE_30_3to2.json",
+  "inputType" : "RESPONSE30",
+  "inputEdits" : {
+    "openrtb.response.cur" : "\"USD\""
+  },
+  "inputJson" : {
+    "openrtb" : {
+      "domainSpec" : "adcom",
+      "domainVer" : "1.0",
+      "ver" : "3.0",
+      "response" : {
+        "id" : "0123456789ABCDEF",
+        "bidid" : "0011223344AABBCC",
+        "cur" : "USD",
+        "cdata" : "cdata",
+        "seatbid" : [ {
+          "package" : 2,
+          "seat" : "XYZ",
+          "bid" : [ {
+            "ext" : {
+              "protocol" : 123,
+              "buyermemberid" : 298,
+              "display" : "ext",
+              "dummy" : "bid.ext"
+            },
+            "id" : "yaddayadda",
+            "item" : "1",
+            "deal" : "1234",
+            "price" : 4.5,
+            "tactic" : "...",
+            "purl" : "purl",
+            "burl" : "burl",
+            "lurl" : "lurl",
+            "mid" : "123",
+            "cid" : "campaign-xyz.123",
+            "exp" : 1,
+            "macro" : [ {
+              "key" : "key",
+              "value" : "duck",
+              "ext" : {
+                "customdata" : "macro.ext"
+              }
+            } ],
+            "media" : {
+              "ad" : {
+                "audit" : {
+                  "status" : 1,
+                  "feedback" : [ "a", "bg" ],
+                  "init" : 1,
+                  "lastmod" : 1,
+                  "corr" : {
+                    "ab" : "cd"
+                  },
+                  "ext" : {
+                    "dummy" : "audit.ext"
+                  }
+                },
+                "id" : "d0bcb39723af87c2bb00942afee5710e",
+                "adomain" : [ "ford.com" ],
+                "bundle" : [ "1" ],
+                "iurl" : "Abcd.com",
+                "cat" : [ "cat", "dog" ],
+                "cattax" : 1,
+                "lang" : "english",
+                "attr" : [ 6, 1 ],
+                "secure" : 1,
+                "mrating" : 5,
+                "init" : 1,
+                "lastmod" : 1,
+                "display" : {
+                  "mime" : "image/jpeg",
+                  "api" : [ 1 ],
+                  "ctype" : 3,
+                  "w" : 320,
+                  "h" : 50,
+                  "wratio" : 1,
+                  "hratio" : 2,
+                  "priv" : "232",
+                  "native" : {
+                    "ext" : {
+                      "dummy" : "native.ext",
+                      "impTrackers" : [ "a", "b" ],
+                      "jsTracker" : "ran"
+                    },
+                    "asset" : [ {
+                      "id" : 1,
+                      "req" : 1,
+                      "title" : {
+                        "text" : "text",
+                        "len" : 3,
+                        "ext" : {
+                          "dummy" : "title.ext"
+                        }
+                      },
+                      "ext" : {
+                        "dummy" : "asset.ext"
+                      }
+                    }, {
+                      "id" : 2,
+                      "req" : 1,
+                      "image" : {
+                        "url" : "abcd.com",
+                        "w" : 300,
+                        "h" : 200,
+                        "type" : 1,
+                        "ext" : {
+                          "dummy" : "image.ext"
+                        }
+                      },
+                      "ext" : {
+                        "dummy" : "asset.ext"
+                      }
+                    }, {
+                      "id" : 3,
+                      "req" : 1,
+                      "video" : {
+                        "adm" : "adm",
+                        "ext" : {
+                          "dummy" : "video.ext"
+                        }
+                      },
+                      "ext" : {
+                        "dummy" : "asset.ext"
+                      }
+                    }, {
+                      "id" : 6,
+                      "req" : 1,
+                      "video" : {
+                        "curl" : "curl.com",
+                        "ext" : {
+                          "dummy" : "video.ext"
+                        }
+                      },
+                      "ext" : {
+                        "dummy" : "asset.ext"
+                      }
+                    }, {
+                      "id" : 4,
+                      "req" : 1,
+                      "data" : {
+                        "value" : "value",
+                        "len" : 5,
+                        "type" : 1,
+                        "ext" : {
+                          "label" : "label",
+                          "dummy" : "data.ext"
+                        }
+                      },
+                      "ext" : {
+                        "dummy" : "asset.ext"
+                      }
+                    }, {
+                      "id" : 5,
+                      "req" : 1,
+                      "link" : {
+                        "url" : "ur.com",
+                        "urlfb" : "urlfb.com",
+                        "trkr" : [ "a", "bcdf" ],
+                        "ext" : {
+                          "dummy" : "link.ext"
+                        }
+                      },
+                      "ext" : {
+                        "dummy" : "asset.ext"
+                      }
+                    } ],
+                    "link" : {
+                      "trkr" : [ "a", "bc" ],
+                      "ext" : {
+                        "dummy" : "link.ext"
+                      },
+                      "urlfb" : "abc.com",
+                      "url" : "ab.com"
+                    }
+                  },
+                  "event" : [ {
+                    "type" : 1,
+                    "method" : 1,
+                    "url" : "https://somebuyer.com/pixel",
+                    "api" : [ 1, 2 ],
+                    "cdata" : {
+                      "acct" : "123"
+                    },
+                    "ext" : {
+                      "dummy" : "event.ext"
+                    }
+                  } ]
+                }
+              }
+            }
+          } ],
+          "ext" : {
+            "seatbid" : "ext"
+          }
+        } ],
+        "ext" : {
+          "resp" : "ext"
+        }
+      }
+    }
+  },
+  "outputFile" : "empty.json",
+  "outputType" : "RESPONSE25",
+  "outputEdits" : {
+    "status" : "ERROR"
+  },
+  "outputJson" : {
+    "status" : "RRO"
+  },
+  "purpose" : "nativeResponseStringConfigWrongValue",
+  "params" : {
+    "nativeResponseAsString" : "random",
+    "adTypeMapping" : {
+      "1" : "NATIVE"
+    }
+  },
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}
