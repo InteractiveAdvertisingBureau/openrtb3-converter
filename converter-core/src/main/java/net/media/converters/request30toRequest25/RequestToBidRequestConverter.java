@@ -62,6 +62,10 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       return;
     }
 
+    if (target.getExt() == null) {
+      target.setExt(new HashMap<>());
+    }
+
     Converter<net.media.openrtb3.User, User> userUserConverter =
         converterProvider.fetch(new Conversion<>(net.media.openrtb3.User.class, User.class));
     Converter<Request, User> requestUserConverter =
@@ -119,33 +123,34 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       if (site != null) {
         target.setSite(siteSiteConverter.map(site, config, converterProvider));
       }
+      putToExt(() -> copyObject(source.getContext().getDooh(), Dooh.class, config), target.getExt(), CommonConstants.DOOH, target::setExt);
 
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      putToExt(source.getContext().getRestrictions()::getCattax, target.getExt(), CommonConstants.CATTAX, target::setExt);
-      if (source.getContext().getRestrictions() != null) {
+      final Restrictions restrictions = source.getContext().getRestrictions();
+
+      if (restrictions != null) {
+        if (restrictions.getCattax() != null) {
+          target.getExt().put(CommonConstants.CATTAX, restrictions.getCattax());
+        } else {
+          target.getExt().put(CommonConstants.CATTAX, CommonConstants.DEFAULT_CATTAX_THREEDOTX);
+        }
         target.setBapp(
           CollectionUtils.copyCollection(
-            source.getContext().getRestrictions().getBapp(), config));
+            restrictions.getBapp(), config));
         target.setBcat(
           CollectionUtils.copyCollection(
-            source.getContext().getRestrictions().getBcat(), config));
+            restrictions.getBcat(), config));
         target.setBadv(
           CollectionUtils.copyCollection(
-            source.getContext().getRestrictions().getBadv(), config));
-        putToExt(
-          source.getContext().getRestrictions()::getCattax,
-          target.getExt(),
-          CommonConstants.CATTAX,
-          target::setExt);
-        if (source.getContext().getRestrictions().getExt() != null) {
-          if (target.getExt() == null) target.setExt(new HashMap<>());
-          Restrictions restrictions = new Restrictions();
-          restrictions.setCattax(null);
-          restrictions.setExt(new HashMap<>());
-          restrictions.getExt().putAll(source.getContext().getRestrictions().getExt());
+            restrictions.getBadv(), config));
+        if (restrictions.getExt() != null) {
+          Restrictions restrictions1 = new Restrictions();
+          restrictions1.setCattax(null);
+          restrictions1.setExt(new HashMap<>(restrictions.getExt()));
           putToExt(
-            () -> restrictions, target.getExt(), CommonConstants.RESTRICTIONS, target::setExt);
+            () -> restrictions1, target.getExt(), CommonConstants.RESTRICTIONS, target::setExt);
         }
+      } else {
+        target.getExt().put(CommonConstants.CATTAX, CommonConstants.DEFAULT_CATTAX_THREEDOTX);
       }
 
       Device device = source.getContext().getDevice();
@@ -159,37 +164,38 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
             source.getItem(), itemImpConverter, config, converterProvider));
     if (!CollectionUtils.isEmpty(target.getImp())) {
       if (nonNull(source.getContext()) && nonNull(source.getContext().getRestrictions())) {
+        Restrictions restrictions = source.getContext().getRestrictions();
         for (Imp imp : target.getImp()) {
           if (nonNull(imp.getBanner())) {
-            if (nonNull(source.getContext().getRestrictions().getBattr())) {
+            if (nonNull(restrictions.getBattr())) {
               imp.getBanner()
                   .setBattr(
                       CollectionUtils.copyCollection(
-                          source.getContext().getRestrictions().getBattr(), config));
+                          restrictions.getBattr(), config));
             }
           }
           if (nonNull(imp.getVideo())) {
-            if (nonNull(source.getContext().getRestrictions().getBattr())) {
+            if (nonNull(restrictions.getBattr())) {
               imp.getVideo()
                   .setBattr(
                       CollectionUtils.copyCollection(
-                          source.getContext().getRestrictions().getBattr(), config));
+                          restrictions.getBattr(), config));
             }
           }
           if (nonNull(imp.getAudio())) {
-            if (nonNull(source.getContext().getRestrictions().getBattr())) {
+            if (nonNull(restrictions.getBattr())) {
               imp.getAudio()
                   .setBattr(
                       CollectionUtils.copyCollection(
-                          source.getContext().getRestrictions().getBattr(), config));
+                          restrictions.getBattr(), config));
             }
           }
           if (nonNull(imp.getNat())) {
-            if (nonNull(source.getContext().getRestrictions().getBattr())) {
+            if (nonNull(restrictions.getBattr())) {
               imp.getNat()
                   .setBattr(
                       CollectionUtils.copyCollection(
-                          source.getContext().getRestrictions().getBattr(), config));
+                          restrictions.getBattr(), config));
             }
           }
         }
@@ -226,27 +232,5 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
       }
       target.setWlang(CollectionUtils.copyCollection(wlang, config));
     }
-
-    if (target.getImp() != null) {
-      for (Imp imp : target.getImp()) {
-        if (imp.getBanner() != null)
-          imp.getBanner().setBattr(source.getContext().getRestrictions().getBattr());
-        if (imp.getVideo() != null)
-          imp.getVideo().setBattr(source.getContext().getRestrictions().getBattr());
-        if (imp.getNat() != null)
-          imp.getNat().setBattr(source.getContext().getRestrictions().getBattr());
-        if (imp.getAudio() != null)
-          imp.getAudio().setBattr(source.getContext().getRestrictions().getBattr());
-      }
-    }
-
-    if (source.getContext().getDooh() == null) {
-      return;
-    }
-
-    if (target.getExt() == null) {
-      target.setExt(new HashMap<>());
-    }
-    putToExt(() -> copyObject(source.getContext().getDooh(), Dooh.class, config), target.getExt(), CommonConstants.DOOH, target::setExt);
   }
 }

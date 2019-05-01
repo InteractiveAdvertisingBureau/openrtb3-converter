@@ -32,8 +32,8 @@ import net.media.openrtb25.response.nativeresponse.NativeResponse;
 import net.media.openrtb3.*;
 import net.media.utils.JacksonObjectMapper;
 import org.json.JSONException;
+import net.media.openrtb3.OpenRTBWrapper3_X;
 import net.media.utils.JacksonObjectMapperUtils;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;

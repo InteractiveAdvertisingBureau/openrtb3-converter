@@ -90,8 +90,9 @@ public class NativeFormatToNativeRequestBodyConverter
       nativeFormat.getExt(),
       CommonConstants.VER,
       "error while mapping ext for DisplayPlacement");
-    if(nonNull(nativeFormat.getExt()))
+    if(nativeFormat.getExt() != null) {
       nativeRequestBody.setExt(new HashMap<>(nativeFormat.getExt()));
+    }
     Converter<AssetFormat, Asset> assetFormatAssetConverter =
         converterProvider.fetch(new Conversion<>(AssetFormat.class, Asset.class));
     nativeRequestBody.setAssets(

@@ -64,7 +64,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     asset.setId(assetFormat.getId());
     asset.setTitle(titleAssetFormatToNativeTitle(assetFormat.getTitle(), config));
     asset.setImg(imageAssetFormatToNativeImage(assetFormat.getImg(), config));
-    asset.setVideo(videoAssetFormatToVideoImage(assetFormat.getVideo(), config));
+    asset.setVideo(videoAssetFormatToNativeVideo(assetFormat.getVideo(), config));
     asset.setData(dataAssetFormatToNativeData(assetFormat.getData(), config));
     if (nonNull(assetFormat.getExt())) {
       asset.setExt(new HashMap<>(assetFormat.getExt()));
@@ -141,7 +141,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
     return nativeImage;
   }
 
-  private NativeVideo videoAssetFormatToVideoImage(VideoPlacement videoPlacement, Config config) {
+  private NativeVideo videoAssetFormatToNativeVideo(VideoPlacement videoPlacement, Config config) {
     if (videoPlacement == null) {
       return null;
     }
