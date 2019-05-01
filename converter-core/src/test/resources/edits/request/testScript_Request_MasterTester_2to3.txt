@@ -116,5 +116,53 @@ cases:
    params:
     openRtbVersion2_XVersion: TWO_DOT_FOUR
 
+ - inputFile: VAST_SITE_23.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: VAST_SITE_30_2to3.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.id: "\"1\""
+   purpose: vastsite23_2to3
+   params:
+    openRtbVersion2_XVersion: TWO_DOT_THREE
+
+ - inputFile: VAST_SITE_24.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: VAST_SITE_30_2to3.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.id: "\"1\""
+   purpose: vastsite24_2to3
+   params:
+    openRtbVersion2_XVersion: TWO_DOT_FOUR
+
+ - inputFile: AUDIO_SITE_23.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: AUDIO_SITE_30_2to3.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.id: "\"1\""
+   purpose: audiosite23_2to3
+   params:
+    openRtbVersion2_XVersion: TWO_DOT_THREE
+
+ - inputFile: AUDIO_SITE_24.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: AUDIO_SITE_30_2to3.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.id: "\"1\""
+   purpose: audiosite24_2to3
+   params:
+    openRtbVersion2_XVersion: TWO_DOT_FOUR
+
 
 

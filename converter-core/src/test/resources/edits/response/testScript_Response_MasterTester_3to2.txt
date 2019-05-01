@@ -48,3 +48,87 @@ cases:
    params:
      adTypeMapping :
         "1" : AUDIO
+
+ - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+   inputType: "RESPONSE30"
+   inputEdits:
+     openrtb.response.cur: "\"USD\""
+   outputFile: RESPONSE_BANNER_SITE_23_3to2.json
+   outputType: "RESPONSE25"
+   outputEdits:
+     cur: "\"USD\""
+   purpose: bannersiteresponse23_3to2
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_THREE
+     adTypeMapping :
+       "1" : BANNER
+
+ - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
+   inputType: "RESPONSE30"
+   inputEdits:
+     openrtb.response.cur: "\"USD\""
+   outputFile: RESPONSE_BANNER_SITE_24_3to2.json
+   outputType: "RESPONSE25"
+   outputEdits:
+     cur: "\"USD\""
+   purpose: bannersiteresponse24_3to2
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+     adTypeMapping :
+       "1" : BANNER
+
+ - inputFile: RESPONSE_AUDIO_SITE_30_3to2.json
+   inputType: "RESPONSE30"
+   inputEdits:
+     openrtb.response.cur: "\"USD\""
+   outputFile: RESPONSE_AUDIO_SITE_23_3to2.json
+   outputType: "RESPONSE25"
+   outputEdits:
+     cur: "\"USD\""
+   purpose: audiositeresponse23_3to2
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_THREE
+     adTypeMapping :
+       "1" : AUDIO
+
+ - inputFile: RESPONSE_AUDIO_SITE_30_3to2.json
+   inputType: "RESPONSE30"
+   inputEdits:
+     openrtb.response.cur: "\"USD\""
+   outputFile: RESPONSE_AUDIO_SITE_24_3to2.json
+   outputType: "RESPONSE25"
+   outputEdits:
+     cur: "\"USD\""
+   purpose: audiositeresponse24_3to2
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+     adTypeMapping :
+       "1" : AUDIO
+
+ - inputFile: RESPONSE_VAST_SITE_30_3to2.json
+   inputType: "RESPONSE30"
+   inputEdits:
+     openrtb.response.cur: "\"USD\""
+   outputFile: RESPONSE_VAST_SITE_23_3to2.json
+   outputType: "RESPONSE25"
+   outputEdits:
+     cur: "\"USD\""
+   purpose: videositeresponse23_3to2
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_THREE
+     adTypeMapping :
+       "1" : VIDEO
+
+ - inputFile: RESPONSE_VAST_SITE_30_3to2.json
+   inputType: "RESPONSE30"
+   inputEdits:
+     openrtb.response.cur: "\"USD\""
+   outputFile: RESPONSE_VAST_SITE_24_3to2.json
+   outputType: "RESPONSE25"
+   outputEdits:
+     cur: "\"USD\""
+   purpose: videositeresponse24_3to2
+   params:
+     openRtbVersion2_XVersion: TWO_DOT_FOUR
+     adTypeMapping :
+       "1" : VIDEO
