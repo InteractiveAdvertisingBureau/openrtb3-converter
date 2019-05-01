@@ -2567,8 +2567,10 @@ public class ConverterTest {
           if(((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getLink().getTrkr() == ((NativeResponse)((net.media.openrtb25.response.Bid)((SeatBid) converted.getSeatbid().toArray()[i]).getBid().toArray()[j]).getAdm()).getNativeResponseBody().getLink().getClicktrackers())
             success = false;
           for(int k=0;k<((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getAsset().size();k++) {
-            if (((Asset)((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getAsset().toArray()[k]).getLink().getTrkr() == ((AssetResponse)((NativeResponse) ((net.media.openrtb25.response.Bid) ((SeatBid) converted.getSeatbid().toArray()[i]).getBid().toArray()[j]).getAdm()).getNativeResponseBody().getAsset().toArray()[k]).getLink().getClicktrackers())
-              success = false;
+            if(nonNull(((Asset)((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getAsset().toArray()[k]).getLink())) {
+              if (((Asset) ((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getAsset().toArray()[k]).getLink().getTrkr() == ((AssetResponse) ((NativeResponse) ((net.media.openrtb25.response.Bid) ((SeatBid) converted.getSeatbid().toArray()[i]).getBid().toArray()[j]).getAdm()).getNativeResponseBody().getAsset().toArray()[k]).getLink().getClicktrackers())
+                success = false;
+            }
           }
           //if(((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getAudit().getFeedback()==((Audit)((net.media.openrtb25.response.Bid)((SeatBid) converted.getSeatbid().toArray()[i]).getBid().toArray()[j]).getExt().get("audit")).getFeedback())
           // success = false;
@@ -3342,8 +3344,10 @@ public class ConverterTest {
           if(((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getLink().getTrkr() == ((NativeResponse)((net.media.openrtb25.response.Bid)((SeatBid) converted.getSeatbid().toArray()[i]).getBid().toArray()[j]).getAdm()).getNativeResponseBody().getLink().getClicktrackers())
             success = false;
           for(int k=0;k<((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getAsset().size();k++) {
-            if (((Asset)((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getAsset().toArray()[k]).getLink().getTrkr() == ((AssetResponse)((NativeResponse) ((net.media.openrtb25.response.Bid) ((SeatBid) converted.getSeatbid().toArray()[i]).getBid().toArray()[j]).getAdm()).getNativeResponseBody().getAsset().toArray()[k]).getLink().getClicktrackers())
-              success = false;
+            if(nonNull(((Asset)((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getAsset().toArray()[k]).getLink())) {
+              if (((Asset) ((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getDisplay().get_native().getAsset().toArray()[k]).getLink().getTrkr() == ((AssetResponse) ((NativeResponse) ((net.media.openrtb25.response.Bid) ((SeatBid) converted.getSeatbid().toArray()[i]).getBid().toArray()[j]).getAdm()).getNativeResponseBody().getAsset().toArray()[k]).getLink().getClicktrackers())
+                success = false;
+            }
           }
           //if(((Bid) ((Seatbid) response.getSeatbid().toArray()[i]).getBid().toArray()[j]).getMedia().getAd().getAudit().getFeedback()==((Audit)((net.media.openrtb25.response.Bid)((SeatBid) converted.getSeatbid().toArray()[i]).getBid().toArray()[j]).getExt().get("audit")).getFeedback())
           // success = false;
