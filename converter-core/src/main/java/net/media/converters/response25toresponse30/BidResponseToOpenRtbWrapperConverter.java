@@ -38,14 +38,21 @@ public class BidResponseToOpenRtbWrapperConverter
       return null;
     }
     OpenRTBWrapper3_X openRTBWrapper3_x = new OpenRTBWrapper3_X();
-    Converter<BidResponse2_X, OpenRTB3_X> bidResponseToOpenRtbConverter =
-        converterProvider.fetch(new Conversion<>(BidResponse2_X.class, OpenRTB3_X.class));
-    openRTBWrapper3_x.setOpenrtb(
-        bidResponseToOpenRtbConverter.map(source, config, converterProvider));
+    enhance(source,openRTBWrapper3_x,config,converterProvider);
     return openRTBWrapper3_x;
   }
 
   @Override
   public void enhance(
-      BidResponse2_X source, OpenRTBWrapper3_X target, Config config, Provider converterProvider) {}
+      BidResponse2_X source, OpenRTBWrapper3_X target, Config config, Provider converterProvider) throws OpenRtbConverterException{
+
+    if(source == null || target == null) {
+      return;
+    }
+    Converter<BidResponse2_X, OpenRTB3_X> bidResponseToOpenRtbConverter =
+      converterProvider.fetch(new Conversion<>(BidResponse2_X.class, OpenRTB3_X.class));
+    target.setOpenrtb(
+      bidResponseToOpenRtbConverter.map(source, config, converterProvider));
+
+  }
 }
