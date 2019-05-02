@@ -29,6 +29,7 @@ import java.util.Collections;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchCollectionFromExt;
 import static net.media.utils.ExtUtils.fetchFromExt;
 
 /** @author shiva.b */
@@ -69,10 +70,10 @@ public class BidToAudioConverter implements Converter<Bid, Audio> {
       source.getExt(),
       CommonConstants.DUR,
       "Error while mapping dur from bid.ext");
-    fetchFromExt(
+    fetchCollectionFromExt(
       target::setMime,
       source.getExt(),
       CommonConstants.MIME,
-      "Error while mapping mime from bid.ext");
+      "Error while mapping mime from bid.ext", config);
   }
 }

@@ -581,7 +581,8 @@
   },
   "purpose" : "nativeStringConfigTrue",
   "params" : {
-    "nativeRequestAsString" : true
+    "nativeRequestAsString" : true,
+    "validate" : false
   },
   "config" : null,
   "overRidingMap" : null,

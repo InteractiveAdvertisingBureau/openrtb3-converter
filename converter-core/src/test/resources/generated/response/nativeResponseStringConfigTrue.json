@@ -209,7 +209,8 @@
     "nativeResponseAsString" : true,
     "adTypeMapping" : {
       "1" : "NATIVE"
-    }
+    },
+    "validate" : false
   },
   "config" : null,
   "overRidingMap" : null,

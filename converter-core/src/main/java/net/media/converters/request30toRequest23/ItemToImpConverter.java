@@ -23,6 +23,7 @@ import net.media.openrtb3.Item;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
+import static net.media.utils.CollectionUtils.copyCollection;
 import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
@@ -35,7 +36,7 @@ public class ItemToImpConverter
       return;
     }
     super.enhance(item, imp, config, converterProvider);
-    putToExt(imp::getMetric, imp.getExt(), CommonConstants.METRIC, imp::setExt);
+    putToExt(() -> copyCollection(imp.getMetric(), config), imp.getExt(), CommonConstants.METRIC, imp::setExt);
     imp.setMetric(null);
     putToExt(imp::getClickbrowser, imp.getExt(), CommonConstants.CLICKBROWSER, imp::setExt);
     imp.setClickbrowser(null);

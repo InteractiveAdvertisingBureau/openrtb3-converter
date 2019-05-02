@@ -23,6 +23,7 @@ import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
+import static net.media.utils.CollectionUtils.copyCollection;
 import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
@@ -38,7 +39,7 @@ public class DisplayPlacementToBannerConverter
     super.enhance(displayPlacement, banner, config, converterProvider);
     putToExt(banner::getVcm, banner.getExt(), CommonConstants.VCM, banner::setExt);
     banner.setVcm(null);
-    putToExt(banner::getFormat, banner.getExt(), CommonConstants.FORMAT, banner::setExt);
+    putToExt(() -> copyCollection(banner.getFormat(), config), banner.getExt(), CommonConstants.FORMAT, banner::setExt);
     banner.setFormat(null);
   }
 }

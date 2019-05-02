@@ -30,6 +30,8 @@ import net.media.utils.Provider;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.media.utils.ExtUtils.putToExt;
+
 public class AppToAppConverter implements Converter<App, net.media.openrtb25.request.App> {
 
   @Override
@@ -78,17 +80,7 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb25.req
     if (map != null) {
       target.setExt(new HashMap<>(map));
     }
-    if (source.getCattax() != null) {
-      if (target.getExt() == null) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.CATTAX, source.getCattax());
-    }
-    if (source.getStoreid() != null) {
-      if (target.getExt() == null) {
-        target.setExt(new HashMap<>());
-      }
-      target.getExt().put(CommonConstants.STOREID, source.getStoreid());
-    }
+    putToExt(source::getCattax, target.getExt(), CommonConstants.CATTAX, target::setExt);
+    putToExt(source::getStoreid, target.getExt(), CommonConstants.STOREID, target::setExt);
   }
 }

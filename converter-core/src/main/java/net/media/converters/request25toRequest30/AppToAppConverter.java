@@ -89,7 +89,6 @@ public class AppToAppConverter implements Converter<App, net.media.openrtb3.App>
     target.setPaid(source.getPaid());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(MapUtils.copyMap(map, config));
       target.setExt(new HashMap<>(map));
     }
     target.setCattax(DEFAULT_CATTAX_TWODOTX);

@@ -1,0 +1,52 @@
+{
+  "openrtb": {
+    "response": {
+      "id": "0123456789ABCDEF",
+      "seatbid": [
+        {
+          "bid": [
+            {
+            "item": "12",
+            "price" : 1.6,
+            "purl" : "purl of bid.com",
+            "media" : {
+              "ad" : {
+                "id" : "ad1",
+                "display": {
+                  "curl" : "curl of display.com"
+                }
+              }
+            }
+          },
+            {
+              "item": "13",
+              "price" : 1.6,
+              "purl" : "purl of bid.com",
+              "media" : {
+                "ad" : {
+                  "id" : "ad2",
+                  "video": {
+                    "curl" : "curl of video.com"
+                  }
+                }
+              }
+            },
+            {
+              "item": "14",
+              "price" : 1.6,
+              "purl" : "purl of bid.com",
+              "media" : {
+                "ad" : {
+                  "id" : "ad3",
+                  "audio": {
+                    "curl" : "curl of audio.com"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

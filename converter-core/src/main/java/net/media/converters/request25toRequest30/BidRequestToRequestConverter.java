@@ -104,7 +104,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
     target.setCur(CollectionUtils.copyCollection(source.getCur(), config));
     Converter<Source, net.media.openrtb3.Source> source25Source3Converter =
         converterProvider.fetch(new Conversion<>(Source.class, net.media.openrtb3.Source.class));
-    target.setSource(source25Source3Converter.map(source.source, config, converterProvider));
+    target.setSource(source25Source3Converter.map(source.getSource(), config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
       target.setExt(new HashMap<>(map));
@@ -121,7 +121,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
     if (source.getWseat() != null && source.getWseat().size() > 0) {
       target.setWseat(1);
       target.setSeat(CollectionUtils.copyCollection(source.getWseat(), config));
-    } else {
+    } else if (source.getBseat() != null && source.getBseat().size() > 0){
       target.setWseat(0);
       target.setSeat(CollectionUtils.copyCollection(source.getBseat(), config));
     }

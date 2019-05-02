@@ -39,6 +39,7 @@ cases:
       nativeResponseAsString: true
       adTypeMapping:
         "1": NATIVE
+      validate : false
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -258,9 +259,11 @@ cases:
     outputType: "RESPONSE25"
     outputEdits:
       cur: "\"USD\""
+
     purpose: ortbversionresponse24_3to2
     params:
       openRtbVersion2_XVersion: TWO_DOT_FOUR
+
 
   - inputFile: RESPONSE_BANNER_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -375,6 +378,8 @@ cases:
       nativeResponseAsString: true
       adTypeMapping:
         "1": NATIVE
+    params:
+      validate : false
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
     inputType: "RESPONSE30"
@@ -701,6 +706,7 @@ cases:
       nativeResponseAsString: true
       adTypeMapping:
         "1": NATIVE
+      validate : false
 
   - inputFile: RESPONSE_NATIVE_SITE_30_3to2.json
     inputType: "RESPONSE30"

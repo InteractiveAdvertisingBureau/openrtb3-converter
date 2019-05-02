@@ -35,6 +35,7 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.CollectionUtils.copyCollection;
 import static net.media.utils.ExtUtils.putToExt;
 import static org.apache.commons.collections.CollectionUtils.isEmpty;
 
@@ -71,7 +72,7 @@ public class Native25ToNative30Converter implements Converter<NativeResponse, Na
       CommonConstants.JS_TRACKER,
       target::setExt);
     putToExt(
-      source.getNativeResponseBody()::getImptrackers,
+      () -> copyCollection(source.getNativeResponseBody().getImptrackers(), config),
       target.getExt(),
       CommonConstants.IMP_TRACKERS,
       target::setExt);

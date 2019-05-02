@@ -1,0 +1,30 @@
+cases:
+ - inputFile: RESPONSE_URLSCHECK_25_2to3.json
+   inputType: "RESPONSE25"
+   inputEdits:
+     id: "\"1\""
+   outputFile: RESPONSE_URLSCHECK_30_2to3.json
+   outputType: "RESPONSE30"
+   outputEdits:
+     openrtb.response.id: "\"1\""
+   purpose: nurlCheck_2to3
+   params:
+    adTypeMapping:
+        "12" : BANNER
+        "13" : VIDEO
+        "14" : AUDIO
+
+ - inputFile: RESPONSE_URLSCHECK_30_3to2.json
+   inputType: "RESPONSE30"
+   inputEdits:
+     openrtb.response.id: "\"1\""
+   outputFile: RESPONSE_URLSCHECK_25_3to2.json
+   outputType: "RESPONSE25"
+   outputEdits:
+     id: "\"1\""
+   purpose: nurlCheck_3to2
+   params:
+    adTypeMapping:
+        "12" : BANNER
+        "13" : VIDEO
+        "14" : AUDIO

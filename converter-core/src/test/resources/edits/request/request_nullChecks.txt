@@ -1,0 +1,173 @@
+cases:
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id : "\"request1234\""
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.id : "\"request1234\""
+   purpose: mandatory_2to3
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: mandatory_idnull_2to3
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: mandatory_impnull_2to3
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].id : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: mandatory_impidnull_2to3
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].metric : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.item[0].metric : null
+   purpose: mandatory_impmetricnull_2to3
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].metric[0].type : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: mandatory_impmetrictypenull_2to3
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].metric[0].value : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: mandatory_impmetricvaluenull_2to3
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].pmp : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.item[0].deal: null
+   purpose: mandatory_imp_pmp_null_2to3
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].pmp.deals[0].id : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: mandatory_imp_pmp_dealid_null_2to3
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].pmp.deals : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.item[0].deal : null
+   purpose: mandatory_imp_pmpdeals_null_2to3
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].banner : null
+     imp[0].native : null
+     imp[0].audio: null
+     imp[0].video: null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: mandatory_alladtypes_null_2to3
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.native.assets : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: mandatory_imp_native_assetsnull_2to3
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.native.assets[0].id : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: mandatory_native_assetidnull_2to3
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.native.assets[0].title : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: mandatory_native_assettitlenull_2to3
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].native.request.native.assets[0].title.len : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: mandatory_native_assettitlelen_2to3
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].video.mimes : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: mandatory_imp_videomimesnull_2to3
+
+
+ - inputFile: mandatory_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     imp[0].audio.mimes : null
+   outputFile: mandatory_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: mandatory_imp_audiomimesnull_2to3

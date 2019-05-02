@@ -1,0 +1,122 @@
+{
+  "inputFile" : "MINIMUM_REQUEST_30.json",
+  "inputType" : "REQUEST30",
+  "inputEdits" : {
+    "openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].title" : null,
+    "openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].video" : null,
+    "openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].data" : null
+  },
+  "inputJson" : {
+    "openrtb" : {
+      "domainVer" : "1.0",
+      "request" : {
+        "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
+        "item" : [ {
+          "id" : "1",
+          "metric" : [ {
+            "type" : "dd",
+            "value" : 1.0
+          } ],
+          "deal" : [ {
+            "id" : "ww"
+          } ],
+          "spec" : {
+            "placement" : {
+              "display" : {
+                "nativefmt" : {
+                  "asset" : [ {
+                    "id" : 9,
+                    "img" : { }
+                  } ]
+                },
+                "event" : [ {
+                  "type" : 1
+                } ]
+              },
+              "audio" : {
+                "mime" : [ "audio/mp4" ]
+              },
+              "video" : {
+                "mime" : [ "video/mp4" ]
+              }
+            }
+          }
+        } ]
+      }
+    }
+  },
+  "outputFile" : "MINIMUM_REQUEST_25_3TO2.json",
+  "outputType" : "REQUEST25",
+  "outputEdits" : {
+    "imp[0].banner" : null,
+    "imp[0].native.request.native.assets[0].title" : null,
+    "imp[0].native.request.native.assets[0].data" : null,
+    "imp[0].native.request.native.assets[0].video" : null
+  },
+  "outputJson" : {
+    "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
+    "imp" : [ {
+      "id" : "1",
+      "video" : {
+        "mimes" : [ "video/mp4" ],
+        "maxextended" : 0,
+        "ext" : {
+          "unit" : 1,
+          "qty" : 1
+        }
+      },
+      "audio" : {
+        "mimes" : [ "audio/mp4" ],
+        "ext" : {
+          "qty" : 1
+        }
+      },
+      "bidfloor" : 0.0,
+      "pmp" : {
+        "deals" : [ {
+          "id" : "ww",
+          "bidfloor" : 0.0
+        } ]
+      },
+      "clickbrowser" : 1,
+      "metric" : [ {
+        "type" : "dd",
+        "value" : 1.0
+      } ],
+      "ext" : {
+        "reward" : 0,
+        "dlvy" : 0,
+        "event" : [ {
+          "type" : 1
+        } ],
+        "ssai" : 0
+      },
+      "native" : {
+        "request" : {
+          "native" : {
+            "ver" : "1.1",
+            "plcmtcnt" : 1,
+            "assets" : [ {
+              "id" : 9,
+              "required" : 0,
+              "img" : { }
+            } ]
+          }
+        },
+        "ver" : "1.1",
+        "ext" : {
+          "priv" : 0
+        }
+      }
+    } ],
+    "cur" : [ "USD" ]
+  },
+  "purpose" : "Request30DisplayNativefmtImgPass",
+  "params" : {
+    "nativeRequestAsString" : false
+  },
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}

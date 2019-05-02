@@ -143,6 +143,13 @@
                     "dummy": "title.ext"
                   }
                 },
+                "ext": {
+                  "dummy": "asset.ext"
+                }
+              },
+              {
+                "id": 2,
+                "required": 0,
                 "img": {
                   "type": 1,
                   "mimes": [
@@ -160,6 +167,13 @@
                     "dummy": "img.ext"
                   }
                 },
+                "ext": {
+                  "dummy": "asset.ext"
+                }
+              },
+              {
+                "id": 3,
+                "required": 0,
                 "video": {
                   "protocols": [
                     2,
@@ -266,6 +280,14 @@
                     ]
                   }
                 },
+                "ext": {
+                  "dummy": "asset.ext",
+                  "clickbrowser": 1
+                }
+              },
+              {
+                "id": 4,
+                "required": 0,
                 "data": {
                   "type": 1,
                   "len": 1,
@@ -274,8 +296,7 @@
                   }
                 },
                 "ext": {
-                  "dummy": "asset.ext",
-                  "clickbrowser": 1
+                  "dummy": "asset.ext"
                 }
               }
             ]

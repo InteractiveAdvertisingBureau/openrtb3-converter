@@ -1,0 +1,110 @@
+{
+  "inputFile" : "mandatory_25.json",
+  "inputType" : "REQUEST25",
+  "inputEdits" : {
+    "imp[0].native.request.native.assets" : null
+  },
+  "inputJson" : {
+    "id" : "request123",
+    "imp" : [ {
+      "id" : "1",
+      "metric" : [ {
+        "type" : "dd",
+        "value" : 1.0
+      } ],
+      "pmp" : {
+        "deals" : [ {
+          "id" : "ww"
+        } ]
+      },
+      "banner" : { },
+      "native" : {
+        "request" : {
+          "native" : { }
+        }
+      },
+      "video" : {
+        "mimes" : [ "mime1", "mime2" ]
+      },
+      "audio" : {
+        "mimes" : [ "mime" ]
+      }
+    } ],
+    "site" : { }
+  },
+  "outputFile" : "mandatory_30.json",
+  "outputType" : "REQUEST30",
+  "outputEdits" : {
+    "status" : "ERROR"
+  },
+  "outputJson" : {
+    "openrtb" : {
+      "ver" : "3.0",
+      "domainSpec" : "adcom",
+      "domainVer" : "1.0",
+      "request" : {
+        "id" : "request123",
+        "wseat" : 1,
+        "item" : [ {
+          "id" : "1",
+          "flr" : 0,
+          "dlvy" : 0,
+          "metric" : [ {
+            "type" : "dd",
+            "value" : 1
+          } ],
+          "deal" : [ {
+            "id" : "ww",
+            "flr" : 0
+          } ],
+          "spec" : {
+            "placement" : {
+              "ssai" : 0,
+              "reward" : 0,
+              "display" : {
+                "unit" : 1,
+                "priv" : 0,
+                "nativefmt" : {
+                  "asset" : [ {
+                    "id" : 1,
+                    "title" : {
+                      "len" : 1
+                    }
+                  } ],
+                  "ext" : {
+                    "ver" : "1.1"
+                  }
+                }
+              },
+              "video" : {
+                "mime" : [ "mime1", "mime2" ],
+                "unit" : 1
+              },
+              "audio" : {
+                "skipmin" : 0,
+                "skipafter" : 0,
+                "mime" : [ "mime" ]
+              }
+            }
+          }
+        } ],
+        "context" : {
+          "site" : {
+            "cattax" : 1
+          },
+          "restrictions" : {
+            "cattax" : 1
+          }
+        },
+        "package" : 0
+      }
+    },
+    "status" : "RRO"
+  },
+  "purpose" : "mandatory_imp_native_assetsnull_2to3",
+  "params" : null,
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}
