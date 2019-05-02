@@ -1,4 +1,4 @@
-Build status: [![build_status](https://travis-ci.org/media-net/openrtb3-converter.svg?branch=master)](https://travis-ci.org/media-net/openrtb3-converter)
+[![build_status](https://travis-ci.org/media-net/openrtb3-converter.svg?branch=master)](https://travis-ci.org/media-net/openrtb3-converter)
 
 ## The new structure of OpenRTB 3.0
 
