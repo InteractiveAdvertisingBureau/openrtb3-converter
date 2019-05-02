@@ -36,4 +36,7 @@ public class OpenRtbConverterException extends RuntimeException {
   public OpenRtbConverterException(Exception e) {
     super(e);
   }
+  public  OpenRtbConverterException(String message) {
+    super(message);
+  }
 }

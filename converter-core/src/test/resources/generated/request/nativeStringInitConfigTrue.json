@@ -580,7 +580,9 @@
     }
   },
   "purpose" : "nativeStringInitConfigTrue",
-  "params" : null,
+  "params" : {
+    "validate" : false
+  },
   "config" : {
     "nativeRequestAsString" : true
   },

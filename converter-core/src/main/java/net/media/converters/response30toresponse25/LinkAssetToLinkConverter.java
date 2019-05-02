@@ -27,6 +27,7 @@ import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.CollectionUtils.copyCollection;
 
 public class LinkAssetToLinkConverter implements Converter<LinkAsset, Link> {
 
@@ -47,7 +48,7 @@ public class LinkAssetToLinkConverter implements Converter<LinkAsset, Link> {
 
     target.setUrl(source.getUrl());
     target.setFallback(source.getUrlfb());
-    target.setClicktrackers(source.getTrkr());
+    target.setClicktrackers(copyCollection(source.getTrkr(), config));
     if (nonNull(source.getExt())) {
       target.setExt(new HashMap<>(source.getExt()));
     }

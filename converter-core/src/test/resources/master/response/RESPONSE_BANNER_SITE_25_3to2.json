@@ -3,7 +3,8 @@
   "cur": "USD",
   "customdata": "cdata",
   "seatbid": [{
-    "bid": [{
+    "bid": [
+      {
       "id": "yaddayadda",
       "impid": "1",
       "price": 4.5,
@@ -61,18 +62,6 @@
         "mime" : "image/jpeg",
         "ctype" : 1,
         "priv" : "googleusercontent.com/1.jpg",
-        "curl"  : "got.com/1.jpg",
-        "banner" : {
-          "img" : "https://somebuyer.com/creative",
-          "link" : {
-            "url": "https://somebuyer.com/click",
-            "urlfb": "https://somebuyer.com",
-            "trkr": ["2113", "21312"],
-            "ext": {"link": "link"}
-          },
-          "ext" : {
-            "mediaAdDisplayBannerext" :  "mediaAdDisplayBannerext"}
-        },
         "event": [{
           "type": 1,
           "method": 1,
@@ -89,7 +78,168 @@
           }
         }]
       }
-    }],
+    },
+      {
+        "id": "yaddayadda",
+        "impid": "2",
+        "price": 4.5,
+        "bundle": "testbundle",
+        "nurl": "http://www.example.com/",
+        "burl":"test/burl",
+        "lurl": "test/lurl",
+        "adid": "98765432134567",
+        "adomain": [
+          "www.livelife.best"
+        ],
+        "iurl": "googleusercontent.com/1.jpg",
+        "cid": "298",
+        "crid": "7993593187821",
+        "tactic":"testtactic",
+        "cat": [
+          "IAB14"
+        ],
+        "attr": [6, 7],
+        "api" : 1,
+        "protocol": 123,
+        "qagmediarating": 5,
+        "language": "EN",
+        "exp": 1,
+        "dealid": "667fdf7",
+        "h": 90,
+        "w": 728,
+        "wratio": 90,
+        "hratio": 55,
+        "ext": {
+          "audit": {
+            "status": 1,
+            "feedback": ["testfeedback"],
+            "init": 1,
+            "lastmod": 1,
+            "ext": {
+              "auditExt": "auditExt"
+            }
+          },
+          "mediaAdDisplayExt": "mediaAdDisplayExt",
+          "mediaAdExt": "mediaAdExt",
+          "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt",
+          "macro": [{
+            "key" : "test",
+            "value" : "test2",
+            "ext" : {
+              "key" : "value"
+            }
+          }],
+          "cattax": 2,
+          "secure" : 1,
+          "init" : 1,
+          "lastmod" : 1,
+          "mime" : "image/jpeg",
+          "ctype" : 1,
+          "priv" : "googleusercontent.com/1.jpg",
+          "banner" : {
+            "img" : "https://somebuyer.com/creative",
+            "link" : {
+              "url": "https://somebuyer.com/click",
+              "urlfb": "https://somebuyer.com",
+              "trkr": ["2113", "21312"],
+              "ext": {"link": "link"}
+            },
+            "ext" : {
+              "mediaAdDisplayBannerext" :  "mediaAdDisplayBannerext"}
+          },
+          "event": [{
+            "type": 1,
+            "method": 1,
+            "url": "https://somebuyer.com/pixel",
+            "api": [
+              1,
+              2
+            ],
+            "cdata": {
+              "acct": "123"
+            },
+            "ext" : {
+              "mediaAdDisplayEventExt" :  "mediaAdDisplayEventExt"
+            }
+          }]
+        }
+      },
+      {
+        "id": "yaddayadda",
+        "impid": "3",
+        "price": 4.5,
+        "bundle": "testbundle",
+        "nurl": "http://www.example.com/",
+        "burl":"test/burl",
+        "lurl": "test/lurl",
+        "adid": "98765432134567",
+        "adomain": [
+          "www.livelife.best"
+        ],
+        "iurl": "googleusercontent.com/1.jpg",
+        "cid": "298",
+        "crid": "7993593187821",
+        "tactic":"testtactic",
+        "cat": [
+          "IAB14"
+        ],
+        "attr": [6, 7],
+        "api" : 1,
+        "protocol": 123,
+        "qagmediarating": 5,
+        "language": "EN",
+        "exp": 1,
+        "dealid": "667fdf7",
+        "h": 90,
+        "w": 728,
+        "wratio": 90,
+        "hratio": 55,
+        "ext": {
+          "audit": {
+            "status": 1,
+            "feedback": ["testfeedback"],
+            "init": 1,
+            "lastmod": 1,
+            "ext": {
+              "auditExt": "auditExt"
+            }
+          },
+          "mediaAdDisplayExt": "mediaAdDisplayExt",
+          "mediaAdExt": "mediaAdExt",
+          "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt",
+          "macro": [{
+            "key" : "test",
+            "value" : "test2",
+            "ext" : {
+              "key" : "value"
+            }
+          }],
+          "cattax": 2,
+          "secure" : 1,
+          "init" : 1,
+          "lastmod" : 1,
+          "mime" : "image/jpeg",
+          "ctype" : 1,
+          "priv" : "googleusercontent.com/1.jpg",
+          "curl"  : "got.com/1.jpg",
+          "event": [{
+            "type": 1,
+            "method": 1,
+            "url": "https://somebuyer.com/pixel",
+            "api": [
+              1,
+              2
+            ],
+            "cdata": {
+              "acct": "123"
+            },
+            "ext" : {
+              "mediaAdDisplayEventExt" :  "mediaAdDisplayEventExt"
+            }
+          }]
+        }
+      }
+    ],
     "ext": {
       "bidresponseSeatbidExt" : "bidresponseSeatbidExt"
     },

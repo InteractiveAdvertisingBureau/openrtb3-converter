@@ -119,8 +119,10 @@ public class AssetToAssetFormatConverter implements Converter<Asset, AssetFormat
         javaTypeForBannerCollection);
     }
     removeFromExt(assetFormat.getExt(), extraFieldsInExt);
-    removeFromExt(assetFormat.getVideo().getExt(), extraFieldsInVideoExt);
-    removeFromExt(assetFormat.getImg().getExt(), extraFieldsInImageExt);
+    if(assetFormat.getVideo() != null)
+      removeFromExt(assetFormat.getVideo().getExt(), extraFieldsInVideoExt);
+    if(assetFormat.getImg() != null)
+      removeFromExt(assetFormat.getImg().getExt(), extraFieldsInImageExt);
   }
 
   private TitleAssetFormat nativeTitleToTitleAssetFormat(NativeTitle nativeTitle, Config config) {

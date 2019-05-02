@@ -22,10 +22,7 @@ import net.media.driver.Conversion;
 import net.media.enums.AdType;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
-import net.media.openrtb3.Ad;
-import net.media.openrtb3.Audio;
-import net.media.openrtb3.Display;
-import net.media.openrtb3.Video;
+import net.media.openrtb3.*;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
@@ -34,6 +31,7 @@ import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.CollectionUtils.copyObject;
 import static net.media.utils.ExtUtils.putToExt;
 
 public class AdToBidConverter implements Converter<Ad, Bid> {
@@ -81,7 +79,7 @@ public class AdToBidConverter implements Converter<Ad, Bid> {
     putToExt(source::getInit, target.getExt(), CommonConstants.INIT, target::setExt);
     putToExt(source::getLastmod, target.getExt(), CommonConstants.LASTMOD, target::setExt);
     putToExt(source::getCattax, target.getExt(), CommonConstants.CATTAX, target::setExt);
-    putToExt(source::getAudit, target.getExt(), CommonConstants.AUDIT, target::setExt);
+    putToExt(() -> copyObject(source.getAudit(), Audit.class, config), target.getExt(), CommonConstants.AUDIT, target::setExt);
     target.setQagmediarating(source.getMrating());
     AdType adType = config.getAdType(target.getImpid());
     switch (adType) {

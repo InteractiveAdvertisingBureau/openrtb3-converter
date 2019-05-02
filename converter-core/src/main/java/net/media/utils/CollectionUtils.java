@@ -16,8 +16,11 @@
 
 package net.media.utils;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import net.media.config.Config;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -49,6 +52,21 @@ public class CollectionUtils {
         return new HashSet<T>(input);
       } else {
         return new ArrayList<T>(input);
+      }
+    }
+    return null;
+  }
+
+  public static <T> T copyObject(T input, Class _class, Config config) {
+    ObjectMapper mapper = JacksonObjectMapperUtils.getMapper();
+    if (config.isCloningDisabled()) {
+      return input;
+    }
+    if (nonNull(input)) {
+      try {
+        return (T) mapper.readValue(mapper.writeValueAsString(input), _class);
+      } catch (Exception e) {
+        return null;
       }
     }
     return null;

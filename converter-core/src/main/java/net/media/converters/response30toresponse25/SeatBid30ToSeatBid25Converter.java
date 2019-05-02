@@ -59,8 +59,6 @@ public class SeatBid30ToSeatBid25Converter implements Converter<Seatbid, SeatBid
     Map<String, Object> map = source.getExt();
     if (map != null) {
       target.setExt(new HashMap<>(source.getExt()));
-    } else {
-      target.setExt(null);
     }
     target.setGroup(source.get_package());
     List<Bid> bidList = new ArrayList<>();

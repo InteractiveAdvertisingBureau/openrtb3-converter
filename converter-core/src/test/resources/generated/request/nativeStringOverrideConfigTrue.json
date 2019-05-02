@@ -581,7 +581,8 @@
   },
   "purpose" : "nativeStringOverrideConfigTrue",
   "params" : {
-    "nativeRequestAsString" : true
+    "nativeRequestAsString" : true,
+    "validate" : false
   },
   "config" : {
     "nativeRequestAsString" : false

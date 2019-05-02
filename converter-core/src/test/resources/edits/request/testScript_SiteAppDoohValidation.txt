@@ -1,0 +1,90 @@
+cases:
+ - inputFile: SiteAppDooh_Min_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     id : "\"request1234\""
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: siteappdooh_present_2to3
+
+ - inputFile: SiteAppDooh_Min_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site : null
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: appdooh_present_2to3
+
+
+ - inputFile: SiteAppDooh_Min_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app : null
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: sitedooh_present_2to3
+
+ - inputFile: SiteAppDooh_Min_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     ext.dooh : null
+   outputFile: empty.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: siteapp_present_2to3
+
+
+ - inputFile: SiteAppDooh_Min_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app : null
+     ext.dooh : null
+   outputFile: SiteAppDooh_Min_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.context.app : null
+     openrtb.request.context.dooh : null
+   purpose: site_present_2to3
+
+ - inputFile: SiteAppDooh_Min_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     site : null
+     ext.dooh : null
+   outputFile: SiteAppDooh_Min_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.context.site : null
+     openrtb.request.context.dooh : null
+   purpose: app_present_2to3
+
+ - inputFile: SiteAppDooh_Min_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app : null
+     site : null
+   outputFile: SiteAppDooh_Min_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     openrtb.request.context.app : null
+     openrtb.request.context.site : null
+   purpose: dooh_present_2to3
+
+ - inputFile: SiteAppDooh_Min_25.json
+   inputType: "REQUEST25"
+   inputEdits:
+     app : null
+     site : null
+     ext.dooh : null
+   outputFile: SiteAppDooh_Min_30.json
+   outputType: "REQUEST30"
+   outputEdits:
+     status : ERROR
+   purpose: siteappdooh_absent_2to3

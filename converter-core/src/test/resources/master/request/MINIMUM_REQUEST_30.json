@@ -1,0 +1,60 @@
+{
+  "openrtb": {
+    "domainVer": "1.0",
+    "request": {
+      "id": "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
+      "item": [
+        {
+          "id": "1",
+          "metric": [
+            {
+              "type": "dd",
+              "value": 1.0
+            }
+          ],
+          "deal": [
+            {
+              "id": "ww"
+            }
+          ],
+          "spec": {
+            "placement": {
+              "display": {
+                "nativefmt": {
+                  "asset": [{
+                    "id": 9,
+                    "title": {
+                      "len": 20
+                    },
+                    "img": {},
+                    "video": {
+                      "mime": [
+                        "video/mp4"
+                      ]
+                    },
+                    "data": {
+                      "type": 5
+                    }
+                  }]
+                },
+                "event": [{
+                    "type": 1
+                }]
+              },
+              "audio": {
+                "mime": [
+                  "audio/mp4"
+                ]
+              },
+              "video": {
+                "mime": [
+                  "video/mp4"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -205,7 +205,9 @@
     }
   },
   "purpose" : "nativeResponseStringInitConfigTrue",
-  "params" : null,
+  "params" : {
+    "validate" : false
+  },
   "config" : {
     "nativeResponseAsString" : true,
     "adTypeMapping" : {

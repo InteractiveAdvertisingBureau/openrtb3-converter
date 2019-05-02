@@ -122,7 +122,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
     if (source.getWseat() != null && source.getWseat().size() > 0) {
       target.setWseat(1);
       target.setSeat(CollectionUtils.copyCollection(source.getWseat(), config));
-    } else {
+    } else if (source.getBseat() != null && source.getBseat().size() > 0){
       target.setWseat(0);
       target.setSeat(CollectionUtils.copyCollection(source.getBseat(), config));
     }

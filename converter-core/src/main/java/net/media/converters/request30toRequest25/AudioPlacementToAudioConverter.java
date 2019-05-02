@@ -32,6 +32,7 @@ import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.CollectionUtils.copyCollection;
 import static net.media.utils.ExtUtils.*;
 
 public class AudioPlacementToAudioConverter implements Converter<AudioPlacement, Audio> {
@@ -62,8 +63,8 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     if (isNull(audioPlacement) || isNull(audio)) {
       return;
     }
-    audio.setDelivery(CollectionUtils.copyCollection(audioPlacement.getDelivery(), config));
-    audio.setApi(CollectionUtils.copyCollection(audioPlacement.getApi(), config));
+    audio.setDelivery(copyCollection(audioPlacement.getDelivery(), config));
+    audio.setApi(copyCollection(audioPlacement.getApi(), config));
     audio.setMaxseq(audioPlacement.getMaxseq());
     audio.setFeed(audioPlacement.getFeed());
     audio.setNvol(audioPlacement.getNvol());
@@ -71,11 +72,11 @@ public class AudioPlacementToAudioConverter implements Converter<AudioPlacement,
     audio.setMaxbitrate(audioPlacement.getMaxbitr());
     audio.setMaxduration(audioPlacement.getMaxdur());
     audio.setMaxextended(audioPlacement.getMaxext());
-    audio.setMimes(audioPlacement.getMime());
+    audio.setMimes(copyCollection(audioPlacement.getMime(), config));
     audio.setMinbitrate(audioPlacement.getMinbitr());
     audio.setMinduration(audioPlacement.getMindur());
     audio.setStartdelay(audioPlacement.getDelay());
-    audio.setProtocols(audioPlacement.getCtype());
+    audio.setProtocols(copyCollection(audioPlacement.getCtype(), config));
     Map<String, Object> map = audioPlacement.getExt();
     if (map != null) {
       audio.setExt(new HashMap<>(map));

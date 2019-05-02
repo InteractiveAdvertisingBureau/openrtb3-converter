@@ -32,3 +32,4 @@ cases:
         "2": BANNER
         "3": NATIVE
         "4": VIDEO
+      validate : false

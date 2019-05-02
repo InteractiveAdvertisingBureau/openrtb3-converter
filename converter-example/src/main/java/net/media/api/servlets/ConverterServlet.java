@@ -34,7 +34,6 @@ import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.util.TriConsumer;
 import org.slf4j.Logger;
 
-import javax.naming.ConfigurationException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -72,7 +71,7 @@ public class ConverterServlet extends HttpServlet {
                 IOUtils.toString(request.getInputStream(), "UTF-8"),
                 BidRequest2_X.class,
                 OpenRTBWrapper3_X.class));
-        } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
+        } catch (IOException | OpenRtbConverterException e) {
           log.error("Error while sending 2xto3x request ", e);
           response.setStatus(500);
         }
@@ -88,8 +87,8 @@ public class ConverterServlet extends HttpServlet {
                 IOUtils.toString(request.getInputStream(), "UTF-8"),
                 OpenRTBWrapper3_X.class,
                 BidRequest2_X.class));
-        } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
-          log.error("Error while sending 2xto3x request ", e);
+        } catch (IOException | OpenRtbConverterException e) {
+          log.error("Error while sending 3xto2x request ", e);
           response.setStatus(500);
         }
       };
@@ -104,7 +103,7 @@ public class ConverterServlet extends HttpServlet {
                 IOUtils.toString(request.getInputStream(), "UTF-8"),
                 BidResponse2_X.class,
                 OpenRTBWrapper3_X.class));
-        } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
+        } catch (IOException | OpenRtbConverterException e) {
           log.error("Error while sending 2xto3x response ", e);
           response.setStatus(500);
         }
@@ -118,10 +117,9 @@ public class ConverterServlet extends HttpServlet {
               .convert(
                 config,
                 IOUtils.toString(request.getInputStream(), "UTF-8"),
-                OpenRTBWrapper3_X.class,
-                BidResponse2_X.class));
-        } catch (IOException | ConfigurationException | OpenRtbConverterException e) {
-          log.error("Error while sending 2xto3x response ", e);
+                OpenRTBWrapper3_X.class,BidResponse2_X.class));
+        } catch (IOException | OpenRtbConverterException e) {
+          log.error("Error while sending 3xto2x response ", e);
           response.setStatus(500);
         }
       };

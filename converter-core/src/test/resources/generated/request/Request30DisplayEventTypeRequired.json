@@ -1,0 +1,53 @@
+{
+  "inputFile" : "MINIMUM_REQUEST_30.json",
+  "inputType" : "REQUEST30",
+  "inputEdits" : {
+    "openrtb.request.item[0].spec.placement.display.nativefmt" : null,
+    "openrtb.request.item[0].spec.placement.display.event[0].type" : null
+  },
+  "inputJson" : {
+    "openrtb" : {
+      "domainVer" : "1.0",
+      "request" : {
+        "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
+        "item" : [ {
+          "id" : "1",
+          "metric" : [ {
+            "type" : "dd",
+            "value" : 1.0
+          } ],
+          "deal" : [ {
+            "id" : "ww"
+          } ],
+          "spec" : {
+            "placement" : {
+              "display" : {
+                "event" : [ { } ]
+              },
+              "audio" : {
+                "mime" : [ "audio/mp4" ]
+              },
+              "video" : {
+                "mime" : [ "video/mp4" ]
+              }
+            }
+          }
+        } ]
+      }
+    }
+  },
+  "outputFile" : "empty.json",
+  "outputType" : "REQUEST25",
+  "outputEdits" : {
+    "status" : "ERROR"
+  },
+  "outputJson" : {
+    "status" : "RRO"
+  },
+  "purpose" : "Request30DisplayEventTypeRequired",
+  "params" : null,
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}
