@@ -1,0 +1,15 @@
+cases:
+ - inputFile: RESPONSE_NATIVE_SITE_25_2to3.json
+   inputType: "net.media.openrtb25.response.BidResponse2_X"
+   inputEdits:
+    cur: "\"USD\""
+   outputFile: RESPONSE_NATIVE_SITE_30_2to3.json
+   outputType: "net.media.openrtb3.OpenRTBWrapper3_X"
+   outputEdits:
+    openrtb.response.cur: "\"USD\""
+   purpose: responseEnhance_2to3
+   testEnhance : 1
+   params :
+     nativeResponseAsString: false
+     adTypeMapping:
+         "1": NATIVE
