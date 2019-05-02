@@ -1,5 +1,5 @@
 before_install:
-    - ECHO $GPG_ALL_KEYS | openssl base64 -d | gpg --import
+    - echo $GPG_ALL_KEYS | openssl base64 -d | gpg --import
     - echo $GPG_OWNERTRUST | openssl base64 -d | gpg --import-ownertrust
 language: java
 install:
