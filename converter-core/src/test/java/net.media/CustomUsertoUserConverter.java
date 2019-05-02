@@ -23,7 +23,6 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Data;
 import net.media.openrtb3.Geo;
 import net.media.openrtb3.User;
-import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 import net.media.utils.*;
@@ -68,7 +67,7 @@ public class CustomUsertoUserConverter
     target.setGeo(geoGeoConverter.map(source.getGeo(), config, converterProvider));
     target.setKeywords(source.getKeywords());
     target.setData(
-      CollectionToCollectionConverter.convert(
+      CollectionUtils.convert(
         source.getData(), dataDataConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {

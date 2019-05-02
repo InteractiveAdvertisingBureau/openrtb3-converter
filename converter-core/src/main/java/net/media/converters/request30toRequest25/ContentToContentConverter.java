@@ -23,7 +23,6 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Content;
 import net.media.openrtb3.Data;
 import net.media.openrtb3.Producer;
-import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
@@ -99,7 +98,7 @@ public class ContentToContentConverter
     target.setKeywords(source.getKeywords());
     target.setLen(source.getLen());
     target.setData(
-        CollectionToCollectionConverter.convert(
+        CollectionUtils.convert(
             source.getData(), dataDataConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {

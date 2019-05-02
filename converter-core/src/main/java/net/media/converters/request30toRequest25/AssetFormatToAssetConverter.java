@@ -24,7 +24,6 @@ import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.*;
 import net.media.openrtb3.*;
-import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
@@ -80,7 +79,7 @@ public class AssetFormatToAssetConverter implements Converter<AssetFormat, Asset
         Converter<Companion, Banner> companionToBannerConverter =
           converterProvider.fetch(new Conversion<>(Companion.class, Banner.class));
         Collection<Banner> banners =
-          CollectionToCollectionConverter.convert(
+          CollectionUtils.convert(
             assetFormat.getVideo().getComp(),
             companionToBannerConverter,
             config,

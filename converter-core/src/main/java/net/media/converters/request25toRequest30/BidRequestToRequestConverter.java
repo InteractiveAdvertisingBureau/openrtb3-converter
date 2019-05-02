@@ -25,7 +25,6 @@ import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.Source;
 import net.media.openrtb25.request.User;
 import net.media.openrtb3.*;
-import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
@@ -91,7 +90,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
         converterProvider.fetch(new Conversion<>(Imp.class, Item.class));
     target.setContext(bidRequestContextConverter.map(source, config, converterProvider));
     target.setItem(
-        CollectionToCollectionConverter.convert(
+        CollectionUtils.convert(
             source.getImp(), impItemConverter, config, converterProvider));
     target.setPack(source.getAllimps());
     String customdata = bidRequestUserCustomdata(source);
@@ -105,7 +104,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
     target.setCur(CollectionUtils.copyCollection(source.getCur(), config));
     Converter<Source, net.media.openrtb3.Source> source25Source3Converter =
         converterProvider.fetch(new Conversion<>(Source.class, net.media.openrtb3.Source.class));
-    target.setSource(source25Source3Converter.map(source.source, config, converterProvider));
+    target.setSource(source25Source3Converter.map(source.getSource(), config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
       target.setExt(new HashMap<>(map));

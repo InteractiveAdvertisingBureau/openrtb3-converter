@@ -24,10 +24,12 @@ import java.util.regex.Pattern;
 public class MacroProcessor {
   public static final Pattern OPEN_RTB_TOKEN_PATTERN =
       Pattern.compile("\\$\\{(?<macro>.*?)(:(?<algo>.*?)){0,1}\\}");
+  private static final String ALGO = "algo";
+  private static final String MACRO = "macro";
   public static Template.TokenProvider TOKEN_PROVIDER =
-      Template.getTokenProviderByGroupNames(Arrays.asList("macro", "algo"));
+      Template.getTokenProviderByGroupNames(Arrays.asList(MACRO, ALGO));
   private static EncodeTemplate.EncoderProvider ENCODER_PROVIDER =
-      EncodeTemplate.getEncoderProviderByGroupName("algo");
+      EncodeTemplate.getEncoderProviderByGroupName(ALGO);
 
   public static Template getOpenRtbMacroProcessor(String text) {
     if (Objects.isNull(text)) return tokenValue -> "";
@@ -41,21 +43,21 @@ public class MacroProcessor {
 
   public static final Template.TokenValue getTwoXToken() {
     return token -> {
-      String macro = token.getGroup("macro");
+      String macro = token.getGroup(MACRO);
       return MacroMapper.getTwoXMacro(MacroMapper.macroBuilder(macro));
     };
   }
 
   public static final Template.TokenValue getThreeXToken() {
     return token -> {
-      String macro = token.getGroup("macro");
+      String macro = token.getGroup(MACRO);
       return MacroMapper.getThreeXMacro(MacroMapper.macroBuilder(macro));
     };
   }
 
   public static final Template.TokenValue getBannerFields(net.media.openrtb3.Banner banner) {
     return token -> {
-      String macro = token.getGroup("macro");
+      String macro = token.getGroup(MACRO);
       switch (macro) {
         case "BANNER_URL":
           return banner.getImg();
