@@ -87,8 +87,8 @@ public class AudioToAudioPlacementConverter implements Converter<Audio, AudioPla
     audioPlacement.setMindur(audio.getMinduration());
     audioPlacement.setCtype(CollectionUtils.copyCollection(audio.getProtocols(), config));
     audioPlacement.setMime(CollectionUtils.copyCollection(audio.getMimes(), config));
-    audioPlacement.setMinbitr(audio.getMinduration());
-    audioPlacement.setMaxbitr(audio.getMaxduration());
+    audioPlacement.setMinbitr(audio.getMinbitrate());
+    audioPlacement.setMaxbitr(audio.getMaxbitrate());
     audioPlacement.setFeed(audio.getFeed());
     audioPlacement.setNvol(audio.getNvol());
     audioPlacement.setApi(CollectionUtils.copyCollection(audio.getApi(), config));

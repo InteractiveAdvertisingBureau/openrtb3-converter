@@ -1,17 +1,17 @@
 {
   "id": "0123456789ABCDEF",
   "cur": "USD",
-  "customdata": "cdata",
+  "customdata": "A4(9GAKYMp@rGmhF!*bI6V0j/2#",
   "bidid": "0011223344AABBCC",
   "seatbid": [{
     "bid": [{
-      "id": "yaddayadda",
+      "id": "21ijef3sf34ji",
       "impid": "1",
       "price": 4.5,
       "dealid": "1234",
       "cid": "campaign-xyz.123",
       "crid": "d0bcb39723af87c2bb00942afee5710e",
-      "tactic":"...",
+      "tactic":"12hb43234u",
       "bundle": "1",
       "nurl": "purl",
       "burl":"burl",
@@ -101,7 +101,7 @@
       "api" : 1,
       "protocol": 123,
       "qagmediarating": 5,
-      "language": "english",
+      "language": "en",
       "exp": 1,
       "h": 50,
       "w": 320,
@@ -136,7 +136,7 @@
         },
         "macro": [{
           "key": "key",
-          "value": "duck",
+          "value": "1127987134",
           "ext": {
             "customdata": "macro.ext"
           }

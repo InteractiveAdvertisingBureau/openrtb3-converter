@@ -1,16 +1,16 @@
 {
   "id": "0123456789ABCDEF",
   "cur": "USD",
-  "customdata": "cdata",
+  "customdata": "A4(9GAKYMp@rGmhF!*bI6V0j/2#",
   "seatbid": [
     {
       "bid": [
         {
           "adm": "adm",
-          "id": "yaddayadda",
+          "id": "21ijef3sf34ji",
           "impid": "1",
           "price": 1.50,
-          "bundle": "chocho",
+          "bundle": "hfi239hfe8492",
           "nurl": "http://www.example.com/",
           "burl": "http://www.example1.com/",
           "lurl": "http://www.example2.com/",
@@ -22,7 +22,7 @@
           "iurl": "Abcd.com",
           "cid": "campaign-xyz.123",
           "crid": "d0bcb39723af87c2bb00942afee5710e",
-          "tactic": "...",
+          "tactic": "12hb43234u",
           "cat": [
             "cat",
             "dog"
@@ -33,12 +33,12 @@
           ],
           "protocol": 123,
           "qagmediarating": 5,
-          "language": "english",
+          "language": "en",
           "exp": 1,
           "dealid": "1234",
           "ext": {
             "bidkaext": "bid.ext",
-            "aloo2": "pyaz",
+            "dummy2": "dummyValue",
             "test2": {
               "test3": "test3"
             },
@@ -71,7 +71,7 @@
             "dur": 120,
             "key": "video.ext",
             "curl": "video.curl",
-            "aloo1": "pyaz",
+            "dummy1": "dummyValue",
             "test": {
               "test1": "test1"
             },
@@ -80,10 +80,10 @@
             "secure": 1,
             "cattax": 1,
             "macro": {
-              "key": "macro1",
-              "value": "duck",
+              "key": "TIMESTAMP",
+              "value": "1127987134",
               "ext": {
-                "customdata": "pyaz"
+                "customdata": "dummyValue"
               }
             },
             "buyermemberid": 298,
@@ -95,7 +95,7 @@
         }
       ],
       "ext": {
-        "aloo3": "pyaz",
+        "dummy": "dummyValue",
         "test4": {
           "test5": "seatbid.ext"
         }
