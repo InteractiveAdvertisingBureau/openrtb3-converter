@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+  ~ Copyright  2019 - present. IAB Tech Lab
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -18,12 +18,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>net.media</groupId>
+    <groupId>com.iabtechlab</groupId>
     <artifactId>openrtb3-converter</artifactId>
     <version>1.0.5-SNAPSHOT</version>
     <name>openrtb3-converter-parent</name>
     <description>Parent of the openrtb3 converter</description>
-    <url>https://github.com/media-net/openrtb3-converter</url>
+    <url>https://github.com/InteractiveAdvertisingBureau/openrtb3-converter</url>
 
     <properties>
         <jackson.version>2.8.0</jackson.version>
@@ -74,6 +74,12 @@
             <organization>Media Net</organization>
             <organizationUrl>http://www.media.net</organizationUrl>
         </developer>
+        <developer>
+            <name>Sam Tingleff</name>
+            <email>sam@iabtechlab.com</email>
+            <organization>IAB Tech Lab</organization>
+            <organizationUrl>https://www.iabtechlab.com</organizationUrl>
+        </developer>
     </developers>
 
     <packaging>pom</packaging>
@@ -100,9 +106,9 @@
          https://central.sonatype.org/pages/working-with-pgp-signatures.html -->
 
     <scm>
-        <connection>scm:git:git://github.com/media-net/openrtb3-converter.git</connection>
-        <developerConnection>scm:git:https://github.com/media-net/openrtb3-converter.git</developerConnection>
-        <url>https://github.com/media-net/openrtb3-converter/tree/master</url>
+        <connection>scm:git:git://github.com/InteractiveAdvertisingBureau/openrtb3-converter.git</connection>
+        <developerConnection>scm:git:https://github.com/InteractiveAdvertisingBureau/openrtb3-converter.git</developerConnection>
+        <url>https://github.com/InteractiveAdvertisingBureau/openrtb3-converter/tree/master</url>
         <tag>HEAD</tag>
     </scm>
 

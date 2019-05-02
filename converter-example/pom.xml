@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright  2019 - present. MEDIA.NET ADVERTISING FZ-LLC
+  ~ Copyright  2019 - present. IAB Tech Lab
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>net.media</groupId>
+        <groupId>com.iabtechlab</groupId>
         <artifactId>openrtb3-converter</artifactId>
         <version>1.0.5-SNAPSHOT</version>
     </parent>
@@ -27,7 +27,7 @@
     <artifactId>openrtb3-converter-example</artifactId>
     <name>openrtb3-converter-example</name>
     <description>Servlet spec based API to test openrtb 3.0 transformation logic</description>
-    <url>https://github.com/media-net/openrtb3-converter/tree/master/converter-example</url>
+    <url>https://github.com/InteractiveAdvertisingBureau/openrtb3-converter/tree/master/converter-example</url>
 
     <build>
         <finalName>${project.artifactId}##${project.version}</finalName>
@@ -104,7 +104,7 @@
         </dependency>
 
         <dependency>
-            <groupId>net.media</groupId>
+            <groupId>com.iabtechlab</groupId>
             <artifactId>openrtb3-converter-core</artifactId>
             <version>1.0.5-SNAPSHOT</version>
         </dependency>
