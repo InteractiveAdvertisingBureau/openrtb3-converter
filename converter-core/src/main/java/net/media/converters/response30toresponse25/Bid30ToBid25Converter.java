@@ -58,7 +58,7 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
     Converter<Media, Bid> mediaBidConverter =
         converterProvider.fetch(new Conversion<>(Media.class, Bid.class));
 
-    if (source == null && target == null && config == null) {
+    if (source == null || target == null || config == null) {
       return;
     }
     if (source != null) {

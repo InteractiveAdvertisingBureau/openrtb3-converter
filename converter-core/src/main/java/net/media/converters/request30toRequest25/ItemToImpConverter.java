@@ -29,11 +29,7 @@ import net.media.openrtb25.request.Metric;
 import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.*;
-import net.media.utils.CollectionUtils;
-import net.media.utils.CommonConstants;
-import net.media.utils.JacksonObjectMapper;
-import net.media.utils.MapUtils;
-import net.media.utils.Provider;
+import net.media.utils.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -136,7 +132,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         }
         if (config.getNativeRequestAsString()) {
           try {
-            nat.setRequest(JacksonObjectMapper.getMapper().writeValueAsString(nativeRequest));
+            nat.setRequest(JacksonObjectMapperUtils.getMapper().writeValueAsString(nativeRequest));
           } catch (JsonProcessingException e) {
             throw new OpenRtbConverterException(e);
           }

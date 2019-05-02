@@ -142,7 +142,7 @@ public class CommonConstants {
   public static final String CATTAX = "cattax";
   public static final String RESTRICTIONS = "restrictions";
 
-  public static BiMap<String, Integer> osMap;
+  public static final BiMap<String, Integer> osMap;
 
   static {
     osMap = HashBiMap.create();
