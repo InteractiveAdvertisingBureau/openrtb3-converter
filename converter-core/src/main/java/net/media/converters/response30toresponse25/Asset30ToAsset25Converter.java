@@ -91,9 +91,7 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     }
     putToExt(data::getType, nativeData.getExt(), CommonConstants.TYPE, nativeData::setExt);
     putToExt(data::getLen, nativeData.getExt(), CommonConstants.LEN, nativeData::setExt);
-    if (nonNull(data.getValue()) && data.getValue().size() > 0) {
-      nativeData.setValue(data.getValue().iterator().next());
-    }
+    nativeData.setValue(data.getValue());
     removeFromExt(nativeData.getExt(), extraFieldsInNativeDataExt);
     return nativeData;
   }

@@ -1,0 +1,44 @@
+{
+  "openrtb": {
+    "response": {
+      "id": "0123456789ABCDEF",
+      "seatbid": [
+        {
+          "bid": [{
+            "item": "ad12",
+            "price" : 1.6,
+            "media" : {
+              "ad" : {
+                "id" : "ad1",
+                "display": {
+                  "native": {
+                    "link": {
+                      "url": "abc"
+                    },
+                    "asset": [{
+                      "title": {
+                        "text": "text"
+                      },
+                      "image": {
+                        "url": "abcd.com"
+                       },
+                      "video": {
+                        "curl": "curl.com"
+                      },
+                      "data": {
+                        "value": "val123"
+                      },
+                      "link": {
+                        "url": "ur.com"
+                      }
+                    }]
+                  }
+                }
+              }
+            }
+          }]
+        }
+      ]
+    }
+  }
+}
