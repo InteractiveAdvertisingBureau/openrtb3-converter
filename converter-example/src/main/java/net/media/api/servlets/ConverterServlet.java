@@ -88,7 +88,7 @@ public class ConverterServlet extends HttpServlet {
                 OpenRTBWrapper3_X.class,
                 BidRequest2_X.class));
         } catch (IOException | OpenRtbConverterException e) {
-          log.error("Error while sending 2xto3x request ", e);
+          log.error("Error while sending 3xto2x request ", e);
           response.setStatus(500);
         }
       };
@@ -104,7 +104,7 @@ public class ConverterServlet extends HttpServlet {
                 BidResponse2_X.class,
                 OpenRTBWrapper3_X.class));
         } catch (IOException | OpenRtbConverterException e) {
-          log.error("Error while sending 2xto3x request ", e);
+          log.error("Error while sending 2xto3x response ", e);
           response.setStatus(500);
         }
       };
@@ -119,7 +119,7 @@ public class ConverterServlet extends HttpServlet {
                 IOUtils.toString(request.getInputStream(), "UTF-8"),
                 OpenRTBWrapper3_X.class,BidResponse2_X.class));
         } catch (IOException | OpenRtbConverterException e) {
-          log.error("Error while sending 2xto3x request ", e);
+          log.error("Error while sending 3xto2x response ", e);
           response.setStatus(500);
         }
       };
