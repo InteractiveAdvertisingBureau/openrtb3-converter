@@ -1,6 +1,6 @@
 before_install:
-    - echo $GPG_SECRET_KEYS | openssl base64 -d | $GPG_EXECUTABLE --import
-    - echo $GPG_OWNERTRUST | openssl base64 -d | $GPG_EXECUTABLE --import-ownertrust
+    - echo $GPG_SECRET_KEYS | openssl base64 -d | gpg --import
+    - echo $GPG_OWNERTRUST | openssl base64 -d | gpg --import-ownertrust
 language: java
 install:
     mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
