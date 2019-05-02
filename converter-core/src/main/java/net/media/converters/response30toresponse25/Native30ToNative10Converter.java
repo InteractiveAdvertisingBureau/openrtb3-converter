@@ -41,7 +41,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 
 public class Native30ToNative10Converter implements Converter<Native, NativeResponse> {
 
-  static List<String> extraFieldsInNativeResponseBodyExt = new ArrayList<>();
+  private static List<String> extraFieldsInNativeResponseBodyExt = new ArrayList<>();
 
   static {
     extraFieldsInNativeResponseBodyExt.add(CommonConstants.JS_TRACKER);

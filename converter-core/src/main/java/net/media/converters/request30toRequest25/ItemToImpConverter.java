@@ -30,8 +30,6 @@ import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.*;
 import net.media.utils.*;
-import net.media.utils.*;
-import net.media.utils.JacksonObjectMapper;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -134,7 +132,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         }
         if (config.getNativeRequestAsString()) {
           try {
-            nat.setRequest(JacksonObjectMapper.getMapper().writeValueAsString(nativeRequest));
+            nat.setRequest(JacksonObjectMapperUtils.getMapper().writeValueAsString(nativeRequest));
           } catch (JsonProcessingException e) {
             throw new OpenRtbConverterException(e);
           }
@@ -194,7 +192,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     Pmp pmp = new Pmp();
 
     pmp.setDeals(
-        CollectionToCollectionConverter.convert(
+        CollectionUtils.convert(
             item.getDeal(), dealDealConverter, config, converterProvider));
     pmp.setPrivate_auction(item.getPriv());
     pmp.setExt(

@@ -24,7 +24,6 @@ import net.media.openrtb25.request.BidRequest2_X;
 import net.media.openrtb25.request.Imp;
 import net.media.openrtb25.request.User;
 import net.media.openrtb3.*;
-import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
@@ -160,7 +159,7 @@ public class RequestToBidRequestConverter implements Converter<Request, BidReque
     }
     target.setAllimps(source.getPack());
     target.setImp(
-        CollectionToCollectionConverter.convert(
+        CollectionUtils.convert(
             source.getItem(), itemImpConverter, config, converterProvider));
     if (!CollectionUtils.isEmpty(target.getImp())) {
       if (nonNull(source.getContext()) && nonNull(source.getContext().getRestrictions())) {

@@ -69,10 +69,6 @@ public class ConverterManager {
     new Convert30To23ResponseManager(converterProvider2_3);
   }
 
-  public <U, V> Converter<U, V> getConverter(Class<U> source, Class<V> target) {
-    return converterProvider.fetch(new Conversion<>(source, target));
-  }
-
   public Provider getConverterProvider(Map<Conversion, Converter> overrideMap, Config config) {
     Provider provider = null;
     if (nonNull(config)) {

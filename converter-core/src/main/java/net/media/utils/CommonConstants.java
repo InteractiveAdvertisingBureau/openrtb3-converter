@@ -25,7 +25,6 @@ public class CommonConstants {
   public static final Integer DEFAULT_CATTAX_TWODOTX = 1;
 
   public static final String DELAY = "delay";
-  public static final String RESTRICTIONS = "restrictions";
   public static final String EXT = "ext";
   public static final String ARTIST = "artist";
   public static final String GENRE = "genre";
@@ -62,7 +61,6 @@ public class CommonConstants {
   public static final String ID = "id";
   public static final String BTYPE = "btype";
   public static final String REGIONFIPS_104 = "regionfips104";
-  public static final String QTY = "qty";
   public static final String SEQ = "seq";
   public static final String PMP = "pmp";
   public static final String DT = "dt";
@@ -99,7 +97,6 @@ public class CommonConstants {
   public static final String SECURE = "secure";
   public static final String INIT = "init";
   public static final String LASTMOD = "lastmod";
-  public static final String CATTAX = "cattax";
   public static final String AUDIT = "audit";
   public static final String LABEL = "label";
   public static final String TYPE = "type";
@@ -114,12 +111,8 @@ public class CommonConstants {
   public static final String IMP_TRACKERS = "impTrackers";
   public static final String CTYPE = "ctype";
   public static final String DUR = "dur";
-  public static final String CURL = "curl";
   public static final String MIME = "mime";
   public static final String CLICKBROWSER = "clickbrowser";
-  public static final String COMPANIONAD = "companionad";
-  public static final String HRATIO = "hratio";
-  public static final String WRATIO = "wratio";
   public static final String BOXINGALLOWED = "boxingallowed";
   public static final String PTYPE = "ptype";
   public static final String POS = "pos";
@@ -139,10 +132,17 @@ public class CommonConstants {
   public static final String DELIVERY = "delivery";
   public static final String MAXSEQ = "maxseq";
   public static final String LINEARITY = "linearity";
-  public static final String COMPANIONTYPE = "companiontype";
   public static final String BAPP = "bapp";
+  public static final String CURL = "curl";
+  public static final String COMPANIONTYPE = "companiontype";
+  public static final String COMPANIONAD = "companionad";
+  public static final String WRATIO = "wratio";
+  public static final String HRATIO = "hratio";
+  public static final String QTY = "qty";
+  public static final String CATTAX = "cattax";
+  public static final String RESTRICTIONS = "restrictions";
 
-  public static BiMap<String, Integer> osMap;
+  public static final BiMap<String, Integer> osMap;
 
   static {
     osMap = HashBiMap.create();

@@ -34,7 +34,7 @@ import static net.media.utils.ExtUtils.removeFromExt;
 /** Created by rajat.go on 03/01/19. */
 public class BannerToCompanionConverter implements Converter<Banner, Companion> {
 
-  static List<String> extraFieldsInDisplay = new ArrayList<>();
+  private static List<String> extraFieldsInDisplay = new ArrayList<>();
 
   static {
     extraFieldsInDisplay.add(CommonConstants.ID);

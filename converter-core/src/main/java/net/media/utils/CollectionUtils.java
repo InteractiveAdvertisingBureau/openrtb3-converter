@@ -19,6 +19,8 @@ package net.media.utils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.media.config.Config;
+import net.media.converters.Converter;
+import net.media.exceptions.OpenRtbConverterException;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -49,9 +51,9 @@ public class CollectionUtils {
     }
     if (nonNull(input)) {
       if (input instanceof Set) {
-        return new HashSet<T>(input);
+        return new HashSet<>(input);
       } else {
-        return new ArrayList<T>(input);
+        return new ArrayList<>(input);
       }
     }
     return null;
@@ -70,5 +72,27 @@ public class CollectionUtils {
       }
     }
     return null;
+  }
+
+  public static <S, T> Collection<T> convert(
+      Collection<S> collection,
+      Converter<S, T> stConverter,
+      Config config,
+      Provider converterProvider)
+      throws OpenRtbConverterException {
+    if (collection == null) {
+      return null;
+    }
+    Collection<T> collection1;
+    if (collection instanceof Set) {
+      collection1 = new HashSet<>(collection.size());
+    } else {
+      collection1 = new ArrayList<>(collection.size());
+    }
+    for (S value : collection) {
+      collection1.add(stConverter.map(value, config, converterProvider));
+    }
+
+    return collection1;
   }
 }
