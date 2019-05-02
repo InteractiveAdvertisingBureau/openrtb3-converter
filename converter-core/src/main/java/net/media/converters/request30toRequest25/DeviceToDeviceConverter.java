@@ -23,15 +23,23 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb3.Device;
 import net.media.openrtb3.Geo;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
-import net.media.utils.OsMap;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import static net.media.utils.ExtUtils.*;
 
 public class DeviceToDeviceConverter
     implements Converter<Device, net.media.openrtb25.request.Device> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.FLASHVER);
+  }
 
   @Override
   public net.media.openrtb25.request.Device map(
@@ -54,7 +62,9 @@ public class DeviceToDeviceConverter
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Geo, net.media.openrtb25.request.Geo> geoGeoConverter =
         converterProvider.fetch(new Conversion<>(Geo.class, net.media.openrtb25.request.Geo.class));
     target.setLanguage(source.getLang());
@@ -69,8 +79,9 @@ public class DeviceToDeviceConverter
     target.setIp(source.getIp());
     target.setIpv6(source.getIpv6());
     if (source.getOs() != null) {
-      if (OsMap.osMap.inverse().containsKey(source.getOs()))
-        target.setOs(OsMap.osMap.inverse().get(source.getOs()));
+      if (CommonConstants.osMap.inverse().containsKey(source.getOs())) {
+        target.setOs(CommonConstants.osMap.inverse().get(source.getOs()));
+      }
     }
     target.setMake(source.getMake());
     target.setModel(source.getModel());
@@ -87,27 +98,16 @@ public class DeviceToDeviceConverter
     target.setMccmnc(source.getMccmnc());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      if (map.containsKey(CommonConstants.FLASHVER)) {
-        try {
-          target.setFlashver((String) source.getExt().get(CommonConstants.FLASHVER));
-          map.remove(CommonConstants.FLASHVER);
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException("error while typecasting ext for Device", e);
-        }
-      }
-      target.setExt(MapUtils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
-    if (source.getXff() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put(CommonConstants.XFF, source.getXff());
-    }
-    if (source.getIptr() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put(CommonConstants.IPTR, source.getIptr());
-    }
-    if (source.getMccmncsim() != null) {
-      if (target.getExt() == null) target.setExt(new HashMap<>());
-      target.getExt().put(CommonConstants.MCCMNCSIM, source.getMccmncsim());
-    }
+    fetchFromExt(
+      target::setFlashver,
+      source.getExt(),
+      CommonConstants.FLASHVER,
+      "error while mapping flashver from device.ext");
+    putToExt(source::getXff, target.getExt(), CommonConstants.XFF, target::setExt);
+    putToExt(source::getIptr, target.getExt(), CommonConstants.IPTR, target::setExt);
+    putToExt(source::getMccmncsim, target.getExt(), CommonConstants.MCCMNCSIM, target::setExt);
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

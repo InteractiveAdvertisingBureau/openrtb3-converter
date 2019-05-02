@@ -26,7 +26,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
-
 import net.media.exceptions.OpenRtbConverterException;
 
 import java.io.IOException;
@@ -50,6 +49,7 @@ public class JacksonObjectMapperUtils {
         .enable(JsonParser.Feature.ALLOW_NON_NUMERIC_NUMBERS)
         .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
         .configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true)
+        .disable(SerializationFeature.WRITE_NULL_MAP_VALUES)
         .setVisibility(
             mapper
                 .getSerializationConfig()

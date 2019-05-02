@@ -23,10 +23,7 @@ import net.media.openrtb3.DisplayPlacement;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class DisplayPlacementToBannerConverter
@@ -39,19 +36,9 @@ public class DisplayPlacementToBannerConverter
       return;
     }
     super.enhance(displayPlacement, banner, config, converterProvider);
-    if (nonNull(banner.getVcm())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put(CommonConstants.VCM, banner.getVcm());
-      banner.setVcm(null);
-    }
-    if (nonNull(banner.getFormat())) {
-      if (isNull(banner.getExt())) {
-        banner.setExt(new HashMap<>());
-      }
-      banner.getExt().put(CommonConstants.FORMAT, banner.getFormat());
-      banner.setFormat(null);
-    }
+    putToExt(banner::getVcm, banner.getExt(), CommonConstants.VCM, banner::setExt);
+    banner.setVcm(null);
+    putToExt(banner::getFormat, banner.getExt(), CommonConstants.FORMAT, banner::setExt);
+    banner.setFormat(null);
   }
 }

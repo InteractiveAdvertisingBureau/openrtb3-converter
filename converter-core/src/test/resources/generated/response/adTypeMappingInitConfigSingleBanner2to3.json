@@ -1,0 +1,228 @@
+{
+  "inputFile" : "RESPONSE_BANNER_SITE_25_2to3.json",
+  "inputType" : "RESPONSE25",
+  "inputEdits" : {
+    "cur" : "\"USD\""
+  },
+  "inputJson" : {
+    "id" : "0123456789ABCDEF",
+    "cur" : "USD",
+    "customdata" : "cdata",
+    "seatbid" : [ {
+      "bid" : [ {
+        "id" : "yaddayadda",
+        "impid" : "1",
+        "price" : 4.5,
+        "bundle" : "testbundle",
+        "nurl" : "http://www.example.com/",
+        "burl" : "test/burl",
+        "lurl" : "test/lurl",
+        "adid" : "98765432134567",
+        "adm" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?><VAST version=\"2.0\"><Ad id=\"602833\"><Wrapper><AdSystem>Acudeo Compatible</AdSystem><VASTAdTagURI>http://demo.tremormedia.com/proddev/vast/vast_inline_linear.xml</VASTAdTagURI><Error>http://myErrorURL/wrapper/error</Error><Impression>http://myTrackingURL/wrapper/impression</Impression><Creatives><Creative AdID=\"602833\"><Linear><TrackingEvents><Tracking event=\"creativeView\">http://myTrackingURL/wrapper/creativeView</Tracking><Tracking event=\"start\">http://myTrackingURL/wrapper/start</Tracking><Tracking event=\"midpoint\">http://myTrackingURL/wrapper/midpoint</Tracking><Tracking event=\"firstQuartile\">http://myTrackingURL/wrapper/firstQuartile</Tracking><Tracking event=\"thirdQuartile\">http://myTrackingURL/wrapper/thirdQuartile</Tracking><Tracking event=\"complete\">http://myTrackingURL/wrapper/complete</Tracking><Tracking event=\"mute\">http://myTrackingURL/wrapper/mute</Tracking><Tracking event=\"unmute\">http://myTrackingURL/wrapper/unmute</Tracking><Tracking event=\"pause\">http://myTrackingURL/wrapper/pause</Tracking><Tracking event=\"resume\">http://myTrackingURL/wrapper/resume</Tracking><Tracking event=\"fullscreen\">http://myTrackingURL/wrapper/fullscreen</Tracking></TrackingEvents></Linear></Creative><Creative><Linear><VideoClicks><ClickTracking>http://myTrackingURL/wrapper/click</ClickTracking></VideoClicks></Linear></Creative><Creative AdID=\"602833-NonLinearTracking\"><NonLinearAds><TrackingEvents/></NonLinearAds></Creative></Creatives></Wrapper></Ad></VAST>",
+        "adomain" : [ "www.livelife.best" ],
+        "iurl" : "googleusercontent.com/1.jpg",
+        "cid" : "298",
+        "crid" : "7993593187821",
+        "tactic" : "testtactic",
+        "cat" : [ "IAB14" ],
+        "attr" : [ 6, 7 ],
+        "api" : 1,
+        "protocol" : 123,
+        "qagmediarating" : 5,
+        "language" : "EN",
+        "exp" : 1,
+        "dealid" : "667fdf7",
+        "h" : 90,
+        "w" : 728,
+        "wratio" : 90,
+        "hratio" : 55,
+        "ext" : {
+          "audit" : {
+            "status" : 1,
+            "feedback" : [ "testfeedback" ],
+            "init" : 1,
+            "lastmod" : 1,
+            "ext" : {
+              "auditExt" : "auditExt"
+            }
+          },
+          "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt",
+          "macro" : [ {
+            "key" : "test",
+            "value" : "test2",
+            "ext" : {
+              "key" : "value"
+            }
+          } ],
+          "cattax" : 2,
+          "secure" : 1,
+          "init" : 1,
+          "lastmod" : 1,
+          "mime" : "image/jpeg",
+          "ctype" : 1,
+          "priv" : "googleusercontent.com/1.jpg",
+          "banner" : {
+            "img" : "https://somebuyer.com/creative",
+            "link" : {
+              "url" : "https://somebuyer.com/click",
+              "urlfb" : "https://somebuyer.com",
+              "trkr" : [ "2113", "21312" ],
+              "ext" : {
+                "link" : "link"
+              }
+            },
+            "ext" : {
+              "mediaAdDisplayBannerext" : "mediaAdDisplayBannerext"
+            }
+          },
+          "event" : [ {
+            "type" : 1,
+            "method" : 1,
+            "url" : "https://somebuyer.com/pixel",
+            "api" : [ 1, 2 ],
+            "cdata" : {
+              "acct" : "123"
+            },
+            "ext" : {
+              "mediaAdDisplayEventExt" : "mediaAdDisplayEventExt"
+            }
+          } ]
+        }
+      } ],
+      "ext" : {
+        "bidresponseSeatbidExt" : "bidresponseSeatbidExt"
+      },
+      "seat" : "xyzseat",
+      "group" : 1
+    } ],
+    "ext" : {
+      "bidresponseEXT" : "bidresponseEXT"
+    },
+    "bidid" : "7phb82pzl"
+  },
+  "outputFile" : "RESPONSE_BANNER_SITE_30_2to3.json",
+  "outputType" : "RESPONSE30",
+  "outputEdits" : {
+    "openrtb.response.cur" : "\"USD\""
+  },
+  "outputJson" : {
+    "openrtb" : {
+      "ver" : "3.0",
+      "domainSpec" : "adcom",
+      "domainVer" : "1.0",
+      "response" : {
+        "id" : "0123456789ABCDEF",
+        "bidid" : "7phb82pzl",
+        "cur" : "USD",
+        "cdata" : "cdata",
+        "ext" : {
+          "bidresponseEXT" : "bidresponseEXT"
+        },
+        "seatbid" : [ {
+          "seat" : "xyzseat",
+          "bid" : [ {
+            "id" : "yaddayadda",
+            "item" : "1",
+            "deal" : "667fdf7",
+            "price" : 4.5,
+            "tactic" : "testtactic",
+            "purl" : "http://www.example.com/",
+            "burl" : "test/burl",
+            "lurl" : "test/lurl",
+            "mid" : "98765432134567",
+            "cid" : "298",
+            "exp" : 1,
+            "macro" : [ {
+              "key" : "test",
+              "value" : "test2",
+              "ext" : {
+                "key" : "value"
+              }
+            } ],
+            "media" : {
+              "ad" : {
+                "id" : "7993593187821",
+                "adomain" : [ "www.livelife.best" ],
+                "bundle" : [ "testbundle" ],
+                "iurl" : "googleusercontent.com/1.jpg",
+                "cat" : [ "IAB14" ],
+                "cattax" : 2,
+                "lang" : "EN",
+                "attr" : [ 6, 7 ],
+                "secure" : 1,
+                "mrating" : 5,
+                "init" : 1,
+                "lastmod" : 1,
+                "audit" : {
+                  "status" : 1,
+                  "feedback" : [ "testfeedback" ],
+                  "init" : 1,
+                  "lastmod" : 1,
+                  "ext" : {
+                    "auditExt" : "auditExt"
+                  }
+                },
+                "display" : {
+                  "mime" : "image/jpeg",
+                  "api" : [ 1 ],
+                  "ctype" : 1,
+                  "w" : 728,
+                  "h" : 90,
+                  "wratio" : 90,
+                  "hratio" : 55,
+                  "priv" : "googleusercontent.com/1.jpg",
+                  "adm" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?><VAST version=\"2.0\"><Ad id=\"602833\"><Wrapper><AdSystem>Acudeo Compatible</AdSystem><VASTAdTagURI>http://demo.tremormedia.com/proddev/vast/vast_inline_linear.xml</VASTAdTagURI><Error>http://myErrorURL/wrapper/error</Error><Impression>http://myTrackingURL/wrapper/impression</Impression><Creatives><Creative AdID=\"602833\"><Linear><TrackingEvents><Tracking event=\"creativeView\">http://myTrackingURL/wrapper/creativeView</Tracking><Tracking event=\"start\">http://myTrackingURL/wrapper/start</Tracking><Tracking event=\"midpoint\">http://myTrackingURL/wrapper/midpoint</Tracking><Tracking event=\"firstQuartile\">http://myTrackingURL/wrapper/firstQuartile</Tracking><Tracking event=\"thirdQuartile\">http://myTrackingURL/wrapper/thirdQuartile</Tracking><Tracking event=\"complete\">http://myTrackingURL/wrapper/complete</Tracking><Tracking event=\"mute\">http://myTrackingURL/wrapper/mute</Tracking><Tracking event=\"unmute\">http://myTrackingURL/wrapper/unmute</Tracking><Tracking event=\"pause\">http://myTrackingURL/wrapper/pause</Tracking><Tracking event=\"resume\">http://myTrackingURL/wrapper/resume</Tracking><Tracking event=\"fullscreen\">http://myTrackingURL/wrapper/fullscreen</Tracking></TrackingEvents></Linear></Creative><Creative><Linear><VideoClicks><ClickTracking>http://myTrackingURL/wrapper/click</ClickTracking></VideoClicks></Linear></Creative><Creative AdID=\"602833-NonLinearTracking\"><NonLinearAds><TrackingEvents/></NonLinearAds></Creative></Creatives></Wrapper></Ad></VAST>",
+                  "curl" : "http://www.example.com/",
+                  "banner" : {
+                    "img" : "https://somebuyer.com/creative",
+                    "link" : {
+                      "url" : "https://somebuyer.com/click",
+                      "urlfb" : "https://somebuyer.com",
+                      "trkr" : [ "2113", "21312" ],
+                      "ext" : {
+                        "link" : "link"
+                      }
+                    },
+                    "ext" : {
+                      "mediaAdDisplayBannerext" : "mediaAdDisplayBannerext"
+                    }
+                  },
+                  "event" : [ {
+                    "type" : 1,
+                    "method" : 1,
+                    "url" : "https://somebuyer.com/pixel",
+                    "api" : [ 1, 2 ],
+                    "cdata" : {
+                      "acct" : "123"
+                    },
+                    "ext" : {
+                      "mediaAdDisplayEventExt" : "mediaAdDisplayEventExt"
+                    }
+                  } ]
+                }
+              }
+            },
+            "ext" : {
+              "protocol" : 123,
+              "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt"
+            }
+          } ],
+          "package" : 1,
+          "ext" : {
+            "bidresponseSeatbidExt" : "bidresponseSeatbidExt"
+          }
+        } ]
+      }
+    }
+  },
+  "purpose" : "adTypeMappingInitConfigSingleBanner2to3",
+  "params" : null,
+  "config" : {
+    "adTypeMapping" : {
+      "1" : "BANNER"
+    }
+  },
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}

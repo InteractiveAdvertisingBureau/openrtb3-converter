@@ -24,16 +24,15 @@ import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.*;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.fetchFromExt;
 
 /** @author shiva.b */
 public class BidToAdConverter implements Converter<Bid, Ad> {
@@ -67,38 +66,34 @@ public class BidToAdConverter implements Converter<Bid, Ad> {
     target.setLang(source.getLanguage());
     target.setAttr(CollectionUtils.copyCollection(source.getAttr(), config));
     target.setMrating(source.getQagmediarating());
-    try {
-      if (nonNull(source.getExt())) {
-        Map<String, Object> ext = source.getExt();
-        if (ext.containsKey(CommonConstants.SECURE)) {
-          target.setSecure((Integer) ext.get(CommonConstants.SECURE));
-          source.getExt().remove(CommonConstants.SECURE);
-        }
-        if (ext.containsKey(CommonConstants.INIT)) {
-          target.setInit((Integer) ext.get(CommonConstants.INIT));
-          source.getExt().remove(CommonConstants.INIT);
-        }
-        if (ext.containsKey(CommonConstants.LASTMOD)) {
-          target.setLastmod((Integer) ext.get(CommonConstants.LASTMOD));
-          source.getExt().remove(CommonConstants.LASTMOD);
-        }
-        if (ext.containsKey(CommonConstants.CATTAX)) {
-          target.setCattax((Integer) ext.get(CommonConstants.CATTAX));
-          source.getExt().remove(CommonConstants.CATTAX);
-        } else {
-          target.setCattax(DEFAULT_CATTAX_TWODOTX);
-        }
-
-        if (source.getExt().containsKey(CommonConstants.AUDIT)) {
-          target.setAudit(JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get(CommonConstants.AUDIT), Audit.class));
-          source.getExt().remove(CommonConstants.AUDIT);
-        }
-      }
-    } catch (Exception e) {
-      throw new OpenRtbConverterException("error while type casting ext in bid", e);
-    }
-
-    switch (config.getAdType(source.getId())) {
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
+    fetchFromExt(
+      target::setSecure,
+      source.getExt(),
+      CommonConstants.SECURE,
+      "Error while mapping secure from bid.ext");
+    fetchFromExt(
+      target::setInit,
+      source.getExt(),
+      CommonConstants.INIT,
+      "Error while mapping init from bid.ext");
+    fetchFromExt(
+      target::setLastmod,
+      source.getExt(),
+      CommonConstants.LASTMOD,
+      "Error while mapping lastmod from bid.ext");
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "Error while mapping cattax from bid.ext");
+    fetchFromExt(
+      target::setAudit,
+      source.getExt(),
+      CommonConstants.AUDIT,
+      "Error while mapping audit from bid.ext",
+      Audit.class);
+    switch (config.getAdType(source.getImpid())) {
       case BANNER:
       case NATIVE:
         Converter<Bid, Display> bidDisplayConverter =

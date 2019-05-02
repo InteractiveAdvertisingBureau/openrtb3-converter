@@ -23,19 +23,29 @@ import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.nativeresponse.*;
 import net.media.openrtb3.*;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.*;
 
 public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse> {
 
+  static List<String> extraFieldsInNativeDataExt = new ArrayList<>();
+
+  static {
+    extraFieldsInNativeDataExt.add(CommonConstants.LABEL);
+  }
+
   public AssetResponse map(Asset source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(config)) return null;
+    if (isNull(source) || isNull(config)) {
+      return null;
+    }
     AssetResponse assetResponse = new AssetResponse();
     enhance(source, assetResponse, config, converterProvider);
     return assetResponse;
@@ -47,67 +57,92 @@ public class Asset30ToAsset25Converter implements Converter<Asset, AssetResponse
     Converter<LinkAsset, Link> linkAssetLinkConverter =
         converterProvider.fetch(new Conversion<>(LinkAsset.class, Link.class));
 
-    if (isNull(source) || isNull(target) || isNull(config)) return;
+    if (isNull(source) || isNull(target) || isNull(config)) {
+      return;
+    }
 
-    target.setData(dataTonativeData(source.getData(), config));
+    target.setData(dataTonativeData(source.getData()));
     target.setId(source.getId());
     target.setRequired(source.getReq());
-    target.setImg(imageAssetToNativeImage(source.getImage(), config));
-    target.setVideo(videoAssetToNativeVideo(source.getVideo(), config));
-    target.setTitle(tittleAssetToNativeTittle(source.getTitle(), config));
+    target.setImg(imageAssetToNativeImage(source.getImage()));
+    target.setVideo(videoAssetToNativeVideo(source.getVideo()));
+    target.setTitle(tittleAssetToNativeTittle(source.getTitle()));
     target.setLink(linkAssetLinkConverter.map(source.getLink(), config, converterProvider));
-    target.setExt(MapUtils.copyMap(source.getExt(), config));
+    if (nonNull(source.getExt())) {
+      target.setExt(new HashMap<>(source.getExt()));
+    }
   }
 
-  private NativeData dataTonativeData(DataAsset data, Config config) {
-    if (isNull(data)) return null;
-    NativeData nativeData = new NativeData();
-    nativeData.setExt(MapUtils.copyMap(data.getExt(), config));
-    if (nonNull(data.getExt())) {
-      nativeData.setLabel((String) data.getExt().get(CommonConstants.LABEL));
-      nativeData.getExt().remove(CommonConstants.LABEL);
+  private NativeData dataTonativeData(DataAsset data) throws OpenRtbConverterException {
+    if (isNull(data)) {
+      return null;
     }
-    if (isNull(nativeData.getExt())) nativeData.setExt(new HashMap<>());
-    nativeData.getExt().put(CommonConstants.TYPE, data.getType());
-    nativeData.getExt().put(CommonConstants.LEN, data.getLen());
-    if (nonNull(data.getValue()) && data.getValue().size() > 0)
-      nativeData.setValue(data.getValue().iterator().next());
+    NativeData nativeData = new NativeData();
+    if (nonNull(data.getExt())) {
+      nativeData.setExt(new HashMap<>(data.getExt()));
+    }
+    fetchFromExt(
+      nativeData::setLabel,
+      data.getExt(),
+      CommonConstants.LABEL,
+      "error while mapping label from data.ext");
+    if (isNull(nativeData.getExt())) {
+      nativeData.setExt(new HashMap<>());
+    }
+    putToExt(data::getType, nativeData.getExt(), CommonConstants.TYPE, nativeData::setExt);
+    putToExt(data::getLen, nativeData.getExt(), CommonConstants.LEN, nativeData::setExt);
+    nativeData.setValue(data.getValue());
+    removeFromExt(nativeData.getExt(), extraFieldsInNativeDataExt);
     return nativeData;
   }
 
-  private NativeImage imageAssetToNativeImage(ImageAsset imageAsset, Config config) {
-    if (isNull(imageAsset)) return null;
+  private NativeImage imageAssetToNativeImage(ImageAsset imageAsset) {
+    if (isNull(imageAsset)) {
+      return null;
+    }
     NativeImage nativeImage = new NativeImage();
-    nativeImage.setExt(MapUtils.copyMap(imageAsset.getExt(), config));
+    if (nonNull(imageAsset.getExt())) {
+      nativeImage.setExt(new HashMap<>(imageAsset.getExt()));
+    }
     nativeImage.setH(imageAsset.getH());
     nativeImage.setW(imageAsset.getW());
     nativeImage.setUrl(imageAsset.getUrl());
-    if (isNull(nativeImage.getExt())) nativeImage.setExt(new HashMap<>());
-    nativeImage.getExt().put(CommonConstants.TYPE, imageAsset.getType());
+    if (isNull(nativeImage.getExt())) {
+      nativeImage.setExt(new HashMap<>());
+    }
+    putToExt(imageAsset::getType, nativeImage.getExt(), CommonConstants.TYPE, nativeImage::setExt);
     return nativeImage;
   }
 
-  private NativeVideo videoAssetToNativeVideo(VideoAsset videoAsset, Config config) {
-    if (isNull(videoAsset)) return null;
+  private NativeVideo videoAssetToNativeVideo(VideoAsset videoAsset) {
+    if (isNull(videoAsset)) {
+      return null;
+    }
     NativeVideo nativeVideo = new NativeVideo();
-    nativeVideo.setExt(MapUtils.copyMap(videoAsset.getExt(), config));
+    if (nonNull(videoAsset.getExt())) {
+      nativeVideo.setExt(new HashMap<>(videoAsset.getExt()));
+    }
     nativeVideo.setVasttag(videoAsset.getAdm());
     if (isNull(nativeVideo.getExt())) {
       nativeVideo.setExt(new HashMap<>());
     }
-    nativeVideo.getExt().put(CommonConstants.CURL, videoAsset.getCurl());
+    putToExt(videoAsset::getCurl, nativeVideo.getExt(), CommonConstants.CURL, nativeVideo::setExt);
     return nativeVideo;
   }
 
-  private NativeTitle tittleAssetToNativeTittle(TitleAsset titleAsset, Config config) {
-    if (isNull(titleAsset)) return null;
+  private NativeTitle tittleAssetToNativeTittle(TitleAsset titleAsset) {
+    if (isNull(titleAsset)) {
+      return null;
+    }
     NativeTitle nativeTitle = new NativeTitle();
-    nativeTitle.setExt(MapUtils.copyMap(titleAsset.getExt(), config));
+    if (nonNull(titleAsset.getExt())) {
+      nativeTitle.setExt(new HashMap<>(titleAsset.getExt()));
+    }
     nativeTitle.setText(titleAsset.getText());
     if (isNull(nativeTitle.getExt())) {
       nativeTitle.setExt(new HashMap<>());
     }
-    nativeTitle.getExt().put(CommonConstants.LEN, titleAsset.getLen());
+    putToExt(titleAsset::getLen, nativeTitle.getExt(), CommonConstants.LEN, nativeTitle::setExt);
     return nativeTitle;
   }
 }

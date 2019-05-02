@@ -27,21 +27,38 @@ import net.media.openrtb3.Media;
 import net.media.template.MacroMapper;
 import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.*;
 
 /** @author shiva.b */
 public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.Bid> {
 
-  private static final JavaType javaTypeForMacroCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Macro.class);
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  private static final JavaType javaTypeForMacroCollection =
+    JacksonObjectMapperUtils.getMapper()
+      .getTypeFactory()
+      .constructCollectionType(Collection.class, Macro.class);
+
+  static {
+    extraFieldsInExt.add(CommonConstants.MACRO);
+    extraFieldsInExt.add(CommonConstants.AUDIT);
+    extraFieldsInExt.add(CommonConstants.CATTAX);
+    extraFieldsInExt.add(CommonConstants.LASTMOD);
+    extraFieldsInExt.add(CommonConstants.INIT);
+    extraFieldsInExt.add(CommonConstants.SECURE);
+    extraFieldsInExt.add(CommonConstants.CTYPE);
+    extraFieldsInExt.add(CommonConstants.PRIV);
+    extraFieldsInExt.add(CommonConstants.MIME);
+    extraFieldsInExt.add(CommonConstants.BANNER);
+    extraFieldsInExt.add(CommonConstants.NATIVE);
+    extraFieldsInExt.add(CommonConstants.EVENT);
+    extraFieldsInExt.add(CommonConstants.DUR);
+  }
 
   @Override
   public net.media.openrtb3.Bid map(Bid source, Config config, Provider converterProvider)
@@ -61,8 +78,6 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
     if (source == null || target == null) {
       return;
     }
-    Map<String, Object> tempExt = new HashMap<>(source.getExt());
-
     try {
       target.setItem(source.getImpid());
       target.setDeal(source.getDealid());
@@ -78,36 +93,24 @@ public class Bid25ToBid30Converter implements Converter<Bid, net.media.openrtb3.
       target.setExp(source.getExp());
       target.setMid(source.getAdid());
       MacroMapper.macroReplaceThreeX(target);
-      if (nonNull(source.getExt())) {
-        if (source.getExt().containsKey(CommonConstants.MACRO)) {
-          try {
-            Collection<Macro> macros = JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get(CommonConstants.MACRO),
-                javaTypeForMacroCollection);
-            target.setMacro(macros);
-          } catch (Exception e) {
-            throw new OpenRtbConverterException("Error in setting bid.macro from bid.ext.macro", e);
-          }
-          source.getExt().remove(CommonConstants.MACRO);
-        }
-      }
-      if (nonNull(source.getProtocol())) {
-        if (isNull(target.getExt())) {
+      fetchFromExt(
+        target::setMacro,
+        source.getExt(),
+        CommonConstants.MACRO,
+        "Error while mapping macro from bid.ext",
+        javaTypeForMacroCollection);
+      putToExt(source::getProtocol, target.getExt(), CommonConstants.PROTOCOL, target::setExt);
+      target.setMedia(converter.map(source, config, converterProvider));
+      Map<String, Object> map = source.getExt();
+      if (nonNull(map)) {
+        if(isNull(target.getExt())) {
           target.setExt(new HashMap<>());
         }
-        target.getExt().put(CommonConstants.PROTOCOL, source.getProtocol());
-        if (source.getExt().containsKey(CommonConstants.PROTOCOL)) {
-          source.getExt().remove(CommonConstants.PROTOCOL);
-        }
-      }
-      target.setMedia(converter.map(source, config, converterProvider));
-      Map<String, Object> extCopy = MapUtils.copyMap(source.getExt(), config);
-      if (nonNull(extCopy)) {
-        target.getExt().putAll(extCopy);
+        target.getExt().putAll(map);
       }
     } catch (Exception e) {
       throw new OpenRtbConverterException(e);
-    } finally {
-      source.setExt(tempExt);
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

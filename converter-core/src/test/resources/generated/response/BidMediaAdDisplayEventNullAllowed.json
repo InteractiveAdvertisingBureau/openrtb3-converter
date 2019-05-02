@@ -1,0 +1,71 @@
+{
+  "inputFile" : "MINIMUM_RESPONSE_BANNER_30.json",
+  "inputType" : "RESPONSE30",
+  "inputEdits" : {
+    "openrtb.response.seatbid[0].bid[0].media.ad.display.event" : null
+  },
+  "inputJson" : {
+    "openrtb" : {
+      "response" : {
+        "id" : "0123456789ABCDEF",
+        "seatbid" : [ {
+          "bid" : [ {
+            "item" : "12",
+            "price" : 1.6,
+            "macro" : [ {
+              "key" : 7
+            } ],
+            "media" : {
+              "ad" : {
+                "id" : "ad1",
+                "display" : {
+                  "banner" : {
+                    "img" : "https://somebuyer.com/creative",
+                    "link" : {
+                      "url" : "https://somebuyer.com/click"
+                    }
+                  }
+                }
+              }
+            }
+          } ]
+        } ]
+      }
+    }
+  },
+  "outputFile" : "MINIMUM_RESPONSE_BANNER_25_3TO2.json",
+  "outputType" : "RESPONSE25",
+  "outputEdits" : {
+    "seatbid[0].bid[0].ext.event" : null
+  },
+  "outputJson" : {
+    "id" : "0123456789ABCDEF",
+    "seatbid" : [ {
+      "bid" : [ {
+        "impid" : "12",
+        "price" : 1.6,
+        "crid" : "ad1",
+        "ext" : {
+          "macro" : [ {
+            "key" : "7"
+          } ],
+          "cattax" : 2,
+          "banner" : {
+            "img" : "https://somebuyer.com/creative",
+            "link" : {
+              "url" : "https://somebuyer.com/click"
+            }
+          }
+        }
+      } ]
+    } ]
+  },
+  "purpose" : "BidMediaAdDisplayEventNullAllowed",
+  "params" : {
+    "validate" : true
+  },
+  "config" : null,
+  "overRidingMap" : null,
+  "inputAsString" : null,
+  "testEnhance" : null
+}

@@ -28,9 +28,10 @@ import net.media.utils.Provider;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.fetchExtFromFieldInExt;
+import static net.media.utils.ExtUtils.fetchFromExt;
 
 public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_X, Restrictions> {
 
@@ -52,12 +53,18 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_
   public void enhance(
       BidRequest2_X source, Restrictions target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     target.setBapp(CollectionUtils.copyCollection(source.getBapp(), config));
     target.setBcat(CollectionUtils.copyCollection(source.getBcat(), config));
     target.setBadv(CollectionUtils.copyCollection(source.getBadv(), config));
-    if (source.getImp() == null) return;
-    if (source.getImp().size() == 0) return;
+    if (source.getImp() == null) {
+      return;
+    }
+    if (source.getImp().size() == 0) {
+      return;
+    }
     Collection<Integer> battr = new HashSet<>();
     for (Imp imp : source.getImp()) {
       if (imp.getBanner() != null && imp.getBanner().getBattr() != null) {
@@ -73,28 +80,14 @@ public class BidRequestToRestrictionsConverter implements Converter<BidRequest2_
     if (battr.size() > 0) {
       target.setBattr(CollectionUtils.copyCollection(battr, config));
     }
-    if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey(CommonConstants.CATTAX)) {
-        target.setCattax((Integer) source.getExt().get(CommonConstants.CATTAX));
-        source.getExt().remove(CommonConstants.CATTAX);
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
-      }
-      if (source.getExt().containsKey(CommonConstants.RESTRICTIONS)) {
-        try {
-          Map<String, Object> restrictions =
-              (Map<String, Object>) source.getExt().get(CommonConstants.RESTRICTIONS);
-          if (restrictions.containsKey(CommonConstants.EXT)) {
-            target.setExt((Map<String, Object>) restrictions.get(CommonConstants.EXT));
-          }
-        } catch (ClassCastException e) {
-          throw new OpenRtbConverterException("Error in converting pmp ext ", e);
-        }
-        source.getExt().remove(CommonConstants.RESTRICTIONS);
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for BidRequest2_X", e);
-    }
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "error while typecasting ext for BidRequest2_X");
+    target.setExt(
+      fetchExtFromFieldInExt(
+        source.getExt(), CommonConstants.RESTRICTIONS, "Error in mapping ext of restriction"));
   }
 }

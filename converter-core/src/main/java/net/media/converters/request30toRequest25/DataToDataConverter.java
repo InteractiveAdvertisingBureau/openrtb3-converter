@@ -26,6 +26,7 @@ import net.media.utils.CollectionUtils;
 import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class DataToDataConverter implements Converter<Data, net.media.openrtb25.request.Data> {
@@ -52,7 +53,9 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb25.
       Config config,
       Provider converterProvider)
       throws OpenRtbConverterException {
-    if (target == null || source == null) return;
+    if (target == null || source == null) {
+      return;
+    }
     Converter<Segment, net.media.openrtb25.request.Segment> segmentSegmentConverter =
         converterProvider.fetch(
             new Conversion<>(Segment.class, net.media.openrtb25.request.Segment.class));
@@ -63,7 +66,7 @@ public class DataToDataConverter implements Converter<Data, net.media.openrtb25.
             source.getSegment(), segmentSegmentConverter, config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(MapUtils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
   }
 }

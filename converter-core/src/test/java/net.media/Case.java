@@ -24,15 +24,27 @@ public class Case {
   private String inputFile;
   private String inputType;
   private Map<String, String> inputEdits;
-  private JsonNode inputJson;
+  private Object inputJson;
   private String outputFile;
   private String outputType;
   private Map<String, String> outputEdits;
   private JsonNode outputJson;
   private String purpose;
-  private Map<String, String> params;
+  private Map<String, Object> params;
+  private Map<String, Object> config;
+  private Map<String, Object> overRidingMap;
+  private Integer inputAsString;
+  private Integer testEnhance;
 
   public Case() {}
+
+  public Map<String, Object> getConfig() {
+    return config;
+  }
+
+  public void setConfig(Map<String, Object> config) {
+    this.config = config;
+  }
 
   public String getInputFile() {
     return this.inputFile;
@@ -58,11 +70,11 @@ public class Case {
     this.inputEdits = inputEdits;
   }
 
-  public JsonNode getInputJson() {
+  public Object getInputJson() {
     return this.inputJson;
   }
 
-  public void setInputJson(JsonNode inputJson) {
+  public void setInputJson(Object inputJson) {
     this.inputJson = inputJson;
   }
 
@@ -106,11 +118,35 @@ public class Case {
     this.purpose = purpose;
   }
 
-  public Map<String, String> getParams() {
+  public Map<String, Object> getParams() {
     return this.params;
   }
 
-  public void setParams(Map<String, String> params) {
+  public void setParams(Map<String, Object> params) {
     this.params = params;
+  }
+
+  public Map<String, Object> getOverRidingMap() {
+    return overRidingMap;
+  }
+
+  public void setOverRidingMap(Map<String, Object> overRidingMap) {
+    this.overRidingMap = overRidingMap;
+  }
+
+  public Integer getInputAsString() {
+    return inputAsString;
+  }
+
+  public void setInputAsString(Integer inputAsString) {
+    this.inputAsString = inputAsString;
+  }
+
+  public Integer getTestEnhance() {
+    return testEnhance;
+  }
+
+  public void setTestEnhance(Integer testEnhance) {
+    this.testEnhance = testEnhance;
   }
 }

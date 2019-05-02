@@ -24,16 +24,23 @@ import net.media.openrtb25.response.Bid;
 import net.media.openrtb3.Media;
 import net.media.template.MacroMapper;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.*;
 
 public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, Bid> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.PROTOCOL);
+  }
 
   @Override
   public Bid map(net.media.openrtb3.Bid source, Config config, Provider converterProvider)
@@ -56,7 +63,7 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
     if (source != null) {
       Map<String, Object> map = source.getExt();
       if (map != null) {
-        target.setExt(MapUtils.copyMap(map, config));
+        target.setExt(new HashMap<>(map));
       }
       target.setId(source.getId());
       if (source.getPrice() != null) {
@@ -73,18 +80,16 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
       if (isNull(target.getExt())) {
         target.setExt(new HashMap<>());
       }
-      //      target.setQagmediarating(Integer.parseInt(source.getMid()));
       target.setAdid(source.getMid());
-      //      target.getExt().put("qagmediarating", source.getMid());
-      target.getExt().put(CommonConstants.MACRO, source.getMacro());
+      putToExt(source::getMacro, target.getExt(), CommonConstants.MACRO, target::setExt);
       mediaBidConverter.enhance(source.getMedia(), target, config, converterProvider);
       MacroMapper.macroReplaceTwoX(target);
-      if (nonNull(source.getExt())) {
-        if (source.getExt().containsKey(CommonConstants.PROTOCOL)) {
-          target.setProtocol((Integer) source.getExt().get(CommonConstants.PROTOCOL));
-          target.getExt().remove(CommonConstants.PROTOCOL);
-        }
-      }
+      fetchFromExt(
+        target::setProtocol,
+        source.getExt(),
+        CommonConstants.PROTOCOL,
+        "error while mapping protocol from Bid.ext");
     }
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

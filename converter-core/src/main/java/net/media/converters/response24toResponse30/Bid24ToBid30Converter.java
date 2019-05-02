@@ -23,10 +23,25 @@ import net.media.openrtb25.response.Bid;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import static java.util.Objects.nonNull;
+import java.util.ArrayList;
+import java.util.List;
+
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class Bid24ToBid30Converter extends Bid25ToBid30Converter {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.BURL);
+    extraFieldsInExt.add(CommonConstants.LURL);
+    extraFieldsInExt.add(CommonConstants.TACTIC);
+    extraFieldsInExt.add(CommonConstants.LANGUAGE);
+    extraFieldsInExt.add(CommonConstants.WRATIO);
+    extraFieldsInExt.add(CommonConstants.HRATIO);
+  }
 
   public void enhance(
       Bid source, net.media.openrtb3.Bid target, Config config, Provider converterProvider)
@@ -34,42 +49,38 @@ public class Bid24ToBid30Converter extends Bid25ToBid30Converter {
     if (source == null || target == null) {
       return;
     }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.BURL)) {
-        source.setBurl((String) source.getExt().get(CommonConstants.BURL));
-        source.getExt().remove(CommonConstants.BURL);
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.LURL)) {
-        source.setLurl((String) source.getExt().get(CommonConstants.LURL));
-        source.getExt().remove(CommonConstants.LURL);
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.TACTIC)) {
-        source.setTactic((String) source.getExt().get(CommonConstants.TACTIC));
-        source.getExt().remove(CommonConstants.TACTIC);
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.LANGUAGE)) {
-        source.setLanguage((String) source.getExt().get(CommonConstants.LANGUAGE));
-        source.getExt().remove(CommonConstants.LANGUAGE);
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.WRATIO)) {
-        source.setWratio((Integer) source.getExt().get(CommonConstants.WRATIO));
-        source.getExt().remove(CommonConstants.WRATIO);
-      }
-    }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.HRATIO)) {
-        source.setHratio((Integer) source.getExt().get(CommonConstants.HRATIO));
-        source.getExt().remove(CommonConstants.HRATIO);
-      }
-    }
+
+    fetchFromExt(
+      source::setBurl,
+      source.getExt(),
+      CommonConstants.BURL,
+      "Failed while mapping burl from bid");
+    fetchFromExt(
+      source::setLurl,
+      source.getExt(),
+      CommonConstants.LURL,
+      "Failed while mapping lurl from bid");
+    fetchFromExt(
+      source::setTactic,
+      source.getExt(),
+      CommonConstants.TACTIC,
+      "Failed while mapping tactic from bid");
+    fetchFromExt(
+      source::setLanguage,
+      source.getExt(),
+      CommonConstants.LANGUAGE,
+      "Failed while mapping language from bid");
+    fetchFromExt(
+      source::setWratio,
+      source.getExt(),
+      CommonConstants.WRATIO,
+      "Failed while mapping wratio from bid");
+    fetchFromExt(
+      source::setHratio,
+      source.getExt(),
+      CommonConstants.HRATIO,
+      "Failed while mapping hratio from bid");
     super.enhance(source, target, config, converterProvider);
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

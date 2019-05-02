@@ -19,10 +19,12 @@ package net.media.converters.request25toRequest30;
 import net.media.config.Config;
 import net.media.converters.Converter;
 import net.media.openrtb25.request.Metric;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
+import java.util.HashMap;
+
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 /** Created by rajat.go on 03/01/19. */
 public class MetricToMetricConverter implements Converter<Metric, net.media.openrtb3.Metric> {
@@ -44,7 +46,9 @@ public class MetricToMetricConverter implements Converter<Metric, net.media.open
       metric1.setType(metric.getType());
       metric1.setVendor(metric.getVendor());
       metric1.setValue(metric.getValue());
-      metric1.setExt(MapUtils.copyMap(metric.getExt(), config));
+      if (nonNull(metric.getExt())) {
+        metric1.setExt(new HashMap<>(metric.getExt()));
+      }
     }
   }
 }

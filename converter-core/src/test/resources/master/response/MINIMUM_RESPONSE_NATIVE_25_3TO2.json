@@ -1,0 +1,40 @@
+{
+  "id" : "0123456789ABCDEF",
+  "seatbid" : [ {
+    "bid" : [ {
+      "impid" : "ad12",
+      "price" : 1.6,
+      "crid" : "ad1",
+      "ext" : {
+        "cattax" : 2
+      },
+      "adm" : {
+        "native" : {
+          "link" : {
+            "url": "abc"
+          },
+          "asset": [{
+            "title": {
+              "text": "text"
+            },
+            "img": {
+              "url": "abcd.com"
+            },
+            "video": {
+              "vasttag" : "adm",
+              "ext" : {
+                "curl": "curl.com"
+              }
+            },
+            "data": {
+              "value": "val123"
+            },
+            "link": {
+              "url": "ur.com"
+            }
+          }]
+        }
+      }
+    } ]
+  } ]
+}

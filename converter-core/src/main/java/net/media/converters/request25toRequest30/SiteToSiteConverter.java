@@ -25,14 +25,25 @@ import net.media.openrtb25.request.Publisher;
 import net.media.openrtb25.request.Site;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static net.media.utils.CommonConstants.DEFAULT_CATTAX_TWODOTX;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.Site> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.CATTAX);
+    extraFieldsInExt.add(CommonConstants.AMP);
+  }
 
   @Override
   public net.media.openrtb3.Site map(Site source, Config config, Provider converterProvider)
@@ -52,7 +63,9 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
   public void enhance(
       Site source, net.media.openrtb3.Site target, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (source == null || target == null) return;
+    if (source == null || target == null) {
+      return;
+    }
     Converter<Publisher, net.media.openrtb3.Publisher> publisherPublisherConverter =
         converterProvider.fetch(
             new Conversion<>(Publisher.class, net.media.openrtb3.Publisher.class));
@@ -77,22 +90,16 @@ public class SiteToSiteConverter implements Converter<Site, net.media.openrtb3.S
     target.setMobile(source.getMobile());
     Map<String, Object> map = source.getExt();
     if (map != null) {
-      target.setExt(MapUtils.copyMap(map, config));
+      target.setExt(new HashMap<>(map));
     }
-    if (source.getExt() == null) return;
-    try {
-      if (source.getExt().containsKey(CommonConstants.CATTAX)) {
-        target.setCattax((Integer) source.getExt().get(CommonConstants.CATTAX));
-        target.getExt().remove(CommonConstants.CATTAX);
-      } else {
-        target.setCattax(DEFAULT_CATTAX_TWODOTX);
-      }
-      if (source.getExt().containsKey(CommonConstants.AMP)) {
-        target.setAmp((Integer) source.getExt().get(CommonConstants.AMP));
-        target.getExt().remove(CommonConstants.AMP);
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Site", e);
-    }
+    target.setCattax(DEFAULT_CATTAX_TWODOTX);
+    fetchFromExt(
+      target::setCattax,
+      source.getExt(),
+      CommonConstants.CATTAX,
+      "error while mapping cattax from site");
+    fetchFromExt(
+      target::setAmp, source.getExt(), CommonConstants.AMP, "error while mapping amp from site");
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

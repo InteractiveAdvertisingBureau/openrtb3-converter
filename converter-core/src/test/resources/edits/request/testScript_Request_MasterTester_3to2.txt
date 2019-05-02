@@ -19,6 +19,20 @@ cases:
      id: "\"1\""
    purpose: bannerAppRequest_3to2
 
+ - inputFile: NATIVE_SITE_30_3to2_WL.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.id: "\"1\""
+   outputFile: NATIVE_SITE_25_WL.json
+   outputType: "REQUEST25"
+   outputEdits:
+     id: "\"1\""
+   params:
+     nativeRequestAsString : false
+   purpose: nativeSiteWhitelisted_3to2
+
+
+
  - inputFile: NATIVE_SITE_30_3to2.json
    inputType: "REQUEST30"
    inputEdits:
@@ -83,3 +97,28 @@ cases:
      id: "\"1\""
    purpose: nativeAppRequest_3to2
 
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.id: "\"1\""
+   outputFile: BANNER_SITE_23.json
+   outputType: "REQUEST25"
+   outputEdits:
+     id: "\"1\""
+   purpose: bannersite23_3to2
+   params:
+       openRtbVersion2_XVersion: TWO_DOT_THREE
+
+
+ - inputFile: BANNER_SITE_30.json
+   inputType: "REQUEST30"
+   inputEdits:
+     openrtb.request.id: "\"1\""
+   outputFile: BANNER_SITE_24.json
+   outputType: "REQUEST25"
+   outputEdits:
+     id: "\"1\""
+   purpose: bannersite24_3to2
+   params:
+       openRtbVersion2_XVersion: TWO_DOT_FOUR

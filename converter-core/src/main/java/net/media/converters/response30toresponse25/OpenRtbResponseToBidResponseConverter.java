@@ -25,10 +25,10 @@ import net.media.openrtb25.response.SeatBid;
 import net.media.openrtb3.OpenRTB3_X;
 import net.media.openrtb3.Response;
 import net.media.openrtb3.Seatbid;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static java.util.Objects.isNull;
@@ -40,7 +40,9 @@ public class OpenRtbResponseToBidResponseConverter
   @Override
   public BidResponse2_X map(OpenRTB3_X source, Config config, Provider converterProvider)
       throws OpenRtbConverterException {
-    if (isNull(source) || isNull(config)) return null;
+    if (isNull(source) || isNull(config)) {
+      return null;
+    }
     BidResponse2_X bidResponse = new BidResponse2_X();
     enhance(source, bidResponse, config, converterProvider);
     return bidResponse;
@@ -53,9 +55,13 @@ public class OpenRtbResponseToBidResponseConverter
 
     Converter<Seatbid, SeatBid> seatBid30ToSeatBid25Converter =
         converterProvider.fetch(new Conversion<>(Seatbid.class, SeatBid.class));
-    if (isNull(source) || isNull(target) || isNull(config)) return;
+    if (isNull(source) || isNull(target) || isNull(config)) {
+      return;
+    }
     Response response = source.getResponse();
-    if (response == null) return;
+    if (response == null) {
+      return;
+    }
 
     target.setId(response.getId());
     List<SeatBid> seatBidList = new ArrayList<>();
@@ -68,7 +74,9 @@ public class OpenRtbResponseToBidResponseConverter
     target.setBidid(response.getBidid());
     target.setCur(response.getCur());
     target.setNbr(response.getNbr());
-    target.setExt(MapUtils.copyMap(response.getExt(), config));
+    if (nonNull(response.getExt())) {
+      target.setExt(new HashMap<>(response.getExt()));
+    }
     target.setCustomdata(response.getCdata());
   }
 }

@@ -26,7 +26,6 @@ import net.media.openrtb3.Companion;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
 
 import java.util.Collections;
@@ -34,6 +33,7 @@ import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 public class VideoPlacementToVideoConverter implements Converter<VideoPlacement, Video> {
 
@@ -83,8 +83,11 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     video.setDelivery(CollectionUtils.copyCollection(videoPlacement.getDelivery(), config));
     video.setPos(videoPlacement.getPos());
     video.setApi(CollectionUtils.copyCollection(videoPlacement.getApi(), config));
-    video.setExt(MapUtils.copyMap(videoPlacement.getExt(), config));
-
+    if (isNull(videoPlacement.getExt())) {
+      video.setExt(new HashMap<>());
+    } else {
+      video.setExt(new HashMap<>(videoPlacement.getExt()));
+    }
     videoPlacementToVideoAfterMapping(videoPlacement, video);
   }
 
@@ -94,17 +97,7 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
         video.setPlaybackmethod(Collections.singletonList(videoPlacement.getPlaymethod()));
       }
     }
-    if (nonNull(videoPlacement.getUnit())) {
-      if (isNull(video.getExt())) {
-        video.setExt(new HashMap<>());
-      }
-      video.getExt().put(CommonConstants.UNIT, videoPlacement.getUnit());
-    }
-    if (nonNull(videoPlacement.getMaxseq())) {
-      if (isNull(video.getExt())) {
-        video.setExt(new HashMap<>());
-      }
-      video.getExt().put(CommonConstants.MAXSEQ, videoPlacement.getMaxseq());
-    }
+    putToExt(videoPlacement::getUnit, video.getExt(), CommonConstants.UNIT, video::setExt);
+    putToExt(videoPlacement::getMaxseq, video.getExt(), CommonConstants.MAXSEQ, video::setExt);
   }
 }

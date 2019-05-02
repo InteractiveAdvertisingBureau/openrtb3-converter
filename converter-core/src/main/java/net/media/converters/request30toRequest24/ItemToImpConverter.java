@@ -23,10 +23,7 @@ import net.media.openrtb3.Item;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
-import java.util.HashMap;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class ItemToImpConverter
@@ -38,12 +35,7 @@ public class ItemToImpConverter
       return;
     }
     super.enhance(item, imp, config, converterProvider);
-    if (nonNull(imp.getMetric())) {
-      if (isNull(imp.getExt())) {
-        imp.setExt(new HashMap<>());
-      }
-      imp.getExt().put(CommonConstants.METRIC, imp.getMetric());
-      imp.setMetric(null);
-    }
+    putToExt(imp::getMetric, imp.getExt(), CommonConstants.METRIC, imp::setExt);
+    imp.setMetric(null);
   }
 }

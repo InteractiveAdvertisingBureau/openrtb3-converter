@@ -26,14 +26,27 @@ import net.media.openrtb3.Companion;
 import net.media.openrtb3.VideoPlacement;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
-import net.media.utils.MapUtils;
 import net.media.utils.Provider;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/01/19. */
 public class VideoToVideoPlacementConverter implements Converter<Video, VideoPlacement> {
+
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+
+  static {
+    extraFieldsInExt.add(CommonConstants.UNIT);
+    extraFieldsInExt.add(CommonConstants.MAXSEQ);
+    extraFieldsInExt.add(CommonConstants.QTY);
+  }
 
   @Override
   public VideoPlacement map(Video video, Config config, Provider converterProvider)
@@ -83,29 +96,25 @@ public class VideoToVideoPlacementConverter implements Converter<Video, VideoPla
     videoPlacement.setW(video.getW());
     videoPlacement.setH(video.getH());
     videoPlacement.setDelivery(CollectionUtils.copyCollection(video.getDelivery(), config));
-    videoPlacement.setExt(MapUtils.copyMap(video.getExt(), config));
+    if (nonNull(video.getExt())) {
+      videoPlacement.setExt(new HashMap<>(video.getExt()));
+    }
     videoToVideoPlacementAfterMapping(video, config, videoPlacement);
   }
 
   private void videoToVideoPlacementAfterMapping(
       Video video, Config config, VideoPlacement videoPlacement) throws OpenRtbConverterException {
-    try {
-      if (nonNull(video) && nonNull(video.getExt()) && nonNull(videoPlacement)) {
-        videoPlacement.setExt((MapUtils.copyMap(video.getExt(), config)));
-        if (video.getExt().containsKey(CommonConstants.UNIT)) {
-          videoPlacement.setUnit((Integer) video.getExt().get(CommonConstants.UNIT));
-          videoPlacement.getExt().remove(CommonConstants.UNIT);
-        }
-        if (video.getExt().containsKey(CommonConstants.MAXSEQ)) {
-          videoPlacement.setMaxseq((Integer) video.getExt().get(CommonConstants.MAXSEQ));
-          videoPlacement.getExt().remove(CommonConstants.MAXSEQ);
-        }
-        if (videoPlacement.getExt().containsKey(CommonConstants.QTY)) {
-          videoPlacement.getExt().remove(CommonConstants.QTY);
-        }
-      }
-    } catch (ClassCastException e) {
-      throw new OpenRtbConverterException("error while typecasting ext for Video", e);
-    }
+    videoPlacement.setExt(new HashMap<>(video.getExt()));
+    fetchFromExt(
+      videoPlacement::setUnit,
+      video.getExt(),
+      CommonConstants.UNIT,
+      "error while mapping unit from Video");
+    fetchFromExt(
+      videoPlacement::setMaxseq,
+      video.getExt(),
+      CommonConstants.MAXSEQ,
+      "error while mapping maxseq from Video");
+    removeFromExt(videoPlacement.getExt(), extraFieldsInExt);
   }
 }

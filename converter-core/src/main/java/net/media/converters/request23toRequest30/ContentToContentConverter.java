@@ -25,16 +25,31 @@ import net.media.utils.CommonConstants;
 import net.media.utils.JacksonObjectMapperUtils;
 import net.media.utils.Provider;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
-import static java.util.Objects.nonNull;
+import static net.media.utils.ExtUtils.fetchFromExt;
+import static net.media.utils.ExtUtils.removeFromExt;
 
 /** Created by rajat.go on 03/04/19. */
 public class ContentToContentConverter
     extends net.media.converters.request25toRequest30.ContentToContentConverter {
 
-  private static final JavaType javaTypeForDataCollection = JacksonObjectMapperUtils.getMapper().getTypeFactory()
-    .constructCollectionType(Collection.class, Data.class);
+  private static final List<String> extraFieldsInExt = new ArrayList<>();
+  private static final JavaType javaTypeForDataCollection =
+    JacksonObjectMapperUtils.getMapper()
+      .getTypeFactory()
+      .constructCollectionType(Collection.class, Data.class);
+
+  static {
+    extraFieldsInExt.add(CommonConstants.ARTIST);
+    extraFieldsInExt.add(CommonConstants.GENRE);
+    extraFieldsInExt.add(CommonConstants.ALBUM);
+    extraFieldsInExt.add(CommonConstants.ISRC);
+    extraFieldsInExt.add(CommonConstants.PRODQ);
+    extraFieldsInExt.add(CommonConstants.DATA);
+  }
 
   public void enhance(
       Content source, net.media.openrtb3.Content target, Config config, Provider converterProvider)
@@ -42,57 +57,38 @@ public class ContentToContentConverter
     if (source == null || target == null) {
       return;
     }
-    if (nonNull(source.getExt())) {
-      if (source.getExt().containsKey(CommonConstants.ARTIST)) {
-        try {
-          source.setArtist((String) source.getExt().get(CommonConstants.ARTIST));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting artist from content.ext.artist", e);
-        }
-        source.getExt().remove(CommonConstants.ARTIST);
-      }
-      if (source.getExt().containsKey(CommonConstants.GENRE)) {
-        try {
-          source.setGenre((String) source.getExt().get(CommonConstants.GENRE));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting genre from content.ext.genre", e);
-        }
-        source.getExt().remove(CommonConstants.GENRE);
-      }
-      if (source.getExt().containsKey(CommonConstants.ALBUM)) {
-        try {
-          source.setAlbum((String) source.getExt().get(CommonConstants.ALBUM));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting album from content.ext.album", e);
-        }
-        source.getExt().remove(CommonConstants.ALBUM);
-      }
-      if (source.getExt().containsKey(CommonConstants.ISRC)) {
-        try {
-          source.setIsrc((String) source.getExt().get(CommonConstants.ISRC));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting isrc from content.ext.isrc", e);
-        }
-        source.getExt().remove(CommonConstants.ISRC);
-      }
-      if (source.getExt().containsKey(CommonConstants.PRODQ)) {
-        try {
-          source.setProdq((Integer) source.getExt().get(CommonConstants.PRODQ));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting prodq from content.ext.prodq", e);
-        }
-        source.getExt().remove(CommonConstants.PRODQ);
-      }
-      if (source.getExt().containsKey(CommonConstants.DATA)) {
-        try {
-          source.setData(JacksonObjectMapperUtils.getMapper().convertValue(source.getExt().get(CommonConstants.DATA),
-            javaTypeForDataCollection));
-        } catch (Exception e) {
-          throw new OpenRtbConverterException("Error in setting data from content.ext.data", e);
-        }
-        source.getExt().remove(CommonConstants.DATA);
-      }
-    }
+    fetchFromExt(
+      source::setArtist,
+      source.getExt(),
+      CommonConstants.ARTIST,
+      "Error in setting artist from content.ext.artist");
+    fetchFromExt(
+      source::setGenre,
+      source.getExt(),
+      CommonConstants.GENRE,
+      "Error in setting genre from content.ext.genre");
+    fetchFromExt(
+      source::setAlbum,
+      source.getExt(),
+      CommonConstants.ALBUM,
+      "Error in setting album from content.ext.album");
+    fetchFromExt(
+      source::setIsrc,
+      source.getExt(),
+      CommonConstants.ISRC,
+      "Error in setting isrc from content.ext.isrc");
+    fetchFromExt(
+      source::setProdq,
+      source.getExt(),
+      CommonConstants.PRODQ,
+      "Error in setting prodq from content.ext.prodq");
+    fetchFromExt(
+      source::setData,
+      source.getExt(),
+      CommonConstants.DATA,
+      "Error in setting data from content.ext.data",
+      javaTypeForDataCollection);
     super.enhance(source, target, config, converterProvider);
+    removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

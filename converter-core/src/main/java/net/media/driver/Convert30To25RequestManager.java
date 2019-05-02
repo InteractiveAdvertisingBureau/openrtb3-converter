@@ -21,7 +21,6 @@ import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.Audio;
 import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.*;
-import net.media.openrtb25.request.Native;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.App;
 import net.media.openrtb3.*;
@@ -50,8 +49,8 @@ public class Convert30To25RequestManager {
         new Conversion<>(NativeFormat.class, NativeRequestBody.class),
         new NativeFormatToNativeRequestBodyConverter());
     converterProvider.register(
-        new Conversion<>(DisplayPlacement.class, Native.class),
-        new DisplayPlacementToNativeConverter());
+        new Conversion<>(DisplayPlacement.class, NativeRequest.class),
+        new DisplayPlacementToNativeRequestConverter());
     converterProvider.register(
         new Conversion<>(DisplayPlacement.class, Banner.class),
         new DisplayPlacementToBannerConverter());
