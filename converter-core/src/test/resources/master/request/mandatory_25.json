@@ -1,0 +1,48 @@
+{
+  "id":"request123",
+  "imp": [
+    {
+      "id": "1",
+      "metric": [
+        {
+          "type": "dd",
+          "value": 1.0
+        }
+      ],
+      "pmp": {
+        "deals": [
+          {
+            "id": "ww"
+          }
+        ]
+      },
+      "banner": {
+
+      },
+      "native" : {
+        "request" : {
+          "native": {
+            "assets": [
+              {
+                "id" : 1,
+                "title": {
+                  "len": 1
+                }
+              }
+            ]
+          }
+        }
+      },
+      "video" : {
+        "mimes" : ["mime1","mime2"]
+      },
+      "audio" : {
+        "mimes" : ["mime"]
+      }
+    }
+  ],
+  "site": {
+
+  }
+
+}

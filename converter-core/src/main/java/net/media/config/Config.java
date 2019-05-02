@@ -42,7 +42,7 @@ public class Config {
 
   private static final boolean DEFAULT_DISABLE_CLONING = false;
 
-  private static final boolean DEFAULT_VALIDATE = false;
+  private static final boolean DEFAULT_VALIDATE = true;
 
   private static final AdType DEFAULT_AD_TYPE = AdType.BANNER;
 

@@ -24,7 +24,6 @@ import net.media.openrtb25.request.Banner;
 import net.media.openrtb25.request.Video;
 import net.media.openrtb3.Companion;
 import net.media.openrtb3.VideoPlacement;
-import net.media.utils.CollectionToCollectionConverter;
 import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
@@ -69,7 +68,7 @@ public class VideoPlacementToVideoConverter implements Converter<VideoPlacement,
     video.setMinduration(videoPlacement.getMindur());
     video.setCompaniontype(CollectionUtils.copyCollection(videoPlacement.getComptype(), config));
     video.setCompanionad(
-        CollectionToCollectionConverter.convert(
+        CollectionUtils.convert(
             videoPlacement.getComp(), companionBannerConverter, config, converterProvider));
     video.setMimes(CollectionUtils.copyCollection(videoPlacement.getMime(), config));
     video.setMaxduration(videoPlacement.getMaxdur());

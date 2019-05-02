@@ -24,7 +24,7 @@ import net.media.openrtb25.request.Asset;
 import net.media.openrtb25.request.NativeRequestBody;
 import net.media.openrtb3.AssetFormat;
 import net.media.openrtb3.NativeFormat;
-import net.media.utils.CollectionToCollectionConverter;
+import net.media.utils.CollectionUtils;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
@@ -33,6 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 import static net.media.utils.ExtUtils.fetchFromExt;
 import static net.media.utils.ExtUtils.removeFromExt;
 
@@ -89,11 +90,13 @@ public class NativeFormatToNativeRequestBodyConverter
       nativeFormat.getExt(),
       CommonConstants.VER,
       "error while mapping ext for DisplayPlacement");
-    nativeRequestBody.setExt(new HashMap<>(nativeFormat.getExt()));
+    if(nativeFormat.getExt() != null) {
+      nativeRequestBody.setExt(new HashMap<>(nativeFormat.getExt()));
+    }
     Converter<AssetFormat, Asset> assetFormatAssetConverter =
         converterProvider.fetch(new Conversion<>(AssetFormat.class, Asset.class));
     nativeRequestBody.setAssets(
-        CollectionToCollectionConverter.convert(
+        CollectionUtils.convert(
             nativeFormat.getAsset(), assetFormatAssetConverter, config, converterProvider));
     removeFromExt(nativeRequestBody.getExt(), extraFieldsInExt);
   }

@@ -31,6 +31,7 @@ import java.util.*;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.CollectionUtils.copyCollection;
 import static net.media.utils.ExtUtils.*;
 
 public class DisplayPlacementToBannerConverter implements Converter<DisplayPlacement, Banner> {
@@ -69,13 +70,13 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     if (isNull(displayPlacement) || isNull(banner)) {
       return;
     }
-    banner.setMimes(CollectionUtils.copyCollection(displayPlacement.getMime(), config));
+    banner.setMimes(copyCollection(displayPlacement.getMime(), config));
     banner.setFormat(displayFormatListToFormatList(displayPlacement.getDisplayfmt(), config));
     if (nonNull(displayPlacement.getDisplayfmt())) {
       for (DisplayFormat displayFormat : displayPlacement.getDisplayfmt()) {
         if (!CollectionUtils.isEmpty(displayFormat.getExpdir())) {
           Collection<Integer> formatExpdir =
-            CollectionUtils.copyCollection(displayFormat.getExpdir(), config);
+            copyCollection(displayFormat.getExpdir(), config);
           if (isNull(banner.getExpdir())) {
             banner.setExpdir(formatExpdir);
           } else {
@@ -96,7 +97,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     banner.setH(displayPlacement.getH());
     banner.setPos(displayPlacement.getPos());
     banner.setTopframe(displayPlacement.getTopframe());
-    banner.setApi(CollectionUtils.copyCollection(displayPlacement.getApi(), config));
+    banner.setApi(copyCollection(displayPlacement.getApi(), config));
     Map<String, Object> map = displayPlacement.getExt();
     if (map != null) {
       banner.setExt(new HashMap<>(map));
@@ -136,7 +137,7 @@ public class DisplayPlacementToBannerConverter implements Converter<DisplayPlace
     putToExt(displayPlacement::getPtype, banner.getExt(), CommonConstants.PTYPE, banner::setExt);
     putToExt(
       displayPlacement::getContext, banner.getExt(), CommonConstants.CONTEXT, banner::setExt);
-    putToExt(displayPlacement::getCtype, banner.getExt(), CommonConstants.CTYPE, banner::setExt);
+    putToExt(() -> copyCollection(displayPlacement.getCtype(), config), banner.getExt(), CommonConstants.CTYPE, banner::setExt);
     putToExt(displayPlacement::getPriv, banner.getExt(), CommonConstants.PRIV, banner::setExt);
     removeFromExt(banner.getExt(), extraFieldsInExt);
   }

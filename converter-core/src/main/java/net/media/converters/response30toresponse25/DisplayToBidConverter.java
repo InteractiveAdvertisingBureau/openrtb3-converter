@@ -24,6 +24,7 @@ import net.media.enums.AdType;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.response.Bid;
 import net.media.openrtb25.response.nativeresponse.NativeResponse;
+import net.media.openrtb3.Banner;
 import net.media.openrtb3.Display;
 import net.media.openrtb3.Native;
 import net.media.utils.CommonConstants;
@@ -35,6 +36,8 @@ import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.CollectionUtils.copyCollection;
+import static net.media.utils.CollectionUtils.copyObject;
 import static net.media.utils.ExtUtils.putToExt;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
@@ -73,7 +76,7 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
     putToExt(source::getCtype, target.getExt(), CommonConstants.CTYPE, target::setExt);
     putToExt(source::getPriv, target.getExt(), CommonConstants.PRIV, target::setExt);
     putToExt(source::getCurl, target.getExt(), CommonConstants.CURL, target::setExt);
-    putToExt(source::getEvent, target.getExt(), CommonConstants.EVENT, target::setExt);
+    putToExt(() -> copyCollection(source.getEvent(), config), target.getExt(), CommonConstants.EVENT, target::setExt);
     putToExt(source::getMime, target.getExt(), CommonConstants.MIME, target::setExt);
 
     if (isEmpty(target.getNurl())) {
@@ -110,7 +113,7 @@ public class DisplayToBidConverter implements Converter<Display, Bid> {
         }
       }
     } else {
-      putToExt(source::getBanner, target.getExt(), CommonConstants.BANNER, target::setExt);
+      putToExt(() -> copyObject(source.getBanner(), Banner.class, config), target.getExt(), CommonConstants.BANNER, target::setExt);
       if (nonNull(source.getAdm())) {
         target.setAdm(source.getAdm());
       }

@@ -580,7 +580,9 @@
     }
   },
   "purpose" : "nativeStringConfigDefault",
-  "params" : null,
+  "params" : {
+    "validate" : false
+  },
   "config" : null,
   "overRidingMap" : null,
   "inputAsString" : null,

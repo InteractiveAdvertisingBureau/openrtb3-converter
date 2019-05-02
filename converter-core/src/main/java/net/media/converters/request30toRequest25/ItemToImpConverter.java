@@ -38,6 +38,7 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.CollectionUtils.copyCollection;
 import static net.media.utils.ExtUtils.*;
 
 public class ItemToImpConverter implements Converter<Item, Imp> {
@@ -111,7 +112,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         NativeRequest nativeRequest =
           displayPlacementNativeConverter.map(display, config, converterProvider);
         Native nat = new Native();
-        nat.setApi(CollectionUtils.copyCollection(display.getApi(), config));
+        nat.setApi(copyCollection(display.getApi(), config));
         if (nonNull(display.getExt())) {
           if (isNull(nat.getExt())) {
             nat.setExt(new HashMap<>());
@@ -124,7 +125,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
             "error while mapping ver from nativefmt.ext");
         }
         putToExt(display::getPriv, nat.getExt(), CommonConstants.PRIV, nat::setExt);
-        putToExt(display::getCtype, nat.getExt(), CommonConstants.CTYPE, nat::setExt);
+        putToExt(() -> copyCollection(display.getCtype(), config), nat.getExt(), CommonConstants.CTYPE, nat::setExt);
         if (nonNull(nativeRequest) && nonNull(nativeRequest.getNativeRequestBody())) {
           nativeRequest.getNativeRequestBody().setPlcmtcnt(item.getQty());
           nativeRequest.getNativeRequestBody().setSeq(item.getSeq());
@@ -142,7 +143,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
         imp.setNat(nat);
       }
       imp.setInstl(display.getInstl());
-      imp.setIframebuster(CollectionUtils.copyCollection(display.getIfrbust(), config));
+      imp.setIframebuster(copyCollection(display.getIfrbust(), config));
       imp.setClickbrowser(display.getClktype());
     }
     imp.setBidfloorcur(item.getFlrcur());
@@ -191,7 +192,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
     Pmp pmp = new Pmp();
 
     pmp.setDeals(
-        CollectionToCollectionConverter.convert(
+        CollectionUtils.convert(
             item.getDeal(), dealDealConverter, config, converterProvider));
     pmp.setPrivate_auction(item.getPriv());
     pmp.setExt(
@@ -370,7 +371,7 @@ public class ItemToImpConverter implements Converter<Item, Imp> {
           CommonConstants.AMPREN,
           imp::setExt);
         putToExt(
-          item.getSpec().getPlacement().getDisplay()::getEvent,
+          () -> copyCollection(item.getSpec().getPlacement().getDisplay().getEvent(), config),
           imp.getExt(),
           CommonConstants.EVENT,
           imp::setExt);

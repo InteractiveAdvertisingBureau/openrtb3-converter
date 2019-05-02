@@ -1,0 +1,420 @@
+cases:
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.domainVer: "\"\""
+      openrtb.request.item[0].spec.placement.display: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30DomainVerRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30RequestObjectRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.id: null
+      openrtb.request.item[0].spec.placement.display: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30RequestIdRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30RequestItemArrayRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].id: null
+      openrtb.request.item[0].spec.placement.display: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30RequestItemIdRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].metric: null
+      openrtb.request.item[0].spec.placement.display: null
+      openrtb.request.item[0].spec.placement.audio: null
+    outputFile: MINIMUM_REQUEST_25_3TO2.json
+    outputType: "REQUEST25"
+    outputEdits:
+      imp[0].audio: null
+      imp[0].native: null
+      imp[0].banner: null
+      imp[0].metric: null
+      imp[0].clickbrowser: null
+      imp[0].ext.event: null
+    purpose: Request30RequestMetricNullAllowed
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].metric[0].type: null
+      openrtb.request.item[0].spec.placement.display: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30RequestMetricTypeRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].metric[0].value: null
+      openrtb.request.item[0].spec.placement.display: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30RequestMetricValueRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].deal: null
+      openrtb.request.item[0].spec.placement.display: null
+      openrtb.request.item[0].spec.placement.audio: null
+    outputFile: MINIMUM_REQUEST_25_3TO2.json
+    outputType: "REQUEST25"
+    outputEdits:
+      imp[0].audio: null
+      imp[0].native: null
+      imp[0].banner: null
+      imp[0].pmp.deals: null
+      imp[0].clickbrowser: null
+      imp[0].ext.event: null
+    purpose: Request30RequestDealNullAllowed
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].deal[0].id: null
+      openrtb.request.item[0].spec.placement.display: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30RequestDealIdRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30RequestSpecRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30RequestSpecPlacementRequired
+
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display: null
+      openrtb.request.item[0].spec.placement.video: null
+      openrtb.request.item[0].spec.placement.audio: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30AtLeastOnePlacementRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display: null
+      openrtb.request.item[0].spec.placement.audio: null
+    outputFile: MINIMUM_REQUEST_25_3TO2.json
+    outputType: "REQUEST25"
+    outputEdits:
+      imp[0].audio: null
+      imp[0].native: null
+      imp[0].banner: null
+      imp[0].clickbrowser: null
+      imp[0].ext.event: null
+    purpose: Request30AtLeastOnePlacementRequiredVideoPass
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display: null
+      openrtb.request.item[0].spec.placement.video: null
+    outputFile: MINIMUM_REQUEST_25_3TO2.json
+    outputType: "REQUEST25"
+    outputEdits:
+      imp[0].video: null
+      imp[0].native: null
+      imp[0].banner: null
+      imp[0].clickbrowser: null
+      imp[0].ext.event: null
+    purpose: Request30AtLeastOnePlacementRequiredAudioPass
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display: null
+      openrtb.request.item[0].spec.placement.video: null
+      openrtb.request.item[0].spec.placement.audio.mime: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30AudioMimeRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display: null
+      openrtb.request.item[0].spec.placement.video.mime: null
+      openrtb.request.item[0].spec.placement.audio: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30VideoMimeRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt: null
+    outputFile: MINIMUM_REQUEST_25_3TO2.json
+    outputType: "REQUEST25"
+    outputEdits:
+      imp[0].native: null
+    purpose: Request30DisplayNativefmtNullAllowed
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt: null
+      openrtb.request.item[0].spec.placement.display.event: null
+    outputFile: MINIMUM_REQUEST_25_3TO2.json
+    outputType: "REQUEST25"
+    outputEdits:
+      imp[0].native: null
+      imp[0].ext.event: null
+    purpose: Request30DisplayEventNullAllowed
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt: null
+      openrtb.request.item[0].spec.placement.display.event[0].type: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30DisplayEventTypeRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30DisplayNativefmtAssetRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].id: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].title: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].video: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].data: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30DisplayNativefmtAssetIdRequired
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      t: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30DisplayNativefmtExactlyValidation1
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].title: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30DisplayNativefmtExactlyValidation2
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].title: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].video: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30DisplayNativefmtExactlyValidation3
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].title: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].video: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].data: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].img: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30DisplayNativefmtExactlyValidation4
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].title: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].video: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].data: null
+    outputFile: MINIMUM_REQUEST_25_3TO2.json
+    outputType: "REQUEST25"
+    outputEdits:
+      imp[0].banner: null
+      imp[0].native.request.native.assets[0].title: null
+      imp[0].native.request.native.assets[0].data: null
+      imp[0].native.request.native.assets[0].video: null
+    purpose: Request30DisplayNativefmtImgPass
+    params:
+      nativeRequestAsString: false
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].img: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].video: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].data: null
+    outputFile: MINIMUM_REQUEST_25_3TO2.json
+    outputType: "REQUEST25"
+    outputEdits:
+      imp[0].banner: null
+      imp[0].native.request.native.assets[0].img: null
+      imp[0].native.request.native.assets[0].data: null
+      imp[0].native.request.native.assets[0].video: null
+    purpose: Request30DisplayNativefmtTitlePass
+    params:
+      nativeRequestAsString: false
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].title: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].img: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].data: null
+    outputFile: MINIMUM_REQUEST_25_3TO2.json
+    outputType: "REQUEST25"
+    outputEdits:
+      imp[0].banner: null
+      imp[0].native.request.native.assets[0].title: null
+      imp[0].native.request.native.assets[0].data: null
+      imp[0].native.request.native.assets[0].img: null
+    purpose: Request30DisplayNativefmtVideoPass
+    params:
+      nativeRequestAsString: false
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].title: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].video: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].img: null
+    outputFile: MINIMUM_REQUEST_25_3TO2.json
+    outputType: "REQUEST25"
+    outputEdits:
+      imp[0].banner: null
+      imp[0].native.request.native.assets[0].title: null
+      imp[0].native.request.native.assets[0].img: null
+      imp[0].native.request.native.assets[0].video: null
+    purpose: Request30DisplayNativefmtDataPass
+    params:
+      nativeRequestAsString: false
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].title: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].video: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].img: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].data.type: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30DisplayNativefmtDataTypeRequired
+    params:
+      nativeRequestAsString: false
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].title.len: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].video: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].img: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].data: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30DisplayNativefmtTitleLenRequired
+    params:
+      nativeRequestAsString: false
+
+  - inputFile: MINIMUM_REQUEST_30.json
+    inputType: "REQUEST30"
+    inputEdits:
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].title: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].video.mime: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].img: null
+      openrtb.request.item[0].spec.placement.display.nativefmt.asset[0].data: null
+    outputFile: empty.json
+    outputType: "REQUEST25"
+    outputEdits:
+      status: ERROR
+    purpose: Request30DisplayNativefmtVideoMimeRequired
+    params:
+      nativeRequestAsString: false

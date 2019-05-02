@@ -131,7 +131,7 @@ public class ExtUtils {
       message,
       () ->
         (X)
-          CollectionToCollectionConverter.convert(
+          CollectionUtils.convert(
             JacksonObjectMapperUtils.getMapper().convertValue(ext.get(field), javaType),
             converter,
             config,

@@ -22,6 +22,7 @@ import net.media.openrtb3.Content;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
+import static net.media.utils.CollectionUtils.copyCollection;
 import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
@@ -49,7 +50,7 @@ public class ContentToContentConverter
     target.setIsrc(null);
     putToExt(target::getProdq, target.getExt(), CommonConstants.PRODQ, target::setExt);
     target.setProdq(null);
-    putToExt(target::getData, target.getExt(), CommonConstants.DATA, target::setExt);
+    putToExt(() -> copyCollection(target.getData(), config), target.getExt(), CommonConstants.DATA, target::setExt);
     target.setData(null);
   }
 }

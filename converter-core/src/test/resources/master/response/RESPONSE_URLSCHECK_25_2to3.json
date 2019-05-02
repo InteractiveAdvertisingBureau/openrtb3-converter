@@ -1,0 +1,39 @@
+{
+  "id": "0123456789ABCDEF",
+  "seatbid": [
+    {
+      "bid": [
+        {
+          "id" : "bid1",
+          "impid": "12",
+          "price": 1.6,
+          "nurl": "purl of bid.com",
+          "crid": "ad1",
+          "ext": {
+            "cattax": 2
+          }
+        },
+        {
+          "id" : "bid2",
+          "impid": "13",
+          "price": 1.6,
+          "nurl": "purl of bid.com",
+          "crid": "ad2",
+          "ext": {
+            "cattax": 2
+          }
+        },
+        {
+          "id": "bid3",
+          "impid": "14",
+          "price": 1.6,
+          "nurl": "purl of bid.com",
+          "crid": "ad3",
+          "ext": {
+            "cattax": 2
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -77,7 +77,6 @@
                   "wratio" : 1,
                   "hratio" : 2,
                   "priv" : "232",
-                  "curl" : "http://www.example3.com/",
                   "native" : {
                     "ext" : {
                       "dummy" : "native.ext",
@@ -94,6 +93,12 @@
                           "dummy" : "title.ext"
                         }
                       },
+                      "ext" : {
+                        "dummy" : "asset.ext"
+                      }
+                    }, {
+                      "id" : 2,
+                      "req" : 1,
                       "image" : {
                         "url" : "abcd.com",
                         "w" : 300,
@@ -103,13 +108,36 @@
                           "dummy" : "image.ext"
                         }
                       },
+                      "ext" : {
+                        "dummy" : "asset.ext"
+                      }
+                    }, {
+                      "id" : 3,
+                      "req" : 1,
                       "video" : {
                         "adm" : "adm",
+                        "ext" : {
+                          "dummy" : "video.ext"
+                        }
+                      },
+                      "ext" : {
+                        "dummy" : "asset.ext"
+                      }
+                    }, {
+                      "id" : 6,
+                      "req" : 1,
+                      "video" : {
                         "curl" : "curl.com",
                         "ext" : {
                           "dummy" : "video.ext"
                         }
                       },
+                      "ext" : {
+                        "dummy" : "asset.ext"
+                      }
+                    }, {
+                      "id" : 4,
+                      "req" : 1,
                       "data" : {
                         "value" : "value",
                         "len" : 5,
@@ -119,6 +147,12 @@
                           "dummy" : "data.ext"
                         }
                       },
+                      "ext" : {
+                        "dummy" : "asset.ext"
+                      }
+                    }, {
+                      "id" : 5,
+                      "req" : 1,
                       "link" : {
                         "url" : "ur.com",
                         "urlfb" : "urlfb.com",
@@ -212,6 +246,12 @@
                   "len" : 3
                 }
               },
+              "ext" : {
+                "dummy" : "asset.ext"
+              }
+            }, {
+              "id" : 2,
+              "required" : 1,
               "img" : {
                 "url" : "abcd.com",
                 "w" : 300,
@@ -221,13 +261,36 @@
                   "type" : 1
                 }
               },
+              "ext" : {
+                "dummy" : "asset.ext"
+              }
+            }, {
+              "id" : 3,
+              "required" : 1,
               "video" : {
                 "vasttag" : "adm",
+                "ext" : {
+                  "dummy" : "video.ext"
+                }
+              },
+              "ext" : {
+                "dummy" : "asset.ext"
+              }
+            }, {
+              "id" : 6,
+              "required" : 1,
+              "video" : {
                 "ext" : {
                   "dummy" : "video.ext",
                   "curl" : "curl.com"
                 }
               },
+              "ext" : {
+                "dummy" : "asset.ext"
+              }
+            }, {
+              "id" : 4,
+              "required" : 1,
               "data" : {
                 "value" : "value",
                 "label" : "label",
@@ -237,6 +300,12 @@
                   "type" : 1
                 }
               },
+              "ext" : {
+                "dummy" : "asset.ext"
+              }
+            }, {
+              "id" : 5,
+              "required" : 1,
               "link" : {
                 "url" : "ur.com",
                 "fallback" : "urlfb.com",
@@ -271,7 +340,6 @@
           "display" : "ext",
           "buyermemberid" : 298,
           "mime" : "image/jpeg",
-          "curl" : "http://www.example3.com/",
           "cattax" : 1,
           "secure" : 1,
           "ctype" : 3,

@@ -75,8 +75,6 @@ public class BidResponseToResponseConverter implements Converter<BidResponse2_X,
     Map<String, Object> map = bidResponse.getExt();
     if (map != null) {
       response.setExt(new HashMap<>(map));
-    } else {
-      response.setExt(null);
     }
     response.setCdata(bidResponse.getCustomdata());
   }

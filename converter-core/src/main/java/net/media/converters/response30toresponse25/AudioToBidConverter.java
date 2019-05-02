@@ -28,6 +28,7 @@ import java.util.HashMap;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static net.media.utils.CollectionUtils.copyCollection;
 import static net.media.utils.ExtUtils.putToExt;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
@@ -58,7 +59,7 @@ public class AudioToBidConverter implements Converter<Audio, Bid> {
     putToExt(source::getCtype, target.getExt(), CommonConstants.CTYPE, target::setExt);
     putToExt(source::getDur, target.getExt(), CommonConstants.DUR, target::setExt);
     putToExt(source::getCurl, target.getExt(), CommonConstants.CURL, target::setExt);
-    putToExt(source::getMime, target.getExt(), CommonConstants.MIME, target::setExt);
+    putToExt(() -> copyCollection(source.getMime(), config), target.getExt(), CommonConstants.MIME, target::setExt);
     if (isEmpty(target.getNurl())) {
       target.setNurl(source.getCurl());
     }

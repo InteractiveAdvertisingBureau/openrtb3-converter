@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
+import static net.media.utils.CollectionUtils.copyCollection;
 import static net.media.utils.ExtUtils.*;
 
 public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, Bid> {
@@ -60,34 +61,36 @@ public class Bid30ToBid25Converter implements Converter<net.media.openrtb3.Bid, 
     if (source == null || target == null || config == null) {
       return;
     }
-    Map<String, Object> map = source.getExt();
-    if (map != null) {
-      target.setExt(new HashMap<>(map));
+    if (source != null) {
+      Map<String, Object> map = source.getExt();
+      if (map != null) {
+        target.setExt(new HashMap<>(map));
+      }
+      target.setId(source.getId());
+      if (source.getPrice() != null) {
+        target.setPrice(source.getPrice());
+      }
+      target.setImpid(source.getItem());
+      target.setDealid(source.getDeal());
+      target.setNurl(source.getPurl());
+      target.setCid(source.getCid());
+      target.setExp(source.getExp());
+      target.setBurl(source.getBurl());
+      target.setLurl(source.getLurl());
+      target.setTactic(source.getTactic());
+      if (isNull(target.getExt())) {
+        target.setExt(new HashMap<>());
+      }
+      target.setAdid(source.getMid());
+      putToExt(() -> copyCollection(source.getMacro(), config), target.getExt(), CommonConstants.MACRO, target::setExt);
+      mediaBidConverter.enhance(source.getMedia(), target, config, converterProvider);
+      MacroMapper.macroReplaceTwoX(target);
+      fetchFromExt(
+        target::setProtocol,
+        source.getExt(),
+        CommonConstants.PROTOCOL,
+        "error while mapping protocol from Bid.ext");
     }
-    target.setId(source.getId());
-    if (source.getPrice() != null) {
-      target.setPrice(source.getPrice());
-    }
-    target.setImpid(source.getItem());
-    target.setDealid(source.getDeal());
-    target.setNurl(source.getPurl());
-    target.setCid(source.getCid());
-    target.setExp(source.getExp());
-    target.setBurl(source.getBurl());
-    target.setLurl(source.getLurl());
-    target.setTactic(source.getTactic());
-    if (isNull(target.getExt())) {
-      target.setExt(new HashMap<>());
-    }
-    target.setAdid(source.getMid());
-    putToExt(source::getMacro, target.getExt(), CommonConstants.MACRO, target::setExt);
-    mediaBidConverter.enhance(source.getMedia(), target, config, converterProvider);
-    MacroMapper.macroReplaceTwoX(target);
-    fetchFromExt(
-      target::setProtocol,
-      source.getExt(),
-      CommonConstants.PROTOCOL,
-      "error while mapping protocol from Bid.ext");
     removeFromExt(target.getExt(), extraFieldsInExt);
   }
 }

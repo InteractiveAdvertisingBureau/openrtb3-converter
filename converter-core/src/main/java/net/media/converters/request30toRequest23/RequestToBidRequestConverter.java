@@ -19,10 +19,13 @@ package net.media.converters.request30toRequest23;
 import net.media.config.Config;
 import net.media.exceptions.OpenRtbConverterException;
 import net.media.openrtb25.request.BidRequest2_X;
+import net.media.openrtb25.request.Source;
 import net.media.openrtb3.Request;
 import net.media.utils.CommonConstants;
 import net.media.utils.Provider;
 
+import static net.media.utils.CollectionUtils.copyCollection;
+import static net.media.utils.CollectionUtils.copyObject;
 import static net.media.utils.ExtUtils.putToExt;
 
 /** Created by rajat.go on 03/04/19. */
@@ -36,13 +39,13 @@ public class RequestToBidRequestConverter
       return;
     }
     super.enhance(source, target, config, converterProvider);
-    putToExt(target::getBseat, target.getExt(), CommonConstants.BSEAT, target::setExt);
+    putToExt(() -> copyCollection(target.getBseat(), config), target.getExt(), CommonConstants.BSEAT, target::setExt);
     target.setBseat(null);
-    putToExt(target::getWlang, target.getExt(), CommonConstants.WLANG, target::setExt);
+    putToExt(() -> copyCollection(target.getWlang(), config), target.getExt(), CommonConstants.WLANG, target::setExt);
     target.setWlang(null);
-    putToExt(target::getSource, target.getExt(), CommonConstants.SOURCE, target::setExt);
+    putToExt(() -> copyObject(target.getSource(), Source.class, config), target.getExt(), CommonConstants.SOURCE, target::setExt);
     target.setSource(null);
-    putToExt(target::getBapp, target.getExt(), CommonConstants.BAPP, target::setExt);
+    putToExt(() -> copyCollection(target.getBapp(), config), target.getExt(), CommonConstants.BAPP, target::setExt);
     target.setBapp(null);
   }
 }
