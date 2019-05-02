@@ -46,15 +46,6 @@ public class OpenRtbToBidRequestConverter implements Converter<OpenRTB3_X, BidRe
   @Override
   public void enhance(
       OpenRTB3_X source, BidRequest2_X target, Config config, Provider converterProvider) throws OpenRtbConverterException {
-    if (isNull(source)) {
-      return;
-    }
-    if (isNull(source.getRequest())) {
-      return;
-    }
-    Converter<Request, BidRequest2_X> requestBidRequestConverter =
-      converterProvider.fetch(new Conversion<>(Request.class, BidRequest2_X.class));
-    requestBidRequestConverter.enhance(source.getRequest(),target, config, converterProvider);
-
+    throw new OpenRtbConverterException("Enhance method not supported for OpenRtbToBidRequestConverter");
   }
 }

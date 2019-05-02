@@ -28,19 +28,6 @@ cases:
         converterClass: net.media.CustomPublisherToPublisherConverter2to3
    testEnhance : 1
 
- - inputFile: NATIVE_APP_30.json
-   inputType: "net.media.openrtb3.OpenRTBWrapper3_X"
-   inputEdits:
-     openrtb.request.at: 2
-   outputFile: NATIVE_APP_25.json
-   outputType: "net.media.openrtb25.request.BidRequest2_X"
-   outputEdits:
-     at: 2
-   purpose: requestEnhance_3to2
-   params:
-     nativeRequestAsString: false
-   testEnhance : 1
-
  - inputFile: BANNER_SITE_24.json
    inputType: "net.media.openrtb25.request.BidRequest2_X"
    inputEdits:
