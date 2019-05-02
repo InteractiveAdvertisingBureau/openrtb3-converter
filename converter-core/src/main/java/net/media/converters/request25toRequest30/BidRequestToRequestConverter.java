@@ -105,7 +105,7 @@ public class BidRequestToRequestConverter implements Converter<BidRequest2_X, Re
     target.setCur(CollectionUtils.copyCollection(source.getCur(), config));
     Converter<Source, net.media.openrtb3.Source> source25Source3Converter =
         converterProvider.fetch(new Conversion<>(Source.class, net.media.openrtb3.Source.class));
-    target.setSource(source25Source3Converter.map(source.source, config, converterProvider));
+    target.setSource(source25Source3Converter.map(source.getSource(), config, converterProvider));
     Map<String, Object> map = source.getExt();
     if (map != null) {
       target.setExt(new HashMap<>(map));

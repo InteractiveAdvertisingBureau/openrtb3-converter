@@ -46,5 +46,13 @@ public class BidRequestToOpenRtbWrapperConverter
 
   @Override
   public void enhance(
-      BidRequest2_X source, OpenRTBWrapper3_X target, Config config, Provider converterProvider) {}
+      BidRequest2_X source, OpenRTBWrapper3_X target, Config config, Provider converterProvider) throws OpenRtbConverterException {
+      if (isNull(source)) {
+        return;
+      }
+      Converter<BidRequest2_X, OpenRTB3_X> bidRequestToOpenRtbConverter =
+        converterProvider.fetch(new Conversion<>(BidRequest2_X.class, OpenRTB3_X.class));
+      target.setOpenrtb(
+        bidRequestToOpenRtbConverter.map(source, config, converterProvider));
+  }
 }
