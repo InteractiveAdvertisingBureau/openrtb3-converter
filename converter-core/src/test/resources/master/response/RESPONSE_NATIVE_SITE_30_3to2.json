@@ -7,7 +7,7 @@
       "id": "0123456789ABCDEF",
       "bidid": "0011223344AABBCC",
       "cur": "USD",
-      "cdata": "cdata",
+      "cdata": "A4(9GAKYMp@rGmhF!*bI6V0j/2#",
       "seatbid": [
         {
           "package": 2,
@@ -20,11 +20,11 @@
                 "display": "ext",
                 "dummy": "bid.ext"
               },
-              "id": "yaddayadda",
+              "id": "21ijef3sf34ji",
               "item": "1",
               "deal": "1234",
               "price": 4.5,
-              "tactic": "...",
+              "tactic": "12hb43234u",
               "purl": "purl",
               "burl": "burl",
               "lurl": "lurl",
@@ -34,7 +34,7 @@
               "macro": [
                 {
                   "key": "key",
-                  "value": "duck",
+                  "value": "1127987134",
                   "ext": {
                     "customdata": "macro.ext"
                   }
@@ -70,7 +70,7 @@
                     "dog"
                   ],
                   "cattax": 1,
-                  "lang": "english",
+                  "lang": "en",
                   "attr": [
                     6,
                     1
