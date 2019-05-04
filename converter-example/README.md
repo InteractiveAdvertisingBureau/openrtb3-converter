@@ -755,7 +755,7 @@ All the post bodies are json strings
 }
 ```
 #### Response 2.x To 3.0
-**Endpoint** - http://localhost:9090/Converter/?type=response&conversiontype=2xTo3x&adTypeMapping={"1":"NATIVE"}
+**Endpoint** - http://host:9090/Converter/?type=response&conversiontype=2xTo3x&adTypeMapping={"1":"NATIVE"}
 **Json Body**
 ```
 {
