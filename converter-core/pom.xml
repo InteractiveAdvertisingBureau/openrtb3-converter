@@ -19,7 +19,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.iabtechlab</groupId>
+        <groupId>net.media</groupId>
         <artifactId>openrtb3-converter</artifactId>
         <version>1.0.5-SNAPSHOT</version>
     </parent>
@@ -244,9 +244,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.iabtechlab</groupId>
+            <groupId>net.media</groupId>
             <artifactId>openrtb-model</artifactId>
-            <version>1.6-SNAPSHOT</version>
+            <version>1.4</version>
         </dependency>
         <dependency>
             <groupId>org.skyscreamer</groupId>
