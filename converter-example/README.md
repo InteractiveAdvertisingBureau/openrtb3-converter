@@ -755,7 +755,7 @@ All the post bodies are json strings
 }
 ```
 #### Response 2.x To 3.0
-**Endpoint** - http://host:9090/Converter?type=response&conversiontype=2xTo3xhttp://localhost:9090/Converter/?type=response&conversiontype=2xTo3x&adTypeMapping={"1":"NATIVE"}
+**Endpoint** - http://localhost:9090/Converter/?type=response&conversiontype=2xTo3x&adTypeMapping={"1":"NATIVE"}
 **Json Body**
 ```
 {
@@ -881,7 +881,6 @@ All the post bodies are json strings
 				},
 				"ext3": "vak3",
 				"ctype": 3,
-				"native": null,
 				"mrating": 1,
 				"priv": "232",
 				"event": [{
@@ -921,7 +920,7 @@ All the post bodies are json strings
 **Json Body**
 ```
 {
-	"openRTB": {
+	"openrtb": {
 		"ver": "3.0",
 		"domainSpec": "3.0",
 		"domainVer": "1.0",
@@ -974,7 +973,7 @@ All the post bodies are json strings
 								"hratio": 2,
 								"priv": "232",
 								"adm": null,
-								"curl": "http://www.example3.com/",
+								"curl": null,
 								"banner": {
 									"img": "https:\/\/event.ad.cpe.dotomi.com\/event\/pub_imp?enc=eyJ1c2VyaWQiOiI0NTE3MDQ2OTg4ODA4NTY1OTciLCJwYXJ0bmVyVHhpZCI6IjAiLCJ0eGlkIjoiNzExOTkzNjI5NTM5NjUyMDAyIiwibmV0d29ya1JlcXVlc3RJZCI6IjcxMTk5MzYyOTUzOTY1Mjg2OSIsInNpZCI6MTE4OTc0LCJkaXZpc2lvbklkIjoxLCJ0aWQiOjgsIm1vYmlsZURhdGEiOiIwOyIsImJpZFByaWNlIjowLjA1MDAsInB1YkNvc3QiOjAuMDUwMCwiaXBTdHJpbmciOiI3My44MS4xMjEuMCIsInN1cHBseVR5cGUiOjQsImludGVncmF0aW9uVHlwZSI6NCwibWVkaWF0aW9uVHlwZSI6MzI3LCJwbGFjZW1lbnRJZCI6IjExNzU4NzgiLCJoZWFkZXJCaWQiOjEsImlzRGlyZWN0UHVibGlzaGVyIjowLCJoYXNDb25zZW50IjoxLCJvcGVyYXRpb24iOiJTMlNfSEVBREVSXzI0IiwiaXNDb3JlU2hpZWxkIjowfQ%3D%3D&cb=7234&wbp=${OPENRTB_PRICE}",
 									"link": {
