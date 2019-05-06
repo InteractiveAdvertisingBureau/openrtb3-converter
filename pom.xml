@@ -75,6 +75,24 @@
             <organizationUrl>http://www.media.net</organizationUrl>
         </developer>
         <developer>
+            <name>Abhijeet Anand</name>
+            <email>abhijeet.an@media.net</email>
+            <organization>Media Net</organization>
+            <organizationUrl>http://www.media.net</organizationUrl>
+        </developer>
+        <developer>
+            <name>Varun Bansal</name>
+            <email>varun.b@media.net</email>
+            <organization>Media Net</organization>
+            <organizationUrl>http://www.media.net</organizationUrl>
+        </developer>
+        <developer>
+            <name>Rohit Jindal</name>
+            <email>rohit.ji@media.net</email>
+            <organization>Media Net</organization>
+            <organizationUrl>http://www.media.net</organizationUrl>
+        </developer>
+        <developer>
             <name>Sam Tingleff</name>
             <email>sam@iabtechlab.com</email>
             <organization>IAB Tech Lab</organization>

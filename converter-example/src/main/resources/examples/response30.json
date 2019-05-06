@@ -1,0 +1,116 @@
+{
+  "openrtb": {
+    "ver": "3.0",
+    "domainSpec": "3.0",
+    "domainVer": "1.0",
+    "response": {
+      "id": "0123456789ABCDEF",
+      "bidid": "0011223344AABBCC",
+      "nbr": 1,
+      "cur": "USD",
+      "cdata": "cdata",
+      "seatbid": [{
+        "seat": "XYZ",
+        "_package": 2,
+        "bid": [{
+          "id": "yaddayadda",
+          "item": "1",
+          "deal": "1234",
+          "price": 1.5,
+          "cid": "campaign-xyz.123",
+          "tactic": "...",
+          "purl": "http://www.example.com/",
+          "burl": "http://www.example1.com/",
+          "lurl": "http://www.example2.com/",
+          "exp": 1,
+          "mid": "123",
+          "macro": [{
+            "key": "macro1",
+            "value": "duck"
+          }],
+          "media": {
+            "ad": {
+              "id": "d0bcb39723af87c2bb00942afee5710e",
+              "adomain": ["ford.com"],
+              "bundle": ["chocho"],
+              "iurl": "Abcd.com",
+              "cat": ["cat", "dog"],
+              "cattax": 1,
+              "lang": "english",
+              "attr": [6, 1],
+              "secure": 1,
+              "mrating": 1,
+              "init": 1,
+              "lastmod": 1,
+              "display": {
+                "mime": "image/jpeg",
+                "api": [1, 2],
+                "ctype": 3,
+                "w": 320,
+                "h": 50,
+                "wratio": 1,
+                "hratio": 2,
+                "priv": "232",
+                "adm": null,
+                "curl": null,
+                "banner": {
+                  "img": "https:\/\/event.ad.cpe.dotomi.com\/event\/pub_imp?enc=eyJ1c2VyaWQiOiI0NTE3MDQ2OTg4ODA4NTY1OTciLCJwYXJ0bmVyVHhpZCI6IjAiLCJ0eGlkIjoiNzExOTkzNjI5NTM5NjUyMDAyIiwibmV0d29ya1JlcXVlc3RJZCI6IjcxMTk5MzYyOTUzOTY1Mjg2OSIsInNpZCI6MTE4OTc0LCJkaXZpc2lvbklkIjoxLCJ0aWQiOjgsIm1vYmlsZURhdGEiOiIwOyIsImJpZFByaWNlIjowLjA1MDAsInB1YkNvc3QiOjAuMDUwMCwiaXBTdHJpbmciOiI3My44MS4xMjEuMCIsInN1cHBseVR5cGUiOjQsImludGVncmF0aW9uVHlwZSI6NCwibWVkaWF0aW9uVHlwZSI6MzI3LCJwbGFjZW1lbnRJZCI6IjExNzU4NzgiLCJoZWFkZXJCaWQiOjEsImlzRGlyZWN0UHVibGlzaGVyIjowLCJoYXNDb25zZW50IjoxLCJvcGVyYXRpb24iOiJTMlNfSEVBREVSXzI0IiwiaXNDb3JlU2hpZWxkIjowfQ%3D%3D&cb=7234&wbp=${OPENRTB_PRICE}",
+                  "link": {
+                    "url": "https://somebuyer.com/click",
+                    "urlfb": "https://somebuyer.com",
+                    "trkr": ["2113", "21312"],
+                    "ext": {
+                      "link": "link"
+                    }
+                  },
+                  "ext": {
+                    "xyz": "111"
+                  }
+                },
+                "_native": null,
+                "event": [{
+                  "type": 1,
+                  "method": 1,
+                  "url": "https://somebuyer.com/pixel",
+                  "api": [1, 2],
+                  "cdata": {
+                    "acct": "123"
+                  },
+                  "ext": null
+                }],
+                "ext": {
+                  "displayExt": "extext",
+                  "test": {
+                    "test1": "test1"
+                  }
+                }
+              },
+              "video": null,
+              "audio": null,
+              "audit": null,
+              "ext": {
+                "ext2": "val2",
+                "test2": {
+                  "test3": "test3"
+                }
+              }
+            }
+          },
+          "ext": null
+        }],
+        "ext": {
+          "ext3": "val3",
+          "test4": {
+            "test5": "test5"
+          }
+        }
+      }],
+      "ext": {
+        "customdata": "customdata",
+        "test6": {
+          "test7": "test7"
+        }
+      }
+    }
+  }
+}
