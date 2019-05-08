@@ -1,11 +1,11 @@
 {
   "id": "0123456789ABCDEF",
   "cur": "USD",
-  "customdata": "cdata",
+  "customdata": "A4(9GAKYMp@rGmhF!*bI6V0j/2#",
   "seatbid": [{
     "bid": [
       {
-        "id": "yaddayadda",
+        "id": "21ijef3sf34ji",
         "impid": "1",
         "price": 4.5,
         "bundle": "testbundle",
@@ -89,7 +89,7 @@
         }
       },
       {
-        "id": "yaddayadda1",
+        "id": "21ijef3sf34ji1",
         "impid": "2",
         "price": 4.5,
         "bundle": "testbundle",

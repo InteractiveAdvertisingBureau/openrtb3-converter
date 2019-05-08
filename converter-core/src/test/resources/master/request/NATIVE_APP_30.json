@@ -11,17 +11,17 @@
         "USD"
       ],
       "seat": [
-        "a"
+        "Agency1"
       ],
       "wseat": 1,
-      "cdata": "ewew",
+      "cdata": "A4(9GAKYMp@rGmhF!*bI6V0j/2#",
       "source": {
-        "tid": "dd",
-        "ts": 1,
-        "ds": "ds",
-        "dsmap": "abcdefghij",
+        "tid": "203c4r4oe30c53c16e9ede3ef6e32367b22",
+        "ts": 1556623163,
+        "ds": "AE23865DF890100BECCD76579DD4769DBBA9812CEE8ED90BF",
+        "dsmap": "domain=&ft=&tid=",
         "cert": "abc.com/xyz/efg",
-        "digest": "digest:digest, abcde:efg",
+        "digest": "domain=newsite.com&ft=d&tid=ABC7E92FBD6A",
         "pchain": "dd",
         "ext": {
           "dummy": "source.ext",
@@ -40,9 +40,9 @@
           "dlvy": 1,
           "metric": [
             {
-              "type": "dd",
+              "type": "viewability",
               "value": 1.0,
-              "vendor": "dssf",
+              "vendor": "EXCHANGE",
               "ext": {
                 "dummy": "metric.ext"
               }
@@ -50,7 +50,7 @@
           ],
           "deal": [
             {
-              "id": "ww",
+              "id": "xch-wm-300x600-rgt",
               "flr": 0.0,
               "flrcur": "USD",
               "at": 1,
@@ -69,10 +69,10 @@
           ],
           "spec": {
             "placement": {
-              "tagid": "re",
+              "tagid": "34819830",
               "ssai": 1,
-              "sdk": "dd",
-              "sdkver": "22",
+              "sdk": "Exchange1",
+              "sdkver": "1.0",
               "reward": 1,
               "wlang": [
                 "en"
@@ -84,8 +84,8 @@
                 "unit": 1,
                 "instl": 0,
                 "ifrbust": [
-                  "abc",
-                  "def"
+                  "vendor1.com",
+                  "vendor2.com"
                 ],
                 "clktype": 1,
                 "ptype": 1,
@@ -176,8 +176,8 @@
                         "w": 1,
                         "h": 1,
                         "unit": 2,
-                        "mindur": 1,
-                        "maxdur": 1,
+                        "mindur": 100,
+                        "maxdur": 400,
                         "maxext": 1,
                         "minbitr": 2,
                         "maxbitr": 2,
@@ -313,7 +313,7 @@
             }
           },
           "content": {
-            "id": "rfewa",
+            "id": "340hfuwhf829472efuhf",
             "episode": 1,
             "title": "sf",
             "series": "rf",
@@ -322,7 +322,7 @@
             "genre": "sefw",
             "album": "edwe",
             "isrc": "ewde",
-            "url": "ewfe.com",
+            "url": "xyz.com",
             "cat": [
               "IAB3-1",
               "IAB3-2"
@@ -330,10 +330,10 @@
             "cattax": 2,
             "prodq": 1,
             "context": 1,
-            "rating": "wqewq",
-            "urating": "ewew",
+            "rating": "MPAA",
+            "urating": "3",
             "mrating": 1,
-            "keywords": "efea",
+            "keywords": "keyword-a",
             "live": 1,
             "srcrel": 1,
             "len": 2,
@@ -355,12 +355,12 @@
             "data": [
               {
                 "id": "1",
-                "name": "Abcdef",
+                "name": "Data Provider 1",
                 "segment": [
                   {
-                    "id": "bcdef",
-                    "name": "name123",
-                    "value": "acde",
+                    "id": "12341318394918",
+                    "name": "data-provider1-age",
+                    "value": "30-40",
                     "ext": {
                       "dummy": "ff"
                     }
@@ -391,7 +391,7 @@
           ],
           "cattax": 2,
           "privpolicy": 1,
-          "keywords": "ewew",
+          "keywords": "keyword-a,keyword-b,keyword-c",
           "bundle": "com.media.net",
           "storeid": "abc1234",
           "storeurl": "axcdabc.com/test123",
@@ -403,11 +403,11 @@
         },
         "user": {
           "id": "55816b39711f9b5acf3b90e313ed29e51665623f",
-          "buyeruid": "eewew",
-          "yob": 2,
+          "buyeruid": "2269828760903472551",
+          "yob": 1994,
           "gender": "M",
-          "keywords": "ewew",
-          "consent": "abcdef",
+          "keywords": "keyword-a,keyword-b,keyword-c",
+          "consent": "0101",
           "geo": {
             "type": 1,
             "lat": 22.22,
@@ -415,26 +415,26 @@
             "accur": 1,
             "lastfix": 1,
             "ipserv": 2,
-            "country": "sd",
-            "region": "eew",
-            "metro": "ee",
-            "city": "eew",
-            "zip": "ewe",
+            "country": "USA",
+            "region": "CA",
+            "metro": "803",
+            "city": "Los Angeles",
+            "zip": "90049",
             "utcoffset": 1,
             "ext": {
               "dummy": "geo1.ext",
-              "regionfips104": "eew"
+              "regionfips104": "US"
             }
           },
           "data": [
             {
-              "id": "wwe",
-              "name": "ee",
+              "id": "6",
+              "name": "Data Provider 1",
               "segment": [
                 {
-                  "id": "ew",
-                  "name": "rewfe",
-                  "value": "ew",
+                  "id": "12341318394918",
+                  "name": "data-provider1-age",
+                  "value": "30-40",
                   "ext": {
                     "dummy": "segment12.ext"
                   }
@@ -455,23 +455,23 @@
           "dnt": "1",
           "lmt": 1,
           "ifa": "ifa",
-          "make": "weew",
-          "model": "edew",
-          "os": 2,
-          "osv": "hwv",
-          "hwv": "ww",
+          "make": "Apple",
+          "model": "iPhone",
+          "os": 13,
+          "osv": "6.1",
+          "hwv": "5S",
           "h": 2,
           "w": 2,
           "ppi": 1,
           "pxratio": 1.2,
           "js": 1,
-          "lang": "weew",
+          "lang": "en",
           "ip": "123.145.167.10",
           "ipv6": "123.145.167.1.3.2",
           "xff": "1.2.3.4",
           "iptr": 1,
-          "carrier": "weew",
-          "mccmnc": "ewew",
+          "carrier": "VERIZON",
+          "mccmnc": "310-005",
           "contype": 2,
           "geofetch": 2,
           "geo": {
@@ -481,20 +481,20 @@
             "accur": 1,
             "lastfix": 1,
             "ipserv": 2,
-            "country": "sd",
-            "region": "eew",
-            "metro": "ee",
-            "city": "eew",
-            "zip": "ewe",
+            "country": "USA",
+            "region": "CA",
+            "metro": "803",
+            "city": "Los Angeles",
+            "zip": "90049",
             "utcoffset": 1,
             "ext": {
               "dummy": "geo.ext",
-              "regionfips104": "eew"
+              "regionfips104": "US"
             }
           },
           "ext": {
             "dummy": "device.ext",
-            "flashver": "ewe"
+            "flashver": "10.1"
           }
         },
         "regs": {
@@ -506,14 +506,14 @@
         },
         "restrictions": {
           "bcat": [
-            "bb"
+            "IAB-1"
           ],
           "cattax": 2,
           "badv": [
-            "cc"
+            "ford.com"
           ],
           "bapp": [
-            "nn"
+            "com.foo.mygame"
           ],
           "battr": [
             2,

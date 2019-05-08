@@ -35,6 +35,42 @@ import static java.util.Objects.nonNull;
 @SuppressWarnings("unchecked")
 public class ConverterManager {
 
+  private static final Convert25To30RequestManager convert25To30RequestManager = new
+    Convert25To30RequestManager();
+
+  private static final Convert25To30ResponseManager convert25To30ResponseManager = new
+    Convert25To30ResponseManager();
+
+  private static final Convert30To25RequestManager convert30To25RequestManager = new
+    Convert30To25RequestManager();
+
+  private static final Convert30To25ResponseManager convert30To25ResponseManager = new
+    Convert30To25ResponseManager();
+
+  private static final Convert24To30RequestManager convert24To30RequestManager = new
+    Convert24To30RequestManager();
+
+  private static final Convert30To24RequestManager convert30To24RequestManager = new
+    Convert30To24RequestManager();
+
+  private static final Convert24To30ResponseManager convert24To30ResponseManager = new
+    Convert24To30ResponseManager();
+
+  private static final Convert30To24ResponseManager convert30To24ResponseManager = new
+    Convert30To24ResponseManager();
+
+  private static final Convert23To30RequestManager convert23To30RequestManager = new
+    Convert23To30RequestManager();
+
+  private static final Convert30To23RequestManager convert30To23RequestManager = new
+    Convert30To23RequestManager();
+
+  private static final Convert23To30ResponseManager convert23To30ResponseManager = new
+    Convert23To30ResponseManager();
+
+  private static final Convert30To23ResponseManager convert30To23ResponseManager = new
+    Convert30To23ResponseManager();
+
   private Provider converterProvider;
 
   private Provider converterProvider2_3;
@@ -43,30 +79,30 @@ public class ConverterManager {
 
   public ConverterManager() {
     converterProvider = new Provider();
-    new Convert25To30RequestManager(converterProvider);
-    new Convert30To25RequestManager(converterProvider);
-    new Convert25To30ResponseManager(converterProvider);
-    new Convert30To25ResponseManager(converterProvider);
+    convert25To30RequestManager.accept(converterProvider);
+    convert30To25RequestManager.accept(converterProvider);
+    convert25To30ResponseManager.accept(converterProvider);
+    convert30To25ResponseManager.accept(converterProvider);
 
     converterProvider2_4 = new Provider();
-    new Convert25To30RequestManager(converterProvider2_4);
-    new Convert30To25RequestManager(converterProvider2_4);
-    new Convert25To30ResponseManager(converterProvider2_4);
-    new Convert30To25ResponseManager(converterProvider2_4);
-    new Convert24To30RequestManager(converterProvider2_4);
-    new Convert30To24RequestManager(converterProvider2_4);
-    new Convert24To30ResponseManager(converterProvider2_4);
-    new Convert30To24ResponseManager(converterProvider2_4);
+    convert25To30RequestManager.accept(converterProvider2_4);
+    convert30To25RequestManager.accept(converterProvider2_4);
+    convert25To30ResponseManager.accept(converterProvider2_4);
+    convert30To25ResponseManager.accept(converterProvider2_4);
+    convert24To30RequestManager.accept(converterProvider2_4);
+    convert30To24RequestManager.accept(converterProvider2_4);
+    convert24To30ResponseManager.accept(converterProvider2_4);
+    convert30To24ResponseManager.accept(converterProvider2_4);
 
     converterProvider2_3 = new Provider();
-    new Convert25To30RequestManager(converterProvider2_3);
-    new Convert30To25RequestManager(converterProvider2_3);
-    new Convert25To30ResponseManager(converterProvider2_3);
-    new Convert30To25ResponseManager(converterProvider2_3);
-    new Convert23To30RequestManager(converterProvider2_3);
-    new Convert30To23RequestManager(converterProvider2_3);
-    new Convert23To30ResponseManager(converterProvider2_3);
-    new Convert30To23ResponseManager(converterProvider2_3);
+    convert25To30RequestManager.accept(converterProvider2_3);
+    convert30To25RequestManager.accept(converterProvider2_3);
+    convert25To30ResponseManager.accept(converterProvider2_3);
+    convert30To25ResponseManager.accept(converterProvider2_3);
+    convert23To30RequestManager.accept(converterProvider2_3);
+    convert30To23RequestManager.accept(converterProvider2_3);
+    convert23To30ResponseManager.accept(converterProvider2_3);
+    convert30To23ResponseManager.accept(converterProvider2_3);
   }
 
   public Provider getConverterProvider(Map<Conversion, Converter> overrideMap, Config config) {

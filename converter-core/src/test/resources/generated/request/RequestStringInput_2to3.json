@@ -4,7 +4,7 @@
   "inputEdits" : {
     "at" : "2"
   },
-  "inputJson" : "{\"id\":\"80ce30c53c16e6ede735f123ef6e32361bfc7b22\",\"at\":2,\"test\":1,\"tmax\":100,\"wseat\":[\"a\"],\"source\":{\"fd\":1,\"tid\":\"dd\",\"pchain\":\"dd\",\"ext\":{\"ts\":1,\"ds\":\"ds\",\"dsmap\":\"abcdefghij\",\"cert\":\"abc.com/xyz/efg\",\"digest\":\"digest:digest, abcde:efg\",\"dummy\":\"ff\"}},\"regs\":{\"coppa\":1,\"ext\":{\"gdpr\":1,\"dummy\":\"ff\"}},\"ext\":{\"cattax\":2,\"dummy\":\"ff\",\"restrictions\":{\"ext\":{\"dummy\":\"ff\"}}},\"cur\":[\"USD\"],\"allimps\":0,\"wlang\":[\"en\"],\"bcat\":[\"bb\"],\"badv\":[\"cc\"],\"bapp\":[\"nn\"],\"imp\":[{\"id\":\"1\",\"metric\":[{\"type\":\"dd\",\"value\":1.0,\"vendor\":\"dssf\",\"ext\":{\"dummy\":\"ff\"}}],\"bidfloor\":0.03,\"bidfloorcur\":\"USD\",\"pmp\":{\"private_auction\":1,\"deals\":[{\"id\":\"ww\",\"bidfloor\":0.0,\"bidfloorcur\":\"USD\",\"at\":1,\"wseat\":[\"dd\",\"as\"],\"wadomain\":[\"ss.com\",\"abc.com\"],\"ext\":{\"dummy\":\"ff\"}}],\"ext\":{\"dummy\":\"ff\"}},\"displaymanager\":\"dd\",\"displaymanagerver\":\"22\",\"clickbrowser\":1,\"secure\":1,\"iframebuster\":[\"abc\",\"def\"],\"instl\":0,\"tagid\":\"re\",\"exp\":1,\"banner\":{\"id\":\"dd\",\"format\":[{\"w\":200,\"h\":20,\"wratio\":200,\"hratio\":30,\"wmin\":3,\"ext\":{\"dummy\":\"ffaa\"}},{\"w\":33,\"h\":11,\"wratio\":200,\"hratio\":30,\"wmin\":3,\"ext\":{\"dummy\":\"ffaa\"}}],\"h\":250,\"w\":300,\"btype\":[3,4],\"battr\":[1,2],\"topframe\":22,\"expdir\":[3,9],\"api\":[3,2],\"mimes\":[\"application/x-shockwave-flash\",\"image/jpg\"],\"pos\":0,\"ext\":{\"qty\":1,\"seq\":1,\"context\":2,\"ctype\":[1],\"unit\":1,\"priv\":0,\"ptype\":1,\"dummy\":\"ffaa\"}},\"ext\":{\"ssai\":1,\"reward\":1,\"admx\":1,\"dt\":1,\"dlvy\":1,\"sequence\":1,\"curlx\":0,\"ampren\":1,\"event\":[{\"type\":1,\"method\":[1],\"api\":[1,2],\"jstrk\":[\"abc\",\"Def\"],\"wjs\":1,\"pxtrk\":[\"abc\",\"def\"],\"wpx\":1,\"ext\":{\"dummy\":\"ffaa\"}},{\"type\":1,\"method\":[1],\"api\":[1,2],\"jstrk\":[\"abc\",\"Def\"],\"wjs\":1,\"pxtrk\":[\"abc\",\"def\"],\"wpx\":1,\"ext\":{\"dummy\":\"ffaa\"}}],\"dummy\":\"ff\"}}],\"site\":{\"id\":\"102855\",\"name\":\"abdk\",\"sectioncat\":[\"zz\",\"dd\"],\"pagecat\":[\"ss\",\"as\"],\"cat\":[\"IAB3-1\",\"IAB3-2\"],\"ref\":\"sdfe\",\"search\":\"eded\",\"mobile\":1,\"privacypolicy\":1,\"keywords\":\"ewew\",\"domain\":\"www.foobar.com\",\"page\":\"http://www.foobar.com/1234.html \",\"publisher\":{\"id\":\"8953\",\"name\":\"foobar.com\",\"cat\":[\"IAB3-1\",\"IAB3-2\"],\"domain\":\"foobar.com\",\"ext\":{\"cattax\":2,\"dummy\":\"ff\"}},\"content\":{\"id\":\"rfewa\",\"episode\":1,\"title\":\"sf\",\"series\":\"rf\",\"season\":\"wed\",\"genre\":\"sefw\",\"album\":\"edwe\",\"artist\":\"we\",\"isrc\":\"ewde\",\"producer\":{\"id\":\"eew\",\"name\":\"edew\",\"cat\":[\"IAB3-1\",\"IAB3-2\"],\"domain\":\"abc.com\",\"ext\":{\"cattax\":2,\"dummy\":\"ff\"}},\"url\":\"ewfe.com\",\"cat\":[\"IAB3-1\",\"IAB3-2\"],\"prodq\":1,\"videoquality\":2,\"context\":2,\"contentrating\":\"wqewq\",\"userrating\":\"ewew\",\"qagmediarating\":1,\"keywords\":\"efea\",\"livestream\":1,\"sourcerelationship\":1,\"len\":2,\"language\":\"en\",\"embeddable\":1,\"data\":[{\"id\":\"1\",\"name\":\"Abcdef\",\"segment\":[{\"id\":\"bcdef\",\"name\":\"name123\",\"value\":\"acde\",\"ext\":{\"dummy\":\"ff\"}}],\"ext\":{\"dummy\":\"ff\"}}],\"ext\":{\"cattax\":2,\"dummy\":\"ff\"}},\"ext\":{\"cattax\":2,\"dummy\":\"ff\",\"amp\":2}},\"device\":{\"ua\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2\",\"ip\":\"123.145.167.10\",\"geo\":{\"lat\":22.22,\"lon\":22.2,\"type\":1,\"accuracy\":1,\"lastfix\":1,\"ipservice\":2,\"country\":\"sd\",\"region\":\"eew\",\"regionfips104\":\"eew\",\"metro\":\"ee\",\"city\":\"eew\",\"zip\":\"ewe\",\"utcoffset\":1,\"ext\":{\"dummy\":\"ff\"}},\"dnt\":1,\"lmt\":1,\"ipv6\":\"123.145.167.1.3.2\",\"devicetype\":2,\"make\":\"weew\",\"model\":\"edew\",\"os\":\"android\",\"osv\":\"hwv\",\"hwv\":\"ww\",\"h\":2,\"w\":2,\"ppi\":1,\"pxratio\":1.2,\"js\":1,\"geofetch\":2,\"flashver\":\"ewe\",\"language\":\"weew\",\"carrier\":\"weew\",\"mccmnc\":\"ewew\",\"connectiontype\":2,\"ext\":{\"xff\":\"1.2.3.4\",\"iptr\":1,\"dummy\":\"ff\"}},\"user\":{\"id\":\"55816b39711f9b5acf3b90e313ed29e51665623f\",\"buyeruid\":\"eewew\",\"yob\":2,\"gender\":\"M\",\"keywords\":\"ewew\",\"customdata\":\"ewew\",\"geo\":{\"lat\":22.22,\"lon\":22.2,\"type\":1,\"accuracy\":1,\"lastfix\":1,\"ipservice\":2,\"country\":\"sd\",\"region\":\"eew\",\"regionfips104\":\"eew\",\"metro\":\"ee\",\"city\":\"eew\",\"zip\":\"ewe\",\"utcoffset\":1,\"ext\":{\"dummy\":\"ff\"}},\"data\":[{\"id\":\"wwe\",\"name\":\"ee\",\"segment\":[{\"id\":\"ew\",\"name\":\"rewfe\",\"value\":\"ew\",\"ext\":{\"dummy\":\"ff\"}}],\"ext\":{\"dummy\":\"ff\"}}],\"ext\":{\"consent\":\"abcdef\"}}}",
+  "inputJson" : "{\"id\":\"80ce30c53c16e6ede735f123ef6e32361bfc7b22\",\"at\":2,\"test\":1,\"tmax\":100,\"wseat\":[\"Agency1\"],\"source\":{\"fd\":1,\"tid\":\"203c4r4oe30c53c16e9ede3ef6e32367b22\",\"pchain\":\"dd\",\"ext\":{\"ts\":1556623163,\"ds\":\"AE23865DF890100BECCD76579DD4769DBBA9812CEE8ED90BF\",\"dsmap\":\"domain=&ft=&tid=\",\"cert\":\"abc.com/xyz/efg\",\"digest\":\"domain=newsite.com&ft=d&tid=ABC7E92FBD6A\",\"dummy\":\"ff\"}},\"regs\":{\"coppa\":1,\"ext\":{\"gdpr\":1,\"dummy\":\"ff\"}},\"ext\":{\"cattax\":2,\"dummy\":\"ff\",\"restrictions\":{\"ext\":{\"dummy\":\"ff\"}}},\"cur\":[\"USD\"],\"allimps\":0,\"wlang\":[\"en\"],\"bcat\":[\"IAB-1\"],\"badv\":[\"ford.com\"],\"bapp\":[\"com.foo.mygame\"],\"imp\":[{\"id\":\"1\",\"metric\":[{\"type\":\"viewability\",\"value\":1.0,\"vendor\":\"EXCHANGE\",\"ext\":{\"dummy\":\"ff\"}}],\"bidfloor\":0.03,\"bidfloorcur\":\"USD\",\"pmp\":{\"private_auction\":1,\"deals\":[{\"id\":\"xch-wm-300x600-rgt\",\"bidfloor\":0.0,\"bidfloorcur\":\"USD\",\"at\":1,\"wseat\":[\"Agency1\",\"Agency2\"],\"wadomain\":[\"ss.com\",\"abc.com\"],\"ext\":{\"dummy\":\"ff\"}}],\"ext\":{\"dummy\":\"ff\"}},\"displaymanager\":\"Exchange1\",\"displaymanagerver\":\"1.0\",\"clickbrowser\":1,\"secure\":1,\"iframebuster\":[\"vendor1.com\",\"vendor2.com\"],\"instl\":0,\"tagid\":\"34819830\",\"exp\":1,\"banner\":{\"id\":\"1234567893-1\",\"format\":[{\"w\":200,\"h\":20,\"wratio\":200,\"hratio\":30,\"wmin\":3,\"ext\":{\"dummy\":\"ffaa\"}},{\"w\":33,\"h\":11,\"wratio\":200,\"hratio\":30,\"wmin\":3,\"ext\":{\"dummy\":\"ffaa\"}}],\"h\":250,\"w\":300,\"btype\":[3,4],\"battr\":[1,2],\"topframe\":22,\"expdir\":[3,9],\"api\":[3,2],\"mimes\":[\"application/x-shockwave-flash\",\"image/jpg\"],\"pos\":0,\"ext\":{\"qty\":1,\"seq\":1,\"context\":2,\"ctype\":[1],\"unit\":1,\"priv\":0,\"ptype\":1,\"dummy\":\"ffaa\"}},\"ext\":{\"ssai\":1,\"reward\":1,\"admx\":1,\"dt\":1,\"dlvy\":1,\"sequence\":1,\"curlx\":0,\"ampren\":1,\"event\":[{\"type\":1,\"method\":[1],\"api\":[1,2],\"jstrk\":[\"abc\",\"Def\"],\"wjs\":1,\"pxtrk\":[\"abc\",\"def\"],\"wpx\":1,\"ext\":{\"dummy\":\"ffaa\"}},{\"type\":1,\"method\":[1],\"api\":[1,2],\"jstrk\":[\"abc\",\"Def\"],\"wjs\":1,\"pxtrk\":[\"abc\",\"def\"],\"wpx\":1,\"ext\":{\"dummy\":\"ffaa\"}}],\"dummy\":\"ff\"}}],\"site\":{\"id\":\"102855\",\"name\":\"abdk\",\"sectioncat\":[\"zz\",\"dd\"],\"pagecat\":[\"ss\",\"as\"],\"cat\":[\"IAB3-1\",\"IAB3-2\"],\"ref\":\"sdfe\",\"search\":\"eded\",\"mobile\":1,\"privacypolicy\":1,\"keywords\":\"keyword-a,keyword-b,keyword-c\",\"domain\":\"www.foobar.com\",\"page\":\"http://www.foobar.com/1234.html \",\"publisher\":{\"id\":\"8953\",\"name\":\"foobar.com\",\"cat\":[\"IAB3-1\",\"IAB3-2\"],\"domain\":\"foobar.com\",\"ext\":{\"cattax\":2,\"dummy\":\"ff\"}},\"content\":{\"id\":\"340hfuwhf829472efuhf\",\"episode\":1,\"title\":\"sf\",\"series\":\"rf\",\"season\":\"wed\",\"genre\":\"sefw\",\"album\":\"edwe\",\"artist\":\"we\",\"isrc\":\"ewde\",\"producer\":{\"id\":\"eew\",\"name\":\"edew\",\"cat\":[\"IAB3-1\",\"IAB3-2\"],\"domain\":\"abc.com\",\"ext\":{\"cattax\":2,\"dummy\":\"ff\"}},\"url\":\"xyz.com\",\"cat\":[\"IAB3-1\",\"IAB3-2\"],\"prodq\":1,\"videoquality\":2,\"context\":2,\"contentrating\":\"MPAA\",\"userrating\":\"3\",\"qagmediarating\":1,\"keywords\":\"keyword-a\",\"livestream\":1,\"sourcerelationship\":1,\"len\":2,\"language\":\"en\",\"embeddable\":1,\"data\":[{\"id\":\"1\",\"name\":\"Data Provider 1\",\"segment\":[{\"id\":\"12341318394918\",\"name\":\"data-provider1-age\",\"value\":\"30-40\",\"ext\":{\"dummy\":\"ff\"}}],\"ext\":{\"dummy\":\"ff\"}}],\"ext\":{\"cattax\":2,\"dummy\":\"ff\"}},\"ext\":{\"cattax\":2,\"dummy\":\"ff\",\"amp\":2}},\"device\":{\"ua\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2\",\"ip\":\"123.145.167.10\",\"geo\":{\"lat\":22.22,\"lon\":22.2,\"type\":1,\"accuracy\":1,\"lastfix\":1,\"ipservice\":2,\"country\":\"USA\",\"region\":\"CA\",\"regionfips104\":\"US\",\"metro\":\"803\",\"city\":\"Los Angeles\",\"zip\":\"90049\",\"utcoffset\":1,\"ext\":{\"dummy\":\"ff\"}},\"dnt\":1,\"lmt\":1,\"ipv6\":\"123.145.167.1.3.2\",\"devicetype\":2,\"make\":\"Apple\",\"model\":\"iPhone\",\"os\":\"ios\",\"osv\":\"6.1\",\"hwv\":\"5S\",\"h\":2,\"w\":2,\"ppi\":1,\"pxratio\":1.2,\"js\":1,\"geofetch\":2,\"flashver\":\"10.1\",\"language\":\"en\",\"carrier\":\"VERIZON\",\"mccmnc\":\"310-005\",\"connectiontype\":2,\"ext\":{\"xff\":\"1.2.3.4\",\"iptr\":1,\"dummy\":\"ff\"}},\"user\":{\"id\":\"55816b39711f9b5acf3b90e313ed29e51665623f\",\"buyeruid\":\"2269828760903472551\",\"yob\":1994,\"gender\":\"M\",\"keywords\":\"keyword-a,keyword-b,keyword-c\",\"customdata\":\"A4(9GAKYMp@rGmhF!*bI6V0j/2#\",\"geo\":{\"lat\":22.22,\"lon\":22.2,\"type\":1,\"accuracy\":1,\"lastfix\":1,\"ipservice\":2,\"country\":\"USA\",\"region\":\"CA\",\"regionfips104\":\"US\",\"metro\":\"803\",\"city\":\"Los Angeles\",\"zip\":\"90049\",\"utcoffset\":1,\"ext\":{\"dummy\":\"ff\"}},\"data\":[{\"id\":\"6\",\"name\":\"Data Provider 1\",\"segment\":[{\"id\":\"12341318394918\",\"name\":\"data-provider1-age\",\"value\":\"30-40\",\"ext\":{\"dummy\":\"ff\"}}],\"ext\":{\"dummy\":\"ff\"}}],\"ext\":{\"consent\":\"0101\"}}}",
   "outputFile" : "BANNER_SITE_30.json",
   "outputType" : "REQUEST30",
   "outputEdits" : {
@@ -21,16 +21,16 @@
         "tmax" : 100,
         "at" : 2,
         "cur" : [ "USD" ],
-        "seat" : [ "a" ],
+        "seat" : [ "Agency1" ],
         "wseat" : 1,
-        "cdata" : "ewew",
+        "cdata" : "A4(9GAKYMp@rGmhF!*bI6V0j/2#",
         "source" : {
-          "tid" : "dd",
-          "ts" : 1,
-          "ds" : "ds",
-          "dsmap" : "abcdefghij",
+          "tid" : "203c4r4oe30c53c16e9ede3ef6e32367b22",
+          "ts" : 1556623163,
+          "ds" : "AE23865DF890100BECCD76579DD4769DBBA9812CEE8ED90BF",
+          "dsmap" : "domain=&ft=&tid=",
           "cert" : "abc.com/xyz/efg",
-          "digest" : "digest:digest, abcde:efg",
+          "digest" : "domain=newsite.com&ft=d&tid=ABC7E92FBD6A",
           "pchain" : "dd",
           "ext" : {
             "dummy" : "ff",
@@ -47,19 +47,19 @@
           "dt" : 1,
           "dlvy" : 1,
           "metric" : [ {
-            "type" : "dd",
+            "type" : "viewability",
             "value" : 1.0,
-            "vendor" : "dssf",
+            "vendor" : "EXCHANGE",
             "ext" : {
               "dummy" : "ff"
             }
           } ],
           "deal" : [ {
-            "id" : "ww",
+            "id" : "xch-wm-300x600-rgt",
             "flr" : 0.0,
             "flrcur" : "USD",
             "at" : 1,
-            "wseat" : [ "dd", "as" ],
+            "wseat" : [ "Agency1", "Agency2" ],
             "wadomain" : [ "ss.com", "abc.com" ],
             "ext" : {
               "dummy" : "ff"
@@ -67,10 +67,10 @@
           } ],
           "spec" : {
             "placement" : {
-              "tagid" : "re",
+              "tagid" : "34819830",
               "ssai" : 1,
-              "sdk" : "dd",
-              "sdkver" : "22",
+              "sdk" : "Exchange1",
+              "sdkver" : "1.0",
               "reward" : 1,
               "wlang" : [ "en" ],
               "secure" : 1,
@@ -80,7 +80,7 @@
                 "pos" : 0,
                 "instl" : 0,
                 "topframe" : 22,
-                "ifrbust" : [ "abc", "def" ],
+                "ifrbust" : [ "vendor1.com", "vendor2.com" ],
                 "clktype" : 1,
                 "ampren" : 1,
                 "ptype" : 1,
@@ -140,7 +140,7 @@
                   "dummy" : "ffaa",
                   "qty" : 1,
                   "btype" : [ 3, 4 ],
-                  "id" : "dd"
+                  "id" : "1234567893-1"
                 }
               }
             }
@@ -171,7 +171,7 @@
               }
             },
             "content" : {
-              "id" : "rfewa",
+              "id" : "340hfuwhf829472efuhf",
               "episode" : 1,
               "title" : "sf",
               "series" : "rf",
@@ -180,15 +180,15 @@
               "genre" : "sefw",
               "album" : "edwe",
               "isrc" : "ewde",
-              "url" : "ewfe.com",
+              "url" : "xyz.com",
               "cat" : [ "IAB3-1", "IAB3-2" ],
               "cattax" : 2,
               "prodq" : 1,
               "context" : 2,
-              "rating" : "wqewq",
-              "urating" : "ewew",
+              "rating" : "MPAA",
+              "urating" : "3",
               "mrating" : 1,
-              "keywords" : "efea",
+              "keywords" : "keyword-a",
               "live" : 1,
               "srcrel" : 1,
               "len" : 2,
@@ -206,11 +206,11 @@
               },
               "data" : [ {
                 "id" : "1",
-                "name" : "Abcdef",
+                "name" : "Data Provider 1",
                 "segment" : [ {
-                  "id" : "bcdef",
-                  "name" : "name123",
-                  "value" : "acde",
+                  "id" : "12341318394918",
+                  "name" : "data-provider1-age",
+                  "value" : "30-40",
                   "ext" : {
                     "dummy" : "ff"
                   }
@@ -230,7 +230,7 @@
             "pagecat" : [ "ss", "as" ],
             "cattax" : 2,
             "privpolicy" : 1,
-            "keywords" : "ewew",
+            "keywords" : "keyword-a,keyword-b,keyword-c",
             "page" : "http://www.foobar.com/1234.html ",
             "ref" : "sdfe",
             "search" : "eded",
@@ -242,11 +242,11 @@
           },
           "user" : {
             "id" : "55816b39711f9b5acf3b90e313ed29e51665623f",
-            "buyeruid" : "eewew",
-            "yob" : 2,
+            "buyeruid" : "2269828760903472551",
+            "yob" : 1994,
             "gender" : "M",
-            "keywords" : "ewew",
-            "consent" : "abcdef",
+            "keywords" : "keyword-a,keyword-b,keyword-c",
+            "consent" : "0101",
             "geo" : {
               "type" : 1,
               "lat" : 22.22,
@@ -254,24 +254,24 @@
               "accur" : 1,
               "lastfix" : 1,
               "ipserv" : 2,
-              "country" : "sd",
-              "region" : "eew",
-              "metro" : "ee",
-              "city" : "eew",
-              "zip" : "ewe",
+              "country" : "USA",
+              "region" : "CA",
+              "metro" : "803",
+              "city" : "Los Angeles",
+              "zip" : "90049",
               "utcoffset" : 1,
               "ext" : {
                 "dummy" : "ff",
-                "regionfips104" : "eew"
+                "regionfips104" : "US"
               }
             },
             "data" : [ {
-              "id" : "wwe",
-              "name" : "ee",
+              "id" : "6",
+              "name" : "Data Provider 1",
               "segment" : [ {
-                "id" : "ew",
-                "name" : "rewfe",
-                "value" : "ew",
+                "id" : "12341318394918",
+                "name" : "data-provider1-age",
+                "value" : "30-40",
                 "ext" : {
                   "dummy" : "ff"
                 }
@@ -286,23 +286,23 @@
             "ua" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2",
             "dnt" : "1",
             "lmt" : 1,
-            "make" : "weew",
-            "model" : "edew",
-            "os" : 2,
-            "osv" : "hwv",
-            "hwv" : "ww",
+            "make" : "Apple",
+            "model" : "iPhone",
+            "os" : 13,
+            "osv" : "6.1",
+            "hwv" : "5S",
             "h" : 2,
             "w" : 2,
             "ppi" : 1,
             "pxratio" : 1.2,
             "js" : 1,
-            "lang" : "weew",
+            "lang" : "en",
             "ip" : "123.145.167.10",
             "ipv6" : "123.145.167.1.3.2",
             "xff" : "1.2.3.4",
             "iptr" : 1,
-            "carrier" : "weew",
-            "mccmnc" : "ewew",
+            "carrier" : "VERIZON",
+            "mccmnc" : "310-005",
             "contype" : 2,
             "geofetch" : 2,
             "geo" : {
@@ -312,20 +312,20 @@
               "accur" : 1,
               "lastfix" : 1,
               "ipserv" : 2,
-              "country" : "sd",
-              "region" : "eew",
-              "metro" : "ee",
-              "city" : "eew",
-              "zip" : "ewe",
+              "country" : "USA",
+              "region" : "CA",
+              "metro" : "803",
+              "city" : "Los Angeles",
+              "zip" : "90049",
               "utcoffset" : 1,
               "ext" : {
                 "dummy" : "ff",
-                "regionfips104" : "eew"
+                "regionfips104" : "US"
               }
             },
             "ext" : {
               "dummy" : "ff",
-              "flashver" : "ewe"
+              "flashver" : "10.1"
             }
           },
           "regs" : {
@@ -336,10 +336,10 @@
             }
           },
           "restrictions" : {
-            "bcat" : [ "bb" ],
+            "bcat" : [ "IAB-1" ],
             "cattax" : 2,
-            "badv" : [ "cc" ],
-            "bapp" : [ "nn" ],
+            "badv" : [ "ford.com" ],
+            "bapp" : [ "com.foo.mygame" ],
             "battr" : [ 1, 2 ],
             "ext" : {
               "dummy" : "ff"

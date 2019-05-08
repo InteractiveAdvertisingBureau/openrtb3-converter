@@ -24,21 +24,23 @@ import net.media.openrtb25.request.Video;
 import net.media.openrtb3.*;
 import net.media.utils.Provider;
 
-/** Created by rajat.go on 04/04/19. */
-@SuppressWarnings("unchecked")
-public class Convert30To24RequestManager {
+import java.util.function.Consumer;
 
-  public Convert30To24RequestManager(Provider converterProvider) {
+/** Created by rajat.go on 04/04/19. */
+public class Convert30To24RequestManager implements Consumer<Provider> {
+
+  @Override
+  public void accept(Provider converterProvider) {
     converterProvider.register(
-        new Conversion<>(Device.class, net.media.openrtb25.request.Device.class),
-        new DeviceToDeviceConverter());
+      new Conversion<>(Device.class, net.media.openrtb25.request.Device.class),
+      new DeviceToDeviceConverter());
     converterProvider.register(
-        new Conversion<>(DisplayPlacement.class, Banner.class),
-        new DisplayPlacementToBannerConverter());
+      new Conversion<>(DisplayPlacement.class, Banner.class),
+      new DisplayPlacementToBannerConverter());
     converterProvider.register(new Conversion<>(Item.class, Imp.class), new ItemToImpConverter());
     converterProvider.register(
-        new Conversion<>(Request.class, BidRequest2_X.class), new RequestToBidRequestConverter());
+      new Conversion<>(Request.class, BidRequest2_X.class), new RequestToBidRequestConverter());
     converterProvider.register(
-        new Conversion<>(VideoPlacement.class, Video.class), new VideoPlacementToVideoConverter());
+      new Conversion<>(VideoPlacement.class, Video.class), new VideoPlacementToVideoConverter());
   }
 }

@@ -13,7 +13,7 @@
         "item" : [ {
           "id" : "1",
           "metric" : [ {
-            "type" : "dd",
+            "type" : "viewability",
             "value" : 1.0
           } ],
           "deal" : [ {
@@ -57,7 +57,7 @@
         } ]
       },
       "metric" : [ {
-        "type" : "dd",
+        "type" : "viewability",
         "value" : 1.0
       } ],
       "ext" : {

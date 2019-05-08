@@ -10,9 +10,9 @@
     "imp" : [ {
       "id" : "1",
       "metric" : [ {
-        "type" : "dd",
+        "type" : "viewability",
         "value" : 1.0,
-        "vendor" : "dssf",
+        "vendor" : "EXCHANGE",
         "ext" : {
           "dummy" : "ff"
         }
@@ -163,9 +163,9 @@
           "dt" : 1,
           "dlvy" : 1,
           "metric" : [ {
-            "type" : "dd",
+            "type" : "viewability",
             "value" : 1,
-            "vendor" : "dssf",
+            "vendor" : "EXCHANGE",
             "ext" : {
               "dummy" : "ff"
             }
