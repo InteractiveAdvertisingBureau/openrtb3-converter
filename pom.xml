@@ -20,7 +20,7 @@
 
     <groupId>net.media</groupId>
     <artifactId>openrtb3-converter</artifactId>
-    <version>1.0.5-SNAPSHOT</version>
+    <version>1.0.5</version>
     <name>openrtb3-converter-parent</name>
     <description>Parent of the openrtb3 converter</description>
     <url>https://github.com/InteractiveAdvertisingBureau/openrtb3-converter</url>
@@ -127,7 +127,7 @@
         <connection>scm:git:git://github.com/InteractiveAdvertisingBureau/openrtb3-converter.git</connection>
         <developerConnection>scm:git:https://github.com/InteractiveAdvertisingBureau/openrtb3-converter.git</developerConnection>
         <url>https://github.com/InteractiveAdvertisingBureau/openrtb3-converter/tree/master</url>
-        <tag>HEAD</tag>
+        <tag>v1.0.5</tag>
     </scm>
 
     <build>
