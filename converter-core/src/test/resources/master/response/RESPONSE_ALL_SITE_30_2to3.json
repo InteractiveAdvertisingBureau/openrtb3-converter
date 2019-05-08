@@ -7,7 +7,7 @@
       "id": "0123456789ABCDEF",
       "bidid": "0011223344AABBCC",
       "cur": "USD",
-      "cdata": "cdata",
+      "cdata": "A4(9GAKYMp@rGmhF!*bI6V0j/2#",
       "ext": {
         "buyermemberid": 298,
         "landingpageurl": "www.livelife.best",
@@ -25,11 +25,11 @@
           "seat": "XYZ",
           "bid": [
             {
-              "id": "yaddayadda1",
+              "id": "21ijef3sf34ji1",
               "item": "1",
               "deal": "1234",
               "price": 1.50,
-              "tactic": "...",
+              "tactic": "12hb43234u",
               "purl": "http://www.example.com/",
               "burl": "http://www.example1.com/",
               "lurl": "http://www.example2.com/",
@@ -37,10 +37,10 @@
               "cid": "campaign-xyz.123",
               "exp": 1,
               "macro": [{
-                "key": "macro1",
-                "value": "duck",
+                "key": "TIMESTAMP",
+                "value": "1127987134",
                 "ext": {
-                  "customdata": "pyaz"
+                  "customdata": "dummyValue"
                 }
               }],
               "media": {
@@ -50,7 +50,7 @@
                     "ford.com"
                   ],
                   "bundle": [
-                    "chocho"
+                    "hfi239hfe8492"
                   ],
                   "iurl": "Abcd.com",
                   "cat": [
@@ -58,7 +58,7 @@
                     "dog"
                   ],
                   "cattax": 1,
-                  "lang": "english",
+                  "lang": "en",
                   "attr": [
                     6,
                     1
@@ -101,7 +101,7 @@
               }
             },
             {
-              "id": "yaddayadda2",
+              "id": "21ijef3sf34ji2",
               "item": "2",
               "deal": "667fdf7",
               "price": 4.5,
@@ -217,11 +217,11 @@
                 "display": "ext",
                 "dummy": "bid.ext"
               },
-              "id": "yaddayadda3",
+              "id": "21ijef3sf34ji3",
               "item": "3",
               "deal": "1234",
               "price": 4.5,
-              "tactic": "...",
+              "tactic": "12hb43234u",
               "purl": "purl",
               "burl": "burl",
               "lurl": "lurl",
@@ -231,7 +231,7 @@
               "macro": [
                 {
                   "key": "key",
-                  "value": "duck",
+                  "value": "1127987134",
                   "ext": {
                     "customdata": "macro.ext"
                   }
@@ -267,7 +267,7 @@
                     "dog"
                   ],
                   "cattax": 1,
-                  "lang": "english",
+                  "lang": "en",
                   "attr": [
                     6,
                     1
@@ -383,11 +383,11 @@
               }
             },
             {
-              "id": "yaddayadda4",
+              "id": "21ijef3sf34ji4",
               "item": "4",
               "deal": "1234",
               "price": 1.50,
-              "tactic": "...",
+              "tactic": "12hb43234u",
               "purl": "http://www.example.com/",
               "burl": "http://www.example1.com/",
               "lurl": "http://www.example2.com/",
@@ -395,10 +395,10 @@
               "cid": "campaign-xyz.123",
               "exp": 1,
               "macro": [{
-                "key": "macro1",
-                "value": "duck",
+                "key": "TIMESTAMP",
+                "value": "1127987134",
                 "ext": {
-                  "customdata": "pyaz"
+                  "customdata": "dummyValue"
                 }
               }],
               "media": {
@@ -408,7 +408,7 @@
                     "ford.com"
                   ],
                   "bundle": [
-                    "chocho"
+                    "hfi239hfe8492"
                   ],
                   "iurl": "Abcd.com",
                   "cat": [
@@ -416,7 +416,7 @@
                     "dog"
                   ],
                   "cattax": 1,
-                  "lang": "english",
+                  "lang": "en",
                   "attr": [
                     6,
                     1
@@ -461,7 +461,7 @@
           ],
           "package": 2,
           "ext": {
-            "aloo3": "pyaz",
+            "dummy": "dummyValue",
             "test4": {
               "test5": "seatbid.ext"
             }

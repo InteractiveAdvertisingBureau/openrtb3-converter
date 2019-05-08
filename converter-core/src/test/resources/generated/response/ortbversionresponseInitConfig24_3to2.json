@@ -13,14 +13,14 @@
         "id" : "0123456789ABCDEF",
         "bidid" : "7phb82pzl",
         "cur" : "USD",
-        "cdata" : "cdata",
+        "cdata" : "A4(9GAKYMp@rGmhF!*bI6V0j/2#",
         "ext" : {
           "bidresponseEXT" : "bidresponseEXT"
         },
         "seatbid" : [ {
           "seat" : "xyzseat",
           "bid" : [ {
-            "id" : "yaddayadda",
+            "id" : "21ijef3sf34ji",
             "item" : "1",
             "deal" : "667fdf7",
             "price" : 4.5,
@@ -97,7 +97,7 @@
               "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt"
             }
           }, {
-            "id" : "yaddayadda",
+            "id" : "21ijef3sf34ji",
             "item" : "2",
             "deal" : "667fdf7",
             "price" : 4.5,
@@ -187,7 +187,7 @@
               "bidresponseSeatbidBidExt" : "bidresponseSeatbidBidExt"
             }
           }, {
-            "id" : "yaddayadda",
+            "id" : "21ijef3sf34ji",
             "item" : "3",
             "deal" : "667fdf7",
             "price" : 4.5,
@@ -280,10 +280,10 @@
   "outputJson" : {
     "id" : "0123456789ABCDEF",
     "cur" : "USD",
-    "customdata" : "cdata",
+    "customdata" : "A4(9GAKYMp@rGmhF!*bI6V0j/2#",
     "seatbid" : [ {
       "bid" : [ {
-        "id" : "yaddayadda",
+        "id" : "21ijef3sf34ji",
         "impid" : "1",
         "price" : 4.5,
         "bundle" : "testbundle",
@@ -350,7 +350,7 @@
           } ]
         }
       }, {
-        "id" : "yaddayadda",
+        "id" : "21ijef3sf34ji",
         "impid" : "2",
         "price" : 4.5,
         "bundle" : "testbundle",
@@ -430,7 +430,7 @@
           } ]
         }
       }, {
-        "id" : "yaddayadda",
+        "id" : "21ijef3sf34ji",
         "impid" : "3",
         "price" : 4.5,
         "bundle" : "testbundle",

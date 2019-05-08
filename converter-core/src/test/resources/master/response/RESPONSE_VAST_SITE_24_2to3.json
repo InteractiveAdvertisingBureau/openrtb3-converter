@@ -1,16 +1,16 @@
 {
   "id": "0123456789ABCDEF",
   "cur": "USD",
-  "customdata": "cdata",
+  "customdata": "A4(9GAKYMp@rGmhF!*bI6V0j/2#",
   "seatbid": [
     {
       "bid": [
         {
           "adm": "video ka adm",
-          "id": "yaddayadda",
+          "id": "21ijef3sf34ji",
           "impid": "1",
           "price": 1.50,
-          "bundle": "chocho",
+          "bundle": "hfi239hfe8492",
           "nurl": "http://www.example.com/",
 
           "adid": "123",
@@ -35,8 +35,8 @@
           "exp": 1,
           "dealid": "1234",
           "ext": {
-            "language": "english",
-            "tactic": "...",
+            "language": "en",
+            "tactic": "12hb43234u",
             "burl": "http://www.example1.com/",
             "lurl": "http://www.example2.com/",
             "bidkaext": "bid.ext",
@@ -64,10 +64,10 @@
             "cattax": 1,
             "macro": [
               {
-                "key": "macro1",
-                "value": "duck",
+                "key": "TIMESTAMP",
+                "value": "1127987134",
                 "ext": {
-                  "customdata": "pyaz"
+                  "customdata": "dummyValue"
                 }
               }
             ]
@@ -75,7 +75,7 @@
         }
       ],
       "ext": {
-        "aloo3": "pyaz",
+        "dummy": "dummyValue",
         "test4": {
           "test5": "seatbid.ext"
         }

@@ -11,9 +11,9 @@
     "imp" : [ {
       "id" : "1",
       "metric" : [ {
-        "type" : "dd",
+        "type" : "viewability",
         "value" : 1.0,
-        "vendor" : "dssf",
+        "vendor" : "EXCHANGE",
         "ext" : {
           "dummy" : "ff"
         }
@@ -146,9 +146,9 @@
           "dt" : 1,
           "dlvy" : 1,
           "metric" : [ {
-            "type" : "dd",
+            "type" : "viewability",
             "value" : 1,
-            "vendor" : "dssf",
+            "vendor" : "EXCHANGE",
             "ext" : {
               "dummy" : "ff"
             }
@@ -284,7 +284,7 @@
               "prodq" : 1,
               "context" : 2,
               "rating" : "wqewq",
-              "urating" : "ewew",
+              "urating" : "testValue",
               "mrating" : 1,
               "keywords" : "efea",
               "live" : 1,
@@ -304,11 +304,11 @@
               },
               "data" : [ {
                 "id" : "1",
-                "name" : "Abcdef",
+                "name" : "Data Provider 1",
                 "segment" : [ {
-                  "id" : "bcdef",
-                  "name" : "name123",
-                  "value" : "acde",
+                  "id" : "12341318394918",
+                  "name" : "data-provider1-age",
+                  "value" : "30-40",
                   "ext" : {
                     "dummy" : "ff"
                   }
@@ -328,7 +328,7 @@
             "pagecat" : [ "ss", "as" ],
             "cattax" : 2,
             "privpolicy" : 1,
-            "keywords" : "ewew",
+            "keywords" : "testValue",
             "page" : "http://www.foobar.com/1234.html ",
             "ref" : "sdfe",
             "search" : "eded",
@@ -367,7 +367,7 @@
               "prodq" : 1,
               "context" : 1,
               "rating" : "wqewq",
-              "urating" : "ewew",
+              "urating" : "testValue",
               "mrating" : 1,
               "keywords" : "efea",
               "live" : 1,
@@ -387,11 +387,11 @@
               },
               "data" : [ {
                 "id" : "1",
-                "name" : "Abcdef",
+                "name" : "Data Provider 1",
                 "segment" : [ {
-                  "id" : "bcdef",
-                  "name" : "name123",
-                  "value" : "acde",
+                  "id" : "12341318394918",
+                  "name" : "data-provider1-age",
+                  "value" : "30-40",
                   "ext" : {
                     "dummy" : "ff"
                   }
@@ -411,7 +411,7 @@
             "pagecat" : [ "ss", "as" ],
             "cattax" : 2,
             "privpolicy" : 1,
-            "keywords" : "ewew",
+            "keywords" : "testValue",
             "bundle" : "com.media.net",
             "storeid" : "abc1234",
             "storeurl" : "axcdabc.com/test123",

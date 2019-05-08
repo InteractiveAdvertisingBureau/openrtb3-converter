@@ -7,7 +7,7 @@
       "id": "0123456789ABCDEF",
       "bidid": "0011223344AABBCC",
       "cur": "USD",
-      "cdata": "cdata",
+      "cdata": "A4(9GAKYMp@rGmhF!*bI6V0j/2#",
       "ext": {
         "buyermemberid": 298,
         "landingpageurl": "www.livelife.best",
@@ -25,11 +25,11 @@
           "seat": "XYZ",
           "bid": [
             {
-              "id": "yaddayadda",
+              "id": "21ijef3sf34ji",
               "item": "1",
               "deal": "1234",
               "price": 1.50,
-              "tactic": "...",
+              "tactic": "12hb43234u",
               "purl": "http://www.example.com/",
               "burl": "http://www.example1.com/",
               "lurl": "http://www.example2.com/",
@@ -38,10 +38,10 @@
               "exp": 1,
               "macro": [
                 {
-                  "key": "macro1",
-                  "value": "duck",
+                  "key": "TIMESTAMP",
+                  "value": "1127987134",
                   "ext": {
-                    "customdata": "pyaz"
+                    "customdata": "dummyValue"
                   }
                 }
               ],
@@ -52,7 +52,7 @@
                     "ford.com"
                   ],
                   "bundle": [
-                    "chocho"
+                    "hfi239hfe8492"
                   ],
                   "iurl": "Abcd.com",
                   "cat": [
@@ -60,7 +60,7 @@
                     "dog"
                   ],
                   "cattax": 1,
-                  "lang": "english",
+                  "lang": "en",
                   "attr": [
                     6,
                     1
@@ -110,7 +110,7 @@
           ],
           "package": 2,
           "ext": {
-            "aloo3": "pyaz",
+            "dummy": "dummyValue",
             "test4": {
               "test5": "seatbid.ext"
             }

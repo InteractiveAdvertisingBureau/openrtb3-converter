@@ -9,9 +9,9 @@
     "imp" : [ {
       "id" : "1",
       "metric" : [ {
-        "type" : "dd",
+        "type" : "viewability",
         "value" : 1.0,
-        "vendor" : "dssf",
+        "vendor" : "EXCHANGE",
         "ext" : {
           "dummy" : "ff"
         }
@@ -129,7 +129,7 @@
       "search" : "eded",
       "mobile" : 1,
       "privacypolicy" : 1,
-      "keywords" : "ewew",
+      "keywords" : "testValue",
       "domain" : "www.foobar.com",
       "page" : "http://www.foobar.com/1234.html ",
       "publisher" : {
@@ -168,7 +168,7 @@
         "videoquality" : 2,
         "context" : 2,
         "contentrating" : "wqewq",
-        "userrating" : "ewew",
+        "userrating" : "testValue",
         "qagmediarating" : 1,
         "keywords" : "efea",
         "livestream" : 1,
@@ -178,11 +178,11 @@
         "embeddable" : 1,
         "data" : [ {
           "id" : "1",
-          "name" : "Abcdef",
+          "name" : "Data Provider 1",
           "segment" : [ {
-            "id" : "bcdef",
-            "name" : "name123",
-            "value" : "acde",
+            "id" : "12341318394918",
+            "name" : "data-provider1-age",
+            "value" : "30-40",
             "ext" : {
               "dummy" : "ff"
             }

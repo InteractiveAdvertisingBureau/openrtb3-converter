@@ -1,14 +1,14 @@
 {
   "id": "0123456789ABCDEF",
   "cur": "USD",
-  "customdata": "cdata",
+  "customdata": "A4(9GAKYMp@rGmhF!*bI6V0j/2#",
   "seatbid": [{
     "bid": [{
       "adm":"video ka adm",
-      "id": "yaddayadda1",
+      "id": "21ijef3sf34ji1",
       "impid": "1",
       "price": 1.50,
-      "bundle": "chocho",
+      "bundle": "hfi239hfe8492",
       "nurl": "http://www.example.com/",
       "burl":"http://www.example1.com/",
       "lurl": "http://www.example2.com/",
@@ -20,14 +20,14 @@
       "iurl": "Abcd.com",
       "cid": "campaign-xyz.123",
       "crid": "d0bcb39723af87c2bb00942afee5710e",
-      "tactic":"...",
+      "tactic":"12hb43234u",
       "cat": [
         "cat", "dog"
       ],
       "attr": [6, 1],
       "protocol": 98,
       "qagmediarating":5,
-      "language": "english",
+      "language": "en",
       "exp": 1,
       "dealid": "1234",
       "ext": {
@@ -53,10 +53,10 @@
         "secure": 1,
         "cattax" : 1,
         "macro" : [{
-          "key" :"macro1",
-          "value":"duck",
+          "key" :"TIMESTAMP",
+          "value":"1127987134",
           "ext": {
-            "customdata":"pyaz"
+            "customdata":"dummyValue"
           }
         }],
         "curl": "http://www.example.com/",
@@ -65,7 +65,7 @@
       }
     },
       {
-      "id": "yaddayadda2",
+      "id": "21ijef3sf34ji2",
       "impid": "2",
       "price": 4.5,
       "bundle": "testbundle",
@@ -152,13 +152,13 @@
       }
     },
       {
-      "id": "yaddayadda3",
+      "id": "21ijef3sf34ji3",
       "impid": "3",
       "price": 4.5,
       "dealid": "1234",
       "cid": "campaign-xyz.123",
       "crid": "d0bcb39723af87c2bb00942afee5710e",
-      "tactic":"...",
+      "tactic":"12hb43234u",
       "bundle": "1",
       "nurl": "purl",
       "burl":"burl",
@@ -248,7 +248,7 @@
       "api" : 1,
       "protocol": 123,
       "qagmediarating": 5,
-      "language": "english",
+      "language": "en",
       "exp": 1,
       "h": 50,
       "w": 320,
@@ -283,7 +283,7 @@
         },
         "macro": [{
           "key": "key",
-          "value": "duck",
+          "value": "1127987134",
           "ext": {
             "customdata": "macro.ext"
           }
@@ -307,10 +307,10 @@
     },
       {
       "adm":"video ka adm",
-      "id": "yaddayadda4",
+      "id": "21ijef3sf34ji4",
       "impid": "4",
       "price": 1.50,
-      "bundle": "chocho",
+      "bundle": "hfi239hfe8492",
       "nurl": "http://www.example.com/",
       "burl":"http://www.example1.com/",
       "lurl": "http://www.example2.com/",
@@ -322,14 +322,14 @@
       "iurl": "Abcd.com",
       "cid": "campaign-xyz.123",
       "crid": "d0bcb39723af87c2bb00942afee5710e",
-      "tactic":"...",
+      "tactic":"12hb43234u",
       "cat": [
         "cat", "dog"
       ],
       "attr": [6, 1],
       "protocol": 98,
       "qagmediarating":5,
-      "language": "english",
+      "language": "en",
       "exp": 1,
       "dealid": "1234",
       "ext": {
@@ -355,10 +355,10 @@
         "secure": 1,
         "cattax" : 1,
         "macro" : [{
-          "key" :"macro1",
-          "value":"duck",
+          "key" :"TIMESTAMP",
+          "value":"1127987134",
           "ext": {
-            "customdata":"pyaz"
+            "customdata":"dummyValue"
           }
         }],
         "curl": "http://www.example.com/",
@@ -367,7 +367,7 @@
       }
     }],
     "ext": {
-      "aloo3": "pyaz",
+      "dummy": "dummyValue",
       "test4": {
         "test5": "seatbid.ext"
       }

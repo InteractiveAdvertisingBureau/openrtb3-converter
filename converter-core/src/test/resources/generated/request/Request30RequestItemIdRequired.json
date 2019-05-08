@@ -12,7 +12,7 @@
         "id" : "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
         "item" : [ {
           "metric" : [ {
-            "type" : "dd",
+            "type" : "viewability",
             "value" : 1.0
           } ],
           "deal" : [ {
