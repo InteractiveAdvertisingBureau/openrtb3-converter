@@ -58,6 +58,9 @@ public class Convert30To25ResponseManager implements Consumer<Provider> {
     converterProvider.register(
       new Conversion<>(Seatbid.class, SeatBid.class), new SeatBid30ToSeatBid25Converter());
     converterProvider.register(
+      new Conversion<>(Response.class, BidResponse2_X.class),
+      new ResponseToBidResponseConverter());
+    converterProvider.register(
         new Conversion<>(OpenRTB3_X.class, BidResponse2_X.class),
         new OpenRtbToBidResponseConverter());
     converterProvider.register(
