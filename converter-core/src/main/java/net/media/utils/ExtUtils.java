@@ -17,12 +17,7 @@ public class ExtUtils {
 
   public static void removeFromExt(Map<String, Object> ext, List<String> extraFields) {
     if (nonNull(ext)) {
-      for (String key : extraFields) {
-        ext.remove(key);
-      }
-      for (Map.Entry<String, Object> entry : ext.entrySet()) {
-        if (entry.getValue() == null) ext.remove(entry.getKey());
-      }
+      ext.keySet().removeAll(extraFields);
     }
   }
 
